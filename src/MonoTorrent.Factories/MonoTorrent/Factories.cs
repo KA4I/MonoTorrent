@@ -1,4 +1,4 @@
-﻿//
+//
 // Factories.cs
 //
 // Authors:
@@ -43,6 +43,7 @@ using MonoTorrent.Connections.Peer;
 using MonoTorrent.Connections.Tracker;
 using MonoTorrent.Dht;
 using MonoTorrent.PiecePicking;
+using MonoTorrent.BlockReader;
 using MonoTorrent.PieceWriter;
 using MonoTorrent.PortForwarding;
 using MonoTorrent.Trackers;
@@ -85,6 +86,7 @@ namespace MonoTorrent
         PeerConnectionGateCreator PeerConnectionGateFunc { get; set; }
         PieceRequesterCreator PieceRequesterFunc { get; set; }
         PieceWriterCreator PieceWriterFunc { get; set; }
+        Func<IBlockReader, IBlockReader> PieceReader { get; set; }
         PortForwarderCreator PortForwarderFunc { get; set; }
         SocketConnectorCreator SocketConnectorFunc { get; set; }
         StreamingPieceRequesterCreator StreamingPieceRequesterFunc { get; set; }
@@ -111,6 +113,7 @@ namespace MonoTorrent
             PeerConnectionGateFunc = () => new NoGating ();
             PieceRequesterFunc = settings => new StandardPieceRequester (settings);
             PieceWriterFunc = maxOpenFiles => new DiskWriter (maxOpenFiles);
+            PieceReader = reader => reader;
             PortForwarderFunc = () => new MonoNatPortForwarder ();
             SocketConnectorFunc = () => new SocketConnector ();
             StreamingPieceRequesterFunc = () => new StreamingPieceRequester ();
@@ -242,6 +245,15 @@ namespace MonoTorrent
         {
             var dupe = MemberwiseClone ();
             dupe.PieceWriterFunc = creator ?? Default.PieceWriterFunc;
+            return dupe;
+        }
+
+        public IBlockReader CreatePieceReader (IBlockReader defaultReader)
+            => PieceReader (defaultReader);
+        public Factories WithPieceReaderCreator (Func<IBlockReader, IBlockReader> creator)
+        {
+            var dupe = MemberwiseClone ();
+            dupe.PieceReader = creator ?? Default.PieceReader;
             return dupe;
         }
 

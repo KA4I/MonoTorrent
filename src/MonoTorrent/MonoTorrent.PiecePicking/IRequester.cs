@@ -1,4 +1,4 @@
-﻿//
+//
 // IPeer.cs
 //
 // Authors:
@@ -36,6 +36,9 @@ namespace MonoTorrent.PiecePicking
     {
         int AmRequestingPiecesCount { get; set; }
         bool CanRequestMorePieces { get; }
+        /// <summary>
+        /// In bytes/second
+        /// </summary>
         long DownloadSpeed { get; }
         List<int> IsAllowedFastPieces { get; }
         bool IsChoking { get; }

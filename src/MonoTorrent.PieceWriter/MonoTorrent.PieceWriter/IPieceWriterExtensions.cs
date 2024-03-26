@@ -1,4 +1,4 @@
-﻿//
+//
 // IPieceWriter.cs
 //
 // Authors:
@@ -35,10 +35,18 @@ namespace MonoTorrent.PieceWriter
 {
     static class IPieceWriterExtensions
     {
-        public static async ReusableTask<int> ReadFromFilesAsync (this IPieceWriter writer, ITorrentManagerInfo manager, BlockInfo request, Memory<byte> buffer)
+        public static ReusableTask<int> ReadFromFilesAsync (this IPieceWriter writer, ITorrentManagerInfo manager, BlockInfo request, Memory<byte> buffer)
         {
-            var count = request.RequestLength;
+            if (request.RequestLength > buffer.Length)
+                throw new ArgumentOutOfRangeException (nameof (buffer), "The buffer is not large enough to contain the requested data.");
+            buffer = buffer.Slice(0, request.RequestLength);
             var offset = manager.TorrentInfo!.PieceIndexToByteOffset (request.PieceIndex) + request.StartOffset;
+            return ReadFromFilesAsync(writer, manager, offset, buffer);
+        }
+
+        public static async ReusableTask<int> ReadFromFilesAsync (this IPieceWriter writer, ITorrentManagerInfo manager, long offset, Memory<byte> buffer)
+        {
+            var count = buffer.Length;
 
             if (count < 1)
                 throw new ArgumentOutOfRangeException (nameof (count), $"Count must be greater than zero, but was {count}.");

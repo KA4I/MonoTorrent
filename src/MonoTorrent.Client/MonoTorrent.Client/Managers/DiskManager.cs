@@ -37,13 +37,14 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using MonoTorrent.Client.RateLimiters;
+using MonoTorrent.BlockReader;
 using MonoTorrent.PieceWriter;
 
 using ReusableTasks;
 
 namespace MonoTorrent.Client
 {
-    public class DiskManager : IDisposable
+    public class DiskManager : IBlockReader, IDisposable
     {
         internal static MemoryPool BufferPool { get; } = MemoryPool.Default;
 
@@ -108,7 +109,7 @@ namespace MonoTorrent.Client
                         if (blocks > 1)
                             blocks = (int) Math.Pow (2, (int) Math.Ceiling (Math.Log (blocks, 2)));
                         BlockHashesReleaser = MemoryPool.Default.Rent (blocks * 32, out hashes);
-                    } else { 
+                    } else {
                         BlockHashesReleaser = MemoryPool.Default.Rent (manager.TorrentInfo!.PieceLength / Constants.BlockSize  * 32, out hashes);
                     }
                     BlockHashes = hashes;
@@ -496,6 +497,12 @@ namespace MonoTorrent.Client
             } finally {
                 Interlocked.Add (ref pendingReadBytes, -request.RequestLength);
             }
+        }
+
+        async ReusableTask<int> IBlockReader.ReadAsync (ITorrentManagerInfo manager, long offset, Memory<byte> buffer)
+        {
+            var request = manager.TorrentInfo!.ByteOffsetToBlockInfo (offset: offset, requestLength: buffer.Length);
+            return await ReadAsync (manager, request, buffer).ConfigureAwait (false) ? buffer.Length : 0;
         }
 
         internal async Task<bool> ReadAsync (ITorrentManagerFile file, long position, Memory<byte> buffer)

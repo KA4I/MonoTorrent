@@ -1,4 +1,4 @@
-﻿//
+//
 // ITorrentInfo.cs
 //
 // Authors:
@@ -134,6 +134,13 @@ namespace MonoTorrent
                 // Works for padded, and unpadded, V1 torrents. including hybrid v1/v2 torrents.
                 return (int) (offset / self.PieceLength);
             }
+        }
+
+        public static BlockInfo ByteOffsetToBlockInfo (this ITorrentInfo self, long offset, int requestLength)
+        {
+            var pieceIndex = self.ByteOffsetToPieceIndex (offset);
+            var startOffset = checked((int) (offset - self.PieceIndexToByteOffset (pieceIndex)));
+            return new BlockInfo (pieceIndex, startOffset, requestLength);
         }
 
         /// <summary>

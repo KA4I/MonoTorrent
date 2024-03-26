@@ -39,6 +39,7 @@ using MonoTorrent.Connections.Peer;
 using MonoTorrent.Connections.Peer.Encryption;
 using MonoTorrent.Logging;
 using MonoTorrent.Messages.Peer;
+using MonoTorrent.BlockReader;
 
 using ReusableTasks;
 
@@ -80,7 +81,7 @@ namespace MonoTorrent.Client
 
         internal int openConnections;
 
-        internal DiskManager DiskManager { get; }
+        internal IBlockReader BlockReader { get; }
 
         Factories Factories { get; }
 
@@ -108,9 +109,9 @@ namespace MonoTorrent.Client
         internal EngineSettings Settings { get; set; }
         internal List<TorrentManager> Torrents { get; set; }
 
-        internal ConnectionManager (BEncodedString localPeerId, EngineSettings settings, Factories factories, DiskManager diskManager)
+        internal ConnectionManager (BEncodedString localPeerId, EngineSettings settings, Factories factories, IBlockReader blockReader)
         {
-            DiskManager = diskManager ?? throw new ArgumentNullException (nameof (diskManager));
+            BlockReader = blockReader ?? throw new ArgumentNullException (nameof (blockReader));
             LocalPeerId = localPeerId ?? throw new ArgumentNullException (nameof (localPeerId));
             LocalPeerIds.Add (localPeerId, 1);
             Settings = settings ?? throw new ArgumentNullException (nameof (settings));
@@ -509,7 +510,7 @@ namespace MonoTorrent.Client
                         pm.SetData ((default, buffer.Slice (buffer.Length - pm.RequestLength)));
                         try {
                             var request = new BlockInfo (pm.PieceIndex, pm.StartOffset, pm.RequestLength);
-                            await DiskManager.ReadAsync (manager, request, pm.Data).ConfigureAwait (false);
+                            await BlockReader.ReadAsync (manager, request, pm.Data).ConfigureAwait (false);
                         } catch (Exception ex) {
                             await ClientEngine.MainLoop;
                             manager.TrySetError (Reason.ReadFailure, ex);

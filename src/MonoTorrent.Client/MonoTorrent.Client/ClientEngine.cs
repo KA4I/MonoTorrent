@@ -45,6 +45,7 @@ using MonoTorrent.Connections.Dht;
 using MonoTorrent.Connections.Peer;
 using MonoTorrent.Dht;
 using MonoTorrent.Logging;
+using MonoTorrent.BlockReader;
 using MonoTorrent.PieceWriter;
 using MonoTorrent.PortForwarding;
 
@@ -221,6 +222,8 @@ namespace MonoTorrent.Client
 
         public DiskManager DiskManager { get; }
 
+        internal IBlockReader BlockReader { get; }
+
         public bool Disposed { get; private set; }
 
         internal Factories Factories { get; }
@@ -299,8 +302,9 @@ namespace MonoTorrent.Client
             Torrents = new ReadOnlyCollection<TorrentManager> (publicTorrents);
 
             DiskManager = new DiskManager (Settings, Factories);
+            BlockReader = Factories.CreatePieceReader (DiskManager);
 
-            ConnectionManager = new ConnectionManager (PeerId, Settings, Factories, DiskManager);
+            ConnectionManager = new ConnectionManager (PeerId, Settings, Factories, BlockReader);
             listenManager = new ListenManager (this, Factories.CreatePeerConnectionGate());
             PortForwarder = Factories.CreatePortForwarder ();
 
