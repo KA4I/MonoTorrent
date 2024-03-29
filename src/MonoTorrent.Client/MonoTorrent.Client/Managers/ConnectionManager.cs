@@ -507,6 +507,12 @@ namespace MonoTorrent.Client
 
                     var buffer = socketMemory.Slice (0, msg.ByteLength);
                     if (msg is PieceMessage pm) {
+                        if (!manager.Bitfield[pm.PieceIndex]) {
+                            var bitfieldUpdate = new BitfieldMessage (manager.Bitfield);
+                            await PeerIO.SendMessageAsync (id.Connection, id.Encryptor, bitfieldUpdate, manager.UploadLimiters, id.Monitor, manager.Monitor, buffer).ConfigureAwait (false);
+                            continue;
+                        }
+
                         pm.SetData ((default, buffer.Slice (buffer.Length - pm.RequestLength)));
                         try {
                             var request = new BlockInfo (pm.PieceIndex, pm.StartOffset, pm.RequestLength);

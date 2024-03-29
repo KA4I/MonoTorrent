@@ -39,6 +39,7 @@ using MonoTorrent.Client.Modes;
 using MonoTorrent.Client.RateLimiters;
 using MonoTorrent.Messages.Peer;
 using MonoTorrent.PiecePicking;
+using MonoTorrent.PieceWriter;
 using MonoTorrent.Streaming;
 using MonoTorrent.Trackers;
 
@@ -46,7 +47,7 @@ using ReusableTasks;
 
 namespace MonoTorrent.Client
 {
-    public class TorrentManager : IEquatable<TorrentManager>, ITorrentManagerInfo, IPieceRequesterData, IMessageEnqueuer, IPeerExchangeSource
+    public class TorrentManager : IEquatable<TorrentManager>, ITorrentManagerInfo, IPieceRequesterData, IMessageEnqueuer, IPeerExchangeSource, IPieceHashStatusUpdater, IPieceHashesProvider
     {
         #region Events
 
@@ -396,7 +397,7 @@ namespace MonoTorrent.Client
         public bool IsInitialSeeding => Mode is InitialSeedingMode;
 
         internal BitField PendingV2PieceHashes { get; private set; }
-        internal IPieceHashes PieceHashes { get; set; }
+        public IPieceHashes PieceHashes { get; set; }
 
         #endregion
 
@@ -928,6 +929,9 @@ namespace MonoTorrent.Client
         {
             PeersFound?.InvokeAsync (this, args);
         }
+
+        public void UpdatePieceHashStatus (int index, bool hashPassed, int hashed, int totalHashing)
+            => OnPieceHashed (index: index, hashPassed: hashPassed, piecesHashed: hashed, totalToHash: totalHashing);
 
         internal void OnPieceHashed (int index, bool hashPassed)
             => OnPieceHashed (index, hashPassed, 1, 1);
