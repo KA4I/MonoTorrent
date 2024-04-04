@@ -331,7 +331,8 @@ namespace MonoTorrent.Client
                     (PeerMessage message, PeerMessage.Releaser releaser) = await PeerIO.ReceiveMessageAsync (connection, decryptor, downloadLimiter, monitor, torrentManager.Monitor, torrentManager, currentBuffer).ConfigureAwait (false);
                     HandleReceivedMessage (id, torrentManager, message, releaser);
                 }
-            } catch {
+            } catch (Exception e) {
+                logger.InfoFormatted ("Peer {0} receiver loop stopped due to error: {1}", id.Uri, e.Message);
                 await ClientEngine.MainLoop;
                 CleanupSocket (torrentManager, id);
             } finally {
@@ -531,7 +532,8 @@ namespace MonoTorrent.Client
 
                     id.LastMessageSent.Restart ();
                 }
-            } catch {
+            } catch (Exception e) {
+                logger.InfoFormatted ("Peer {0} queue processing stopped due to error: {1}", id.Uri, e.Message);
                 await ClientEngine.MainLoop;
                 CleanupSocket (manager, id);
             } finally {
