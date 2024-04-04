@@ -46,10 +46,9 @@
         -Individual file relocation
       </PackageDescription>
       <PackageId>MonoTorrent</PackageId>
-      <PackageLicenseFile>LICENSE</PackageLicenseFile>
       <PackageProjectUrl>https://github.com/alanmcgovern/monotorrent</PackageProjectUrl>
       <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-      <PackageVersion>$(MonoTorrentFileVersion)$(MonoTorrentReleaseSuffix)</PackageVersion>
+      <PackageVersion Condition="$(PackageVersion) == ''">$(MonoTorrentFileVersion)$(MonoTorrentReleaseSuffix)</PackageVersion>
       <PackageTags>bittorrent;torrent;library;tracker;dht;c#;csharp;dotnet;.NET;p2p</PackageTags>
 
       <IncludeSource>true</IncludeSource>
@@ -57,9 +56,6 @@
       <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
       <RepositoryType>git</RepositoryType>
-      <RepositoryBranch>$(GitBranch)</RepositoryBranch>
-      <RepositoryCommit>$(GitSha)</RepositoryCommit>
-      <RepositoryUrl>https://github.com/alanmcgovern/monotorrent</RepositoryUrl>
 
       <Copyright>Alan McGovern, Gregor Burger</Copyright>
     </PropertyGroup>
