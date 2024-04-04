@@ -140,6 +140,9 @@ namespace MonoTorrent.Client
 
         internal void Initialise ()
         {
+            if (Initialised)
+                return;
+
             if (Manager.HasMetadata) {
                 Initialised = true;
                 PendingHashCheckPieces = new BitField (Manager.Bitfield.Length);
