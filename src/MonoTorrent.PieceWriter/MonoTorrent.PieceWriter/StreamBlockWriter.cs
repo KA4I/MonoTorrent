@@ -16,7 +16,7 @@ namespace MonoTorrent.PieceWriter
             this.streamFactory = streamFactory ?? throw new ArgumentNullException (nameof (streamFactory));
         }
 
-        public async ReusableTask WriteAsync (ITorrentManagerInfo torrent, long offset, ReadOnlyMemory<byte> buffer)
+        public virtual async ReusableTask WriteAsync (ITorrentManagerInfo torrent, long offset, ReadOnlyMemory<byte> buffer)
         {
             if (torrent is null)
                 throw new ArgumentNullException (nameof (torrent));
@@ -38,7 +38,7 @@ namespace MonoTorrent.PieceWriter
             await stream.WriteAsync (segment.Array, segment.Offset, segment.Count).ConfigureAwait (false);
         }
 
-        public async ReusableTask FlushAsync (ITorrentManagerInfo torrent)
+        public virtual async ReusableTask FlushAsync (ITorrentManagerInfo torrent)
         {
             if (torrent is null)
                 throw new ArgumentNullException (nameof (torrent));
