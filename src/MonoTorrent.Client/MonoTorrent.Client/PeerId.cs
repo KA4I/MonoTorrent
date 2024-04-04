@@ -228,7 +228,7 @@ namespace MonoTorrent.Client
             MaxSupportedPendingRequests = Constants.DefaultMaxPendingRequests;
             MessageQueue = new MessageQueue ();
             ExtensionSupports = new ExtensionSupports ();
-            Monitor = new ConnectionMonitor ();
+            Monitor = new PeerMonitor ();
 
             InitializeTyrant ();
 

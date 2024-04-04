@@ -113,7 +113,7 @@ namespace MonoTorrent.Client
             ProtocolUp = new SpeedMonitor (averagingPeriod);
         }
 
-        internal void Reset ()
+        protected internal virtual void Reset ()
         {
             DataDown.Reset ();
             DataUp.Reset ();

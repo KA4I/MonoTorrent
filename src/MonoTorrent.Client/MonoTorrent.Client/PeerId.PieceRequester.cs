@@ -1,4 +1,4 @@
-﻿//
+//
 // PeerId.PieceRequester.cs
 //
 // Authors:
@@ -29,6 +29,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 using MonoTorrent.Connections.Peer;
 using MonoTorrent.Messages.Peer;
@@ -36,7 +37,7 @@ using MonoTorrent.PiecePicking;
 
 namespace MonoTorrent.Client
 {
-    public partial class PeerId : IRequester
+    public partial class PeerId : IRequester, IHaveLatencyInfo
     {
         int IRequester.AmRequestingPiecesCount { get => AmRequestingPiecesCount; set => AmRequestingPiecesCount = value; }
         bool IRequester.CanRequestMorePieces {
@@ -51,6 +52,7 @@ namespace MonoTorrent.Client
             }
         }
 
+        int IHaveLatencyInfo.WorstLatency => (int)((Monitor as PeerMonitor)?.Latency.Worst ?? Stopwatch.Frequency);
         long IRequester.DownloadSpeed => Monitor.DownloadRate;
         List<int> IRequester.IsAllowedFastPieces => IsAllowedFastPieces;
         bool IRequester.IsChoking => IsChoking;

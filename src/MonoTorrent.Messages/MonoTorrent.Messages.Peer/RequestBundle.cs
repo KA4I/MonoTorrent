@@ -1,4 +1,4 @@
-﻿//
+//
 // RequestBundle.cs
 //
 // Authors:
@@ -42,6 +42,8 @@ namespace MonoTorrent.Messages.Peer
         Memory<byte> TotalRequestsMemory;
         Span<BlockInfo> UsedRequests => MemoryMarshal.Cast<byte, BlockInfo> (UsedRequestsMemory.Span);
         Span<BlockInfo> TotalRequests => MemoryMarshal.Cast<byte, BlockInfo> (TotalRequestsMemory.Span);
+
+        public ReadOnlySpan<BlockInfo> Requests => UsedRequests;
 
         public override int ByteLength => RequestMessage.ByteLength * UsedRequests.Length;
 

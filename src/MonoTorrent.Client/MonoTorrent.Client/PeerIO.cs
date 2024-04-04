@@ -114,6 +114,7 @@ namespace MonoTorrent.Client
                     managerMonitor?.ProtocolDown.AddDelta (-msg.RequestLength);
 
                     peerMonitor?.DataDown.AddDelta (msg.RequestLength);
+                    (peerMonitor as PeerMonitor)?.TrackResponse (msg.PieceIndex, msg.StartOffset);
                     managerMonitor?.DataDown.AddDelta (msg.RequestLength);
                 }
                 return (message, releaser);
@@ -144,7 +145,17 @@ namespace MonoTorrent.Client
                     peerMonitor?.DataUp.AddDelta (pieceMessage.RequestLength);
                     managerMonitor?.DataUp.AddDelta (pieceMessage.RequestLength);
                 }
+
+                if (message is RequestBundle requestBundle
+                    && peerMonitor is PeerMonitor requestTracker)
+                    TrackRequests (requestTracker, requestBundle);
             }
+        }
+
+        static void TrackRequests(PeerMonitor monitor, RequestBundle requestBundle)
+        {
+            foreach (var block in requestBundle.Requests)
+                monitor.TrackRequest (block.PieceIndex, block.StartOffset);
         }
     }
 }
