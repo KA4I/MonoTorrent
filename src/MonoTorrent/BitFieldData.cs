@@ -54,6 +54,10 @@ namespace MonoTorrent
 
         public bool AllTrue => TrueCount == Length;
 
+        public BitFieldIndices TrueIndices => new BitFieldIndices (this, lookingFor: true);
+
+        public BitFieldIndices FalseIndices => new BitFieldIndices (this, lookingFor: false);
+
         public int LengthInBytes => (Length + 7) / 8;
 
         public double PercentComplete => (double) TrueCount / Length * 100.0;

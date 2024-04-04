@@ -116,6 +116,10 @@ namespace MonoTorrent
         public int FirstTrue (int startIndex, int endIndex)
             => Data.FirstTrue (startIndex, endIndex);
 
+        public BitFieldIndices TrueIndices => new BitFieldIndices (this.Data, lookingFor: true);
+
+        public BitFieldIndices FalseIndices => new BitFieldIndices (this.Data, lookingFor: false);
+
         public byte[] ToBytes ()
             => Data.ToBytes ();
 
@@ -187,6 +191,16 @@ namespace MonoTorrent
             Data.SetTrue (range);
             return this;
         }
+
+#if NETSTANDARD2_1_OR_GREATER || NET6_0_OR_GREATER
+        public BitField SetTrue (Range range)
+        {
+            int start = range.Start.GetOffset (this.Length);
+            int end = range.End.GetOffset (this.Length);
+            this.SetTrue ((start, end - 1));
+            return this;
+        }
+#endif
 
         public BitField SetTrue (params int[] indices)
         {
