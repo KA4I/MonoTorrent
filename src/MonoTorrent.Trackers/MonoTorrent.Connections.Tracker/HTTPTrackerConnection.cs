@@ -58,6 +58,8 @@ namespace MonoTorrent.Connections.Tracker
 
         public Uri? ScrapeUri { get; }
 
+        public HTTPTrackerConnectionParameters Parameters { get; }
+
         public Uri Uri { get; }
 
         // FIXME: Make private?
@@ -65,11 +67,12 @@ namespace MonoTorrent.Connections.Tracker
 
         Func<AddressFamily, HttpClient> ClientCreator { get; }
 
-        public HttpTrackerConnection (Uri announceUri, Func<AddressFamily, HttpClient> clientCreator, AddressFamily addressFamily)
+        public HttpTrackerConnection (Uri announceUri, Func<AddressFamily, HttpClient> clientCreator, AddressFamily addressFamily, HTTPTrackerConnectionParameters parameters)
         {
             AddressFamily = addressFamily;
             Uri = announceUri;
             ClientCreator = clientCreator;
+            Parameters = parameters ?? throw new ArgumentNullException (nameof(parameters));
 
             string uri = announceUri.OriginalString;
             if (uri.EndsWith ("/announce", StringComparison.OrdinalIgnoreCase))
@@ -78,6 +81,11 @@ namespace MonoTorrent.Connections.Tracker
                 ScrapeUri = new Uri ($"{uri.Substring (0, uri.Length - "/announce/".Length)}/scrape/");
 
             CanScrape = ScrapeUri != null;
+        }
+
+        public HttpTrackerConnection (Uri announceUri, Func<AddressFamily, HttpClient> clientCreator, AddressFamily addressFamily)
+            : this (announceUri, clientCreator, addressFamily, HTTPTrackerConnectionParameters.Default)
+        {
         }
 
         public async ReusableTask<AnnounceResponse> AnnounceAsync (AnnounceRequest parameters, CancellationToken token)
@@ -173,8 +181,10 @@ namespace MonoTorrent.Connections.Tracker
              .Add ("uploaded", parameters.BytesUploaded)
              .Add ("downloaded", parameters.BytesDownloaded)
              .Add ("left", parameters.BytesLeft)
-             .Add ("compact", 1)
-             .Add ("numwant", 100);
+             .Add ("compact", Parameters.Compact ? 1 : 0);
+
+            if (Parameters.NumWant is not null)
+                b.Add ("numwant", Parameters.NumWant);
 
             if (parameters.SupportsEncryption)
                 b.Add ("supportcrypto", 1);
