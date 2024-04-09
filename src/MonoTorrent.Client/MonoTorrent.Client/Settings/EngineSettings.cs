@@ -97,6 +97,12 @@ namespace MonoTorrent.Client
         public bool AutoSaveLoadMagnetLinkMetadata { get; } = true;
 
         /// <summary>
+        /// If set to <see langword="false"/> then the engine will never share pieces with peers we connected to ourselves.
+        /// Defaults to <see langword="true"/>.
+        /// </summary>
+        public bool AllowUploadingOnOutgoingConnections { get; } = true;
+
+        /// <summary>
         /// The full path to the directory used to cache any data needed by the engine. Typically used to store a
         /// cache of the DHT table to improve bootstrapping speed, any metadata downloaded
         /// using a magnet link, or fast resume data for individual torrents.
@@ -263,7 +269,7 @@ namespace MonoTorrent.Client
         }
 
         internal EngineSettings (
-            IList<EncryptionType> allowedEncryption, bool allowHaveSuppression, bool allowLocalPeerDiscovery, bool allowPortForwarding,
+            IList<EncryptionType> allowedEncryption, bool allowHaveSuppression, bool allowLocalPeerDiscovery, bool allowPortForwarding, bool allowUploadingOnOutgoingConnections,
             bool autoSaveLoadDhtCache, bool autoSaveLoadFastResume, bool autoSaveLoadMagnetLinkMetadata, string cacheDirectory,
             TimeSpan connectionTimeout, IPEndPoint? dhtEndPoint, int diskCacheBytes, CachePolicy diskCachePolicy, FastResumeMode fastResumeMode, Dictionary<string, IPEndPoint> listenEndPoints,
             int maximumConnections, int maximumDiskReadRate, int maximumDiskWriteRate, int maximumDownloadRate, int maximumHalfOpenConnections,

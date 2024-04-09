@@ -485,6 +485,9 @@ namespace MonoTorrent.Client.Modes
             if (message.RequestLength > RequestMessage.MaxSize || message.RequestLength < RequestMessage.MinSize)
                 throw new MessageException ($"Illegal piece request received. Peer requested {message.RequestLength} bytes.");
 
+            if (!id.Connection.IsIncoming && !Settings.AllowUploadingOnOutgoingConnections)
+                throw new MessageException ("Outgoing connections are not allowed to upload data");
+
             // If we're not choking the peer, enqueue the message right away
             if (!id.AmChoking) {
                 Interlocked.Increment (ref id.isRequestingPiecesCount);

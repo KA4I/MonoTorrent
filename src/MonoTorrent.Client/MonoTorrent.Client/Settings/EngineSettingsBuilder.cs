@@ -1,4 +1,4 @@
-﻿//
+//
 // EngineSettingsBuilder.cs
 //
 // Authors:
@@ -132,6 +132,12 @@ namespace MonoTorrent.Client
         /// Defaults to <see langword="true"/>. 
         /// </summary>
         public bool AutoSaveLoadMagnetLinkMetadata { get; set; }
+
+        /// <summary>
+        /// If set to <see langword="false"/> then the engine will never share pieces with peers we connected to ourselves.
+        /// Defaults to <see langword="true"/>.
+        /// </summary>
+        public bool AllowUploadingOnOutgoingConnections { get; set; }
 
         /// <summary>
         /// The directory used to cache any data needed by the engine. Typically used to store a
@@ -346,6 +352,7 @@ namespace MonoTorrent.Client
             AllowHaveSuppression = settings.AllowHaveSuppression;
             AllowLocalPeerDiscovery = settings.AllowLocalPeerDiscovery;
             AllowPortForwarding = settings.AllowPortForwarding;
+            AllowUploadingOnOutgoingConnections = settings.AllowUploadingOnOutgoingConnections;
             AutoSaveLoadDhtCache = settings.AutoSaveLoadDhtCache;
             AutoSaveLoadFastResume = settings.AutoSaveLoadFastResume;
             AutoSaveLoadMagnetLinkMetadata = settings.AutoSaveLoadMagnetLinkMetadata;
@@ -386,6 +393,7 @@ namespace MonoTorrent.Client
                 allowHaveSuppression: AllowHaveSuppression,
                 allowLocalPeerDiscovery: AllowLocalPeerDiscovery,
                 allowPortForwarding: AllowPortForwarding,
+                allowUploadingOnOutgoingConnections: AllowUploadingOnOutgoingConnections,
                 autoSaveLoadDhtCache: AutoSaveLoadDhtCache,
                 autoSaveLoadFastResume: AutoSaveLoadFastResume,
                 autoSaveLoadMagnetLinkMetadata: AutoSaveLoadMagnetLinkMetadata,
