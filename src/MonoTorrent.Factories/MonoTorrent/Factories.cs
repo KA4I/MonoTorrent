@@ -58,7 +58,7 @@ namespace MonoTorrent
         public delegate IDhtEngine DhtCreator ();
         public delegate IDhtListener DhtListenerCreator (IPEndPoint endpoint);
         public delegate HttpClient HttpClientCreator (AddressFamily family);
-        public delegate ReusableTask<BEncodedString> TemporaryLocalPeerIdGenerator (BEncodedString permanentLocalPeerId, BEncodedString peerId, InfoHash infoHash, Uri peerUri);
+        public delegate ReusableTask<BEncodedString> TemporaryLocalPeerIdGenerator (ITorrentManagerInfo torrent, BEncodedString permanentLocalPeerId, BEncodedString peerId, InfoHash infoHash, Uri peerUri);
         public delegate ILocalPeerDiscovery LocalPeerDiscoveryCreator ();
         public delegate IPeerConnection PeerConnectionCreator (Uri uri);
         public delegate IPeerConnectionListener PeerConnectionListenerCreator (IPEndPoint endPoint);
@@ -101,7 +101,7 @@ namespace MonoTorrent
 
             HttpClientFunc = HttpRequestFactory.CreateHttpClient;
 
-            TemporaryLocalPeerIdGeneratorFunc = (permanentLocalPeerId, _, __, ___) => ReusableTask.FromResult (permanentLocalPeerId);
+            TemporaryLocalPeerIdGeneratorFunc = (_, permanentLocalPeerId, _, __, ___) => ReusableTask.FromResult (permanentLocalPeerId);
             LocalPeerDiscoveryFunc = () => new LocalPeerDiscovery ();
             PeerConnectionFuncs = new ReadOnlyDictionary<string, PeerConnectionCreator> (
                 new Dictionary<string, PeerConnectionCreator> {
@@ -176,9 +176,11 @@ namespace MonoTorrent
             return dupe;
         }
 
-        public ReusableTask<BEncodedString> CreateTemporaryLocalPeerIdAsync (BEncodedString permanentLocalPeerId,
+        public ReusableTask<BEncodedString> CreateTemporaryLocalPeerIdAsync (
+            ITorrentManagerInfo torrent,
+            BEncodedString permanentLocalPeerId,
             BEncodedString peerId, InfoHash infoHash, Uri peerUri)
-            => TemporaryLocalPeerIdGeneratorFunc (permanentLocalPeerId, peerId, infoHash, peerUri);
+            => TemporaryLocalPeerIdGeneratorFunc (torrent, permanentLocalPeerId, peerId, infoHash, peerUri);
         public Factories WithTemporaryLocalPeerIdGenerator (TemporaryLocalPeerIdGenerator generator)
         {
             var dupe = MemberwiseClone ();
