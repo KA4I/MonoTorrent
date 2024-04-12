@@ -96,7 +96,7 @@ namespace MonoTorrent.Connections.Tracker
             await new ThreadSwitcher ();
             AnnounceResponse? announceResponse = null;
 
-            using var client = ClientCreator (AddressFamily);
+            var client = ClientCreator (AddressFamily);
             foreach (var infoHash in new[] { parameters.InfoHashes.V1!, parameters.InfoHashes.V2! }.Where (t => t != null)) {
                 Uri announceString = CreateAnnounceString (parameters, infoHash);
                 HttpResponseMessage response;
@@ -148,7 +148,7 @@ namespace MonoTorrent.Connections.Tracker
             }
 
             HttpResponseMessage response;
-            using var client = ClientCreator (AddressFamily);
+            var client = ClientCreator (AddressFamily);
             try {
                 response = await client.GetAsync (url, HttpCompletionOption.ResponseHeadersRead, token);
             } catch {
