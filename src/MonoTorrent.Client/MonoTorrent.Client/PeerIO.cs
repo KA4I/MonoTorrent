@@ -42,7 +42,7 @@ namespace MonoTorrent.Client
 {
     static class PeerIO
     {
-        const int MaxMessageLength = Constants.BlockSize * 4;
+        internal const int MaxMessageLength = Constants.BlockSize * 4;
 
         public static async ReusableTask<HandshakeMessage> ReceiveHandshakeAsync (IPeerConnection connection, IEncryption decryptor)
         {

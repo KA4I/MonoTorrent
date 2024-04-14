@@ -33,13 +33,14 @@ using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 
 using MonoTorrent.BEncoding;
+using MonoTorrent.BlockReader;
 using MonoTorrent.Client.RateLimiters;
 using MonoTorrent.Connections;
 using MonoTorrent.Connections.Peer;
 using MonoTorrent.Connections.Peer.Encryption;
 using MonoTorrent.Logging;
 using MonoTorrent.Messages.Peer;
-using MonoTorrent.BlockReader;
+using MonoTorrent.Messages.Peer.FastPeer;
 
 using ReusableTasks;
 
@@ -518,8 +519,14 @@ namespace MonoTorrent.Client
                     var buffer = socketMemory.Slice (0, msg.ByteLength);
                     if (msg is PieceMessage pm) {
                         if (!manager.Bitfield[pm.PieceIndex]) {
-                            var bitfieldUpdate = new BitfieldMessage (manager.Bitfield);
-                            await PeerIO.SendMessageAsync (id.Connection, id.Encryptor, bitfieldUpdate, manager.UploadLimiters, id.Monitor, manager.Monitor, buffer).ConfigureAwait (false);
+                            if (id.SupportsFastPeer) {
+                                var reject = new RejectRequestMessage (pm);
+                                await PeerIO.SendMessageAsync (id.Connection, id.Encryptor, reject, manager.UploadLimiters, id.Monitor, manager.Monitor, buffer).ConfigureAwait (false);
+                            } else {
+                                var bitfieldUpdate = new BitfieldMessage (manager.Bitfield);
+                                if (bitfieldUpdate.ByteLength < PeerIO.MaxMessageLength)
+                                    await PeerIO.SendMessageAsync (id.Connection, id.Encryptor, bitfieldUpdate, manager.UploadLimiters, id.Monitor, manager.Monitor, buffer).ConfigureAwait (false);
+                            }
                             continue;
                         }
 
