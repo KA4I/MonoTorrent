@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 
+using MonoTorrent.Logging;
+
 namespace MonoTorrent.Client
 {
     class InactivePeerManager
     {
+        static readonly Logger logger = Logger.Create (nameof (ConnectionManager));
 
         #region Private Fields
         /// <summary>
@@ -111,19 +114,21 @@ namespace MonoTorrent.Client
             // otherwise disconnect the interesting candidate if found;
             // otherwise disconnect the least attractive candidate
             // otherwise do nothing
-            int peerToDisconnect = indexOfFirstUninterestingCandidate;
-            if (peerToDisconnect < 0)
-                peerToDisconnect = indexOfFirstInterestingCandidate;
-            if (peerToDisconnect < 0)
-                peerToDisconnect = leastAttractiveCandidate;
+            int peerToDisconnectIndex = indexOfFirstUninterestingCandidate;
+            if (peerToDisconnectIndex < 0)
+                peerToDisconnectIndex = indexOfFirstInterestingCandidate;
+            if (peerToDisconnectIndex < 0)
+                peerToDisconnectIndex = leastAttractiveCandidate;
 
-            if (peerToDisconnect < 0)
+            if (peerToDisconnectIndex < 0)
                 return;
 
             // We've found a peer to disconnect
             // Add it to the inactive list for this torrent and disconnect it
-            InactivePeerList.Add (TorrentManager.Peers.ConnectedPeers[peerToDisconnect].Uri);
-            ConnectionManager!.CleanupSocket (TorrentManager, TorrentManager.Peers.ConnectedPeers[peerToDisconnect]);
+            var peerToDisconnect = TorrentManager.Peers.ConnectedPeers[peerToDisconnectIndex];
+            InactivePeerList.Add (peerToDisconnect.Uri);
+            logger.Debug ($"{peerToDisconnect.Uri}: disconnected by {this.GetType ().Name}");
+            ConnectionManager!.CleanupSocket (TorrentManager, peerToDisconnect);
 
         }
 

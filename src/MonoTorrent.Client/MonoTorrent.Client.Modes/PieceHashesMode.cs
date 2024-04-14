@@ -199,6 +199,7 @@ namespace MonoTorrent.Client.Modes
 
             var picker = pickers[file];
             if (!picker.Item1.ValidatePiece (picker.Item2.Wrap (id), new PieceSegment (hashesMessage.Index / MaxHashesPerRequest, 0), out _, new HashSet<IRequester> ())) {
+                logger.Debug ($"{id.Uri}: disconnecting due to piece validation failure");
                 ConnectionManager.CleanupSocket (Manager, id);
                 return;
             }

@@ -135,5 +135,10 @@ namespace MonoTorrent.Logging
             if (Writer != null)
                 Writer.Error (string.Format ("{0}{1}{2}", string.Format (formatString, p1), Environment.NewLine, ex));
         }
+
+        public void Debug (string message)
+        {
+            Writer?.Debug (message);
+        }
     }
 }

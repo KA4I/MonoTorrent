@@ -456,8 +456,10 @@ namespace MonoTorrent.Client.Modes
 
             foreach (PeerId peer in peersInvolved) {
                 peer.Peer.HashedPiece (result);
-                if (peer.Peer.TotalHashFails == 5)
+                if (peer.Peer.TotalHashFails == 5) {
+                    logger.Debug ($"{peer.Uri}: disconnecting because they have 5 hashfails");
                     ConnectionManager.CleanupSocket (Manager, peer);
+                }
             }
             PeersInvolvedCache.Enqueue (peersInvolved);
 
@@ -654,6 +656,7 @@ namespace MonoTorrent.Client.Modes
                 }
 
                 if (id.LastMessageReceived.Elapsed > onhundredAndEightySeconds) {
+                    logger.Debug ($"{id.Uri}: disconnecting because they have not sent a message in a while");
                     ConnectionManager.CleanupSocket (Manager, id);
                     i--;
                     continue;
@@ -688,6 +691,7 @@ namespace MonoTorrent.Client.Modes
                         id.LastBlockReceived.Restart ();
 
                     if (id.LastBlockReceived.Elapsed > Settings.StaleRequestTimeout) {
+                        logger.Debug ($"{id.Uri}: disconnecting because they are not replying to our block requests in time");
                         ConnectionManager.CleanupSocket (Manager, id);
                         i--;
                         continue;
