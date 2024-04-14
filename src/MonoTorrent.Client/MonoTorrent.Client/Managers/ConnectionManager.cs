@@ -342,7 +342,7 @@ namespace MonoTorrent.Client
                     HandleReceivedMessage (id, torrentManager, message, releaser);
                 }
             } catch (Exception e) {
-                logger.InfoFormatted ("Peer {0} receiver loop stopped due to error: {1}", id.Uri, e.Message);
+                logger.Error ($"Peer {id.Uri} receiver loop stopped due to error: {e}");
                 await ClientEngine.MainLoop;
                 CleanupSocket (torrentManager, id);
             } finally {
