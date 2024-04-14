@@ -33,6 +33,8 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 
+using MonoTorrent.Logging;
+
 namespace MonoTorrent.Connections
 {
     public abstract class UdpListener : SocketListener, ISocketMessageListener
@@ -41,8 +43,8 @@ namespace MonoTorrent.Connections
 
         UdpClient? Client { get; set; }
 
-        protected UdpListener (IPEndPoint endpoint)
-            : base (endpoint)
+        protected UdpListener (IPEndPoint endpoint, ILogger logger)
+            : base (endpoint, logger)
         {
         }
 

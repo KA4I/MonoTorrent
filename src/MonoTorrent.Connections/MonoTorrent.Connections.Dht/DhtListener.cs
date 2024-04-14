@@ -29,12 +29,14 @@
 
 using System.Net;
 
+using MonoTorrent.Logging;
+
 namespace MonoTorrent.Connections.Dht
 {
     public class DhtListener : UdpListener, IDhtListener
     {
         public DhtListener (IPEndPoint endpoint)
-            : base (endpoint)
+            : base (endpoint, LoggerFactory.Create (nameof(DhtListener)))
         {
 
         }

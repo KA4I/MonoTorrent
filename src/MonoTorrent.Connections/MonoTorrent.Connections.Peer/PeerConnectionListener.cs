@@ -32,6 +32,8 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
+using MonoTorrent.Logging;
+
 namespace MonoTorrent.Connections.Peer
 {
     /// <summary>
@@ -41,8 +43,8 @@ namespace MonoTorrent.Connections.Peer
     {
         public event EventHandler<PeerConnectionEventArgs>? ConnectionReceived;
 
-        public PeerConnectionListener (IPEndPoint endpoint)
-            : base (endpoint)
+        public PeerConnectionListener (IPEndPoint endpoint, ILogger logger)
+            : base (endpoint, logger)
         {
         }
 
@@ -82,7 +84,8 @@ namespace MonoTorrent.Connections.Peer
 
                 var connection = new SocketPeerConnection (socket!, true);
                 ConnectionReceived?.Invoke (this, new PeerConnectionEventArgs (connection, null));
-            } catch {
+            } catch (Exception error) {
+                logger.Debug ($"Error accepting connection: {error}");
                 socket?.Close ();
             }
 

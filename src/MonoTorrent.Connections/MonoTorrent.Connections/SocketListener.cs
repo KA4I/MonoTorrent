@@ -1,4 +1,4 @@
-﻿//
+//
 // SocketListener.cs
 //
 // Authors:
@@ -30,6 +30,8 @@
 using System.Net;
 using System.Threading;
 
+using MonoTorrent.Logging;
+
 namespace MonoTorrent.Connections
 {
     public abstract class SocketListener : Listener, ISocketListener
@@ -38,7 +40,7 @@ namespace MonoTorrent.Connections
 
         public IPEndPoint PreferredLocalEndPoint { get; set; }
 
-        protected SocketListener (IPEndPoint endPoint)
+        protected SocketListener (IPEndPoint endPoint, ILogger logger) : base(logger)
         {
             PreferredLocalEndPoint = endPoint;
         }

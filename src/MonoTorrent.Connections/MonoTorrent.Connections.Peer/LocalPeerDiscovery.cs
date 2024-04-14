@@ -1,4 +1,4 @@
-﻿//
+//
 // LocalPeerDiscovery.cs
 //
 // Authors:
@@ -37,6 +37,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+
+using MonoTorrent.Logging;
 
 namespace MonoTorrent.Connections.Peer
 {
@@ -83,7 +85,8 @@ namespace MonoTorrent.Connections.Peer
         Task RateLimiterTask { get; set; }
 
         public LocalPeerDiscovery ()
-            : base (new IPEndPoint (IPAddress.Any, MulticastAddressV4.Port))
+            : base (new IPEndPoint (IPAddress.Any, MulticastAddressV4.Port),
+                    LoggerFactory.Create (nameof(LocalPeerDiscovery)))
         {
             lock (Random)
                 Cookie = $"MT-{Random.Next (1, int.MaxValue)}";

@@ -30,17 +30,22 @@
 using System;
 using System.Threading;
 
+using MonoTorrent.Logging;
+
 namespace MonoTorrent.Connections
 {
     public abstract class Listener : IListener
     {
+        protected readonly ILogger logger;
+
         public event EventHandler<EventArgs>? StatusChanged;
 
         CancellationTokenSource Cancellation { get; set; }
         public ListenerStatus Status { get; private set; }
 
-        protected Listener ()
+        protected Listener (ILogger logger)
         {
+            this.logger = logger ?? throw new ArgumentNullException (nameof (logger));
             Cancellation = new CancellationTokenSource ();
             Status = ListenerStatus.NotListening;
         }

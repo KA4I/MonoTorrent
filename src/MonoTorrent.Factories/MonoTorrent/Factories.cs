@@ -44,6 +44,7 @@ using MonoTorrent.Connections.Tracker;
 using MonoTorrent.Dht;
 using MonoTorrent.PiecePicking;
 using MonoTorrent.BlockReader;
+using MonoTorrent.Logging;
 using MonoTorrent.PieceWriter;
 using MonoTorrent.PortForwarding;
 using MonoTorrent.Trackers;
@@ -110,7 +111,7 @@ namespace MonoTorrent
                     { "ipv6", uri => new SocketPeerConnection (uri, new SocketConnector ()) },
                 }
             );
-            PeerConnectionListenerFunc = endPoint => new PeerConnectionListener (endPoint);
+            PeerConnectionListenerFunc = endPoint => new PeerConnectionListener (endPoint, LoggerFactory.Create (nameof(PeerConnectionListener)));
             PeerConnectionGateFunc = () => new NoGating ();
             PieceRequesterFunc = settings => new StandardPieceRequester (settings);
             PieceWriterFunc = maxOpenFiles => new DiskWriter (maxOpenFiles);

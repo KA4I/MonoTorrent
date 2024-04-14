@@ -40,8 +40,8 @@ namespace MonoTorrent.Logging
         /// </summary>
         public static Func<string, ILogger>? Factory { get; private set; }
 
-        public static ILogger? Create (string name)
-            => Factory?.Invoke (name);
+        public static ILogger Create (string name)
+            => Factory?.Invoke (name) ?? NullLogger.Instance;
 
         public static void Register (Func<string, ILogger>? creator)
             => Factory = creator;

@@ -33,6 +33,7 @@ using System.Threading.Tasks;
 
 using MonoTorrent.Connections;
 using MonoTorrent.Connections.Peer;
+using MonoTorrent.Logging;
 
 using NUnit.Framework;
 
@@ -46,7 +47,7 @@ namespace MonoTorrent.Client
         [SetUp]
         public void Setup ()
         {
-            listener = new PeerConnectionListener (new IPEndPoint (IPAddress.Loopback, 0));
+            listener = new PeerConnectionListener (new IPEndPoint (IPAddress.Loopback, 0), NullLogger.Instance);
             listener.Start ();
         }
 
@@ -73,7 +74,7 @@ namespace MonoTorrent.Client
         public void PortNotFree ()
         {
             var tcs = new TaskCompletionSource<object> ();
-            var otherListener = new PeerConnectionListener (listener.LocalEndPoint);
+            var otherListener = new PeerConnectionListener (listener.LocalEndPoint, NullLogger.Instance);
             otherListener.StatusChanged += (o, e) => tcs.SetResult (null);
             otherListener.Start ();
             Assert.AreEqual (ListenerStatus.PortNotFree, otherListener.Status);

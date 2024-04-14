@@ -7,7 +7,7 @@ namespace MonoTorrent.Client
 {
     class InactivePeerManager
     {
-        static readonly Logger logger = Logger.Create (nameof (ConnectionManager));
+        static readonly Logger logger = Logger.Create (nameof (InactivePeerManager));
 
         #region Private Fields
         /// <summary>
