@@ -283,6 +283,12 @@ namespace MonoTorrent.Client
             Cache = factories.CreateBlockCache (writer, settings.DiskCacheBytes, settings.DiskCachePolicy, BufferPool);
             Cache.ReadThroughCache += (o, e) => WriterReadMonitor.AddDelta (e.RequestLength);
             Cache.WrittenThroughCache += (o, e) => WriterWriteMonitor.AddDelta (e.RequestLength);
+            if (Factories.GetHashAsync is not null)
+                GetHashAsyncOverride = async (manager, pieceIndex, dest) => {
+                    var v1 = await Factories.GetHashAsync (manager, pieceIndex, dest.V1Hash).ConfigureAwait(false);
+                    var v2 = await Factories.GetHashAsync (manager, pieceIndex, dest.V2Hash).ConfigureAwait(false);
+                    return v1 || v2;
+                };
             IncrementalHashCache = new Cache<IncrementalHashData> (() => new IncrementalHashData ());
         }
 

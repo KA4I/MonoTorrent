@@ -76,6 +76,7 @@ namespace MonoTorrent
         public static Factories Default { get; } = new Factories ();
 
         BlockCacheCreator BlockCacheFunc { get; set; }
+        public Func<ITorrentManagerInfo, int, Memory<byte>, Task<bool>>? GetHashAsync { get; set; }
         DhtCreator DhtFunc { get; set; }
         DhtListenerCreator DhtListenerFunc { get; set; }
         TemporaryLocalPeerIdGenerator TemporaryLocalPeerIdGeneratorFunc { get; set; }
@@ -135,6 +136,13 @@ namespace MonoTorrent
         {
             var dupe = MemberwiseClone ();
             dupe.BlockCacheFunc = creator ?? Default.BlockCacheFunc;
+            return dupe;
+        }
+
+        public Factories WithGetHashAsync (Func<ITorrentManagerInfo, int, Memory<byte>, Task<bool>>? creator)
+        {
+            var dupe = MemberwiseClone ();
+            dupe.GetHashAsync = creator;
             return dupe;
         }
 
