@@ -37,6 +37,7 @@ using System.Threading.Tasks;
 using MonoTorrent.BEncoding;
 using MonoTorrent.Client.Modes;
 using MonoTorrent.Client.RateLimiters;
+using MonoTorrent.Logging;
 using MonoTorrent.Messages.Peer;
 using MonoTorrent.PiecePicking;
 using MonoTorrent.PieceWriter;
@@ -49,6 +50,8 @@ namespace MonoTorrent.Client
 {
     public class TorrentManager : IEquatable<TorrentManager>, ITorrentManagerInfo, IPieceRequesterData, IMessageEnqueuer, IPeerExchangeSource, IPieceHashStatusUpdater, IPieceHashesProvider
     {
+        static readonly Logger logger = Logger.Create (nameof (TorrentManager));
+
         #region Events
 
         internal event EventHandler<ReadOnlyMemory<byte>>? MetadataReceived;
@@ -573,7 +576,9 @@ namespace MonoTorrent.Client
             Mode = hashingMode;
 
             try {
+                var start = ValueStopwatch.StartNew ();
                 await hashingMode.WaitForHashingToComplete ();
+                logger.Info ($"{this} hashing took {start.Elapsed}");
                 hashingMode.Token.ThrowIfCancellationRequested ();
             } catch (OperationCanceledException) {
                 return;
