@@ -34,10 +34,14 @@ using System.Text;
 
 using Microsoft.Win32.SafeHandles;
 
+using MonoTorrent.Logging;
+
 namespace MonoTorrent.PieceWriter
 {
     static class NtfsSparseFile
     {
+        static readonly ILogger logger = LoggerFactory.Create (nameof (NtfsSparseFile));
+
         [StructLayout (LayoutKind.Sequential)]
         struct FILE_ZERO_DATA_INFORMATION
         {
@@ -102,7 +106,8 @@ namespace MonoTorrent.PieceWriter
                 SupportsSparse = false;
             } catch (EntryPointNotFoundException) {
                 SupportsSparse = false;
-            } catch {
+            } catch (Exception e) {
+                logger.Debug ($"Failed to create sparse file: {e}");
                 // Ignore for now. Maybe if i keep hitting this i should abort future attemts
             }
         }

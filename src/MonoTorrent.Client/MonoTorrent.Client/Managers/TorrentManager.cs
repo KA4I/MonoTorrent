@@ -1003,8 +1003,8 @@ namespace MonoTorrent.Client
                 }
                 try {
                     PieceHashed?.Invoke (this, args);
-                }catch {
-                    // FIXME: Report this somewhere
+                } catch (Exception e) {
+                    logger.Error($"{this.Name} - Exception in event handler: {e}");
                 }
             }
         }

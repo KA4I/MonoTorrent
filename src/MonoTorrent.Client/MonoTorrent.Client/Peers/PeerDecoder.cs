@@ -33,11 +33,14 @@ using System.Net;
 using System.Net.Sockets;
 
 using MonoTorrent.BEncoding;
+using MonoTorrent.Logging;
 
 namespace MonoTorrent
 {
     static class PeerDecoder
     {
+        static readonly Logger logger = Logger.Create (nameof (PeerDecoder));
+
         public static IList<PeerInfo> Decode (BEncodedList peers, AddressFamily addressFamily)
         {
             var list = new List<PeerInfo> (peers.Count);
@@ -48,9 +51,10 @@ namespace MonoTorrent
                     else if (value is BEncodedString str)
                         foreach (var p in PeerInfo.FromCompact (str.Span, addressFamily))
                             list.Add (p);
-                } catch {
+                } catch (Exception e) {
                     // If something is invalid and throws an exception, ignore it
                     // and continue decoding the rest of the peers
+                    logger.Debug($"Failed to decode peer: {e}");
                 }
             }
             return list;

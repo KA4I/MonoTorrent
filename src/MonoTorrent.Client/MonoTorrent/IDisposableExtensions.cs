@@ -29,16 +29,20 @@
 
 using System;
 
+using MonoTorrent.Logging;
+
 namespace MonoTorrent
 {
     static class IDisposableExtensions
     {
+        static readonly Logger logger = Logger.Create (nameof(IDisposableExtensions));
+
         public static void SafeDispose (this IDisposable disposable)
         {
             try {
                 disposable?.Dispose ();
-            } catch {
-                // Ignore
+            } catch (Exception e) {
+                logger.Debug ($"Failed to dispose of object: {e}");
             }
         }
     }

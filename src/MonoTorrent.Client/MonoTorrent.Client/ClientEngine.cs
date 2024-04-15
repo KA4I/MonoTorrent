@@ -652,8 +652,8 @@ namespace MonoTorrent.Client
             if (DhtEngine != null && manager.Torrent?.Nodes != null && DhtEngine.State != DhtState.Ready) {
                 try {
                     DhtEngine.Add (manager.Torrent.Nodes.OfType<BEncodedString> ().Select (t => t.AsMemory ()));
-                } catch {
-                    // FIXME: Should log this somewhere, though it's not critical
+                } catch (Exception e) {
+                    Log.Debug ($"Unable to register torrent with DHT: {e}");
                 }
             }
         }

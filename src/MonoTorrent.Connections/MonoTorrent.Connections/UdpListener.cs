@@ -82,13 +82,13 @@ namespace MonoTorrent.Connections
 #endif
                     if (!token.IsCancellationRequested)
                         MessageReceived?.Invoke (result.Buffer, result.RemoteEndPoint);
-                } catch (SocketException ex) {
+                } catch (SocketException ex) when (ex.ErrorCode == 10054) {
                     // If the destination computer closes the connection
                     // we get error code 10054. We need to keep receiving on
                     // the socket until we clear all the error states
-                    if (ex.ErrorCode == 10054)
-                        continue;
-                } catch {
+                    continue;
+                } catch (Exception e) {
+                    logger.Debug ($"Unhandled exception in UdpListener.ReceiveAsync: {e}");
                     // Do nothing.
                 }
             }

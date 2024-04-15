@@ -92,7 +92,8 @@ namespace MonoTorrent.Connections.Peer
             try {
                 if (!((Socket) sender!).AcceptAsync (e))
                     OnSocketReceived (sender, e);
-            } catch {
+            } catch (Exception error) {
+                logger.Debug($"Error accepting connection: {error}");
                 return;
             }
         }

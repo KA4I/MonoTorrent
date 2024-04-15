@@ -314,6 +314,8 @@ namespace MonoTorrent.Client
 
             Memory<byte> largeBuffer = default;
             ByteBufferPool.Releaser largeReleaser = default;
+            ValueStopwatch stopwatch = ValueStopwatch.StartNew ();
+            TimeSpan? receiveTime = null, handleTime = null;
             try {
                 while (true) {
                     if (id.AmRequestingPiecesCount == 0) {
@@ -338,8 +340,13 @@ namespace MonoTorrent.Client
                         }
                     }
 
+                    receiveTime = handleTime = null;
+                    stopwatch.Restart ();
                     (PeerMessage message, PeerMessage.Releaser releaser) = await PeerIO.ReceiveMessageAsync (connection, decryptor, downloadLimiter, monitor, torrentManager.Monitor, torrentManager, currentBuffer).ConfigureAwait (false);
+                    receiveTime = stopwatch.Elapsed;
+                    stopwatch.Restart ();
                     HandleReceivedMessage (id, torrentManager, message, releaser);
+                    handleTime = stopwatch.Elapsed;
                 }
             } catch (Exception e) {
                 logger.Error ($"Peer {id.Uri} receiver loop stopped due to error: {e}");
