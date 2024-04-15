@@ -114,7 +114,7 @@ namespace MonoTorrent.Client
         {
             await MainLoop.SwitchToThreadpool ();
 
-            await connection.ConnectAsync ();
+            await connection.ConnectAsync ().ConfigureAwait (false);
         }
 
         public static ReusableTask ReceiveAsync (IPeerConnection connection, Memory<byte> buffer)
