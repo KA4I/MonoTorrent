@@ -549,7 +549,7 @@ namespace MonoTorrent.Client
                     id.LastMessageSent.Restart ();
                 }
             } catch (Exception e) {
-                logger.InfoFormatted ("Peer {0} queue processing stopped due to error: {1}", id.Uri, e.Message);
+                logger.InfoFormatted ("Peer {0} queue processing stopped due to error: {1}", id.Uri, e);
                 await ClientEngine.MainLoop;
                 CleanupSocket (manager, id);
             } finally {
