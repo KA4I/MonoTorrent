@@ -161,7 +161,7 @@ namespace MonoTorrent.PortForwarding
             );
 
             try {
-                await device.DeletePortMapAsync (map);
+                await device.DeletePortMapAsync (map).ConfigureAwait (false);
             } catch {
             }
         }
