@@ -289,6 +289,25 @@ namespace MonoTorrent.Client
             set => maximumDiskWriteRate = CheckZeroOrPositive (value);
         }
 
+        int maximumRepeatedHashFails;
+        /// <summary>
+        /// The maximum number of consecutive pieces that fail a hash check a peer can send us before
+        /// we drop it.
+        /// </summary>
+        public int MaximumRepeatedHashFails {
+            get => maximumRepeatedHashFails;
+            set => maximumRepeatedHashFails = CheckZeroOrPositive (value);
+        }
+
+        int maximumTotalHashFails;
+        /// <summary>
+        /// The maximum number of pieces that fail a hash check a peer can send us before we drop it.
+        /// </summary>
+        public int MaximumTotalHashFails {
+            get => maximumTotalHashFails;
+            set => maximumTotalHashFails = CheckZeroOrPositive (value);
+        }
+
         /// <summary>
         /// If the IPAddress incoming peer connections are received on differs from the IPAddress the tracker
         /// Announce or Scrape requests are sent from, specify it here. Typically this should not be set.
@@ -371,6 +390,8 @@ namespace MonoTorrent.Client
             MaximumDownloadRate = settings.MaximumDownloadRate;
             MaximumHalfOpenConnections = settings.MaximumHalfOpenConnections;
             MaximumOpenFiles = settings.MaximumOpenFiles;
+            MaximumRepeatedHashFails = settings.MaximumRepeatedHashFails;
+            MaximumTotalHashFails = settings.MaximumTotalHashFails;
             MaximumUploadRate = settings.MaximumUploadRate;
             StaleRequestTimeout = settings.StaleRequestTimeout;
             UsePartialFiles = settings.UsePartialFiles;
@@ -408,6 +429,8 @@ namespace MonoTorrent.Client
                 maximumConnections: MaximumConnections,
                 maximumDiskReadRate: MaximumDiskReadRate,
                 maximumDiskWriteRate: MaximumDiskWriteRate,
+                maximumRepeatedHashFails: MaximumRepeatedHashFails,
+                maximumTotalHashFails: MaximumTotalHashFails,
                 maximumDownloadRate: MaximumDownloadRate,
                 maximumHalfOpenConnections: MaximumHalfOpenConnections,
                 maximumOpenFiles: MaximumOpenFiles,

@@ -218,6 +218,19 @@ namespace MonoTorrent.Client
         public int MaximumDiskWriteRate { get; }
 
         /// <summary>
+        /// The maximum number of consecutive pieces that fail a hash check a peer can send us before
+        /// we drop it.
+        /// <para>If 0, no limit is enforced. Defaults to 0.</para>
+        /// </summary>
+        public int MaximumRepeatedHashFails { get; set; }
+
+        /// <summary>
+        /// The maximum number of pieces that fail a hash check a peer can send us before we drop it.
+        /// <para>If 0, no limit is enforced. Defaults to 5.</para>
+        /// </summary>
+        public int MaximumTotalHashFails { get; set; } = 5;
+
+        /// <summary>
         /// If the IPAddress incoming peer connections are received on differs from the IPAddress the tracker
         /// Announce or Scrape requests are sent from, specify it here. Typically this should not be set.
         /// Defaults to <see langword="null" />
@@ -272,7 +285,9 @@ namespace MonoTorrent.Client
             IList<EncryptionType> allowedEncryption, bool allowHaveSuppression, bool allowLocalPeerDiscovery, bool allowPortForwarding, bool allowUploadingOnOutgoingConnections,
             bool autoSaveLoadDhtCache, bool autoSaveLoadFastResume, bool autoSaveLoadMagnetLinkMetadata, string cacheDirectory,
             TimeSpan connectionTimeout, IPEndPoint? dhtEndPoint, int diskCacheBytes, CachePolicy diskCachePolicy, FastResumeMode fastResumeMode, Dictionary<string, IPEndPoint> listenEndPoints,
-            int maximumConnections, int maximumDiskReadRate, int maximumDiskWriteRate, int maximumDownloadRate, int maximumHalfOpenConnections,
+            int maximumConnections, int maximumDiskReadRate, int maximumDiskWriteRate,
+            int maximumRepeatedHashFails, int maximumTotalHashFails,
+            int maximumDownloadRate, int maximumHalfOpenConnections,
             int maximumOpenFiles, int maximumUploadRate, IDictionary<string, IPEndPoint> reportedListenEndPoints, bool usePartialFiles,
             TimeSpan webSeedConnectionTimeout, TimeSpan webSeedDelay, int webSeedSpeedTrigger, TimeSpan staleRequestTimeout,
             string httpStreamingPrefix)
@@ -296,6 +311,8 @@ namespace MonoTorrent.Client
             MaximumConnections = maximumConnections;
             MaximumDiskReadRate = maximumDiskReadRate;
             MaximumDiskWriteRate = maximumDiskWriteRate;
+            MaximumRepeatedHashFails = maximumRepeatedHashFails;
+            MaximumTotalHashFails = maximumTotalHashFails;
             MaximumDownloadRate = maximumDownloadRate;
             MaximumHalfOpenConnections = maximumHalfOpenConnections;
             MaximumOpenFiles = maximumOpenFiles;

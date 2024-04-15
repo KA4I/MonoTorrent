@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 using MonoTorrent.BEncoding;
 using MonoTorrent.Connections;
@@ -79,11 +80,15 @@ namespace MonoTorrent.Client
 
         public PeerInfo Info { get; private set; }
 
+        int repeatedHashFails;
         /// <summary>
         /// The number of times, in a row, that this peer has sent us the blocks for a piece and that
         /// piece failed the hash check.
         /// </summary>
-        internal int RepeatedHashFails { get; set; }
+        internal int RepeatedHashFails {
+            get => Interlocked.CompareExchange (ref repeatedHashFails, 0, 0);
+            set => Interlocked.Exchange (ref repeatedHashFails, value);
+        }
 
         /// <summary>
         /// This is the overall count for the number of pieces which failed the hash check after being
@@ -115,11 +120,11 @@ namespace MonoTorrent.Client
 
         internal void HashedPiece (bool succeeded)
         {
-            if (succeeded && RepeatedHashFails > 0)
-                RepeatedHashFails--;
+            if (succeeded)
+                this.RepeatedHashFails = 0;
 
             if (!succeeded) {
-                RepeatedHashFails++;
+                Interlocked.Increment (ref repeatedHashFails);
                 TotalHashFails++;
             }
         }

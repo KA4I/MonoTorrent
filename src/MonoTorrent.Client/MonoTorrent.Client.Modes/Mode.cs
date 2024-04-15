@@ -456,8 +456,14 @@ namespace MonoTorrent.Client.Modes
 
             foreach (PeerId peer in peersInvolved) {
                 peer.Peer.HashedPiece (result);
-                if (peer.Peer.TotalHashFails == 5) {
-                    logger.Debug ($"{peer.Uri}: disconnecting because they have 5 hashfails");
+                if (Settings.MaximumTotalHashFails > 0 && peer.Peer.TotalHashFails >= Settings.MaximumTotalHashFails) {
+                    logger.Debug ($"{peer.Uri}: disconnecting because they have {Settings.MaximumTotalHashFails} hashfails");
+                    ConnectionManager.CleanupSocket (Manager, peer);
+                    continue;
+                }
+
+                if (Settings.MaximumRepeatedHashFails > 0 && peer.Peer.RepeatedHashFails >= Settings.MaximumRepeatedHashFails) {
+                    logger.Debug ($"{peer.Uri}: disconnecting because they have {Settings.MaximumRepeatedHashFails} repeated hashfails");
                     ConnectionManager.CleanupSocket (Manager, peer);
                 }
             }
