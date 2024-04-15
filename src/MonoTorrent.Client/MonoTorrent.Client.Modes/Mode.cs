@@ -78,10 +78,10 @@ namespace MonoTorrent.Client.Modes
             Manager = manager;
             Settings = settings;
 
-            Unchoker = unchoker ?? new ChokeUnchokeManager (new TorrentManagerUnchokeable (manager));
+            Unchoker = unchoker ?? new ChokeUnchokeManager (new TorrentManagerUnchokeable (manager), settings.ChokeReviewInterval);
         }
 
-        public virtual void HandleFilePriorityChanged (ITorrentManagerFile file, Priority oldPriority)
+        public virtual void RaiseInterest ()
         {
 
         }
@@ -697,6 +697,8 @@ namespace MonoTorrent.Client.Modes
                         id.LastBlockReceived.Restart ();
 
                     if (id.LastBlockReceived.Elapsed > Settings.StaleRequestTimeout) {
+                        // freeze the counter for debugging purposes
+                        id.LastBlockReceived.Stop ();
                         logger.Debug ($"{id.Uri}: disconnecting because they are not replying to our block requests in time");
                         ConnectionManager.CleanupSocket (Manager, id);
                         i--;

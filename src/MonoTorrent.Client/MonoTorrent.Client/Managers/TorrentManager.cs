@@ -48,7 +48,7 @@ using ReusableTasks;
 
 namespace MonoTorrent.Client
 {
-    public class TorrentManager : IEquatable<TorrentManager>, ITorrentManagerInfo, IPieceRequesterData, IMessageEnqueuer, IPeerExchangeSource, IPieceHashStatusUpdater, IPieceHashesProvider
+    public class TorrentManager : IEquatable<TorrentManager>, ITorrentManagerInfo, IPieceRequesterData, IMessageEnqueuer, IPeerExchangeSource, IPieceHashStatusUpdater, IPieceHashesProvider, IRaiseInterest
     {
         static readonly Logger logger = Logger.Create (nameof (TorrentManager));
 
@@ -115,7 +115,15 @@ namespace MonoTorrent.Client
                 }
             }
 
-            Mode.HandleFilePriorityChanged (file, oldPriority);
+            if (priority > oldPriority)
+                Mode.RaiseInterest ();
+        }
+
+        public async Task RaiseInterest()
+        {
+            await ClientEngine.MainLoop;
+
+            Mode.RaiseInterest ();
         }
 
         /// <summary>
