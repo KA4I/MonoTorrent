@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
+using C5;
+
 namespace MonoTorrent.Client
 {
     public class PeerMonitor : ConnectionMonitor
     {
-        readonly Dictionary<RequestKey, long> requestStarts = new Dictionary<RequestKey, long> ();
-        readonly SortedList<long, RequestKey> requestTimes = new SortedList<long, RequestKey> ();
+        readonly Dictionary<RequestKey, IPriorityQueueHandle<long>> requestStarts = new Dictionary<RequestKey, IPriorityQueueHandle<long>> ();
+        readonly IntervalHeap<long> requestTimes = new IntervalHeap<long> ();
         internal LatencyMonitor Latency { get; } = new LatencyMonitor (20);
 
         public void TrackRequest (int pieceIndex, int startOffset)
@@ -17,8 +19,10 @@ namespace MonoTorrent.Client
                 if (requestStarts.ContainsKey (request))
                     return;
                 long timestamp = Stopwatch.GetTimestamp ();
-                requestStarts.Add (request, timestamp);
-                requestTimes.Add (timestamp, request);
+                IPriorityQueueHandle<long>? handle = null;
+                requestTimes.Add (ref handle!, timestamp);
+                requestStarts.Add (request, handle);
+
             }
         }
 
@@ -26,13 +30,13 @@ namespace MonoTorrent.Client
         {
             var request = new RequestKey { Piece = pieceIndex, Offset = startOffset };
             lock (requestStarts) {
-                if (requestStarts.TryGetValue (request, out long timestamp)) {
-                    requestTimes.Remove (timestamp);
+                if (requestStarts.TryGetValue (request, out var startHandle)) {
+                    long start = requestTimes.Delete (startHandle);
                     long now = Stopwatch.GetTimestamp ();
-                    int latency = (int) (now - timestamp);
+                    int latency = (int) (now - start);
                     int unfinishedLatency = 0;
                     if (requestTimes.Count > 0)
-                        unfinishedLatency = (int) (now - requestTimes.Keys[0]);
+                        unfinishedLatency = (int) (now - requestTimes.FindMin());
                     Latency.Add (Math.Max (latency, unfinishedLatency));
                     requestStarts.Remove (request);
                 }
