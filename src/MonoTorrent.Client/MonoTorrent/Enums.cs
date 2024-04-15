@@ -56,6 +56,9 @@ namespace MonoTorrent
 
     enum PeerListType
     {
+        /// <summary>
+        /// Peers that have yet to be unchoked and downloading for a full review period
+        /// </summary>
         NascentPeers,
         CandidatePeers,
         OptimisticUnchokeCandidatePeers
