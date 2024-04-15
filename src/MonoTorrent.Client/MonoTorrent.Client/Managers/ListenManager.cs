@@ -116,7 +116,8 @@ namespace MonoTorrent.Client
                 EncryptorFactory.EncryptorResult result = await EncryptorFactory.CheckIncomingConnectionAsync (e.Connection, supportedEncryptions, SKeys, Engine.Factories);
                 if (!await HandleHandshake (peerInfo, e.Connection, result.Handshake!, result.Decryptor, result.Encryptor))
                     e.Connection.Dispose ();
-            } catch {
+            } catch (Exception error) {
+                logger.Debug($"ConnectionReceived: {error}");
                 e.Connection.Dispose ();
             }
         }
@@ -136,14 +137,20 @@ namespace MonoTorrent.Client
                     man = Engine.Torrents[i];
 
             // We're not hosting that torrent
-            if (man == null)
+            if (man == null) {
+                logger.Debug ($"{connection.Uri} wants torrent {message.InfoHash.ToHex ()} that we don't have");
                 return false;
+            }
 
-            if (man.State == TorrentState.Stopped)
+            if (man.State == TorrentState.Stopped) {
+                logger.Debug ($"{connection.Uri} wants stopped torrent {message.InfoHash.ToHex ()}");
                 return false;
+            }
 
-            if (!man.Mode.CanAcceptConnections)
+            if (!man.Mode.CanAcceptConnections) {
+                logger.Debug ($"{connection.Uri} wants {man.Mode.GetType().Name} torrent {message.InfoHash.ToHex ()}");
                 return false;
+            }
 
             peerInfo = peerInfo.WithPeerId (message.PeerId);
             if (!await ConnectionGate.TryAcceptHandshakeAsync (Engine.PeerId, peerInfo, connection, man.InfoHashes.V1OrV2)) {
