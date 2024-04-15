@@ -23,6 +23,14 @@ namespace MonoTorrent.Client
 
         #region Constructors
 
+        public ChokeUnchokeManager (IUnchokeable unchokeable, TimeSpan reviewInterval)
+            : this(unchokeable)
+        {
+            if (reviewInterval < TimeSpan.Zero)
+                throw new ArgumentOutOfRangeException (nameof (reviewInterval));
+            minimumTimeBetweenReviews = reviewInterval;
+        }
+
         public ChokeUnchokeManager (IUnchokeable unchokeable)
         {
             Unchokeable = unchokeable;

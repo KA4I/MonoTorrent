@@ -149,6 +149,15 @@ namespace MonoTorrent.Client
         /// </summary>
         public string CacheDirectory { get; set; }
 
+        TimeSpan chokeReviewInterval;
+        /// <summary>
+        /// The time between choke/unchoke reviews. Defaults to 30 seconds.
+        /// </summary>
+        public TimeSpan ChokeReviewInterval {
+            get => chokeReviewInterval;
+            set => chokeReviewInterval = CheckZeroOrPositive (value);
+        }
+
         /// <summary>
         /// If a connection attempt does not complete within the given timeout, it will be cancelled so
         /// a connection can be attempted with a new peer. Defaults to 10 seconds. It is highly recommended
@@ -376,6 +385,7 @@ namespace MonoTorrent.Client
             AutoSaveLoadFastResume = settings.AutoSaveLoadFastResume;
             AutoSaveLoadMagnetLinkMetadata = settings.AutoSaveLoadMagnetLinkMetadata;
             CacheDirectory = settings.CacheDirectory;
+            ChokeReviewInterval = settings.ChokeReviewInterval;
             ConnectionTimeout = settings.ConnectionTimeout;
             DhtEndPoint = settings.DhtEndPoint;
             DiskCacheBytes = settings.DiskCacheBytes;
@@ -419,6 +429,7 @@ namespace MonoTorrent.Client
                 autoSaveLoadFastResume: AutoSaveLoadFastResume,
                 autoSaveLoadMagnetLinkMetadata: AutoSaveLoadMagnetLinkMetadata,
                 cacheDirectory: string.IsNullOrEmpty (CacheDirectory) ? Environment.CurrentDirectory : Path.GetFullPath (CacheDirectory),
+                chokeReviewInterval: ChokeReviewInterval,
                 connectionTimeout: ConnectionTimeout,
                 dhtEndPoint: DhtEndPoint,
                 diskCacheBytes: DiskCacheBytes,

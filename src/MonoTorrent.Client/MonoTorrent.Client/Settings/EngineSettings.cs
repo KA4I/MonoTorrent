@@ -111,6 +111,11 @@ namespace MonoTorrent.Client
         public string CacheDirectory { get; } = Path.Combine (Environment.CurrentDirectory, "cache");
 
         /// <summary>
+        /// The time between choke/unchoke reviews. Defaults to 30 seconds.
+        /// </summary>
+        public TimeSpan ChokeReviewInterval { get; } = TimeSpan.FromSeconds (30);
+
+        /// <summary>
         /// If a connection attempt does not complete within the given timeout, it will be cancelled so
         /// a connection can be attempted with a new peer. Defaults to 10 seconds. It is highly recommended
         /// to keep this value within a range of 7-15 seconds unless absolutely necessary.
@@ -284,7 +289,8 @@ namespace MonoTorrent.Client
         internal EngineSettings (
             IList<EncryptionType> allowedEncryption, bool allowHaveSuppression, bool allowLocalPeerDiscovery, bool allowPortForwarding, bool allowUploadingOnOutgoingConnections,
             bool autoSaveLoadDhtCache, bool autoSaveLoadFastResume, bool autoSaveLoadMagnetLinkMetadata, string cacheDirectory,
-            TimeSpan connectionTimeout, IPEndPoint? dhtEndPoint, int diskCacheBytes, CachePolicy diskCachePolicy, FastResumeMode fastResumeMode, Dictionary<string, IPEndPoint> listenEndPoints,
+            TimeSpan chokeReviewInterval, TimeSpan connectionTimeout,
+            IPEndPoint? dhtEndPoint, int diskCacheBytes, CachePolicy diskCachePolicy, FastResumeMode fastResumeMode, Dictionary<string, IPEndPoint> listenEndPoints,
             int maximumConnections, int maximumDiskReadRate, int maximumDiskWriteRate,
             int maximumRepeatedHashFails, int maximumTotalHashFails,
             int maximumDownloadRate, int maximumHalfOpenConnections,
@@ -304,6 +310,7 @@ namespace MonoTorrent.Client
             DiskCacheBytes = diskCacheBytes;
             DiskCachePolicy = diskCachePolicy;
             CacheDirectory = cacheDirectory;
+            ChokeReviewInterval = chokeReviewInterval;
             ConnectionTimeout = connectionTimeout;
             FastResumeMode = fastResumeMode;
             HttpStreamingPrefix = httpStreamingPrefix;
