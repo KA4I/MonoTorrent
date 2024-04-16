@@ -28,6 +28,7 @@
 
 
 using System;
+using System.Collections.Generic;
 using System.Threading;
 
 using MonoTorrent.Messages.Peer;
@@ -41,8 +42,10 @@ namespace MonoTorrent.Client.Modes
         bool CanHashCheck { get; }
         TorrentState State { get; }
         CancellationToken Token { get; }
-
-        void RaiseInterest ();
+        /// <summary>
+        /// Indicates that we might gain interest in some peers.
+        /// </summary>
+        List<PeerId> RaiseInterest ();
         void HandleMessage (PeerId id, PeerMessage message, PeerMessage.Releaser releaser);
         void HandlePeerConnected (PeerId id);
         void HandlePeerDisconnected (PeerId id);

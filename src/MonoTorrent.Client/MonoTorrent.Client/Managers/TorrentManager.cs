@@ -123,7 +123,11 @@ namespace MonoTorrent.Client
         {
             await ClientEngine.MainLoop;
 
-            Mode.RaiseInterest ();
+            var affected = Mode.RaiseInterest ();
+            foreach (var peer in Peers.ConnectedPeers) {
+                if (peer.AmInterested)
+                    Engine!.ConnectionManager.TryProcessQueue (this, peer);
+            }
         }
 
         /// <summary>

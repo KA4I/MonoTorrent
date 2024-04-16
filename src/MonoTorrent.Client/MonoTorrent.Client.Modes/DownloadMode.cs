@@ -27,6 +27,7 @@
 //
 
 
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -59,7 +60,7 @@ namespace MonoTorrent.Client.Modes
             }
         }
 
-        public override void RaiseInterest ()
+        public override List<PeerId> RaiseInterest ()
             => RefreshAmInterestedStatusForAllPeers ();
 
         public override bool ShouldConnect (Peer peer)

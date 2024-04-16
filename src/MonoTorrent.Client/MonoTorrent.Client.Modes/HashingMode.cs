@@ -28,6 +28,7 @@
 
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -58,9 +59,10 @@ namespace MonoTorrent.Client.Modes
             PausedCompletionSource.SetResult (null);
         }
 
-        public void RaiseInterest ()
+        public List<PeerId> RaiseInterest ()
         {
             // Nothing
+            return [];
         }
 
         public void Pause ()

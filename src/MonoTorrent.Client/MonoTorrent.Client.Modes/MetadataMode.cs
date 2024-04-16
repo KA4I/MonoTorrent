@@ -325,10 +325,11 @@ namespace MonoTorrent.Client.Modes
             }
         }
 
-        protected override void SetAmInterestedStatus (PeerId id, bool interesting)
+        protected override bool SetAmInterestedStatus (PeerId id, bool interesting)
         {
             // Never set a peer as interesting when in metadata mode
             // we don't want to try download any data
+            return false;
         }
     }
 }

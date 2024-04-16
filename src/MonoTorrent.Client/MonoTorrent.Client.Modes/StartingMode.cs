@@ -28,6 +28,7 @@
 
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -63,9 +64,10 @@ namespace MonoTorrent.Client.Modes
         public void Dispose ()
             => Cancellation.Cancel ();
 
-        public void RaiseInterest ()
+        public List<PeerId> RaiseInterest ()
         {
             // Nothing
+            return [];
         }
 
         public void HandleMessage (PeerId id, PeerMessage message, PeerMessage.Releaser releaser)

@@ -81,10 +81,7 @@ namespace MonoTorrent.Client.Modes
             Unchoker = unchoker ?? new ChokeUnchokeManager (new TorrentManagerUnchokeable (manager), settings.ChokeReviewInterval);
         }
 
-        public virtual void RaiseInterest ()
-        {
-
-        }
+        public virtual List<PeerId> RaiseInterest () => [];
 
         public void HandleMessage (PeerId id, PeerMessage message, PeerMessage.Releaser releaser)
         {
@@ -754,7 +751,7 @@ namespace MonoTorrent.Client.Modes
             Unchoker.UnchokeReview ();
         }
 
-        protected virtual void SetAmInterestedStatus (PeerId id, bool interesting)
+        protected virtual bool SetAmInterestedStatus (PeerId id, bool interesting)
         {
             if (interesting && !id.AmInterested) {
                 id.AmInterested = true;
@@ -762,10 +759,13 @@ namespace MonoTorrent.Client.Modes
 
                 // He's interesting, so attempt to queue up any FastPieces (if that's possible)
                 Manager.PieceManager.AddPieceRequests (id);
+                return true;
             } else if (!interesting && id.AmInterested) {
                 id.AmInterested = false;
                 id.MessageQueue.Enqueue (NotInterestedMessage.Instance, default);
+                return true;
             }
+            return false;
         }
 
         internal async ReusableTask TryHashPendingFilesAsync ()
@@ -826,12 +826,15 @@ namespace MonoTorrent.Client.Modes
             Manager.finishedPieces.Clear ();
         }
 
-        protected void RefreshAmInterestedStatusForAllPeers ()
+        protected List<PeerId> RefreshAmInterestedStatusForAllPeers ()
         {
+            List<PeerId> affected = [];
             foreach (PeerId peer in Manager.Peers.ConnectedPeers) {
                 bool isInteresting = Manager.PieceManager.IsInteresting (peer);
-                SetAmInterestedStatus (peer, isInteresting);
+                if (SetAmInterestedStatus (peer, isInteresting))
+                    affected.Add (peer);
             }
+            return affected;
         }
 
         public void Dispose ()

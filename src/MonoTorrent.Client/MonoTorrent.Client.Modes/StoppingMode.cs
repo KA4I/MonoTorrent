@@ -58,9 +58,10 @@ namespace MonoTorrent.Client.Modes
         public void Dispose ()
             => Cancellation.Dispose ();
 
-        public void RaiseInterest ()
+        public List<PeerId> RaiseInterest ()
         {
             // Nothing
+            return [];
         }
 
         public void HandleMessage (PeerId id, PeerMessage message, PeerMessage.Releaser releaser)

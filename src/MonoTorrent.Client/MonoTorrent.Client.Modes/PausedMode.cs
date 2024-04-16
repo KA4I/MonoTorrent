@@ -27,6 +27,8 @@
 //
 
 
+using System.Collections.Generic;
+
 namespace MonoTorrent.Client.Modes
 {
     class PausedMode : Mode
@@ -41,7 +43,7 @@ namespace MonoTorrent.Client.Modes
             // does not need to do anything special.
         }
 
-        public override void RaiseInterest ()
+        public override List<PeerId> RaiseInterest ()
             => RefreshAmInterestedStatusForAllPeers ();
 
         public override void Tick (int counter)
