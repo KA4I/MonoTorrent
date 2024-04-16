@@ -61,7 +61,11 @@ namespace MonoTorrent.Client.Modes
         }
 
         public override List<PeerId> RaiseInterest ()
-            => RefreshAmInterestedStatusForAllPeers ();
+        {
+            var affected = RefreshAmInterestedStatusForAllPeers ();
+            Manager.PieceManager.AddPieceRequests (Manager.Peers.ConnectedPeers);
+            return affected;
+        }
 
         public override bool ShouldConnect (Peer peer)
         {
