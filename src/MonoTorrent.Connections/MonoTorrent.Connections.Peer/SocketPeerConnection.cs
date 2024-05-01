@@ -37,7 +37,7 @@ using ReusableTasks;
 
 namespace MonoTorrent.Connections.Peer
 {
-    public sealed class SocketPeerConnection : IPeerConnection
+    public sealed class SocketPeerConnection : IPeerConnection, IPeerConnectionLocalInfo
     {
         static readonly EventHandler<SocketAsyncEventArgs> Handler = HandleOperationCompleted;
 
@@ -54,6 +54,10 @@ namespace MonoTorrent.Connections.Peer
         public IPEndPoint EndPoint { get; }
 
         public bool IsIncoming { get; }
+
+        public ReadOnlyMemory<byte> LocalAddressBytes => LocalEndPoint?.Address.GetAddressBytes ();
+        public IPEndPoint? LocalEndPoint => (IPEndPoint) Socket?.LocalEndPoint;
+        public Uri? LocalUri => LocalEndPoint?.ToPeerUri ();
 
         ReusableTaskCompletionSource<int> ReceiveTcs { get; }
 
@@ -84,11 +88,7 @@ namespace MonoTorrent.Connections.Peer
         {
             if (uri == null) {
                 var endpoint = (IPEndPoint) socket!.RemoteEndPoint!;
-                uri = socket.AddressFamily switch {
-                    AddressFamily.InterNetwork => new Uri ($"ipv4://{endpoint}"),
-                    AddressFamily.InterNetworkV6 => new Uri ($"ipv6://{endpoint}"),
-                    _ => throw new NotSupportedException ($"AddressFamily.{socket.AddressFamily} is unsupported")
-                };
+                uri = endpoint.ToPeerUri ();
             }
 
             ConnectCancellation = new CancellationTokenSource ();
