@@ -481,7 +481,8 @@ namespace MonoTorrent.Client
             allTorrents.Remove (manager);
             publicTorrents.Remove (manager);
             ConnectionManager.Remove (manager);
-            listenManager.Remove (manager.InfoHashes);
+            if (!Contains (manager.InfoHashes))
+                listenManager.Remove (manager.InfoHashes);
 
             manager.DownloadLimiters.Remove (downloadLimiters);
             manager.UploadLimiters.Remove (uploadLimiters);
@@ -638,7 +639,7 @@ namespace MonoTorrent.Client
 
             await MainLoop;
 
-            if (Contains (manager.InfoHashes))
+            if (!Settings.AllowMultipleTorrentInstances && Contains (manager.InfoHashes))
                 throw new TorrentException ("A manager for this torrent has already been registered");
 
             allTorrents.Add (manager);

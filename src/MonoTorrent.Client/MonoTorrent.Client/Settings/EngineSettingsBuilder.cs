@@ -102,6 +102,11 @@ namespace MonoTorrent.Client
         public bool AllowLocalPeerDiscovery { get; set; }
 
         /// <summary>
+        /// True if the engine should allow multiple instances of the same torrent to be added to the engine.
+        /// </summary>
+        public bool AllowMultipleTorrentInstances { get; set; }
+
+        /// <summary>
         /// True if the engine should automatically forward ports using any compatible UPnP or NAT-PMP device.
         /// Defaults to <see langword="true"/>.
         /// </summary>
@@ -379,6 +384,7 @@ namespace MonoTorrent.Client
             AllowedEncryption = new List<EncryptionType> (settings.AllowedEncryption);
             AllowHaveSuppression = settings.AllowHaveSuppression;
             AllowLocalPeerDiscovery = settings.AllowLocalPeerDiscovery;
+            AllowMultipleTorrentInstances = settings.AllowMultipleTorrentInstances;
             AllowPortForwarding = settings.AllowPortForwarding;
             AllowUploadingOnOutgoingConnections = settings.AllowUploadingOnOutgoingConnections;
             AutoSaveLoadDhtCache = settings.AutoSaveLoadDhtCache;
@@ -423,6 +429,7 @@ namespace MonoTorrent.Client
                 allowedEncryption: AllowedEncryption,
                 allowHaveSuppression: AllowHaveSuppression,
                 allowLocalPeerDiscovery: AllowLocalPeerDiscovery,
+                allowMultipleTorrentInstances: AllowMultipleTorrentInstances,
                 allowPortForwarding: AllowPortForwarding,
                 allowUploadingOnOutgoingConnections: AllowUploadingOnOutgoingConnections,
                 autoSaveLoadDhtCache: AutoSaveLoadDhtCache,

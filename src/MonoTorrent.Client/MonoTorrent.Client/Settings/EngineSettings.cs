@@ -65,6 +65,11 @@ namespace MonoTorrent.Client
         public bool AllowLocalPeerDiscovery { get; } = true;
 
         /// <summary>
+        /// True if the engine should allow multiple instances of the same torrent to be added to the engine.
+        /// </summary>
+        public bool AllowMultipleTorrentInstances { get; } = false;
+
+        /// <summary>
         /// True if the engine should automatically forward ports using any compatible UPnP or NAT-PMP device.
         /// Defaults to <see langword="true"/>.
         /// </summary>
@@ -287,7 +292,8 @@ namespace MonoTorrent.Client
         }
 
         internal EngineSettings (
-            IList<EncryptionType> allowedEncryption, bool allowHaveSuppression, bool allowLocalPeerDiscovery, bool allowPortForwarding, bool allowUploadingOnOutgoingConnections,
+            IList<EncryptionType> allowedEncryption,
+            bool allowHaveSuppression, bool allowLocalPeerDiscovery, bool allowMultipleTorrentInstances, bool allowPortForwarding, bool allowUploadingOnOutgoingConnections,
             bool autoSaveLoadDhtCache, bool autoSaveLoadFastResume, bool autoSaveLoadMagnetLinkMetadata, string cacheDirectory,
             TimeSpan chokeReviewInterval, TimeSpan connectionTimeout,
             IPEndPoint? dhtEndPoint, int diskCacheBytes, CachePolicy diskCachePolicy, FastResumeMode fastResumeMode, Dictionary<string, IPEndPoint> listenEndPoints,
@@ -302,7 +308,9 @@ namespace MonoTorrent.Client
             AllowedEncryption = EncryptionTypes.MakeReadOnly (allowedEncryption);
             AllowHaveSuppression = allowHaveSuppression;
             AllowLocalPeerDiscovery = allowLocalPeerDiscovery;
+            AllowMultipleTorrentInstances = allowMultipleTorrentInstances;
             AllowPortForwarding = allowPortForwarding;
+            AllowUploadingOnOutgoingConnections = allowUploadingOnOutgoingConnections;
             AutoSaveLoadDhtCache = autoSaveLoadDhtCache;
             AutoSaveLoadFastResume = autoSaveLoadFastResume;
             AutoSaveLoadMagnetLinkMetadata = autoSaveLoadMagnetLinkMetadata;
