@@ -9,5 +9,5 @@ public interface IPeerConnectionLocalInfo
 
     IPEndPoint? LocalEndPoint { get; }
 
-    Uri LocalUri { get; }
+    Uri? LocalUri { get; }
 }

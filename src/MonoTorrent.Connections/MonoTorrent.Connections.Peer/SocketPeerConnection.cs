@@ -1,4 +1,4 @@
-﻿//
+//
 // SocketConnection.cs
 //
 // Authors:
@@ -56,7 +56,7 @@ namespace MonoTorrent.Connections.Peer
         public bool IsIncoming { get; }
 
         public ReadOnlyMemory<byte> LocalAddressBytes => LocalEndPoint?.Address.GetAddressBytes ();
-        public IPEndPoint? LocalEndPoint => (IPEndPoint) Socket?.LocalEndPoint;
+        public IPEndPoint? LocalEndPoint => (IPEndPoint?) Socket?.LocalEndPoint;
         public Uri? LocalUri => LocalEndPoint?.ToPeerUri ();
 
         ReusableTaskCompletionSource<int> ReceiveTcs { get; }

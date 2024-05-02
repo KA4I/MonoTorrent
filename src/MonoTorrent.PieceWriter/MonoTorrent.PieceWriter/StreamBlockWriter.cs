@@ -35,7 +35,7 @@ namespace MonoTorrent.PieceWriter
             stream.Seek (offset, SeekOrigin.Begin);
             using var _ = MemoryPool.Default.Rent (buffer.Length, out ArraySegment<byte> segment);
             buffer.CopyTo (segment);
-            await stream.WriteAsync (segment.Array, segment.Offset, segment.Count).ConfigureAwait (false);
+            await stream.WriteAsync (segment.Array!, segment.Offset, segment.Count).ConfigureAwait (false);
         }
 
         public virtual async ReusableTask FlushAsync (ITorrentManagerInfo torrent)
