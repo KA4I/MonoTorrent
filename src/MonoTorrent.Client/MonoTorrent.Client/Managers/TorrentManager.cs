@@ -48,7 +48,7 @@ using ReusableTasks;
 
 namespace MonoTorrent.Client
 {
-    public class TorrentManager : IEquatable<TorrentManager>, ITorrentManagerInfo, IPieceRequesterData, IMessageEnqueuer, IPeerExchangeSource, IPieceHashStatusUpdater, IPieceHashesProvider, IRaiseInterest
+    public class TorrentManager : ITorrentManagerInfo, IPieceRequesterData, IMessageEnqueuer, IPeerExchangeSource, IPieceHashStatusUpdater, IPieceHashesProvider, IRaiseInterest
     {
         static readonly Logger logger = Logger.Create (nameof (TorrentManager));
 
@@ -523,33 +523,6 @@ namespace MonoTorrent.Client
             return Torrent == null ? "<Metadata Mode>" : Torrent.Name;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public override bool Equals (object? obj)
-        {
-            return (!(obj is TorrentManager m)) ? false : Equals (m);
-        }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="other"></param>
-        /// <returns></returns>
-        public bool Equals (TorrentManager? other)
-            => other != null && other.InfoHashes == InfoHashes;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override int GetHashCode ()
-        {
-            return InfoHashes.GetHashCode ();
-        }
 
         public async Task<List<PeerId>> GetPeersAsync ()
         {
