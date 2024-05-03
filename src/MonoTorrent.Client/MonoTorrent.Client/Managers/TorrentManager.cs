@@ -921,7 +921,10 @@ namespace MonoTorrent.Client
         }
 
         public void UpdatePieceHashStatus (int index, bool hashPassed, int hashed, int totalHashing)
-            => OnPieceHashed (index: index, hashPassed: hashPassed, piecesHashed: hashed, totalToHash: totalHashing);
+        {
+            OnPieceHashed (index: index, hashPassed: hashPassed, piecesHashed: hashed, totalToHash: totalHashing);
+            UnhashedPieces[index] = hashed == 0;
+        }
 
         internal void OnPieceHashed (int index, bool hashPassed)
             => OnPieceHashed (index, hashPassed, 1, 1);
