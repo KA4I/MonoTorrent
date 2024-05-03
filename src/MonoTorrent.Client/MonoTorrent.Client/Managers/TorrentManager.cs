@@ -1054,6 +1054,18 @@ namespace MonoTorrent.Client
                 throw new InvalidOperationException ("The registered engine has been disposed");
         }
 
+        public async Task MarkHashedAsync ()
+        {
+            await ClientEngine.MainLoop;
+
+            CheckMetadata ();
+            if (State != TorrentState.Stopped)
+                throw new InvalidOperationException ("Can only change hashing status when the torrent is stopped");
+
+            UnhashedPieces.SetAll (false);
+            HashChecked = true;
+        }
+
         public async Task LoadFastResumeAsync (FastResume data)
         {
             if (data == null)
