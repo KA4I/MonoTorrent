@@ -568,6 +568,8 @@ namespace MonoTorrent.Client
 
                 DiskManager.Dispose ();
                 LocalPeerDiscovery.Stop ();
+
+                (PortForwarder as IDisposable)?.Dispose ();
             });
         }
 

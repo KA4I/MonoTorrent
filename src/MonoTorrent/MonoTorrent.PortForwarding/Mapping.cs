@@ -75,5 +75,8 @@ namespace MonoTorrent.PortForwarding
 
         public override int GetHashCode ()
             => PrivatePort;
+
+        public override string ToString ()
+            => $"{Protocol}({PublicPort} -> {PrivatePort})";
     }
 }

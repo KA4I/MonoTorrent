@@ -35,10 +35,13 @@ using System.Threading.Tasks;
 
 using Mono.Nat;
 
+using MonoTorrent.Logging;
+
 namespace MonoTorrent.PortForwarding
 {
-    public class MonoNatPortForwarder : IPortForwarder
+    public class MonoNatPortForwarder : IPortForwarder, IDisposable
     {
+        readonly ILogger logger = LoggerFactory.Create (nameof (MonoNatPortForwarder));
 
         public event EventHandler? MappingsChanged;
 
@@ -55,18 +58,21 @@ namespace MonoTorrent.PortForwarding
             Devices = new List<INatDevice> ();
             Mappings = Mappings.Empty;
 
-            NatUtility.DeviceFound += async (o, e) => {
-                using (await Locker.EnterAsync ()) {
-                    if (Devices.Contains (e.Device))
-                        return;
-                    Devices = Devices.Concat (new[] { e.Device }).ToArray ();
-                }
+            NatUtility.DeviceFound += this.OnDeviceFound;
+        }
 
-                foreach (var mapping in Mappings.Pending)
-                    await CreateOrFailMapping (e.Device, mapping);
+        async void OnDeviceFound(object? _, DeviceEventArgs e)
+        {
+            using (await Locker.EnterAsync ()) {
+                if (Devices.Contains (e.Device))
+                    return;
+                Devices = Devices.Concat (new[] { e.Device }).ToArray ();
+            }
 
-                RaiseMappingsChangedAsync ();
-            };
+            foreach (var mapping in Mappings.Pending)
+                await CreateOrFailMapping (e.Device, mapping);
+
+            RaiseMappingsChangedAsync ();
         }
 
         public async Task RegisterMappingAsync (Mapping mapping)
@@ -147,7 +153,9 @@ namespace MonoTorrent.PortForwarding
             try {
                 await device.CreatePortMapAsync (map);
                 Mappings = Mappings.WithCreated (mapping);
-            } catch {
+                this.logger.Info ($"{Display(device)} successfully created mapping: {mapping} {map}");
+            } catch (Exception e) {
+                this.logger.Error ($"{Display (device)} failed to create mapping: {mapping}\n{e}");
                 Mappings = Mappings.WithFailed (mapping);
             }
         }
@@ -162,9 +170,14 @@ namespace MonoTorrent.PortForwarding
 
             try {
                 await device.DeletePortMapAsync (map).ConfigureAwait (false);
-            } catch {
+                this.logger.Info ($"{Display(device)} successfully deleted mapping: {mapping}");
+            } catch (Exception e) {
+                this.logger.Error ($"{Display(device)} failed to delete mapping: {mapping}\n{e}");
             }
         }
+
+        static string Display(INatDevice device) => $"{device.NatProtocol}({device.DeviceEndpoint})";
+        static string Display(NatProtocol protocol) => protocol == NatProtocol.Pmp ? "PMP" : "UPnP";
 
         async void RaiseMappingsChangedAsync ()
         {
@@ -172,6 +185,11 @@ namespace MonoTorrent.PortForwarding
                 await new ThreadSwitcher ();
                 MappingsChanged.Invoke (this, EventArgs.Empty);
             }
+        }
+
+        public void Dispose()
+        {
+            NatUtility.DeviceFound -= this.OnDeviceFound;
         }
     }
 }
