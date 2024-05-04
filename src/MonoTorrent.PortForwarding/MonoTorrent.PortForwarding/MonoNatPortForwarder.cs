@@ -69,10 +69,10 @@ namespace MonoTorrent.PortForwarding
                 if (Devices.Contains (e.Device))
                     return;
                 Devices = Devices.Concat (new[] { e.Device }).ToArray ();
-            }
 
-            foreach (var mapping in Mappings.Pending)
-                await CreateOrFailMapping (e.Device, mapping);
+                foreach (var mapping in Mappings.Pending)
+                    await CreateOrFailMapping (e.Device, mapping);
+            }
 
             RaiseMappingsChangedAsync ();
         }
