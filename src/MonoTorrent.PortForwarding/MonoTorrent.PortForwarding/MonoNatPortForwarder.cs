@@ -163,7 +163,7 @@ namespace MonoTorrent.PortForwarding
                     active.Add ((device, map));
                 this.logger.Info ($"{Display(device)} successfully created mapping: {mapping} {map}");
             } catch (Exception e) {
-                this.logger.Error ($"{Display (device)} failed to create mapping: {mapping}\n{e}");
+                this.logger.Error ($"{Display (device)} failed to create mapping: {mapping}\n{e.Message}");
                 Mappings = Mappings.WithFailed (mapping);
             }
         }
@@ -182,7 +182,7 @@ namespace MonoTorrent.PortForwarding
                     active.Remove ((device, map));
                 this.logger.Info ($"{Display(device)} successfully deleted mapping: {mapping}");
             } catch (Exception e) {
-                this.logger.Error ($"{Display(device)} failed to delete mapping: {mapping}\n{e}");
+                this.logger.Error ($"{Display(device)} failed to delete mapping: {mapping}\n{e.Message}");
             }
         }
 
@@ -207,7 +207,7 @@ namespace MonoTorrent.PortForwarding
                             existing = await mapping.dev.GetSpecificMappingAsync (mapping.map.Protocol, mapping.map.PublicPort).ConfigureAwait (false);
                             continue;
                         } catch (MappingException e) {
-                            this.logger.Debug ($"{Display (mapping.dev)} mapping {mapping.map.Protocol}({mapping.map.PublicPort}) not found: {e}");
+                            this.logger.Debug ($"{Display (mapping.dev)} mapping {mapping.map.Protocol}({mapping.map.PublicPort}) not found: {e.Message}");
                         }
                     } else {
                         double timeLeft = (mapping.map.Expiration - DateTime.Now).TotalSeconds / (float) mapping.map.Lifetime;
@@ -219,7 +219,8 @@ namespace MonoTorrent.PortForwarding
                     try {
                         await mapping.dev.DeletePortMapAsync (mapping.map).ConfigureAwait (false);
                     } catch (MappingException e) {
-                        this.logger.Error ($"{Display (mapping.dev)} failed to delete mapping {mapping.map.Protocol}({mapping.map.PublicPort}): {e}");
+                        if (e.ErrorCode != NatErrors.NoSuchEntryInArray)
+                            this.logger.Error ($"{Display (mapping.dev)} failed to delete mapping {mapping.map.Protocol}({mapping.map.PublicPort}): {e.Message}");
                     }
                     var newMapping = new Mono.Nat.Mapping (
                             mapping.map.Protocol,
@@ -228,8 +229,9 @@ namespace MonoTorrent.PortForwarding
                     try {
                         await mapping.dev.CreatePortMapAsync (mapping.map).ConfigureAwait (false);
                         replace.Add ((mapping.map, newMapping));
+                        this.logger.Debug ($"{Display (mapping.dev)} refreshed mapping {mapping.map.Protocol}({mapping.map.PublicPort})");
                     } catch (MappingException e) {
-                        this.logger.Error ($"{Display (mapping.dev)} failed to recreate mapping {mapping.map.Protocol}({mapping.map.PublicPort}): {e}");
+                        this.logger.Error ($"{Display (mapping.dev)} failed to recreate mapping {mapping.map.Protocol}({mapping.map.PublicPort}): {e.Message}");
                         replace.Add ((mapping.map, null));
                     }
                 }
@@ -252,6 +254,11 @@ namespace MonoTorrent.PortForwarding
 
                 await Task.Delay (TimeSpan.FromMinutes (1), token).ConfigureAwait (false);
             }
+        }
+
+        static class NatErrors
+        {
+            public const ErrorCode NoSuchEntryInArray = (ErrorCode)714;
         }
 
         static string Display(INatDevice device) => $"{Display(device.NatProtocol)}({device.DeviceEndpoint})";
