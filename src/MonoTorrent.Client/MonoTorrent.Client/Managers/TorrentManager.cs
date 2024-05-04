@@ -1105,8 +1105,8 @@ namespace MonoTorrent.Client
                 var path = Engine.Settings.GetFastResumePath (InfoHashes);
                 if (File.Exists (path))
                     await Task.Run (() => File.Delete (path));
-            } catch {
-                // FIXME: I don't think we really care about this? Log it?
+            } catch (Exception e) {
+                logger.Exception (e, "Could not delete fast resume file");
             }
         }
 

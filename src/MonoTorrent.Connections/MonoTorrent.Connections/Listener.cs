@@ -68,7 +68,8 @@ namespace MonoTorrent.Connections
             try {
                 Start (Cancellation.Token);
                 RaiseStatusChanged (ListenerStatus.Listening);
-            } catch {
+            } catch (Exception e) {
+                logger.Error ($"Unable to start listener: {e}");
                 RaiseStatusChanged (ListenerStatus.PortNotFree);
             }
 
