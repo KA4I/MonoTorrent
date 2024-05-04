@@ -242,7 +242,7 @@ namespace MonoTorrent.Client
 
         public BEncodedString PeerId { get; }
 
-        internal IPortForwarder PortForwarder { get; }
+        public IPortForwarder PortForwarder { get; }
 
         public EngineSettings Settings { get; private set; }
 
