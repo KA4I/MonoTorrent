@@ -181,6 +181,12 @@ namespace MonoTorrent.PortForwarding
                 lock (active)
                     active.Remove (new(mapping, device, map));
                 this.logger.Info ($"{Display(device)} successfully deleted mapping: {mapping}");
+            } catch (MappingException e) {
+                string message = $"{Display (device)} failed to delete mapping: {mapping}\n{e.Message}";
+                if (e.ErrorCode != NatErrors.NoSuchEntryInArray)
+                    this.logger.Error (message);
+                else
+                    this.logger.Debug (message);
             } catch (Exception e) {
                 this.logger.Error ($"{Display(device)} failed to delete mapping: {mapping}\n{e.Message}");
             }
