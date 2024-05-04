@@ -43,7 +43,7 @@ namespace MonoTorrent.PortForwarding
     {
         readonly ILogger logger = LoggerFactory.Create (nameof (MonoNatPortForwarder));
         CancellationTokenSource stop = new CancellationTokenSource ();
-        readonly List<(INatDevice dev, Mono.Nat.Mapping map)> active = new List<(INatDevice, Mono.Nat.Mapping)> ();
+        readonly List<ActiveMapping> active = new ();
 
         public event EventHandler? MappingsChanged;
 
@@ -160,7 +160,7 @@ namespace MonoTorrent.PortForwarding
                 await device.CreatePortMapAsync (map);
                 Mappings = Mappings.WithCreated (mapping);
                 lock (active)
-                    active.Add ((device, map));
+                    active.Add (new (mapping, device, map));
                 this.logger.Info ($"{Display(device)} successfully created mapping: {mapping} {map}");
             } catch (Exception e) {
                 this.logger.Error ($"{Display (device)} failed to create mapping: {mapping}\n{e.Message}");
@@ -179,7 +179,7 @@ namespace MonoTorrent.PortForwarding
             try {
                 await device.DeletePortMapAsync (map).ConfigureAwait (false);
                 lock (active)
-                    active.Remove ((device, map));
+                    active.Remove (new(mapping, device, map));
                 this.logger.Info ($"{Display(device)} successfully deleted mapping: {mapping}");
             } catch (Exception e) {
                 this.logger.Error ($"{Display(device)} failed to delete mapping: {mapping}\n{e.Message}");
@@ -191,48 +191,56 @@ namespace MonoTorrent.PortForwarding
             await new ThreadSwitcher ();
 
             while (!token.IsCancellationRequested) {
-                (INatDevice dev, Mono.Nat.Mapping map)[] activeSnapshot;
+                ActiveMapping[] activeSnapshot;
                 lock (active)
                     activeSnapshot = active.ToArray ();
 
-                var replace = new List<(Mono.Nat.Mapping, Mono.Nat.Mapping?)> ();
+                var replace = new List<(Mono.Nat.Mapping, ActiveMapping?)> ();
 
                 foreach (var mapping in activeSnapshot) {
                     if (token.IsCancellationRequested)
                         return;
 
-                    if (mapping.map.Lifetime == 0) {
-                        Mono.Nat.Mapping existing;
+                    var map = mapping.NativeMapping;
+                    var device = mapping.Device;
+                    if (map.Lifetime == 0) {
                         try {
-                            existing = await mapping.dev.GetSpecificMappingAsync (mapping.map.Protocol, mapping.map.PublicPort).ConfigureAwait (false);
+                            var existing = await device.GetSpecificMappingAsync (map.Protocol, map.PublicPort).ConfigureAwait (false);
+                            this.logger.Debug ($"OK: {Display (device)} mapping {map.Protocol}({map.PublicPort})");
                             continue;
                         } catch (MappingException e) {
-                            this.logger.Debug ($"{Display (mapping.dev)} mapping {mapping.map.Protocol}({mapping.map.PublicPort}) not found: {e.Message}");
+                            this.logger.Debug ($"{Display (device)} mapping {map.Protocol}({map.PublicPort}) not found: {e.Message}");
                         }
                     } else {
-                        double timeLeft = (mapping.map.Expiration - DateTime.Now).TotalSeconds / (float) mapping.map.Lifetime;
+                        double timeLeft = (map.Expiration - DateTime.Now).TotalSeconds / (float) map.Lifetime;
                         if (timeLeft > 0.666)
                             continue;
                     }
 
-                    this.logger.Debug ($"{Display (mapping.dev)} refreshing mapping {mapping.map.Protocol}({mapping.map.PublicPort})");
+                    this.logger.Debug ($"{Display (device)} refreshing mapping {map.Protocol}({map.PublicPort})");
                     try {
-                        await mapping.dev.DeletePortMapAsync (mapping.map).ConfigureAwait (false);
+                        await device.DeletePortMapAsync (map).ConfigureAwait (false);
                     } catch (MappingException e) {
-                        if (e.ErrorCode != NatErrors.NoSuchEntryInArray)
-                            this.logger.Error ($"{Display (mapping.dev)} failed to delete mapping {mapping.map.Protocol}({mapping.map.PublicPort}): {e.Message}");
+                        if (e.ErrorCode != NatErrors.NoSuchEntryInArray || map.Lifetime > 0)
+                            this.logger.Error ($"{Display (device)} failed to delete mapping {map.Protocol}({map.PublicPort}): {e.Message}");
                     }
-                    var newMapping = new Mono.Nat.Mapping (
-                            mapping.map.Protocol,
-                            privatePort: mapping.map.PrivatePort,
-                            publicPort: mapping.map.PublicPort);
+                    var newMap = new Mono.Nat.Mapping (
+                            map.Protocol,
+                            privatePort: map.PrivatePort,
+                            publicPort: map.PublicPort);
                     try {
-                        await mapping.dev.CreatePortMapAsync (mapping.map).ConfigureAwait (false);
-                        replace.Add ((mapping.map, newMapping));
-                        this.logger.Debug ($"{Display (mapping.dev)} refreshed mapping {mapping.map.Protocol}({mapping.map.PublicPort})");
+                        await device.CreatePortMapAsync (newMap).ConfigureAwait (false);
+                        replace.Add ((map, mapping.WithNativeMapping (newMap)));
+                        this.logger.Debug ($"{Display (device)} refreshed mapping {map.Protocol}({map.PublicPort})");
+                        using (await Locker.EnterAsync ().ConfigureAwait (false)) {
+                            Mappings = Mappings.WithCreated (mapping.Mapping);
+                        }
                     } catch (MappingException e) {
-                        this.logger.Error ($"{Display (mapping.dev)} failed to recreate mapping {mapping.map.Protocol}({mapping.map.PublicPort}): {e.Message}");
-                        replace.Add ((mapping.map, null));
+                        this.logger.Error ($"{Display (device)} failed to recreate mapping {map.Protocol}({map.PublicPort}): {e.Message}");
+                        using (await Locker.EnterAsync ().ConfigureAwait (false)) {
+                            Mappings = Mappings.WithFailed (mapping.Mapping);
+                        }
+                        replace.Add ((map, null));
                     }
                 }
 
@@ -240,7 +248,7 @@ namespace MonoTorrent.PortForwarding
                     int i = 0;
                     while (i < active.Count && replace.Count > 0) {
                         var current = active[i];
-                        var (map, newMap) = replace.FirstOrDefault (r => r.Item1.Equals (current.map));
+                        var (map, newMap) = replace.FirstOrDefault (r => r.Item1.Equals (current.NativeMapping));
                         if (map is null) {
                             i++;
                             continue;
@@ -248,12 +256,40 @@ namespace MonoTorrent.PortForwarding
                         if (newMap is null)
                             active.RemoveAt (i);
                         else
-                            active[i] = (current.dev, newMap);
+                            active[i] = newMap;
                     }
                 }
 
+                if (replace.Any (replace => replace.Item2 is null))
+                    RaiseMappingsChangedAsync ();
+
                 await Task.Delay (TimeSpan.FromMinutes (1), token).ConfigureAwait (false);
             }
+        }
+
+        class ActiveMapping: IEquatable<ActiveMapping>
+        {
+            public ActiveMapping (Mapping mapping, INatDevice device, Mono.Nat.Mapping nativeMapping)
+            {
+                Mapping = mapping ?? throw new ArgumentNullException (nameof (mapping));
+                Device = device ?? throw new ArgumentNullException (nameof (device));
+                NativeMapping = nativeMapping ?? throw new ArgumentNullException (nameof (nativeMapping));
+            }
+
+            public INatDevice Device { get; }
+            public Mono.Nat.Mapping NativeMapping { get; }
+            public Mapping Mapping { get; }
+
+            public ActiveMapping WithNativeMapping (Mono.Nat.Mapping mapping)
+                => new ActiveMapping (Mapping, Device, mapping);
+
+            public bool Equals (ActiveMapping? other)
+                => Device.Equals (other?.Device) && Mapping.Equals (other?.Mapping);
+
+            public override bool Equals (object? obj)
+                => obj is ActiveMapping other && Equals (other);
+
+            public override int GetHashCode () => Device.GetHashCode () ^ Mapping.GetHashCode ();
         }
 
         static class NatErrors
