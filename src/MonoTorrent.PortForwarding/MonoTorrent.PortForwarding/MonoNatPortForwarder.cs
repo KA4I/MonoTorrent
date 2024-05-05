@@ -262,7 +262,7 @@ namespace MonoTorrent.PortForwarding
                         if (newMap is null)
                             active.RemoveAt (i);
                         else
-                            active[i] = newMap;
+                            active[i++] = newMap;
                     }
                 }
 
