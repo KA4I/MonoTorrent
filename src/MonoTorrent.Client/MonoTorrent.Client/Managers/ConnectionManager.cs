@@ -531,8 +531,7 @@ namespace MonoTorrent.Client
                                 await PeerIO.SendMessageAsync (id.Connection, id.Encryptor, reject, manager.UploadLimiters, id.Monitor, manager.Monitor, buffer).ConfigureAwait (false);
                             } else {
                                 var bitfieldUpdate = new BitfieldMessage (manager.Bitfield);
-                                if (bitfieldUpdate.ByteLength < PeerIO.MaxMessageLength)
-                                    await PeerIO.SendMessageAsync (id.Connection, id.Encryptor, bitfieldUpdate, manager.UploadLimiters, id.Monitor, manager.Monitor, buffer).ConfigureAwait (false);
+                                await PeerIO.SendMessageAsync (id.Connection, id.Encryptor, bitfieldUpdate, manager.UploadLimiters, id.Monitor, manager.Monitor, buffer).ConfigureAwait (false);
                             }
                             continue;
                         }

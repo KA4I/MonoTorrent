@@ -42,7 +42,7 @@ namespace MonoTorrent.Client
 {
     static class PeerIO
     {
-        internal const int MaxMessageLength = 4 * 1024 * 1024;
+        const int MaxMessageLength = Constants.BlockSize * 4;
 
         public static async ReusableTask<HandshakeMessage> ReceiveHandshakeAsync (IPeerConnection connection, IEncryption decryptor)
         {
@@ -88,7 +88,11 @@ namespace MonoTorrent.Client
                 decryptor.Decrypt (messageHeaderBuffer.Span.Slice (0, messageHeaderLength));
 
                 messageBodyLength = Message.ReadInt (messageHeaderBuffer.Span);
-                if (messageBodyLength < 0 || messageBodyLength > MaxMessageLength) {
+                // depending on configuration large torrents can have a lot of pieces,
+                // so we need to increase limit to the message length to accomodate for that
+                int pieceCount = torrentData?.TorrentInfo?.PieceCount() ?? 0;
+                int maxLength = Math.Max(MaxMessageLength, pieceCount / 4);
+                if (messageBodyLength < 0 || messageBodyLength > maxLength) {
                     connection.Dispose ();
                     throw new ProtocolException ($"Invalid message length received. Value was '{messageBodyLength}'");
                 }
