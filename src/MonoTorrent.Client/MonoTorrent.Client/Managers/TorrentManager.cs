@@ -115,6 +115,8 @@ namespace MonoTorrent.Client
                 }
             }
 
+            Mode.HandleFilePriorityChanged (file, oldPriority);
+
             if (priority > oldPriority)
                 Mode.RaiseInterest ();
         }

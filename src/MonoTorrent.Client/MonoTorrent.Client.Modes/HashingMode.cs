@@ -59,6 +59,11 @@ namespace MonoTorrent.Client.Modes
             PausedCompletionSource.SetResult (null);
         }
 
+        public void HandleFilePriorityChanged (ITorrentManagerFile file, Priority oldPriority)
+        {
+
+        }
+
         public List<PeerId> RaiseInterest ()
         {
             // Nothing

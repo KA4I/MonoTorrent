@@ -42,6 +42,7 @@ namespace MonoTorrent.Client.Modes
         bool CanHashCheck { get; }
         TorrentState State { get; }
         CancellationToken Token { get; }
+        void HandleFilePriorityChanged (ITorrentManagerFile file, Priority oldPriority);
         /// <summary>
         /// Indicates that we might gain interest in some peers.
         /// </summary>

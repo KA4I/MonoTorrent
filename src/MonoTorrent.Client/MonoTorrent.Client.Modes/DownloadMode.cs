@@ -60,6 +60,12 @@ namespace MonoTorrent.Client.Modes
             }
         }
 
+        public override void HandleFilePriorityChanged (ITorrentManagerFile file, Priority oldPriority)
+        {
+            base.HandleFilePriorityChanged (file, oldPriority);
+            RefreshAmInterestedStatusForAllPeers ();
+        }
+
         public override List<PeerId> RaiseInterest ()
         {
             var affected = RefreshAmInterestedStatusForAllPeers ();

@@ -81,6 +81,10 @@ namespace MonoTorrent.Client.Modes
             Unchoker = unchoker ?? new ChokeUnchokeManager (new TorrentManagerUnchokeable (manager), settings.ChokeReviewInterval);
         }
 
+        public virtual void HandleFilePriorityChanged (ITorrentManagerFile file, Priority oldPriority)
+        {
+
+        }
         public virtual List<PeerId> RaiseInterest () => [];
 
         public void HandleMessage (PeerId id, PeerMessage message, PeerMessage.Releaser releaser)

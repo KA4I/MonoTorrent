@@ -51,6 +51,11 @@ namespace MonoTorrent.Client.Modes
         public void Dispose ()
             => Cancellation.Cancel ();
 
+        public void HandleFilePriorityChanged (ITorrentManagerFile file, Priority oldPriority)
+        {
+
+        }
+
         public List<PeerId> RaiseInterest ()
         {
             // Nothing
