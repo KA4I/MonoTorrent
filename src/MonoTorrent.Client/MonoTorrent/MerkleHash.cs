@@ -54,7 +54,7 @@ namespace MonoTorrent
             return results;
         }
 
-        public static ReadOnlyMemory<byte> Hash (ReadOnlySpan<byte> src, int startLayerLength)
+        public static ReadOnlyMemory<byte> Hash (ReadOnlySpan<byte> src, long startLayerLength)
         {
             using var hasher = IncrementalHash.CreateHash (HashAlgorithmName.SHA256);
             Memory<byte> hash = new byte[32];
@@ -86,7 +86,7 @@ namespace MonoTorrent
             // The only time 'length' is equal to 1 is when the final request needed 1 piece. In this case we should
             // treat it as being a request of length '2' as we *should* have a padding hash to the right of the node we fetched.
             length = Math.Max (2, length);
-            int proofLayerOffset = index / (int) Math.Pow (2, Math.Ceiling (Math.Log (length, 2)));
+            int proofLayerOffset = index / IntMath.Pow (2, (int)Math.Ceiling (Math.Log (length, 2)));
             for (int i = 0; i < proofLayers.Length; i += 32) {
                 if ((proofLayerOffset & 1) == 1)
                     hasher.AppendData (proofLayers.Slice (i, 32));

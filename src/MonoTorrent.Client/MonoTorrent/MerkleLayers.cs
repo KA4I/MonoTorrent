@@ -77,7 +77,7 @@ namespace MonoTorrent
 
             Span<byte> computedHash = stackalloc byte[32];
             using var hasher = IncrementalHash.CreateHash (HashAlgorithmName.SHA256);
-            if (!MerkleHash.TryHash (hasher, hashes, (int) Math.Pow (2, baseLayer) * 16384, proofs, index, length, computedHash, out int written))
+            if (!MerkleHash.TryHash (hasher, hashes, IntMath.Pow (2L, baseLayer) * 16384, proofs, index, length, computedHash, out int written))
                 return false;
             if (!ExpectedRoot.IsEmpty && !computedHash.SequenceEqual (ExpectedRoot.Span))
                 return false;
@@ -104,7 +104,7 @@ namespace MonoTorrent
                 }
                 if (src.Length % 64 == 32) {
                     hasher.AppendData (src.Span.Slice (src.Length - 32, 32));
-                    hasher.AppendData (MerkleHash.PaddingHashes[16384 * (int) Math.Pow (2, layer)].Span);
+                    hasher.AppendData (MerkleHash.PaddingHashes[16384 * IntMath.Pow (2L, layer)].Span);
                     if (!hasher.TryGetHashAndReset (dest.Slice (dest.Length - 32, 32).Span, out written) || written != 32)
                         return false;
                 }

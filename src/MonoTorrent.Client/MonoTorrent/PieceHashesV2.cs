@@ -124,7 +124,7 @@ namespace MonoTorrent
 
             // The first proof layer is the one after the base layer, and we also skip ahead by the number of omitted hashes.
             var proofLayer = baseLayer + omittedHashes + 1;
-            var proofLayerIndex = index / (int) Math.Pow (2, proofLayer - baseLayer);
+            var proofLayerIndex = index / IntMath.Pow (2, proofLayer - baseLayer);
             while (proofsBuffer.Length > 0) {
                 layers.GetHash (proofLayer, proofLayerIndex ^ 1).Span.CopyTo (proofsBuffer.Slice (0, HashCodeLength));
                 proofLayerIndex /= 2;
