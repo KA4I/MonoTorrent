@@ -143,10 +143,13 @@ namespace MonoTorrent.Connections.Peer
 
                 foreach (var nic in nics) {
                     try {
-                        sendingClient.Client.SetSocketOption (SocketOptionLevel.IP, SocketOptionName.MulticastInterface, IPAddress.HostToNetworkOrder (nic.GetIPProperties ().GetIPv4Properties ().Index));
+                        var ipProperties = nic.GetIPProperties ();
+                        var ipv4Addresses = ipProperties.UnicastAddresses.Where (t => t.Address.AddressFamily == AddressFamily.InterNetwork).Select (t => t.Address);
+                        logger.Debug ($"Announcing {infoHash} with {endPoint} on {nic.Name} ({string.Join(",", ipv4Addresses)})");
+                        sendingClient.Client.SetSocketOption (SocketOptionLevel.IP, SocketOptionName.MulticastInterface, IPAddress.HostToNetworkOrder (ipProperties.GetIPv4Properties ().Index));
                         await sendingClient.SendAsync (data, data.Length, MulticastAddressV4).ConfigureAwait (false);
-                    } catch {
-                        // If data can't be sent, just ignore the error
+                    } catch (Exception e) {
+                        logger.Debug ($"Unable to announce {infoHash} with {endPoint} on {nic.Name}: {e}");
                     }
                 }
             }
@@ -179,6 +182,8 @@ namespace MonoTorrent.Connections.Peer
 
                     var infoHash = InfoHash.FromHex (hashString.Split (' ').Last ());
                     var uri = new Uri ($"ipv4://{result.RemoteEndPoint.Address}{':'}{portcheck}");
+
+                    logger.Debug ($"Local peer found for {infoHash}: {uri}");
 
                     PeerFound?.Invoke (this, new LocalPeerFoundEventArgs (infoHash, uri));
                 } catch (FileNotFoundException) {
