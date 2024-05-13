@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 
+using MonoTorrent.Logging;
 using MonoTorrent.Messages.Peer;
 
 namespace MonoTorrent.Client
 {
     class ChokeUnchokeManager : IUnchoker
     {
+        readonly Logger logger = Logger.Create (nameof(ChokeUnchokeManager));
         readonly TimeSpan minimumTimeBetweenReviews = TimeSpan.FromSeconds (30); //  Minimum time that needs to pass before we execute a review
 
         ValueStopwatch timeSinceLastReview; //When we last reviewed the choke/unchoke position
@@ -148,7 +150,9 @@ namespace MonoTorrent.Client
             peer.AmChoking = true;
             Unchokeable.UploadingTo--;
             peer.MessageQueue.EnqueueAt (0, ChokeMessage.Instance, default);
-            RejectPendingRequests (peer);
+            int rejected = RejectPendingRequests (peer);
+            string fast = peer.SupportsFastPeer ? "FAST " : string.Empty;
+            logger.Debug ($"I choked {fast} {peer.Connection.Uri} and rejected {rejected} requests");
             peer.LastUnchoked = new ValueStopwatch ();
         }
 
@@ -319,10 +323,11 @@ namespace MonoTorrent.Client
         /// and rejects them as necessary
         /// </summary>
         /// <param name="Peer"></param>
-        void RejectPendingRequests (PeerId Peer)
+        int RejectPendingRequests (PeerId Peer)
         {
             var rejectedCount = Peer.MessageQueue.RejectRequests (Peer.SupportsFastPeer, Peer.AmAllowedFastPieces.Span);
             Interlocked.Add (ref Peer.isRequestingPiecesCount, rejectedCount);
+            return rejectedCount;
         }
 
         void Unchoke (PeerId peer)

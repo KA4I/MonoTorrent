@@ -453,17 +453,17 @@ namespace MonoTorrent.Client
                     || manager.OpenConnections >= manager.Settings.MaximumConnections;
 
                 if (IsSelf (id.Peer.Info.PeerId)) {
-                    logger.Info ("Connected to self - disconnecting");
+                    logger.Trace ("Connected to self - disconnecting");
                     CleanupSocket (manager, id);
                     return false;
                 }
                 if (manager.Peers.ActivePeers.Contains (id.Peer)) {
-                    logger.Info (id.Connection, "Already connected to peer");
+                    logger.Debug ($"{id.Connection}: Already connected to peer");
                     id.Connection.Dispose ();
                     return false;
                 }
                 if (maxAlreadyOpen) {
-                    logger.Info ("Connected to too many peers - disconnecting");
+                    logger.Debug ("Connected to too many peers - disconnecting");
                     CleanupSocket (manager, id);
                     return false;
                 }
