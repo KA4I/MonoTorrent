@@ -882,8 +882,10 @@ namespace MonoTorrent.Client
                 return false;
 
             // Ignore peers in the inactive list
-            if (InactivePeerManager.InactivePeerList.Contains (peer.Info.ConnectionUri))
+            if (InactivePeerManager.InactivePeerList.Contains (peer.Info.ConnectionUri)) {
+                logger.Debug ($"{this} - ignoring {peer.Info.ConnectionUri} as it is inactive");
                 return false;
+            }
 
             if (Engine!.PeerId.Equals (peer.Info.PeerId))
                 return false;
