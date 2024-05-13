@@ -37,17 +37,24 @@ namespace MonoTorrent.Dht
     {
         readonly byte[] currentSecret;
         readonly byte[] previousSecret;
+#if !NET6_0_OR_GREATER
         readonly RandomNumberGenerator random;
+#endif
         readonly SHA1 sha1;
 
         public TokenManager ()
         {
             sha1 = SHA1.Create ();
-            random = new RNGCryptoServiceProvider ();
             currentSecret = new byte[10];
             previousSecret = new byte[10];
-            random.GetNonZeroBytes (currentSecret);
-            random.GetNonZeroBytes (previousSecret);
+#if NET6_0_OR_GREATER
+            RandomNumberGenerator.Fill (currentSecret);
+            RandomNumberGenerator.Fill (previousSecret);
+#else
+            random = new RNGCryptoServiceProvider ();
+            random.GetBytes (currentSecret);
+            random.GetBytes (previousSecret);
+#endif
         }
 
         public BEncodedString GenerateToken (Node node)
@@ -68,7 +75,11 @@ namespace MonoTorrent.Dht
         public void RefreshTokens ()
         {
             currentSecret.CopyTo (previousSecret, 0);
-            random.GetNonZeroBytes (currentSecret);
+#if NET6_0_OR_GREATER
+            RandomNumberGenerator.Fill (currentSecret);
+#else
+            random.GetBytes (currentSecret);
+#endif
         }
 
         public bool VerifyToken (Node node, BEncodedString token)
