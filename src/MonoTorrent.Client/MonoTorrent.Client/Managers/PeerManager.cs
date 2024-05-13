@@ -28,6 +28,7 @@
 
 
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MonoTorrent.Client
 {
@@ -38,7 +39,19 @@ namespace MonoTorrent.Client
 
         internal List<Peer> ActivePeers;
         internal List<Peer> AvailablePeers;
-        internal List<Peer> BannedPeers;
+        readonly List<BannedPeer> bannedPeers = new ();
+        internal IEnumerable<BannedPeer> BannedPeers {
+            get {
+                lock (bannedPeers)
+                    return bannedPeers.ToArray ();
+            }
+        }
+
+        internal struct BannedPeer
+        {
+            public Peer Peer;
+            public ValueStopwatch BannedAt;
+        }
 
         /// <summary>
         /// The number of peers which are available to be connected to.
@@ -69,7 +82,6 @@ namespace MonoTorrent.Client
 
             ActivePeers = new List<Peer> ();
             AvailablePeers = new List<Peer> ();
-            BannedPeers = new List<Peer> ();
         }
 
         internal void ClearAll ()
@@ -79,14 +91,43 @@ namespace MonoTorrent.Client
 
             ActivePeers.Clear ();
             AvailablePeers.Clear ();
-            BannedPeers.Clear ();
+            lock (bannedPeers)
+                bannedPeers.Clear ();
         }
 
         internal bool Contains (Peer peer)
         {
             return ActivePeers.Contains (peer)
                 || AvailablePeers.Contains (peer)
-                || BannedPeers.Contains (peer);
+                || IsBanned (peer);
+        }
+
+        internal bool IsBanned (Peer peer)
+        {
+            lock (bannedPeers)
+                return bannedPeers.Any (p => p.Peer.Equals (peer));
+        }
+
+        internal void Ban (Peer peer)
+        {
+            lock (bannedPeers)
+                bannedPeers.Add (new () {
+                    Peer = peer,
+                    BannedAt = ValueStopwatch.StartNew (),
+                });
+        }
+
+        internal void Unban (Peer peer)
+        {
+            lock (bannedPeers)
+                for (int i = 0; i < bannedPeers.Count; i++) {
+                    if (bannedPeers[i].Peer.Equals (peer)) {
+                        bannedPeers.RemoveAt (i);
+                        if (!Contains (peer))
+                            AvailablePeers.Add (peer);
+                        break;
+                    }
+                }
         }
 
         internal void UpdatePeerCounts ()

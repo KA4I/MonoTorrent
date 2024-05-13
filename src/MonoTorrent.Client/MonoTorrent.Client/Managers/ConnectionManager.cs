@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Threading;
 
 using MonoTorrent.BEncoding;
@@ -258,7 +259,7 @@ namespace MonoTorrent.Client
 
                 if (!await ConnectionGate.TryAcceptHandshakeAsync (LocalPeerId, id.Peer.Info, id.Connection, manager.InfoHashes.V1OrV2)) {
                     logger.InfoFormatted (id.Connection, "[outgoing] Handshake with peer_id '{0}' rejected by the connection gate", id.PeerID);
-                    throw new TorrentException("Handshake rejected by the connection gate");
+                    throw new TorrentException ("Handshake rejected by the connection gate");
                 }
             } catch {
                 if (!LocalPeerId.Equals (connectAs))
@@ -291,6 +292,8 @@ namespace MonoTorrent.Client
                 manager.Mode.HandlePeerConnected (id);
                 id.MessageQueue.SetReady ();
                 TryProcessQueue (manager, id);
+
+                id.Peer.FailedConnectionAttempts = 0;
 
                 ReceiveMessagesAsync (id.Connection, id.Decryptor, manager.DownloadLimiters, id.Monitor, manager, id);
 
@@ -401,8 +404,10 @@ namespace MonoTorrent.Client
                 if (canReuse && !IsSelf (id.Peer.Info.PeerId)) {
                     if (!manager.Peers.AvailablePeers.Contains (id.Peer) && id.Peer.CleanedUpCount < 5)
                         manager.Peers.AvailablePeers.Insert (0, id.Peer);
-                    else if (manager.Peers.BannedPeers.Contains (id.Peer) && id.Peer.CleanedUpCount >= 5)
-                        manager.Peers.BannedPeers.Add (id.Peer);
+                    else if (!manager.Peers.IsBanned (id.Peer) && id.Peer.CleanedUpCount >= 5) {
+                        logger.Debug ($"banned {id.Peer.Info.ConnectionUri} as we had to disconnect from it 5 times");
+                        manager.Peers.Ban (id.Peer);
+                    }
                 }
             } catch (Exception ex) {
                 logger.Exception (ex, "An unexpected error occured cleaning up a connection");
@@ -417,10 +422,10 @@ namespace MonoTorrent.Client
             id.Dispose ();
         }
 
-        bool IsSelf(BEncodedString peerId)
+        bool IsSelf (BEncodedString peerId)
         {
             lock (LocalPeerIds)
-                return LocalPeerIds.ContainsKey(peerId);
+                return LocalPeerIds.ContainsKey (peerId);
         }
 
         /// <summary>
@@ -600,6 +605,7 @@ namespace MonoTorrent.Client
             }
         }
 
+        static readonly TimeSpan minimumTimeBetweenOpportunisticUnbans = TimeSpan.FromSeconds (30);
         bool TryConnect (TorrentManager manager)
         {
             int i;
@@ -621,8 +627,17 @@ namespace MonoTorrent.Client
                     break;
 
             // If this is true, there were no peers in the available list to connect to.
-            if (i == manager.Peers.AvailablePeers.Count)
+            if (i == manager.Peers.AvailablePeers.Count) {
+                if (manager.Peers.ConnectedPeers.Count == 0) {
+                    var canUnban = manager.Peers.BannedPeers.FirstOrDefault (p => p.BannedAt.Elapsed > minimumTimeBetweenOpportunisticUnbans
+                                                                               && manager.Mode.ShouldConnect (p.Peer));
+                    if (canUnban.Peer is not null) {
+                        logger.Debug ($"Unbanning {canUnban.Peer.Info.ConnectionUri} we don't have any other peers to connect to");
+                        manager.Peers.Unban (canUnban.Peer);
+                    }
+                }
                 return false;
+            }
 
             // Remove the peer from the lists so we can start connecting to him
             Peer peer = manager.Peers.AvailablePeers[i];
