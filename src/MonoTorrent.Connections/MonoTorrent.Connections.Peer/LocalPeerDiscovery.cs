@@ -86,7 +86,7 @@ namespace MonoTorrent.Connections.Peer
 
         public LocalPeerDiscovery ()
             : base (new IPEndPoint (IPAddress.Any, MulticastAddressV4.Port),
-                    LoggerFactory.Create (nameof(LocalPeerDiscovery)))
+                    LoggerFactory.Create (nameof (LocalPeerDiscovery)))
         {
             lock (Random)
                 Cookie = $"MT-{Random.Next (1, int.MaxValue)}";
@@ -143,9 +143,12 @@ namespace MonoTorrent.Connections.Peer
 
                 foreach (var nic in nics) {
                     try {
+                        if (nic.OperationalStatus is not OperationalStatus.Up
+                         && nic.OperationalStatus is not OperationalStatus.Unknown)
+                            continue;
                         var ipProperties = nic.GetIPProperties ();
-                        var ipv4Addresses = ipProperties.UnicastAddresses.Where (t => t.Address.AddressFamily == AddressFamily.InterNetwork).Select (t => t.Address);
-                        logger.Debug ($"Announcing {infoHash} with {endPoint} on {nic.Name} ({string.Join(",", ipv4Addresses)})");
+                        var ipv4Addresses = ipProperties.UnicastAddresses.Where (t => t.Address.AddressFamily == AddressFamily.InterNetwork).Select (t => t.Address).ToList ();
+                        logger.Debug ($"Announcing {infoHash} with {endPoint} on {nic.Name} ({string.Join (",", ipv4Addresses)})");
                         sendingClient.Client.SetSocketOption (SocketOptionLevel.IP, SocketOptionName.MulticastInterface, IPAddress.HostToNetworkOrder (ipProperties.GetIPv4Properties ().Index));
                         await sendingClient.SendAsync (data, data.Length, MulticastAddressV4).ConfigureAwait (false);
                     } catch (Exception e) {
