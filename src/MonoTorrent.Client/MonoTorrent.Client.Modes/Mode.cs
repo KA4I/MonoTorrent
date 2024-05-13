@@ -522,7 +522,10 @@ namespace MonoTorrent.Client.Modes
                     (var m, var releaser) = PeerMessage.Rent<RejectRequestMessage> ();
                     m.Initialize (message.PieceIndex, message.StartOffset, message.RequestLength);
                     id.MessageQueue.Enqueue (m, releaser);
+                    logger.Debug ($"Rejecting {message.PieceIndex} request because {id.Uri} is choked");
                 }
+            } else {
+                logger.Debug ($"Ignoring {message.PieceIndex} request because {id.Uri} is choked and does not support fast peer");
             }
         }
 

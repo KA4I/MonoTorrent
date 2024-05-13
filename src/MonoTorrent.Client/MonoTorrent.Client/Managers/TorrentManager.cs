@@ -1172,6 +1172,7 @@ namespace MonoTorrent.Client
                 return false;
 
             Error = new Error (reason, ex);
+            logger.Error ($"{this} {reason}: {ex}");
             Mode = new ErrorMode (this, Engine!.ConnectionManager);
             return true;
         }

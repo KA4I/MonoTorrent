@@ -528,9 +528,11 @@ namespace MonoTorrent.Client
                         if (!manager.Bitfield[pm.PieceIndex]) {
                             if (id.SupportsFastPeer) {
                                 var reject = new RejectRequestMessage (pm);
+                                logger.Debug ($"Rejected {pm.PieceIndex} to {id.Uri} because we don't have it");
                                 await PeerIO.SendMessageAsync (id.Connection, id.Encryptor, reject, manager.UploadLimiters, id.Monitor, manager.Monitor, buffer).ConfigureAwait (false);
                             } else {
                                 var bitfieldUpdate = new BitfieldMessage (manager.Bitfield);
+                                logger.Debug ($"Rejected {pm.PieceIndex} to {id.Uri} because we don't have it. Will send the bitfield.");
                                 await PeerIO.SendMessageAsync (id.Connection, id.Encryptor, bitfieldUpdate, manager.UploadLimiters, id.Monitor, manager.Monitor, buffer).ConfigureAwait (false);
                             }
                             continue;
