@@ -186,7 +186,7 @@ namespace MonoTorrent.Connections.Peer
                     var infoHash = InfoHash.FromHex (hashString.Split (' ').Last ());
                     var uri = new Uri ($"ipv4://{result.RemoteEndPoint.Address}{':'}{portcheck}");
 
-                    logger.Debug ($"Local peer found for {infoHash}: {uri}");
+                    logger.Debug ($"Local peer found for {infoHash.ToHex ()}: {uri}");
 
                     PeerFound?.Invoke (this, new LocalPeerFoundEventArgs (infoHash, uri));
                 } catch (FileNotFoundException) {
