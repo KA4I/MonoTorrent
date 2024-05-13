@@ -317,6 +317,7 @@ namespace MonoTorrent.Client.Modes
         protected virtual void HandleUnchokeMessage (PeerId id, UnchokeMessage message)
         {
             id.IsChoking = false;
+            logger.Debug ($"{id.Uri} unchoked us");
 
             // Add requests to the peers message queue
             Manager.PieceManager.AddPieceRequests (id);
@@ -339,6 +340,7 @@ namespace MonoTorrent.Client.Modes
         protected virtual void HandleChokeMessage (PeerId id, ChokeMessage message)
         {
             id.IsChoking = true;
+            logger.Debug ($"{id.Uri} choked us");
             if (!id.SupportsFastPeer)
                 Manager.PieceManager.CancelRequests (id);
         }
@@ -346,6 +348,7 @@ namespace MonoTorrent.Client.Modes
         protected virtual void HandleInterestedMessage (PeerId id, InterestedMessage message)
         {
             id.IsInterested = true;
+            logger.Debug ($"{id.Uri} is interested in us");
         }
 
         protected virtual void HandleExtendedHandshakeMessage (PeerId id, ExtendedHandshakeMessage message)
@@ -376,11 +379,13 @@ namespace MonoTorrent.Client.Modes
         protected virtual void HandleKeepAliveMessage (PeerId id, KeepAliveMessage message)
         {
             id.LastMessageReceived.Restart ();
+            logger.Trace ($"{id.Uri} - keep alive received");
         }
 
         protected virtual void HandleNotInterested (PeerId id, NotInterestedMessage message)
         {
             id.IsInterested = false;
+            logger.Debug ($"{id.Uri} no longer interested in us");
         }
 
         static ICache<CacheableHashSet<IRequester>> PeersInvolvedCache = new Cache<CacheableHashSet<IRequester>> (() => new CacheableHashSet<IRequester> ()).Synchronize ();
@@ -759,6 +764,7 @@ namespace MonoTorrent.Client.Modes
         {
             if (interesting && !id.AmInterested) {
                 id.AmInterested = true;
+                logger.Debug ($"{id.Uri} is interesting to me");
                 id.MessageQueue.Enqueue (InterestedMessage.Instance, default);
 
                 // He's interesting, so attempt to queue up any FastPieces (if that's possible)
@@ -766,6 +772,7 @@ namespace MonoTorrent.Client.Modes
                 return true;
             } else if (!interesting && id.AmInterested) {
                 id.AmInterested = false;
+                logger.Debug ($"{id.Uri} is not interesting to me");
                 id.MessageQueue.Enqueue (NotInterestedMessage.Instance, default);
                 return true;
             }

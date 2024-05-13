@@ -140,5 +140,10 @@ namespace MonoTorrent.Logging
         {
             Writer?.Debug (message);
         }
+
+        public void Trace (string message)
+        {
+            Writer?.Trace (message);
+        }
     }
 }
