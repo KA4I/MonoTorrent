@@ -56,5 +56,10 @@ namespace MonoTorrent.Logging
         {
             Writer?.WriteLine ($"INFO: {Prefix}:{message}");
         }
+
+        public void Trace (string message)
+        {
+            Writer?.WriteLine ($"TRACE: {Prefix}:{message}");
+        }
     }
 }

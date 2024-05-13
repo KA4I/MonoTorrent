@@ -14,6 +14,10 @@ public sealed class NullLogger : ILogger
     {
     }
 
+    public void Trace (string message)
+    {
+    }
+
     public static ILogger Instance { get; } = new NullLogger ();
     NullLogger () { }
 }
