@@ -59,7 +59,7 @@ namespace Tests.MonoTorrent.IntegrationTests
         public void Setup ()
         {
             _failHttpRequest = false;
-            string tempDirectory = Path.Combine (Path.GetTempPath (), $"{NUnit.Framework.TestContext.CurrentContext.Test.Name}-{Path.GetRandomFileName ()}");
+            string tempDirectory = Path.Combine (Path.GetTempPath (), "MonoTorrent", $"{NUnit.Framework.TestContext.CurrentContext.Test.Name}-{Path.GetRandomFileName ()}");
             _directory = Directory.CreateDirectory (tempDirectory);
             _seederDir = _directory.CreateSubdirectory ("Seeder");
             _leecherDir = _directory.CreateSubdirectory ("Leecher");
