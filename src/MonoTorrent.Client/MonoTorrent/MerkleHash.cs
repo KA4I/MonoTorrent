@@ -44,7 +44,9 @@ namespace MonoTorrent
 
             Dictionary<long, ReadOnlyMemory<byte>> results = new Dictionary<long, ReadOnlyMemory<byte>> ();
             results[Constants.BlockSize] = (byte[]) buffer.Clone ();
-            for (long i = Constants.BlockSize * 2; results.Count < 49; i *= 2) {
+            long i = Constants.BlockSize;
+            for (; results.Count < 49;) {
+                i *= 2;
                 hasher.AppendData (buffer);
                 hasher.AppendData (buffer);
                 if (!hasher.TryGetHashAndReset (buffer, out int written) || written != 32)

@@ -111,7 +111,7 @@ namespace MonoTorrent
                     var file = self.Files[i];
                     if (pieceIndex < file.StartPieceIndex || pieceIndex > file.EndPieceIndex || file.Length == 0)
                         continue;
-                    var remainder = file.Length - (pieceIndex - file.StartPieceIndex) * self.PieceLength;
+                    var remainder = file.Length - (pieceIndex - file.StartPieceIndex) * (long) self.PieceLength;
                     return (int) (remainder > self.PieceLength ? self.PieceLength : remainder);
                 }
                 throw new ArgumentOutOfRangeException (nameof (pieceIndex));

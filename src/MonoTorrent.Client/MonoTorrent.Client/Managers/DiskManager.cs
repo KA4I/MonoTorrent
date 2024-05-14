@@ -62,7 +62,7 @@ namespace MonoTorrent.Client
 
             public ReusableSemaphore Locker;
 
-            int v2BytesRemaining = 0;
+            long v2BytesRemaining = 0;
             readonly IncrementalHash SHA256Hasher;
             MemoryPool.Releaser BlockHashesReleaser { get; set; }
             Memory<byte> BlockHashes { get; set; }
@@ -103,17 +103,23 @@ namespace MonoTorrent.Client
                     var file = manager.Files[manager.Files.FindFileByPieceIndex (pieceIndex)];
                     Memory<byte> hashes;
                     v2BytesRemaining = manager.TorrentInfo!.BytesPerPieceV2 (pieceIndex);
-                    int actualBlocks = (v2BytesRemaining + Constants.BlockSize - 1) / Constants.BlockSize;
+                    long actualBlocks = (v2BytesRemaining + Constants.BlockSize - 1) / Constants.BlockSize;
+                    if (actualBlocks > int.MaxValue)
+                        throw new OverflowException ();
+                    long hashesSize;
                     if (file.StartPieceIndex == file.EndPieceIndex) {
                         var blocks = actualBlocks;
                         if (blocks > 1)
                             blocks = IntMath.Pow (2, (int) Math.Ceiling (Math.Log (blocks, 2)));
-                        BlockHashesReleaser = MemoryPool.Default.Rent (blocks * 32, out hashes);
+                        hashesSize = blocks * 32;
                     } else {
-                        BlockHashesReleaser = MemoryPool.Default.Rent (manager.TorrentInfo!.PieceLength / Constants.BlockSize  * 32, out hashes);
+                        hashesSize = manager.TorrentInfo!.PieceLength / Constants.BlockSize * 32;
                     }
+                    if (hashesSize > int.MaxValue)
+                        throw new OverflowException ();
+                    BlockHashesReleaser = MemoryPool.Default.Rent ((int) hashesSize, out hashes);
                     BlockHashes = hashes;
-                    BlockHashes.Span.Slice (actualBlocks).Clear ();
+                    BlockHashes.Span.Slice ((int) actualBlocks).Clear ();
                 }
             }
 
@@ -128,7 +134,7 @@ namespace MonoTorrent.Client
                 if (UseV2 && v2BytesRemaining > 0) {
                     var tmp = buffer;
                     if (v2BytesRemaining < tmp.Length)
-                        tmp = tmp.Slice (0, v2BytesRemaining);
+                        tmp = tmp.Slice (0, (int) v2BytesRemaining);
                     SHA256Hasher.AppendData (tmp);
                     v2BytesRemaining -= tmp.Length;
                     if (!SHA256Hasher.TryGetHashAndReset (BlockHashes.Span.Slice ((NextOffsetToHash / Constants.BlockSize) * 32, 32), out _))
@@ -370,12 +376,12 @@ namespace MonoTorrent.Client
             using var releaser = await incrementalHash.Locker.EnterAsync ();
             // Note that 'startOffset' may not be the very start of the piece if we have a partial hash.
             int startOffset = incrementalHash.NextOffsetToHash;
-            int endOffset = manager.TorrentInfo!.BytesPerPiece (pieceIndex);
+            long endOffset = manager.TorrentInfo!.BytesPerPiece (pieceIndex);
             using (BufferPool.Rent (Constants.BlockSize, out Memory<byte> readingBuffer))
             using (BufferPool.Rent (Constants.BlockSize, out Memory<byte> hashingBuffer)) {
                 try {
                     int hashingCount = 0;
-                    int readingCount = Math.Min (Constants.BlockSize, endOffset - startOffset);
+                    int readingCount = (int) Math.Min (Constants.BlockSize, endOffset - startOffset);
                     var readingTask = ReadAsync (manager, new BlockInfo (pieceIndex, startOffset, readingCount), readingBuffer.Slice (0, readingCount));
                     while (startOffset != endOffset) {
                         // Wait for the reading task to complete.
@@ -390,7 +396,7 @@ namespace MonoTorrent.Client
                             (readingCount, hashingCount) = (hashingCount, readingCount);
 
                             // begin the next read with into the readbuffer
-                            readingCount = Math.Min (Constants.BlockSize, endOffset - startOffset);
+                            readingCount = (int) Math.Min (Constants.BlockSize, endOffset - startOffset);
                             if (readingCount > 0)
                                 readingTask = ReadAsync (manager, new BlockInfo (pieceIndex, startOffset, readingCount), readingBuffer.Slice (0, readingCount));
                         }
@@ -575,7 +581,7 @@ namespace MonoTorrent.Client
             var sizeOfPiece = torrent.TorrentInfo!.BytesPerPiece (pieceIndex);
             using var releaser = BufferPool.Rent (Constants.BlockSize, out Memory<byte> buffer);
             while (incrementalHash.NextOffsetToHash < sizeOfPiece) {
-                var remaining = Math.Min (Constants.BlockSize, sizeOfPiece - incrementalHash.NextOffsetToHash);
+                var remaining = (int) Math.Min (Constants.BlockSize, sizeOfPiece - incrementalHash.NextOffsetToHash);
                 if (await Cache.ReadFromCacheAsync (torrent, new BlockInfo (pieceIndex, incrementalHash.NextOffsetToHash, remaining), buffer)) {
                     incrementalHash.AppendData (buffer.Span.Slice (0, remaining));
                 } else {
