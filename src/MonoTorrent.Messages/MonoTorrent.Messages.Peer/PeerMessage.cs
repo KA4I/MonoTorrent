@@ -29,6 +29,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 using MonoTorrent.Messages.Peer.FastPeer;
 using MonoTorrent.Messages.Peer.Libtorrent;
@@ -63,19 +64,19 @@ namespace MonoTorrent.Messages.Peer
     static class PeerMessageCache<T>
         where T : PeerMessage, IRentable, new()
     {
-        static Queue<T> InstanceCache = new Queue<T> ();
+        static readonly SpinLocked<Stack<T>> Cache = SpinLocked.Create (new Stack<T> ());
 
         static readonly Action<PeerMessage> ReturnMessage = (message) => {
-            lock (InstanceCache)
-                InstanceCache.Enqueue ((T) message);
+            using (Cache.Enter (out var cache))
+                cache.Push ((T) message);
         };
 
         public static (T, PeerMessage.Releaser) GetOrCreate ()
         {
             T message;
-            lock (InstanceCache) {
-                if (InstanceCache.Count > 0)
-                    message = InstanceCache.Dequeue ();
+            using (Cache.Enter (out var cache)) {
+                if (cache.Count > 0)
+                    message = cache.Pop ();
                 else
                     message = new T ();
             }

@@ -35,6 +35,7 @@ using System.Threading.Tasks;
 
 using MonoTorrent.BEncoding;
 using MonoTorrent.Connections;
+using MonoTorrent.Connections.Peer.Encryption;
 using MonoTorrent.Messages;
 using MonoTorrent.Messages.Peer;
 using MonoTorrent.Messages.Peer.Libtorrent;
@@ -59,7 +60,7 @@ namespace MonoTorrent.Client.Modes
         [SetUp]
         public void Setup ()
         {
-            conn = new ConnectionPair ().WithTimeout ();
+            conn = new ConnectionPair ().DisposeAfterTimeout ();
             Settings = new EngineSettings ();
             PieceWriter = new TestWriter ();
             DiskManager = new DiskManager (Settings, Factories.Default, PieceWriter);
@@ -74,7 +75,7 @@ namespace MonoTorrent.Client.Modes
             };
             Manager = TestRig.CreateMultiFileManager (fileSizes, Constants.BlockSize * 2);
             Manager.SetTrackerManager (TrackerManager);
-            Peer = new PeerId (new Peer (new PeerInfo (new Uri ("ipv4://123.123.123.123:12345")), Manager.InfoHashes.V1OrV2), conn.Outgoing, new BitField (Manager.Torrent.PieceCount ()));
+            Peer = new PeerId (new Peer (new PeerInfo (new Uri ("ipv4://123.123.123.123:12345"))), conn.Outgoing, new BitField (Manager.Torrent.PieceCount ()), Manager.InfoHashes.V1OrV2, PlainTextEncryption.Instance, PlainTextEncryption.Instance, Software.Synthetic);
         }
 
         [TearDown]
@@ -183,7 +184,7 @@ namespace MonoTorrent.Client.Modes
             id.SupportsLTMessages = true;
 
             var torrent = TestRig.CreatePrivate ();
-            using var engine = new ClientEngine (EngineSettingsBuilder.CreateForTests ());
+            using var engine = EngineHelpers.Create (EngineHelpers.CreateSettings ());
             var manager = await engine.AddAsync (torrent, "");
 
             manager.Mode = new DownloadMode (manager, DiskManager, ConnectionManager, Settings);
@@ -205,7 +206,7 @@ namespace MonoTorrent.Client.Modes
         public async Task AddPeers_Tracker_Private ()
         {
             var torrent = TestRig.CreatePrivate ();
-            using var engine = new ClientEngine (EngineSettingsBuilder.CreateForTests ());
+            using var engine = EngineHelpers.Create (EngineHelpers.CreateSettings ());
             var manager = await engine.AddAsync (torrent, "");
 
             manager.SetTrackerManager (TrackerManager);
@@ -240,9 +241,16 @@ namespace MonoTorrent.Client.Modes
         public async Task AnnounceWhenComplete ()
         {
             await TrackerManager.AddTrackerAsync (new Uri ("http://1.1.1.1"));
-            await Manager.LoadFastResumeAsync (new FastResume (Manager.InfoHashes, new BitField (Manager.Torrent.PieceCount ()).SetAll (true), new BitField (Manager.Torrent.PieceCount ())));
+            var bitfield = new BitField (Manager.Bitfield);
 
-            Manager.MutableBitField[0] = false;
+            // Create all the files.
+            foreach (var file in Manager.Files)
+                await Manager.Engine.DiskManager.CreateAsync (file, MonoTorrent.PieceWriter.FileCreationOptions.PreferSparse);
+
+            // Leecher at first
+            bitfield.SetAll (true).Set (0, false);
+            await Manager.LoadFastResumeAsync (new FastResume (Manager.InfoHashes, bitfield, new BitField (Manager.Torrent.PieceCount ())));
+
             var mode = new DownloadMode (Manager, DiskManager, ConnectionManager, Settings);
             Manager.Mode = mode;
 
@@ -250,16 +258,17 @@ namespace MonoTorrent.Client.Modes
             Assert.AreEqual (TorrentState.Downloading, Manager.State, "#0b");
             Assert.AreEqual (TorrentEvent.None, TrackerManager.Announces[0].Item2, "#0");
 
-            Manager.MutableBitField[0] = true;
+            // Seeder now
             TrackerManager.Announces.Clear ();
+            Manager.OnPieceHashed (0, true);
             mode.Tick (0);
             Assert.AreEqual (TorrentState.Seeding, Manager.State, "#0c");
 
             Assert.AreEqual (2, TrackerManager.Announces.Count, "#1");
             Assert.AreEqual (null, TrackerManager.Announces[0].Item1, "#2");
-            Assert.AreEqual (TorrentEvent.None, TrackerManager.Announces[0].Item2, "#3");
+            Assert.AreEqual (TorrentEvent.None, TrackerManager.Announces[1].Item2, "#3");
             Assert.AreEqual (null, TrackerManager.Announces[1].Item1, "#2");
-            Assert.AreEqual (TorrentEvent.Completed, TrackerManager.Announces[1].Item2, "#4");
+            Assert.AreEqual (TorrentEvent.Completed, TrackerManager.Announces[0].Item2, "#4");
         }
 
         [Test]
@@ -269,32 +278,32 @@ namespace MonoTorrent.Client.Modes
             var peer = PeerId.CreateNull (Manager.Bitfield.Length, Manager.InfoHashes.V1OrV2);
             var handshake = new HandshakeMessage (new InfoHash (Enumerable.Repeat ((byte) 15, 20).ToArray ()), "peerid", Constants.ProtocolStringV100);
 
-            Assert.Throws<TorrentException> (() => Manager.Mode.HandleMessage (peer, handshake, default));
+            Assert.Throws<TorrentException> (() => MonoTorrent.Client.ConnectionManager.CreatePeerIdFromHandshake (handshake, peer.Peer, NullConnection.Outgoing, Manager, PlainTextEncryption.Instance, PlainTextEncryption.Instance));
         }
 
         [Test]
         public void MismatchedProtocolString ()
         {
             Manager.Mode = new DownloadMode (Manager, DiskManager, ConnectionManager, Settings);
-            var peerId = PeerId.CreateNull (Manager.Bitfield.Length, Manager.InfoHashes.V1OrV2);
+            var peer = PeerId.CreateNull (Manager.Bitfield.Length, Manager.InfoHashes.V1OrV2);
             var handshake = new HandshakeMessage (Manager.InfoHashes.V1OrV2, "peerid", "bleurgh");
 
-            Assert.Throws<ProtocolException> (() => Manager.Mode.HandleMessage (peerId, handshake, default));
+            Assert.Throws<ProtocolException> (() => MonoTorrent.Client.ConnectionManager.CreatePeerIdFromHandshake (handshake, peer.Peer, NullConnection.Outgoing, Manager, PlainTextEncryption.Instance, PlainTextEncryption.Instance));
         }
 
         [Test]
         public async Task EmptyPeerId_PrivateTorrent ()
         {
             var torrent = TestRig.CreatePrivate ();
-            using var engine = new ClientEngine (EngineSettingsBuilder.CreateForTests ());
+            using var engine = EngineHelpers.Create (EngineHelpers.CreateSettings ());
             var manager = await engine.AddAsync (torrent, "");
 
             manager.Mode = new DownloadMode (manager, DiskManager, ConnectionManager, Settings);
             var peer = PeerId.CreateNull (manager.Bitfield.Length, Manager.InfoHashes.V1OrV2);
             peer.Peer.UpdatePeerId (BEncodedString.Empty);
-            var handshake = new HandshakeMessage (manager.InfoHashes.V1OrV2, new BEncodedString (Enumerable.Repeat ('c', 20).ToArray ()), Constants.ProtocolStringV100, false);
 
-            manager.Mode.HandleMessage (peer, handshake, default);
+            var handshake = new HandshakeMessage (manager.InfoHashes.V1OrV2, new BEncodedString (Enumerable.Repeat ('c', 20).ToArray ()), Constants.ProtocolStringV100, false);
+            MonoTorrent.Client.ConnectionManager.CreatePeerIdFromHandshake (handshake, peer.Peer, NullConnection.Outgoing, manager, PlainTextEncryption.Instance, PlainTextEncryption.Instance);
             Assert.AreEqual (handshake.PeerId, peer.PeerID);
         }
 
@@ -304,9 +313,9 @@ namespace MonoTorrent.Client.Modes
             Manager.Mode = new DownloadMode (Manager, DiskManager, ConnectionManager, Settings);
             var peer = PeerId.CreateNull (Manager.Bitfield.Length, Manager.InfoHashes.V1OrV2);
             peer.Peer.UpdatePeerId (BEncodedString.Empty);
-            var handshake = new HandshakeMessage (Manager.InfoHashes.V1OrV2, new BEncodedString (Enumerable.Repeat ('c', 20).ToArray ()), Constants.ProtocolStringV100, false);
 
-            Manager.Mode.HandleMessage (peer, handshake, default);
+            var handshake = new HandshakeMessage (Manager.InfoHashes.V1OrV2, new BEncodedString (Enumerable.Repeat ('c', 20).ToArray ()), Constants.ProtocolStringV100, false);
+            MonoTorrent.Client.ConnectionManager.CreatePeerIdFromHandshake (handshake, peer.Peer, NullConnection.Outgoing, Manager, PlainTextEncryption.Instance, PlainTextEncryption.Instance);
             Assert.AreEqual (handshake.PeerId, peer.PeerID);
         }
 
@@ -314,7 +323,7 @@ namespace MonoTorrent.Client.Modes
         public async Task MismatchedPeerId_RequiredToMatch ()
         {
             var torrent = TestRig.CreatePrivate ();
-            using var engine = new ClientEngine (EngineSettingsBuilder.CreateForTests ());
+            using var engine = EngineHelpers.Create (EngineHelpers.CreateSettings ());
 
             var settings = new TorrentSettingsBuilder {
                 RequirePeerIdToMatch = true,
@@ -325,14 +334,14 @@ namespace MonoTorrent.Client.Modes
             var peer = PeerId.CreateNull (manager.Bitfield.Length, Manager.InfoHashes.V1OrV2);
             var handshake = new HandshakeMessage (manager.InfoHashes.V1OrV2, new BEncodedString (Enumerable.Repeat ('c', 20).ToArray ()), Constants.ProtocolStringV100, false);
 
-            Assert.Throws<TorrentException> (() => manager.Mode.HandleMessage (peer, handshake, default));
+            Assert.Throws<TorrentException> (() => MonoTorrent.Client.ConnectionManager.CreatePeerIdFromHandshake (handshake, peer.Peer, NullConnection.Outgoing, Manager, PlainTextEncryption.Instance, PlainTextEncryption.Instance));
         }
 
         [Test]
         public async Task MismatchedPeerId_PrivateTorrent ()
         {
             var torrent = TestRig.CreatePrivate ();
-            using var engine = new ClientEngine (EngineSettingsBuilder.CreateForTests ());
+            using var engine = EngineHelpers.Create (EngineHelpers.CreateSettings ());
             Manager = await engine.AddAsync (torrent, "");
 
             Manager.Mode = new DownloadMode (Manager, DiskManager, ConnectionManager, Settings);
@@ -341,7 +350,7 @@ namespace MonoTorrent.Client.Modes
             var actualPeerId = new BEncodedString (Enumerable.Repeat ('c', 20).ToArray ());
             var handshake = new HandshakeMessage (Manager.InfoHashes.V1OrV2, actualPeerId, Constants.ProtocolStringV100, false);
 
-            Assert.DoesNotThrow (() => Manager.Mode.HandleMessage (peer, handshake, default));
+            Assert.DoesNotThrow (() => MonoTorrent.Client.ConnectionManager.CreatePeerIdFromHandshake (handshake, peer.Peer, NullConnection.Outgoing, Manager, PlainTextEncryption.Instance, PlainTextEncryption.Instance));
             Assert.AreEqual (peer.PeerID, handshake.PeerId);
         }
 
@@ -352,7 +361,7 @@ namespace MonoTorrent.Client.Modes
             var peer = PeerId.CreateNull (Manager.Bitfield.Length, Manager.InfoHashes.V1OrV2);
             var handshake = new HandshakeMessage (Manager.InfoHashes.V1OrV2, new BEncodedString (Enumerable.Repeat ('c', 20).ToArray ()), Constants.ProtocolStringV100, false);
 
-            Assert.DoesNotThrow (() => Manager.Mode.HandleMessage (peer, handshake, default));
+            Assert.DoesNotThrow (() => MonoTorrent.Client.ConnectionManager.CreatePeerIdFromHandshake (handshake, peer.Peer, NullConnection.Outgoing, Manager, PlainTextEncryption.Instance, PlainTextEncryption.Instance));
             Assert.AreEqual (peer.PeerID, handshake.PeerId);
         }
 
@@ -559,6 +568,56 @@ namespace MonoTorrent.Client.Modes
 
             Assert.AreNotEqual (0, Manager.Progress, "#3");
             Assert.AreEqual (0, Manager.PartialProgress, "#4");
+        }
+
+        [Test]
+        public void ShouldConnect_FailedConnectionAttempts ()
+        {
+            var peer = new Peer (new PeerInfo (new Uri ("ipv4://1.2.3.4:56789")));
+            var mode = new DownloadMode (Manager, DiskManager, ConnectionManager, Settings);
+
+            Assert.IsFalse (peer.WaitUntilNextConnectionAttempt.IsRunning);
+            Assert.IsTrue (mode.ShouldConnect (peer));
+
+            // pretend we tried to connect
+            peer.WaitUntilNextConnectionAttempt.Restart ();
+            Assert.IsTrue (mode.ShouldConnect (peer));
+
+            // Pretend it failed once - now we need to delay.
+            peer.FailedConnectionAttempts++;
+            peer.WaitUntilNextConnectionAttempt.Restart ();
+            Assert.IsFalse (mode.ShouldConnect (peer));
+
+            peer.WaitUntilNextConnectionAttempt = ValueStopwatch.WithTime (TimeSpan.FromSeconds (20));
+            Assert.IsTrue (mode.ShouldConnect (peer));
+
+            peer.FailedConnectionAttempts++;
+            Assert.IsFalse (mode.ShouldConnect (peer));
+        }
+
+        [Test]
+        public void ShouldConnect_ClosedConnections ()
+        {
+            var peer = new Peer (new PeerInfo (new Uri ("ipv4://1.2.3.4:56789")));
+            var mode = new DownloadMode (Manager, DiskManager, ConnectionManager, Settings);
+
+            Assert.IsFalse (peer.WaitUntilNextConnectionAttempt.IsRunning);
+            Assert.IsTrue (mode.ShouldConnect (peer));
+
+            // pretend we tried to connect
+            peer.WaitUntilNextConnectionAttempt.Restart ();
+            Assert.IsTrue (mode.ShouldConnect (peer));
+
+            // Pretend the connection was closed once - now we need to delay.
+            peer.CleanedUpCount++;
+            peer.WaitUntilNextConnectionAttempt.Restart ();
+            Assert.IsFalse (mode.ShouldConnect (peer));
+
+            peer.WaitUntilNextConnectionAttempt = ValueStopwatch.WithTime (TimeSpan.FromSeconds (20));
+            Assert.IsTrue (mode.ShouldConnect (peer));
+
+            peer.CleanedUpCount++;
+            Assert.IsFalse (mode.ShouldConnect (peer));
         }
 
         [Test]

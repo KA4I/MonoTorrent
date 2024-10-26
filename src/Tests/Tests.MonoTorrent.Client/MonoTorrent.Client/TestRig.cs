@@ -41,6 +41,7 @@ using MonoTorrent.BEncoding;
 using MonoTorrent.Connections;
 using MonoTorrent.Connections.Dht;
 using MonoTorrent.Connections.Peer;
+using MonoTorrent.Connections.Peer.Encryption;
 using MonoTorrent.Connections.Tracker;
 using MonoTorrent.PieceWriter;
 using MonoTorrent.Trackers;
@@ -51,8 +52,8 @@ namespace MonoTorrent.Client
 {
     public class TestWriter : IPieceWriter
     {
-        public List<ITorrentManagerFile> FilesThatExist = new List<ITorrentManagerFile> ();
         public List<ITorrentManagerFile> DoNotReadFrom = new List<ITorrentManagerFile> ();
+        public Dictionary<string, long> FilesWithLength = new Dictionary<string, long> ();
         public bool DontWrite;
         public byte? FillValue;
 
@@ -64,7 +65,7 @@ namespace MonoTorrent.Client
         public int OpenFiles => 0;
         public int MaximumOpenFiles { get; }
 
-        public ReusableTask<int> ReadAsync (ITorrentManagerFile file, long offset, Memory<byte> buffer)
+        public virtual ReusableTask<int> ReadAsync (ITorrentManagerFile file, long offset, Memory<byte> buffer)
         {
             if (DoNotReadFrom.Contains (file))
                 return ReusableTask.FromResult (0);
@@ -86,7 +87,7 @@ namespace MonoTorrent.Client
             return ReusableTask.FromResult (buffer.Length);
         }
 
-        public ReusableTask WriteAsync (ITorrentManagerFile file, long offset, ReadOnlyMemory<byte> buffer)
+        public virtual ReusableTask WriteAsync (ITorrentManagerFile file, long offset, ReadOnlyMemory<byte> buffer)
         {
             return ReusableTask.CompletedTask;
         }
@@ -108,17 +109,58 @@ namespace MonoTorrent.Client
 
         public ReusableTask<bool> ExistsAsync (ITorrentManagerFile file)
         {
-            return ReusableTask.FromResult (FilesThatExist.Contains (file));
+            return ReusableTask.FromResult (FilesWithLength.ContainsKey (file.FullPath));
         }
 
         public ReusableTask MoveAsync (ITorrentManagerFile file, string newPath, bool overwrite)
         {
-            return ReusableTask.CompletedTask;
+            if (!overwrite && FilesWithLength.ContainsKey (newPath))
+                throw new InvalidOperationException ("File already exists");
+
+            // Move the file as if it were an on-disk file.
+            FilesWithLength[newPath] = FilesWithLength[file.FullPath];
+            FilesWithLength.Remove (file.FullPath);
+
+            return default;
         }
 
         public ReusableTask SetMaximumOpenFilesAsync (int maximumOpenFiles)
         {
             return ReusableTask.CompletedTask;
+        }
+
+        public async ReusableTask<bool> CreateAsync (IEnumerable<ITorrentManagerFile> files)
+        {
+            foreach (var file in files)
+                await CreateAsync (file, FileCreationOptions.PreferPreallocation);
+            return true;
+        }
+
+        public ReusableTask<bool> CreateAsync (ITorrentManagerFile file, FileCreationOptions options)
+        {
+            if (FilesWithLength.ContainsKey (file.FullPath))
+                return ReusableTask.FromResult (false);
+
+            FilesWithLength.Add (file.FullPath, options == FileCreationOptions.PreferPreallocation ? file.Length : 0);
+            return ReusableTask.FromResult (true);
+        }
+
+        public ReusableTask<long?> GetLengthAsync (ITorrentManagerFile file)
+        {
+            if (FilesWithLength.TryGetValue (file.FullPath, out var length))
+                return ReusableTask.FromResult<long?> (length);
+            return ReusableTask.FromResult<long?> (null);
+        }
+
+        public ReusableTask<bool> SetLengthAsync (ITorrentManagerFile file, long length)
+        {
+            // If the file exists, change it's length
+            if (FilesWithLength.ContainsKey (file.FullPath))
+                FilesWithLength[file.FullPath] = length;
+
+            // This is successful only if the file existed beforehand. No action is taken
+            // if the file did not exist.
+            return ReusableTask.FromResult (FilesWithLength.ContainsKey (file.FullPath));
         }
     }
 
@@ -276,8 +318,6 @@ namespace MonoTorrent.Client
 
     public class ConnectionPair : IDisposable
     {
-        static readonly TimeSpan Timeout = System.Diagnostics.Debugger.IsAttached ? TimeSpan.FromHours (1) : TimeSpan.FromSeconds (5);
-
         IDisposable CancellationRegistration { get; set; }
 
         public CustomConnection Incoming { get; }
@@ -298,9 +338,9 @@ namespace MonoTorrent.Client
             Outgoing.Dispose ();
         }
 
-        public ConnectionPair WithTimeout ()
+        public ConnectionPair DisposeAfterTimeout ()
         {
-            CancellationTokenSource cancellation = new CancellationTokenSource (Timeout);
+            CancellationTokenSource cancellation = new CancellationTokenSource (TaskExtensions.Timeout);
             CancellationRegistration = cancellation.Token.Register (Dispose);
             return this;
         }
@@ -332,7 +372,7 @@ namespace MonoTorrent.Client
         }
 
         public IPieceWriter Writer {
-            get; set;
+            get; private set;
         }
 
         public ClientEngine Engine { get; }
@@ -359,6 +399,8 @@ namespace MonoTorrent.Client
 
         public void AddConnection (IPeerConnection connection)
         {
+            if (!connection.IsIncoming && !Manager.Mode.CanAcceptConnections)
+                throw new NotSupportedException ($"You can't fake an outgoing connection for a torrent manager in the {Manager.Mode} mode");
             Listener.Add (connection.IsIncoming ? null : Manager, connection);
         }
         public PeerId CreatePeer (bool processingQueue)
@@ -371,8 +413,8 @@ namespace MonoTorrent.Client
             StringBuilder sb = new StringBuilder ();
             for (int i = 0; i < 20; i++)
                 sb.Append ((char) Random.Next ('a', 'z'));
-            Peer peer = new Peer (new PeerInfo (new Uri ($"ipv4://127.0.0.1:{(port++)}"), sb.ToString ()), new InfoHash (new byte[20]));
-            PeerId id = new PeerId (peer, NullConnection.Incoming, new BitField (Manager.Torrent.PieceCount ()).SetAll (false));
+            Peer peer = new Peer (new PeerInfo (new Uri ($"ipv4://127.0.0.1:{(port++)}"), sb.ToString ()));
+            PeerId id = new PeerId (peer, NullConnection.Incoming, new BitField (Manager.Torrent.PieceCount ()).SetAll (false), new InfoHash (new byte[20]), PlainTextEncryption.Instance, PlainTextEncryption.Instance, Software.Synthetic);
             id.SupportsFastPeer = supportsFastPeer;
             id.MessageQueue.SetReady ();
             if (processingQueue)
@@ -418,15 +460,18 @@ namespace MonoTorrent.Client
             this.tier = trackers;
             MetadataMode = metadataMode;
             var cacheDir = Path.Combine (Path.GetDirectoryName (typeof (TestRig).Assembly.Location), "test_cache_dir");
+
+            Writer = writer ?? new TestWriter ();
             var factories = Factories.Default
                 .WithDhtCreator (() => new ManualDhtEngine ())
                 .WithDhtListenerCreator (port => new NullDhtListener ())
                 .WithLocalPeerDiscoveryCreator (() => new ManualLocalPeerListener ())
                 .WithPeerConnectionListenerCreator (endpoint => new CustomListener ())
                 .WithTrackerCreator ("custom", uri => new Tracker (new CustomTrackerConnection (uri)))
+                .WithPieceWriterCreator (files => writer);
                 ;
 
-            Engine = new ClientEngine (EngineSettingsBuilder.CreateForTests (
+            Engine = EngineHelpers.Create (EngineHelpers.CreateSettings (
                 allowLocalPeerDiscovery: true,
                 dhtEndPoint: new IPEndPoint (IPAddress.Any, 12345),
                 cacheDirectory: cacheDir,
@@ -434,8 +479,6 @@ namespace MonoTorrent.Client
             ), factories);
             if (Directory.Exists (Engine.Settings.MetadataCacheDirectory))
                 Directory.Delete (Engine.Settings.MetadataCacheDirectory, true);
-            Engine.DiskManager.SetWriterAsync (writer).GetAwaiter ().GetResult ();
-            Writer = writer;
 
             RecreateManager ().Wait ();
             MetadataPath = Path.Combine (Engine.Settings.MetadataCacheDirectory, $"{Engine.Torrents.Single ().InfoHashes.V1OrV2.ToHex ()}.torrent");
@@ -512,9 +555,9 @@ namespace MonoTorrent.Client
             return new TestRig ("", StandardPieceSize (), StandardWriter (), StandardTrackers (), StandardMultiFile ());
         }
 
-        internal static TestRig CreateMultiFile (ITorrentFile[] files, int pieceLength, IPieceWriter writer = null)
+        internal static TestRig CreateMultiFile (ITorrentFile[] files, int pieceLength, IPieceWriter writer = null, string baseDirectory = null)
         {
-            return new TestRig ("", pieceLength, writer ?? StandardWriter (), StandardTrackers (), files);
+            return new TestRig (baseDirectory, pieceLength, writer ?? StandardWriter (), StandardTrackers (), files);
         }
 
         public static TestRig CreateTrackers (string[][] tier)
@@ -603,15 +646,15 @@ namespace MonoTorrent.Client
             return CreateSingleFile (torrentSize, pieceLength, false).Manager;
         }
 
-        internal static TorrentManager CreateMultiFileManager (long[] fileSizes, int pieceLength, IPieceWriter writer = null)
+        internal static TorrentManager CreateMultiFileManager (long[] fileSizes, int pieceLength, IPieceWriter writer = null, string baseDirectory = null)
         {
             var files = TorrentFile.Create (pieceLength, fileSizes).ToArray ();
-            return CreateMultiFileManager (files, pieceLength, writer);
+            return CreateMultiFileManager (files, pieceLength, writer, baseDirectory);
         }
 
-        internal static TorrentManager CreateMultiFileManager (ITorrentFile[] files, int pieceLength, IPieceWriter writer = null)
+        internal static TorrentManager CreateMultiFileManager (ITorrentFile[] files, int pieceLength, IPieceWriter writer = null, string baseDirectory = null)
         {
-            return CreateMultiFile (files, pieceLength, writer: writer).Manager;
+            return CreateMultiFile (files, pieceLength, writer: writer, baseDirectory: baseDirectory).Manager;
         }
     }
 }

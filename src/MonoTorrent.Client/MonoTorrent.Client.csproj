@@ -6,13 +6,33 @@
 
     <BeforePack>$(BeforePack);SetPackProperties</BeforePack>
     <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UseBigEndianBigInteger>true</UseBigEndianBigInteger>
+    <UseBitOps>true</UseBitOps>
+    <UseCache>true</UseCache>
+    <UseEnsureThreadPool>true</UseEnsureThreadPool>
+    <UseIListExtensions>true</UseIListExtensions>
+    <UseLogger>true</UseLogger>
+    <UseMainLoop>true</UseMainLoop>
     <UseMemoryExtensions>true</UseMemoryExtensions>
+    <UseNullabilityHelpers>true</UseNullabilityHelpers>
+    <UseSemaphoreSlimExtensions>true</UseSemaphoreSlimExtensions>
+    <UseSimpleSpinLock>true</UseSimpleSpinLock>
+    <UseThreadSwitcher>true</UseThreadSwitcher>
+    <UseTorrentFileExtensions>true</UseTorrentFileExtensions>
+    <UseValueStopWatch>true</UseValueStopWatch>
   </PropertyGroup>
 
   <!-- Ensure this library is referenced as a dependency -->
   <ItemGroup>
     <PackageReference Include="C5" Version="[3.0.0-rc,4.0)" />
+    <PackageReference Include="GitInfo" />
     <PackageReference Include="Mono.Nat" Version="[3.0,4.0)" ExcludeAssets="compile" />
+    <PackageReference Include="ReusableTasks" />
+    <PackageReference Include="System.Memory" Condition="$(TargetFramework) == 'netstandard2.0'" />
+    <PackageReference Include="StandardSocketsHttpHandler" Condition="$(TargetFramework) == 'netstandard2.1' Or $(TargetFramework) == 'netstandard2.0'" />
   </ItemGroup>
 
   <!-- NuGet related properties. We need to run this as part of the 'PackDependsOn' dependencies
@@ -74,8 +94,9 @@
     <ProjectReference Include="..\MonoTorrent.PieceWriter\MonoTorrent.PieceWriter.csproj" PrivateAssets="all" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Condition="$(TargetFramework) == 'netstandard2.0'" Include="System.Memory" Version="4.5.1" />
+  <ItemGroup Condition="$(TargetFramework) == 'net472'">
+    <Reference Include="System.Web" />
+    <Reference Include="System.Net.Http" />
   </ItemGroup>
 
    <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="BuildOnlySettings;ResolveReferences">

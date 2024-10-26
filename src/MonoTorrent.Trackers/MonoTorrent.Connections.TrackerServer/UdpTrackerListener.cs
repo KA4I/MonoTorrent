@@ -38,6 +38,7 @@ using System.Threading.Tasks;
 using MonoTorrent.BEncoding;
 using MonoTorrent.Logging;
 using MonoTorrent.Messages.UdpTracker;
+using MonoTorrent.Trackers;
 using MonoTorrent.TrackerServer;
 
 namespace MonoTorrent.Connections.TrackerServer
@@ -50,8 +51,6 @@ namespace MonoTorrent.Connections.TrackerServer
 
         IPEndPoint OriginalEndPoint { get; }
 
-        CancellationTokenSource Cancellation { get; set; }
-
         Dictionary<IPAddress, long> ConnectionIDs { get; }
 
         long curConnectionID;
@@ -63,7 +62,6 @@ namespace MonoTorrent.Connections.TrackerServer
 
         public UdpTrackerListener (IPEndPoint endPoint)
         {
-            Cancellation = new CancellationTokenSource ();
             ConnectionIDs = new Dictionary<IPAddress, long> ();
             OriginalEndPoint = endPoint;
         }
@@ -71,12 +69,8 @@ namespace MonoTorrent.Connections.TrackerServer
         /// <summary>
         /// Starts listening for incoming connections
         /// </summary>
-        public override void Start ()
+        protected override void StartCore (CancellationToken token)
         {
-            Cancellation?.Cancel ();
-            Cancellation = new CancellationTokenSource ();
-
-            var token = Cancellation.Token;
             var listener = new UdpClient (OriginalEndPoint);
             token.Register (() => {
                 LocalEndPoint = null;
@@ -87,11 +81,6 @@ namespace MonoTorrent.Connections.TrackerServer
 
             ReceiveAsync (listener, token);
             RaiseStatusChanged (ListenerStatus.Listening);
-        }
-        public override void Stop ()
-        {
-            Cancellation?.Cancel ();
-            RaiseStatusChanged (ListenerStatus.NotListening);
         }
 
         async void ReceiveAsync (UdpClient client, CancellationToken token)
@@ -135,7 +124,7 @@ namespace MonoTorrent.Connections.TrackerServer
             else
                 m = new ErrorMessage (connectMessage.TransactionId, $"The connection_id was {connectMessage.ConnectionId} but expected {ConnectMessage.InitialiseConnectionId}");
 
-            byte[] data = m.Encode ();
+            ReadOnlyMemory<byte> data = m.Encode ();
             try {
                 await client.SendAsync (data, data.Length, remotePeer);
             } catch {
@@ -198,7 +187,7 @@ namespace MonoTorrent.Connections.TrackerServer
                 }
                 m = new AnnounceResponseMessage (remotePeer.AddressFamily, announceMessage.TransactionId, interval, leechers, seeders, peers);
             }
-            byte[] data = m.Encode ();
+            ReadOnlyMemory<byte> data = m.Encode ();
             await client.SendAsync (data, data.Length, remotePeer);
         }
 
@@ -206,7 +195,7 @@ namespace MonoTorrent.Connections.TrackerServer
         {
             var res = new NameValueCollection {
                 { "info_hash", announceMessage.InfoHash!.UrlEncode () },
-                { "peer_id", BEncodedString.FromMemory (announceMessage.PeerId).UrlEncode () },
+                { "peer_id", UriQueryBuilder.UrlEncodeQuery(announceMessage.PeerId.Span) },
                 { "port", announceMessage.Port.ToString () },
                 { "uploaded", announceMessage.Uploaded.ToString () },
                 { "downloaded", announceMessage.Downloaded.ToString () },
@@ -225,7 +214,7 @@ namespace MonoTorrent.Connections.TrackerServer
             BEncodedDictionary val = Handle (getCollection (scrapeMessage), remotePeer.Address, true);
 
             UdpTrackerMessage m;
-            byte[] data;
+            ReadOnlyMemory<byte> data;
             if (val.ContainsKey (TrackerRequest.FailureKey)) {
                 m = new ErrorMessage (scrapeMessage.TransactionId, val[TrackerRequest.FailureKey].ToString ()!);
             } else {

@@ -1,10 +1,10 @@
 ﻿//
-// ByteBufferPool.ArraySegmentReleaser.cs
+// FileCreationOptions.cs
 //
 // Authors:
 //   Alan McGovern alan.mcgovern@gmail.com
 //
-// Copyright (C) 2006 Alan McGovern
+// Copyright (C) 2024 Alan McGovern
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -27,39 +27,20 @@
 //
 
 
-using System;
-using System.Collections.Generic;
-
-namespace MonoTorrent
+namespace MonoTorrent.PieceWriter
 {
-    public partial class MemoryPool
+    public enum FileCreationOptions
     {
-        public readonly struct ArraySegmentReleaser : IDisposable
-        {
-            readonly int counter;
-            readonly ByteBuffer Buffer;
-            readonly List<ByteBuffer> Pool;
-
-            internal ArraySegmentReleaser (List<ByteBuffer> pool, ByteBuffer buffer)
-            {
-                Pool = pool;
-                Buffer = buffer;
-                counter = Buffer.Counter;
-            }
-
-            public void Dispose ()
-            {
-                if (Buffer == null)
-                    return;
-
-                lock (Pool) {
-                    if (counter != Buffer.Counter)
-                        throw new InvalidOperationException ("This buffer has been double-freed, which implies it was used after a previews free.");
-
-                    Buffer.Counter++;
-                    Pool.Add (Buffer);
-                }
-            }
-        }
+        /// <summary>
+        /// On filesystems where sparse files can be created, an attempt will be made to create a sparse file.
+        /// Otherwise an empty file will be created.
+        /// </summary>
+        PreferSparse,
+        /// <summary>
+        /// On filesystems which support preallocation the space required for the file will be reserved as soon
+        /// as the file is created. Otherwise, a best effort to pre-allocate will be made by writing 1 byte at
+        /// the end of the file.
+        /// </summary>
+        PreferPreallocation,
     }
 }

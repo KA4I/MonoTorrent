@@ -55,7 +55,7 @@ namespace MonoTorrent.Client
 
         public ReadOnlyBitField UnhashedPieces { get; }
 
-        internal FastResume (InfoHashes infoHashes, ReadOnlyBitField bitfield, ReadOnlyBitField unhashedPieces)
+        public FastResume (InfoHashes infoHashes, ReadOnlyBitField bitfield, ReadOnlyBitField unhashedPieces)
         {
             InfoHashes = infoHashes ?? throw new ArgumentNullException (nameof (infoHashes));
             Bitfield = new ReadOnlyBitField (bitfield);
@@ -112,7 +112,7 @@ namespace MonoTorrent.Client
         {
             return new BEncodedDictionary {
                 { VersionKey, FastResumeVersion },
-                { InfoHashKey, new BEncodedString(InfoHashes.V1OrV2.Span.ToArray ()) },
+                { InfoHashKey, BEncodedString.FromMemory (InfoHashes.V1OrV2.AsMemory ()) },
                 { BitfieldKey, new BEncodedString(Bitfield.ToBytes()) },
                 { BitfieldLengthKey, (BEncodedNumber)Bitfield.Length },
                 { UnhashedPiecesKey, new BEncodedString (UnhashedPieces.ToBytes ()) }

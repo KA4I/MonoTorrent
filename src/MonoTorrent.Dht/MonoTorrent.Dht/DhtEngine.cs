@@ -63,6 +63,12 @@ namespace MonoTorrent.Dht
 
     public class DhtEngine : IDisposable, IDhtEngine
     {
+        internal static readonly IList<string> DefaultBootstrapRouters = Array.AsReadOnly (new[] {
+            "router.bittorrent.com",
+            "router.utorrent.com",
+            "dht.transmissionbt.com"
+        });
+
         static readonly TimeSpan DefaultAnnounceInternal = TimeSpan.FromMinutes (10);
         static readonly TimeSpan DefaultMinimumAnnounceInterval = TimeSpan.FromMinutes (3);
 
@@ -185,11 +191,11 @@ namespace MonoTorrent.Dht
             }
         }
 
-        async void InitializeAsync (IEnumerable<Node> nodes)
+        async void InitializeAsync (IEnumerable<Node> nodes, string[] bootstrapRouters)
         {
             await MainLoop;
 
-            var initTask = new InitialiseTask (this, nodes);
+            var initTask = new InitialiseTask (this, nodes, bootstrapRouters);
             await initTask.ExecuteAsync ();
             if (RoutingTable.NeedsBootstrap)
                 RaiseStateChanged (DhtState.NotReady);
@@ -272,9 +278,15 @@ namespace MonoTorrent.Dht
             => StartAsync (ReadOnlyMemory<byte>.Empty);
 
         public Task StartAsync (ReadOnlyMemory<byte> initialNodes)
-            => StartAsync (Node.FromCompactNode (BEncodedString.FromMemory (initialNodes)).Concat (PendingNodes));
+            => StartAsync (Node.FromCompactNode (BEncodedString.FromMemory (initialNodes)).Concat (PendingNodes), DefaultBootstrapRouters.ToArray ());
 
-        async Task StartAsync (IEnumerable<Node> nodes)
+        public Task StartAsync (params string[] bootstrapRouters)
+            => StartAsync (Array.Empty<Node> (), bootstrapRouters);
+
+        public Task StartAsync (ReadOnlyMemory<byte> initialNodes, params string[] bootstrapRouters)
+            => StartAsync (Node.FromCompactNode (BEncodedString.FromMemory (initialNodes)).Concat (PendingNodes), bootstrapRouters);
+
+        async Task StartAsync (IEnumerable<Node> nodes, string[] bootstrapRouters)
         {
             CheckDisposed ();
 
@@ -282,7 +294,7 @@ namespace MonoTorrent.Dht
             MessageLoop.Start ();
             if (RoutingTable.NeedsBootstrap) {
                 RaiseStateChanged (DhtState.Initialising);
-                InitializeAsync (nodes);
+                InitializeAsync (nodes, bootstrapRouters);
             } else {
                 RaiseStateChanged (DhtState.Ready);
             }

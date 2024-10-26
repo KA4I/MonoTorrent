@@ -53,6 +53,11 @@ namespace MonoTorrent.Client
             public ReusableTask CloseAsync (ITorrentManagerFile file)
                 => ReusableTask.CompletedTask;
 
+            public ReusableTask<bool> CreateAsync (ITorrentManagerFile file, FileCreationOptions options)
+            {
+                throw new NotImplementedException ();
+            }
+
             public void Dispose ()
             {
             }
@@ -63,6 +68,11 @@ namespace MonoTorrent.Client
             public ReusableTask FlushAsync (ITorrentManagerFile file)
                 => ReusableTask.CompletedTask;
 
+            public ReusableTask<long?> GetLengthAsync (ITorrentManagerFile file)
+            {
+                throw new NotImplementedException ();
+            }
+
             public ReusableTask MoveAsync (ITorrentManagerFile file, string fullPath, bool overwrite)
                 => ReusableTask.CompletedTask;
 
@@ -70,6 +80,11 @@ namespace MonoTorrent.Client
             {
                 buffer.Span.Clear ();
                 return ReusableTask.FromResult (buffer.Length);
+            }
+
+            public ReusableTask<bool> SetLengthAsync (ITorrentManagerFile file, long length)
+            {
+                throw new NotImplementedException ();
             }
 
             public ReusableTask SetMaximumOpenFilesAsync (int maximumOpenFiles)
@@ -108,7 +123,7 @@ namespace MonoTorrent.Client
             Assert.AreEqual (pieceLength * 1024, torrent.PieceLength);
 
             var info = new Info (torrent);
-            var manager = new DiskManager (EngineSettingsBuilder.CreateForTests (), Factories.Default, new ZeroWriter ());
+            var manager = new DiskManager (EngineHelpers.CreateSettings (), EngineHelpers.Factories.WithPieceWriterCreator (t => new ZeroWriter ()));
             for (int i = 0; i < info.TorrentInfo.PieceCount (); i ++) {
                 PieceHash dest = new PieceHash (Memory<byte>.Empty, new byte[32]);
                 await manager.GetHashAsync (info, i, dest);

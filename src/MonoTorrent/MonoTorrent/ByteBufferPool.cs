@@ -29,6 +29,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace MonoTorrent
 {
@@ -40,9 +41,9 @@ namespace MonoTorrent
         const int AllocateDelta = 8;
 
 
-        Queue<ByteBuffer> LargeMessageBuffers { get; }
-        Queue<ByteBuffer> MassiveBuffers { get; }
-        Queue<ByteBuffer> SmallMessageBuffers { get; }
+        SpinLocked<Stack<ByteBuffer>> LargeMessageBuffers { get; }
+        SpinLocked<Queue<ByteBuffer>> MassiveBuffers { get; }
+        SpinLocked<Stack<ByteBuffer>> SmallMessageBuffers { get; }
 
 
         /// <summary>
@@ -50,13 +51,15 @@ namespace MonoTorrent
         /// </summary>
         protected ByteBufferPool ()
         {
-            LargeMessageBuffers = new Queue<ByteBuffer> ();
-            MassiveBuffers = new Queue<ByteBuffer> ();
-            SmallMessageBuffers = new Queue<ByteBuffer> ();
+            LargeMessageBuffers = SpinLocked.Create (new Stack<ByteBuffer> (128));
+            MassiveBuffers = SpinLocked.Create (new Queue<ByteBuffer> (16));
+            SmallMessageBuffers = SpinLocked.Create (new Stack<ByteBuffer> (128));
 
             // Preallocate some of each buffer to help avoid heap fragmentation due to pinning
-            AllocateBuffers (AllocateDelta * 4, LargeMessageBuffers, LargeMessageBufferSize);
-            AllocateBuffers (AllocateDelta * 4, SmallMessageBuffers, SmallMessageBufferSize);
+            using (LargeMessageBuffers.Enter (out var buffers))
+                AllocateBuffers (AllocateDelta * 4, buffers, LargeMessageBufferSize);
+            using (SmallMessageBuffers.Enter (out var buffers))
+                AllocateBuffers (AllocateDelta * 4, buffers, SmallMessageBufferSize);
         }
 
         protected Releaser Rent (int capacity, out Memory<byte> buffer)
@@ -75,35 +78,34 @@ namespace MonoTorrent
 
         Releaser Rent (int capacity, out ByteBuffer buffer)
         {
-            if (capacity <= SmallMessageBufferSize)
-                return Rent (SmallMessageBuffers, SmallMessageBufferSize, out buffer);
-
-            if (capacity <= LargeMessageBufferSize)
-                return Rent (LargeMessageBuffers, LargeMessageBufferSize, out buffer);
-
-            lock (MassiveBuffers) {
-                for (int i = 0; i < MassiveBuffers.Count; i++)
-                    if ((buffer = MassiveBuffers.Dequeue ()).Memory.Length >= capacity)
-                        return new Releaser (MassiveBuffers, buffer);
-                    else
-                        MassiveBuffers.Enqueue (buffer);
-
+            if (capacity <= SmallMessageBufferSize) {
+                using (SmallMessageBuffers.Enter (out var buffers)) {
+                    if (buffers.Count == 0)
+                        AllocateBuffers (AllocateDelta, buffers, SmallMessageBufferSize);
+                    buffer = buffers.Pop ();
+                }
+                return new Releaser (this, buffer);
+            } else if (capacity <= LargeMessageBufferSize) {
+                using (LargeMessageBuffers.Enter (out var buffers)) {
+                    if (buffers.Count == 0)
+                        AllocateBuffers (AllocateDelta, buffers, LargeMessageBufferSize);
+                    buffer = buffers.Pop ();
+                }
+                return new Releaser (this, buffer);
+            } else {
+                using (MassiveBuffers.Enter (out var buffers)) {
+                    for (int i = 0; i < buffers.Count; i++)
+                        if ((buffer = buffers.Dequeue ()).Memory.Length >= capacity)
+                            return new Releaser (this, buffer);
+                        else
+                            buffers.Enqueue (buffer);
+                }
                 buffer = new ByteBuffer (new ArraySegment<byte> (new byte[capacity]));
-                return new Releaser (MassiveBuffers, buffer);
+                return new Releaser (this, buffer);
             }
         }
 
-        Releaser Rent (Queue<ByteBuffer> buffers, int bufferSize, out ByteBuffer buffer)
-        {
-            lock (buffers) {
-                if (buffers.Count == 0)
-                    AllocateBuffers (AllocateDelta, buffers, bufferSize);
-                buffer = buffers.Dequeue ();
-                return new Releaser (buffers, buffer);
-            }
-        }
-
-        void AllocateBuffers (int count, Queue<ByteBuffer> bufferQueue, int bufferSize)
+        static void AllocateBuffers (int count, Stack<ByteBuffer> bufferQueue, int bufferSize)
         {
             // This code used to allocate a single buffer of size `bufferSize * count` which would
             // then be split into discrete segments to be consumed by the library. The intention
@@ -116,12 +118,12 @@ namespace MonoTorrent
             // This is safer than allocating one massive buffer which is placed in the large object heap
             // as there's no guarantee that a buffer won't be 'lost', and at the moment that could lead to
             // pretty poor memory utilisation if we keep losing segments of really large buffers.
-#if NETSTANDARD2_0 || NETSTANDARD2_1 || NETCOREAPP3_0
+#if NETSTANDARD2_0 || NETSTANDARD2_1 || NETCOREAPP3_0 || NET472
             for (int i = 0; i < count; i++)
-                bufferQueue.Enqueue (new ByteBuffer (new ArraySegment<byte> (new byte[bufferSize])));
+                bufferQueue.Push(new ByteBuffer (new ArraySegment<byte> (new byte[bufferSize])));
 #else
             for (int i = 0; i < count; i++)
-                bufferQueue.Enqueue (new ByteBuffer (new ArraySegment<byte> (GC.AllocateUninitializedArray<byte> (bufferSize, pinned: true))));
+                bufferQueue.Push (new ByteBuffer (new ArraySegment<byte> (GC.AllocateUninitializedArray<byte> (bufferSize, pinned: true))));
 #endif
         }
     }

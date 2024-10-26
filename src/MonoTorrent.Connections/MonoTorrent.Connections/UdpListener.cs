@@ -39,7 +39,7 @@ namespace MonoTorrent.Connections
 {
     public abstract class UdpListener : SocketListener, ISocketMessageListener
     {
-        public event Action<byte[], IPEndPoint>? MessageReceived;
+        public event Action<ReadOnlyMemory<byte>, IPEndPoint>? MessageReceived;
 
         UdpClient? Client { get; set; }
 
@@ -48,7 +48,7 @@ namespace MonoTorrent.Connections
         {
         }
 
-        public async Task SendAsync (byte[] buffer, IPEndPoint endpoint)
+        public async Task SendAsync (ReadOnlyMemory<byte> buffer, IPEndPoint endpoint)
         {
             if (Status == ListenerStatus.PortNotFree)
                 throw new InvalidOperationException ($"The listener could not bind to ${LocalEndPoint}. Choose a new listening endpoint.");

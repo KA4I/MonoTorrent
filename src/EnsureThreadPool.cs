@@ -32,7 +32,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading;
 
-namespace MonoTorrent.Client
+namespace MonoTorrent
 {
     internal struct EnsureThreadPool : INotifyCompletion
     {
@@ -56,10 +56,10 @@ namespace MonoTorrent.Client
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void OnCompleted(Action continuation)
         {
-#if NET5_0_OR_GREATER || NETCOREAPP3_0_OR_GREATER
-            ThreadPool.UnsafeQueueUserWorkItem (ThreadSwitcher.ThreadSwitcherWorkItem.GetOrCreate (continuation), false);
-#else
+#if NETSTANDARD2_0 || NETSTANDARD2_1 || NET472
             ThreadPool.UnsafeQueueUserWorkItem(Callback, continuation);
+#else
+            ThreadPool.UnsafeQueueUserWorkItem (ThreadSwitcher.ThreadSwitcherWorkItem.GetOrCreate (continuation), true);
 #endif
         }
     }

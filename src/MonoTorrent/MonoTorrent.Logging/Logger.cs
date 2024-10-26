@@ -4,7 +4,7 @@
 // Authors:
 //   Alan McGovern alan.mcgovern@gmail.com
 //
-// Copyright (C) 2006 Alan McGovern
+// Copyright (C) 2024 Alan McGovern
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -28,22 +28,33 @@
 
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MonoTorrent.Logging
 {
-    public static class LoggerFactory
+    class Logger : ILogger
     {
-        /// <summary>
-        /// The factory method used to create new ILogger instances. The <see cref="string"/> parameter
-        /// is the <see cref="Type.FullName"/> for the class the ILogger is associated with. You can
-        /// return <see langword="null"/> for any class to disable logging for that class.
-        /// </summary>
-        public static Func<string, ILogger>? Factory { get; private set; }
+        public string Name { get; }
 
-        public static ILogger Create (string name)
-            => Factory?.Invoke (name) ?? NullLogger.Instance;
+        public Logger(string name)
+            => Name = name;
 
-        public static void Register (Func<string, ILogger>? creator)
-            => Factory = creator;
+        public void Debug (string message)
+        {
+            LoggerFactory.RootLogger.Debug (Name, message);
+        }
+
+        public void Error (string message)
+        {
+            LoggerFactory.RootLogger.Debug (Name, message);
+        }
+
+        public void Info (string message)
+        {
+            LoggerFactory.RootLogger.Debug (Name, message);
+        }
     }
 }

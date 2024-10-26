@@ -4,13 +4,19 @@
     <TargetFrameworks>net6.0;netstandard2.1;netstandard2.0</TargetFrameworks>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <UseSemaphoreSlimExtensions>true</UseSemaphoreSlimExtensions>
+    <UseSimpleSpinLock>true</UseSimpleSpinLock>
+    <UseThreadSwitcher>true</UseThreadSwitcher>
+  </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\MonoTorrent\MonoTorrent.csproj" />
-    <PackageReference Include="Mono.Nat" Version="[3.0.3,4.0)" />
+    <PackageReference Include="GitInfo" />
+    <PackageReference Include="Mono.Nat" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\MonoTorrent.Client\MonoTorrent\SemaphoreSlimExtensions.cs" Link="Linked\%(FileName)%(Extension)" />
+    <ProjectReference Include="..\MonoTorrent\MonoTorrent.csproj" />
   </ItemGroup>
 
 </Project>

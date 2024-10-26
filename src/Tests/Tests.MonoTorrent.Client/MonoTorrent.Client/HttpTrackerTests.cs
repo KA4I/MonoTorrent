@@ -29,6 +29,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -50,7 +51,7 @@ namespace MonoTorrent.TrackerServer
     [TestFixture]
     public class HttpTrackerTests
     {
-        class CustomHttpTrackerListener: HttpTrackerListener
+        class CustomHttpTrackerListener : HttpTrackerListener
         {
 
             public bool IncompleteAnnounce { get; set; }
@@ -78,7 +79,7 @@ namespace MonoTorrent.TrackerServer
         MonoTorrent.Trackers.ScrapeRequest scrapeParams;
         TrackerServer server;
         CustomHttpTrackerListener listener;
-        string ListeningPrefix => "http://127.0.0.1:47124/";
+        string ListeningPrefix;
         Uri AnnounceUrl => new Uri ($"{ListeningPrefix}announce");
         HttpTrackerConnection trackerConnection;
         Tracker tracker;
@@ -96,16 +97,25 @@ namespace MonoTorrent.TrackerServer
         {
             peerId = new BEncodedString (Enumerable.Repeat ((byte) 254, 20).ToArray ());
             trackerId = Enumerable.Repeat ((byte) 255, 20).ToArray ();
-            listener = new CustomHttpTrackerListener (ListeningPrefix);
-            listener.AnnounceReceived += delegate (object o, AnnounceRequest e) {
-                keys.Add (e.Key);
-                announcedInfoHashes.Add (e.InfoHash);
-            };
-            listener.ScrapeReceived += (o, e) => {
-                scrapedInfoHashes.AddRange (e.InfoHashes);
-            };
+            for (int i = 47124; i < 47224; i++) {
+                try {
+                    ListeningPrefix = $"http://127.0.0.1:{i}/{Process.GetCurrentProcess ().Id}/";
+                    listener = new CustomHttpTrackerListener (ListeningPrefix);
+                    listener.AnnounceReceived += delegate (object o, AnnounceRequest e) {
+                        keys.Add (e.Key);
+                        announcedInfoHashes.Add (e.InfoHash);
+                    };
+                    listener.ScrapeReceived += (o, e) => {
+                        scrapedInfoHashes.AddRange (e.InfoHashes);
+                    };
 
-            listener.Start ();
+                    listener.Start ();
+                    break;
+                } catch {
+                    listener?.Stop ();
+                    continue;
+                }
+            }
         }
 
         [SetUp]
@@ -129,7 +139,7 @@ namespace MonoTorrent.TrackerServer
 
             infoHash = new InfoHash (infoHashBytes.Concat (infoHashBytes).ToArray ());
             announceParams = new MonoTorrent.Trackers.AnnounceRequest (InfoHashes.FromV1 (infoHash))
-                .WithReportedEndPointFunc(t => (null, 5555))
+                .WithReportedEndPointFunc (t => (null, 5555))
                 .WithPeerId (peerId.Span.ToArray ());
 
             scrapeParams = new MonoTorrent.Trackers.ScrapeRequest (InfoHashes.FromV1 (infoHash));
@@ -173,7 +183,7 @@ namespace MonoTorrent.TrackerServer
         [Test]
         public async Task AnnounceHybrid ()
         {
-            var hybrid = new InfoHashes (new InfoHash (Enumerable.Repeat<byte>(1, 20).ToArray ()), new InfoHash (Enumerable.Repeat<byte> (2, 32).ToArray ()));
+            var hybrid = new InfoHashes (new InfoHash (Enumerable.Repeat<byte> (1, 20).ToArray ()), new InfoHash (Enumerable.Repeat<byte> (2, 32).ToArray ()));
             await tracker.AnnounceAsync (announceParams.WithInfoHashes (hybrid), CancellationToken.None);
             Assert.AreEqual (int.Parse (keys[0].Text), tracker.AnnounceKey, "#2");
             Assert.AreEqual (2, announcedInfoHashes.Count);
@@ -349,10 +359,16 @@ namespace MonoTorrent.TrackerServer
         [Test]
         public async Task Scrape_Timeout ()
         {
+            var cancellation = new CancellationTokenSource ();
             var tcs = new TaskCompletionSource<bool> ();
-            listener.ScrapeReceived += (o, e) => tcs.Task.Wait ();
+            listener.ScrapeReceived += (o, e) => {
+                cancellation.Cancel ();
+                tcs.Task.Wait ();
+                throw new InvalidOperationException ("Ensure this request isn't processed");
+            };
+
             try {
-                var response = await tracker.ScrapeAsync (scrapeParams, new CancellationTokenSource (TimeSpan.FromMilliseconds (1)).Token).WithTimeout ();
+                var response = await tracker.ScrapeAsync (scrapeParams, cancellation.Token).WithTimeout ();
                 Assert.AreEqual (TrackerState.Offline, response.State);
             } finally {
                 tcs.SetResult (true);

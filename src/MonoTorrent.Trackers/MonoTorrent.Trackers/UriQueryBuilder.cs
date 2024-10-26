@@ -32,12 +32,19 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Web;
 
 namespace MonoTorrent.Trackers
 {
     [DebuggerDisplay ("{" + nameof (ToUri) + " ()}")]
     class UriQueryBuilder
     {
+        public static string UrlEncodeQuery (Span<byte> data)
+            => UrlEncodeQuery ((ReadOnlySpan<byte>) data);
+
+        public static string UrlEncodeQuery (ReadOnlySpan<byte> data)
+            => HttpUtility.UrlEncode (data.ToArray ()).Replace ("+", "%20");
+
         readonly UriBuilder builder;
         readonly Dictionary<string, string> queryParams;
 
@@ -66,7 +73,7 @@ namespace MonoTorrent.Trackers
             if (value == null)
                 throw new ArgumentNullException (nameof (value));
 
-            queryParams[key] = value.ToString ()!;
+            queryParams[key] = value.ToString () ?? throw new ArgumentException("Calling ToString on the object should not be null", nameof (value));
             return this;
         }
 

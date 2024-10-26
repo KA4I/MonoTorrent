@@ -5,10 +5,6 @@ MonoTorrent
  
 ![Build status (master)](https://img.shields.io/azure-devops/build/alanmcgovern0144/monotorrent/7/master?label=build%20status%20%28master%29) ![Test Status (master)](https://img.shields.io/azure-devops/tests/alanmcgovern0144/monotorrent/7/master?compact_message&label=test%20status%20%28master%29) ![code coverage (master)](https://img.shields.io/azure-devops/coverage/alanmcgovern0144/monotorrent/7/master?label=code%20coverage%20%28master%29)
 
-![Azure DevOps builds (branch)](https://img.shields.io/azure-devops/build/alanmcgovern0144/monotorrent/7/monotorrent-3.0?label=build%20status%20%28monotorrent-3.0%29) ![Azure DevOps tests](https://img.shields.io/azure-devops/tests/alanmcgovern0144/monotorrent/7/monotorrent-3.0?compact_message&label=test%20status%20%28monotorrent-3.0%29) ![Azure DevOps coverage (branch)](https://img.shields.io/azure-devops/coverage/alanmcgovern0144/monotorrent/7/monotorrent-3.0?label=code%20coverage%20%28monotorrent-3.0%29)
-
-![Azure DevOps builds (branch)](https://img.shields.io/azure-devops/build/alanmcgovern0144/monotorrent/7/monotorrent-2.0?label=build%20status%20%28monotorrent-2.0%29) ![Azure DevOps tests](https://img.shields.io/azure-devops/tests/alanmcgovern0144/monotorrent/7/monotorrent-2.0?compact_message&label=test%20status%20%28monotorrent-2.0%29) ![Azure DevOps coverage (branch)](https://img.shields.io/azure-devops/coverage/alanmcgovern0144/monotorrent/7/monotorrent-2.0?label=code%20coverage%20%28monotorrent-2.0%29)
-
 [![Backers on Open Collective](https://opencollective.com/monotorrent/all/badge.svg?label=Backers)](https://opencollective.com/monotorrent)
 
 
@@ -100,7 +96,7 @@ This project exists thanks to all the people who contribute. [[Contribute](CONTR
 
 ### Financial Contributors
 
-Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/monotorrent/contribute)]
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/monotorrent#category-CONTRIBUTE)]
 
 #### Individuals
 
@@ -108,7 +104,7 @@ Become a financial contributor and help us sustain our community. [[Contribute](
 
 #### Organizations
 
-Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/monotorrent/contribute)]
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/monotorrent#category-CONTRIBUTE)]
 
 <a href="https://opencollective.com/monotorrent/organization/0/website"><img src="https://opencollective.com/monotorrent/organization/0/avatar.svg"></a>
 <a href="https://opencollective.com/monotorrent/organization/1/website"><img src="https://opencollective.com/monotorrent/organization/1/avatar.svg"></a>

@@ -96,8 +96,11 @@ namespace MonoTorrent.Connections.Tracker
             await new ThreadSwitcher ();
             AnnounceResponse? announceResponse = null;
 
-            var client = ClientCreator (AddressFamily);
-            foreach (var infoHash in new[] { parameters.InfoHashes.V1!, parameters.InfoHashes.V2! }.Where (t => t != null)) {
+            using var client = ClientCreator (AddressFamily);
+            foreach (var infoHash in new[] { parameters.InfoHashes.V1, parameters.InfoHashes.V2 }) {
+                if (infoHash is null)
+                    continue;
+
                 Uri announceString = CreateAnnounceString (parameters, infoHash);
                 HttpResponseMessage response;
 
@@ -128,7 +131,7 @@ namespace MonoTorrent.Connections.Tracker
                     );
                 }
             }
-            return announceResponse!;
+            return announceResponse ?? throw new InvalidOperationException("There should have been at least one infohash to announce with");
         }
 
         public async ReusableTask<ScrapeResponse> ScrapeAsync (ScrapeRequest parameters, CancellationToken token)
@@ -139,12 +142,15 @@ namespace MonoTorrent.Connections.Tracker
             await new ThreadSwitcher ();
 
             string url = ScrapeUri!.OriginalString;
-            foreach (InfoHash infohash in new[] { parameters.InfoHashes.V1!, parameters.InfoHashes.V2! }.Where (t => t != null)) {
+            foreach (var infoHash in new[] { parameters.InfoHashes.V1, parameters.InfoHashes.V2 }) {
+                if (infoHash is null)
+                    continue;
+
                 // If you want to scrape the tracker for *all* torrents, don't append the info_hash.
                 if (url.IndexOf ('?') == -1)
-                    url += $"?info_hash={infohash.Truncate ().UrlEncode ()}";
+                    url += $"?info_hash={infoHash.Truncate ().UrlEncode ()}";
                 else
-                    url += $"&info_hash={infohash.Truncate ().UrlEncode ()}";
+                    url += $"&info_hash={infoHash.Truncate ().UrlEncode ()}";
             }
 
             HttpResponseMessage response;
@@ -176,7 +182,7 @@ namespace MonoTorrent.Connections.Tracker
 
             var b = new UriQueryBuilder (Uri);
             b.Add ("info_hash", infoHash.Truncate ().UrlEncode ())
-             .Add ("peer_id", BEncodedString.FromMemory (parameters.PeerId).UrlEncode ())
+             .Add ("peer_id", UriQueryBuilder.UrlEncodeQuery (parameters.PeerId.Span))
              .Add ("port", port)
              .Add ("uploaded", parameters.BytesUploaded)
              .Add ("downloaded", parameters.BytesDownloaded)
@@ -202,11 +208,17 @@ namespace MonoTorrent.Connections.Tracker
             //    sb.Append("&event=started");
             //    parameters.Id.Tracker.Tier.SendingStartedEvent = true;
             //}
-            if (parameters.ClientEvent != TorrentEvent.None)
-                b.Add ("event", parameters.ClientEvent.ToString ().ToLower ());
-
+            if (parameters.ClientEvent != TorrentEvent.None) {
+                var eventString = parameters.ClientEvent switch {
+                    TorrentEvent.Started => "started",
+                    TorrentEvent.Stopped => "stopped",
+                    TorrentEvent.Completed => "completed",
+                    _ => throw new NotSupportedException ()
+                };
+                b.Add ("event", eventString);
+            }
             if (!BEncodedString.IsNullOrEmpty (TrackerId))
-                b.Add ("trackerid", TrackerId!.UrlEncode ());
+                b.Add ("trackerid", UriQueryBuilder.UrlEncodeQuery(TrackerId!.Span));
 
             return b.ToUri ();
         }
@@ -302,11 +314,11 @@ namespace MonoTorrent.Connections.Tracker
                         break;
 
                     case ("failure reason"):
-                        failureMessage = keypair.Value.ToString ()!;
+                        failureMessage = ((BEncodedString) keypair.Value).Text;
                         break;
 
                     case ("warning message"):
-                        warningMessage = keypair.Value.ToString ()!;
+                        warningMessage = ((BEncodedString) keypair.Value).Text;
                         break;
 
                     default:
@@ -338,12 +350,18 @@ namespace MonoTorrent.Connections.Tracker
             }
 
             var files = (BEncodedDictionary) dict[FilesKey];
-            if (files.Count != 1)
+            if (files.Count != 1 && !(infoHashes.IsHybrid && files.Count == 2))
                 throw new TrackerException ("The scrape response contained unexpected data");
 
             var results = new Dictionary<InfoHash, ScrapeInfo> ();
-            foreach (var infoHash in new[] { infoHashes.V1!, infoHashes.V2! }.Where (t => t != null)) {
-                var d = (BEncodedDictionary) files[BEncodedString.FromMemory (infoHash.Truncate ()!.AsMemory ())];
+            foreach (var infoHash in new[] { infoHashes.V1, infoHashes.V2 }) {
+                if (infoHash is null)
+                    continue;
+
+                if (!files.TryGetValue (BEncodedString.FromMemory (infoHash.Truncate ().AsMemory ()), out BEncodedValue? val))
+                    continue;
+
+                var d = (BEncodedDictionary) val;
                 int complete = 0, downloaded = 0, incomplete = 0;
                 foreach (KeyValuePair<BEncodedString, BEncodedValue> kp in d) {
                     switch (kp.Key.ToString ()) {

@@ -37,6 +37,7 @@ using MonoTorrent.BEncoding;
 using MonoTorrent.Connections;
 using MonoTorrent.Connections.Dht;
 using MonoTorrent.Dht.Messages;
+using MonoTorrent.Logging;
 
 using ReusableTasks;
 
@@ -44,6 +45,8 @@ namespace MonoTorrent.Dht
 {
     class MessageLoop
     {
+        static readonly ILogger Logger = LoggerFactory.Create (nameof (MessageLoop));
+
         struct SendDetails
         {
             public SendDetails (Node? node, IPEndPoint destination, DhtMessage message, TaskCompletionSource<SendQueryEventArgs>? tcs)
@@ -145,7 +148,7 @@ namespace MonoTorrent.Dht
             });
         }
 
-        async void MessageReceived (byte[] buffer, IPEndPoint endpoint)
+        async void MessageReceived (ReadOnlyMemory<byte> buffer, IPEndPoint endpoint)
         {
             await DhtEngine.MainLoop;
 
@@ -157,7 +160,7 @@ namespace MonoTorrent.Dht
             // FIXME: This should throw an exception if the message doesn't exist, we need to handle this
             // and return an error message (if that's what the spec allows)
             try {
-                if (DhtMessageFactory.TryDecodeMessage ((BEncodedDictionary) BEncodedValue.Decode (buffer, false), out DhtMessage? message)) {
+                if (DhtMessageFactory.TryDecodeMessage ((BEncodedDictionary) BEncodedValue.Decode (buffer.Span, false), out DhtMessage? message)) {
                     Monitor.ReceiveMonitor.AddDelta (buffer.Length);
                     ReceiveQueue.Enqueue (new KeyValuePair<IPEndPoint, DhtMessage> (endpoint, message!));
                 }
@@ -189,10 +192,15 @@ namespace MonoTorrent.Dht
                 SendDetails details = SendQueue.Dequeue ();
 
                 details.SentAt = ValueStopwatch.StartNew ();
-                if (details.Message is QueryMessage)
+                if (details.Message is QueryMessage) {
+                    if (details.Message.TransactionId is null) {
+                        Logger.Error ("Transaction id was unexpectedly missing while sending messages");
+                        return;
+                    }
                     WaitingResponse.Add (details.Message.TransactionId, details);
+                }
 
-                byte[] buffer = details.Message.Encode ();
+                ReadOnlyMemory<byte> buffer = details.Message.Encode ();
                 try {
                     Monitor.SendMonitor.AddDelta (buffer.Length);
                     await Listener.SendAsync (buffer, details.Destination);
@@ -256,41 +264,64 @@ namespace MonoTorrent.Dht
             DhtEngine.MainLoop.CheckThread ();
 
             KeyValuePair<IPEndPoint, DhtMessage> receive = ReceiveQueue.Dequeue ();
-            DhtMessage message = receive.Value;
+            DhtMessage rawResponse = receive.Value;
             IPEndPoint source = receive.Key;
             SendDetails query = default;
 
+            // What to do if the transaction id is empty?
+            BEncodedValue? responseTransactionId = rawResponse.TransactionId;
+            if (responseTransactionId is null) {
+                Logger.Error ("Received a Dht response with no transaction id");
+                return;
+            }
+
             try {
-                Node? node = Engine.RoutingTable.FindNode (message.Id);
+                Node? node = Engine.RoutingTable.FindNode (rawResponse.Id);
                 if (node == null) {
-                    node = new Node (message.Id, source);
+                    node = new Node (rawResponse.Id, source);
                     Engine.RoutingTable.Add (node);
                 }
 
                 // If we have received a ResponseMessage corresponding to a query we sent, we should
                 // remove it from our list before handling it as that could cause an exception to be
                 // thrown.
-                if (message is ResponseMessage || message is ErrorMessage) {
-                    if (!WaitingResponse.TryGetValue (message.TransactionId!, out query))
+                if (rawResponse is ResponseMessage || rawResponse is ErrorMessage) {
+                    if (!WaitingResponse.TryGetValue (responseTransactionId, out query))
                         return;
-                    WaitingResponse.Remove (message.TransactionId!);
+                    WaitingResponse.Remove (responseTransactionId);
                 }
 
                 node.Seen ();
-                if (message is ResponseMessage response) {
-                    response.Handle (Engine, node);
+                if (rawResponse is ResponseMessage response) {
+                    QueryMessage? queryMessage = query.Message as QueryMessage;
+                    if (queryMessage is null) {
+                        Logger.Error ("Received a dht response but the corresponding query message was missing");
+                        return;
+                    }
 
-                    query.CompletionSource?.TrySetResult (new SendQueryEventArgs (node, node.EndPoint, (QueryMessage) query.Message!, response));
-                    RaiseMessageSent (node, node.EndPoint, (QueryMessage) query.Message!, response);
-                } else if (message is ErrorMessage error) {
-                    query.CompletionSource?.TrySetResult (new SendQueryEventArgs (node, node.EndPoint, (QueryMessage) query.Message!, error));
-                    RaiseMessageSent (node, node.EndPoint, (QueryMessage) query.Message!, error);
+                    response.Handle (Engine, node);
+                    query.CompletionSource?.TrySetResult (new SendQueryEventArgs (node, node.EndPoint, queryMessage, response));
+                    RaiseMessageSent (node, node.EndPoint, queryMessage, response);
+                } else if (rawResponse is ErrorMessage error) {
+                    QueryMessage? queryMessage = query.Message as QueryMessage;
+                    if (queryMessage is null) {
+                        Logger.Error ("Received a dht response but the corresponding query message was missing");
+                        return;
+                    }
+
+                    query.CompletionSource?.TrySetResult (new SendQueryEventArgs (node, node.EndPoint, queryMessage, error));
+                    RaiseMessageSent (node, node.EndPoint, queryMessage, error);
                 }
             } catch (MessageException) {
-                var error = new ErrorMessage (message.TransactionId, ErrorCode.GenericError, "Unexpected error responding to the message");
+                // FIXME: Is this the right thing to do?
+                // Can/should we attempt to send a response if an error occurs here? Do we have valid data for the node?
+                var error = new ErrorMessage (responseTransactionId, ErrorCode.GenericError, "Unexpected error responding to the message");
                 query.CompletionSource?.TrySetResult (new SendQueryEventArgs (query.Node!, query.Destination!, (QueryMessage) query.Message!, error));
+                EnqueueSend (error, null, source);
             } catch (Exception) {
-                var error = new ErrorMessage (message.TransactionId, ErrorCode.GenericError, "Unexpected exception responding to the message");
+                // FIXME: Is this the right thing to do?
+                // Can/should we attempt to send a response if an error occurs here? Do we have valid data for the node?
+                var error = new ErrorMessage (responseTransactionId, ErrorCode.GenericError, "Unexpected exception responding to the message");
                 query.CompletionSource?.TrySetResult (new SendQueryEventArgs (query.Node!, query.Destination!, (QueryMessage) query.Message!, error));
                 EnqueueSend (error, null, source);
             }

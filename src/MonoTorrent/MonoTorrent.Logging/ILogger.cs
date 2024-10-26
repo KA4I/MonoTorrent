@@ -4,7 +4,7 @@
 // Authors:
 //   Alan McGovern alan.mcgovern@gmail.com
 //
-// Copyright (C) 2020 Alan McGovern
+// Copyright (C) 2024 Alan McGovern
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -34,6 +34,5 @@ namespace MonoTorrent.Logging
         void Info (string message);
         void Debug (string message);
         void Error (string message);
-        void Trace (string message);
     }
 }

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net472;net6.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net6.0;net472</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\MonoTorrent.Client\MonoTorrent\Arrays.cs" Link="Linked\%(FileName)%(Extension)" />
   </ItemGroup>
 
 </Project>

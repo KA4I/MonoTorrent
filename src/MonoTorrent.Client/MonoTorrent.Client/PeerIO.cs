@@ -64,7 +64,7 @@ namespace MonoTorrent.Client
 
         public static async ReusableTask<PeerMessage> ReceiveMessageAsync (IPeerConnection connection, IEncryption decryptor, IRateLimiter? rateLimiter, ConnectionMonitor? peerMonitor, ConnectionMonitor? managerMonitor, ITorrentManagerInfo? torrentData)
         {
-            return (await ReceiveMessageAsync (connection, decryptor, rateLimiter, peerMonitor, managerMonitor, torrentData, default)).message;
+            return (await ReceiveMessageAsync (connection, decryptor, rateLimiter, peerMonitor, managerMonitor, torrentData, default).ConfigureAwait (false)).message;
         }
 
         public static async ReusableTask<(PeerMessage message, PeerMessage.Releaser releaser)> ReceiveMessageAsync (IPeerConnection connection, IEncryption decryptor, IRateLimiter? rateLimiter, ConnectionMonitor? peerMonitor, ConnectionMonitor? managerMonitor, ITorrentManagerInfo? torrentData, Memory<byte> buffer)
@@ -88,13 +88,17 @@ namespace MonoTorrent.Client
                 decryptor.Decrypt (messageHeaderBuffer.Span.Slice (0, messageHeaderLength));
 
                 messageBodyLength = Message.ReadInt (messageHeaderBuffer.Span);
-                // depending on configuration large torrents can have a lot of pieces,
-                // so we need to increase limit to the message length to accomodate for that
-                int pieceCount = torrentData?.TorrentInfo?.PieceCount() ?? 0;
-                int maxLength = Math.Max(MaxMessageLength, pieceCount / 4);
-                if (messageBodyLength < 0 || messageBodyLength > maxLength) {
+                if (messageBodyLength < 0) {
                     connection.Dispose ();
-                    throw new ProtocolException ($"Invalid message length received. Value was '{messageBodyLength}'");
+                    throw new ProtocolException ($"Invalid message length received. Value was negative: '{messageBodyLength}'");
+                }
+
+                if (messageBodyLength > MaxMessageLength) {
+                    // Some messages are proportional to the size of the bitfield. If any message
+                    // exceeds the regular threshold, calculate whether or not it could plausibly
+                    // be a bitfield. Maybe this should be restricted to just bitfield messages?
+                    if (messageBodyLength > ((torrentData?.TorrentInfo?.PieceCount () ?? 0) / 8 + 64))
+                        throw new ProtocolException ($"Invalid message length received. Value was too large: '{messageBodyLength}'");
                 }
 
                 if (messageBodyLength == 0)

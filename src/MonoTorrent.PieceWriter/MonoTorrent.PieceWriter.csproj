@@ -2,17 +2,24 @@
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;netstandard2.1;netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UseEnsureThreadPool>true</UseEnsureThreadPool>
+    <UseIListExtensions>true</UseIListExtensions>
     <UseMemoryExtensions>true</UseMemoryExtensions>
+    <UseSemaphoreSlimExtensions>true</UseSemaphoreSlimExtensions>
+    <UseSimpleSpinLock>true</UseSimpleSpinLock>
+    <UseThreadSwitcher>true</UseThreadSwitcher>
+    <UseTorrentFileExtensions>true</UseTorrentFileExtensions>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MonoTorrent\MonoTorrent.csproj" />
+    <PackageReference Include="GitInfo" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\MonoTorrent.Client\MonoTorrent\IListExtensions.cs" Link="Linked\%(Filename)%(Extension)" />
-    <Compile Include="..\MonoTorrent.Client\MonoTorrent\SemaphoreSlimExtensions.cs" Link="Linked\%(Filename)%(Extension)" />
-    <Compile Include="..\MonoTorrent.Client\MonoTorrent\TorrentFileExtensions.cs" Link="Linked\%(Filename)%(Extension)" />
+    <ProjectReference Include="..\MonoTorrent\MonoTorrent.csproj" />
   </ItemGroup>
 
 </Project>

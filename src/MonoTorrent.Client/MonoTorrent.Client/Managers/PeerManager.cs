@@ -39,19 +39,6 @@ namespace MonoTorrent.Client
 
         internal List<Peer> ActivePeers;
         internal List<Peer> AvailablePeers;
-        readonly List<BannedPeer> bannedPeers = new ();
-        internal IEnumerable<BannedPeer> BannedPeers {
-            get {
-                lock (bannedPeers)
-                    return bannedPeers.ToArray ();
-            }
-        }
-
-        internal struct BannedPeer
-        {
-            public Peer Peer;
-            public ValueStopwatch BannedAt;
-        }
 
         /// <summary>
         /// The number of peers which are available to be connected to.
@@ -91,43 +78,12 @@ namespace MonoTorrent.Client
 
             ActivePeers.Clear ();
             AvailablePeers.Clear ();
-            lock (bannedPeers)
-                bannedPeers.Clear ();
         }
 
         internal bool Contains (Peer peer)
         {
             return ActivePeers.Contains (peer)
-                || AvailablePeers.Contains (peer)
-                || IsBanned (peer);
-        }
-
-        internal bool IsBanned (Peer peer)
-        {
-            lock (bannedPeers)
-                return bannedPeers.Any (p => p.Peer.Equals (peer));
-        }
-
-        internal void Ban (Peer peer)
-        {
-            lock (bannedPeers)
-                bannedPeers.Add (new () {
-                    Peer = peer,
-                    BannedAt = ValueStopwatch.StartNew (),
-                });
-        }
-
-        internal void Unban (Peer peer)
-        {
-            lock (bannedPeers)
-                for (int i = 0; i < bannedPeers.Count; i++) {
-                    if (bannedPeers[i].Peer.Equals (peer)) {
-                        bannedPeers.RemoveAt (i);
-                        if (!Contains (peer))
-                            AvailablePeers.Add (peer);
-                        break;
-                    }
-                }
+                || AvailablePeers.Contains (peer);
         }
 
         internal void UpdatePeerCounts ()

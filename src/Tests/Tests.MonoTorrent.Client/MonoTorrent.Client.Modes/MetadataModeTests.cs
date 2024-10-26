@@ -37,6 +37,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using MonoTorrent.Connections.Peer.Encryption;
+using MonoTorrent.Logging;
 using MonoTorrent.Messages.Peer;
 using MonoTorrent.Messages.Peer.FastPeer;
 using MonoTorrent.Messages.Peer.Libtorrent;
@@ -56,22 +57,28 @@ namespace MonoTorrent.Client.Modes
 
         public async Task Setup (bool metadataMode, bool multiFile = false, bool metadataOnly = false)
         {
-            pair = new ConnectionPair ().WithTimeout ();
+            LoggerFactory.Register (new TextWriterLogger (TestContext.Out));
+            pair = new ConnectionPair ().DisposeAfterTimeout ();
             rig = multiFile ? TestRig.CreateMultiFile (32768, metadataMode) : TestRig.CreateSingleFile (Constants.BlockSize * 27, Constants.BlockSize * 2, metadataMode);
             rig.RecreateManager ().Wait ();
 
             // Mark the torrent as hash check complete with no data downloaded
             if (rig.Manager.HasMetadata)
                 await rig.Manager.LoadFastResumeAsync (new FastResume (rig.Manager.InfoHashes, new BitField (rig.Manager.Torrent.PieceCount ()), new BitField (rig.Manager.Torrent.PieceCount ())));
+
+            var ready = rig.Manager.WaitForState (rig.Manager.HasMetadata ? TorrentState.Downloading : TorrentState.Metadata);
             await rig.Manager.StartAsync (metadataOnly);
+            await ready;
+
             rig.AddConnection (pair.Outgoing);
 
             var connection = pair.Incoming;
-            PeerId id = new PeerId (new Peer (new PeerInfo (connection.Uri), rig.Manager.InfoHashes.V1OrV2), connection, new BitField (rig.Torrent.PieceCount));
 
-            var result = await EncryptorFactory.CheckIncomingConnectionAsync (id.Connection, id.Peer.AllowedEncryption, new[] { rig.Manager.InfoHashes.V1OrV2 }, Factories.Default);
-            decryptor = id.Decryptor = result.Decryptor;
-            encryptor = id.Encryptor = result.Encryptor;
+            var result = await EncryptorFactory.CheckIncomingConnectionAsync (connection, rig.Engine.Settings.AllowedEncryption, new[] { rig.Manager.InfoHashes.V1OrV2 }, Factories.Default, TaskExtensions.Timeout);
+
+            PeerId id = new PeerId (new Peer (new PeerInfo (connection.Uri)), connection, new BitField (rig.Torrent.PieceCount), rig.Manager.InfoHashes.V1OrV2, encryptor: result.Encryptor, decryptor: result.Decryptor, Software.Synthetic);
+            decryptor = id.Decryptor;
+            encryptor = id.Encryptor;
         }
 
         [TearDown]
@@ -80,6 +87,7 @@ namespace MonoTorrent.Client.Modes
             await rig.Manager.StopAsync ();
             pair.Dispose ();
             rig.Dispose ();
+            LoggerFactory.Register (null);
         }
 
         [Test]

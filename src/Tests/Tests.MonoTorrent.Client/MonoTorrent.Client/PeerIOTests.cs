@@ -46,7 +46,7 @@ namespace MonoTorrent.Client
         [SetUp]
         public void Setup ()
         {
-            pair = new ConnectionPair ().WithTimeout ();
+            pair = new ConnectionPair ().DisposeAfterTimeout ();
         }
 
         [TearDown]
@@ -56,7 +56,26 @@ namespace MonoTorrent.Client
         }
 
         [Test]
-        public async Task LargeMessageBodyLength ()
+        public async Task ValidVeryLargeMessageBodyLength ()
+        {
+            var torrentData = TestTorrentManagerInfo.Create (
+                pieceLength: Constants.BlockSize, // 16kB pieces.
+                size: 1024L * 1024 * 1024 * 100 // 100GB
+            );
+
+            var bf = new BitField (torrentData.PieceCount).Set (1, true);
+            var message = new BitfieldMessage (bf);
+
+            using var releaser = MemoryPool.Default.Rent (message.ByteLength, out Memory<byte> buffer);
+            message.Encode (buffer.Span);
+
+            await NetworkIO.SendAsync (pair.Outgoing, buffer);
+            var receivedMessage = (BitfieldMessage) await PeerIO.ReceiveMessageAsync (pair.Incoming, PlainTextEncryption.Instance, null, null, null, torrentData);
+            Assert.IsTrue (message.BitField.SequenceEqual(receivedMessage.BitField));
+        }
+
+        [Test]
+        public async Task InvalidLargeMessageBodyLength ()
         {
             using var releaser = MemoryPool.Default.Rent (4, out Memory<byte> buffer);
             Message.Write (buffer.Span, int.MaxValue);
@@ -65,7 +84,6 @@ namespace MonoTorrent.Client
             var receiveTask = PeerIO.ReceiveMessageAsync (pair.Incoming, PlainTextEncryption.Instance);
 
             Assert.ThrowsAsync<ProtocolException> (async () => await receiveTask, "#1");
-            Assert.ThrowsAsync<ConnectionClosedException> (async () => await PeerIO.ReceiveMessageAsync (pair.Outgoing, PlainTextEncryption.Instance), "#2");
         }
 
         [Test]

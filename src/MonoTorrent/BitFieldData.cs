@@ -33,7 +33,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace MonoTorrent
@@ -44,11 +46,14 @@ namespace MonoTorrent
     [DebuggerDisplay ("{" + nameof (ToDebuggerString) + " ()}")]
     class BitFieldData : IEnumerable<bool>
     {
-        public uint[] Data { get; }
+        const int StorageByteCount = sizeof (ulong);
+        const int StorageBitCount = StorageByteCount * 8;
+
+        public ulong[] Data { get; }
         public int Length { get; }
         public int TrueCount { get; set; }
 
-        Span<uint> Span => Data;
+        Span<ulong> Span => Data;
 
         public bool AllFalse => TrueCount == 0;
 
@@ -64,15 +69,15 @@ namespace MonoTorrent
 
         internal void From (ReadOnlySpan<byte> buffer)
         {
-            int end = Length / 32;
+            int end = Length / StorageBitCount;
             for (int i = 0; i < end; i++) {
-                Data[i] = BinaryPrimitives.ReadUInt32BigEndian (buffer);
-                buffer = buffer.Slice (4);
+                Data[i] = BinaryPrimitives.ReadUInt64BigEndian (buffer);
+                buffer = buffer.Slice (StorageByteCount);
             }
 
-            int shift = 24;
-            for (int i = end * 32; i < Length; i += 8) {
-                Data[Data.Length - 1] |= (uint) buffer[0] << shift;
+            int shift = StorageBitCount - 8;
+            for (int i = end * StorageBitCount; i < Length; i += 8) {
+                Data[Data.Length - 1] |= (ulong) buffer[0] << shift;
                 buffer = buffer.Slice (1);
                 shift -= 8;
             }
@@ -80,15 +85,15 @@ namespace MonoTorrent
 
             int count = 0;
             for (int i = 0; i < Data.Length; i++)
-                count += CountBits (Data[i]);
+                count += BitOps.PopCount (Data[i]);
             TrueCount = count;
         }
 
         internal void ZeroUnusedBits ()
         {
-            int shift = Length % 32;
+            int shift = Length % StorageBitCount;
             if (shift != 0)
-                Data[Data.Length - 1] &= uint.MaxValue << (32 - shift);
+                Data[Data.Length - 1] &= ulong.MaxValue << (StorageBitCount - shift);
         }
 
 
@@ -97,7 +102,7 @@ namespace MonoTorrent
             if (length < 1)
                 throw new ArgumentOutOfRangeException (nameof (length), "Length must be greater than zero");
 
-            Data = new uint[(length + 31) / 32];
+            Data = new ulong[(length + StorageBitCount - 1) / StorageBitCount];
             Length = length;
         }
 
@@ -106,7 +111,7 @@ namespace MonoTorrent
             if (other == null)
                 throw new ArgumentNullException (nameof (other));
 
-            Data = (uint[]) other.Data.Clone ();
+            Data = (ulong[]) other.Data.Clone ();
             Length = other.Length;
             TrueCount = other.TrueCount;
         }
@@ -114,7 +119,7 @@ namespace MonoTorrent
         public BitFieldData (ReadOnlySpan<byte> buffer, int length)
             : this (length)
         {
-            if ((length + 31) / 32 > buffer.Length)
+            if ((length + StorageBitCount - 1) / StorageBitCount > buffer.Length)
                 throw new ArgumentOutOfRangeException ("The buffer was too small");
             From (buffer);
         }
@@ -136,15 +141,14 @@ namespace MonoTorrent
                 if (index < 0 || index >= Length)
                     throw new ArgumentOutOfRangeException (nameof (index));
 
-
                 if (value) {
-                    if ((Span[index >> 5] & (1 << (31 - (index & 31)))) == 0)// If it's not already true
+                    if ((Span[index >> 6] & (1ul << (63 - (index & 63)))) == 0)// If it's not already true
                         TrueCount++;                                        // Increase true count
-                    Span[index >> 5] |= ((uint) 1 << (31 - index & 31));
+                    Span[index >> 6] |= (1ul << (63 - index & 63));
                 } else {
-                    if ((Span[index >> 5] & (1 << (31 - (index & 31)))) != 0)// If it's not already false
+                    if ((Span[index >> 6] & (1ul << (63 - (index & 63)))) != 0)// If it's not already false
                         TrueCount--;                                        // Decrease true count
-                    Span[index >> 5] &= ~((uint) 1 << (31 - (index & 31)));
+                    Span[index >> 6] &= ~(1ul << (63 - (index & 63)));
                 }
             }
         }
@@ -181,18 +185,23 @@ namespace MonoTorrent
             if (AllFalse)
                 return -1;
 
-            int start;
-            int end;
-
             // If the number of pieces is an exact multiple of 32, we need to decrement by 1 so we don't overrun the array
             // For the case when endIndex == 0, we need to ensure we don't go negative
-            int loopEnd = Math.Min ((endIndex / 32), Span.Length - 1);
-            for (int i = (startIndex / 32); i <= loopEnd; i++) {
-                if (Span[i] == 0)        // This one has no true values
+            int loopEnd = Math.Min ((endIndex / StorageBitCount), Span.Length - 1);
+            int loopStart = startIndex / StorageBitCount;
+            for (int i = loopStart; i <= loopEnd; i++) {
+                ref ulong current = ref Span[i];
+                if (current == 0) {        // This one has no true values
+#if !NETSTANDARD2_0 && !NETSTANDARD2_1 && !NET472 && !NET5_0 && !NETCOREAPP3_0 && !NET6_0
+                    var next = Span.Slice (i + 1).IndexOfAnyExcept (0ul);
+                    if (next != -1)
+                        i += next;
+#endif
                     continue;
+                }
 
-                start = i * 32;
-                end = start + 31;
+                int start = i * StorageBitCount;
+                int end = start + (StorageBitCount - 1);
 
 #if NETSTANDARD2_0 || NETSTANDARD2_1 || NET472
                 start = (start < startIndex) ? startIndex : start;
@@ -205,12 +214,12 @@ namespace MonoTorrent
                     if (Get (j))     // This piece is true
                         return j;
 #else
-                var mask = uint.MaxValue;
+                var mask = ulong.MaxValue;
                 if (start < startIndex)
-                    mask &= uint.MaxValue >> (startIndex - start);
+                    mask &= ulong.MaxValue >> (startIndex - start);
                 if (end > endIndex)
-                    mask &= uint.MaxValue << (end - endIndex);
-                mask &= Span[i];
+                    mask &= ulong.MaxValue << (end - endIndex);
+                mask &= current;
                 if (mask == 0)
                     continue;
                 return System.Numerics.BitOperations.LeadingZeroCount (mask) + start;
@@ -260,17 +269,24 @@ namespace MonoTorrent
             if (AllTrue)
                 return -1;
             if (AllFalse)
-                return 0;
+                return startIndex;
 
             // If the number of pieces is an exact multiple of 32, we need to decrement by 1 so we don't overrun the array
             // For the case when endIndex == 0, we need to ensure we don't go negative
-            int loopEnd = Math.Min ((endIndex / 32), Span.Length - 1);
-            for (int i = (startIndex / 32); i <= loopEnd; i++) {
-                if (Span[i] == uint.MaxValue)        // This one has no false values
+            int loopEnd = Math.Min ((endIndex / StorageBitCount), Span.Length - 1);
+            int loopStart = startIndex / StorageBitCount;
+            for (int i = loopStart; i <= loopEnd; i++) {
+                ref ulong current = ref Span[i];
+                if (current == ulong.MaxValue && i != loopEnd) {        // This one has no false values
+#if !NETSTANDARD2_0 && !NETSTANDARD2_1 && !NET472 && !NET5_0 && !NETCOREAPP3_0 && !NET6_0
+                    var next = Span.Slice (i + 1).IndexOfAnyExcept (ulong.MaxValue);
+                    if (next != -1)
+                        i += next;
+#endif
                     continue;
-
-                start = i * 32;
-                end = start + 31;
+                }
+                start = i * StorageBitCount;
+                end = start + StorageBitCount - 1;
 
 #if NETSTANDARD2_0 || NETSTANDARD2_1 || NET472
                 start = (start < startIndex) ? startIndex : start;
@@ -283,12 +299,12 @@ namespace MonoTorrent
                     if (!Get (j))     // This piece is false
                         return j;
 #else
-                var mask = uint.MaxValue;
+                var mask = ulong.MaxValue;
                 if (start < startIndex)
-                    mask &= uint.MaxValue >> (startIndex - start);
+                    mask &= ulong.MaxValue >> (startIndex - start);
                 if (end > endIndex)
-                    mask &= uint.MaxValue << (end - endIndex);
-                mask &= ~Span[i];
+                    mask &= ulong.MaxValue << (end - endIndex);
+                mask &= ~current;
                 if (mask == 0)
                     continue;
                 return System.Numerics.BitOperations.LeadingZeroCount (mask) + start;
@@ -300,7 +316,7 @@ namespace MonoTorrent
 
         [MethodImpl (MethodImplOptions.AggressiveInlining)]
         bool Get (int index)
-            => (Span[index >> 5] & (1 << (31 - (index & 31)))) != 0;
+            => (Span[index >> 6] & (1ul << (StorageBitCount - 1 - (index & (StorageBitCount - 1))))) != 0;
 
         public IEnumerator<bool> GetEnumerator ()
         {
@@ -320,7 +336,7 @@ namespace MonoTorrent
             var data = Span;
             var selectorData = selector.Span;
             for (int i = 0; i < data.Length && i < selectorData.Length; i++)
-                count += CountBits (data[i] & selectorData[i]);
+                count += BitOps.PopCount (data[i] & selectorData[i]);
             return count;
         }
 
@@ -331,7 +347,7 @@ namespace MonoTorrent
 
         public override int GetHashCode ()
         {
-            uint count = 0;
+            ulong count = 0;
             for (int i = 0; i < Span.Length; i++)
                 count += Span[i];
 
@@ -352,18 +368,21 @@ namespace MonoTorrent
             if (buffer.Length < LengthInBytes)
                 throw new ArgumentOutOfRangeException ($"The buffer must be able to store at least {LengthInBytes} bytes");
 
-
-            int end = Length / 32;
+            int end = Length / 64;
             int offset = 0;
             for (int i = 0; i < end; i++) {
+                buffer[offset++] = (byte) (Span[i] >> 56);
+                buffer[offset++] = (byte) (Span[i] >> 48);
+                buffer[offset++] = (byte) (Span[i] >> 40);
+                buffer[offset++] = (byte) (Span[i] >> 32);
                 buffer[offset++] = (byte) (Span[i] >> 24);
                 buffer[offset++] = (byte) (Span[i] >> 16);
                 buffer[offset++] = (byte) (Span[i] >> 8);
                 buffer[offset++] = (byte) (Span[i] >> 0);
             }
 
-            int shift = 24;
-            for (int i = end * 32; i < Length; i += 8) {
+            int shift = StorageBitCount - 8;
+            for (int i = end * StorageBitCount; i < Length; i += 8) {
                 buffer[offset++] = (byte) (Span[Span.Length - 1] >> shift);
                 shift -= 8;
             }
@@ -407,7 +426,7 @@ namespace MonoTorrent
                 return;
 
             if (value) {
-                Span.Fill (uint.MaxValue);
+                Span.Fill (ulong.MaxValue);
                 ZeroUnusedBits ();
                 TrueCount = Length;
             } else {
@@ -435,7 +454,7 @@ namespace MonoTorrent
             int count = 0;
             for (int i = 0; i < data.Length && i < valueData.Length; i++) {
                 var result = data[i] & valueData[i];
-                count += CountBits (result);
+                count += BitOps.PopCount (result);
                 data[i] = result;
             }
             TrueCount = count;
@@ -451,13 +470,17 @@ namespace MonoTorrent
                 SetAll (false);
             } else {
                 int count = 0;
-                var data = Span;
-                var valueData = value.Span;
-                for (int i = 0; i < data.Length && i < valueData.Length; i++) {
-                    var result = data[i] & (~valueData[i]);
-                    count += CountBits (result);
-                    data[i] = result;
-                }
+                ref ulong data = ref Span[0];
+                ref ulong dataEnd = ref Unsafe.Add (ref data, Span.Length);
+                ref ulong valueData = ref MemoryMarshal.GetReference (value.Span);
+                do {
+                    var result = data & ~valueData;
+                    count += BitOps.PopCount (result);
+                    data = result;
+
+                    data = ref Unsafe.Add (ref data, 1);
+                    valueData = ref Unsafe.Add (ref valueData, 1);
+                } while (Unsafe.IsAddressLessThan (ref data, ref dataEnd));
                 TrueCount = count;
             }
         }
@@ -471,7 +494,7 @@ namespace MonoTorrent
             var valueData = value.Span;
             for (int i = 0; i < data.Length && i < valueData.Length; i++) {
                 var result = data[i] | valueData[i];
-                count += CountBits (result);
+                count += BitOps.PopCount (result);
                 data[i] = result;
             }
             TrueCount = count;
@@ -486,22 +509,10 @@ namespace MonoTorrent
             var valueData = value.Span;
             for (int i = 0; i < data.Length && i < valueData.Length; i++) {
                 var result = data[i] ^ valueData[i];
-                count += CountBits (result);
+                count += BitOps.PopCount (result);
                 data[i] = result;
             }
             TrueCount = count;
-        }
-
-        [MethodImpl (MethodImplOptions.AggressiveInlining)]
-        private protected static int CountBits (uint v)
-        {
-#if NETSTANDARD2_0 || NETSTANDARD2_1 || NET472
-            v -= (v >> 1) & 0x55555555;
-            v = (v & 0x33333333) + ((v >> 2) & 0x33333333);
-            return (int) (((v + (v >> 4) & 0xF0F0F0F) * 0x1010101) >> 24);
-#else
-            return System.Numerics.BitOperations.PopCount (v);
-#endif
         }
 
         void Check (ReadOnlyBitField value)

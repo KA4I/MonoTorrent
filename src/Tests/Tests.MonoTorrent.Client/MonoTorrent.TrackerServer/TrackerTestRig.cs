@@ -31,6 +31,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
+using System.Threading;
 
 using MonoTorrent.BEncoding;
 using MonoTorrent.Connections.TrackerServer;
@@ -60,7 +61,7 @@ namespace MonoTorrent.TrackerServer
         {
             NameValueCollection c = new NameValueCollection ();
             c.Add ("info_hash", trackable.InfoHash.UrlEncode ());
-            c.Add ("peer_id", d.peerId.UrlEncode ());
+            c.Add ("peer_id", System.Web.HttpUtility.UrlEncode (d.peerId.Span.ToArray ()).Replace("+", "%20"));
             c.Add ("port", d.Port.ToString ());
             c.Add ("uploaded", d.Uploaded.ToString ());
             c.Add ("downloaded", d.Downloaded.ToString ());
@@ -70,15 +71,12 @@ namespace MonoTorrent.TrackerServer
             return base.Handle (c, d.ClientAddress, false);
         }
 
-        public override void Start ()
-        {
-
-        }
-        public override void Stop ()
+        protected override void StartCore (CancellationToken token)
         {
 
         }
     }
+
     public class Trackable : ITrackable
     {
         public Trackable (InfoHash infoHash, string name)

@@ -62,11 +62,10 @@ namespace MonoTorrent.Dht
         [Repeat (10)]
         public async Task InitialiseFailure ()
         {
-            // Block until we've checked the status moved to Initializing
             var errorSource = new TaskCompletionSource<object> ();
             listener.MessageSent += (o, e) => errorSource.Task.GetAwaiter ().GetResult ();
 
-            await engine.StartAsync (new byte[26]);
+            await engine.StartAsync (new byte[26], Array.Empty<string> ());
             Assert.AreEqual (DhtState.Initialising, engine.State);
 
             // Then set an error and make sure the engine state moves to 'NotReady'
@@ -98,7 +97,7 @@ namespace MonoTorrent.Dht
                 TransactionId = transactionId
             };
             listener.MessageSent += (data, endpoint) => {
-                engine.MessageLoop.DhtMessageFactory.TryDecodeMessage (BEncodedValue.Decode<BEncodedDictionary> (data), out DhtMessage message);
+                engine.MessageLoop.DhtMessageFactory.TryDecodeMessage (BEncodedValue.Decode<BEncodedDictionary> (data.Span), out DhtMessage message);
                 if (message is Ping && message.TransactionId.Equals (ping.TransactionId)) {
                     counter++;
                     PingResponse response = new PingResponse (node.Id, transactionId);
@@ -130,7 +129,7 @@ namespace MonoTorrent.Dht
             b.Nodes[5].Seen (TimeSpan.FromDays (3));
 
             listener.MessageSent += (data, endpoint) => {
-                engine.MessageLoop.DhtMessageFactory.TryDecodeMessage (BEncodedValue.Decode<BEncodedDictionary> (data), out DhtMessage message);
+                engine.MessageLoop.DhtMessageFactory.TryDecodeMessage (BEncodedValue.Decode<BEncodedDictionary> (data.Span), out DhtMessage message);
 
                 b.Nodes.Sort ((l, r) => l.LastSeen.CompareTo (r.LastSeen));
                 if ((endpoint.Port == 3 && nodeCount == 0) ||
@@ -157,7 +156,7 @@ namespace MonoTorrent.Dht
                 nodes.Add (new Node (NodeId.Create (), new IPEndPoint (IPAddress.Any, i)));
 
             listener.MessageSent += (data, endpoint) => {
-                engine.MessageLoop.DhtMessageFactory.TryDecodeMessage (BEncodedValue.Decode<BEncodedDictionary> (data), out DhtMessage message);
+                engine.MessageLoop.DhtMessageFactory.TryDecodeMessage (BEncodedValue.Decode<BEncodedDictionary> (data.Span), out DhtMessage message);
 
                 Node current = nodes.Find (n => n.EndPoint.Port.Equals (endpoint.Port));
                 if (current == null)
@@ -203,7 +202,7 @@ namespace MonoTorrent.Dht
             Node nodeToReplace = engine.RoutingTable.Buckets[0].Nodes[3];
 
             ReplaceNodeTask task = new ReplaceNodeTask (engine, engine.RoutingTable.Buckets[0], replacement);
-            await task.Execute ().WithTimeout (1000);
+            await task.Execute ().WithTimeout ();
             Assert.IsFalse (engine.RoutingTable.Buckets[0].Nodes.Contains (nodeToReplace), "#1");
             Assert.IsTrue (engine.RoutingTable.Buckets[0].Nodes.Contains (replacement), "#2");
         }

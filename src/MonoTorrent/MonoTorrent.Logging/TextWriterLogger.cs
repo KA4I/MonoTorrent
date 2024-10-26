@@ -1,5 +1,5 @@
 ﻿//
-// IListExtensions.cs
+// TextWriterLogger.cs
 //
 // Authors:
 //   Alan McGovern alan.mcgovern@gmail.com
@@ -13,10 +13,10 @@
 // distribute, sublicense, and/or sell copies of the Software, and to
 // permit persons to whom the Software is furnished to do so, subject to
 // the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 // EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -27,45 +27,30 @@
 //
 
 
-using System;
-using System.Collections.Generic;
+using System.IO;
 
-namespace MonoTorrent
+namespace MonoTorrent.Logging
 {
-    static class IListExtensions
+    public class TextWriterLogger : IRootLogger
     {
-        public static int BinarySearch<T> (this IList<T> list, Func<T, int> predicate)
+        TextWriter Writer { get; }
+
+        public TextWriterLogger (TextWriter writer)
+            => Writer = writer;
+
+        public void Debug (string prefix, string message)
         {
-            int min = 0;
-            int max = list.Count - 1;
-            while (min <= max) {
-                var mid = (min + max) / 2;
-                var result = predicate (list[mid]);
-                if (result == 0)
-                    return mid;
-                if (result < 0)
-                    min = mid + 1;
-                if (result > 0)
-                    max = mid - 1;
-            }
-            return ~min;
+            Writer?.WriteLine ($"DEBUG:{prefix}:{message}");
         }
 
-        public static int BinarySearch<T, TState> (this IList<T> list, Func<T, TState, int> predicate, TState comparand)
+        public void Error (string prefix, string message)
         {
-            int min = 0;
-            int max = list.Count - 1;
-            while (min <= max) {
-                var mid = (min + max) / 2;
-                var result = predicate (list[mid], comparand);
-                if (result == 0)
-                    return mid;
-                if (result < 0)
-                    min = mid + 1;
-                if (result > 0)
-                    max = mid - 1;
-            }
-            return ~min;
+            Writer?.WriteLine ($"ERROR:{prefix}:{message}");
+        }
+
+        public void Info (string prefix, string message)
+        {
+            Writer?.WriteLine ($"INFO: {prefix}:{message}");
         }
     }
 }

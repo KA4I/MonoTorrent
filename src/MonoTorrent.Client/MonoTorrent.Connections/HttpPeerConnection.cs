@@ -35,6 +35,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
+using MonoTorrent.Logging;
 using MonoTorrent.Messages;
 using MonoTorrent.Messages.Peer;
 
@@ -44,6 +45,8 @@ namespace MonoTorrent.Connections.Peer
 {
     sealed class HttpPeerConnection : IPeerConnection
     {
+        static readonly Logger Log = Logger.Create (nameof (HttpPeerConnection));
+
         static readonly Uri PaddingFileUri = new Uri ("http://__paddingfile__");
 
         class HttpRequestData
@@ -82,7 +85,7 @@ namespace MonoTorrent.Connections.Peer
                 buffer.AsSpan (offset, count).Fill (0);
                 return count;
             }
-#if !NETSTANDARD2_0
+#if !NETSTANDARD2_0 && !NET472
             public override int Read (Span<byte> buffer)
             {
                 buffer.Fill (0);
@@ -94,7 +97,7 @@ namespace MonoTorrent.Connections.Peer
                 buffer.AsSpan (offset, count).Fill (0);
                 return Task.FromResult (count);
             }
-#if !NETSTANDARD2_0
+#if !NETSTANDARD2_0 && !NET472
             public override ValueTask<int> ReadAsync (Memory<byte> buffer, CancellationToken cancellationToken = default)
             {
                 buffer.Span.Fill (0);
@@ -305,17 +308,20 @@ namespace MonoTorrent.Connections.Peer
         {
             SendResult = new TaskCompletionSource<object?> ();
 
+            var info = TorrentData.TorrentInfo;
             List<BlockInfo> bundle = DecodeMessages (socketBuffer.Span);
-            if (bundle.Count > 0) {
-                RequestMessages.AddRange (bundle);
-                // The RequestMessages are always sequential
-                BlockInfo start = RequestMessages[0];
-                BlockInfo end = RequestMessages[RequestMessages.Count - 1];
-                CreateWebRequests (start, end);
-            } else {
-                return socketBuffer.Length;
-            }
 
+            // If the messages in the send buffer are anything *other* than piece request messages,
+            // just pretend the bytes were sent and everything was fine.
+            if (bundle.Count == 0 || info == null)
+                return socketBuffer.Length;
+
+            // Otherwise, if there were 1 or more piece request messages, convert these to HTTP requests.
+            // and only mark the bytes as successfully sent after all webrequests have run to completion
+            // and the data has been received.
+            RequestMessages.AddRange (bundle);
+            ValidateWebRequests (info, RequestMessages.ToArray ());
+            CreateWebRequestsForSequentialRange (RequestMessages[0], RequestMessages[RequestMessages.Count - 1]);
             ReceiveWaiter.Set ();
             await SendResult.Task;
             return socketBuffer.Length;
@@ -334,48 +340,71 @@ namespace MonoTorrent.Connections.Peer
             return messages;
         }
 
-
-        void CreateWebRequests (BlockInfo start, BlockInfo end)
+        static void ValidateWebRequests (ITorrentInfo torrentInfo, BlockInfo[] blocks)
         {
-            // Properly handle the case where we have multiple files
-            // This is only implemented for single file torrents
+            if (blocks.Length > 0) {
+                BlockInfo startBlock = blocks[0];
+                BlockInfo currentBlock = startBlock;
+                for (int i = 1; i < blocks.Length; i++) {
+                    BlockInfo previousBlock = blocks[i - 1];
+                    currentBlock = blocks[i];
+                    long endOffsetOfPreviousEndBlock = torrentInfo.PieceIndexToByteOffset (previousBlock.PieceIndex) + previousBlock.StartOffset + previousBlock.RequestLength;
+                    long startOffsetOfCurrentBlock = torrentInfo.PieceIndexToByteOffset (currentBlock.PieceIndex) + currentBlock.StartOffset;
+                    if (endOffsetOfPreviousEndBlock != startOffsetOfCurrentBlock) {
+                        var msg = "Piece requests made from HTTP peers must be a strictly sequential range of blocks. The range must be 1 or more blocks long.";
+                        Log.Error (msg);
+                        throw new InvalidOperationException (msg);
+                    }
+                }
+            }
+        }
+
+        void CreateWebRequestsForSequentialRange (BlockInfo start, BlockInfo end)
+        {
             Uri uri = Uri;
 
             if (Uri.OriginalString.EndsWith ("/"))
                 uri = new Uri (uri, $"{TorrentData.Name}/");
 
             // startOffset and endOffset are *inclusive*. I need to subtract '1' from the end index so that i
-            // stop at the correct byte when requesting the byte ranges from the server
+            // stop at the correct byte when requesting the byte ranges from the server.
+            //
+            // These values are also always relative to the *current* file as we iterate through the list of files.
             long startOffset = TorrentData.TorrentInfo!.PieceIndexToByteOffset (start.PieceIndex) + start.StartOffset;
-            long endOffset = TorrentData.TorrentInfo!.PieceIndexToByteOffset (end.PieceIndex) + end.StartOffset + end.RequestLength;
+            long count = TorrentData.TorrentInfo!.PieceIndexToByteOffset (end.PieceIndex) + end.StartOffset + end.RequestLength - startOffset;
 
             foreach (var file in TorrentData.Files) {
+                // Bail out after we've read all the data.
+                if (count == 0)
+                    break;
+
+                // If the first byte of data is from the next file, move to the next file immediately
+                // and adjust start offset to be relative to that file.
+                if (startOffset >= file.Length + file.Padding) {
+                    startOffset -= file.Length + file.Padding;
+                    continue;
+                }
+
                 Uri u = uri;
                 if (TorrentData.Files.Count > 1)
                     u = new Uri (u, file.Path);
-                if (endOffset == 0)
-                    break;
 
-                // We want data from a later file
-                if (startOffset >= file.Length) {
-                    startOffset -= file.Length;
-                    endOffset -= file.Length;
+                // Should data be read from this file?
+                if (startOffset < file.Length) {
+                    var toReadFromFile = Math.Min (count, file.Length - startOffset);
+                    WebRequests.Enqueue ((u, startOffset, toReadFromFile));
+                    count -= toReadFromFile;
                 }
-                // We want data from the end of the current file and from the next few files
-                else if (endOffset >= file.Length) {
-                    WebRequests.Enqueue ((u, startOffset, file.Length - startOffset));
-                    startOffset = 0;
-                    endOffset -= file.Length;
-                    if (file.Padding > 0) {
-                        WebRequests.Enqueue ((PaddingFileUri, 0, file.Padding));
-                        endOffset -= file.Padding;
-                    }
+
+                // Should data be read from this file's padding?
+                if (file.Padding > 0 && count > 0) {
+                    var toReadFromPadding = Math.Min (count, file.Padding);
+                    WebRequests.Enqueue ((PaddingFileUri, 0, toReadFromPadding));
+                    count -= toReadFromPadding;
                 }
-                // All the data we want is from within this file
-                else {
-                    WebRequests.Enqueue ((u, startOffset, endOffset - startOffset));
-                    endOffset = 0;
-                }
+
+                // As of the next read, we'll be reading data from the start of the file.
+                startOffset = 0;
             }
         }
 

@@ -106,11 +106,31 @@ namespace MonoTorrent.BEncoding
         }
 
         [Test]
-        public void benNumber_MaxMin ([Values (long.MinValue, long.MaxValue)] long value)
+        public void benNumber_MaxMin ([Values (long.MinValue, int.MinValue, 3000000000L, int.MaxValue, uint.MaxValue, long.MaxValue)] long value)
         {
             var number = new BEncodedNumber (value);
             foreach (var result in BEncodedValue.DecodingVariants<BEncodedNumber> (number.Encode ()))
                 Assert.AreEqual (result.Number, value);
+        }
+
+        [Test]
+        public void benNumber_AllPowersOf10 ()
+        {
+            for (long value = 1L; value > 0; value *= 10) {
+                foreach (var offset in new int[] { -1, 0, 1 }) {
+                    // positive value
+                    var expected = value + offset;
+                    var number = new BEncodedNumber (expected);
+                    foreach (var result in BEncodedValue.DecodingVariants<BEncodedNumber> (number.Encode ()))
+                        Assert.AreEqual (expected, result.Number);
+
+                    // negative value.
+                    expected *= -1;
+                    number = new BEncodedNumber (expected);
+                    foreach (var result in BEncodedValue.DecodingVariants<BEncodedNumber> (number.Encode ()))
+                        Assert.AreEqual (expected, result.Number);
+                }
+            }
         }
 
         [Test]

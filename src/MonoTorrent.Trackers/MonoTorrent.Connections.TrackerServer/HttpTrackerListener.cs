@@ -40,8 +40,6 @@ namespace MonoTorrent.Connections.TrackerServer
     {
         static readonly Logger logger = Logger.Create (nameof (HttpTrackerListener));
 
-        CancellationTokenSource Cancellation { get; set; }
-
         string Prefix { get; }
 
         public HttpTrackerListener (IPAddress address, int port)
@@ -61,18 +59,14 @@ namespace MonoTorrent.Connections.TrackerServer
             if (string.IsNullOrEmpty (httpPrefix))
                 throw new ArgumentNullException (nameof (httpPrefix));
 
-            Cancellation = new CancellationTokenSource ();
             Prefix = httpPrefix;
         }
 
         /// <summary>
         /// Starts listening for incoming connections
         /// </summary>
-        public override void Start ()
+        protected override void StartCore (CancellationToken token)
         {
-            Cancellation?.Cancel ();
-            Cancellation = new CancellationTokenSource ();
-            var token = Cancellation.Token;
             var listener = new HttpListener ();
             token.Register (() => listener.Close ());
 
@@ -82,12 +76,6 @@ namespace MonoTorrent.Connections.TrackerServer
             listener.Start ();
             GetContextAsync (listener, token);
             RaiseStatusChanged (ListenerStatus.Listening);
-        }
-
-        public override void Stop ()
-        {
-            Cancellation?.Cancel ();
-            RaiseStatusChanged (ListenerStatus.NotListening);
         }
 
         async void GetContextAsync (HttpListener listener, CancellationToken token)
@@ -108,10 +96,12 @@ namespace MonoTorrent.Connections.TrackerServer
         {
             int statusCode;
             byte[] response;
-            bool isScrape = context.Request.RawUrl!.StartsWith ("/scrape", StringComparison.OrdinalIgnoreCase);
+            bool isScrape = context.Request.Url?.LocalPath.EndsWith ("/scrape", StringComparison.OrdinalIgnoreCase) ?? false;
 
             using (context.Response) {
                 try {
+                    if (context.Request.RawUrl is null || context.Request.Url is null)
+                        throw new ArgumentException ();
                     var responseData = Handle (context.Request.RawUrl, context.Request.RemoteEndPoint.Address, isScrape);
                     response = responseData.Encode ();
                     statusCode = (int) HttpStatusCode.OK;

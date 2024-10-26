@@ -77,6 +77,8 @@ namespace MonoTorrent.Client
                     property.SetValue (builder, new Uri (((BEncodedString) value).Text));
                 } else if (property.PropertyType == typeof (IPAddress)) {
                     property.SetValue (builder, IPAddress.Parse (((BEncodedString) value).Text));
+                } else if (property.PropertyType == typeof(FileCreationOptions)) {
+                    property.SetValue (builder, Enum.Parse (typeof (FileCreationOptions), ((BEncodedString) value).Text));
                 } else if (property.PropertyType == typeof (IPEndPoint)) {
                     var list = (BEncodedList) value;
                     IPEndPoint? endPoint = null;
@@ -93,6 +95,8 @@ namespace MonoTorrent.Client
                         list.Add ((EncryptionType) Enum.Parse (typeof (EncryptionType), encryptionType.Text));
                 } else if (property.PropertyType == typeof (Dictionary<string, IPEndPoint>)) {
                     property.SetValue (builder, ToIPAddressDictionary ((BEncodedDictionary) value));
+                } else if (property.PropertyType == typeof (List<TimeSpan>)) {
+                    property.SetValue (builder, ToTimeSpanList ((BEncodedList) value));
                 } else
                     throw new NotSupportedException ($"{property.Name} => type: ${property.PropertyType}");
             }
@@ -107,6 +111,7 @@ namespace MonoTorrent.Client
                 BEncodedValue? convertedValue = property.GetValue (builder) switch {
                     bool value => convertedValue = new BEncodedString (value.ToString ()),
                     IList<EncryptionType> value => convertedValue = new BEncodedList (value.Select (v => (BEncodedString) v.ToString ())),
+                    IList<TimeSpan> value => convertedValue = new BEncodedList (value.Select (v => (BEncodedNumber) v.Ticks)),
                     string value => new BEncodedString (value),
                     TimeSpan value => new BEncodedNumber (value.Ticks),
                     IPAddress value => new BEncodedString (value.ToString ()),
@@ -115,6 +120,7 @@ namespace MonoTorrent.Client
                     FastResumeMode value => new BEncodedString (value.ToString ()),
                     CachePolicy value => new BEncodedString (value.ToString ()),
                     Uri value => new BEncodedString (value.OriginalString),
+                    FileCreationOptions value => new BEncodedString (value.ToString ()),
                     null => null,
                     Dictionary<string, IPEndPoint> value => FromIPAddressDictionary(value),
                     _ => throw new NotSupportedException ($"{property.Name} => type: ${property.PropertyType}"),
@@ -144,6 +150,14 @@ namespace MonoTorrent.Client
                 var parts = (BEncodedList) kvp.Value;
                 result[kvp.Key.Text] = new IPEndPoint (IPAddress.Parse (((BEncodedString) parts[0]).Text), (int) ((BEncodedNumber) parts[1]).Number);
             }
+            return result;
+        }
+
+        static List<TimeSpan> ToTimeSpanList(BEncodedList value)
+        {
+           var result = new List<TimeSpan> (value.Count);
+            foreach (BEncodedNumber number in value)
+                result.Add (TimeSpan.FromTicks (number.Number));
             return result;
         }
     }

@@ -1,5 +1,5 @@
 ﻿//
-// TextLogger.cs
+// IRootLogger.cs
 //
 // Authors:
 //   Alan McGovern alan.mcgovern@gmail.com
@@ -27,39 +27,12 @@
 //
 
 
-using System.IO;
-
 namespace MonoTorrent.Logging
 {
-    public class TextLogger : ILogger
+    public interface IRootLogger
     {
-        string Prefix { get; }
-        TextWriter Writer { get; }
-
-        public TextLogger (TextWriter writer, string prefix)
-        {
-            Writer = writer;
-            Prefix = prefix;
-        }
-
-        public void Debug (string message)
-        {
-            Writer?.WriteLine ($"DEBUG:{Prefix}:{message}");
-        }
-
-        public void Error (string message)
-        {
-            Writer?.WriteLine ($"ERROR:{Prefix}:{message}");
-        }
-
-        public void Info (string message)
-        {
-            Writer?.WriteLine ($"INFO: {Prefix}:{message}");
-        }
-
-        public void Trace (string message)
-        {
-            Writer?.WriteLine ($"TRACE: {Prefix}:{message}");
-        }
+        void Info (string name, string message);
+        void Debug (string name, string message);
+        void Error (string name, string message);
     }
 }

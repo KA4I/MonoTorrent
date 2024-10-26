@@ -55,6 +55,7 @@ namespace MonoTorrent
         public ReadOnlyMemory<byte> ed2k = default;
         public ReadOnlyMemory<byte> sha1 = default;
         public TorrentFileAttributes attributes = TorrentFileAttributes.None;
+        public MerkleRoot MerkleRoot;
     }
 
     public sealed class TorrentFile : IEquatable<TorrentFile>, ITorrentFile
@@ -82,9 +83,15 @@ namespace MonoTorrent
         public string Path { get; }
 
         /// <summary>
+        /// Returns the number of pieces for this file. This is the same as `<see cref="EndPieceIndex"/> - <see cref="StartPieceIndex"/> + 1`.
+        /// </summary>
+        public int PieceCount => EndPieceIndex - StartPieceIndex + 1;
+
+        /// <summary>
         /// The index of the first piece of this file
         /// </summary>
         public int StartPieceIndex { get; }
+
 
         /// <summary>
         /// The offset to the start point of the files data within the torrent, in bytes.

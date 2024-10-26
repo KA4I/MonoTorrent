@@ -40,6 +40,17 @@ namespace MonoTorrent.Client
         Unreachable,
 
         /// <summary>
+        /// No compatible IPeerConnection could be instantiated by the <see cref="Factories.CreatePeerConnection(System.Uri)"/> method.
+        /// </summary>
+        UnknownUriSchema,
+
+        /// <summary>
+        /// This peer has been banned. This can happen if the peer repeatedly sends data which fails a hashcheck, or it can happen if
+        /// the user of the library has used the <see cref="ConnectionManager.BanPeer"/> event to indicate the peer should be banned.
+        /// </summary>
+        ConnectedToSelf,
+
+        /// <summary>
         /// After accepting the connection, a compatible connection encryption method could not
         /// be selected. Alternatively the remote peer could have reached it's open connection
         /// limit and simply closed the connection, or it could mean the peer did not support
@@ -56,6 +67,17 @@ namespace MonoTorrent.Client
         /// supports encrypted connections.
         /// </summary>
         HandshakeFailed,
+
+        /// <summary>
+        /// The maximum number of open connections was exceeded after establishing the connection and so the connection was closed.
+        /// </summary>
+        TooManyOpenConnections,
+
+        /// <summary>
+        /// This peer has been banned. This can happen if the peer repeatedly sends data which fails a hashcheck, or it can happen if
+        /// the user of the library has used the <see cref="ConnectionManager.BanPeer"/> event to indicate the peer should be banned.
+        /// </summary>
+        Banned,
 
         /// <summary>
         /// There is no clear reason why the connection attempt failed.

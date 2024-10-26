@@ -38,6 +38,7 @@ using System.Threading.Tasks;
 using MonoTorrent.BEncoding;
 using MonoTorrent.Client.Modes;
 using MonoTorrent.Connections.Peer;
+using MonoTorrent.Connections.Peer.Encryption;
 using MonoTorrent.Messages;
 using MonoTorrent.Messages.Peer;
 using MonoTorrent.PiecePicking;
@@ -88,7 +89,7 @@ namespace MonoTorrent.Client
             connection = new HttpPeerConnection (rig.Manager, rig.Engine.Settings.WebSeedConnectionTimeout, rig.Engine.Factories, new Uri (ListenerURL));
             rig.Manager.UnhashedPieces.SetAll (false);
 
-            id = new PeerId (new Peer (new PeerInfo (connection.Uri, "this is my id"), rig.Manager.InfoHashes.V1OrV2), connection, new BitField (rig.Manager.Torrent.PieceCount ()).SetAll (true));
+            id = new PeerId (new Peer (new PeerInfo (connection.Uri, "this is my id")), connection, new BitField (rig.Manager.Torrent.PieceCount ()).SetAll (true), rig.Manager.InfoHashes.V1OrV2, PlainTextEncryption.Instance, PlainTextEncryption.Instance, Software.Synthetic);
             id.IsChoking = false;
             id.AmInterested = true;
             id.MaxPendingRequests = numberOfPieces;
@@ -237,7 +238,7 @@ namespace MonoTorrent.Client
         public void CompleteChunkBeforeRequestNext ()
         {
             var messages = new List<RequestMessage> ();
-            var requestsBuffer = requests.Encode ().AsMemory ();
+            var requestsBuffer = requests.Encode ();
             while (requestsBuffer.Length > 0) {
                 var message = (RequestMessage) PeerMessage.DecodeMessage (requestsBuffer.Span, null).message;
                 messages.Add (message);
@@ -282,7 +283,7 @@ namespace MonoTorrent.Client
         private async Task CompleteSendOrReceiveFirst (Memory<byte> buffer)
         {
             var allRequests = new List<RequestMessage> ();
-            var requestsBuffer = requests.Encode ().AsMemory ();
+            var requestsBuffer = requests.Encode ();
             while (requestsBuffer.Length > 0) {
                 var message = (RequestMessage) PeerMessage.DecodeMessage (requestsBuffer.Span, null).message;
                 allRequests.Add (message);
@@ -394,7 +395,7 @@ namespace MonoTorrent.Client
             connection = new HttpPeerConnection (rig.Manager, rig.Engine.Settings.WebSeedConnectionTimeout, rig.Engine.Factories, url);
             rig.Manager.UnhashedPieces.SetAll (false);
 
-            id = new PeerId (new Peer (new PeerInfo (connection.Uri, "this is my id"), rig.Manager.InfoHashes.V1OrV2), id.Connection, new BitField (rig.Manager.Torrent.PieceCount ()).SetAll (true));
+            id = new PeerId (new Peer (new PeerInfo (connection.Uri, "this is my id")), id.Connection, new BitField (rig.Manager.Torrent.PieceCount ()).SetAll (true), rig.Manager.InfoHashes.V1OrV2, PlainTextEncryption.Instance, PlainTextEncryption.Instance, Software.Synthetic);
             id.IsChoking = false;
             id.AmInterested = true;
             id.MaxPendingRequests = numberOfPieces;

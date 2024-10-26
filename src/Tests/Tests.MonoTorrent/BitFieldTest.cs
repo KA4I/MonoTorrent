@@ -32,6 +32,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 
 namespace MonoTorrent
 {
@@ -141,6 +142,47 @@ namespace MonoTorrent
         }
 
         [Test]
+        public void FirstFalse (
+            [Values (1, 63, 64, 65, 127, 128, 129)] int size,
+            [Values (false, true)] bool allTrue,
+            [Values (false, true)] bool invertFirst)
+        {
+            var bf = new BitField (size).SetAll (allTrue);
+
+            // There are fast paths when all elements are true or all are false.
+            // This ensures we skip those fast paths.
+            if (invertFirst)
+                bf[0] = !bf[0];
+
+            for (int i = invertFirst ? 1 : 0; i < size; i++) {
+                var index = bf.FirstFalse (i, size - 1);
+                if (allTrue)
+                    Assert.AreEqual (-1, index);
+                else
+                    Assert.AreEqual (i, index);
+            }
+        }
+
+        [Test]
+        public void FirstTrue (
+            [Values (1, 63, 64, 65, 127, 128, 129)] int size,
+            [Values (false, true)] bool allTrue,
+            [Values (false, true)] bool invertFirst)
+        {
+            var bf = new BitField (size).SetAll (allTrue);
+            if (invertFirst)
+                bf[0] = !bf[0];
+
+            for (int i = invertFirst ? 1 : 0; i < size; i++) {
+                var index = bf.FirstTrue (i, size - 1);
+                if (allTrue)
+                    Assert.AreEqual (i, index);
+                else
+                    Assert.AreEqual (-1, index);
+            }
+        }
+
+        [Test]
         public void LongByteArrayTest ()
         {
             List<byte> list = new List<byte> (initialByteValues);
@@ -220,6 +262,17 @@ namespace MonoTorrent
                                                         false, false, true, false, true, false, true, false,
                                                         true, false, false, false, true, true, true, false, true,
                                                         true, false, false, true, false, false, true});
+            ReadOnlyBitField second = new ReadOnlyBitField (first.ToBytes (), first.Length);
+            for (int i = 0; i < first.Length; i++) {
+                Assert.AreEqual (first[i], second[i], "#" + i);
+            }
+        }
+
+        [Test]
+        public void ToByteArray7 ()
+        {
+            ReadOnlyBitField first = new BitField (75)
+                .SetTrue (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71);
             ReadOnlyBitField second = new ReadOnlyBitField (first.ToBytes (), first.Length);
             for (int i = 0; i < first.Length; i++) {
                 Assert.AreEqual (first[i], second[i], "#" + i);
@@ -316,6 +369,12 @@ namespace MonoTorrent
         }
 
         [Test]
+        public void CountTrue ([Values (1, 7, 8, 9, 15, 16, 17, 31, 32, 33, 63, 64, 65, 127, 128, 129)] int expected)
+        {
+            Assert.AreEqual (expected, new BitField (expected).SetAll (true).CountTrue (new BitField (expected).SetAll (true)));
+        }
+
+        [Test]
         public void Equals_False ()
         {
             var bf = new BitField (10).SetAll (true);
@@ -408,6 +467,19 @@ namespace MonoTorrent
                     count++;
 
             Assert.AreEqual (count, bf.TrueCount, "#3");
+        }
+
+        [Test]
+        public void Xor_Parameterised ([Values(1, 7, 8, 9, 31, 32, 33, 63, 64, 65, 127, 128, 129)] int expected)
+        {
+            ReadOnlyBitField allTrue = new BitField (expected).SetAll (true);
+            ReadOnlyBitField allFalse = new BitField (expected);
+
+            Assert.AreEqual (0, new BitField (allTrue).Xor (allTrue).CountTrue (allTrue));
+            Assert.AreEqual (0, new BitField (allTrue).Xor (allTrue).TrueCount);
+
+            Assert.AreEqual (expected, new BitField (allTrue).Xor (allFalse).CountTrue (allTrue));
+            Assert.AreEqual (expected, new BitField (allTrue).Xor (allFalse).TrueCount);
         }
 
         [Test]

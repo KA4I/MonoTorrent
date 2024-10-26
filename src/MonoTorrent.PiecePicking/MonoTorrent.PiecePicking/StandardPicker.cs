@@ -100,7 +100,7 @@ namespace MonoTorrent.PiecePicking
 
     public partial class StandardPicker : IPiecePicker
     {
-        static ICache<Piece> PieceCache { get; } = new Cache<Piece> (() => new Piece ()).Synchronize ();
+        static ICache<Piece> PieceCache { get; } = new SynchronizedCache<Piece> (() => new Piece ());
 
         // static readonly Logger logger = Logger.Create (nameof(StandardPicker));
 
@@ -455,8 +455,8 @@ namespace MonoTorrent.PiecePicking
             if (TorrentData == null || Requests == null)
                 return 0;
 
-            int piecesNeeded = (requests.Length * Piece.BlockSize) / TorrentData.PieceLength;
-            if ((requests.Length * Piece.BlockSize) % TorrentData.PieceLength != 0)
+            int piecesNeeded = (requests.Length * Constants.BlockSize) / TorrentData.PieceLength;
+            if ((requests.Length * Constants.BlockSize) % TorrentData.PieceLength != 0)
                 piecesNeeded++;
             int checkIndex = CanRequest (current, startIndex, endIndex, ref piecesNeeded);
 

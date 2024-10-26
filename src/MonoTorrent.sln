@@ -20,8 +20,16 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.MonoTorrent.PiecePicking", "Tests\Tests.MonoTorrent.PiecePicking\Tests.MonoTorrent.PiecePicking.csproj", "{8CE2C458-D0A9-428F-A749-4949AA113EEC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8790FB34-68AA-4A1A-A339-0E1DAAB3E180}"
+	ProjectSection(SolutionItems) = preProject
+		Tests\Directory.Build.props = Tests\Directory.Build.props
+		Tests\Directory.Build.targets = Tests\Directory.Build.targets
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{2BB64148-15EE-4BD9-A48D-1CC8A14D7AC4}"
+	ProjectSection(SolutionItems) = preProject
+		Samples\Directory.Build.props = Samples\Directory.Build.props
+		Samples\Directory.Build.targets = Samples\Directory.Build.targets
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonoTorrent.PieceWriter", "MonoTorrent.PieceWriter\MonoTorrent.PieceWriter.csproj", "{8B4CF0BD-7B6E-460D-811E-A728293EC89B}"
 EndProject
@@ -39,6 +47,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonoTorrent.PortForwarding"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5B28A9A2-A9AE-4B0E-BD33-38568EA09BCF}"
 	ProjectSection(SolutionItems) = preProject
+		..\azure-pipelines.yml = ..\azure-pipelines.yml
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
 	EndProjectSection
@@ -51,7 +60,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonoTorrent.Dht", "MonoTorr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.MonoTorrent.Dht", "Tests\Tests.MonoTorrent.Dht\Tests.MonoTorrent.Dht.csproj", "{041CF2E0-DF9E-4643-9664-521945DC5AA3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmark", "Benchmark\Benchmark.csproj", "{D27D0CD3-D644-4782-B530-CDA5DCEABDEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmark", "Samples\Benchmark\Benchmark.csproj", "{D27D0CD3-D644-4782-B530-CDA5DCEABDEC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackerSample", "Samples\TrackerApp\TrackerSample.csproj", "{E276020E-512D-46C0-8085-84AEB8E70507}"
 EndProject
@@ -59,7 +68,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientSample", "Samples\Sam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DhtSample", "Samples\DhtSampleClient\DhtSample.csproj", "{8E135233-70F3-4B05-976C-51D121650A30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.MonoTorrent.IntegrationTests", "Tests\Tests.MonoTorrent.IntegrationTests\Tests.MonoTorrent.IntegrationTests.csproj", "{752D9040-9C35-4A7E-932A-88A811F72A92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.MonoTorrent.IntegrationTests", "Tests\Tests.MonoTorrent.IntegrationTests\Tests.MonoTorrent.IntegrationTests.csproj", "{752D9040-9C35-4A7E-932A-88A811F72A92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

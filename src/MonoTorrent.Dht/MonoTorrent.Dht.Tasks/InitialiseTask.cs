@@ -48,17 +48,19 @@ namespace MonoTorrent.Dht.Tasks
         readonly TaskCompletionSource<object?> initializationComplete;
 
         static Node[]? BootstrapNodes { get; set; }
+        string[] BootstrapRouters { get; set; }
 
         public InitialiseTask (DhtEngine engine)
-            : this (engine, Enumerable.Empty<Node> ())
+            : this (engine, Enumerable.Empty<Node> (), DhtEngine.DefaultBootstrapRouters.ToArray ())
         {
 
         }
 
-        public InitialiseTask (DhtEngine engine, IEnumerable<Node> nodes)
+        public InitialiseTask (DhtEngine engine, IEnumerable<Node> nodes, string[] bootstrapRouters)
         {
             this.engine = engine;
-            initialNodes = new List<Node> (nodes);
+            initialNodes = nodes.ToList ();
+            BootstrapRouters = bootstrapRouters;
             initializationComplete = new TaskCompletionSource<object?> ();
         }
 
@@ -92,11 +94,24 @@ namespace MonoTorrent.Dht.Tasks
 
         async Task<Node[]> GenerateBootstrapNodes ()
         {
-            var addresses = await Dns.GetHostAddressesAsync ("router.bittorrent.com");
-            return addresses
-                .Select (t => new IPEndPoint (t, 6881))
-                .Select (t => new Node (NodeId.Create (), t))
-                .ToArray ();
+            // Handle when one, or more, of the bootstrap nodes are offline
+            var results = new List<Node> ();
+
+            var tasks = BootstrapRouters.Select (Dns.GetHostAddressesAsync).ToList ();
+            while (tasks.Count > 0) {
+                var completed = await Task.WhenAny (tasks);
+                tasks.Remove (completed);
+
+                try {
+                    var addresses = await completed;
+                    foreach (var v in addresses)
+                        results.Add (new Node (NodeId.Create (), new IPEndPoint (v, 6881)));
+                } catch {
+
+                }
+            }
+
+            return results.ToArray ();
         }
 
         async Task SendFindNode (IEnumerable<Node> newNodes)
@@ -129,7 +144,7 @@ namespace MonoTorrent.Dht.Tasks
                 }
             }
 
-            if (initialNodes.Count > 0 && engine.RoutingTable.NeedsBootstrap)
+            if (initialNodes.Count > 0 && engine.RoutingTable.NeedsBootstrap && BootstrapRouters.Length > 0)
                 await new InitialiseTask (engine).ExecuteAsync ();
         }
     }

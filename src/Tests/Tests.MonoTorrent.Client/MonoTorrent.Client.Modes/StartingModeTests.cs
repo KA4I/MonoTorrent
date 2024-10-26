@@ -52,7 +52,7 @@ namespace MonoTorrent.Client.Modes
         [SetUp]
         public void Setup ()
         {
-            conn = new ConnectionPair ().WithTimeout ();
+            conn = new ConnectionPair ().DisposeAfterTimeout ();
             Settings = new EngineSettings ();
             PieceWriter = new TestWriter ();
             DiskManager = new DiskManager (Settings, Factories.Default, PieceWriter);
@@ -167,7 +167,7 @@ namespace MonoTorrent.Client.Modes
         [Test]
         public async Task FastResume_SomeExist ()
         {
-            PieceWriter.FilesThatExist.AddRange (new[]{
+            await PieceWriter.CreateAsync (new[]{
                 Manager.Files [0],
                 Manager.Files [2],
             });

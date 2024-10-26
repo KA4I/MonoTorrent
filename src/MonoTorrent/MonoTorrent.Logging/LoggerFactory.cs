@@ -1,10 +1,10 @@
 ﻿//
-// ToolboxTests.cs
+// LoggerFactory.cs
 //
 // Authors:
 //   Alan McGovern alan.mcgovern@gmail.com
 //
-// Copyright (C) 2020 Alan McGovern
+// Copyright (C) 2024 Alan McGovern
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -13,10 +13,10 @@
 // distribute, sublicense, and/or sell copies of the Software, and to
 // permit persons to whom the Software is furnished to do so, subject to
 // the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 // EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -29,34 +29,21 @@
 
 using System;
 
-using NUnit.Framework;
-
-namespace MonoTorrent.Common
+namespace MonoTorrent.Logging
 {
-    [TestFixture]
-    public class ToolboxTests
+    public static class LoggerFactory
     {
-        [Test]
-        public void ByteMatch_DifferentArrayLengths ()
-        {
-            Assert.IsFalse (Toolbox.ByteMatch (new byte[1], new byte[2]));
-        }
+        /// <summary>
+        /// The factory method used to create new ILogger instances. The <see cref="string"/> parameter
+        /// is the <see cref="Type.FullName"/> for the class the ILogger is associated with. You can
+        /// return <see langword="null"/> for any class to disable logging for that class.
+        /// </summary>
+        public static IRootLogger RootLogger { get; private set; } = new NullLogger ();
 
-        [Test]
-        public void ByteMatch_DifferentArrayLengths2 ()
-        {
-            Assert.IsFalse (Toolbox.ByteMatch (new byte[1], 0, new byte[2], 0, 2));
-            Assert.IsTrue (Toolbox.ByteMatch (new byte[1], 0, new byte[2], 0, 1));
-        }
+        public static ILogger Create (string name)
+            => new Logger (name);
 
-        [Test]
-        public void ByteMatch_Null ()
-        {
-            Assert.Throws<ArgumentNullException> (() => Toolbox.ByteMatch (null, new byte[1]));
-            Assert.Throws<ArgumentNullException> (() => Toolbox.ByteMatch (new byte[1], null));
-
-            Assert.Throws<ArgumentNullException> (() => Toolbox.ByteMatch (null, 0, new byte[2], 0, 2));
-            Assert.Throws<ArgumentNullException> (() => Toolbox.ByteMatch (new byte[1], 0, null, 0, 2));
-        }
+        public static void Register (IRootLogger rootLogger)
+            => RootLogger = rootLogger ?? new NullLogger ();
     }
 }

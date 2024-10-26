@@ -29,72 +29,82 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace MonoTorrent
 {
     internal interface ICache<T>
     {
         int Count { get; }
-        T Dequeue();
-        void Enqueue(T instance);
+        T Dequeue ();
+        void Enqueue (T instance);
     }
 
     class Cache<T> : ICache<T>
         where T : class, ICacheable
     {
-        readonly Queue<T> cache;
+        readonly Stack<T> cache;
         readonly Func<T> Creator;
 
         public int Count => cache.Count;
 
-        public Cache(Func<T> creator)
+        public Cache (Func<T> creator)
         {
             Creator = creator;
-            cache = new Queue<T>();
+            cache = new Stack<T> ();
         }
 
-        public T Dequeue()
+        public T Dequeue ()
         {
             if (cache.Count > 0)
-                return cache.Dequeue();
+                return cache.Pop ();
 
-            var instance = Creator.Invoke();
-            instance.Initialise();
+            var instance = Creator.Invoke ();
+            instance.Initialise ();
             return instance;
         }
 
-        public void Enqueue(T instance)
+        public void Enqueue (T instance)
         {
-            instance.Initialise();
-            cache.Enqueue(instance);
-        }
-        public ICache<T> Synchronize()
-        {
-            return new SynchronizedCache<T>(this);
+            instance.Initialise ();
+            cache.Push (instance);
         }
     }
 
     internal class SynchronizedCache<T> : ICache<T>
+        where T : class, ICacheable
     {
-        ICache<T> Cache { get; }
+        readonly SpinLocked<Stack<T>> Cache;
+        readonly Func<T> Creator;
 
-        public int Count => Cache.Count;
+        public int Count { get; private set; }
 
-        public SynchronizedCache(ICache<T> cache)
+        public SynchronizedCache (Func<T> creator)
         {
-            Cache = cache ?? throw new System.ArgumentNullException(nameof(cache));
+            Creator = creator;
+            Cache = SpinLocked.Create (new Stack<T> ());
         }
 
-        public T Dequeue()
+        public T Dequeue ()
         {
-            lock (Cache)
-                return Cache.Dequeue();
+            using (Cache.Enter (out var cache)) {
+                if (cache.Count > 0) {
+                    Count--;
+                    return cache.Pop ();
+                }
+            }
+
+            var instance = Creator.Invoke ();
+            instance.Initialise ();
+            return instance;
         }
 
-        public void Enqueue(T instance)
+        public void Enqueue (T instance)
         {
-            lock (Cache)
-                Cache.Enqueue(instance);
+            instance.Initialise ();
+            using (Cache.Enter (out var cache))
+                cache.Push (instance);
+            Count++;
         }
     }
 }

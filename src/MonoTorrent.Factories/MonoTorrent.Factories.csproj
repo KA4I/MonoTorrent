@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StandardSocketsHttpHandler" Version="2.2.0.4" Condition="$(TargetFramework) == 'netcoreapp3.0' Or $(TargetFramework) == 'netstandard2.1' Or $(TargetFramework) == 'netstandard2.0'" />
+    <PackageReference Include="GitInfo" />
+    <PackageReference Include="StandardSocketsHttpHandler" Condition="$(TargetFramework) == 'netstandard2.1' Or $(TargetFramework) == 'netstandard2.0'" />
   </ItemGroup>
 
   <ItemGroup>

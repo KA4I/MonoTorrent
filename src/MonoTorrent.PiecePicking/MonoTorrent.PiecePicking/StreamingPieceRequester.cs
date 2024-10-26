@@ -160,17 +160,13 @@ namespace MonoTorrent.PiecePicking
                 return;
 
             int preferredRequestAmount = peer.PreferredRequestAmount (TorrentData.PieceLength);
-            var maxRequests = Math.Min (preferredMaxRequests, peer.MaxPendingRequests);
-
-            if (peer.AmRequestingPiecesCount >= maxRequests)
-                return;
-
+            int maxTotalRequests = Math.Min (preferredMaxRequests, peer.MaxPendingRequests);
             // FIXME: Add a test to ensure we do not unintentionally request blocks off peers which are choking us.
             // This used to say if (!peer.IsChoing || peer.SupportsFastPeer), and with the recent changes we might
             // not actually guarantee that 'ContinueExistingRequest' or 'ContinueAnyExistingRequest' properly takes
             // into account that a peer which is choking us can *only* resume a 'fast piece' in the 'AmAllowedfastPiece' list.
             if (!peer.IsChoking) {
-                while (peer.AmRequestingPiecesCount < maxRequests) {
+                while (peer.CanRequestMorePieces && peer.AmRequestingPiecesCount < maxTotalRequests) {
                     if (LowPriorityPicker!.ContinueAnyExistingRequest (peer, available, startPieceIndex, endPieceIndex, maxDuplicates, out PieceSegment request))
                         Enqueuer.EnqueueRequest(peer, request);
                     else
@@ -180,7 +176,7 @@ namespace MonoTorrent.PiecePicking
 
             // If the peer supports fast peer and they are choking us, they'll still send pieces in the allowed fast set.
             if (peer.SupportsFastPeer && peer.IsChoking) {
-                while (peer.AmRequestingPiecesCount < maxRequests) {
+                while (peer.CanRequestMorePieces && peer.AmRequestingPiecesCount < maxTotalRequests) {
                     if (LowPriorityPicker!.ContinueExistingRequest (peer, startPieceIndex, endPieceIndex, out PieceSegment segment))
                         Enqueuer.EnqueueRequest (peer, segment);
                     else
@@ -192,10 +188,10 @@ namespace MonoTorrent.PiecePicking
             // only be made to pieces which *can* be requested? Why not!
             // FIXME add a test for this.
             if (!peer.IsChoking || (peer.SupportsFastPeer && peer.IsAllowedFastPieces.Count > 0)) {
-                BitField filtered = null!;
-                while (peer.AmRequestingPiecesCount < maxRequests) {
+                BitField? filtered = null;
+                while (peer.CanRequestMorePieces && peer.AmRequestingPiecesCount < maxTotalRequests) {
                     filtered ??= GenerateAlreadyHaves ().Not ().And (available);
-                    Span<PieceSegment> buffer = stackalloc PieceSegment[preferredRequestAmount];
+                    Span<PieceSegment> buffer = stackalloc PieceSegment[maxTotalRequests - peer.AmRequestingPiecesCount];
                     int requested = PriorityPick (peer, filtered, allPeers, startPieceIndex, endPieceIndex, buffer);
                     if (requested > 0) {
                         Enqueuer.EnqueueRequests (peer, buffer.Slice (0, requested));
@@ -267,8 +263,12 @@ namespace MonoTorrent.PiecePicking
         /// <param name="position"></param>
         public void ReadToPosition (ITorrentManagerFile file, long position)
         {
-            if (TorrentData != null)
-                HighPriorityPieceIndex = Math.Min (file.EndPieceIndex, TorrentData.ByteOffsetToPieceIndex (position + file.OffsetInTorrent));
+            if (TorrentData != null) {
+                if (position >= file.Length)
+                    HighPriorityPieceIndex = file.EndPieceIndex;
+                else
+                    HighPriorityPieceIndex = TorrentData.ByteOffsetToPieceIndex (position + file.OffsetInTorrent);
+            }
         }
 
         public bool ValidatePiece (IRequester peer, PieceSegment blockInfo, out bool pieceComplete, HashSet<IRequester> peersInvolved)

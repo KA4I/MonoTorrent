@@ -1,10 +1,10 @@
 ﻿//
-// Synchronizer.cs
+// IListExtensions.cs
 //
 // Authors:
 //   Alan McGovern alan.mcgovern@gmail.com
 //
-// Copyright (C) 2019 Alan McGovern
+// Copyright (C) 2020 Alan McGovern
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -27,39 +27,28 @@
 //
 
 
+using System;
 using System.Collections.Generic;
-
-using ReusableTasks;
 
 namespace MonoTorrent
 {
-    class Synchronizer
+    static class IListExtensions
     {
-        public static Queue<Synchronizer> CreateLinked (int count)
+        public static int BinarySearch<T, TState> (this IList<T> list, Func<T, TState, int> predicate, TState comparand)
         {
-            var all = new List<Synchronizer> ();
-            for (int i = 0; i < count; i++)
-                all.Add (new Synchronizer ());
-
-            all[0].Self.SetResult (true);
-
-            for (int i = 0; i < count; i++) {
-                all[i].PreviousNode = all[(i - 1 + count) % count];
-                all[i].NextNode = all[(i + 1 + count) % count];
+            int min = 0;
+            int max = list.Count - 1;
+            while (min <= max) {
+                var mid = (min + max) / 2;
+                var result = predicate (list[mid], comparand);
+                if (result == 0)
+                    return mid;
+                if (result < 0)
+                    min = mid + 1;
+                if (result > 0)
+                    max = mid - 1;
             }
-            return new Queue<Synchronizer> (all);
-        }
-
-        public ReusableTaskCompletionSource<bool>? Next => NextNode?.Self;
-        public ReusableTaskCompletionSource<bool> Self { get; } = new ReusableTaskCompletionSource<bool> ();
-
-        Synchronizer? PreviousNode;
-        Synchronizer? NextNode;
-
-        public void Disconnect ()
-        {
-            PreviousNode!.NextNode = NextNode;
-            NextNode!.PreviousNode = PreviousNode;
+            return ~min;
         }
     }
 }

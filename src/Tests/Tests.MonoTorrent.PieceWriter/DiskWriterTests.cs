@@ -28,6 +28,7 @@
 
 
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -53,7 +54,7 @@ namespace MonoTorrent.PieceWriter
         public void Setup ()
         {
             var pieceLength = Constants.BlockSize * 2;
-            Temp = Path.GetTempPath () + "monotorrent_tests";
+            Temp = Path.Combine (Path.GetTempPath (), Path.GetRandomFileName () + $"-{Process.GetCurrentProcess ().Id}-monotorrent_tests");
 
             var files = TorrentFileInfo.Create (pieceLength,
                 ("test1.file", 12345, Path.Combine (Temp, "test1.file")),
@@ -104,10 +105,13 @@ namespace MonoTorrent.PieceWriter
             using (var file = new FileStream (TorrentFile.FullPath, FileMode.OpenOrCreate))
                 file.Write (new byte[TorrentFile.Length + 1]);
 
-            // This should implicitly truncate.
+            // This should not implicitly truncate.
+            // Some users will want to hashcheck some data and do not expect hash *checking*
+            // to be a destructive operation. If the torrent actually begins downloading then
+            // files should be truncated.
             using var writer = new DiskWriter ();
             await writer.ReadAsync (TorrentFile, 0, new byte[12]);
-            Assert.AreEqual (TorrentFile.Length, new FileInfo (TorrentFile.FullPath).Length);
+            Assert.AreEqual (TorrentFile.Length + 1, new FileInfo (TorrentFile.FullPath).Length);
         }
 
         [Test]
@@ -119,10 +123,10 @@ namespace MonoTorrent.PieceWriter
             using (var file = new FileStream (TorrentFile.FullPath, FileMode.OpenOrCreate))
                 file.Write (new byte[TorrentFile.Length + 1]);
 
-            // This should implicitly truncate.
+            // File truncating only happens when starting a torrent in order to seed or leech it. It does not happen during hashchecking
             using var writer = new DiskWriter ();
             await writer.WriteAsync (TorrentFile, 0, new byte[12]);
-            Assert.AreEqual (TorrentFile.Length, new FileInfo (TorrentFile.FullPath).Length);
+            Assert.AreEqual (TorrentFile.Length + 1, new FileInfo (TorrentFile.FullPath).Length);
         }
 
         [Test]

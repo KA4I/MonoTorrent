@@ -29,6 +29,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MonoTorrent
 {
@@ -132,6 +133,8 @@ namespace MonoTorrent
                 throw new ArgumentOutOfRangeException (nameof (offset));
             } else {
                 // Works for padded, and unpadded, V1 torrents. including hybrid v1/v2 torrents.
+                if (offset < 0 || offset >= self.Size)
+                    throw new ArgumentOutOfRangeException (nameof (offset));
                 return (int) (offset / self.PieceLength);
             }
         }

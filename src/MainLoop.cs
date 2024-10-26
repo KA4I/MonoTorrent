@@ -39,7 +39,7 @@ namespace MonoTorrent.Client
 {
     internal class MainLoop : SynchronizationContext, INotifyCompletion
     {
-        static readonly ICache<CacheableManualResetEventSlim> cache = new Cache<CacheableManualResetEventSlim>(() => new CacheableManualResetEventSlim()).Synchronize();
+        static readonly ICache<CacheableManualResetEventSlim> cache = new SynchronizedCache<CacheableManualResetEventSlim>(() => new CacheableManualResetEventSlim());
 
         private struct QueuedTask
         {
@@ -117,13 +117,6 @@ namespace MonoTorrent.Client
         public void QueueWait(Action action)
         {
             Send(t => action(), null);
-        }
-
-        public object QueueWait(Func<object> func)
-        {
-            object? result = null;
-            Send(t => result = func(), null);
-            return result!;
         }
 
         public void QueueTimeout(TimeSpan span, Func<bool> task)

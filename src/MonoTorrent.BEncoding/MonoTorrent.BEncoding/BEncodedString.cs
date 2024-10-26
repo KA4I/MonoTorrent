@@ -75,7 +75,7 @@ namespace MonoTorrent.BEncoding
         /// The value of the BEncodedString interpreted as a UTF-8 string. If the underlying bytes
         /// cannot be represented in UTF-8 then the invalid byte sequence is silently discarded.
         /// </summary>
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET472
         public unsafe string Text {
             get {
                 var span = Span;
@@ -148,7 +148,7 @@ namespace MonoTorrent.BEncoding
             return written + Span.Length;
         }
 
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET472
         static int WriteLengthAsAscii (Span<byte> buffer, int asciiLength)
         {
             if (asciiLength == 0) {
@@ -220,6 +220,7 @@ namespace MonoTorrent.BEncoding
             return 0;
         }
 
+        [Obsolete("This wraps HttpUtility.UrlEncode which improperly encodes ' ' as '+' instead of '%20' when cencoding for a query param")]
         public string UrlEncode ()
             => HttpUtility.UrlEncode (Span.ToArray ());
 
