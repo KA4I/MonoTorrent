@@ -94,11 +94,6 @@
     <ProjectReference Include="..\MonoTorrent.PieceWriter\MonoTorrent.PieceWriter.csproj" PrivateAssets="all" />
   </ItemGroup>
 
-  <ItemGroup Condition="$(TargetFramework) == 'net472'">
-    <Reference Include="System.Web" />
-    <Reference Include="System.Net.Http" />
-  </ItemGroup>
-
    <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="BuildOnlySettings;ResolveReferences">
     <ItemGroup>
       <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')-&gt;WithMetadataValue('PrivateAssets', 'All'))" />
