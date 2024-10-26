@@ -66,15 +66,13 @@
         -Per torrent and global rate limiting
         -Individual file relocation
       </PackageDescription>
-      <PackageId>MonoTorrent</PackageId>
-      <PackageProjectUrl>https://github.com/alanmcgovern/monotorrent</PackageProjectUrl>
+      <PackageId>Lost.MonoTorrent</PackageId>
+      <PackageProjectUrl>https://github.com/lostmsu/monotorrent</PackageProjectUrl>
       <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
       <PackageVersion Condition="$(PackageVersion) == ''">$(MonoTorrentFileVersion)$(MonoTorrentReleaseSuffix)</PackageVersion>
       <PackageTags>bittorrent;torrent;library;tracker;dht;c#;csharp;dotnet;.NET;p2p</PackageTags>
 
       <IncludeSource>true</IncludeSource>
-      <IncludeSymbols>true</IncludeSymbols>
-      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
       <RepositoryType>git</RepositoryType>
 
