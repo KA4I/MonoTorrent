@@ -273,7 +273,11 @@ namespace MonoTorrent.PortForwarding
                 if (replace.Any (replace => replace.Item2 is null))
                     RaiseMappingsChangedAsync ();
 
-                await Task.Delay (TimeSpan.FromMinutes (1), token).ConfigureAwait (false);
+                try {
+                    await Task.Delay (TimeSpan.FromMinutes (1), token).ConfigureAwait (false);
+                } catch (TaskCanceledException) {
+                    continue;
+                }
             }
         }
 
