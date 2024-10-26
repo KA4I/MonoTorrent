@@ -49,12 +49,12 @@ namespace MonoTorrent.Logging
 
         public void Error (string message)
         {
-            LoggerFactory.RootLogger.Debug (Name, message);
+            LoggerFactory.RootLogger.Error (Name, message);
         }
 
         public void Info (string message)
         {
-            LoggerFactory.RootLogger.Debug (Name, message);
+            LoggerFactory.RootLogger.Info (Name, message);
         }
     }
 }
