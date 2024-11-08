@@ -104,6 +104,8 @@ namespace MonoTorrent.Client
         /// </summary>
         public bool AutoSaveLoadMagnetLinkMetadata { get; } = true;
 
+        public bool AllowOutgoingConnections { get; } = true;
+
         /// <summary>
         /// If set to <see langword="false"/> then the engine will never share pieces with peers we connected to ourselves.
         /// Defaults to <see langword="true"/>.
@@ -314,7 +316,7 @@ namespace MonoTorrent.Client
 
         internal EngineSettings (
             IList<EncryptionType> allowedEncryption,
-            bool allowHaveSuppression, bool allowLocalPeerDiscovery, bool allowMultipleTorrentInstances, bool allowPortForwarding, bool allowUploadingOnOutgoingConnections,
+            bool allowHaveSuppression, bool allowLocalPeerDiscovery, bool allowMultipleTorrentInstances, bool allowPortForwarding, bool allowOutgoingConnections, bool allowUploadingOnOutgoingConnections,
             bool autoSaveLoadDhtCache, bool autoSaveLoadFastResume, bool autoSaveLoadMagnetLinkMetadata, string cacheDirectory,
             TimeSpan chokeReviewInterval,
             TimeSpan connectionTimeout, IPEndPoint? dhtEndPoint, int diskCacheBytes, CachePolicy diskCachePolicy, FastResumeMode fastResumeMode,
@@ -333,6 +335,7 @@ namespace MonoTorrent.Client
             AllowLocalPeerDiscovery = allowLocalPeerDiscovery;
             AllowMultipleTorrentInstances = allowMultipleTorrentInstances;
             AllowPortForwarding = allowPortForwarding;
+            AllowOutgoingConnections = allowOutgoingConnections;
             AllowUploadingOnOutgoingConnections = allowUploadingOnOutgoingConnections;
             AutoSaveLoadDhtCache = autoSaveLoadDhtCache;
             AutoSaveLoadFastResume = autoSaveLoadFastResume;

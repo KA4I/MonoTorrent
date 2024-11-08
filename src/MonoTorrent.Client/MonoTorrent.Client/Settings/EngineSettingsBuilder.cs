@@ -116,6 +116,8 @@ namespace MonoTorrent.Client
         /// </summary>
         public bool AutoSaveLoadMagnetLinkMetadata { get; set; }
 
+        public bool AllowOutgoingConnections { get; set; }
+
         /// <summary>
         /// If set to <see langword="false"/> then the engine will never share pieces with peers we connected to ourselves.
         /// Defaults to <see langword="true"/>.
@@ -377,6 +379,7 @@ namespace MonoTorrent.Client
             AllowLocalPeerDiscovery = settings.AllowLocalPeerDiscovery;
             AllowMultipleTorrentInstances = settings.AllowMultipleTorrentInstances;
             AllowPortForwarding = settings.AllowPortForwarding;
+            AllowOutgoingConnections = settings.AllowOutgoingConnections;
             AllowUploadingOnOutgoingConnections = settings.AllowUploadingOnOutgoingConnections;
             AutoSaveLoadDhtCache = settings.AutoSaveLoadDhtCache;
             AutoSaveLoadFastResume = settings.AutoSaveLoadFastResume;
@@ -429,6 +432,7 @@ namespace MonoTorrent.Client
                 allowLocalPeerDiscovery: AllowLocalPeerDiscovery,
                 allowMultipleTorrentInstances: AllowMultipleTorrentInstances,
                 allowPortForwarding: AllowPortForwarding,
+                allowOutgoingConnections: AllowOutgoingConnections,
                 allowUploadingOnOutgoingConnections: AllowUploadingOnOutgoingConnections,
                 autoSaveLoadDhtCache: AutoSaveLoadDhtCache,
                 autoSaveLoadFastResume: AutoSaveLoadFastResume,

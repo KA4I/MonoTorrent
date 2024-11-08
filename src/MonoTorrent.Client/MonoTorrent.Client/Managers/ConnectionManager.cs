@@ -702,6 +702,9 @@ namespace MonoTorrent.Client
 
         internal void TryConnect ()
         {
+            if (!Settings.AllowOutgoingConnections)
+                return;
+
             // If we have already reached our max connections globally, don't try to connect to a new peer
             while (OpenConnections <= Settings.MaximumConnections && PendingConnects.Count <= MaxHalfOpenConnections) {
                 Torrents.Sort (ActiveConnectionsComparer);
