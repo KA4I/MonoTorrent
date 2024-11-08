@@ -96,7 +96,7 @@ namespace MonoTorrent.Connections.Tracker
             await new ThreadSwitcher ();
             AnnounceResponse? announceResponse = null;
 
-            using var client = ClientCreator (AddressFamily);
+            var client = ClientCreator (AddressFamily);
             foreach (var infoHash in new[] { parameters.InfoHashes.V1, parameters.InfoHashes.V2 }) {
                 if (infoHash is null)
                     continue;
