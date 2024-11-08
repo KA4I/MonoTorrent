@@ -80,8 +80,6 @@ namespace MonoTorrent.Client
 
         public event EventHandler<AttemptConnectionEventArgs>? BanPeer;
 
-        internal int openConnections;
-
         HashSet<string> BannedPeerIPAddresses = new HashSet<string> ();
 
         internal IBlockReader BlockReader { get; }
@@ -107,7 +105,7 @@ namespace MonoTorrent.Client
         /// <summary>
         /// The number of open connections
         /// </summary>
-        public int OpenConnections => openConnections;
+        public int OpenConnections => Torrents.Select (t => t.OpenConnections).Sum ();
 
         List<AsyncConnectState> PendingConnects { get; }
 
@@ -261,7 +259,6 @@ namespace MonoTorrent.Client
                     LocalPeerIds[connectAs] = LocalPeerIds.TryGetValue (connectAs, out int repeats) ? repeats + 1 : 1;
 
             var bitfield = new BitField (manager.Bitfield.Length);
-            Interlocked.Increment (ref openConnections);
 
             IEncryption decryptor;
             IEncryption encryptor;
@@ -490,8 +487,7 @@ namespace MonoTorrent.Client
                 manager.PieceManager.CancelRequests (id);
                 if (!id.AmChoking)
                     manager.UploadingTo--;
-                if (manager.Peers.ConnectedPeers.Remove (id))
-                    Interlocked.Decrement (ref openConnections);
+                manager.Peers.ConnectedPeers.Remove (id);
                 id.Peer.CleanedUpCount++;
                 id.Peer.WaitUntilNextConnectionAttempt.Restart ();
 
@@ -594,7 +590,6 @@ namespace MonoTorrent.Client
                 manager.Peers.AvailablePeers.Remove (id.Peer);
                 manager.Peers.ActivePeers.Add (id.Peer);
                 manager.Peers.ConnectedPeers.Add (id);
-                Interlocked.Increment (ref openConnections);
 
                 id.WhenConnected.Restart ();
                 // Baseline the time the last block was received

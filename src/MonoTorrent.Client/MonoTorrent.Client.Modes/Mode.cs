@@ -736,7 +736,6 @@ namespace MonoTorrent.Client.Modes
                     var id = new PeerId (peer, connection, new BitField (Manager.Bitfield.Length).SetAll (true), Manager.InfoHashes.V1OrV2, PlainTextEncryption.Instance, PlainTextEncryption.Instance, new Software (peer.Info.PeerId));
                     id.IsChoking = false;
                     Manager.Peers.ConnectedPeers.Add (id);
-                    Interlocked.Increment (ref ConnectionManager.openConnections);
                     Manager.RaisePeerConnected (id);
                     ConnectionManager.ReceiveMessagesAsync (id.Connection, id.Decryptor, Manager.DownloadLimiters, id.Monitor, Manager, id);
                     if (!Manager.Complete) {
