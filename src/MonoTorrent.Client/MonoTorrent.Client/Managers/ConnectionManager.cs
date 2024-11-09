@@ -722,9 +722,9 @@ namespace MonoTorrent.Client
 
         static readonly TimeSpan minimumTimeBetweenOpportunisticUnbans = TimeSpan.FromSeconds (30);
         DateTimeOffset lastUnban = DateTimeOffset.UtcNow;
+        readonly Random random = new ();
         bool TryConnect (TorrentManager manager)
         {
-            int i;
             // If the torrent isn't active, don't connect to a peer for it
             if (!manager.Mode.CanAcceptConnections)
                 return false;
@@ -735,19 +735,18 @@ namespace MonoTorrent.Client
 
             // If we are not seeding, we can connect to anyone. If we are seeding, we should only connect to a peer
             // if they are not a seeder.
-            for (i = 0; i < manager.Peers.AvailablePeers.Count; i++)
-                if (manager.Mode.ShouldConnect (manager.Peers.AvailablePeers[i]))
-                    break;
+            var candidates = manager.Peers.AvailablePeers.Where (manager.Mode.ShouldConnect).ToArray ();
+            var peer = candidates.Length > 0 ? candidates[random.Next(candidates.Length)] : null;
 
             // If this is true, there were no peers in the available list to connect to.
-            if (i == manager.Peers.AvailablePeers.Count) {
+            if (peer is null) {
                 if (manager.Peers.ConnectedPeers.Count == 0
                     && lastUnban - DateTimeOffset.UtcNow > minimumTimeBetweenOpportunisticUnbans) {
                     var banlist = BannedPeerIPAddresses.ToArray ();
                     if (banlist.Length > 0) {
                         int index = new Random ().Next (banlist.Length);
                         string unban =  banlist[index];
-                        logger.Debug ($"Unbanning {unban}: we don't have any other peers to connect to");
+                        logger.Debug ($"Unbanning {unban} for {manager.LogName}: we don't have any other peers to connect to");
                         BannedPeerIPAddresses.Remove (unban);
                     }
                 }
@@ -755,14 +754,13 @@ namespace MonoTorrent.Client
             }
 
             // Remove the peer from the lists so we can start connecting to him
-            Peer peer = manager.Peers.AvailablePeers[i];
-            manager.Peers.AvailablePeers.RemoveAt (i);
+            manager.Peers.AvailablePeers.Remove (peer);
 
             if (ShouldBanPeer (peer.Info, AttemptConnectionStage.BeforeConnectionEstablished))
                 return false;
 
             // Connect to the peer
-            logger.InfoFormatted ("Trying to connect to {0}", peer.Info.ConnectionUri);
+            logger.InfoFormatted ("Trying to connect {0} to {1}", manager.LogName, peer.Info.ConnectionUri);
             ConnectToPeer (manager, peer);
             return true;
         }
