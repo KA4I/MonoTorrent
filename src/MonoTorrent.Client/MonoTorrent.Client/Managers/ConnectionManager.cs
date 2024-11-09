@@ -236,6 +236,7 @@ namespace MonoTorrent.Client
                 return await ProcessNewOutgoingConnection (manager, peer, connection, allowedEncryption);
             } catch (Exception e) {
                 logger.Error ($"Unable to connect to {connection.Uri}: {e.Message}");
+                logger.Debug (e.ToString ());
                 return ConnectionFailureReason.Unknown;
             }
         }
@@ -451,7 +452,8 @@ namespace MonoTorrent.Client
                     handleTime = stopwatch.Elapsed;
                 }
             } catch (Exception e) {
-                logger.Error ($"Peer {id.Uri} receiver loop stopped due to error: {e}");
+                logger.Error ($"Peer {id.Uri} receiver loop stopped due to error: {e.Message}");
+                logger.Debug (e.ToString());
                 await ClientEngine.MainLoop;
                 CleanupSocket (torrentManager, id);
             } finally {

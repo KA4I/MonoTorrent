@@ -128,7 +128,7 @@ namespace MonoTorrent.Connections.Tracker
                         logger.Debug ("   " + string.Join ("   ", resp.Peers[infoHash].Select (p => p.ConnectionUri.ToString ())));
                     }
                 } catch (Exception e) {
-                    logger.ErrorFormatted ("Could not decode response from tracker {0}", Uri);
+                    logger.ErrorFormatted ("Could not decode response from tracker {0}: {1}", Uri, e.Message);
                     logger.Debug (e.ToString ());
                     return new AnnounceResponse (
                         state: TrackerState.InvalidResponse,
