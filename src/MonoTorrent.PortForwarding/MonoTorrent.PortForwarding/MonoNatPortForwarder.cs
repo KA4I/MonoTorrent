@@ -200,7 +200,10 @@ namespace MonoTorrent.PortForwarding
         {
             await new ThreadSwitcher ();
 
+            uint iteration = 0;
             while (!token.IsCancellationRequested) {
+                iteration++;
+
                 ActiveMapping[] activeSnapshot;
                 lock (active)
                     activeSnapshot = active.ToArray ();
@@ -273,12 +276,23 @@ namespace MonoTorrent.PortForwarding
                 if (replace.Any (replace => replace.Item2 is null))
                     RaiseMappingsChangedAsync ();
 
+                RetryFailed (iteration: iteration);
+
                 try {
                     await Task.Delay (TimeSpan.FromMinutes (1), token).ConfigureAwait (false);
                 } catch (TaskCanceledException) {
                     continue;
                 }
             }
+        }
+
+        async void RetryFailed (uint iteration)
+        {
+            var failed = Mappings.Failed;
+            if (failed.Count == 0)
+                return;
+            var retry = Mappings.Failed[(int)(iteration % failed.Count)];
+            await RegisterMappingAsync (retry);
         }
 
         class ActiveMapping: IEquatable<ActiveMapping>
