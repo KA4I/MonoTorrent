@@ -125,6 +125,7 @@ namespace MonoTorrent.Connections.Tracker
                             announceResponse.Peers[infoHash] = resp.Peers[infoHash];
                         }
                         logger.InfoFormatted ("Tracker {0} sent {1} peers for InfoHash {2}", Uri, resp.Peers[infoHash].Count, infoHash.ToHex ());
+                        logger.Debug ("   " + string.Join ("   ", resp.Peers[infoHash].Select (p => p.ConnectionUri.ToString ())));
                     }
                 } catch (Exception e) {
                     logger.ErrorFormatted ("Could not decode response from tracker {0}", Uri);
