@@ -108,7 +108,7 @@ namespace MonoTorrent.Connections.Tracker
                     response = await client.GetAsync (announceString, HttpCompletionOption.ResponseHeadersRead, token);
                 } catch (Exception e) {
                     logger.ErrorFormatted ("Could not contact tracker {0}: {1}", Uri, e.Message);
-                    logger.Debug (e.ToString ());
+                    logger.Debug ($"{e}");
                     return new AnnounceResponse (
                         state: TrackerState.Offline,
                         failureMessage: "The tracker could not be contacted"
@@ -125,11 +125,11 @@ namespace MonoTorrent.Connections.Tracker
                             announceResponse.Peers[infoHash] = resp.Peers[infoHash];
                         }
                         logger.InfoFormatted ("Tracker {0} sent {1} peers for InfoHash {2}", Uri, resp.Peers[infoHash].Count, infoHash.ToHex ());
-                        logger.Debug ("   " + string.Join ("   ", resp.Peers[infoHash].Select (p => p.ConnectionUri.ToString ())));
+                        logger.Debug ($"   {string.Join ("   ", resp.Peers[infoHash].Select (p => p.ConnectionUri.ToString ()))}");
                     }
                 } catch (Exception e) {
                     logger.ErrorFormatted ("Could not decode response from tracker {0}: {1}", Uri, e.Message);
-                    logger.Debug (e.ToString ());
+                    logger.Debug ($"{e}");
                     return new AnnounceResponse (
                         state: TrackerState.InvalidResponse,
                         failureMessage: "The tracker returned an invalid or incomplete response"

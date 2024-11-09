@@ -1013,7 +1013,7 @@ namespace MonoTorrent.Client
                     PieceHashed?.Invoke (this, args);
                 } catch (Exception e) {
                     logger.Error($"{this.Name} - Exception in event handler: {e.Message}");
-                    logger.Debug (e.ToString());
+                    logger.Debug ($"{e}");
                 }
             }
         }
@@ -1242,7 +1242,7 @@ namespace MonoTorrent.Client
 
             Error = new Error (reason, ex);
             logger.Error ($"{this.LogName} {reason}: {ex.Message}");
-            logger.Debug (ex.ToString ());
+            logger.Debug ($"{ex}");
             Mode = new ErrorMode (this, Engine!.ConnectionManager);
             return true;
         }

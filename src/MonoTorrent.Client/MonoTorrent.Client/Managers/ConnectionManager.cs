@@ -236,7 +236,7 @@ namespace MonoTorrent.Client
                 return await ProcessNewOutgoingConnection (manager, peer, connection, allowedEncryption);
             } catch (Exception e) {
                 logger.Error ($"Unable to connect to {connection.Uri}: {e.Message}");
-                logger.Debug (e.ToString ());
+                logger.Debug ($"{e}");
                 return ConnectionFailureReason.Unknown;
             }
         }
@@ -272,7 +272,7 @@ namespace MonoTorrent.Client
 
                 // Create a handshake message to send to the peer
                 handshake = new HandshakeMessage (manager.InfoHashes.V1OrV2.Truncate (), connectAs, Constants.ProtocolStringV100, enableFastPeer: true, enableExtended: true, supportsUpgradeToV2: canUpgradeToV2);
-                logger.InfoFormatted (connection, "Sending handshake message with peer id '{0}'", LocalPeerId);
+                logger.InfoFormatted (connection, "Sending handshake message with peer id '{0}'", connectAs);
 
                 EncryptorFactory.EncryptorResult result = await EncryptorFactory.CheckOutgoingConnectionAsync (connection, allowedEncryption, manager.InfoHashes.V1OrV2.Truncate (), handshake, Factories, Settings.ConnectionTimeout);
                 decryptor = result.Decryptor;
@@ -311,12 +311,15 @@ namespace MonoTorrent.Client
 
                 // CreatePeerIdFromHandshake files in the peerid, which is important context for whether or not
                 // the peer connection should be closed.
-                if (ShouldBanPeer (peer.Info, AttemptConnectionStage.HandshakeComplete))
+                if (ShouldBanPeer (peer.Info, AttemptConnectionStage.HandshakeComplete)) {
+                    logger.Debug ($"Not connecting to {connection.Uri} as it is banned");
                     return ConnectionFailureReason.Banned;
-            } catch {
+                }
+            } catch (Exception e) {
                 if (!LocalPeerId.Equals(connectAs))
                     lock (LocalPeerIds)
                         LocalPeerIds[connectAs] = LocalPeerIds[connectAs] - 1;
+                logger.Debug ($"handshake with {connection.Uri} failed: {e.Message}");
                 return ConnectionFailureReason.HandshakeFailed;
             }
 
@@ -342,7 +345,8 @@ namespace MonoTorrent.Client
                 id.WhenConnected.Restart ();
                 id.LastBlockReceived.Reset ();
                 return null;
-            } catch {
+            } catch (Exception e) {
+                logger.Debug ($"outgoing connection to {connection.Uri} failed: {e.Message}");
                 manager.RaiseConnectionAttemptFailed (new ConnectionAttemptFailedEventArgs (id.Peer.Info, ConnectionFailureReason.Unknown, manager));
                 CleanupSocket (manager, id);
                 return ConnectionFailureReason.Unknown;
@@ -453,7 +457,7 @@ namespace MonoTorrent.Client
                 }
             } catch (Exception e) {
                 logger.Error ($"Peer {id.Uri} receiver loop stopped due to error: {e.Message}");
-                logger.Debug (e.ToString());
+                logger.Debug ($"{e}");
                 await ClientEngine.MainLoop;
                 CleanupSocket (torrentManager, id);
             } finally {
@@ -565,7 +569,7 @@ namespace MonoTorrent.Client
                     return false;
                 }
                 if (maxAlreadyOpen) {
-                    logger.Debug ("Connected to too many peers - disconnecting");
+                    logger.Debug ($"Connected to too many peers - disconnecting");
                     CleanupSocket (manager, id);
                     return false;
                 }
