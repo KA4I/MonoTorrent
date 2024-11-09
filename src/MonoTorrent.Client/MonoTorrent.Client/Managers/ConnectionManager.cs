@@ -721,7 +721,6 @@ namespace MonoTorrent.Client
 
         static readonly TimeSpan minimumTimeBetweenOpportunisticUnbans = TimeSpan.FromSeconds (30);
         DateTimeOffset lastUnban = DateTimeOffset.UtcNow;
-        readonly Random random = new ();
         bool TryConnect (TorrentManager manager)
         {
             // If the torrent isn't active, don't connect to a peer for it
@@ -734,8 +733,7 @@ namespace MonoTorrent.Client
 
             // If we are not seeding, we can connect to anyone. If we are seeding, we should only connect to a peer
             // if they are not a seeder.
-            var candidates = manager.Peers.AvailablePeers.Where (manager.Mode.ShouldConnect).ToArray ();
-            var peer = candidates.Length > 0 ? candidates[random.Next(candidates.Length)] : null;
+            var peer = manager.Peers.AvailablePeers.Where (manager.Mode.ShouldConnect).FirstOrDefault ();
 
             // If this is true, there were no peers in the available list to connect to.
             if (peer is null) {
