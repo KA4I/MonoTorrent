@@ -586,7 +586,6 @@ namespace MonoTorrent.Client
 
                 // Add the PeerId to the lists *before* doing anything asynchronous. This ensures that
                 // all PeerIds are tracked in 'ConnectedPeers' as soon as they're created.
-                logger.Info (id.Connection, "Incoming connection fully accepted");
                 manager.Peers.AvailablePeers.Remove (id.Peer);
                 manager.Peers.ActivePeers.Add (id.Peer);
                 manager.Peers.ConnectedPeers.Add (id);
@@ -601,7 +600,7 @@ namespace MonoTorrent.Client
 
                 // We've sent our handshake so begin our looping to receive incoming message
                 ReceiveMessagesAsync (id.Connection, id.Decryptor, manager.DownloadLimiters, id.Monitor, manager, id);
-                logger.InfoFormatted ("Incoming connection fully accepted", id.Uri);
+                logger.Info (id.Connection, $"connection to {manager.LogName} fully accepted");
                 return true;
             } catch (Exception ex) {
                 logger.Exception (ex, "Error handling incoming connection");
