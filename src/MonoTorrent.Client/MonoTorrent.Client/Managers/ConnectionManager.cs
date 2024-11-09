@@ -742,12 +742,13 @@ namespace MonoTorrent.Client
             var unbanDelay = peer is null
                 ? minimumTimeBetweenOpportunisticUnbans
                 : TimeSpan.FromTicks(8 * minimumTimeBetweenOpportunisticUnbans.Ticks);
-            if (manager.Peers.ConnectedPeers.Count == 0 && lastUnban - DateTimeOffset.UtcNow > unbanDelay) {
+            if (manager.Peers.ConnectedPeers.Count == 0 && DateTimeOffset.UtcNow - lastUnban > unbanDelay) {
                 var banlist = BannedPeerIPAddresses.ToArray ();
                 if (banlist.Length > 0) {
                     int index = new Random ().Next (banlist.Length);
                     string unban =  banlist[index];
                     logger.Debug ($"Unbanning {unban} for {manager.LogName}: we don't have any other peers to connect to");
+                    lastUnban = DateTimeOffset.UtcNow;
                     BannedPeerIPAddresses.Remove (unban);
                 }
             }
