@@ -141,5 +141,7 @@ namespace MonoTorrent
 
         public static bool operator != (InfoHashes? left, InfoHashes? right)
             => !(left == right);
+
+        public override string ToString () => V1OrV2.ToHex ();
     }
 }

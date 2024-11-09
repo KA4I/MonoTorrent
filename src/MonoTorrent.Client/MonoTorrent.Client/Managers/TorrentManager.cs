@@ -556,6 +556,7 @@ namespace MonoTorrent.Client
             return Torrent == null ? "<Metadata Mode>" : Torrent.Name;
         }
 
+        public string LogName => Torrent == null ? InfoHashes.ToString() : $"{Torrent.Name} ({InfoHashes})";
 
         public async Task<List<PeerId>> GetPeersAsync ()
         {
