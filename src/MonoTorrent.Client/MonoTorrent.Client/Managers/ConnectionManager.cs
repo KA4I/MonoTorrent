@@ -688,8 +688,10 @@ namespace MonoTorrent.Client
 
             var e = new AttemptConnectionEventArgs (peer, stage);
             BanPeer (this, e);
-            if (e.BanPeer)
+            if (e.BanPeer) {
                 BannedPeerIPAddresses.Add (peer.ConnectionUri.Host);
+                logger.Debug ($"Banned {peer.ConnectionUri.Host} at {stage}");
+            }
             return e.BanPeer;
         }
 
@@ -737,18 +739,21 @@ namespace MonoTorrent.Client
             // if they are not a seeder.
             var peer = manager.Peers.AvailablePeers.Where (manager.Mode.ShouldConnect).FirstOrDefault ();
 
+            var unbanDelay = peer is null
+                ? minimumTimeBetweenOpportunisticUnbans
+                : TimeSpan.FromTicks(8 * minimumTimeBetweenOpportunisticUnbans.Ticks);
+            if (manager.Peers.ConnectedPeers.Count == 0 && lastUnban - DateTimeOffset.UtcNow > unbanDelay) {
+                var banlist = BannedPeerIPAddresses.ToArray ();
+                if (banlist.Length > 0) {
+                    int index = new Random ().Next (banlist.Length);
+                    string unban =  banlist[index];
+                    logger.Debug ($"Unbanning {unban} for {manager.LogName}: we don't have any other peers to connect to");
+                    BannedPeerIPAddresses.Remove (unban);
+                }
+            }
+
             // If this is true, there were no peers in the available list to connect to.
             if (peer is null) {
-                if (manager.Peers.ConnectedPeers.Count == 0
-                    && lastUnban - DateTimeOffset.UtcNow > minimumTimeBetweenOpportunisticUnbans) {
-                    var banlist = BannedPeerIPAddresses.ToArray ();
-                    if (banlist.Length > 0) {
-                        int index = new Random ().Next (banlist.Length);
-                        string unban =  banlist[index];
-                        logger.Debug ($"Unbanning {unban} for {manager.LogName}: we don't have any other peers to connect to");
-                        BannedPeerIPAddresses.Remove (unban);
-                    }
-                }
                 return false;
             }
 
