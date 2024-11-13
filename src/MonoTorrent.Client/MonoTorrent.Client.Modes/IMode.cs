@@ -49,8 +49,8 @@ namespace MonoTorrent.Client.Modes
         List<PeerId> RaiseInterest ();
         void HandleMessage (PeerId id, PeerMessage message, PeerMessage.Releaser releaser);
         void HandlePeerConnected (PeerId id);
-        void HandlePeerDisconnected (PeerId id);
-        bool ShouldConnect (Peer peer);
+        void HandlePeerDisconnected (PeerId id, DisconnectReason reason);
+        DisconnectReason ShouldConnect (Peer peer);
         void Tick (int counter);
     }
 }

@@ -668,7 +668,7 @@ namespace MonoTorrent.Client
         {
             Torrent = torrent;
             foreach (PeerId id in new List<PeerId> (Peers.ConnectedPeers))
-                Engine!.ConnectionManager.CleanupSocket (this, id);
+                Engine!.ConnectionManager.CleanupSocket (this, id, DisconnectReason.MetadataReset);
             MutableBitField = new BitField (Torrent.PieceCount);
             PartialProgressSelector = new BitField (Torrent.PieceCount).SetAll (true);
             PendingV2PieceHashes = new BitField (Torrent.PieceCount);
@@ -937,8 +937,8 @@ namespace MonoTorrent.Client
         internal void RaisePeerConnected (PeerId id)
             => PeerConnected?.InvokeAsync (this, new PeerConnectedEventArgs (this, id));
 
-        internal void RaisePeerDisconnected (PeerId id)
-            => PeerDisconnected?.InvokeAsync (this, new PeerDisconnectedEventArgs (this, id));
+        internal void RaisePeerDisconnected (PeerId id, DisconnectReason reason)
+            => PeerDisconnected?.InvokeAsync (this, new PeerDisconnectedEventArgs (this, id, reason));
 
         internal void RaisePeersFound (PeersAddedEventArgs args)
         {

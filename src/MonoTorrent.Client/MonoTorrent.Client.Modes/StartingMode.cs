@@ -81,11 +81,10 @@ namespace MonoTorrent.Client.Modes
         public void HandlePeerConnected (PeerId id)
             => throw new NotSupportedException ();
 
-        public void HandlePeerDisconnected (PeerId id)
+        public void HandlePeerDisconnected (PeerId id, DisconnectReason reason)
             => throw new NotSupportedException ();
 
-        public bool ShouldConnect (Peer peer)
-            => false;
+        public DisconnectReason ShouldConnect (Peer peer) => DisconnectReason.StartingMode;
 
         public void Tick (int counter)
         {

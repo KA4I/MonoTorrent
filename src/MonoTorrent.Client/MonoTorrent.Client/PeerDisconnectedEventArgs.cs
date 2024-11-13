@@ -38,11 +38,13 @@ namespace MonoTorrent.Client
         /// The peer whose connection was terminated.
         /// </summary>
         public PeerId Peer { get; }
+        public DisconnectReason Reason { get; }
 
-        internal PeerDisconnectedEventArgs (TorrentManager manager, PeerId id)
+        internal PeerDisconnectedEventArgs (TorrentManager manager, PeerId id, DisconnectReason reason)
             : base (manager)
         {
             Peer = id;
+            Reason = reason;
         }
     }
 }

@@ -73,10 +73,11 @@ namespace MonoTorrent.Client.Modes
             return affected;
         }
 
-        public override bool ShouldConnect (Peer peer)
+        public override DisconnectReason ShouldConnect (Peer peer)
         {
-            return !(peer.IsSeeder && Manager.HasMetadata && Manager.Complete)
-                && base.ShouldConnect (peer);
+            if (peer.IsSeeder && Manager.HasMetadata && Manager.Complete)
+                return DisconnectReason.SeederToSeeder;
+            return base.ShouldConnect (peer);
         }
 
         public override void Tick (int counter)
@@ -86,8 +87,8 @@ namespace MonoTorrent.Client.Modes
             _ = UpdateSeedingDownloadingState ();
 
             for (int i = 0; i < Manager.Peers.ConnectedPeers.Count; i++) {
-                if (!ShouldConnect (Manager.Peers.ConnectedPeers[i].Peer)) {
-                    ConnectionManager.CleanupSocket (Manager, Manager.Peers.ConnectedPeers[i]);
+                if (ShouldConnect (Manager.Peers.ConnectedPeers[i].Peer) is { } disconnectReason and not DisconnectReason.None) {
+                    ConnectionManager.CleanupSocket (Manager, Manager.Peers.ConnectedPeers[i], disconnectReason);
                     i--;
                 }
             }

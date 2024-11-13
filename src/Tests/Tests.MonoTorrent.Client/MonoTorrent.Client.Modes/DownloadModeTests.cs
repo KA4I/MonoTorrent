@@ -577,22 +577,22 @@ namespace MonoTorrent.Client.Modes
             var mode = new DownloadMode (Manager, DiskManager, ConnectionManager, Settings);
 
             Assert.IsFalse (peer.WaitUntilNextConnectionAttempt.IsRunning);
-            Assert.IsTrue (mode.ShouldConnect (peer));
+            Assert.AreEqual (DisconnectReason.None, mode.ShouldConnect (peer));
 
             // pretend we tried to connect
             peer.WaitUntilNextConnectionAttempt.Restart ();
-            Assert.IsTrue (mode.ShouldConnect (peer));
+            Assert.AreEqual (DisconnectReason.None, mode.ShouldConnect (peer));
 
             // Pretend it failed once - now we need to delay.
             peer.FailedConnectionAttempts++;
             peer.WaitUntilNextConnectionAttempt.Restart ();
-            Assert.IsFalse (mode.ShouldConnect (peer));
+            Assert.AreEqual (DisconnectReason.TooManyFailedConnectionAttempts, mode.ShouldConnect (peer));
 
             peer.WaitUntilNextConnectionAttempt = ValueStopwatch.WithTime (TimeSpan.FromSeconds (20));
-            Assert.IsTrue (mode.ShouldConnect (peer));
+            Assert.AreEqual (DisconnectReason.None, mode.ShouldConnect (peer));
 
             peer.FailedConnectionAttempts++;
-            Assert.IsFalse (mode.ShouldConnect (peer));
+            Assert.AreEqual (DisconnectReason.TooManyFailedConnectionAttempts, mode.ShouldConnect (peer));
         }
 
         [Test]
@@ -602,22 +602,22 @@ namespace MonoTorrent.Client.Modes
             var mode = new DownloadMode (Manager, DiskManager, ConnectionManager, Settings);
 
             Assert.IsFalse (peer.WaitUntilNextConnectionAttempt.IsRunning);
-            Assert.IsTrue (mode.ShouldConnect (peer));
+            Assert.AreEqual (DisconnectReason.None, mode.ShouldConnect (peer));
 
             // pretend we tried to connect
             peer.WaitUntilNextConnectionAttempt.Restart ();
-            Assert.IsTrue (mode.ShouldConnect (peer));
+            Assert.AreEqual (DisconnectReason.None, mode.ShouldConnect (peer));
 
             // Pretend the connection was closed once - now we need to delay.
             peer.CleanedUpCount++;
             peer.WaitUntilNextConnectionAttempt.Restart ();
-            Assert.IsFalse (mode.ShouldConnect (peer));
+            Assert.AreEqual (DisconnectReason.DisconnectedTooManyTimes, mode.ShouldConnect (peer));
 
             peer.WaitUntilNextConnectionAttempt = ValueStopwatch.WithTime (TimeSpan.FromSeconds (20));
-            Assert.IsTrue (mode.ShouldConnect (peer));
+            Assert.AreEqual (DisconnectReason.None, mode.ShouldConnect (peer));
 
             peer.CleanedUpCount++;
-            Assert.IsFalse (mode.ShouldConnect (peer));
+            Assert.AreEqual (DisconnectReason.DisconnectedTooManyTimes, mode.ShouldConnect (peer));
         }
 
         [Test]

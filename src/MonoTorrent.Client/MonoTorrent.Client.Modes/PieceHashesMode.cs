@@ -185,9 +185,9 @@ namespace MonoTorrent.Client.Modes
             MaybeRequestNext ();
         }
 
-        public override void HandlePeerDisconnected (PeerId id)
+        public override void HandlePeerDisconnected (PeerId id, DisconnectReason reason)
         {
-            base.HandlePeerDisconnected (id);
+            base.HandlePeerDisconnected (id, reason);
             foreach (var picker in pickers)
                 picker.Value.Item1.CancelRequests (picker.Value.Item2.Wrap (id), 0, picker.Value.Item2.PieceCount);
         }
@@ -213,7 +213,7 @@ namespace MonoTorrent.Client.Modes
                 return;
             if (!picker.Item1.ValidatePiece (picker.Item2.Wrap (id), new PieceSegment (hashesMessage.Index / picker.Item2.PieceLength, 0), out _, new HashSet<IRequester> ())) {
                 logger.Debug($"{id.Uri}: disconnecting due to piece validation failure");
-                ConnectionManager.CleanupSocket (Manager, id);
+                ConnectionManager.CleanupSocket (Manager, id, DisconnectReason.PieceValidationFailure);
                 return;
             }
 

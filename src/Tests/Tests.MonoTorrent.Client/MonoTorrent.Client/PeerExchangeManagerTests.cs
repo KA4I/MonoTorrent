@@ -33,8 +33,8 @@ namespace MonoTorrent.Client
             pex.OnAdd (CreatePeer ());
             pex.OnAdd (CreatePeer ());
             pex.OnAdd (CreatePeer ());
-            pex.OnDrop (CreatePeer ());
-            pex.OnDrop (CreatePeer ());
+            pex.OnDrop (CreatePeer (), DisconnectReason.ConsideredInactive);
+            pex.OnDrop (CreatePeer (), DisconnectReason.ConsideredInactive);
 
             pex.OnTick ();
 

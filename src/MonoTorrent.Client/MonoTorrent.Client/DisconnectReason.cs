@@ -1,0 +1,30 @@
+﻿namespace MonoTorrent.Client;
+
+public enum DisconnectReason
+{
+    None,
+    TooManyFailedConnectionAttempts,
+    DisconnectedTooManyTimes,
+    SeederToSeeder,
+    NotAcceptingConnections,
+    TotalHashFailsExceeded,
+    RepeatedHashFailsExceeded,
+    StaleRequestTimeout,
+    GeneralOutgoingConnectionFailure,
+    LastMessageReceivedTooLongAgo,
+    ReceiverLoopError,
+    InternalMessageHandlingError,
+    MaximumConnectionsExceeded,
+    Ban,
+    Self,
+    GeneralIncomingConnectionFailure,
+    MessageQueueProcessingError,
+    MetadataReset,
+    ErrorMode,
+    HashingMode,
+    PieceValidationFailure,
+    StartingMode,
+    StoppedMode,
+    StoppingMode,
+    ConsideredInactive,
+}

@@ -90,7 +90,7 @@ namespace MonoTorrent.Client.Modes
             manager.Mode.HandleMessage (peer, new ExtendedHandshakeMessage (false, torrent.InfoMetadata.Length, 12345), default);
             Assert.AreNotEqual (0, peer.AmRequestingPiecesCount);
 
-            engine.ConnectionManager.CleanupSocket (manager, peer);
+            engine.ConnectionManager.CleanupSocket (manager, peer, DisconnectReason.ConsideredInactive);
             Assert.AreEqual (0, peer.AmRequestingPiecesCount);
 
             peer = manager.AddConnectedPeer (supportsLTMetdata: true);

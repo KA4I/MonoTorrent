@@ -142,9 +142,9 @@ namespace MonoTorrent.Client.Modes
             this.stopWhenDone = stopWhenDone;
         }
 
-        public override void HandlePeerDisconnected (PeerId id)
+        public override void HandlePeerDisconnected (PeerId id, DisconnectReason reason)
         {
-            base.HandlePeerDisconnected (id);
+            base.HandlePeerDisconnected (id, reason);
             if (Requester != null && RequesterData != null)
                 Requester.CancelRequests (RequesterData.Wrap (id), 0, RequesterData.PieceCount);
         }

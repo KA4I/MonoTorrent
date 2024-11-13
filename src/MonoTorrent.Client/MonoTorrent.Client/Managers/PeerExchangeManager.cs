@@ -84,7 +84,7 @@ namespace MonoTorrent.Client
                 added6Peers.Enqueue (peer);
         }
 
-        internal void OnDrop (PeerId peer)
+        internal void OnDrop (PeerId peer, DisconnectReason reason)
         {
             ClientEngine.MainLoop.CheckThread ();
             if (peer.Peer.Info.ConnectionUri.Scheme == "ipv4")

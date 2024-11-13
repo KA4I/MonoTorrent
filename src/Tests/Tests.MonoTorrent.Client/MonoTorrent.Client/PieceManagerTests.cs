@@ -81,7 +81,7 @@ namespace MonoTorrent.PiecePicking
 
             torrentManager.PieceManager.AddPieceRequests (peers[0]);
             Assert.AreNotEqual (0, peers[0].AmRequestingPiecesCount, "#1");
-            torrentManager.Engine.ConnectionManager.CleanupSocket (torrentManager, peers[0]);
+            torrentManager.Engine.ConnectionManager.CleanupSocket (torrentManager, peers[0], DisconnectReason.RepeatedHashFailsExceeded);
             Assert.AreEqual (1, peers[0].Peer.CleanedUpCount);
         }
 

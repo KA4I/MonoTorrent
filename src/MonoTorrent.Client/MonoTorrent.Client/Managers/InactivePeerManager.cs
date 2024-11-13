@@ -128,7 +128,7 @@ namespace MonoTorrent.Client
             var peerToDisconnect = TorrentManager.Peers.ConnectedPeers[peerToDisconnectIndex];
             InactivePeerList.Add (peerToDisconnect.Uri);
             logger.Debug ($"{peerToDisconnect.Uri}: disconnected by {this.GetType ().Name}");
-            ConnectionManager!.CleanupSocket (TorrentManager, peerToDisconnect);
+            ConnectionManager!.CleanupSocket (TorrentManager, peerToDisconnect, DisconnectReason.ConsideredInactive);
 
         }
 

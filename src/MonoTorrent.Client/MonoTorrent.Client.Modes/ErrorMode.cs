@@ -71,13 +71,12 @@ namespace MonoTorrent.Client.Modes
         public void HandlePeerConnected (PeerId id)
             => throw new NotSupportedException ();
 
-        public void HandlePeerDisconnected (PeerId id)
+        public void HandlePeerDisconnected (PeerId id, DisconnectReason reason)
         {
             // Nothing special needs to happen when a peer disconnects now.
         }
 
-        public bool ShouldConnect (Peer peer)
-            => false;
+        public DisconnectReason ShouldConnect (Peer peer) => DisconnectReason.ErrorMode;
 
         public void Tick (int counter)
         {
@@ -88,7 +87,7 @@ namespace MonoTorrent.Client.Modes
             Manager.SetNeedsHashCheck ();
             Manager.Monitor.Reset ();
             foreach (PeerId id in new List<PeerId> (Manager.Peers.ConnectedPeers))
-                ConnectionManager.CleanupSocket (Manager, id);
+                ConnectionManager.CleanupSocket (Manager, id, DisconnectReason.ErrorMode);
         }
     }
 }

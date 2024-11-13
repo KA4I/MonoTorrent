@@ -113,7 +113,7 @@ namespace MonoTorrent.Client
             peers.Add (new ChokeData (id));
         }
 
-        public void PeerDisconnected (PeerId id)
+        public void PeerDisconnected (PeerId id, DisconnectReason reason)
         {
             peers.RemoveAll (d => d.Peer == id);
             advertisedPieces.RemoveAll (piece => piece.Peer == id);

@@ -149,7 +149,7 @@ namespace MonoTorrent.Client
             PeerId other = rig.CreatePeer (true);
             // Check that peers which don't share only get a small number of pieces to share
             await rig.Manager.UpdateSettingsAsync (new TorrentSettingsBuilder (rig.Manager.Settings) { UploadSlots = 1 }.ToSettings ());
-            unchoker.PeerDisconnected (peer);
+            unchoker.PeerDisconnected (peer, DisconnectReason.ConsideredInactive);
             List<PeerId> peers = new List<PeerId> (new[] { peer, rig.CreatePeer (true) });
             peers.ForEach (unchoker.PeerConnected);
             unchoker.UnchokeReview ();
@@ -209,7 +209,7 @@ namespace MonoTorrent.Client
             PeerId other = rig.CreatePeer (true);
 
             // More peers than slots
-            unchoker.PeerDisconnected (this.peer);
+            unchoker.PeerDisconnected (this.peer, DisconnectReason.ConsideredInactive);
             await rig.Manager.UpdateSettingsAsync (new TorrentSettingsBuilder (rig.Manager.Settings) { UploadSlots = 1 }.ToSettings ());
 
             List<PeerId> peers = new List<PeerId> (new[] { this.peer, rig.CreatePeer (true), rig.CreatePeer (true) });
@@ -265,11 +265,11 @@ namespace MonoTorrent.Client
             PeerId c = new PeerId (peers[2], NullConnection.Incoming, new BitField (rig.Manager.Torrent.PieceCount ()), rig.Manager.InfoHashes.V1OrV2, PlainTextEncryption.Instance, PlainTextEncryption.Instance, Software.Synthetic);
             PeerId d = new PeerId (peers[3], NullConnection.Incoming, new BitField (rig.Manager.Torrent.PieceCount ()), rig.Manager.InfoHashes.V1OrV2, PlainTextEncryption.Instance, PlainTextEncryption.Instance, Software.Synthetic);
 
-            unchoker.PeerDisconnected (a);
+            unchoker.PeerDisconnected (a, DisconnectReason.ConsideredInactive);
             Assert.AreEqual (1, unchoker.PeerCount, "#1");
 
-            unchoker.PeerDisconnected (b);
-            unchoker.PeerDisconnected (c);
+            unchoker.PeerDisconnected (b, DisconnectReason.ConsideredInactive);
+            unchoker.PeerDisconnected (c, DisconnectReason.ConsideredInactive);
             Assert.AreEqual (1, unchoker.PeerCount, "#2");
 
             unchoker.PeerConnected (a);
@@ -278,10 +278,10 @@ namespace MonoTorrent.Client
             unchoker.PeerConnected (b);
             Assert.AreEqual (3, unchoker.PeerCount, "#4");
 
-            unchoker.PeerDisconnected (d);
+            unchoker.PeerDisconnected (d, DisconnectReason.ConsideredInactive);
             Assert.AreEqual (3, unchoker.PeerCount, "#5");
 
-            unchoker.PeerDisconnected (b);
+            unchoker.PeerDisconnected (b, DisconnectReason.ConsideredInactive);
             Assert.AreEqual (2, unchoker.PeerCount, "#6");
         }
 

@@ -75,13 +75,12 @@ namespace MonoTorrent.Client.Modes
         public void HandlePeerConnected (PeerId id)
             => throw new NotSupportedException ();
 
-        public void HandlePeerDisconnected (PeerId id)
+        public void HandlePeerDisconnected (PeerId id, DisconnectReason reason)
         {
             // Peers which are disconnected at this point don't need any extra cleanup
         }
 
-        public bool ShouldConnect (Peer peer)
-            => false;
+        public DisconnectReason ShouldConnect (Peer peer) => DisconnectReason.StoppingMode;
 
         public void Tick (int counter)
         {
@@ -92,7 +91,7 @@ namespace MonoTorrent.Client.Modes
             try {
                 ConnectionManager.CancelPendingConnects (Manager);
                 foreach (PeerId id in new List<PeerId> (Manager.Peers.ConnectedPeers))
-                    ConnectionManager.CleanupSocket (Manager, id);
+                    ConnectionManager.CleanupSocket (Manager, id, DisconnectReason.StoppingMode);
 
                 Manager.Monitor.Reset ();
                 Manager.PieceManager.Initialise ();

@@ -379,12 +379,12 @@ namespace MonoTorrent.Client
             // It's normal for there to be at least two calls two cleanup - one from any ongoing 'SendAsync' call
             // and one from ongoing 'ReceiveAsync' call.
             for (int i = 0; i < 3; i++)
-                seeder.ConnectionManager.CleanupSocket (seederManager, peerId);
+                seeder.ConnectionManager.CleanupSocket (seederManager, peerId, DisconnectReason.ConsideredInactive);
             Assert.AreEqual (1, peerId.Peer.CleanedUpCount);
 
             peerId = new PeerId (peerId.Peer, NullConnection.Outgoing, peerId.MutableBitField, peerId.ExpectedInfoHash, peerId.Encryptor, peerId.Decryptor, peerId.ClientApp);
             for (int i = 0; i < 3; i++)
-                seeder.ConnectionManager.CleanupSocket (seederManager, peerId);
+                seeder.ConnectionManager.CleanupSocket (seederManager, peerId, DisconnectReason.ConsideredInactive);
             Assert.AreEqual (2, peerId.Peer.CleanedUpCount);
         }
     }

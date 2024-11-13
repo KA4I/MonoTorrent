@@ -215,10 +215,13 @@ namespace MonoTorrent.Client.Modes
         {
         }
 
-        public virtual bool ShouldConnect (Peer peer)
+        public virtual DisconnectReason ShouldConnect (Peer peer)
         {
-            return peer.WaitUntilNextConnectionAttempt.Elapsed >= Settings.GetConnectionRetryDelay (peer.FailedConnectionAttempts)
-                && peer.WaitUntilNextConnectionAttempt.Elapsed >= Settings.GetConnectionRetryDelay (peer.CleanedUpCount);
+            if (peer.WaitUntilNextConnectionAttempt.Elapsed < Settings.GetConnectionRetryDelay (peer.FailedConnectionAttempts))
+                return DisconnectReason.TooManyFailedConnectionAttempts;
+            if (peer.WaitUntilNextConnectionAttempt.Elapsed < Settings.GetConnectionRetryDelay (peer.CleanedUpCount))
+                return DisconnectReason.DisconnectedTooManyTimes;
+            return DisconnectReason.None;
         }
 
         protected virtual void HandleGenericExtensionMessage (PeerId id, ExtensionMessage extensionMessage)
@@ -455,13 +458,13 @@ namespace MonoTorrent.Client.Modes
                 peer.Peer.HashedPiece (result);
                 if (Settings.MaximumTotalHashFails > 0 && peer.Peer.TotalHashFails >= Settings.MaximumTotalHashFails) {
                     logger.Debug ($"{peer.Uri}: disconnecting because they have {Settings.MaximumTotalHashFails} hashfails");
-                    ConnectionManager.CleanupSocket (Manager, peer);
+                    ConnectionManager.CleanupSocket (Manager, peer, DisconnectReason.TotalHashFailsExceeded);
                     continue;
                 }
 
                 if (Settings.MaximumRepeatedHashFails > 0 && peer.Peer.RepeatedHashFails >= Settings.MaximumRepeatedHashFails) {
                     logger.Debug ($"{peer.Uri}: disconnecting because they have {Settings.MaximumRepeatedHashFails} repeated hashfails");
-                    ConnectionManager.CleanupSocket (Manager, peer);
+                    ConnectionManager.CleanupSocket (Manager, peer, DisconnectReason.RepeatedHashFailsExceeded);
                 }
             }
             PeersInvolvedCache.Enqueue (peersInvolved);
@@ -540,7 +543,13 @@ namespace MonoTorrent.Client.Modes
         {
             Manager.RaisePeerConnected (id);
 
-            if (CanAcceptConnections && ShouldConnect (id.Peer)) {
+            if (!CanAcceptConnections) {
+                ConnectionManager.CleanupSocket (Manager, id, DisconnectReason.NotAcceptingConnections);
+                return;
+            }
+
+            var disconnectReason = ShouldConnect (id.Peer);
+            if (disconnectReason == DisconnectReason.None) {
                 (var bundle, var releaser) = PeerMessage.Rent<MessageBundle> ();
 
                 AppendBitfieldMessage (id, bundle);
@@ -553,17 +562,17 @@ namespace MonoTorrent.Client.Modes
                     if (peer != id && peer.PeerExchangeManager != null)
                         peer.PeerExchangeManager.OnAdd (id);
             } else {
-                ConnectionManager.CleanupSocket (Manager, id);
+                ConnectionManager.CleanupSocket (Manager, id, disconnectReason);
             }
         }
 
-        public virtual void HandlePeerDisconnected (PeerId id)
+        public virtual void HandlePeerDisconnected (PeerId id, DisconnectReason reason)
         {
             foreach (var peer in Manager.Peers.ConnectedPeers)
                 if (peer != id && peer.PeerExchangeManager != null)
-                    peer.PeerExchangeManager.OnDrop (id);
+                    peer.PeerExchangeManager.OnDrop (id, reason);
 
-            Manager.RaisePeerDisconnected (id);
+            Manager.RaisePeerDisconnected (id, reason);
         }
 
         protected virtual void AppendExtendedHandshake (PeerId id, MessageBundle bundle)
@@ -622,7 +631,7 @@ namespace MonoTorrent.Client.Modes
 
                 // Close connections if no messages have been received.
                 if (id.LastMessageReceived.Elapsed > onhundredAndEightySeconds) {
-                    ConnectionManager.CleanupSocket (Manager, id);
+                    ConnectionManager.CleanupSocket (Manager, id, DisconnectReason.LastMessageReceivedTooLongAgo);
                     i--;
                     continue;
                 }
@@ -710,7 +719,7 @@ namespace MonoTorrent.Client.Modes
                         // freeze the counter for debugging purposes
                         id.LastBlockReceived.Stop ();
                         logger.Debug ($"{id.Uri}: disconnecting because they are not replying to our block requests in time");
-                        ConnectionManager.CleanupSocket (Manager, id);
+                        ConnectionManager.CleanupSocket (Manager, id, DisconnectReason.StaleRequestTimeout);
                         i--;
                         continue;
                     }

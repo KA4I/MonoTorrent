@@ -348,7 +348,7 @@ namespace MonoTorrent.Client
             } catch (Exception e) {
                 logger.Debug ($"outgoing connection to {connection.Uri} failed: {e.Message}");
                 manager.RaiseConnectionAttemptFailed (new ConnectionAttemptFailedEventArgs (id.Peer.Info, ConnectionFailureReason.Unknown, manager));
-                CleanupSocket (manager, id);
+                CleanupSocket (manager, id, DisconnectReason.GeneralOutgoingConnectionFailure);
                 return ConnectionFailureReason.Unknown;
             }
         }
@@ -459,7 +459,7 @@ namespace MonoTorrent.Client
                 logger.Error ($"Peer {id.Uri} receiver loop stopped due to error: {e.Message}");
                 logger.Debug ($"{e}");
                 await ClientEngine.MainLoop;
-                CleanupSocket (torrentManager, id);
+                CleanupSocket (torrentManager, id, DisconnectReason.ReceiverLoopError);
             } finally {
                 smallReleaser.Dispose ();
                 largeReleaser.Dispose ();
@@ -476,14 +476,14 @@ namespace MonoTorrent.Client
                     torrentManager.Mode.HandleMessage (id, message, releaser);
                 } catch (Exception ex) {
                     logger.Exception (ex, "Unexpected error handling a message from a peer");
-                    torrentManager.Engine!.ConnectionManager.CleanupSocket (torrentManager, id);
+                    torrentManager.Engine!.ConnectionManager.CleanupSocket (torrentManager, id, DisconnectReason.InternalMessageHandlingError);
                 }
             } else {
                 releaser.Dispose ();
             }
         }
 
-        internal void CleanupSocket (TorrentManager manager, PeerId id)
+        internal void CleanupSocket (TorrentManager manager, PeerId id, DisconnectReason reason)
         {
             // We might dispose the socket from an async send *and* an async receive call.
             if (id.Disposed)
@@ -522,7 +522,7 @@ namespace MonoTorrent.Client
                 id.Dispose ();
             }
             try {
-                manager.Mode.HandlePeerDisconnected (id);
+                manager.Mode.HandlePeerDisconnected (id, reason);
             } catch (Exception ex) {
                 logger.Exception (ex, "An unexpected error occured calling HandlePeerDisconnected");
             }
@@ -570,12 +570,12 @@ namespace MonoTorrent.Client
                 }
                 if (maxAlreadyOpen) {
                     logger.Debug ($"Connected to too many peers - disconnecting");
-                    CleanupSocket (manager, id);
+                    CleanupSocket (manager, id, DisconnectReason.MaximumConnectionsExceeded);
                     return false;
                 }
                 if (ShouldBanPeer (id.Peer.Info, AttemptConnectionStage.HandshakeComplete)) {
                     logger.Info (id.Connection, "Peer was banned");
-                    CleanupSocket (manager, id);
+                    CleanupSocket (manager, id, DisconnectReason.Ban);
                     return false;
                 }
 
@@ -586,7 +586,7 @@ namespace MonoTorrent.Client
 
                 if (LocalPeerId.Equals (id.PeerID)) {
                     logger.Info ("Connected to self - disconnecting");
-                    CleanupSocket (manager, id);
+                    CleanupSocket (manager, id, DisconnectReason.Self);
                     return false;
                 }
 
@@ -610,7 +610,7 @@ namespace MonoTorrent.Client
                 return true;
             } catch (Exception ex) {
                 logger.Exception (ex, "Error handling incoming connection");
-                CleanupSocket (manager, id);
+                CleanupSocket (manager, id, DisconnectReason.GeneralIncomingConnectionFailure);
                 return false;
             }
         }
@@ -675,7 +675,7 @@ namespace MonoTorrent.Client
             } catch (Exception e) {
                 logger.InfoFormatted ("Peer {0} queue processing stopped due to error: {1}", id.Uri, e);
                 await ClientEngine.MainLoop;
-                CleanupSocket (manager, id);
+                CleanupSocket (manager, id, DisconnectReason.MessageQueueProcessingError);
             } finally {
                 socketMemoryReleaser.Dispose ();
             }
@@ -741,7 +741,7 @@ namespace MonoTorrent.Client
 
             // If we are not seeding, we can connect to anyone. If we are seeding, we should only connect to a peer
             // if they are not a seeder.
-            var peer = manager.Peers.AvailablePeers.Where (manager.Mode.ShouldConnect).FirstOrDefault ();
+            var peer = manager.Peers.AvailablePeers.Where (p => manager.Mode.ShouldConnect(p) == DisconnectReason.None).FirstOrDefault ();
 
             var unbanDelay = peer is null
                 ? minimumTimeBetweenOpportunisticUnbans
