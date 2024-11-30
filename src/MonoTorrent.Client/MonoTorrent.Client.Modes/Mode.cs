@@ -718,7 +718,7 @@ namespace MonoTorrent.Client.Modes
                     if (id.LastBlockReceived.Elapsed > Settings.StaleRequestTimeout) {
                         // freeze the counter for debugging purposes
                         id.LastBlockReceived.Stop ();
-                        logger.Debug ($"{id.Uri}: disconnecting because they are not replying to our block requests in time");
+                        logger.Debug ($"{id.Uri}: disconnecting because they are not replying to our block requests in time. Pieces requested: {id.AmRequestingPiecesCount}");
                         ConnectionManager.CleanupSocket (Manager, id, DisconnectReason.StaleRequestTimeout);
                         i--;
                         continue;
