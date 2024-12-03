@@ -41,36 +41,6 @@ using ReusableTasks;
 
 namespace MonoTorrent.Client
 {
-    class NullPeerConnection : IPeerConnection
-    {
-        public ReadOnlyMemory<byte> AddressBytes { get; } = Array.Empty<byte> ();
-        public bool CanReconnect { get; }
-        public bool Disposed { get; private set; }
-        public IPEndPoint? EndPoint => null;
-        public bool IsIncoming { get; }
-        public Uri Uri { get; } = new Uri ("test://1234.com:3434");
-
-        public ReusableTask ConnectAsync ()
-        {
-            throw new NotImplementedException ();
-        }
-
-        public void Dispose ()
-        {
-            Disposed = true;
-            throw new NotImplementedException ();
-        }
-
-        public ReusableTask<int> ReceiveAsync (Memory<byte> buffer)
-        {
-            throw new NotImplementedException ();
-        }
-
-        public ReusableTask<int> SendAsync (Memory<byte> buffer)
-        {
-            throw new NotImplementedException ();
-        }
-    }
     public partial class PeerId
     {
         /// <summary>
@@ -422,5 +392,36 @@ namespace MonoTorrent.Client
         }
 
         #endregion BitTyrant
+    }
+
+    class NullPeerConnection : IPeerConnection
+    {
+        public ReadOnlyMemory<byte> AddressBytes { get; } = Array.Empty<byte> ();
+        public bool CanReconnect { get; }
+        public bool Disposed { get; private set; }
+        public IPEndPoint? EndPoint => null;
+        public bool IsIncoming { get; }
+        public Uri Uri { get; } = new Uri ("test://1234.com:3434");
+
+        public ReusableTask ConnectAsync ()
+        {
+            throw new NotImplementedException ();
+        }
+
+        public void Dispose ()
+        {
+            Disposed = true;
+            throw new NotImplementedException ();
+        }
+
+        public ReusableTask<int> ReceiveAsync (Memory<byte> buffer)
+        {
+            throw new NotImplementedException ();
+        }
+
+        public ReusableTask<int> SendAsync (Memory<byte> buffer)
+        {
+            throw new NotImplementedException ();
+        }
     }
 }
