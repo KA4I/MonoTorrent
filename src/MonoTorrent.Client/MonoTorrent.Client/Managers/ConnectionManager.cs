@@ -739,8 +739,6 @@ namespace MonoTorrent.Client
             if ((manager.Peers.ConnectedPeers.Count + manager.Peers.ConnectingToPeers.Count) >= manager.Settings.MaximumConnections)
                 return false;
 
-            // If we are not seeding, we can connect to anyone. If we are seeding, we should only connect to a peer
-            // if they are not a seeder.
             var peer = manager.Peers.AvailablePeers.FirstOrDefault (p => manager.Mode.ShouldConnect(p) == DisconnectReason.None);
 
             var unbanDelay = peer is null

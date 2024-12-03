@@ -13,10 +13,10 @@
 // distribute, sublicense, and/or sell copies of the Software, and to
 // permit persons to whom the Software is furnished to do so, subject to
 // the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 // EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -122,7 +122,20 @@ namespace MonoTorrent.Client
 
         public bool AmChoking { get; internal set; }
         public bool AmInterested { get; internal set; }
-        public int AmRequestingPiecesCount { get; internal set; }
+
+        int amRequestingPiecesCount;
+        public int AmRequestingPiecesCount {
+            get => amRequestingPiecesCount;
+            private set {
+                if (value == 0)
+                    LastBlockReceived.Reset ();
+                else if (amRequestingPiecesCount == 0)
+                    LastBlockReceived.Restart ();
+
+                amRequestingPiecesCount = value;
+            }
+        }
+
         public ReadOnlyBitField BitField => MutableBitField;
         internal BitField MutableBitField { get; }
         public Software ClientApp { get; }
@@ -292,7 +305,7 @@ namespace MonoTorrent.Client
 
         /// <summary>
         /// Get our download rate from this peer -- this is Dp.
-        /// 
+        ///
         /// 1. If we are not choked by this peer, return the actual measure download rate.
         /// 2. If we are choked, then attempt to make an educated guess at the download rate using the following steps
         ///     - use the rate of Have messages received from this peer as an estimate of its download rate
@@ -305,7 +318,7 @@ namespace MonoTorrent.Client
             if (lastMeasuredDownloadRate > 0) {
                 return lastMeasuredDownloadRate;
             } else {
-                // assume that his upload rate will match his estimated download rate, and 
+                // assume that his upload rate will match his estimated download rate, and
                 // get the estimated active set size
                 int estimatedDownloadRate = EstimatedDownloadRate;
                 int activeSetSize = GetActiveSetSize (estimatedDownloadRate);
