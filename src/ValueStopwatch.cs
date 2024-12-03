@@ -13,10 +13,10 @@
 // distribute, sublicense, and/or sell copies of the Software, and to
 // permit persons to whom the Software is furnished to do so, subject to
 // the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 // EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -29,14 +29,17 @@
 
 using System;
 using System.Diagnostics;
+using System.Threading;
 
 namespace MonoTorrent
 {
     internal struct ValueStopwatch
     {
+        const long NotStarted = 0;
+
         public static ValueStopwatch StartNew()
         {
-            return new ValueStopwatch { startedAt = Stopwatch.GetTimestamp() };
+            return new ValueStopwatch { _startedAt = Stopwatch.GetTimestamp() };
         }
 
         public static ValueStopwatch WithTime(TimeSpan time)
@@ -46,12 +49,24 @@ namespace MonoTorrent
                 : time.Ticks * ((double)Stopwatch.Frequency / TimeSpan.TicksPerSecond);
             return new ValueStopwatch
             {
-                startedAt = Stopwatch.GetTimestamp() - (long)offset
+                _startedAt = Stopwatch.GetTimestamp() - (long)offset
             };
         }
 
-        long elapsed;
-        long startedAt;
+        long _elapsed;
+        long _startedAt;
+
+        long elapsed
+        {
+            get => Interlocked.Read (ref _elapsed);
+            set => Interlocked.Exchange (ref _elapsed, value);
+        }
+
+        long startedAt
+        {
+            get => Interlocked.Read (ref _startedAt);
+            set => Interlocked.Exchange (ref _startedAt, value);
+        }
 
         public TimeSpan Elapsed
         {
@@ -71,12 +86,12 @@ namespace MonoTorrent
 
         public long ElapsedTicks => Elapsed.Ticks;
 
-        public bool IsRunning => startedAt != 0;
+        public bool IsRunning => startedAt != NotStarted;
 
         public void Reset()
         {
             elapsed = 0;
-            startedAt = 0;
+            startedAt = NotStarted;
         }
 
         public void Restart()
@@ -87,16 +102,15 @@ namespace MonoTorrent
 
         public void Start()
         {
-            if (!IsRunning)
-                startedAt = Stopwatch.GetTimestamp();
+            Interlocked.CompareExchange (ref _startedAt, Stopwatch.GetTimestamp (), NotStarted);
         }
 
         public void Stop()
         {
             if (IsRunning)
             {
-                elapsed += Stopwatch.GetTimestamp() - startedAt;
-                startedAt = 0;
+                Interlocked.Add (ref _elapsed, Stopwatch.GetTimestamp() - startedAt);
+                startedAt = NotStarted;
             }
         }
     }
