@@ -63,7 +63,7 @@ namespace MonoTorrent.Common
         {
             var torrent = Torrent.Load (Encoding.UTF8.GetBytes ("d4:infod9:file treed4:dir1d4:dir2d9:fileA.txtd0:d6:lengthi1024e11:pieces root32:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeeeee12:piece lengthi32768e12:meta versioni2eeeee"));
             var file = torrent.Files.Single ();
-            Assert.AreEqual (Path.Combine ("dir1", "dir2", "fileA.txt"), file.Path);
+            Assert.AreEqual (Path.Combine ("dir1", "dir2", "fileA.txt"), file.Path.ToString ());
             Assert.AreEqual (0, file.StartPieceIndex);
             Assert.AreEqual (0, file.EndPieceIndex);
             Assert.AreEqual (0, file.OffsetInTorrent);
@@ -77,7 +77,7 @@ namespace MonoTorrent.Common
         {
             var torrent = Torrent.Load (Encoding.UTF8.GetBytes ("d4:infod9:file treed4:dir1d4:dir2d9:fileA.txtd0:d6:lengthi32768e11:pieces root32:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeeeee12:piece lengthi32768e12:meta versioni2eee"));
             var file = torrent.Files.Single ();
-            Assert.AreEqual (Path.Combine ("dir1", "dir2", "fileA.txt"), file.Path);
+            Assert.AreEqual (Path.Combine ("dir1", "dir2", "fileA.txt"), file.Path.ToString ());
             Assert.AreEqual (0, file.StartPieceIndex);
             Assert.AreEqual (0, file.EndPieceIndex);
             Assert.AreEqual (0, file.OffsetInTorrent);

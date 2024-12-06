@@ -529,7 +529,7 @@ namespace MonoTorrent.Client
             var bFiles = new BEncodedList ();
             for (int i = 0; i < files.Length; i++) {
                 var path = new BEncodedList ();
-                foreach (string s in files[i].Path.Split ('/'))
+                foreach (string s in files[i].Path.Parts)
                     path.Add ((BEncodedString) s);
                 var d = new BEncodedDictionary {
                     ["path"] = path,
@@ -585,16 +585,16 @@ namespace MonoTorrent.Client
         static ITorrentFile[] StandardMultiFile ()
         {
             return TorrentFile.Create (StandardPieceSize (),
-                ("Dir1/File1", (int) (StandardPieceSize () * 0.44)),
-                ("Dir1/Dir2/File2", (int) (StandardPieceSize () * 13.25)),
-                ("File3", (int) (StandardPieceSize () * 23.68)),
-                ("File4", (int) (StandardPieceSize () * 2.05))
+                (new TorrentPath("Dir1", "File1"), (int) (StandardPieceSize () * 0.44)),
+                (new TorrentPath("Dir1", "Dir2", "File2"), (int) (StandardPieceSize () * 13.25)),
+                (new TorrentPath("File3"), (int) (StandardPieceSize () * 23.68)),
+                (new TorrentPath("File4"), (int) (StandardPieceSize () * 2.05))
             );
         }
 
         static ITorrentFile[] StandardSingleFile ()
         {
-            return TorrentFile.Create (StandardPieceSize (), ("Dir1/File1", (int) (StandardPieceSize () * 0.44)));
+            return TorrentFile.Create (StandardPieceSize (), (new TorrentPath("Dir1", "File1"), (int) (StandardPieceSize () * 0.44)));
         }
 
         static string[][] StandardTrackers ()
@@ -616,7 +616,8 @@ namespace MonoTorrent.Client
 
         internal static Torrent CreatePrivate ()
         {
-            var dict = CreateTorrent (16 * 1024 * 8, TorrentFile.Create (16 * 1024 * 8, ("File", 16 * 1024 * 8)), null);
+            var files = TorrentFile.Create (16 * 1024 * 8, (new TorrentPath("File"), 16 * 1024 * 8));
+            var dict = CreateTorrent (16 * 1024 * 8, files, null);
             var editor = new TorrentEditor (dict) {
                 CanEditSecureMetadata = true,
                 Private = true,

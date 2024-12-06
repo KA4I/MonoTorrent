@@ -57,7 +57,6 @@ namespace MonoTorrent.Client.Modes
 
         public async Task Setup (bool metadataMode, bool multiFile = false, bool metadataOnly = false)
         {
-            LoggerFactory.Register (new TextWriterLogger (TestContext.Out));
             pair = new ConnectionPair ().DisposeAfterTimeout ();
             rig = multiFile ? TestRig.CreateMultiFile (32768, metadataMode) : TestRig.CreateSingleFile (Constants.BlockSize * 27, Constants.BlockSize * 2, metadataMode);
             rig.RecreateManager ().Wait ();
@@ -259,7 +258,7 @@ namespace MonoTorrent.Client.Modes
 
             var torrentFiles = rig.Manager.Files;
             Assert.AreEqual (torrentFiles.Count, 1);
-            Assert.AreEqual (Path.Combine ("Dir1", "File1"), torrentFiles[0].Path);
+            Assert.AreEqual (Path.Combine ("Dir1", "File1"), torrentFiles[0].Path.ToString ());
             Assert.AreEqual (Path.Combine (Environment.CurrentDirectory, "Dir1", "File1"), torrentFiles[0].FullPath);
         }
 
@@ -274,10 +273,10 @@ namespace MonoTorrent.Client.Modes
 
             var torrentFiles = rig.Manager.Files;
             Assert.AreEqual (torrentFiles.Count, 4);
-            Assert.AreEqual (Path.Combine ("Dir1", "File1"), torrentFiles[0].Path);
-            Assert.AreEqual (Path.Combine ("Dir1", "Dir2", "File2"), torrentFiles[1].Path);
-            Assert.AreEqual (@"File3", torrentFiles[2].Path);
-            Assert.AreEqual (@"File4", torrentFiles[3].Path);
+            Assert.AreEqual (Path.Combine ("Dir1", "File1"), torrentFiles[0].Path.ToString ());
+            Assert.AreEqual (Path.Combine ("Dir1", "Dir2", "File2"), torrentFiles[1].Path.ToString ());
+            Assert.AreEqual (@"File3", torrentFiles[2].Path.ToString ());
+            Assert.AreEqual (@"File4", torrentFiles[3].Path.ToString ());
 
             Assert.AreEqual (Path.Combine (Environment.CurrentDirectory, "test.files", "Dir1", "File1"), torrentFiles[0].FullPath);
             Assert.AreEqual (Path.Combine (Environment.CurrentDirectory, "test.files", "Dir1", "Dir2", "File2"), torrentFiles[1].FullPath);

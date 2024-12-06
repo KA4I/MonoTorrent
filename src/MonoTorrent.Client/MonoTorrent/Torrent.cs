@@ -462,7 +462,7 @@ namespace MonoTorrent
             if (hasV1Data && v1Files.Count == 0 && !(hashesV1 is null))   // Not a multi-file v1 torrent
             {
                 long length = long.Parse (dictionary["length"].ToString ()!);
-                string path = Name;
+                var path = new TorrentPath (Name);
                 int endPiece = Math.Min (hashesV1.Count - 1, (int) ((length + (PieceLength - 1)) / PieceLength));
                 v1Files = Array.AsReadOnly<ITorrentFile> (new[] { new TorrentFile (path, length, 0, endPiece, 0, TorrentFileAttributes.None, 0) });
             }
@@ -690,8 +690,6 @@ namespace MonoTorrent
 
         static IList<ITorrentFile> LoadTorrentFilesV1 (BEncodedList list, int pieceLength, bool isHybridTorrent)
         {
-            var sb = new StringBuilder (32);
-
             var files = new List<TorrentFileTuple> ();
             foreach (BEncodedDictionary dict in list) {
                 var tup = new TorrentFileTuple ();
@@ -715,27 +713,11 @@ namespace MonoTorrent
                             break;
 
                         case ("path.utf-8"):
-                            foreach (BEncodedString str in ((BEncodedList) keypair.Value)) {
-                                if (!BEncodedString.IsNullOrEmpty (str)) {
-                                    sb.Append (str.Text);
-                                    sb.Append (Path.DirectorySeparatorChar);
-                                }
-                            }
-                            tup.path = sb.ToString (0, sb.Length - 1);
-                            sb.Remove (0, sb.Length);
+                            tup.path = new((BEncodedList) keypair.Value);
                             break;
 
                         case ("path"):
-                            if (string.IsNullOrEmpty (tup.path)) {
-                                foreach (BEncodedString str in ((BEncodedList) keypair.Value)) {
-                                    if (!BEncodedString.IsNullOrEmpty (str)) {
-                                        sb.Append (str.Text);
-                                        sb.Append (Path.DirectorySeparatorChar);
-                                    }
-                                }
-                                tup.path = sb.ToString (0, sb.Length - 1);
-                                sb.Remove (0, sb.Length);
-                            }
+                            tup.path ??= new((BEncodedList) keypair.Value);
                             break;
 
                         case ("md5sum"):
@@ -752,13 +734,12 @@ namespace MonoTorrent
 
                 // If this is *not* a padding file, ensure it is sorted alphabetically higher than the last non-padding file
                 // when loading a hybrid torrent.
-                // 
-                // By BEP52 spec, hybrid torrents Hybrid torrents have padding files inserted between each file, and so must
+                //
+                // By BEP52 spec, hybrid torrents have padding files inserted between each file, and so must
                 // have a fixed hash order to guarantee that the set up finrequired to have strictly alphabetical file ordering so
                 // the v1 hashes are guaranteed to match  after padding files are inserted.
-                PathValidator.Validate (tup.path);
                 var lastNonPaddingFile = files.FindLast (t => !t.attributes.HasFlag (TorrentFileAttributes.Padding) && t.length > 0);
-                if (isHybridTorrent && !tup.attributes.HasFlag (TorrentFileAttributes.Padding) && lastNonPaddingFile != null && StringComparer.Ordinal.Compare (tup.path, lastNonPaddingFile.path) < 0)
+                if (isHybridTorrent && !tup.attributes.HasFlag (TorrentFileAttributes.Padding) && lastNonPaddingFile != null && OrderComparer.Instance.Compare (tup.path.Value, lastNonPaddingFile.path.Value) < 0)
                     throw new TorrentException ("The list of files must be in strict alphabetical order in a hybrid torrent");
                 files.Add (tup);
             }
@@ -781,12 +762,12 @@ namespace MonoTorrent
             return new PieceHashesV2 (pieceLength, files, hashes);
         }
 
-        static void LoadTorrentFilesV2 (string key, BEncodedDictionary data, List<ITorrentFile> files, int pieceLength, ref int totalPieces, string path, bool isHybrid)
+        static void LoadTorrentFilesV2 (string key, BEncodedDictionary data, List<ITorrentFile> files, int pieceLength, ref int totalPieces, TorrentPath? path, bool isHybrid)
         {
             if (key == "") {
                 var length = ((BEncodedNumber) data["length"]).Number;
                 if (length == 0) {
-                    files.Insert (0, new TorrentFile (path, length, 0, 0, 0, TorrentFileAttributes.None, 0));
+                    files.Insert (0, new TorrentFile (path!.Value, length, 0, 0, 0, TorrentFileAttributes.None, 0));
                 } else {
                     totalPieces++;
                     var offsetInTorrent = (files.LastOrDefault ()?.OffsetInTorrent ?? 0) + (files.LastOrDefault ()?.Length ?? 0) + (files.LastOrDefault ()?.Padding ?? 0);
@@ -801,7 +782,7 @@ namespace MonoTorrent
                     if (isHybrid && length % pieceLength != 0)
                         padding = (int) (pieceLength - (length % pieceLength));
 
-                    files.Add (new TorrentFile (path,
+                    files.Add (new TorrentFile (path!.Value,
                         length,
                         totalPieces,
                         totalPieces + (int) ((length - 1) / pieceLength),
@@ -813,7 +794,8 @@ namespace MonoTorrent
                 }
             } else {
                 foreach (var entry in data) {
-                    LoadTorrentFilesV2 (entry.Key.Text, (BEncodedDictionary) entry.Value, files, pieceLength, ref totalPieces, Path.Combine (path, key), isHybrid);
+                    var child = path is null ? new(key) : path.Value / key;
+                    LoadTorrentFilesV2 (entry.Key.Text, (BEncodedDictionary) entry.Value, files, pieceLength, ref totalPieces, child, isHybrid);
                 }
             }
         }
@@ -823,7 +805,7 @@ namespace MonoTorrent
             var files = new List<ITorrentFile> ();
             int totalPieces = -1;
             foreach (var entry in fileTree)
-                LoadTorrentFilesV2 (entry.Key.Text, (BEncodedDictionary) entry.Value, files, pieceLength, ref totalPieces, "", isHybrid);
+                LoadTorrentFilesV2 (entry.Key.Text, (BEncodedDictionary) entry.Value, files, pieceLength, ref totalPieces, path: null, isHybrid);
 
             TorrentFile.Sort (files);
 

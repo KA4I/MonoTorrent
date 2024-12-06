@@ -36,7 +36,7 @@ namespace MonoTorrent
         /// <summary>
         /// The relative path to the file within the torrent.
         /// </summary>
-        string Path { get; }
+        TorrentPath Path { get; }
 
         /// <summary>
         /// The first piece which contains data for this file

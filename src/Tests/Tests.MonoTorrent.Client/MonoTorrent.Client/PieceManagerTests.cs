@@ -51,7 +51,7 @@ namespace MonoTorrent.PiecePicking
             int pieceCount = 40;
             int pieceLength = 256 * 1024;
             var torrentData = TestTorrentManagerInfo.Create (
-                files: TorrentFileInfo.Create (pieceLength, ("File", pieceLength * pieceCount, "full/path/File")),
+                files: TorrentFileInfo.Create (pieceLength, (new TorrentPath ("File"), pieceLength * pieceCount, "full/path/File")),
                 pieceLength: pieceLength,
                 size: pieceLength * pieceCount
             );

@@ -48,7 +48,7 @@ namespace MonoTorrent
 
     internal class TorrentFileTuple
     {
-        public string? path = default;
+        public TorrentPath? path = default;
         public long length = 0;
         public long padding = 0;
         public ReadOnlyMemory<byte> md5sum = default;
@@ -80,7 +80,7 @@ namespace MonoTorrent
         /// In the case of a multi-file torrent this is the relative path of the file
         /// (including the filename) from the base directory
         /// </summary>
-        public string Path { get; }
+        public TorrentPath Path { get; }
 
         /// <summary>
         /// Returns the number of pieces for this file. This is the same as `<see cref="EndPieceIndex"/> - <see cref="StartPieceIndex"/> + 1`.
@@ -102,12 +102,12 @@ namespace MonoTorrent
 
         public TorrentFileAttributes Attributes { get; }
 
-        internal TorrentFile (string path, long length, int startIndex, int endIndex, long offsetInTorrent, TorrentFileAttributes attributes, long padding)
+        internal TorrentFile (TorrentPath path, long length, int startIndex, int endIndex, long offsetInTorrent, TorrentFileAttributes attributes, long padding)
             : this (path, length, startIndex, endIndex, offsetInTorrent, MerkleRoot.Empty, attributes, padding)
         {
         }
 
-        internal TorrentFile (string path, long length, int startIndex, int endIndex, long offsetInTorrent, MerkleRoot piecesRoot, TorrentFileAttributes attributes, long padding)
+        internal TorrentFile (TorrentPath path, long length, int startIndex, int endIndex, long offsetInTorrent, MerkleRoot piecesRoot, TorrentFileAttributes attributes, long padding)
         {
             Path = path;
             Length = length;
@@ -143,12 +143,12 @@ namespace MonoTorrent
         }
 
         internal static ITorrentFile[] Create (int pieceLength, params long[] lengths)
-            => Create (pieceLength, lengths.Select ((length, index) => ("File_" + index, length)).ToArray ());
+            => Create (pieceLength, lengths.Select ((length, index) => (new TorrentPath("File_" + index), length)).ToArray ());
 
-        internal static ITorrentFile[] Create (int pieceLength, params (string torrentPath, long length)[] files)
+        internal static ITorrentFile[] Create (int pieceLength, params (TorrentPath torrentPath, long length)[] files)
             => Create (pieceLength, files.Select (t => new TorrentFileTuple { path = t.torrentPath, length = t.length, padding = 0 }).ToArray ());
 
-        internal static ITorrentFile[] Create (int pieceLength, params (string torrentPath, long length, int padding)[] files)
+        internal static ITorrentFile[] Create (int pieceLength, params (TorrentPath torrentPath, long length, int padding)[] files)
             => Create (pieceLength, files.Select (t => new TorrentFileTuple { path = t.torrentPath, length = t.length, padding = t.padding }).ToArray ());
 
         internal static ITorrentFile[] Create (int pieceLength, TorrentFileTuple[] files)
@@ -180,7 +180,7 @@ namespace MonoTorrent
             for (int i = 0; i < files.Length; i++) {
                 // If a file is of length zero, it's should be treated as being part of the first piece.
                 if (files[i].length == 0) {
-                    results.Add (new TorrentFile (files[i].path!, 0, 0, 0, 0, files[i].attributes, 0));
+                    results.Add (new TorrentFile (files[i].path!.Value, 0, 0, 0, 0, files[i].attributes, 0));
                     continue;
                 }
 
@@ -196,7 +196,7 @@ namespace MonoTorrent
                     throw new ArgumentException ("A file in the torrent has more padding than needed.");
                 }
 
-                results.Add (new TorrentFile (files[i].path!, length, pieceStart, pieceEnd, startOffsetInTorrent, files[i].attributes, padding));
+                results.Add (new TorrentFile (files[i].path!.Value, length, pieceStart, pieceEnd, startOffsetInTorrent, files[i].attributes, padding));
                 totalSize += (length + padding);
             }
             Sort (results);

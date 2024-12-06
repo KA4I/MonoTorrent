@@ -64,12 +64,13 @@ namespace MonoTorrent
             string fullPath = System.IO.Path.GetFullPath (Path);
             if (File.Exists (fullPath)) {
                 TorrentName = System.IO.Path.GetFileName (fullPath);
-                Files = new List<FileMapping> { new FileMapping (fullPath, TorrentName, new FileInfo (fullPath).Length) };
+                Files = new List<FileMapping> { new FileMapping (fullPath, new TorrentPath(TorrentName), new FileInfo (fullPath).Length) };
                 return;
             }
 
             char sep = System.IO.Path.DirectorySeparatorChar;
-            if (!fullPath.EndsWith (sep.ToString ()))
+            if (!fullPath.EndsWith (sep.ToString ())
+                && !fullPath.EndsWith (System.IO.Path.AltDirectorySeparatorChar.ToString ()))
                 fullPath += sep.ToString ();
 
             // Process all directories and subdirectories of this folder
@@ -99,10 +100,12 @@ namespace MonoTorrent
 
             // Turn the full path of each file into a full path + relative path. The relative path is the 'path'
             // which the file will have within the .torrent metadata.
-            Files = files.ConvertAll (file => new FileMapping (file, file.Substring (fullPath.Length), new FileInfo (file).Length));
+            Files = files.ConvertAll (file => new FileMapping (file, new TorrentPath(file.Substring (fullPath.Length).Split (PathSeparators)), new FileInfo (file).Length));
 
             // Set the torrent name (user can change it later)
             TorrentName = new DirectoryInfo (fullPath).Name;
         }
+
+        static readonly char[] PathSeparators = [System.IO.Path.DirectorySeparatorChar, System.IO.Path.AltDirectorySeparatorChar];
     }
 }

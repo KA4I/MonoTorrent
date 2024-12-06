@@ -387,7 +387,7 @@ namespace MonoTorrent.Connections.Peer
 
                 Uri u = uri;
                 if (TorrentData.Files.Count > 1)
-                    u = new Uri (u, file.Path);
+                    u = new Uri (u, file.Path.ToString (separator: '/'));
 
                 // Should data be read from this file?
                 if (startOffset < file.Length) {

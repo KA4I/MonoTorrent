@@ -66,9 +66,9 @@ namespace MonoTorrent
         public void V2Only_WithEmptyFiles ()
         {
             var files = new[] {
-                new TorrentFile("a", length: 0, startIndex: 0, endIndex: 0, 0, TorrentFileAttributes.None, 0),
-                new TorrentFile("b", length: 1, startIndex: 0, endIndex: 0, 0, new MerkleRoot(Enumerable.Repeat<byte>(1, 32).ToArray ()), TorrentFileAttributes.None, 0),
-                new TorrentFile("c", length: 2, startIndex: 1, endIndex: 1, 1, new MerkleRoot(Enumerable.Repeat<byte>(2, 32).ToArray ()), TorrentFileAttributes.None, 0),
+                new TorrentFile(new TorrentPath("a"), length: 0, startIndex: 0, endIndex: 0, 0, TorrentFileAttributes.None, 0),
+                new TorrentFile(new TorrentPath("b"), length: 1, startIndex: 0, endIndex: 0, 0, new MerkleRoot(Enumerable.Repeat<byte>(1, 32).ToArray ()), TorrentFileAttributes.None, 0),
+                new TorrentFile(new TorrentPath("c"), length: 2, startIndex: 1, endIndex: 1, 1, new MerkleRoot(Enumerable.Repeat<byte>(2, 32).ToArray ()), TorrentFileAttributes.None, 0),
             };
 
             var pieceHashesV2 = new PieceHashesV2 (Constants.BlockSize * 4, files, new BEncodedDictionary ());
@@ -88,7 +88,7 @@ namespace MonoTorrent
             Assert.IsTrue (layers.TryVerify (out ReadOnlyMerkleTree verifiedLayers));
 
             var files = new[] {
-                new TorrentFile ("large", (long) pieceSize * pieceCount - 1, startIndex: 0, endIndex: pieceCount - 1, 0, verifiedLayers.Root, TorrentFileAttributes.None, 0)
+                new TorrentFile (new TorrentPath("large"), (long) pieceSize * pieceCount - 1, startIndex: 0, endIndex: pieceCount - 1, 0, verifiedLayers.Root, TorrentFileAttributes.None, 0)
             };
 
             var pieceHashesV2 = new PieceHashesV2 (Constants.BlockSize, files, new Dictionary<MerkleRoot, ReadOnlyMerkleTree> { { verifiedLayers.Root, verifiedLayers } } );

@@ -72,11 +72,11 @@ namespace MonoTorrent.Common
             filesSource = new Source {
                 TorrentName = "Name",
                 Files = new[] {
-                    new FileMapping (Path.Combine ("Dir1", "SDir1", "File1"), Path.Combine ("Dir1", "SDir1", "File1"), (long) (PieceLength * 2.30)),
-                    new FileMapping (Path.Combine ("Dir1", "SDir1", "File2"), Path.Combine ("Dir1", "SDir1", "File2"), (long) (PieceLength * 36.5)),
-                    new FileMapping (Path.Combine ("Dir1", "SDir2", "File3"), Path.Combine ("Dir1", "SDir2", "File3"), (long) (PieceLength * 3.17)),
-                    new FileMapping (Path.Combine ("Dir2", "SDir1", "File4"), Path.Combine ("Dir2", "SDir1", "File4"), (long) (PieceLength * 1.22)),
-                    new FileMapping (Path.Combine ("Dir2", "SDir2", "File5"), Path.Combine ("Dir2", "SDir2", "File5"), (long) (PieceLength * 6.94))
+                    new FileMapping (Path.Combine ("Dir1", "SDir1", "File1"), TorrentPath.Combine ("Dir1", "SDir1", "File1"), (long) (PieceLength * 2.30)),
+                    new FileMapping (Path.Combine ("Dir1", "SDir1", "File2"), TorrentPath.Combine ("Dir1", "SDir1", "File2"), (long) (PieceLength * 36.5)),
+                    new FileMapping (Path.Combine ("Dir1", "SDir2", "File3"), TorrentPath.Combine ("Dir1", "SDir2", "File3"), (long) (PieceLength * 3.17)),
+                    new FileMapping (Path.Combine ("Dir2", "SDir1", "File4"), TorrentPath.Combine ("Dir2", "SDir1", "File4"), (long) (PieceLength * 1.22)),
+                    new FileMapping (Path.Combine ("Dir2", "SDir2", "File5"), TorrentPath.Combine ("Dir2", "SDir2", "File5"), (long) (PieceLength * 6.94))
                 }
             };
         }
@@ -187,7 +187,7 @@ namespace MonoTorrent.Common
             Assert.AreEqual (0, t.Files[0].StartPieceIndex);
             Assert.AreNotEqual (0, t.Files[0].EndPieceIndex);
             Assert.AreEqual (Path.GetFileName (assembly.Location), t.Name, "#2");
-            Assert.AreEqual (Path.GetFileName (assembly.Location), t.Files[0].Path, "#3");
+            Assert.AreEqual (Path.GetFileName (assembly.Location), t.Files[0].Path.ToString(), "#3");
 
             // Create it again
             creator.Create (new TorrentFileSource (assembly.Location));
@@ -206,7 +206,10 @@ namespace MonoTorrent.Common
             };
 
             var files = Enumerable.Range (0, 24)
-                .Select (t => new FileMapping ($"source_{t.ToString ().PadLeft (2, '0')}", $"dest_{t.ToString ().PadLeft (2, '0')}", (t + 1) * Constants.BlockSize))
+                .Select (t => new FileMapping (
+                    $"source_{t.ToString ().PadLeft (2, '0')}",
+                    new TorrentPath($"dest_{t.ToString ().PadLeft (2, '0')}"),
+                    (t + 1) * Constants.BlockSize))
                 .ToList ();
 
             var torrentDict = await creator.CreateAsync (new CustomFileSource (files));
@@ -237,9 +240,12 @@ namespace MonoTorrent.Common
             };
 
             var files = Enumerable.Range (0, 24)
-                .Select (t => new FileMapping ($"source_{t.ToString ().PadLeft (2, '0')}", $"dest_{t.ToString ().PadLeft (2, '0')}", (t + 1) * Constants.BlockSize))
+                .Select (t => new FileMapping (
+                    $"source_{t.ToString ().PadLeft (2, '0')}",
+                    new TorrentPath($"dest_{t.ToString ().PadLeft (2, '0')}"),
+                    (t + 1) * Constants.BlockSize))
                 .ToList ();
-            files.Add (new FileMapping ("empty_source", "empty_dest", 0));
+            files.Add (new FileMapping ("empty_source", new TorrentPath("empty_dest"), 0));
 
             var torrentDict = await creator.CreateAsync (new CustomFileSource (files));
             var fileTree = (BEncodedDictionary) ((BEncodedDictionary) torrentDict["info"])["file tree"];
@@ -272,9 +278,9 @@ namespace MonoTorrent.Common
         {
             var dir = Path.Combine (Path.Combine ("foo", "bar", "baz"));
             var fileSource = new CustomFileSource (new List<FileMapping> {
-                new FileMapping (Path.Combine (dir, "A.file"), "A", 4),
-                new FileMapping (Path.Combine (dir, "C.file"), "C",  4),
-                new FileMapping (Path.Combine (dir, "B.file"), "B",  4),
+                new FileMapping (Path.Combine (dir, "A.file"), new TorrentPath("A"), 4),
+                new FileMapping (Path.Combine (dir, "C.file"), new TorrentPath("C"),  4),
+                new FileMapping (Path.Combine (dir, "B.file"), new TorrentPath("B"),  4),
             });
 
             TorrentCreator torrentCreator = new TorrentCreator (TorrentType.V1V2Hybrid, TestFactories);
@@ -282,24 +288,24 @@ namespace MonoTorrent.Common
             var torrent = Torrent.Load (encodedTorrent);
 
             Assert.IsNotNull (torrent);
-            Assert.AreEqual ("A", torrent.Files[0].Path);
-            Assert.AreEqual ("B", torrent.Files[1].Path);
-            Assert.AreEqual ("C", torrent.Files[2].Path);
+            Assert.AreEqual ("A", torrent.Files[0].Path.ToString());
+            Assert.AreEqual ("B", torrent.Files[1].Path.ToString());
+            Assert.AreEqual ("C", torrent.Files[2].Path.ToString());
         }
 
         [Test]
         public async Task CreateHybridTorrent_SortFilesCorrectly ()
         {
             var destFiles = new[] {
-                "A.txt",
-                "B.txt",
-                Path.Combine ("D", "a", "A.txt"),
-                Path.Combine("a", "z", "Z.txt"),
+                new("A.txt"),
+                new("B.txt"),
+                TorrentPath.Combine ("D", "a", "A.txt"),
+                TorrentPath.Combine("a", "z", "Z.txt"),
             };
 
             var dir = Path.Combine (Path.Combine ("foo", "bar", "baz"));
             var fileSource = new CustomFileSource (destFiles.Select (t =>
-                new FileMapping (Path.Combine (dir, t), t, 4)
+                new FileMapping (Path.Combine (dir, t.ToString()), t, 4)
             ).ToList ());
 
             TorrentCreator torrentCreator = new TorrentCreator (TorrentType.V1V2Hybrid, TestFactories);
@@ -336,7 +342,7 @@ namespace MonoTorrent.Common
                 PieceLength = Constants.BlockSize * 4,
             };
 
-            var files = new List<FileMapping> { new FileMapping ("empty_source", "empty_dest", 0) };
+            var files = new List<FileMapping> { new FileMapping ("empty_source", new TorrentPath("empty_dest"), 0) };
             Assert.ThrowsAsync<InvalidOperationException> (() => creator.CreateAsync (new CustomFileSource (files)));
         }
 
@@ -352,7 +358,7 @@ namespace MonoTorrent.Common
                 PieceLength = Constants.BlockSize * 4,
             };
 
-            var files = new List<FileMapping> { new FileMapping ("empty_source", "empty_dest", 1) };
+            var files = new List<FileMapping> { new FileMapping ("empty_source", new TorrentPath("empty_dest"), 1) };
             var torrentDict = await creator.CreateAsync (new CustomFileSource (files));
             var infoDict = (BEncodedDictionary) torrentDict["info"];
             if (torrentType.HasV1 ()) {
@@ -374,7 +380,7 @@ namespace MonoTorrent.Common
                 var source = new Source {
                     TorrentName = "asd",
                     Files = new[] {
-                        new FileMapping("a", Path.Combine ("..", "..", "dest1"), 123)
+                        new FileMapping("a", TorrentPath.Combine ("..", "..", "dest1"), 123)
                     }
                 };
                 new TorrentCreator (TorrentType.V1Only, Factories.Default.WithPieceWriterCreator (files => new DiskWriter (files))).Create (source);
@@ -388,9 +394,9 @@ namespace MonoTorrent.Common
                 var source = new Source {
                     TorrentName = "asd",
                     Files = new[] {
-                        new FileMapping ("a", "dest1", 123),
-                        new FileMapping ("b", "dest2", 345),
-                        new FileMapping ("c", "dest1", 453)
+                        new FileMapping ("a", new TorrentPath("dest1"), 123),
+                        new FileMapping ("b", new TorrentPath("dest2"), 345),
+                        new FileMapping ("c", new TorrentPath("dest1"), 453)
                     }
                 };
                 new TorrentCreator (TorrentType.V1Only, Factories.Default).Create (source);

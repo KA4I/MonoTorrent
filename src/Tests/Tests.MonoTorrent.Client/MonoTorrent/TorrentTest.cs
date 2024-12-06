@@ -102,7 +102,6 @@ namespace MonoTorrent.Common
             BEncodedList files = new BEncodedList ();
 
             BEncodedList path = new BEncodedList {
-                new BEncodedString (""),
                 new BEncodedString ("file1.txt")
             };
 
@@ -251,16 +250,16 @@ namespace MonoTorrent.Common
         {
             Assert.AreEqual (4, torrent.Files.Count);
 
-            Assert.AreEqual ("file1.txt", torrent.Files[0].Path);
+            Assert.AreEqual ("file1.txt", torrent.Files[0].Path.ToString ());
             Assert.AreEqual (50000, torrent.Files[0].Length);
 
-            Assert.AreEqual (Path.Combine ("subfolder1", "file2.txt"), torrent.Files[1].Path);
+            Assert.AreEqual (Path.Combine ("subfolder1", "file2.txt"), torrent.Files[1].Path.ToString ());
             Assert.AreEqual (60000, torrent.Files[1].Length);
 
-            Assert.AreEqual (Path.Combine (Path.Combine ("subfolder1", "subfolder2"), "file3.txt"), torrent.Files[2].Path);
+            Assert.AreEqual (Path.Combine (Path.Combine ("subfolder1", "subfolder2"), "file3.txt"), torrent.Files[2].Path.ToString ());
             Assert.AreEqual (70000, torrent.Files[2].Length);
 
-            Assert.AreEqual (Path.Combine (Path.Combine ("subfolder1", "subfolder2"), "file4.txt"), torrent.Files[3].Path);
+            Assert.AreEqual (Path.Combine (Path.Combine ("subfolder1", "subfolder2"), "file4.txt"), torrent.Files[3].Path.ToString ());
             Assert.AreEqual (80000, torrent.Files[3].Length);
         }
 
@@ -347,13 +346,13 @@ namespace MonoTorrent.Common
         {
             int pieceLength = 32 * 32;
             ITorrentFile[] files = TorrentFile.Create (pieceLength,
-                ("File0", 0),
-                ("File1", pieceLength),
-                ("File2", 0),
-                ("File3", pieceLength - 1),
-                ("File4", 1),
-                ("File5", 236),
-                ("File6", pieceLength * 7)
+                (new TorrentPath("File0"), 0),
+                (new TorrentPath("File1"), pieceLength),
+                (new TorrentPath("File2"), 0),
+                (new TorrentPath("File3"), pieceLength - 1),
+                (new TorrentPath("File4"), 1),
+                (new TorrentPath("File5"), 236),
+                (new TorrentPath("File6"), pieceLength * 7)
             );
             Torrent t = TestRig.CreateMultiFileTorrent (files, pieceLength);
 
@@ -384,8 +383,8 @@ namespace MonoTorrent.Common
         {
             int pieceLength = 32 * 32;
             ITorrentFile[] files = TorrentFile.Create (pieceLength,
-                ("File0", pieceLength),
-                ("File1", 0)
+                (new TorrentPath("File0"), pieceLength),
+                (new TorrentPath("File1"), 0)
             );
             Torrent t = TestRig.CreateMultiFileTorrent (files, pieceLength);
 
@@ -401,8 +400,8 @@ namespace MonoTorrent.Common
         {
             int pieceLength = 32 * 32;
             ITorrentFile[] files = TorrentFile.Create (pieceLength,
-                ("File0", pieceLength - 10),
-                ("File1", 10)
+                (new TorrentPath("File0"), pieceLength - 10),
+                (new TorrentPath("File1"), 10)
             );
             Torrent t = TestRig.CreateMultiFileTorrent (files, pieceLength);
 
@@ -418,8 +417,8 @@ namespace MonoTorrent.Common
         {
             int pieceLength = 32 * 32;
             ITorrentFile[] files = TorrentFile.Create (pieceLength,
-                ("File0", pieceLength - 10),
-                ("File1", 11)
+                (new TorrentPath("File0"), pieceLength - 10),
+                (new TorrentPath("File1"), 11)
             );
             Torrent t = TestRig.CreateMultiFileTorrent (files, pieceLength);
 
@@ -435,9 +434,9 @@ namespace MonoTorrent.Common
         {
             int pieceLength = 32 * 32;
             ITorrentFile[] files = TorrentFile.Create (pieceLength,
-                ("File0", pieceLength - 10),
-                ("File1", 10),
-                ("File1", 1)
+                (new TorrentPath("File0"), pieceLength - 10),
+                (new TorrentPath("File1"), 10),
+                (new TorrentPath("File1"), 1)
             );
             Torrent t = TestRig.CreateMultiFileTorrent (files, pieceLength);
 

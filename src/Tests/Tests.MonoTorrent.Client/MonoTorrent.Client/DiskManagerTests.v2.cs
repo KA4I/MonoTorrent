@@ -99,7 +99,7 @@ namespace MonoTorrent.Client
             public Info (Torrent torrent)
             {
                 TorrentInfo = torrent;
-                Files = torrent.Files.Select (t => new TorrentFileInfo (t, t.Path)).ToArray ();
+                Files = torrent.Files.Select (t => new TorrentFileInfo (t, t.Path.ToString())).ToArray ();
             }
 
             public IList<ITorrentManagerFile> Files { get; }

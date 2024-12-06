@@ -100,7 +100,8 @@ namespace MonoTorrent.Client
 
                     foreach (BEncodedDictionary file in (BEncodedList) torrent[nameof (manager.Files)]) {
                         TorrentFileInfo torrentFile;
-                        torrentFile = (TorrentFileInfo) manager.Files.Single (t => t.Path == ((BEncodedString) file[nameof (torrentFile.Path)]).Text);
+                        var path = new TorrentPath (((BEncodedList) file[nameof(torrentFile.Path)]));
+                        torrentFile = (TorrentFileInfo) manager.Files.Single (t => t.Path == path);
                         torrentFile.Priority = (Priority) Enum.Parse (typeof (Priority), file[nameof (torrentFile.Priority)].ToString ()!);
                         torrentFile.UpdatePaths ((
                             newPath: ((BEncodedString) file[nameof (torrentFile.FullPath)]).Text,
@@ -140,7 +141,7 @@ namespace MonoTorrent.Client
                             { nameof(file.FullPath), (BEncodedString) file.FullPath },
                             { nameof(file.DownloadCompleteFullPath), (BEncodedString) file.DownloadCompleteFullPath },
                             { nameof(file.DownloadIncompleteFullPath), (BEncodedString) file.DownloadIncompleteFullPath },
-                            { nameof(file.Path), (BEncodedString) file.Path },
+                            { nameof(file.Path), (BEncodedList) file.Path.Encode () },
                             { nameof(file.Priority), (BEncodedString) file.Priority.ToString () },
                        }
                     ));

@@ -81,7 +81,7 @@ namespace MonoTorrent
             var merkleRoot = infoHashes.V2 == null ? default : new MerkleRoot (new byte[32]);
 
             files ??= new[] {
-                new TestTorrentFile ("fake/file", (long) actualSize, 0, (int)( actualSize / actualPieceLength + ((actualSize % actualPieceLength) > 0 ? 1 : 0)) - 1, 0, merkleRoot, 0)
+                new TestTorrentFile (new("fake", "file"), (long) actualSize, 0, (int)( actualSize / actualPieceLength + ((actualSize % actualPieceLength) > 0 ? 1 : 0)) - 1, 0, merkleRoot, 0)
             };
 
             return new T {
@@ -136,7 +136,7 @@ namespace MonoTorrent
 
     class TestTorrentFile : ITorrentFile
     {
-        public TestTorrentFile(string path, long length, int startPieceIndex, int endPieceIndex, long offsetInTorrent, MerkleRoot merkleRoot, long padding)
+        public TestTorrentFile(TorrentPath path, long length, int startPieceIndex, int endPieceIndex, long offsetInTorrent, MerkleRoot merkleRoot, long padding)
         {
             Path = path;
             Length = length;
@@ -147,7 +147,7 @@ namespace MonoTorrent
             Padding = padding;
         }
 
-        public string Path { get; }
+        public TorrentPath Path { get; }
         public long Length { get; }
         public int StartPieceIndex { get; }
         public int EndPieceIndex { get; }

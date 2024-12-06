@@ -317,8 +317,8 @@ namespace MonoTorrent.Client
             Uri baseUri = new Uri (ListenerURL);
             baseUri = new Uri (baseUri, $"{rig.Manager.Torrent.Name}/");
             if (rig.Manager.Torrent.Files.Count > 1) {
-                Assert.AreEqual (new Uri (baseUri, rig.Manager.Torrent.Files[0].Path), requestedUrl[0]);
-                Assert.AreEqual (new Uri (baseUri, rig.Manager.Torrent.Files[1].Path), requestedUrl[1]);
+                Assert.AreEqual (new Uri (baseUri, rig.Manager.Torrent.Files[0].Path.ToString ('/')), requestedUrl[0]);
+                Assert.AreEqual (new Uri (baseUri, rig.Manager.Torrent.Files[1].Path.ToString ('/')), requestedUrl[1]);
             }
         }
 
@@ -347,7 +347,7 @@ namespace MonoTorrent.Client
                     ? c.Request.RawUrl.Substring (10 + rig.Torrent.Name.Length + 1)
                     : c.Request.RawUrl.Substring (10);
                 foreach (TorrentFile file in rig.Manager.Torrent.Files) {
-                    if (file.Path.Replace ('\\', '/') != p) {
+                    if (file.Path.ToString ('/') != p) {
                         globalStart += file.Length;
                         continue;
                     }

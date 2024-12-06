@@ -625,7 +625,7 @@ namespace MonoTorrent.Client
             CheckMetadata ();
 
             try {
-                var paths = TorrentFileInfo.GetNewPaths (Path.GetFullPath (path), Engine!.Settings.UsePartialFiles, file.Path == file.DownloadCompleteFullPath);
+                var paths = TorrentFileInfo.GetNewPaths (Path.GetFullPath (path), Engine!.Settings.UsePartialFiles, file.FullPath == file.DownloadCompleteFullPath);
                 await Engine!.DiskManager.MoveFileAsync (file, paths);
             } catch (Exception ex) {
                 TrySetError (Reason.WriteFailure, ex);
@@ -678,7 +678,7 @@ namespace MonoTorrent.Client
             if (Torrent.Files.Count == 1 || !Settings.CreateContainingDirectory)
                 ContainingDirectory = SavePath;
             else {
-                PathValidator.Validate (Torrent.Name);
+                new TorrentPath (Torrent.Name);
                 ContainingDirectory = Path.GetFullPath (Path.Combine (SavePath, TorrentFileInfo.PathEscape (Torrent.Name)));
             }
 
@@ -690,7 +690,7 @@ namespace MonoTorrent.Client
             Files = Torrent.Files.Select (file => {
 
                 // Generate the paths when 'UsePartialFiles' is enabled.
-                var paths = TorrentFileInfo.GetNewPaths (Path.Combine (ContainingDirectory, TorrentFileInfo.PathAndFileNameEscape (file.Path)), usePartialFiles: true, isComplete: true);
+                var paths = TorrentFileInfo.GetNewPaths (Path.Combine (ContainingDirectory, TorrentFileInfo.PathAndFileNameEscape (file.Path.ToString())), usePartialFiles: true, isComplete: true);
                 var downloadCompleteFullPath = paths.completePath;
                 var downloadIncompleteFullPath = paths.incompletePath;
 

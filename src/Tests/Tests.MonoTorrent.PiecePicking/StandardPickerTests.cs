@@ -53,7 +53,7 @@ namespace MonoTorrent.PiecePicking
             int pieceLength = 256 * 1024;
             bitfield = new BitField (pieceCount);
             torrentData = TestTorrentManagerInfo.Create(
-                files: TorrentFileInfo.Create (pieceLength, ("File", pieceLength * pieceCount, "Full/Path/File")),
+                files: TorrentFileInfo.Create (pieceLength, (new TorrentPath ("File"), pieceLength * pieceCount, "Full/Path/File")),
                 pieceLength: pieceLength,
                 size: pieceLength * pieceCount
             );
@@ -596,7 +596,7 @@ namespace MonoTorrent.PiecePicking
         {
             var fastPeers = new PeerId[2];
             for (int i = 0; i < 2; i++) {
-                fastPeers[i] = PeerId.CreateNull (peer.BitField.Length); 
+                fastPeers[i] = PeerId.CreateNull (peer.BitField.Length);
                 fastPeers[i].BitField.SetAll (true);
                 fastPeers[i].SupportsFastPeer = true;
                 fastPeers[i].IsAllowedFastPieces.Add (5);

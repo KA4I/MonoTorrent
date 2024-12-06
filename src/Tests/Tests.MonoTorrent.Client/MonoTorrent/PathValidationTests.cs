@@ -34,34 +34,34 @@ using NUnit.Framework;
 namespace MonoTorrent.Common
 {
     [TestFixture]
-    public class PathValidatorTests
+    public class PathValidationTests
     {
         [Test]
         public void UnixRelative ()
         {
-            Assert.Throws<ArgumentException> (() => PathValidator.Validate ("../foo/bar.txt"));
-            Assert.Throws<ArgumentException> (() => PathValidator.Validate ("foo/../bar"));
+            Assert.Throws<ArgumentException> (() => new TorrentPath ("..", "foo", "bar.txt"));
+            Assert.Throws<ArgumentException> (() => new TorrentPath ("foo", "..", "bar"));
         }
 
         [Test]
         public void UnixRooted ()
         {
-            Assert.Throws<ArgumentException> (() => PathValidator.Validate ("/"));
-            Assert.Throws<ArgumentException> (() => PathValidator.Validate ("/foo"));
-            Assert.Throws<ArgumentException> (() => PathValidator.Validate ("/.."));
+            Assert.Throws<ArgumentException> (() => new TorrentPath ("/"));
+            Assert.Throws<ArgumentException> (() => new TorrentPath (("/foo")));
+            Assert.Throws<ArgumentException> (() => new TorrentPath (("/..")));
         }
 
         [Test]
         public void WindowsRelative ()
         {
-            Assert.Throws<ArgumentException> (() => PathValidator.Validate (@"..\foo\bar.txt"));
-            Assert.Throws<ArgumentException> (() => PathValidator.Validate (@"test\..\bar.txt"));
+            Assert.Throws<ArgumentException> (() => new TorrentPath (@"..\", "foo", "bar.txt"));
+            Assert.Throws<ArgumentException> (() => new TorrentPath ("test", @"\..", "bar.txt"));
         }
 
         [Test]
         public void WindowsRooted ()
         {
-            Assert.Throws<ArgumentException> (() => PathValidator.Validate (@"C:\test.txt"));
+            Assert.Throws<ArgumentException> (() => new TorrentPath ("C:", "test.txt"));
         }
     }
 }

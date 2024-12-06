@@ -27,6 +27,8 @@
 //
 
 
+using System;
+
 namespace MonoTorrent
 {
     public struct FileMapping
@@ -39,16 +41,18 @@ namespace MonoTorrent
         /// <summary>
         /// This is the relative path to the file within the Torrent
         /// </summary>
-        public string Destination { get; }
+        public TorrentPath Destination { get; }
 
         /// <summary>
         /// The length of the file
         /// </summary>
         public long Length { get; }
 
-        public FileMapping (string source, string destination, long length)
+        public FileMapping (string source, TorrentPath destination, long length)
         {
-            Source = source;
+            if (length < 0)
+                throw new ArgumentOutOfRangeException (nameof(length), "Length must be zero or greater");
+            Source = source ?? throw new ArgumentNullException (nameof(source));
             Destination = destination;
             Length = length;
         }

@@ -501,7 +501,7 @@ namespace MonoTorrent.Client
         internal async Task MoveFilesAsync (IList<ITorrentManagerFile> files, string newRoot, bool overwrite)
         {
             foreach (TorrentFileInfo file in files) {
-                var paths = TorrentFileInfo.GetNewPaths (Path.GetFullPath (Path.Combine (newRoot, file.Path)), Settings.UsePartialFiles, file.Path == file.DownloadCompleteFullPath);
+                var paths = TorrentFileInfo.GetNewPaths (Path.GetFullPath (Path.Combine (newRoot, file.Path.ToString ())), Settings.UsePartialFiles, file.FullPath == file.DownloadCompleteFullPath);
                 await MoveFileAsync (file, paths, overwrite);
             }
         }

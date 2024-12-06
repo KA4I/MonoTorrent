@@ -56,7 +56,7 @@ namespace MonoTorrent.PiecePicking
 
             bitfield = new BitField (pieces);
             torrentData = TestTorrentManagerInfo.Create (
-                files: TorrentFileInfo.Create (pieceLength, ("Test", size, "Full/Path/Test")),
+                files: TorrentFileInfo.Create (pieceLength, (new TorrentPath ("Test"), size, "Full/Path/Test")),
                 pieceLength: pieceLength,
                 size: size
             );

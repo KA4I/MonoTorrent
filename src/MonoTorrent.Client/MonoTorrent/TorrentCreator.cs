@@ -140,7 +140,7 @@ namespace MonoTorrent
         public bool StoreSHA1 { get; set; }
 
         /// <summary>
-        /// Determines whether 
+        /// Determines whether
         /// </summary>
         public TorrentType Type { get; }
 
@@ -166,7 +166,7 @@ namespace MonoTorrent
         public TorrentCreator (TorrentType type)
             : this (type, Factories.Default)
         {
-            
+
         }
         public TorrentCreator (Factories factories)
             : this (TorrentType.V1V2Hybrid, factories)
@@ -249,9 +249,6 @@ namespace MonoTorrent
         internal async Task<BEncodedDictionary> CreateAsync (string name, ITorrentFileSource fileSource, CancellationToken token)
         {
             var source = fileSource.Files.ToList ();
-            foreach (var file in source)
-                if (file.Source.Contains (Path.AltDirectorySeparatorChar) || file.Destination.Contains (Path.AltDirectorySeparatorChar))
-                    throw new InvalidOperationException ("DERP");
 
             EnsureNoDuplicateFiles (source);
 
@@ -267,7 +264,7 @@ namespace MonoTorrent
             // are calculated correctly, which is needed so the files are hashed in the correct order for V1 metadata if this is a
             // hybrid torrent
             if (Type.HasV2 ())
-                source = source.OrderBy (t => t.Destination, StringComparer.Ordinal).ToList ();
+                source = source.OrderBy (t => t.Destination).ToList ();
 
             // The last non-empty file should have no padding bytes. There may be additional
             // empty files after this one depending on how the files are sorted, but they have
@@ -326,10 +323,10 @@ namespace MonoTorrent
             // re-sort these by destination path if we have BitTorrent v2 metadata. The files were sorted this way originally
             // but empty ones were popped to the front when creating ITorrentManagerFile objects.
             if (Type.HasV2 ())
-                files = files.OrderBy (t => t.Path, StringComparer.Ordinal).ToArray ();
+                files = files.OrderBy (t => t.Path).ToArray ();
 
             if (Type.HasV1 ()) {
-                if (manager.Files.Count == 1 && source[0].Destination == name)
+                if (manager.Files.Count == 1 && source[0].Destination.ToString () == name)
                     CreateSingleFileTorrent (torrent, merkleLayers, fileSHA1Hashes, fileMD5Hashes, files);
                 else
                     CreateMultiFileTorrent (torrent, merkleLayers, fileSHA1Hashes, fileMD5Hashes, files);
@@ -340,7 +337,7 @@ namespace MonoTorrent
 
         void AppendFileTree (ITorrentManagerFile key, ReadOnlyMemory<byte> value, BEncodedDictionary fileTree)
         {
-            var parts = key.Path.Split (Path.DirectorySeparatorChar);
+            var parts = key.Path.Parts;
             foreach (var part in parts) {
                 if (!fileTree.TryGetValue (part, out BEncodedValue? inner)) {
                     fileTree[part] = inner = new BEncodedDictionary ();
@@ -580,8 +577,7 @@ namespace MonoTorrent
             var fileDict = new BEncodedDictionary ();
 
             var filePath = new BEncodedList ();
-            string[] splittetPath = file.Path.Split (new[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (string s in splittetPath)
+            foreach (string s in file.Path.Parts)
                 filePath.Add (new BEncodedString (s));
 
             fileDict["length"] = new BEncodedNumber (file.Length);
@@ -617,16 +613,13 @@ namespace MonoTorrent
 
         static void EnsureNoDuplicateFiles (List<FileMapping> maps)
         {
-            foreach (FileMapping map in maps)
-                PathValidator.Validate (map.Destination);
-
             var knownFiles = new Dictionary<string, FileMapping> ();
             for (int i = 0; i < maps.Count; i++) {
-                if (knownFiles.TryGetValue (maps[i].Destination, out var prior)) {
+                if (knownFiles.TryGetValue (maps[i].Destination.ToString (), out var prior)) {
                     throw new ArgumentException (
                         $"Files '{maps[i].Source}' and '{prior.Source}' both map to the same destination '{maps[i].Destination}'");
                 } else {
-                    knownFiles.Add (maps[i].Destination, maps[i]);
+                    knownFiles.Add (maps[i].Destination.ToString (), maps[i]);
                 }
             }
         }

@@ -57,10 +57,10 @@ namespace MonoTorrent.PieceWriter
             Temp = Path.Combine (Path.GetTempPath (), Path.GetRandomFileName () + $"-{Process.GetCurrentProcess ().Id}-monotorrent_tests");
 
             var files = TorrentFileInfo.Create (pieceLength,
-                ("test1.file", 12345, Path.Combine (Temp, "test1.file")),
-                ("test2.file", 12345, Path.Combine (Temp, "test2.file")),
-                ("test3.file", 12345, Path.Combine (Temp, "test3.file")),
-                ("test4.file", 12345, Path.Combine (Temp, "test4.file"))
+                (new TorrentPath("test1.file"), 12345, Path.Combine (Temp, "test1.file")),
+                (new TorrentPath("test2.file"), 12345, Path.Combine (Temp, "test2.file")),
+                (new TorrentPath("test3.file"), 12345, Path.Combine (Temp, "test3.file")),
+                (new TorrentPath("test4.file"), 12345, Path.Combine (Temp, "test4.file"))
             );
 
             TorrentFile = files.First ();
@@ -157,7 +157,7 @@ namespace MonoTorrent.PieceWriter
 
             using var writer = new DiskWriter (2);
             var files = TorrentFileInfo.Create (Constants.BlockSize * 4,
-                Enumerable.Range (0, 10).Select (t => ($"test_{t}.file", (long) 12345, Path.Combine (Temp, $"test{t}.file"))).ToArray ()
+                Enumerable.Range (0, 10).Select (t => (new TorrentPath($"test_{t}.file"), (long) 12345, Path.Combine (Temp, $"test{t}.file"))).ToArray ()
             );
 
             var tasks = new System.Collections.Generic.List<Task> ();

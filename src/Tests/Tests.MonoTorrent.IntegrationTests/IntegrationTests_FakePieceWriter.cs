@@ -233,7 +233,7 @@ namespace MonoTorrent.IntegrationTests
 
             var fileSource = new CustomTorrentFileSource {
                 Files = nonEmptyFiles.Select (t => {
-                    return new FileMapping (t.name, Path.GetFileName (t.name), t.size);
+                    return new FileMapping (t.name, new TorrentPath(Path.GetFileName (t.name)), t.size);
                 })
             };
             fileSource.TorrentName = _torrentName;

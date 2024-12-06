@@ -144,7 +144,7 @@ namespace MonoTorrent.PieceWriter
         public void Setup ()
         {
             var pieceLength = Constants.BlockSize * 8;
-            var files = TorrentFileInfo.Create (pieceLength, ("Relative/Path.txt", Constants.BlockSize * 5, "Full/Path/Relative/Path.txt"));
+            var files = TorrentFileInfo.Create (pieceLength, (new TorrentPath ("Relative", "Path.txt"), Constants.BlockSize * 5, "Full/Path/Relative/Path.txt"));
             torrent = TestTorrentManagerInfo.Create (pieceLength: pieceLength, size: files.Single ().Length, files: files);
         }
 

@@ -34,11 +34,11 @@ namespace MonoTorrent.Common
             var files = new Source {
                 TorrentName = "asd",
                 Files = new[] {
-                    new FileMapping(Path.Combine("Dir1", "SDir1", "File1"), Path.Combine("Dir1", "SDir1", "File1"), (long)(PieceLength * 2.30)),
-                    new FileMapping(Path.Combine("Dir1", "SDir1", "File2"), Path.Combine("Dir1", "SDir1", "File2"), (long)(PieceLength * 36.5)),
-                    new FileMapping(Path.Combine("Dir1", "SDir2", "File3"), Path.Combine("Dir1", "SDir2", "File3"), (long)(PieceLength * 3.17)),
-                    new FileMapping(Path.Combine("Dir2", "SDir1", "File4"), Path.Combine("Dir2", "SDir1", "File4"), (long)(PieceLength * 1.22)),
-                    new FileMapping(Path.Combine("Dir2", "SDir2", "File5"), Path.Combine("Dir2", "SDir2", "File5"), (long)(PieceLength * 6.94))
+                    new FileMapping(Path.Combine("Dir1", "SDir1", "File1"), TorrentPath.Combine("Dir1", "SDir1", "File1"), (long)(PieceLength * 2.30)),
+                    new FileMapping(Path.Combine("Dir1", "SDir1", "File2"), TorrentPath.Combine("Dir1", "SDir1", "File2"), (long)(PieceLength * 36.5)),
+                    new FileMapping(Path.Combine("Dir1", "SDir2", "File3"), TorrentPath.Combine("Dir1", "SDir2", "File3"), (long)(PieceLength * 3.17)),
+                    new FileMapping(Path.Combine("Dir2", "SDir1", "File4"), TorrentPath.Combine("Dir2", "SDir1", "File4"), (long)(PieceLength * 1.22)),
+                    new FileMapping(Path.Combine("Dir2", "SDir2", "File5"), TorrentPath.Combine("Dir2", "SDir2", "File5"), (long)(PieceLength * 6.94))
                 }
             };
             return await CreateTestBenc (type, files);
@@ -84,9 +84,9 @@ namespace MonoTorrent.Common
             var files = new Source {
                 TorrentName = "asd",
                 Files = new[] {
-                    new FileMapping("ASDkfsdjgsdSDFGsj.asd", "ASDkfsdjgsdSDFGsj.asd", (long)(PieceLength * 2.30)),
-                    new FileMapping("aSvzxkaSqp AZXDCaj asdASDjas ASDl.aaaaaa", "aSvzxkaSqp AZXDCaj asdASDjas ASDl.aaaaaa", (long)(PieceLength * 36.5)),
-                    new FileMapping("[aaaaa aaaaaaaaa]aaaaaa a aaaaaaaa.aaaaa", "[aaaaa aaaaaaaaa]aaaaaa a aaaaaaaa.aaaaa", (long)(PieceLength * 3.17)),
+                    new FileMapping("ASDkfsdjgsdSDFGsj.asd", new TorrentPath("ASDkfsdjgsdSDFGsj.asd"), (long)(PieceLength * 2.30)),
+                    new FileMapping("aSvzxkaSqp AZXDCaj asdASDjas ASDl.aaaaaa", new TorrentPath("aSvzxkaSqp AZXDCaj asdASDjas ASDl.aaaaaa"), (long)(PieceLength * 36.5)),
+                    new FileMapping("[aaaaa aaaaaaaaa]aaaaaa a aaaaaaaa.aaaaa", new TorrentPath("[aaaaa aaaaaaaaa]aaaaaa a aaaaaaaa.aaaaa"), (long)(PieceLength * 3.17)),
                 }
             };
             var torrent = await CreateTestBenc (type, files);
@@ -103,15 +103,15 @@ namespace MonoTorrent.Common
             var files = new Source {
                 TorrentName = "asd",
                 Files = new[] {
-                    new FileMapping("a", "a", 0),
-                    new FileMapping("b", "b", PieceLength),
-                    new FileMapping("c", "c", 0),
-                    new FileMapping("d1", "d1", PieceLength / 2),
-                    new FileMapping("d2", "d2", PieceLength / 2),
-                    new FileMapping("e", "e", 0),
-                    new FileMapping("f", "f", 0),
-                    new FileMapping("g", "g", PieceLength + 1),
-                    new FileMapping("h", "h", 0),
+                    new FileMapping("a", new TorrentPath("a"), 0),
+                    new FileMapping("b", new TorrentPath("b"), PieceLength),
+                    new FileMapping("c", new TorrentPath("c"), 0),
+                    new FileMapping("d1", new TorrentPath("d1"), PieceLength / 2),
+                    new FileMapping("d2", new TorrentPath("d2"), PieceLength / 2),
+                    new FileMapping("e", new TorrentPath("e"), 0),
+                    new FileMapping("f", new TorrentPath("f"), 0),
+                    new FileMapping("g", new TorrentPath("g"), PieceLength + 1),
+                    new FileMapping("h", new TorrentPath("h"), 0),
                 }
             };
 
@@ -126,10 +126,10 @@ namespace MonoTorrent.Common
                 Assert.IsTrue (file.PiecesRoot.IsEmpty);
             }
             var expectedPadding = type == TorrentType.V1OnlyWithPaddingFiles || type == TorrentType.V1V2Hybrid ? PieceLength / 2 : 0;
-            Assert.AreEqual (0, torrent.Files.Single (t => t.Path == "b").Padding);
-            Assert.AreEqual (expectedPadding, torrent.Files.Single (t => t.Path == "d1").Padding);
-            Assert.AreEqual (expectedPadding, torrent.Files.Single (t => t.Path == "d2").Padding);
-            Assert.AreEqual (0, torrent.Files.Single (t => t.Path == "g").Padding);
+            Assert.AreEqual (0, torrent.Files.Single (t => t.Path.ToString () == "b").Padding);
+            Assert.AreEqual (expectedPadding, torrent.Files.Single (t => t.Path.ToString () == "d1").Padding);
+            Assert.AreEqual (expectedPadding, torrent.Files.Single (t => t.Path.ToString () == "d2").Padding);
+            Assert.AreEqual (0, torrent.Files.Single (t => t.Path.ToString () == "g").Padding);
         }
 
         [Test]
@@ -138,8 +138,8 @@ namespace MonoTorrent.Common
             var files = new Source {
                 TorrentName = "asfg",
                 Files = new[] {
-                    new FileMapping (Path.Combine("Dir1", "SDir1", "File1"), Path.Combine("Dir1", "SDir1", "File1"), (long)(PieceLength)),
-                    new FileMapping (Path.Combine("Dir1", "SDir1", "File2"), Path.Combine("Dir1", "SDir1", "File2"), (long)(PieceLength * 2)),
+                    new FileMapping (Path.Combine("Dir1", "SDir1", "File1"), TorrentPath.Combine("Dir1", "SDir1", "File1"), (long)(PieceLength)),
+                    new FileMapping (Path.Combine("Dir1", "SDir1", "File2"), TorrentPath.Combine("Dir1", "SDir1", "File2"), (long)(PieceLength * 2)),
                 }
             };
 
@@ -157,9 +157,9 @@ namespace MonoTorrent.Common
             var inputFiles = new Source {
                 TorrentName = "asfg",
                 Files = new[] {
-                    new FileMapping (Path.Combine("a", "File1"), Path.Combine("a", "File1"), 2),
-                    new FileMapping (Path.Combine("a", "File2"), Path.Combine("a", "File2"), 0),
-                    new FileMapping (Path.Combine("a", "File0"), Path.Combine("a", "File0"), 1),
+                    new FileMapping (Path.Combine("a", "File1"), TorrentPath.Combine("a", "File1"), 2),
+                    new FileMapping (Path.Combine("a", "File2"), TorrentPath.Combine("a", "File2"), 0),
+                    new FileMapping (Path.Combine("a", "File0"), TorrentPath.Combine("a", "File0"), 1),
                 }
             };
 
@@ -269,8 +269,8 @@ namespace MonoTorrent.Common
             var files = new Source {
                 TorrentName = "asfg",
                 Files = new[] {
-                    new FileMapping ("1.src", "1.tmp", unpaddedFile.Length),
-                    new FileMapping ("2.tmp", "2.tmp", unpaddedFile.Length),
+                    new FileMapping ("1.src", new TorrentPath("1.tmp"), unpaddedFile.Length),
+                    new FileMapping ("2.tmp", new TorrentPath("2.tmp"), unpaddedFile.Length),
                 }
             };
 

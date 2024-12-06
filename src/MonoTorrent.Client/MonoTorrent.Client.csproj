@@ -6,6 +6,7 @@
 
     <BeforePack>$(BeforePack);SetPackProperties</BeforePack>
     <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+    <RootNamespace></RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>

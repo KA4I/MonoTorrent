@@ -328,7 +328,7 @@ namespace MonoTorrent.Client
         [Test]
         public async Task MoveFile_SamePath ()
         {
-            var file = TorrentFileInfo.Create (Constants.BlockSize, ("file.txt", 123456, Path.Combine ("foo", "bar", "orig.txt"))).Single ();
+            var file = TorrentFileInfo.Create (Constants.BlockSize, (new TorrentPath ("file.txt"), 123456, Path.Combine ("foo", "bar", "orig.txt"))).Single ();
 
             using var writer = new TestWriter ();
             writer.FilesWithLength[file.FullPath] = 123456;
@@ -343,7 +343,7 @@ namespace MonoTorrent.Client
         public async Task MoveFile_TargetDirectoryDoesNotExist ()
         {
             using var tmp = TempDir.Create ();
-            var file = TorrentFileInfo.Create (Constants.BlockSize, ("file.txt", 123456, Path.Combine (tmp.Path, "orig.txt"))).Single ();
+            var file = TorrentFileInfo.Create (Constants.BlockSize, (new TorrentPath ("file.txt"), 123456, Path.Combine (tmp.Path, "orig.txt"))).Single ();
 
             using var writer = new TestWriter ();
             writer.FilesWithLength[file.FullPath] = 0;
@@ -359,14 +359,14 @@ namespace MonoTorrent.Client
         public async Task MoveFiles_DoNotOverwrite ()
         {
             using var writer = new TestWriter ();
-            var file = TorrentFileInfo.Create (Constants.BlockSize, ("file.txt", 123456, Path.GetFullPath (Path.Combine ("foo", "bar", "sub_dir", "orig.txt")))).Single ();
+            var file = TorrentFileInfo.Create (Constants.BlockSize, (new TorrentPath ("file.txt"), 123456, Path.GetFullPath (Path.Combine ("foo", "bar", "sub_dir", "orig.txt")))).Single ();
             writer.FilesWithLength[file.FullPath] = 0;
 
             using var manager = new DiskManager (new EngineSettings (), Factories.Default, writer);
 
             var newRoot = Path.GetFullPath ("baz");
             await manager.MoveFilesAsync (new[] { file }, newRoot, false);
-            Assert.AreEqual (Path.Combine (newRoot, file.Path), file.FullPath);
+            Assert.AreEqual (Path.Combine (newRoot, file.Path.ToString ()), file.FullPath);
             Assert.IsTrue (writer.FilesWithLength.ContainsKey (file.FullPath));
             Assert.AreEqual (1, writer.FilesWithLength.Count);
         }
@@ -377,12 +377,12 @@ namespace MonoTorrent.Client
             using var writer = new TestWriter ();
             using var manager = new DiskManager (new EngineSettings (), Factories.Default, writer);
 
-            var file = TorrentFileInfo.Create (Constants.BlockSize, ("file.txt", 123456, Path.GetFullPath (Path.Combine ("blarp", "sub_dir", "orig.txt")))).Single ();
+            var file = TorrentFileInfo.Create (Constants.BlockSize, (new TorrentPath ("file.txt"), 123456, Path.GetFullPath (Path.Combine ("blarp", "sub_dir", "orig.txt")))).Single ();
             await writer.CreateAsync (file, FileCreationOptions.PreferSparse);
 
             var newRoot = Path.GetFullPath ("foo");
             await manager.MoveFilesAsync (new[] { file }, newRoot, true);
-            Assert.AreEqual (Path.Combine (newRoot, file.Path), file.FullPath);
+            Assert.AreEqual (Path.Combine (newRoot, file.Path.ToString ()), file.FullPath);
             Assert.IsTrue (writer.FilesWithLength.ContainsKey (file.FullPath));
             Assert.AreEqual (1, writer.FilesWithLength.Count);
         }
@@ -394,11 +394,11 @@ namespace MonoTorrent.Client
             using var manager = new DiskManager (new EngineSettings (), Factories.Default, writer);
 
             var root = Path.GetFullPath ("foo");
-            var file = TorrentFileInfo.Create (Constants.BlockSize, (Path.Combine ("sub_dir", "orig.txt"), 123456, Path.Combine (root, "sub_dir", "orig.txt"))).Single ();
+            var file = TorrentFileInfo.Create (Constants.BlockSize, (new TorrentPath ("sub_dir", "orig.txt"), 123456, Path.Combine (root, "sub_dir", "orig.txt"))).Single ();
             await writer.CreateAsync (file, FileCreationOptions.PreferSparse);
 
             await manager.MoveFilesAsync (new[] { file }, root, true);
-            Assert.AreEqual (Path.Combine (root, file.Path), file.FullPath);
+            Assert.AreEqual (Path.Combine (root, file.Path.ToString ()), file.FullPath);
             Assert.IsTrue (writer.FilesWithLength.ContainsKey (file.FullPath));
             Assert.AreEqual (1, writer.FilesWithLength.Count);
         }

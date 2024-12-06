@@ -12,6 +12,7 @@
     <UseSimpleSpinLock>true</UseSimpleSpinLock>
     <UseTorrentFileExtensions>true</UseTorrentFileExtensions>
     <UseValueStopWatch>true</UseValueStopWatch>
+    <RootNamespace></RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

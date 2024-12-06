@@ -84,7 +84,7 @@ namespace MonoTorrent.PiecePicking
             return TestTorrentManagerInfo.Create (
                 pieceLength: pieceLength,
                 size: size,
-                files: TorrentFileInfo.Create (pieceLength, ("Single", size, "full/path/Single"))
+                files: TorrentFileInfo.Create (pieceLength, (new TorrentPath ("Single"), size, "full/path/Single"))
             );
         }
 

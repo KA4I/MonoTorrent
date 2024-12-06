@@ -50,7 +50,7 @@ namespace MonoTorrent.Client
 
         public Priority Priority { get; set; } = Priority.Normal;
 
-        public string Path => TorrentFile.Path;
+        public TorrentPath Path => TorrentFile.Path;
 
         public int StartPieceIndex => TorrentFile.StartPieceIndex;
 
@@ -78,12 +78,12 @@ namespace MonoTorrent.Client
 
 
         internal static TorrentFileInfo[] Create (int pieceLength, params long[] sizes)
-            => Create (pieceLength, sizes.Select ((size, index) => ("File_" + index, size, 0, "full/path/to/File_" + index)).ToArray ());
+            => Create (pieceLength, sizes.Select ((size, index) => (new TorrentPath("File_" + index), size, 0, "full/path/to/File_" + index)).ToArray ());
 
-        internal static TorrentFileInfo[] Create (int pieceLength, params (string torrentPath, long size, string fullPath)[] infos)
+        internal static TorrentFileInfo[] Create (int pieceLength, params (TorrentPath torrentPath, long size, string fullPath)[] infos)
             => Create (pieceLength, infos.Select (t => (t.torrentPath, t.size, 0, t.fullPath)).ToArray ());
 
-        internal static TorrentFileInfo[] Create (int pieceLength, params (string torrentPath, long size, int padding, string fullPath)[] infos)
+        internal static TorrentFileInfo[] Create (int pieceLength, params (TorrentPath torrentPath, long size, int padding, string fullPath)[] infos)
         {
             // TorrentFile.Create can reorder the files if there are any of length zero.
             var torrentFiles = MonoTorrent.TorrentFile.Create (pieceLength, infos.Select (t => (t.torrentPath, t.size, t.padding)).ToArray ());
