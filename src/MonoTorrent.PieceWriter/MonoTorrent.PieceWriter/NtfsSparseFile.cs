@@ -62,14 +62,14 @@ namespace MonoTorrent.PieceWriter
 
         static bool SupportsSparse = true;
 
-        public static void CreateSparse (string fullPath, long length)
+        public static bool TryCreateSparse (string fullPath, long length)
         {
             if (!SupportsSparse)
-                return;
+                return false;
 
             try {
                 if (!CanCreateSparse (fullPath))
-                    return;
+                    return false;
 
                 // Create a file with the sparse flag enabled
 
@@ -82,11 +82,11 @@ namespace MonoTorrent.PieceWriter
                 using SafeFileHandle handle = CreateFileW (fullPath, access, sharing, IntPtr.Zero, creation, attributes, IntPtr.Zero);
                 // If we couldn't create the file, bail out
                 if (handle.IsInvalid)
-                    return;
+                    return false;
 
                 // If we can't set the sparse bit, bail out
                 if (!DeviceIoControl (handle, FSCTL_SET_SPARSE, IntPtr.Zero, 0, IntPtr.Zero, 0, ref bytesReturned, IntPtr.Zero))
-                    return;
+                    return false;
 
                 // Tell the filesystem to mark bytes 0 -> length as sparse zeros
                 var data = new FILE_ZERO_DATA_INFORMATION (0, length);
@@ -100,6 +100,8 @@ namespace MonoTorrent.PieceWriter
                 } finally {
                     Marshal.FreeHGlobal (ptr);
                 }
+
+                return true;
             } catch (DllNotFoundException) {
                 SupportsSparse = false;
             } catch (EntryPointNotFoundException) {
@@ -108,6 +110,8 @@ namespace MonoTorrent.PieceWriter
                 logger.Debug ($"Failed to create sparse file: {e}");
                 // Ignore for now. Maybe if i keep hitting this i should abort future attemts
             }
+
+            return false;
         }
 
         static bool CanCreateSparse (string volume)

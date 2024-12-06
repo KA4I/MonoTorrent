@@ -133,21 +133,29 @@ namespace MonoTorrent.PieceWriter
                     if (!File.Exists (file.FullPath))
                         using (var fs = new FileStream (file.FullPath, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.ReadWrite | FileShare.Delete)) {
                             fs.SetLength (file.Length);
-                            fs.Seek (file.Length - 1, SeekOrigin.Begin);
-                            fs.Write (new byte[1]);
+                            if (file.Length > 0) {
+                                fs.Seek (file.Length - 1, SeekOrigin.Begin);
+                                fs.Write (new byte[1]);
+                            }
                         }
 #else
                 File.OpenHandle (file.FullPath, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.ReadWrite | FileShare.Delete, FileOptions.None, file.Length).Dispose ();
 #endif
             } else {
                 try {
-                    NtfsSparseFile.CreateSparse (file.FullPath, file.Length);
+                    if (!NtfsSparseFile.TryCreateSparse (file.FullPath, file.Length))
+                        CreateEmpty (file.FullPath);
                 } catch {
                     // who cares if we can't pre-allocate a sparse file. Try a regular file!
-                    new FileStream (file.FullPath, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.ReadWrite | FileShare.Delete).Dispose ();
+                    CreateEmpty (file.FullPath);
                 }
             }
             return true;
+        }
+
+        static void CreateEmpty (string path)
+        {
+            new FileStream (path, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.ReadWrite | FileShare.Delete).Dispose ();
         }
 
         public ReusableTask<bool> ExistsAsync (ITorrentManagerFile file)
@@ -281,7 +289,7 @@ namespace MonoTorrent.PieceWriter
                     }
                 }
 
-                // Create the stream data and acquire the lock immediately, so any async invocation of MaybeRemoveOldestStream can't kill the stream. 
+                // Create the stream data and acquire the lock immediately, so any async invocation of MaybeRemoveOldestStream can't kill the stream.
                 freshStreamData = new StreamData ();
                 freshStreamDataReleaser = await freshStreamData.Locker.EnterAsync ();
                 allStreams.Streams.Add (freshStreamData);
