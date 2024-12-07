@@ -201,7 +201,15 @@ namespace MonoTorrent.Connections.Peer
         {
             base.Start (token);
 
-            var UdpClient = new UdpClient (PreferredLocalEndPoint);
+            var UdpClient = new UdpClient ();
+            try {
+                UdpClient.ExclusiveAddressUse = false;
+                UdpClient.Client.SetSocketOption (SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+            } catch (Exception e) {
+                logger.Info ($"Unable to allow address reuse: {e.Message}");
+                logger.Debug (e.ToString ());
+            }
+            UdpClient.Client.Bind (PreferredLocalEndPoint);
             LocalEndPoint = (IPEndPoint?) UdpClient.Client.LocalEndPoint;
 
             token.Register (() => UdpClient.Dispose ());
