@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
 
+  <Import Project="../src/Directory.Build.targets" />
+
   <PropertyGroup>
-    <MonoTorrentABIVersion>2.0.0.0</MonoTorrentABIVersion>
+    <Nullable></Nullable>
   </PropertyGroup>
 
 </Project>

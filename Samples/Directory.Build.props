@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <LangVersion>13.0</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\MonoTorrent.csproj" />
+    <Using Include="ReusableTasks" />
+  </ItemGroup>
+
+</Project>

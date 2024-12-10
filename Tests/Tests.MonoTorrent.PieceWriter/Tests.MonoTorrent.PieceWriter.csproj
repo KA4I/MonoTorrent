@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net6.0;net472</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UseCache>true</UseCache>
+    <UseMainLoop>true</UseMainLoop>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Tests.MonoTorrent.Client\TaskExtensions.cs" Link="Linked\%(FileName)%(Extension)" />
+  </ItemGroup>
+
+</Project>

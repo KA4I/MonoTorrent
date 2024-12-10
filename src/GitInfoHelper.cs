@@ -28,6 +28,7 @@
 
 
 using System;
+using System.Reflection;
 
 namespace MonoTorrent
 {
@@ -51,11 +52,7 @@ namespace MonoTorrent
 
         static GitInfoHelper()
         {
-            var version = new Version(
-                int.Parse(ThisAssembly.Git.BaseVersion.Major),
-                int.Parse(ThisAssembly.Git.BaseVersion.Minor),
-                int.Parse(ThisAssembly.Git.BaseVersion.Patch)
-            );
+            var version = Assembly.GetExecutingAssembly().GetName().Version;
             ClientVersion = "";
             DhtClientVersion = "";
             Initialize (version);

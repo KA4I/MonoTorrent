@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
+    <NoWarn>1701;1702;1591;0419;netsdk1138</NoWarn>
+    <LangVersion>13.0</LangVersion>
+    <AllowUnsafeBlocks Condition="$(TargetFramework) == 'netstandard2.0'">true</AllowUnsafeBlocks>
+    <Nullable>enable</Nullable>
+
+    <DebugType>embedded</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Deterministic>true</Deterministic>
+    <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Package stuff -->
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="C5" Version="[3.0.0-rc,4.0)" />
+
+    <!-- The following is recommended for public projects -->
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+
+    <PackageReference Include="Mono.Nat" Version="3.0" />
+    <PackageReference Include="ReusableTasks" Version="4.0.0" />
+    <PackageReference Include="StandardSocketsHttpHandler" Version="2.2.0.4" Condition="$(TargetFramework) == 'netstandard2.0'" />
+    <PackageReference Include="System.Memory" Version="4.5.1" Condition="$(TargetFramework) == 'netstandard2.0'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Benchmark" />
+    <InternalsVisibleTo Include="Tests.MonoTorrent" />
+    <InternalsVisibleTo Include="Tests.MonoTorrent.BEncoding" />
+    <InternalsVisibleTo Include="Tests.MonoTorrent.Client" />
+    <InternalsVisibleTo Include="Tests.MonoTorrent.Dht" />
+    <InternalsVisibleTo Include="Tests.MonoTorrent.PiecePicking" />
+    <InternalsVisibleTo Include="Tests.MonoTorrent.PieceWriter" />
+    <InternalsVisibleTo Include="Tests.MonoTorrent.Trackers" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <CI Condition="'$(CI)' == '' and '$(TF_BUILD)' == 'true'">true</CI>
+    <CI Condition="'$(CI)' == '' ">false</CI>
+    <RestoreLockedMode Condition="$(CI) and '$(RestoreLockedMode)' == ''">false</RestoreLockedMode>
+  </PropertyGroup>
+
+</Project>
