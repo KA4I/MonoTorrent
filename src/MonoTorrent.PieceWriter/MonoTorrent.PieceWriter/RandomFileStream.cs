@@ -95,8 +95,7 @@ namespace MonoTorrent.PieceWriter
             if (offset + buffer.Length > Length)
                 throw new ArgumentOutOfRangeException (nameof (offset));
 
-            await new EnsureThreadPool ();
-            return RandomAccess.Read (Handle, buffer.Span, offset);
+            return await RandomAccess.ReadAsync (Handle, buffer, offset).ConfigureAwait (false);
         }
 
         public async ReusableTask WriteAsync (ReadOnlyMemory<byte> buffer, long offset)
@@ -104,8 +103,7 @@ namespace MonoTorrent.PieceWriter
             if (offset + buffer.Length > Length)
                 throw new ArgumentOutOfRangeException (nameof (offset));
 
-            await new EnsureThreadPool ();
-            RandomAccess.Write (Handle, buffer.Span, offset);
+            await RandomAccess.WriteAsync (Handle, buffer, offset).ConfigureAwait (false);
         }
     }
 #endif
