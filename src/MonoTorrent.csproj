@@ -16,6 +16,7 @@
 
   <PropertyGroup>
     <!-- Package stuff -->
+    <Version>4.0.4</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
