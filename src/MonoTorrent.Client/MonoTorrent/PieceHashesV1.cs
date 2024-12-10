@@ -57,8 +57,8 @@ namespace MonoTorrent
         public ReadOnlyPieceHash GetHash (int hashIndex)
             => new ReadOnlyPieceHash (HashData.Slice (hashIndex * HashCodeLength, HashCodeLength), default);
 
-        public bool IsValid (ReadOnlyPieceHash hashes, int hashIndex)
-            => GetHash (hashIndex).V1Hash.Span.SequenceEqual (hashes.V1Hash.Span);
+        public bool IsValid (ReadOnlyPieceHashSpan hashes, int hashIndex)
+            => GetHash (hashIndex).V1Hash.Span.SequenceEqual (hashes.V1Hash);
 
         public bool TryGetV2Hashes (MerkleRoot piecesRoot, [NotNullWhen (true)] out ReadOnlyMerkleTree? layers)
         {

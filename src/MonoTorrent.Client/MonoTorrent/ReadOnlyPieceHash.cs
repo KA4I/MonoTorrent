@@ -46,4 +46,21 @@ namespace MonoTorrent
             (V1Hash, V2Hash) = (v1Hash, v2Hash);
         }
     }
+
+    public readonly ref struct ReadOnlyPieceHashSpan
+    {
+        public ReadOnlySpan<byte> V1Hash { get; }
+        public ReadOnlySpan<byte> V2Hash { get; }
+
+        internal ReadOnlyPieceHashSpan (ReadOnlySpan<byte> v1Hash, ReadOnlySpan<byte> v2Hash)
+        {
+            if (!v1Hash.IsEmpty && v1Hash.Length != 20)
+                throw new ArgumentException ("V1 hashes must be 20 bytes long");
+            if (!v2Hash.IsEmpty && v2Hash.Length != 32)
+                throw new ArgumentNullException ("V2 hashes must be 32 bytes long");
+
+            V1Hash = v1Hash;
+            V2Hash = v2Hash;
+        }
+    }
 }

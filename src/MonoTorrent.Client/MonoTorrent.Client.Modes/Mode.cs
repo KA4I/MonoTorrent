@@ -408,7 +408,21 @@ namespace MonoTorrent.Client.Modes
         readonly Dictionary<int, (int blocksWritten, CacheableHashSet<IRequester>? peersInvolved)> BlocksWrittenPerPiece = new Dictionary<int, (int blocksWritten, CacheableHashSet<IRequester>? peersInvolved)> ();
         async void WritePieceAsync (PieceMessage message, PeerMessage.Releaser releaser, bool pieceComplete, CacheableHashSet<IRequester>? peersInvolved)
         {
+            bool successful = false;
+            bool validHashConfirmed = false;
+            int hashSize = Manager.InfoHashes.GetMaxByteCount ();
             BlockInfo block = new BlockInfo (message.PieceIndex, message.StartOffset, message.RequestLength);
+#if NET6_0_OR_GREATER
+            if (block.StartOffset == 0
+                && block.RequestLength == Manager.Torrent!.PieceLength
+                && Manager.Torrent!.InfoHashes.V2 != null) {
+                Span<byte> hash = stackalloc byte[hashSize];
+                SHA256.HashData (message.Data.Span, hash);
+                var pieceHash = new ReadOnlyPieceHashSpan (ReadOnlySpan<byte>.Empty, v2Hash: hash);
+                validHashConfirmed = Manager.PieceHashes.IsValid (pieceHash, block.PieceIndex);
+                successful = true;
+            }
+#endif
             try {
                 using (releaser)
                     await DiskManager.WriteAsync (Manager, block, message.Data);
@@ -434,31 +448,34 @@ namespace MonoTorrent.Client.Modes
             BlocksWrittenPerPiece.Remove (block.PieceIndex);
             peersInvolved = data.peersInvolved!;
 
-            // Hashcheck the piece as we now have all the blocks.
-            // BEP52: Support validating both SHA1 *and* SHA256.
-            using var byteBuffer = MemoryPool.Default.Rent (Manager.InfoHashes.GetMaxByteCount (), out Memory<byte> hashMemory);
-            var hashes = new PieceHash (hashMemory);
-            bool successful = false;
-            try {
-                successful = await DiskManager.GetHashAsync (Manager, block.PieceIndex, hashes);
-                if (Cancellation.IsCancellationRequested)
+            if (!validHashConfirmed) {
+                // Hashcheck the piece as we now have all the blocks.
+                // BEP52: Support validating both SHA1 *and* SHA256.
+                using var byteBuffer = MemoryPool.Default.Rent (hashSize, out Memory<byte> hashMemory);
+                var hashes = new PieceHash (hashMemory);
+
+                try {
+                    successful |= await DiskManager.GetHashAsync (Manager, block.PieceIndex, hashes);
+                    if (Cancellation.IsCancellationRequested)
+                        return;
+                } catch (Exception ex) {
+                    Manager.TrySetError (Reason.ReadFailure, ex);
                     return;
-            } catch (Exception ex) {
-                Manager.TrySetError (Reason.ReadFailure, ex);
-                return;
+                }
+
+                if (!successful)
+                    logger.Error ("Hash reading failed");
+
+                validHashConfirmed = successful && Manager.PieceHashes.IsValid (hashes, block.PieceIndex);
             }
 
-            if (!successful)
-                logger.Error ("Hash reading failed");
-
-            bool result = successful && Manager.PieceHashes.IsValid (hashes, block.PieceIndex);
-            Manager.OnPieceHashed (block.PieceIndex, result, 1, 1);
+            Manager.OnPieceHashed (block.PieceIndex, validHashConfirmed, 1, 1);
             Manager.PieceManager.PieceHashed (block.PieceIndex);
-            if (!result)
+            if (!validHashConfirmed)
                 Manager.HashFails++;
 
             foreach (PeerId peer in peersInvolved) {
-                peer.Peer.HashedPiece (result);
+                peer.Peer.HashedPiece (validHashConfirmed);
                 if (Settings.MaximumTotalHashFails > 0 && peer.Peer.TotalHashFails >= Settings.MaximumTotalHashFails) {
                     if (!peer.Disposed)
                         logger.Debug ($"{peer.Uri}: disconnecting because they have {Settings.MaximumTotalHashFails} hashfails");
@@ -475,7 +492,7 @@ namespace MonoTorrent.Client.Modes
             PeersInvolvedCache.Enqueue (peersInvolved);
 
             // If the piece was successfully hashed, enqueue a new "have" message to be sent out
-            if (result)
+            if (validHashConfirmed)
                 Manager.finishedPieces.Enqueue (block.PieceIndex);
         }
 

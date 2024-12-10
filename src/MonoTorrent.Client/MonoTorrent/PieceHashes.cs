@@ -53,7 +53,7 @@ namespace MonoTorrent
             return new ReadOnlyPieceHash (v1.V1Hash, v2.V2Hash);
         }
 
-        public bool IsValid (ReadOnlyPieceHash hashes, int hashIndex)
+        public bool IsValid (ReadOnlyPieceHashSpan hashes, int hashIndex)
         {
             return (V1 is null || V1.IsValid (hashes, hashIndex))
                 && (V2 is null || V2.IsValid (hashes, hashIndex))

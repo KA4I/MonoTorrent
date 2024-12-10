@@ -39,8 +39,14 @@ namespace MonoTorrent
         bool HasV2Hashes { get; }
 
         ReadOnlyPieceHash GetHash (int hashIndex);
-        bool IsValid (ReadOnlyPieceHash hashes, int hashIndex);
+        bool IsValid (ReadOnlyPieceHashSpan hashes, int hashIndex);
         bool TryGetV2Hashes (MerkleRoot piecesRoot, [NotNullWhen (true)] out ReadOnlyMerkleTree? merkleTree);
         bool TryGetV2Hashes (MerkleRoot piecesRoot, int layer, int index, int count, int proofCount, Span<byte> hashesAndProofsBuffer, out int bytesWritten);
+    }
+
+    public static class PieceHashesExtensions
+    {
+        public static bool IsValid (this IPieceHashes self, ReadOnlyPieceHash hashes, int hashIndex)
+            => self.IsValid (new ReadOnlyPieceHashSpan(hashes.V1Hash.Span, hashes.V2Hash.Span), hashIndex);
     }
 }

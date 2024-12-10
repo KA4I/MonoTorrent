@@ -93,9 +93,9 @@ namespace MonoTorrent
             throw new InvalidOperationException ("Requested a piece which does not exist");
         }
 
-        public bool IsValid (ReadOnlyPieceHash hashes, int hashIndex)
+        public bool IsValid (ReadOnlyPieceHashSpan hashes, int hashIndex)
         {
-            return GetHash (hashIndex).V2Hash.Span.SequenceEqual (hashes.V2Hash.Span);
+            return GetHash (hashIndex).V2Hash.Span.SequenceEqual (hashes.V2Hash);
         }
 
         public bool TryGetV2Hashes (MerkleRoot piecesRoot, [NotNullWhen (true)] out ReadOnlyMerkleTree? layers)
