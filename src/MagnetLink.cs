@@ -208,7 +208,7 @@ namespace MonoTorrent
             sb.Append ("xt=urn:btih:");
             sb.Append (InfoHashes.V1OrV2.ToHex ());
 
-            if (!string.IsNullOrEmpty (Name)) {
+            if (Name is { Length: > 0 }) {
                 sb.Append ("&dn=");
                 sb.Append (Name.UrlEncodeQueryUTF8 ());
             }

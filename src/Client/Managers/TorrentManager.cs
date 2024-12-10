@@ -423,9 +423,9 @@ namespace MonoTorrent.Client
 
         public string Name {
             get {
-                if (!string.IsNullOrEmpty (Torrent?.Name))
+                if (Torrent?.Name is { Length: > 0 })
                     return Torrent.Name;
-                if (!string.IsNullOrEmpty (MagnetLink?.Name))
+                if (MagnetLink?.Name is { Length: > 0 })
                     return MagnetLink.Name;
                 return "";
             }

@@ -57,7 +57,7 @@ namespace System
         }
 
         [ThreadStatic]
-        static byte[] tryComputeHashBuffer;
+        static byte[]? tryComputeHashBuffer;
 
         public static bool TryComputeHash (this HashAlgorithm hasher, ReadOnlySpan<byte> buffer, Span<byte> destination, out int written)
         {
@@ -110,7 +110,7 @@ namespace System
 
 #if NETSTANDARD2_0 || NET472
         [ThreadStatic]
-        static byte[] appendDataBuffer;
+        static byte[]? appendDataBuffer;
 
         public static void AppendData (this IncrementalHash incrementalHash, ReadOnlySpan<byte> buffer)
         {

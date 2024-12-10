@@ -31,7 +31,7 @@ using System;
 using System.Diagnostics;
 
 #if NETSTANDARD2_0 || NET472
-namespace MonoTorrent
+namespace System.Diagnostics.CodeAnalysis
 {
     [AttributeUsage (AttributeTargets.Parameter, Inherited = false)]
     sealed class MaybeNullWhenAttribute : Attribute

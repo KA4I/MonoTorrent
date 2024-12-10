@@ -743,8 +743,13 @@ namespace MonoTorrent
                 // have a fixed hash order to guarantee that the set up finrequired to have strictly alphabetical file ordering so
                 // the v1 hashes are guaranteed to match  after padding files are inserted.
                 var lastNonPaddingFile = files.FindLast (t => !t.attributes.HasFlag (TorrentFileAttributes.Padding) && t.length > 0);
-                if (isHybridTorrent && !tup.attributes.HasFlag (TorrentFileAttributes.Padding) && lastNonPaddingFile != null && OrderComparer.Instance.Compare (tup.path.Value, lastNonPaddingFile.path.Value) < 0)
-                    throw new TorrentException ("The list of files must be in strict alphabetical order in a hybrid torrent");
+                if (isHybridTorrent && !tup.attributes.HasFlag (TorrentFileAttributes.Padding) && lastNonPaddingFile != null) {
+                    if (lastNonPaddingFile.path == null)
+                        throw new InvalidProgramException ("The last non-padding file must have a path");
+                    if (OrderComparer.Instance.Compare (tup.path.Value, lastNonPaddingFile.path.Value) < 0)
+                        throw new TorrentException ("The list of files must be in strict alphabetical order in a hybrid torrent");
+                }
+
                 files.Add (tup);
             }
 
