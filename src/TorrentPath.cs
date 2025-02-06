@@ -42,6 +42,8 @@ public readonly struct TorrentPath (params string[] parts): IComparable<TorrentP
         return _parts.Length.CompareTo (other._parts.Length);
     }
 
+    static readonly char[] InvalidPartChars = Path.GetInvalidFileNameChars ()
+        .Concat ([':', '/', '\\']).Distinct ().ToArray ();
     public static bool IsValidPart (string part)
     {
         if (part is null)
@@ -50,19 +52,21 @@ public readonly struct TorrentPath (params string[] parts): IComparable<TorrentP
         if (part.Length == 0)
             return false;
 
-        if (part.IndexOfAny (Path.GetInvalidFileNameChars ()) >= 0)
-            return false;
-
-        if (part.IndexOfAny ([':', '/', '\\']) >= 0)
-            return false;
-
         if (part is "." or "..")
+            return false;
+
+        if (part.IndexOfAny (InvalidPartChars) >= 0)
             return false;
 
         return true;
     }
-    static string ValidatePart (string part) =>
-        IsValidPart (part) ? part : throw new ArgumentException ("Invalid part", nameof(part));
+    static string ValidatePart (string part)
+    {
+        if (!IsValidPart (part))
+            throw new ArgumentException ("Invalid part", nameof(part));
+
+        return part;
+    }
 
     static T[] AtLeastOne<T> (T[] array) => array.Length > 0
         ? array

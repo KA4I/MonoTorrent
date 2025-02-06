@@ -13,10 +13,10 @@
 // distribute, sublicense, and/or sell copies of the Software, and to
 // permit persons to whom the Software is furnished to do so, subject to
 // the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 // EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -46,7 +46,7 @@ namespace MonoTorrent.PieceWriter
         ReusableTask CloseAsync (ITorrentManagerFile file);
 
         /// <summary>
-        /// Returns false if the file already exists, otherwise creates the file and returns true.  
+        /// Returns false if the file already exists, otherwise creates the file and returns true.
         /// </summary>
         /// <param name="file">The file to create</param>
         /// <param name="options">Determines how new files will be created.</param>
@@ -153,32 +153,6 @@ namespace MonoTorrent.PieceWriter
             }
 
             return done;
-        }
-
-        public static async ReusableTask<(int total, int padding)> PaddingAwareReadAsyncForCreator (this IPieceWriter writer, ITorrentManagerFile file, long offset, Memory<byte> buffer)
-        {
-            if (file is null)
-                throw new ArgumentNullException (nameof (file));
-
-            if (offset < 0 || offset + buffer.Length > (file.Length + file.Padding))
-                throw new ArgumentOutOfRangeException (nameof (offset));
-
-            (var todoFile, var todoPadding) = Partition (file, offset, buffer.Length);
-
-            int done = 0;
-
-            if (todoFile > 0) {
-                done = await writer.ReadAsync (file, offset, buffer.Slice (0, todoFile));
-                if (done < todoFile)
-                    return (done, 0);
-            }
-
-            if (todoPadding > 0) {
-                buffer.Slice (done, todoPadding).Span.Clear ();
-                done += todoPadding;
-            }
-
-            return (done, todoPadding);
         }
 
         public static
