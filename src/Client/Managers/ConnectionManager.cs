@@ -641,7 +641,8 @@ namespace MonoTorrent.Client
 
                     var buffer = socketMemory.Slice (0, msg.ByteLength);
                     if (msg is PieceMessage pm) {
-                        if (!manager.Bitfield[pm.PieceIndex]) {
+                        async ReusableTask Reject ()
+                        {
                             if (id.SupportsFastPeer) {
                                 var reject = new RejectRequestMessage (pm);
                                 logger.Debug ($"Rejected {pm.PieceIndex} to {id.Uri} because we don't have it");
@@ -651,13 +652,25 @@ namespace MonoTorrent.Client
                                 logger.Debug ($"Rejected {pm.PieceIndex} to {id.Uri} because we don't have it. Will send the bitfield.");
                                 await PeerIO.SendMessageAsync (id.Connection, id.Encryptor, bitfieldUpdate, manager.UploadLimiters, id.Monitor, manager.Monitor, buffer).ConfigureAwait (false);
                             }
+                        }
+
+                        if (!manager.Bitfield[pm.PieceIndex]) {
+                            await Reject ().ConfigureAwait(false);
                             continue;
                         }
 
                         pm.SetData ((default, buffer.Slice (buffer.Length - pm.RequestLength)));
                         try {
                             var request = new BlockInfo (pm.PieceIndex, pm.StartOffset, pm.RequestLength);
-                            await BlockReader.ReadAsync (manager, request, pm.Data).ConfigureAwait (false);
+                            int read = await BlockReader.ReadAsync (manager, request, pm.Data).ConfigureAwait (false);
+                            if (read < 0) {
+                                logger.Debug ($"{pm.PieceIndex} is not available anymore");
+                                await Reject ().ConfigureAwait (false);
+                                await ClientEngine.MainLoop;
+                                manager.UpdatePieceHashStatus (pm.PieceIndex, hashPassed: false,
+                                    hashed: 1, totalHashing: 1);
+                                continue;
+                            }
                         } catch (Exception ex) {
                             await ClientEngine.MainLoop;
                             manager.TrySetError (Reason.ReadFailure, ex);
