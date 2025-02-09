@@ -68,7 +68,7 @@ namespace MonoTorrent.Messages.Peer
             return written - buffer.Length;
         }
 
-        public void Initialize (Span<BlockInfo> requests)
+        public void Initialize (ReadOnlySpan<BlockInfo> requests)
         {
             var usedSize = MemoryMarshal.AsBytes (requests).Length;
             RequestsMemoryReleaser = Pool.Rent (Math.Max (256, usedSize), out Memory<byte> memory);

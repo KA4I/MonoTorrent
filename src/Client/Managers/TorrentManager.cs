@@ -766,7 +766,7 @@ namespace MonoTorrent.Client
                 LastLocalPeerAnnounceTimer.Restart ();
 
                 var endPoints = Engine.PeerListeners.Select (t => t.LocalEndPoint!).Where (t => t != null);
-                foreach (var endpoint in endPoints) { 
+                foreach (var endpoint in endPoints) {
                     if (InfoHashes.V1 != null)
                         await Engine.LocalPeerDiscovery.Announce (InfoHashes.V1, endpoint);
                     if (InfoHashes.V2 != null)
@@ -1261,7 +1261,14 @@ namespace MonoTorrent.Client
         void IMessageEnqueuer.EnqueueRequests (IRequester peer, Span<PieceSegment> segments)
         {
             (var bundle, var releaser) = RequestBundle.Rent<RequestBundle> ();
-            bundle.Initialize (segments.ToBlockInfo (stackalloc BlockInfo[segments.Length], this));
+            if (segments.Length < 32) {
+                Span<BlockInfo> blocks = stackalloc BlockInfo[segments.Length];
+                bundle.Initialize (segments.ToBlockInfo (blocks, this));
+            } else {
+                var blocks = new BlockInfo[segments.Length];
+                bundle.Initialize (segments.ToBlockInfo (blocks, this));
+            }
+
             ((PeerId) peer).MessageQueue.Enqueue (bundle, releaser);
         }
 
