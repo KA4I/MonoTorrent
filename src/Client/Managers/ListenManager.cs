@@ -116,7 +116,10 @@ namespace MonoTorrent.Client
                 if (!await HandleHandshake (peerInfo, e.Connection, result.Handshake!, result.Decryptor, result.Encryptor))
                     e.Connection.Dispose ();
             } catch (Exception ex) {
-                logger.Exception (e.Connection, ex, "Unexpected failure handling incoming connection");
+                if (ex is EncryptionException { Message: EncryptorFactory.InvalidHandshakeMessage })
+                    logger.Debug ($"{e.Connection.Uri} ({(e.Connection.IsIncoming ? "incoming" : "outgoing")}): {ex.Message}");
+                else
+                    logger.Exception (e.Connection, ex, "Unexpected failure handling incoming connection");
                 e.Connection.Dispose ();
             }
         }

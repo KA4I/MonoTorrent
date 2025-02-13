@@ -41,6 +41,8 @@ namespace MonoTorrent.Connections.Peer.Encryption
 {
     static class EncryptorFactory
     {
+        internal const string InvalidHandshakeMessage = "Invalid handshake received and no decryption works";
+
         internal struct EncryptorResult
         {
             public IEncryption Decryptor { get; }
@@ -109,7 +111,7 @@ namespace MonoTorrent.Connections.Peer.Encryption
             }
 
             connection.Dispose ();
-            throw new EncryptionException ("Invalid handshake received and no decryption works");
+            throw new EncryptionException (InvalidHandshakeMessage);
         }
 
         internal static async ReusableTask<EncryptorResult> CheckOutgoingConnectionAsync (IPeerConnection connection, IList<EncryptionType> allowedEncryption, InfoHash infoHash, HandshakeMessage handshake, Factories factories, TimeSpan timeout)
@@ -151,7 +153,7 @@ namespace MonoTorrent.Connections.Peer.Encryption
             }
 
             connection.Dispose ();
-            throw new EncryptionException ("Invalid handshake received and no decryption works");
+            throw new EncryptionException (InvalidHandshakeMessage);
         }
     }
 }
