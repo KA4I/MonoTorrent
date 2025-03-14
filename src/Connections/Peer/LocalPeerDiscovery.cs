@@ -141,6 +141,7 @@ namespace MonoTorrent.Connections.Peer
                 string message = string.Format (BaseSearchString, endPoint.Port, infoHash.ToHex ());
                 byte[] data = Encoding.ASCII.GetBytes (message);
 
+                int announced = 0;
                 foreach (var nic in nics) {
                     try {
                         if (nic.OperationalStatus is not OperationalStatus.Up
@@ -148,13 +149,20 @@ namespace MonoTorrent.Connections.Peer
                             continue;
                         var ipProperties = nic.GetIPProperties ();
                         var ipv4Addresses = ipProperties.UnicastAddresses.Where (t => t.Address.AddressFamily == AddressFamily.InterNetwork).Select (t => t.Address).ToList ();
+                        if (ipv4Addresses.Count == 0) {
+                            logger.Debug ($"Skipping {nic.Name} as it has no IPv4 addresses");
+                            continue;
+                        }
                         logger.Debug ($"Announcing {infoHash} with {endPoint} on {nic.Name} ({string.Join (",", ipv4Addresses)})");
                         sendingClient.Client.SetSocketOption (SocketOptionLevel.IP, SocketOptionName.MulticastInterface, IPAddress.HostToNetworkOrder (ipProperties.GetIPv4Properties ().Index));
                         await sendingClient.SendAsync (data, data.Length, MulticastAddressV4).ConfigureAwait (false);
+                        announced++;
                     } catch (Exception e) {
-                        logger.Debug ($"Unable to announce {infoHash} with {endPoint} on {nic.Name}: {e}");
+                        logger.Error ($"Unable to announce {infoHash} with {endPoint} on {nic.Name}: {e}");
                     }
                 }
+                if (announced == 0)
+                    logger.Error ($"Unable to announce {infoHash} with {endPoint} on any network interface");
             }
         }
 
@@ -186,7 +194,7 @@ namespace MonoTorrent.Connections.Peer
                     var infoHash = InfoHash.FromHex (hashString.Split (' ').Last ());
                     var uri = new Uri ($"ipv4://{result.RemoteEndPoint.Address}{':'}{portcheck}");
 
-                    logger.Debug ($"Local peer found for {infoHash.ToHex ()}: {uri}");
+                    logger.Info ($"Local peer found for {infoHash.ToHex ()}: {uri}");
 
                     PeerFound?.Invoke (this, new LocalPeerFoundEventArgs (infoHash, uri));
                 } catch (FileNotFoundException) {
