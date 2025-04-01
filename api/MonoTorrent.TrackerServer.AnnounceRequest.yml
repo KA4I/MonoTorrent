@@ -1,0 +1,1100 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.TrackerServer.AnnounceRequest
+  commentId: T:MonoTorrent.TrackerServer.AnnounceRequest
+  id: AnnounceRequest
+  parent: MonoTorrent.TrackerServer
+  children:
+  - MonoTorrent.TrackerServer.AnnounceRequest.#ctor(System.Collections.Specialized.NameValueCollection,System.Net.IPAddress)
+  - MonoTorrent.TrackerServer.AnnounceRequest.ClientAddress
+  - MonoTorrent.TrackerServer.AnnounceRequest.Downloaded
+  - MonoTorrent.TrackerServer.AnnounceRequest.Event
+  - MonoTorrent.TrackerServer.AnnounceRequest.HasRequestedCompact
+  - MonoTorrent.TrackerServer.AnnounceRequest.InfoHash
+  - MonoTorrent.TrackerServer.AnnounceRequest.IsValid
+  - MonoTorrent.TrackerServer.AnnounceRequest.Key
+  - MonoTorrent.TrackerServer.AnnounceRequest.Left
+  - MonoTorrent.TrackerServer.AnnounceRequest.NumberWanted
+  - MonoTorrent.TrackerServer.AnnounceRequest.PeerId
+  - MonoTorrent.TrackerServer.AnnounceRequest.Port
+  - MonoTorrent.TrackerServer.AnnounceRequest.TrackerId
+  - MonoTorrent.TrackerServer.AnnounceRequest.Uploaded
+  langs:
+  - csharp
+  - vb
+  name: AnnounceRequest
+  nameWithType: AnnounceRequest
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AnnounceRequest
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  syntax:
+    content: 'public class AnnounceRequest : TrackerRequest'
+    content.vb: Public Class AnnounceRequest Inherits TrackerRequest
+  inheritance:
+  - System.Object
+  - System.EventArgs
+  - MonoTorrent.TrackerServer.TrackerRequest
+  inheritedMembers:
+  - MonoTorrent.TrackerServer.TrackerRequest.FailureKey
+  - MonoTorrent.TrackerServer.TrackerRequest.WarningKey
+  - MonoTorrent.TrackerServer.TrackerRequest.Parameters
+  - MonoTorrent.TrackerServer.TrackerRequest.Response
+  - MonoTorrent.TrackerServer.TrackerRequest.RemoteAddress
+  - System.EventArgs.Empty
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.ClientAddress
+  commentId: P:MonoTorrent.TrackerServer.AnnounceRequest.ClientAddress
+  id: ClientAddress
+  parent: MonoTorrent.TrackerServer.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: ClientAddress
+  nameWithType: AnnounceRequest.ClientAddress
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.ClientAddress
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ClientAddress
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 54
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: >-
+    This is the IPAddress/Port that the client is listening for incoming connections on. If the
+
+    announce request contained an 'ip' parameter then it is used, otherwise the actual IP from the
+
+    request is used.
+  example: []
+  syntax:
+    content: public IPEndPoint ClientAddress { get; }
+    parameters: []
+    return:
+      type: System.Net.IPEndPoint
+    content.vb: Public ReadOnly Property ClientAddress As IPEndPoint
+  overload: MonoTorrent.TrackerServer.AnnounceRequest.ClientAddress*
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.Downloaded
+  commentId: P:MonoTorrent.TrackerServer.AnnounceRequest.Downloaded
+  id: Downloaded
+  parent: MonoTorrent.TrackerServer.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: Downloaded
+  nameWithType: AnnounceRequest.Downloaded
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.Downloaded
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Downloaded
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 59
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The total number of bytes downloaded since the 'Started' event was sent.
+  example: []
+  syntax:
+    content: public int Downloaded { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Downloaded As Integer
+  overload: MonoTorrent.TrackerServer.AnnounceRequest.Downloaded*
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.Event
+  commentId: P:MonoTorrent.TrackerServer.AnnounceRequest.Event
+  id: Event
+  parent: MonoTorrent.TrackerServer.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: Event
+  nameWithType: AnnounceRequest.Event
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.Event
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Event
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 64
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The event, if any, associated with this announce
+  example: []
+  syntax:
+    content: public TorrentEvent Event { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.TorrentEvent
+    content.vb: Public ReadOnly Property [Event] As TorrentEvent
+  overload: MonoTorrent.TrackerServer.AnnounceRequest.Event*
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.Left
+  commentId: P:MonoTorrent.TrackerServer.AnnounceRequest.Left
+  id: Left
+  parent: MonoTorrent.TrackerServer.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: Left
+  nameWithType: AnnounceRequest.Left
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.Left
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Left
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 82
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The number of bytes which still need to be downloaded to make the torrent 100% complete.
+  example: []
+  syntax:
+    content: public int Left { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Left As Integer
+  overload: MonoTorrent.TrackerServer.AnnounceRequest.Left*
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.HasRequestedCompact
+  commentId: P:MonoTorrent.TrackerServer.AnnounceRequest.HasRequestedCompact
+  id: HasRequestedCompact
+  parent: MonoTorrent.TrackerServer.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: HasRequestedCompact
+  nameWithType: AnnounceRequest.HasRequestedCompact
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.HasRequestedCompact
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: HasRequestedCompact
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 87
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: True if the peers should be returned in compact form.
+  example: []
+  syntax:
+    content: public bool HasRequestedCompact { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasRequestedCompact As Boolean
+  overload: MonoTorrent.TrackerServer.AnnounceRequest.HasRequestedCompact*
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.InfoHash
+  commentId: P:MonoTorrent.TrackerServer.AnnounceRequest.InfoHash
+  id: InfoHash
+  parent: MonoTorrent.TrackerServer.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: InfoHash
+  nameWithType: AnnounceRequest.InfoHash
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.InfoHash
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: InfoHash
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 92
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The infohash of the torrent this request is associated with.
+  example: []
+  syntax:
+    content: public InfoHash? InfoHash { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.InfoHash
+    content.vb: Public ReadOnly Property InfoHash As InfoHash
+  overload: MonoTorrent.TrackerServer.AnnounceRequest.InfoHash*
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.Key
+  commentId: P:MonoTorrent.TrackerServer.AnnounceRequest.Key
+  id: Key
+  parent: MonoTorrent.TrackerServer.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: Key
+  nameWithType: AnnounceRequest.Key
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.Key
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Key
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 98
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: >-
+    An arbitrary identifier generated by the client which can be used to track the client even if
+
+    it's IP address changes. This is never shared with other peers.
+  example: []
+  syntax:
+    content: public BEncodedString? Key { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.BEncoding.BEncodedString
+    content.vb: Public ReadOnly Property Key As BEncodedString
+  overload: MonoTorrent.TrackerServer.AnnounceRequest.Key*
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.IsValid
+  commentId: P:MonoTorrent.TrackerServer.AnnounceRequest.IsValid
+  id: IsValid
+  parent: MonoTorrent.TrackerServer.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: AnnounceRequest.IsValid
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.IsValid
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IsValid
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 104
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: >-
+    Returns false if any required parameters are missing from the request. If this occurs the 'Response'
+
+    dictionary will be populated with the appropriate error message.
+  example: []
+  syntax:
+    content: public override bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsValid As Boolean
+  overridden: MonoTorrent.TrackerServer.TrackerRequest.IsValid
+  overload: MonoTorrent.TrackerServer.AnnounceRequest.IsValid*
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.NumberWanted
+  commentId: P:MonoTorrent.TrackerServer.AnnounceRequest.NumberWanted
+  id: NumberWanted
+  parent: MonoTorrent.TrackerServer.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: NumberWanted
+  nameWithType: AnnounceRequest.NumberWanted
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.NumberWanted
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: NumberWanted
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 110
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: >-
+    The number of peers the client wants to receive. If unspecified then the tracker default amount
+
+    be returned.
+  example: []
+  syntax:
+    content: public int NumberWanted { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property NumberWanted As Integer
+  overload: MonoTorrent.TrackerServer.AnnounceRequest.NumberWanted*
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.PeerId
+  commentId: P:MonoTorrent.TrackerServer.AnnounceRequest.PeerId
+  id: PeerId
+  parent: MonoTorrent.TrackerServer.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: PeerId
+  nameWithType: AnnounceRequest.PeerId
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.PeerId
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PeerId
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 116
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: >-
+    The 20 byte identifier for the peer. This is shared with other peers when a non-compact response
+
+    is returned.
+  example: []
+  syntax:
+    content: public BEncodedString PeerId { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.BEncoding.BEncodedString
+    content.vb: Public ReadOnly Property PeerId As BEncodedString
+  overload: MonoTorrent.TrackerServer.AnnounceRequest.PeerId*
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.Port
+  commentId: P:MonoTorrent.TrackerServer.AnnounceRequest.Port
+  id: Port
+  parent: MonoTorrent.TrackerServer.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: Port
+  nameWithType: AnnounceRequest.Port
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.Port
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Port
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 121
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The port the client is listening for incoming connections on.
+  example: []
+  syntax:
+    content: public int Port { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Port As Integer
+  overload: MonoTorrent.TrackerServer.AnnounceRequest.Port*
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.TrackerId
+  commentId: P:MonoTorrent.TrackerServer.AnnounceRequest.TrackerId
+  id: TrackerId
+  parent: MonoTorrent.TrackerServer.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: TrackerId
+  nameWithType: AnnounceRequest.TrackerId
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.TrackerId
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TrackerId
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 127
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: >-
+    The first time a peer announces to a tracker, we send it the TrackerId
+
+    of this tracker. Subsequent announce requests should send that value.
+  example: []
+  syntax:
+    content: public BEncodedString? TrackerId { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.BEncoding.BEncodedString
+    content.vb: Public ReadOnly Property TrackerId As BEncodedString
+  overload: MonoTorrent.TrackerServer.AnnounceRequest.TrackerId*
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.Uploaded
+  commentId: P:MonoTorrent.TrackerServer.AnnounceRequest.Uploaded
+  id: Uploaded
+  parent: MonoTorrent.TrackerServer.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: Uploaded
+  nameWithType: AnnounceRequest.Uploaded
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.Uploaded
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Uploaded
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 132
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The total amount of bytes uploaded since the 'Started' event was sent.
+  example: []
+  syntax:
+    content: public long Uploaded { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property Uploaded As Long
+  overload: MonoTorrent.TrackerServer.AnnounceRequest.Uploaded*
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.#ctor(System.Collections.Specialized.NameValueCollection,System.Net.IPAddress)
+  commentId: M:MonoTorrent.TrackerServer.AnnounceRequest.#ctor(System.Collections.Specialized.NameValueCollection,System.Net.IPAddress)
+  id: '#ctor(System.Collections.Specialized.NameValueCollection,System.Net.IPAddress)'
+  parent: MonoTorrent.TrackerServer.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: AnnounceRequest(NameValueCollection, IPAddress)
+  nameWithType: AnnounceRequest.AnnounceRequest(NameValueCollection, IPAddress)
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.AnnounceRequest(System.Collections.Specialized.NameValueCollection, System.Net.IPAddress)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/TrackerServer/AnnounceRequest.cs
+    startLine: 134
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  syntax:
+    content: public AnnounceRequest(NameValueCollection collection, IPAddress address)
+    parameters:
+    - id: collection
+      type: System.Collections.Specialized.NameValueCollection
+    - id: address
+      type: System.Net.IPAddress
+    content.vb: Public Sub New(collection As NameValueCollection, address As IPAddress)
+  overload: MonoTorrent.TrackerServer.AnnounceRequest.#ctor*
+  nameWithType.vb: AnnounceRequest.New(NameValueCollection, IPAddress)
+  fullName.vb: MonoTorrent.TrackerServer.AnnounceRequest.New(System.Collections.Specialized.NameValueCollection, System.Net.IPAddress)
+  name.vb: New(NameValueCollection, IPAddress)
+references:
+- uid: MonoTorrent.TrackerServer
+  commentId: N:MonoTorrent.TrackerServer
+  href: MonoTorrent.html
+  name: MonoTorrent.TrackerServer
+  nameWithType: MonoTorrent.TrackerServer
+  fullName: MonoTorrent.TrackerServer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.TrackerServer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.TrackerServer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.EventArgs
+  commentId: T:System.EventArgs
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventargs
+  name: EventArgs
+  nameWithType: EventArgs
+  fullName: System.EventArgs
+- uid: MonoTorrent.TrackerServer.TrackerRequest
+  commentId: T:MonoTorrent.TrackerServer.TrackerRequest
+  parent: MonoTorrent.TrackerServer
+  href: MonoTorrent.TrackerServer.TrackerRequest.html
+  name: TrackerRequest
+  nameWithType: TrackerRequest
+  fullName: MonoTorrent.TrackerServer.TrackerRequest
+- uid: MonoTorrent.TrackerServer.TrackerRequest.FailureKey
+  commentId: F:MonoTorrent.TrackerServer.TrackerRequest.FailureKey
+  parent: MonoTorrent.TrackerServer.TrackerRequest
+  href: MonoTorrent.TrackerServer.TrackerRequest.html#MonoTorrent_TrackerServer_TrackerRequest_FailureKey
+  name: FailureKey
+  nameWithType: TrackerRequest.FailureKey
+  fullName: MonoTorrent.TrackerServer.TrackerRequest.FailureKey
+- uid: MonoTorrent.TrackerServer.TrackerRequest.WarningKey
+  commentId: F:MonoTorrent.TrackerServer.TrackerRequest.WarningKey
+  parent: MonoTorrent.TrackerServer.TrackerRequest
+  href: MonoTorrent.TrackerServer.TrackerRequest.html#MonoTorrent_TrackerServer_TrackerRequest_WarningKey
+  name: WarningKey
+  nameWithType: TrackerRequest.WarningKey
+  fullName: MonoTorrent.TrackerServer.TrackerRequest.WarningKey
+- uid: MonoTorrent.TrackerServer.TrackerRequest.Parameters
+  commentId: P:MonoTorrent.TrackerServer.TrackerRequest.Parameters
+  parent: MonoTorrent.TrackerServer.TrackerRequest
+  href: MonoTorrent.TrackerServer.TrackerRequest.html#MonoTorrent_TrackerServer_TrackerRequest_Parameters
+  name: Parameters
+  nameWithType: TrackerRequest.Parameters
+  fullName: MonoTorrent.TrackerServer.TrackerRequest.Parameters
+- uid: MonoTorrent.TrackerServer.TrackerRequest.Response
+  commentId: P:MonoTorrent.TrackerServer.TrackerRequest.Response
+  parent: MonoTorrent.TrackerServer.TrackerRequest
+  href: MonoTorrent.TrackerServer.TrackerRequest.html#MonoTorrent_TrackerServer_TrackerRequest_Response
+  name: Response
+  nameWithType: TrackerRequest.Response
+  fullName: MonoTorrent.TrackerServer.TrackerRequest.Response
+- uid: MonoTorrent.TrackerServer.TrackerRequest.RemoteAddress
+  commentId: P:MonoTorrent.TrackerServer.TrackerRequest.RemoteAddress
+  parent: MonoTorrent.TrackerServer.TrackerRequest
+  href: MonoTorrent.TrackerServer.TrackerRequest.html#MonoTorrent_TrackerServer_TrackerRequest_RemoteAddress
+  name: RemoteAddress
+  nameWithType: TrackerRequest.RemoteAddress
+  fullName: MonoTorrent.TrackerServer.TrackerRequest.RemoteAddress
+- uid: System.EventArgs.Empty
+  commentId: F:System.EventArgs.Empty
+  parent: System.EventArgs
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventargs.empty
+  name: Empty
+  nameWithType: EventArgs.Empty
+  fullName: System.EventArgs.Empty
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.ClientAddress*
+  commentId: Overload:MonoTorrent.TrackerServer.AnnounceRequest.ClientAddress
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest_ClientAddress
+  name: ClientAddress
+  nameWithType: AnnounceRequest.ClientAddress
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.ClientAddress
+- uid: System.Net.IPEndPoint
+  commentId: T:System.Net.IPEndPoint
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  name: IPEndPoint
+  nameWithType: IPEndPoint
+  fullName: System.Net.IPEndPoint
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.Downloaded*
+  commentId: Overload:MonoTorrent.TrackerServer.AnnounceRequest.Downloaded
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest_Downloaded
+  name: Downloaded
+  nameWithType: AnnounceRequest.Downloaded
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.Downloaded
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.Event*
+  commentId: Overload:MonoTorrent.TrackerServer.AnnounceRequest.Event
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest_Event
+  name: Event
+  nameWithType: AnnounceRequest.Event
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.Event
+- uid: MonoTorrent.TorrentEvent
+  commentId: T:MonoTorrent.TorrentEvent
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentEvent.html
+  name: TorrentEvent
+  nameWithType: TorrentEvent
+  fullName: MonoTorrent.TorrentEvent
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.Left*
+  commentId: Overload:MonoTorrent.TrackerServer.AnnounceRequest.Left
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest_Left
+  name: Left
+  nameWithType: AnnounceRequest.Left
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.Left
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.HasRequestedCompact*
+  commentId: Overload:MonoTorrent.TrackerServer.AnnounceRequest.HasRequestedCompact
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest_HasRequestedCompact
+  name: HasRequestedCompact
+  nameWithType: AnnounceRequest.HasRequestedCompact
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.HasRequestedCompact
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.InfoHash*
+  commentId: Overload:MonoTorrent.TrackerServer.AnnounceRequest.InfoHash
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest_InfoHash
+  name: InfoHash
+  nameWithType: AnnounceRequest.InfoHash
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.InfoHash
+- uid: MonoTorrent.InfoHash
+  commentId: T:MonoTorrent.InfoHash
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHash.html
+  name: InfoHash
+  nameWithType: InfoHash
+  fullName: MonoTorrent.InfoHash
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.Key*
+  commentId: Overload:MonoTorrent.TrackerServer.AnnounceRequest.Key
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest_Key
+  name: Key
+  nameWithType: AnnounceRequest.Key
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.Key
+- uid: MonoTorrent.BEncoding.BEncodedString
+  commentId: T:MonoTorrent.BEncoding.BEncodedString
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedString.html
+  name: BEncodedString
+  nameWithType: BEncodedString
+  fullName: MonoTorrent.BEncoding.BEncodedString
+- uid: MonoTorrent.BEncoding
+  commentId: N:MonoTorrent.BEncoding
+  href: MonoTorrent.html
+  name: MonoTorrent.BEncoding
+  nameWithType: MonoTorrent.BEncoding
+  fullName: MonoTorrent.BEncoding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+- uid: MonoTorrent.TrackerServer.TrackerRequest.IsValid
+  commentId: P:MonoTorrent.TrackerServer.TrackerRequest.IsValid
+  parent: MonoTorrent.TrackerServer.TrackerRequest
+  href: MonoTorrent.TrackerServer.TrackerRequest.html#MonoTorrent_TrackerServer_TrackerRequest_IsValid
+  name: IsValid
+  nameWithType: TrackerRequest.IsValid
+  fullName: MonoTorrent.TrackerServer.TrackerRequest.IsValid
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.IsValid*
+  commentId: Overload:MonoTorrent.TrackerServer.AnnounceRequest.IsValid
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest_IsValid
+  name: IsValid
+  nameWithType: AnnounceRequest.IsValid
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.IsValid
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.NumberWanted*
+  commentId: Overload:MonoTorrent.TrackerServer.AnnounceRequest.NumberWanted
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest_NumberWanted
+  name: NumberWanted
+  nameWithType: AnnounceRequest.NumberWanted
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.NumberWanted
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.PeerId*
+  commentId: Overload:MonoTorrent.TrackerServer.AnnounceRequest.PeerId
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest_PeerId
+  name: PeerId
+  nameWithType: AnnounceRequest.PeerId
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.PeerId
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.Port*
+  commentId: Overload:MonoTorrent.TrackerServer.AnnounceRequest.Port
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest_Port
+  name: Port
+  nameWithType: AnnounceRequest.Port
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.Port
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.TrackerId*
+  commentId: Overload:MonoTorrent.TrackerServer.AnnounceRequest.TrackerId
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest_TrackerId
+  name: TrackerId
+  nameWithType: AnnounceRequest.TrackerId
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.TrackerId
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.Uploaded*
+  commentId: Overload:MonoTorrent.TrackerServer.AnnounceRequest.Uploaded
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest_Uploaded
+  name: Uploaded
+  nameWithType: AnnounceRequest.Uploaded
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.Uploaded
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.#ctor*
+  commentId: Overload:MonoTorrent.TrackerServer.AnnounceRequest.#ctor
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest__ctor_System_Collections_Specialized_NameValueCollection_System_Net_IPAddress_
+  name: AnnounceRequest
+  nameWithType: AnnounceRequest.AnnounceRequest
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.AnnounceRequest
+  nameWithType.vb: AnnounceRequest.New
+  fullName.vb: MonoTorrent.TrackerServer.AnnounceRequest.New
+  name.vb: New
+- uid: System.Collections.Specialized.NameValueCollection
+  commentId: T:System.Collections.Specialized.NameValueCollection
+  parent: System.Collections.Specialized
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.specialized.namevaluecollection
+  name: NameValueCollection
+  nameWithType: NameValueCollection
+  fullName: System.Collections.Specialized.NameValueCollection
+- uid: System.Net.IPAddress
+  commentId: T:System.Net.IPAddress
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipaddress
+  name: IPAddress
+  nameWithType: IPAddress
+  fullName: System.Net.IPAddress
+- uid: System.Collections.Specialized
+  commentId: N:System.Collections.Specialized
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Specialized
+  nameWithType: System.Collections.Specialized
+  fullName: System.Collections.Specialized
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Specialized
+    name: Specialized
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.specialized
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Specialized
+    name: Specialized
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.specialized

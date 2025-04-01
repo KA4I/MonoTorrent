@@ -62,6 +62,7 @@ namespace MonoTorrent.Trackers
         List<BEncodedString> ipv4keys, ipv6keys;
         List<InfoHash> ipv4announcedInfoHashes, ipv6announcedInfoHashes;
         List<InfoHash> ipv4scrapedInfoHashes, ipv6scrapedInfoHashes;
+        Random portGenerator;
 
         AnnounceRequest announceparams = new AnnounceRequest (100, 50, 12345, TorrentEvent.Completed, InfoHashes.FromV1(InfoHash), false, PeerId, t => (null, 1515), false);
 
@@ -74,6 +75,7 @@ namespace MonoTorrent.Trackers
             ipv6announcedInfoHashes = new List<InfoHash> ();
             ipv4scrapedInfoHashes = new List<InfoHash> ();
             ipv6scrapedInfoHashes = new List<InfoHash> ();
+            portGenerator = new Random ();
 
             var uri = new Uri ($"http://localhost:123/announce");
             ConnectionIPv4 = new HttpTrackerConnection (uri, Factories.Default.CreateHttpClient, AddressFamily.InterNetwork);
@@ -156,12 +158,15 @@ namespace MonoTorrent.Trackers
         [Test]
         public async Task AnnounceIPv4_BothActive ()
         {
+            Console.WriteLine($"--- Starting AnnounceIPv4_BothActive Test ---");
             var addedPeers = AddPeersToServer (5, AddressFamily.InterNetwork, AddressFamily.InterNetworkV6);
             AddListener (AddressFamily.InterNetwork);
             AddListener (AddressFamily.InterNetworkV6);
 
             var tracker = new Tracker (ConnectionIPv4);
+            Console.WriteLine($"AnnounceIPv4_BothActive: Calling AnnounceAsync...");
             var result = await tracker.AnnounceAsync (announceparams, new CancellationTokenSource (Timeout).Token);
+            Console.WriteLine($"AnnounceIPv4_BothActive: AnnounceAsync returned state: {result.State}");
             Assert.AreEqual (TrackerState.Ok, result.State);
 
             // 5 ipv4 + self ipv4
@@ -265,7 +270,7 @@ namespace MonoTorrent.Trackers
 
             // Try to work around port-in-use issues in CI. Urgh. This is awful :P 
             int preferredPort = -1;
-            var portGenerator = new Random ();
+                Console.WriteLine($"AddListener ({addressFamily}): Trying port {preferredPort}...");
             for (int i = 0; i < 100; i++) {
                 preferredPort = portGenerator.Next (10000, 50000);
 
@@ -292,19 +297,24 @@ namespace MonoTorrent.Trackers
                 }
                 try {
                     listener.Start ();
-                } catch {
-                    continue;
-                }
+                    Console.WriteLine($"AddListener ({addressFamily}): Successfully started listener on port {preferredPort}.");
+                    // Assign the connection *here* using the confirmed available port
+                    var uri = new Uri ($"http://localhost:{preferredPort}/announce");
+                    Console.WriteLine($"AddListener ({addressFamily}): Listener started on {uri}"); // Keep this log for now
+                    if (addressFamily == AddressFamily.InterNetwork)
+                        ConnectionIPv4 = new HttpTrackerConnection (uri, Factories.Default.CreateHttpClient, addressFamily);
+    else if (addressFamily == AddressFamily.InterNetworkV6)
+        ConnectionIPv6 = new HttpTrackerConnection (uri, Factories.Default.CreateHttpClient, addressFamily);
+
+} catch (Exception ex) { // Add (Exception ex)
+    Console.WriteLine($"AddListener ({addressFamily}): FAILED to start listener on port {preferredPort}. Exception: {ex.Message}"); // Move inside catch
+    continue;
+}
                 server.RegisterListener (listener);
                 listeners.Add (listener);
                 break;
             }
 
-            var uri = new Uri ($"http://localhost:{preferredPort}/announce");
-            if (addressFamily == AddressFamily.InterNetwork)
-                ConnectionIPv4 = new HttpTrackerConnection (uri, Factories.Default.CreateHttpClient, addressFamily);
-            if (addressFamily == AddressFamily.InterNetworkV6)
-                ConnectionIPv6 = new HttpTrackerConnection (uri, Factories.Default.CreateHttpClient, addressFamily);
 
             return listener;
         }

@@ -1,0 +1,157 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.EncryptionType
+  commentId: T:MonoTorrent.Connections.EncryptionType
+  id: EncryptionType
+  parent: MonoTorrent.Connections
+  children:
+  - MonoTorrent.Connections.EncryptionType.PlainText
+  - MonoTorrent.Connections.EncryptionType.RC4Full
+  - MonoTorrent.Connections.EncryptionType.RC4Header
+  langs:
+  - csharp
+  - vb
+  name: EncryptionType
+  nameWithType: EncryptionType
+  fullName: MonoTorrent.Connections.EncryptionType
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/EncryptionType.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: EncryptionType
+    path: src/Connections/EncryptionType.cs
+    startLine: 30
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: public enum EncryptionType
+    content.vb: Public Enum EncryptionType
+- uid: MonoTorrent.Connections.EncryptionType.PlainText
+  commentId: F:MonoTorrent.Connections.EncryptionType.PlainText
+  id: PlainText
+  parent: MonoTorrent.Connections.EncryptionType
+  langs:
+  - csharp
+  - vb
+  name: PlainText
+  nameWithType: EncryptionType.PlainText
+  fullName: MonoTorrent.Connections.EncryptionType.PlainText
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/EncryptionType.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PlainText
+    path: src/Connections/EncryptionType.cs
+    startLine: 38
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  summary: >-
+    Nothing is encrypted. This is the fastest but allows deep packet inspection to detect
+
+    the bittorrent handshake. If connections are being closed before the handshake completes,
+
+    or very soon after it completes, then it's possible that the ISP is closing them, and so
+
+    RC4 based methods may prevent that from happening.
+  example: []
+  syntax:
+    content: PlainText = 0
+    return:
+      type: MonoTorrent.Connections.EncryptionType
+- uid: MonoTorrent.Connections.EncryptionType.RC4Header
+  commentId: F:MonoTorrent.Connections.EncryptionType.RC4Header
+  id: RC4Header
+  parent: MonoTorrent.Connections.EncryptionType
+  langs:
+  - csharp
+  - vb
+  name: RC4Header
+  nameWithType: EncryptionType.RC4Header
+  fullName: MonoTorrent.Connections.EncryptionType.RC4Header
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/EncryptionType.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RC4Header
+    path: src/Connections/EncryptionType.cs
+    startLine: 45
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  summary: >-
+    Encryption is applied to the initial handshaking process only. Once the connection has
+
+    been established all further data is sent in plain text. This is the second fastest
+
+    and should prevent deep packet inspection from detecting the bittorrent handshake.
+  example: []
+  syntax:
+    content: RC4Header = 1
+    return:
+      type: MonoTorrent.Connections.EncryptionType
+- uid: MonoTorrent.Connections.EncryptionType.RC4Full
+  commentId: F:MonoTorrent.Connections.EncryptionType.RC4Full
+  id: RC4Full
+  parent: MonoTorrent.Connections.EncryptionType
+  langs:
+  - csharp
+  - vb
+  name: RC4Full
+  nameWithType: EncryptionType.RC4Full
+  fullName: MonoTorrent.Connections.EncryptionType.RC4Full
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/EncryptionType.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RC4Full
+    path: src/Connections/EncryptionType.cs
+    startLine: 50
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  summary: Encryption is applied to the initial handshake and to all subsequent data transfers.
+  example: []
+  syntax:
+    content: RC4Full = 2
+    return:
+      type: MonoTorrent.Connections.EncryptionType
+references:
+- uid: MonoTorrent.Connections
+  commentId: N:MonoTorrent.Connections
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections
+  nameWithType: MonoTorrent.Connections
+  fullName: MonoTorrent.Connections
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+- uid: MonoTorrent.Connections.EncryptionType
+  commentId: T:MonoTorrent.Connections.EncryptionType
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.EncryptionType.html
+  name: EncryptionType
+  nameWithType: EncryptionType
+  fullName: MonoTorrent.Connections.EncryptionType

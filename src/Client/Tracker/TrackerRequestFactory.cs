@@ -58,7 +58,8 @@ namespace MonoTorrent.Trackers
                 int port = engine.GetOverrideOrActualListenPort (type).GetValueOrDefault (-1);
                 if (engine.Settings.ReportedListenEndPoints.TryGetValue (type, out var reportedAddress))
                     ip = reportedAddress.Address.ToString ();
-                return (ip, port);
+                // Ensure the port is valid (1-65535) before returning it. Return -1 if it's not ready/valid (0 or less).
+                return (ip, port > 0 ? port : -1);
             };
 
             // FIXME: In metadata mode we need to pretend we need to download data otherwise

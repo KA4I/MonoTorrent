@@ -1,0 +1,391 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.TrackerServer.PeerIdComparer
+  commentId: T:MonoTorrent.TrackerServer.PeerIdComparer
+  id: PeerIdComparer
+  parent: MonoTorrent.TrackerServer
+  children:
+  - MonoTorrent.TrackerServer.PeerIdComparer.GetKey(MonoTorrent.TrackerServer.AnnounceRequest)
+  langs:
+  - csharp
+  - vb
+  name: PeerIdComparer
+  nameWithType: PeerIdComparer
+  fullName: MonoTorrent.TrackerServer.PeerIdComparer
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/PeerIdComparer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PeerIdComparer
+    path: src/TrackerServer/PeerIdComparer.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: Uses the <xref href="MonoTorrent.TrackerServer.AnnounceRequest.PeerId" data-throw-if-not-resolved="false"></xref> field to compare peers when handling Announce or Scrape requests.
+  example: []
+  syntax:
+    content: 'public class PeerIdComparer : IPeerComparer'
+    content.vb: Public Class PeerIdComparer Implements IPeerComparer
+  inheritance:
+  - System.Object
+  implements:
+  - MonoTorrent.TrackerServer.IPeerComparer
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.TrackerServer.PeerIdComparer.GetKey(MonoTorrent.TrackerServer.AnnounceRequest)
+  commentId: M:MonoTorrent.TrackerServer.PeerIdComparer.GetKey(MonoTorrent.TrackerServer.AnnounceRequest)
+  id: GetKey(MonoTorrent.TrackerServer.AnnounceRequest)
+  parent: MonoTorrent.TrackerServer.PeerIdComparer
+  langs:
+  - csharp
+  - vb
+  name: GetKey(AnnounceRequest)
+  nameWithType: PeerIdComparer.GetKey(AnnounceRequest)
+  fullName: MonoTorrent.TrackerServer.PeerIdComparer.GetKey(MonoTorrent.TrackerServer.AnnounceRequest)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/PeerIdComparer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetKey
+    path: src/TrackerServer/PeerIdComparer.cs
+    startLine: 41
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: Returns the <xref href="MonoTorrent.TrackerServer.AnnounceRequest.PeerId" data-throw-if-not-resolved="false"></xref> field to use to compare peers.
+  example: []
+  syntax:
+    content: public object GetKey(AnnounceRequest parameters)
+    parameters:
+    - id: parameters
+      type: MonoTorrent.TrackerServer.AnnounceRequest
+      description: The data sent as part of the Announce request
+    return:
+      type: System.Object
+      description: ''
+    content.vb: Public Function GetKey(parameters As AnnounceRequest) As Object
+  overload: MonoTorrent.TrackerServer.PeerIdComparer.GetKey*
+  implements:
+  - MonoTorrent.TrackerServer.IPeerComparer.GetKey(MonoTorrent.TrackerServer.AnnounceRequest)
+references:
+- uid: MonoTorrent.TrackerServer.AnnounceRequest.PeerId
+  commentId: P:MonoTorrent.TrackerServer.AnnounceRequest.PeerId
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html#MonoTorrent_TrackerServer_AnnounceRequest_PeerId
+  name: PeerId
+  nameWithType: AnnounceRequest.PeerId
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest.PeerId
+- uid: MonoTorrent.TrackerServer
+  commentId: N:MonoTorrent.TrackerServer
+  href: MonoTorrent.html
+  name: MonoTorrent.TrackerServer
+  nameWithType: MonoTorrent.TrackerServer
+  fullName: MonoTorrent.TrackerServer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.TrackerServer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.TrackerServer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MonoTorrent.TrackerServer.IPeerComparer
+  commentId: T:MonoTorrent.TrackerServer.IPeerComparer
+  parent: MonoTorrent.TrackerServer
+  href: MonoTorrent.TrackerServer.IPeerComparer.html
+  name: IPeerComparer
+  nameWithType: IPeerComparer
+  fullName: MonoTorrent.TrackerServer.IPeerComparer
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.TrackerServer.PeerIdComparer.GetKey*
+  commentId: Overload:MonoTorrent.TrackerServer.PeerIdComparer.GetKey
+  href: MonoTorrent.TrackerServer.PeerIdComparer.html#MonoTorrent_TrackerServer_PeerIdComparer_GetKey_MonoTorrent_TrackerServer_AnnounceRequest_
+  name: GetKey
+  nameWithType: PeerIdComparer.GetKey
+  fullName: MonoTorrent.TrackerServer.PeerIdComparer.GetKey
+- uid: MonoTorrent.TrackerServer.IPeerComparer.GetKey(MonoTorrent.TrackerServer.AnnounceRequest)
+  commentId: M:MonoTorrent.TrackerServer.IPeerComparer.GetKey(MonoTorrent.TrackerServer.AnnounceRequest)
+  parent: MonoTorrent.TrackerServer.IPeerComparer
+  href: MonoTorrent.TrackerServer.IPeerComparer.html#MonoTorrent_TrackerServer_IPeerComparer_GetKey_MonoTorrent_TrackerServer_AnnounceRequest_
+  name: GetKey(AnnounceRequest)
+  nameWithType: IPeerComparer.GetKey(AnnounceRequest)
+  fullName: MonoTorrent.TrackerServer.IPeerComparer.GetKey(MonoTorrent.TrackerServer.AnnounceRequest)
+  spec.csharp:
+  - uid: MonoTorrent.TrackerServer.IPeerComparer.GetKey(MonoTorrent.TrackerServer.AnnounceRequest)
+    name: GetKey
+    href: MonoTorrent.TrackerServer.IPeerComparer.html#MonoTorrent_TrackerServer_IPeerComparer_GetKey_MonoTorrent_TrackerServer_AnnounceRequest_
+  - name: (
+  - uid: MonoTorrent.TrackerServer.AnnounceRequest
+    name: AnnounceRequest
+    href: MonoTorrent.TrackerServer.AnnounceRequest.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.TrackerServer.IPeerComparer.GetKey(MonoTorrent.TrackerServer.AnnounceRequest)
+    name: GetKey
+    href: MonoTorrent.TrackerServer.IPeerComparer.html#MonoTorrent_TrackerServer_IPeerComparer_GetKey_MonoTorrent_TrackerServer_AnnounceRequest_
+  - name: (
+  - uid: MonoTorrent.TrackerServer.AnnounceRequest
+    name: AnnounceRequest
+    href: MonoTorrent.TrackerServer.AnnounceRequest.html
+  - name: )
+- uid: MonoTorrent.TrackerServer.AnnounceRequest
+  commentId: T:MonoTorrent.TrackerServer.AnnounceRequest
+  parent: MonoTorrent.TrackerServer
+  href: MonoTorrent.TrackerServer.AnnounceRequest.html
+  name: AnnounceRequest
+  nameWithType: AnnounceRequest
+  fullName: MonoTorrent.TrackerServer.AnnounceRequest

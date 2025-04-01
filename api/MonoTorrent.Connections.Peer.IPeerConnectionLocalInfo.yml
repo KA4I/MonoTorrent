@@ -1,0 +1,280 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo
+  commentId: T:MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo
+  id: IPeerConnectionLocalInfo
+  parent: MonoTorrent.Connections.Peer
+  children:
+  - MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalAddressBytes
+  - MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalEndPoint
+  - MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalUri
+  langs:
+  - csharp
+  - vb
+  name: IPeerConnectionLocalInfo
+  nameWithType: IPeerConnectionLocalInfo
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnectionLocalInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IPeerConnectionLocalInfo
+    path: src/Connections/Peer/IPeerConnectionLocalInfo.cs
+    startLine: 5
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: public interface IPeerConnectionLocalInfo
+    content.vb: Public Interface IPeerConnectionLocalInfo
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalAddressBytes
+  commentId: P:MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalAddressBytes
+  id: LocalAddressBytes
+  parent: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo
+  langs:
+  - csharp
+  - vb
+  name: LocalAddressBytes
+  nameWithType: IPeerConnectionLocalInfo.LocalAddressBytes
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalAddressBytes
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnectionLocalInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LocalAddressBytes
+    path: src/Connections/Peer/IPeerConnectionLocalInfo.cs
+    startLine: 7
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: ReadOnlyMemory<byte> LocalAddressBytes { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlyMemory{System.Byte}
+    content.vb: ReadOnly Property LocalAddressBytes As ReadOnlyMemory(Of Byte)
+  overload: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalAddressBytes*
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalEndPoint
+  commentId: P:MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalEndPoint
+  id: LocalEndPoint
+  parent: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo
+  langs:
+  - csharp
+  - vb
+  name: LocalEndPoint
+  nameWithType: IPeerConnectionLocalInfo.LocalEndPoint
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalEndPoint
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnectionLocalInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LocalEndPoint
+    path: src/Connections/Peer/IPeerConnectionLocalInfo.cs
+    startLine: 9
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: IPEndPoint? LocalEndPoint { get; }
+    parameters: []
+    return:
+      type: System.Net.IPEndPoint
+    content.vb: ReadOnly Property LocalEndPoint As IPEndPoint
+  overload: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalEndPoint*
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalUri
+  commentId: P:MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalUri
+  id: LocalUri
+  parent: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo
+  langs:
+  - csharp
+  - vb
+  name: LocalUri
+  nameWithType: IPeerConnectionLocalInfo.LocalUri
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalUri
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnectionLocalInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LocalUri
+    path: src/Connections/Peer/IPeerConnectionLocalInfo.cs
+    startLine: 11
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: Uri? LocalUri { get; }
+    parameters: []
+    return:
+      type: System.Uri
+    content.vb: ReadOnly Property LocalUri As Uri
+  overload: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalUri*
+references:
+- uid: MonoTorrent.Connections.Peer
+  commentId: N:MonoTorrent.Connections.Peer
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.Peer
+  nameWithType: MonoTorrent.Connections.Peer
+  fullName: MonoTorrent.Connections.Peer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalAddressBytes*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalAddressBytes
+  href: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.html#MonoTorrent_Connections_Peer_IPeerConnectionLocalInfo_LocalAddressBytes
+  name: LocalAddressBytes
+  nameWithType: IPeerConnectionLocalInfo.LocalAddressBytes
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalAddressBytes
+- uid: System.ReadOnlyMemory{System.Byte}
+  commentId: T:System.ReadOnlyMemory{System.Byte}
+  parent: System
+  definition: System.ReadOnlyMemory`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<byte>
+  nameWithType: ReadOnlyMemory<byte>
+  fullName: System.ReadOnlyMemory<byte>
+  nameWithType.vb: ReadOnlyMemory(Of Byte)
+  fullName.vb: System.ReadOnlyMemory(Of Byte)
+  name.vb: ReadOnlyMemory(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlyMemory`1
+  commentId: T:System.ReadOnlyMemory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<T>
+  nameWithType: ReadOnlyMemory<T>
+  fullName: System.ReadOnlyMemory<T>
+  nameWithType.vb: ReadOnlyMemory(Of T)
+  fullName.vb: System.ReadOnlyMemory(Of T)
+  name.vb: ReadOnlyMemory(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalEndPoint*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalEndPoint
+  href: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.html#MonoTorrent_Connections_Peer_IPeerConnectionLocalInfo_LocalEndPoint
+  name: LocalEndPoint
+  nameWithType: IPeerConnectionLocalInfo.LocalEndPoint
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalEndPoint
+- uid: System.Net.IPEndPoint
+  commentId: T:System.Net.IPEndPoint
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  name: IPEndPoint
+  nameWithType: IPEndPoint
+  fullName: System.Net.IPEndPoint
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalUri*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalUri
+  href: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.html#MonoTorrent_Connections_Peer_IPeerConnectionLocalInfo_LocalUri
+  name: LocalUri
+  nameWithType: IPeerConnectionLocalInfo.LocalUri
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.LocalUri
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri

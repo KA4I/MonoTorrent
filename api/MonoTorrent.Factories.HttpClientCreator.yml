@@ -1,0 +1,130 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Factories.HttpClientCreator
+  commentId: T:MonoTorrent.Factories.HttpClientCreator
+  id: Factories.HttpClientCreator
+  parent: MonoTorrent
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: Factories.HttpClientCreator
+  nameWithType: Factories.HttpClientCreator
+  fullName: MonoTorrent.Factories.HttpClientCreator
+  type: Delegate
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: HttpClientCreator
+    path: src/Factories.cs
+    startLine: 60
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public delegate HttpClient Factories.HttpClientCreator(AddressFamily family)
+    parameters:
+    - id: family
+      type: System.Net.Sockets.AddressFamily
+    return:
+      type: System.Net.Http.HttpClient
+    content.vb: Public Delegate Function Factories.HttpClientCreator(family As AddressFamily) As HttpClient
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.Net.Sockets.AddressFamily
+  commentId: T:System.Net.Sockets.AddressFamily
+  parent: System.Net.Sockets
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.sockets.addressfamily
+  name: AddressFamily
+  nameWithType: AddressFamily
+  fullName: System.Net.Sockets.AddressFamily
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: System.Net.Sockets
+  commentId: N:System.Net.Sockets
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Sockets
+  nameWithType: System.Net.Sockets
+  fullName: System.Net.Sockets
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Sockets
+    name: Sockets
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.sockets
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Sockets
+    name: Sockets
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.sockets
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http

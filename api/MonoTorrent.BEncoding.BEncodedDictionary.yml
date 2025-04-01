@@ -1,0 +1,3700 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.BEncoding.BEncodedDictionary
+  commentId: T:MonoTorrent.BEncoding.BEncodedDictionary
+  id: BEncodedDictionary
+  parent: MonoTorrent.BEncoding
+  children:
+  - MonoTorrent.BEncoding.BEncodedDictionary.#ctor
+  - MonoTorrent.BEncoding.BEncodedDictionary.Add(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  - MonoTorrent.BEncoding.BEncodedDictionary.Add(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  - MonoTorrent.BEncoding.BEncodedDictionary.Clear
+  - MonoTorrent.BEncoding.BEncodedDictionary.Contains(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  - MonoTorrent.BEncoding.BEncodedDictionary.ContainsKey(MonoTorrent.BEncoding.BEncodedString)
+  - MonoTorrent.BEncoding.BEncodedDictionary.CopyTo(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}[],System.Int32)
+  - MonoTorrent.BEncoding.BEncodedDictionary.Count
+  - MonoTorrent.BEncoding.BEncodedDictionary.DecodeTorrent(System.IO.Stream)
+  - MonoTorrent.BEncoding.BEncodedDictionary.DecodeTorrent(System.ReadOnlySpan{System.Byte})
+  - MonoTorrent.BEncoding.BEncodedDictionary.Encode(System.Span{System.Byte})
+  - MonoTorrent.BEncoding.BEncodedDictionary.Equals(System.Object)
+  - MonoTorrent.BEncoding.BEncodedDictionary.GetEnumerator
+  - MonoTorrent.BEncoding.BEncodedDictionary.GetHashCode
+  - MonoTorrent.BEncoding.BEncodedDictionary.GetValueOrDefault(MonoTorrent.BEncoding.BEncodedString)
+  - MonoTorrent.BEncoding.BEncodedDictionary.GetValueOrDefault(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  - MonoTorrent.BEncoding.BEncodedDictionary.IsReadOnly
+  - MonoTorrent.BEncoding.BEncodedDictionary.Item(MonoTorrent.BEncoding.BEncodedString)
+  - MonoTorrent.BEncoding.BEncodedDictionary.Keys
+  - MonoTorrent.BEncoding.BEncodedDictionary.LengthInBytes
+  - MonoTorrent.BEncoding.BEncodedDictionary.Remove(MonoTorrent.BEncoding.BEncodedString)
+  - MonoTorrent.BEncoding.BEncodedDictionary.Remove(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  - MonoTorrent.BEncoding.BEncodedDictionary.ToString
+  - MonoTorrent.BEncoding.BEncodedDictionary.TryGetValue(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue@)
+  - MonoTorrent.BEncoding.BEncodedDictionary.Values
+  langs:
+  - csharp
+  - vb
+  name: BEncodedDictionary
+  nameWithType: BEncodedDictionary
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BEncodedDictionary
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Class representing a BEncoded Dictionary
+  example: []
+  syntax:
+    content: 'public class BEncodedDictionary : BEncodedValue, IDictionary<BEncodedString, BEncodedValue>, ICollection<KeyValuePair<BEncodedString, BEncodedValue>>, IEnumerable<KeyValuePair<BEncodedString, BEncodedValue>>, IEnumerable'
+    content.vb: Public Class BEncodedDictionary Inherits BEncodedValue Implements IDictionary(Of BEncodedString, BEncodedValue), ICollection(Of KeyValuePair(Of BEncodedString, BEncodedValue)), IEnumerable(Of KeyValuePair(Of BEncodedString, BEncodedValue)), IEnumerable
+  inheritance:
+  - System.Object
+  - MonoTorrent.BEncoding.BEncodedValue
+  implements:
+  - System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+  - System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  - System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  - System.Collections.IEnumerable
+  inheritedMembers:
+  - MonoTorrent.BEncoding.BEncodedValue.Encode
+  - MonoTorrent.BEncoding.BEncodedValue.Clone``1({T})
+  - MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte})
+  - MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte},System.Boolean)
+  - MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream)
+  - MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream,System.Boolean)
+  - MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte})
+  - MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte},System.Boolean)
+  - MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream)
+  - MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream,System.Boolean)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.DecodeTorrent(System.ReadOnlySpan{System.Byte})
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.DecodeTorrent(System.ReadOnlySpan{System.Byte})
+  id: DecodeTorrent(System.ReadOnlySpan{System.Byte})
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: DecodeTorrent(ReadOnlySpan<byte>)
+  nameWithType: BEncodedDictionary.DecodeTorrent(ReadOnlySpan<byte>)
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.DecodeTorrent(System.ReadOnlySpan<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DecodeTorrent
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 46
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: >-
+    Special decoding method for torrent files. This mode will ensure the correct infohash is generated
+
+    for torrents which contain dictionaries with misordered keys.
+  example: []
+  syntax:
+    content: public static (BEncodedDictionary torrent, RawInfoHashes infoHashes) DecodeTorrent(ReadOnlySpan<byte> buffer)
+    parameters:
+    - id: buffer
+      type: System.ReadOnlySpan{System.Byte}
+    return:
+      type: System.ValueTuple{MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.RawInfoHashes}
+      description: ''
+    content.vb: Public Shared Function DecodeTorrent(buffer As ReadOnlySpan(Of Byte)) As (torrent As BEncodedDictionary, infoHashes As RawInfoHashes)
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.DecodeTorrent*
+  nameWithType.vb: BEncodedDictionary.DecodeTorrent(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.BEncoding.BEncodedDictionary.DecodeTorrent(System.ReadOnlySpan(Of Byte))
+  name.vb: DecodeTorrent(ReadOnlySpan(Of Byte))
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.DecodeTorrent(System.IO.Stream)
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.DecodeTorrent(System.IO.Stream)
+  id: DecodeTorrent(System.IO.Stream)
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: DecodeTorrent(Stream)
+  nameWithType: BEncodedDictionary.DecodeTorrent(Stream)
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.DecodeTorrent(System.IO.Stream)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DecodeTorrent
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 54
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: >-
+    Special decoding method for torrent files. This mode will ensure the correct infohash is generated
+
+    for torrents which contain dictionaries with misordered keys.
+  example: []
+  syntax:
+    content: public static (BEncodedDictionary torrent, RawInfoHashes infohashes) DecodeTorrent(Stream stream)
+    parameters:
+    - id: stream
+      type: System.IO.Stream
+    return:
+      type: System.ValueTuple{MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.RawInfoHashes}
+      description: ''
+    content.vb: Public Shared Function DecodeTorrent(stream As Stream) As (torrent As BEncodedDictionary, infohashes As RawInfoHashes)
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.DecodeTorrent*
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.#ctor
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.#ctor
+  id: '#ctor'
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: BEncodedDictionary()
+  nameWithType: BEncodedDictionary.BEncodedDictionary()
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.BEncodedDictionary()
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 62
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Create a new BEncodedDictionary
+  example: []
+  syntax:
+    content: public BEncodedDictionary()
+    content.vb: Public Sub New()
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.#ctor*
+  nameWithType.vb: BEncodedDictionary.New()
+  fullName.vb: MonoTorrent.BEncoding.BEncodedDictionary.New()
+  name.vb: New()
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Encode(System.Span{System.Byte})
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.Encode(System.Span{System.Byte})
+  id: Encode(System.Span{System.Byte})
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: Encode(Span<byte>)
+  nameWithType: BEncodedDictionary.Encode(Span<byte>)
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Encode(System.Span<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Encode
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 72
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Encodes the dictionary to a byte[]
+  example: []
+  syntax:
+    content: public override int Encode(Span<byte> buffer)
+    parameters:
+    - id: buffer
+      type: System.Span{System.Byte}
+      description: The buffer to encode the data to
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Overrides Function Encode(buffer As Span(Of Byte)) As Integer
+  overridden: MonoTorrent.BEncoding.BEncodedValue.Encode(System.Span{System.Byte})
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.Encode*
+  nameWithType.vb: BEncodedDictionary.Encode(Span(Of Byte))
+  fullName.vb: MonoTorrent.BEncoding.BEncodedDictionary.Encode(System.Span(Of Byte))
+  name.vb: Encode(Span(Of Byte))
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.LengthInBytes
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.LengthInBytes
+  id: LengthInBytes
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: LengthInBytes()
+  nameWithType: BEncodedDictionary.LengthInBytes()
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.LengthInBytes()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LengthInBytes
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 92
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Returns the size of the dictionary in bytes using UTF8 encoding
+  example: []
+  syntax:
+    content: public override int LengthInBytes()
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Overrides Function LengthInBytes() As Integer
+  overridden: MonoTorrent.BEncoding.BEncodedValue.LengthInBytes
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.LengthInBytes*
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Equals(System.Object)
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: BEncodedDictionary.Equals(object?)
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Equals
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 104
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.Equals*
+  nameWithType.vb: BEncodedDictionary.Equals(Object)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedDictionary.Equals(Object)
+  name.vb: Equals(Object)
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.GetHashCode
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.GetHashCode
+  id: GetHashCode
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: BEncodedDictionary.GetHashCode()
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetHashCode
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 123
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.GetHashCode*
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.ToString
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.ToString
+  id: ToString
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: BEncodedDictionary.ToString()
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.ToString()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToString
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 134
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.ToString*
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Add(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.Add(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  id: Add(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: Add(BEncodedString, BEncodedValue)
+  nameWithType: BEncodedDictionary.Add(BEncodedString, BEncodedValue)
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Add(MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Add
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 137
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Adds an element with the provided key and value to the <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void Add(BEncodedString key, BEncodedValue value)
+    parameters:
+    - id: key
+      type: MonoTorrent.BEncoding.BEncodedString
+      description: The object to use as the key of the element to add.
+    - id: value
+      type: MonoTorrent.BEncoding.BEncodedValue
+      description: The object to use as the value of the element to add.
+    content.vb: Public Sub Add(key As BEncodedString, value As BEncodedValue)
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.Add*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">key</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: An element with the same key already exists in the <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref>.
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: The <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref> is read-only.
+  implements:
+  - System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Add(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Add(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.Add(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  id: Add(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: Add(KeyValuePair<BEncodedString, BEncodedValue>)
+  nameWithType: BEncodedDictionary.Add(KeyValuePair<BEncodedString, BEncodedValue>)
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Add(System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Add
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 142
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Adds an item to the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void Add(KeyValuePair<BEncodedString, BEncodedValue> item)
+    parameters:
+    - id: item
+      type: System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+      description: The object to add to the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub Add(item As KeyValuePair(Of BEncodedString, BEncodedValue))
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.Add*
+  exceptions:
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: The <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> is read-only.
+  implements:
+  - System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Add(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  nameWithType.vb: BEncodedDictionary.Add(KeyValuePair(Of BEncodedString, BEncodedValue))
+  fullName.vb: MonoTorrent.BEncoding.BEncodedDictionary.Add(System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue))
+  name.vb: Add(KeyValuePair(Of BEncodedString, BEncodedValue))
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Clear
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.Clear
+  id: Clear
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: BEncodedDictionary.Clear()
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Clear()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Clear
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 146
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Removes all items from the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.Clear*
+  exceptions:
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: The <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> is read-only.
+  implements:
+  - System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Clear
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Contains(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.Contains(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  id: Contains(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: Contains(KeyValuePair<BEncodedString, BEncodedValue>)
+  nameWithType: BEncodedDictionary.Contains(KeyValuePair<BEncodedString, BEncodedValue>)
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Contains(System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Contains
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 151
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Determines whether the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> contains a specific value.
+  example: []
+  syntax:
+    content: public bool Contains(KeyValuePair<BEncodedString, BEncodedValue> item)
+    parameters:
+    - id: item
+      type: System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+      description: The object to locate in the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">item</code> is found in the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Contains(item As KeyValuePair(Of BEncodedString, BEncodedValue)) As Boolean
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.Contains*
+  implements:
+  - System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Contains(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  nameWithType.vb: BEncodedDictionary.Contains(KeyValuePair(Of BEncodedString, BEncodedValue))
+  fullName.vb: MonoTorrent.BEncoding.BEncodedDictionary.Contains(System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue))
+  name.vb: Contains(KeyValuePair(Of BEncodedString, BEncodedValue))
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.ContainsKey(MonoTorrent.BEncoding.BEncodedString)
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.ContainsKey(MonoTorrent.BEncoding.BEncodedString)
+  id: ContainsKey(MonoTorrent.BEncoding.BEncodedString)
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: ContainsKey(BEncodedString)
+  nameWithType: BEncodedDictionary.ContainsKey(BEncodedString)
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.ContainsKey(MonoTorrent.BEncoding.BEncodedString)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ContainsKey
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 159
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Determines whether the <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref> contains an element with the specified key.
+  example: []
+  syntax:
+    content: public bool ContainsKey(BEncodedString key)
+    parameters:
+    - id: key
+      type: MonoTorrent.BEncoding.BEncodedString
+      description: The key to locate in the <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref> contains an element with the key; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function ContainsKey(key As BEncodedString) As Boolean
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.ContainsKey*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">key</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  implements:
+  - System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.ContainsKey(MonoTorrent.BEncoding.BEncodedString)
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.CopyTo(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}[],System.Int32)
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.CopyTo(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}[],System.Int32)
+  id: CopyTo(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}[],System.Int32)
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(KeyValuePair<BEncodedString, BEncodedValue>[], int)
+  nameWithType: BEncodedDictionary.CopyTo(KeyValuePair<BEncodedString, BEncodedValue>[], int)
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.CopyTo(System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>[], int)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CopyTo
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 164
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Copies the elements of the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> to an <xref href="System.Array" data-throw-if-not-resolved="false"></xref>, starting at a particular <xref href="System.Array" data-throw-if-not-resolved="false"></xref> index.
+  example: []
+  syntax:
+    content: public void CopyTo(KeyValuePair<BEncodedString, BEncodedValue>[] array, int arrayIndex)
+    parameters:
+    - id: array
+      type: System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}[]
+      description: The one-dimensional <xref href="System.Array" data-throw-if-not-resolved="false"></xref> that is the destination of the elements copied from <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>. The <xref href="System.Array" data-throw-if-not-resolved="false"></xref> must have zero-based indexing.
+    - id: arrayIndex
+      type: System.Int32
+      description: The zero-based index in <code class="paramref">array</code> at which copying begins.
+    content.vb: Public Sub CopyTo(array As KeyValuePair(Of BEncodedString, BEncodedValue)(), arrayIndex As Integer)
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.CopyTo*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">array</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: <code class="paramref">arrayIndex</code> is less than 0.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: The number of elements in the source <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> is greater than the available space from <code class="paramref">arrayIndex</code> to the end of the destination <code class="paramref">array</code>.
+  implements:
+  - System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.CopyTo(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}[],System.Int32)
+  nameWithType.vb: BEncodedDictionary.CopyTo(KeyValuePair(Of BEncodedString, BEncodedValue)(), Integer)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedDictionary.CopyTo(System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)(), Integer)
+  name.vb: CopyTo(KeyValuePair(Of BEncodedString, BEncodedValue)(), Integer)
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Count
+  commentId: P:MonoTorrent.BEncoding.BEncodedDictionary.Count
+  id: Count
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: BEncodedDictionary.Count
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Count
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Count
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 170
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Gets the number of elements contained in the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: The number of elements contained in the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.Count*
+  implements:
+  - System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Count
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.GetValueOrDefault(MonoTorrent.BEncoding.BEncodedString)
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.GetValueOrDefault(MonoTorrent.BEncoding.BEncodedString)
+  id: GetValueOrDefault(MonoTorrent.BEncoding.BEncodedString)
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: GetValueOrDefault(BEncodedString)
+  nameWithType: BEncodedDictionary.GetValueOrDefault(BEncodedString)
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.GetValueOrDefault(MonoTorrent.BEncoding.BEncodedString)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetValueOrDefault
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 172
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  syntax:
+    content: public BEncodedValue? GetValueOrDefault(BEncodedString key)
+    parameters:
+    - id: key
+      type: MonoTorrent.BEncoding.BEncodedString
+    return:
+      type: MonoTorrent.BEncoding.BEncodedValue
+    content.vb: Public Function GetValueOrDefault(key As BEncodedString) As BEncodedValue
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.GetValueOrDefault*
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.GetValueOrDefault(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.GetValueOrDefault(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  id: GetValueOrDefault(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: GetValueOrDefault(BEncodedString, BEncodedValue?)
+  nameWithType: BEncodedDictionary.GetValueOrDefault(BEncodedString, BEncodedValue?)
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.GetValueOrDefault(MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetValueOrDefault
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 177
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  syntax:
+    content: public BEncodedValue? GetValueOrDefault(BEncodedString key, BEncodedValue? defaultValue)
+    parameters:
+    - id: key
+      type: MonoTorrent.BEncoding.BEncodedString
+    - id: defaultValue
+      type: MonoTorrent.BEncoding.BEncodedValue
+    return:
+      type: MonoTorrent.BEncoding.BEncodedValue
+    content.vb: Public Function GetValueOrDefault(key As BEncodedString, defaultValue As BEncodedValue) As BEncodedValue
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.GetValueOrDefault*
+  nameWithType.vb: BEncodedDictionary.GetValueOrDefault(BEncodedString, BEncodedValue)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedDictionary.GetValueOrDefault(MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)
+  name.vb: GetValueOrDefault(BEncodedString, BEncodedValue)
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.IsReadOnly
+  commentId: P:MonoTorrent.BEncoding.BEncodedDictionary.IsReadOnly
+  id: IsReadOnly
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: IsReadOnly
+  nameWithType: BEncodedDictionary.IsReadOnly
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.IsReadOnly
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IsReadOnly
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 182
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Gets a value indicating whether the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> is read-only.
+  example: []
+  syntax:
+    content: public bool IsReadOnly { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> is read-only; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public ReadOnly Property IsReadOnly As Boolean
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.IsReadOnly*
+  implements:
+  - System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.IsReadOnly
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Remove(MonoTorrent.BEncoding.BEncodedString)
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.Remove(MonoTorrent.BEncoding.BEncodedString)
+  id: Remove(MonoTorrent.BEncoding.BEncodedString)
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: Remove(BEncodedString)
+  nameWithType: BEncodedDictionary.Remove(BEncodedString)
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Remove(MonoTorrent.BEncoding.BEncodedString)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Remove
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 184
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Removes the element with the specified key from the <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Remove(BEncodedString key)
+    parameters:
+    - id: key
+      type: MonoTorrent.BEncoding.BEncodedString
+      description: The key of the element to remove.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the element is successfully removed; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.  This method also returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if <code class="paramref">key</code> was not found in the original <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function Remove(key As BEncodedString) As Boolean
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.Remove*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">key</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: The <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref> is read-only.
+  implements:
+  - System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Remove(MonoTorrent.BEncoding.BEncodedString)
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Remove(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.Remove(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  id: Remove(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: Remove(KeyValuePair<BEncodedString, BEncodedValue>)
+  nameWithType: BEncodedDictionary.Remove(KeyValuePair<BEncodedString, BEncodedValue>)
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Remove(System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Remove
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 189
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Removes the first occurrence of a specific object from the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Remove(KeyValuePair<BEncodedString, BEncodedValue> item)
+    parameters:
+    - id: item
+      type: System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+      description: The object to remove from the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">item</code> was successfully removed from the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>. This method also returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if <code class="paramref">item</code> is not found in the original <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function Remove(item As KeyValuePair(Of BEncodedString, BEncodedValue)) As Boolean
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.Remove*
+  exceptions:
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: The <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> is read-only.
+  implements:
+  - System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Remove(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  nameWithType.vb: BEncodedDictionary.Remove(KeyValuePair(Of BEncodedString, BEncodedValue))
+  fullName.vb: MonoTorrent.BEncoding.BEncodedDictionary.Remove(System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue))
+  name.vb: Remove(KeyValuePair(Of BEncodedString, BEncodedValue))
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.TryGetValue(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue@)
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.TryGetValue(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue@)
+  id: TryGetValue(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue@)
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: TryGetValue(BEncodedString, out BEncodedValue)
+  nameWithType: BEncodedDictionary.TryGetValue(BEncodedString, out BEncodedValue)
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.TryGetValue(MonoTorrent.BEncoding.BEncodedString, out MonoTorrent.BEncoding.BEncodedValue)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TryGetValue
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 195
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Gets the value associated with the specified key.
+  example: []
+  syntax:
+    content: public bool TryGetValue(BEncodedString key, out BEncodedValue value)
+    parameters:
+    - id: key
+      type: MonoTorrent.BEncoding.BEncodedString
+      description: The key whose value to get.
+    - id: value
+      type: MonoTorrent.BEncoding.BEncodedValue
+      description: When this method returns, the value associated with the specified key, if the key is found; otherwise, the default value for the type of the <code class="paramref">value</code> parameter. This parameter is passed uninitialized.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the object that implements <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref> contains an element with the specified key; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function TryGetValue(key As BEncodedString, value As BEncodedValue) As Boolean
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.TryGetValue*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">key</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  implements:
+  - System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.TryGetValue(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue@)
+  nameWithType.vb: BEncodedDictionary.TryGetValue(BEncodedString, BEncodedValue)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedDictionary.TryGetValue(MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)
+  name.vb: TryGetValue(BEncodedString, BEncodedValue)
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Item(MonoTorrent.BEncoding.BEncodedString)
+  commentId: P:MonoTorrent.BEncoding.BEncodedDictionary.Item(MonoTorrent.BEncoding.BEncodedString)
+  id: Item(MonoTorrent.BEncoding.BEncodedString)
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: this[BEncodedString]
+  nameWithType: BEncodedDictionary.this[BEncodedString]
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.this[MonoTorrent.BEncoding.BEncodedString]
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: this[]
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 201
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Gets or sets the element with the specified key.
+  example: []
+  syntax:
+    content: public BEncodedValue this[BEncodedString key] { get; set; }
+    parameters:
+    - id: key
+      type: MonoTorrent.BEncoding.BEncodedString
+      description: The key of the element to get or set.
+    return:
+      type: MonoTorrent.BEncoding.BEncodedValue
+      description: The element with the specified key.
+    content.vb: Public Default Property this[](key As BEncodedString) As BEncodedValue
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.Item*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">key</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  - type: System.Collections.Generic.KeyNotFoundException
+    commentId: T:System.Collections.Generic.KeyNotFoundException
+    description: The property is retrieved and <code class="paramref">key</code> is not found.
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: The property is set and the <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref> is read-only.
+  implements:
+  - System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Item(MonoTorrent.BEncoding.BEncodedString)
+  nameWithType.vb: BEncodedDictionary.this[](BEncodedString)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedDictionary.this[](MonoTorrent.BEncoding.BEncodedString)
+  name.vb: this[](BEncodedString)
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Keys
+  commentId: P:MonoTorrent.BEncoding.BEncodedDictionary.Keys
+  id: Keys
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: Keys
+  nameWithType: BEncodedDictionary.Keys
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Keys
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Keys
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 206
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Gets an <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> containing the keys of the <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ICollection<BEncodedString> Keys { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{MonoTorrent.BEncoding.BEncodedString}
+      description: An <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> containing the keys of the object that implements <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public ReadOnly Property Keys As ICollection(Of BEncodedString)
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.Keys*
+  implements:
+  - System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Keys
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Values
+  commentId: P:MonoTorrent.BEncoding.BEncodedDictionary.Values
+  id: Values
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: Values
+  nameWithType: BEncodedDictionary.Values
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Values
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Values
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 208
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Gets an <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> containing the values in the <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ICollection<BEncodedValue> Values { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{MonoTorrent.BEncoding.BEncodedValue}
+      description: An <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> containing the values in the object that implements <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public ReadOnly Property Values As ICollection(Of BEncodedValue)
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.Values*
+  implements:
+  - System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Values
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.GetEnumerator
+  commentId: M:MonoTorrent.BEncoding.BEncodedDictionary.GetEnumerator
+  id: GetEnumerator
+  parent: MonoTorrent.BEncoding.BEncodedDictionary
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: BEncodedDictionary.GetEnumerator()
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedDictionary.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetEnumerator
+    path: src/BEncoding/BEncodedDictionary.cs
+    startLine: 210
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Returns an enumerator that iterates through the collection.
+  example: []
+  syntax:
+    content: public IEnumerator<KeyValuePair<BEncodedString, BEncodedValue>> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+      description: An enumerator that can be used to iterate through the collection.
+    content.vb: Public Function GetEnumerator() As IEnumerator(Of KeyValuePair(Of BEncodedString, BEncodedValue))
+  overload: MonoTorrent.BEncoding.BEncodedDictionary.GetEnumerator*
+  implements:
+  - System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.GetEnumerator
+references:
+- uid: MonoTorrent.BEncoding
+  commentId: N:MonoTorrent.BEncoding
+  href: MonoTorrent.html
+  name: MonoTorrent.BEncoding
+  nameWithType: MonoTorrent.BEncoding
+  fullName: MonoTorrent.BEncoding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MonoTorrent.BEncoding.BEncodedValue
+  commentId: T:MonoTorrent.BEncoding.BEncodedValue
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedValue.html
+  name: BEncodedValue
+  nameWithType: BEncodedValue
+  fullName: MonoTorrent.BEncoding.BEncodedValue
+- uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+  commentId: T:System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<BEncodedString, BEncodedValue>
+  nameWithType: IDictionary<BEncodedString, BEncodedValue>
+  fullName: System.Collections.Generic.IDictionary<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>
+  nameWithType.vb: IDictionary(Of BEncodedString, BEncodedValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)
+  name.vb: IDictionary(Of BEncodedString, BEncodedValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+- uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  commentId: T:System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<KeyValuePair<BEncodedString, BEncodedValue>>
+  nameWithType: ICollection<KeyValuePair<BEncodedString, BEncodedValue>>
+  fullName: System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>>
+  nameWithType.vb: ICollection(Of KeyValuePair(Of BEncodedString, BEncodedValue))
+  fullName.vb: System.Collections.Generic.ICollection(Of System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue))
+  name.vb: ICollection(Of KeyValuePair(Of BEncodedString, BEncodedValue))
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<KeyValuePair<BEncodedString, BEncodedValue>>
+  nameWithType: IEnumerable<KeyValuePair<BEncodedString, BEncodedValue>>
+  fullName: System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>>
+  nameWithType.vb: IEnumerable(Of KeyValuePair(Of BEncodedString, BEncodedValue))
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue))
+  name.vb: IEnumerable(Of KeyValuePair(Of BEncodedString, BEncodedValue))
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+  - name: )
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: MonoTorrent.BEncoding.BEncodedValue.Encode
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Encode
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Encode
+  name: Encode()
+  nameWithType: BEncodedValue.Encode()
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Encode()
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Encode
+    name: Encode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Encode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Encode
+    name: Encode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Encode
+  - name: (
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Clone``1({T})
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  definition: MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Clone__1___0_
+  name: Clone<T>(T)
+  nameWithType: BEncodedValue.Clone<T>(T)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Clone<T>(T)
+  nameWithType.vb: BEncodedValue.Clone(Of T)(T)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Clone(Of T)(T)
+  name.vb: Clone(Of T)(T)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+    name: Clone
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Clone__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+    name: Clone
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Clone__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte})
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte})
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_ReadOnlySpan_System_Byte__
+  name: Decode(ReadOnlySpan<byte>)
+  nameWithType: BEncodedValue.Decode(ReadOnlySpan<byte>)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan<byte>)
+  nameWithType.vb: BEncodedValue.Decode(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan(Of Byte))
+  name.vb: Decode(ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte})
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte})
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte},System.Boolean)
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte},System.Boolean)
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_ReadOnlySpan_System_Byte__System_Boolean_
+  name: Decode(ReadOnlySpan<byte>, bool)
+  nameWithType: BEncodedValue.Decode(ReadOnlySpan<byte>, bool)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan<byte>, bool)
+  nameWithType.vb: BEncodedValue.Decode(ReadOnlySpan(Of Byte), Boolean)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan(Of Byte), Boolean)
+  name.vb: Decode(ReadOnlySpan(Of Byte), Boolean)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte},System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_ReadOnlySpan_System_Byte__System_Boolean_
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte},System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_ReadOnlySpan_System_Byte__System_Boolean_
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream)
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream)
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_IO_Stream_
+  name: Decode(Stream)
+  nameWithType: BEncodedValue.Decode(Stream)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_IO_Stream_
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_IO_Stream_
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream,System.Boolean)
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream,System.Boolean)
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_IO_Stream_System_Boolean_
+  name: Decode(Stream, bool)
+  nameWithType: BEncodedValue.Decode(Stream, bool)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream, bool)
+  nameWithType.vb: BEncodedValue.Decode(Stream, Boolean)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream, Boolean)
+  name.vb: Decode(Stream, Boolean)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream,System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_IO_Stream_System_Boolean_
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream,System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_IO_Stream_System_Boolean_
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte})
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte})
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_ReadOnlySpan_System_Byte__
+  name: Decode<T>(ReadOnlySpan<byte>)
+  nameWithType: BEncodedValue.Decode<T>(ReadOnlySpan<byte>)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode<T>(System.ReadOnlySpan<byte>)
+  nameWithType.vb: BEncodedValue.Decode(Of T)(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Decode(Of T)(System.ReadOnlySpan(Of Byte))
+  name.vb: Decode(Of T)(ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte})
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_ReadOnlySpan_System_Byte__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte})
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte},System.Boolean)
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte},System.Boolean)
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_ReadOnlySpan_System_Byte__System_Boolean_
+  name: Decode<T>(ReadOnlySpan<byte>, bool)
+  nameWithType: BEncodedValue.Decode<T>(ReadOnlySpan<byte>, bool)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode<T>(System.ReadOnlySpan<byte>, bool)
+  nameWithType.vb: BEncodedValue.Decode(Of T)(ReadOnlySpan(Of Byte), Boolean)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Decode(Of T)(System.ReadOnlySpan(Of Byte), Boolean)
+  name.vb: Decode(Of T)(ReadOnlySpan(Of Byte), Boolean)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte},System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_ReadOnlySpan_System_Byte__System_Boolean_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte},System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_ReadOnlySpan_System_Byte__System_Boolean_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream)
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream)
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_IO_Stream_
+  name: Decode<T>(Stream)
+  nameWithType: BEncodedValue.Decode<T>(Stream)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode<T>(System.IO.Stream)
+  nameWithType.vb: BEncodedValue.Decode(Of T)(Stream)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Decode(Of T)(System.IO.Stream)
+  name.vb: Decode(Of T)(Stream)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_IO_Stream_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_IO_Stream_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream,System.Boolean)
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream,System.Boolean)
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_IO_Stream_System_Boolean_
+  name: Decode<T>(Stream, bool)
+  nameWithType: BEncodedValue.Decode<T>(Stream, bool)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode<T>(System.IO.Stream, bool)
+  nameWithType.vb: BEncodedValue.Decode(Of T)(Stream, Boolean)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Decode(Of T)(System.IO.Stream, Boolean)
+  name.vb: Decode(Of T)(Stream, Boolean)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream,System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_IO_Stream_System_Boolean_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream,System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_IO_Stream_System_Boolean_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IDictionary`2
+  commentId: T:System.Collections.Generic.IDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<TKey, TValue>
+  nameWithType: IDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>
+  nameWithType.vb: IDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue)
+  name.vb: IDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Clone__1___0_
+  name: Clone<T>(T)
+  nameWithType: BEncodedValue.Clone<T>(T)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Clone<T>(T)
+  nameWithType.vb: BEncodedValue.Clone(Of T)(T)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Clone(Of T)(T)
+  name.vb: Clone(Of T)(T)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+    name: Clone
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Clone__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+    name: Clone
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Clone__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.DecodeTorrent*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.DecodeTorrent
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_DecodeTorrent_System_ReadOnlySpan_System_Byte__
+  name: DecodeTorrent
+  nameWithType: BEncodedDictionary.DecodeTorrent
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.DecodeTorrent
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ValueTuple{MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.RawInfoHashes}
+  commentId: T:System.ValueTuple{MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.RawInfoHashes}
+  parent: System
+  definition: System.ValueTuple`2
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  name: (BEncodedDictionary torrent, RawInfoHashes infoHashes)
+  nameWithType: (BEncodedDictionary torrent, RawInfoHashes infoHashes)
+  fullName: (MonoTorrent.BEncoding.BEncodedDictionary torrent, MonoTorrent.BEncoding.RawInfoHashes infoHashes)
+  nameWithType.vb: (torrent As BEncodedDictionary, infoHashes As RawInfoHashes)
+  fullName.vb: (torrent As MonoTorrent.BEncoding.BEncodedDictionary, infoHashes As MonoTorrent.BEncoding.RawInfoHashes)
+  name.vb: (torrent As BEncodedDictionary, infoHashes As RawInfoHashes)
+  spec.csharp:
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: " "
+  - uid: System.ValueTuple{MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.RawInfoHashes}.torrent
+    name: torrent
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-monotorrent.bencoding.bencodeddictionary,monotorrent.bencoding.rawinfohashes-.torrent
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.RawInfoHashes
+    name: RawInfoHashes
+    href: MonoTorrent.BEncoding.RawInfoHashes.html
+  - name: " "
+  - uid: System.ValueTuple{MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.RawInfoHashes}.infoHashes
+    name: infoHashes
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-monotorrent.bencoding.bencodeddictionary,monotorrent.bencoding.rawinfohashes-.infohashes
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.RawInfoHashes}.torrent
+    name: torrent
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-monotorrent.bencoding.bencodeddictionary,monotorrent.bencoding.rawinfohashes-.torrent
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.RawInfoHashes}.infoHashes
+    name: infoHashes
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-monotorrent.bencoding.bencodeddictionary,monotorrent.bencoding.rawinfohashes-.infohashes
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: MonoTorrent.BEncoding.RawInfoHashes
+    name: RawInfoHashes
+    href: MonoTorrent.BEncoding.RawInfoHashes.html
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  name: Stream
+  nameWithType: Stream
+  fullName: System.IO.Stream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.#ctor*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.#ctor
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary__ctor
+  name: BEncodedDictionary
+  nameWithType: BEncodedDictionary.BEncodedDictionary
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.BEncodedDictionary
+  nameWithType.vb: BEncodedDictionary.New
+  fullName.vb: MonoTorrent.BEncoding.BEncodedDictionary.New
+  name.vb: New
+- uid: MonoTorrent.BEncoding.BEncodedValue.Encode(System.Span{System.Byte})
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Encode(System.Span{System.Byte})
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Encode_System_Span_System_Byte__
+  name: Encode(Span<byte>)
+  nameWithType: BEncodedValue.Encode(Span<byte>)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Encode(System.Span<byte>)
+  nameWithType.vb: BEncodedValue.Encode(Span(Of Byte))
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Encode(System.Span(Of Byte))
+  name.vb: Encode(Span(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Encode(System.Span{System.Byte})
+    name: Encode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Encode_System_Span_System_Byte__
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Encode(System.Span{System.Byte})
+    name: Encode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Encode_System_Span_System_Byte__
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Encode*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.Encode
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_Encode_System_Span_System_Byte__
+  name: Encode
+  nameWithType: BEncodedDictionary.Encode
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Encode
+- uid: System.Span{System.Byte}
+  commentId: T:System.Span{System.Byte}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<byte>
+  nameWithType: Span<byte>
+  fullName: System.Span<byte>
+  nameWithType.vb: Span(Of Byte)
+  fullName.vb: System.Span(Of Byte)
+  name.vb: Span(Of Byte)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.LengthInBytes
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.LengthInBytes
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_LengthInBytes
+  name: LengthInBytes()
+  nameWithType: BEncodedValue.LengthInBytes()
+  fullName: MonoTorrent.BEncoding.BEncodedValue.LengthInBytes()
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.LengthInBytes
+    name: LengthInBytes
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_LengthInBytes
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.LengthInBytes
+    name: LengthInBytes
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_LengthInBytes
+  - name: (
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.LengthInBytes*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.LengthInBytes
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_LengthInBytes
+  name: LengthInBytes
+  nameWithType: BEncodedDictionary.LengthInBytes
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.LengthInBytes
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Equals*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.Equals
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_Equals_System_Object_
+  name: Equals
+  nameWithType: BEncodedDictionary.Equals
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.GetHashCode*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.GetHashCode
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_GetHashCode
+  name: GetHashCode
+  nameWithType: BEncodedDictionary.GetHashCode
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.ToString*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.ToString
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_ToString
+  name: ToString
+  nameWithType: BEncodedDictionary.ToString
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: System.NotSupportedException
+  commentId: T:System.NotSupportedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.notsupportedexception
+  name: NotSupportedException
+  nameWithType: NotSupportedException
+  fullName: System.NotSupportedException
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Add*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.Add
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_Add_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_BEncoding_BEncodedValue_
+  name: Add
+  nameWithType: BEncodedDictionary.Add
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Add
+- uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Add(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  commentId: M:System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Add(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  parent: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+  definition: System.Collections.Generic.IDictionary`2.Add(`0,`1)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.add
+  name: Add(BEncodedString, BEncodedValue)
+  nameWithType: IDictionary<BEncodedString, BEncodedValue>.Add(BEncodedString, BEncodedValue)
+  fullName: System.Collections.Generic.IDictionary<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>.Add(MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)
+  nameWithType.vb: IDictionary(Of BEncodedString, BEncodedValue).Add(BEncodedString, BEncodedValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue).Add(MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Add(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.add
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Add(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.add
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedString
+  commentId: T:MonoTorrent.BEncoding.BEncodedString
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedString.html
+  name: BEncodedString
+  nameWithType: BEncodedString
+  fullName: MonoTorrent.BEncoding.BEncodedString
+- uid: System.Collections.Generic.IDictionary`2.Add(`0,`1)
+  commentId: M:System.Collections.Generic.IDictionary`2.Add(`0,`1)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.add
+  name: Add(TKey, TValue)
+  nameWithType: IDictionary<TKey, TValue>.Add(TKey, TValue)
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>.Add(TKey, TValue)
+  nameWithType.vb: IDictionary(Of TKey, TValue).Add(TKey, TValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue).Add(TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2.Add(`0,`1)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.add
+  - name: (
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2.Add(`0,`1)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.add
+  - name: (
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Add(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  commentId: M:System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Add(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  parent: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  definition: System.Collections.Generic.ICollection`1.Add(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  name: Add(KeyValuePair<BEncodedString, BEncodedValue>)
+  nameWithType: ICollection<KeyValuePair<BEncodedString, BEncodedValue>>.Add(KeyValuePair<BEncodedString, BEncodedValue>)
+  fullName: System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>>.Add(System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>)
+  nameWithType.vb: ICollection(Of KeyValuePair(Of BEncodedString, BEncodedValue)).Add(KeyValuePair(Of BEncodedString, BEncodedValue))
+  fullName.vb: System.Collections.Generic.ICollection(Of System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)).Add(System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue))
+  name.vb: Add(KeyValuePair(Of BEncodedString, BEncodedValue))
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Add(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  - name: (
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Add(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  - name: (
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+  commentId: T:System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.KeyValuePair`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  name: KeyValuePair<BEncodedString, BEncodedValue>
+  nameWithType: KeyValuePair<BEncodedString, BEncodedValue>
+  fullName: System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>
+  nameWithType.vb: KeyValuePair(Of BEncodedString, BEncodedValue)
+  fullName.vb: System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)
+  name.vb: KeyValuePair(Of BEncodedString, BEncodedValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.Add(`0)
+  commentId: M:System.Collections.Generic.ICollection`1.Add(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  name: Add(T)
+  nameWithType: ICollection<T>.Add(T)
+  fullName: System.Collections.Generic.ICollection<T>.Add(T)
+  nameWithType.vb: ICollection(Of T).Add(T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Add(T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.KeyValuePair`2
+  commentId: T:System.Collections.Generic.KeyValuePair`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  name: KeyValuePair<TKey, TValue>
+  nameWithType: KeyValuePair<TKey, TValue>
+  fullName: System.Collections.Generic.KeyValuePair<TKey, TValue>
+  nameWithType.vb: KeyValuePair(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.KeyValuePair(Of TKey, TValue)
+  name.vb: KeyValuePair(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Clear*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.Clear
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_Clear
+  name: Clear
+  nameWithType: BEncodedDictionary.Clear
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Clear
+- uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Clear
+  commentId: M:System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Clear
+  parent: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  definition: System.Collections.Generic.ICollection`1.Clear
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  name: Clear()
+  nameWithType: ICollection<KeyValuePair<BEncodedString, BEncodedValue>>.Clear()
+  fullName: System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>>.Clear()
+  nameWithType.vb: ICollection(Of KeyValuePair(Of BEncodedString, BEncodedValue)).Clear()
+  fullName.vb: System.Collections.Generic.ICollection(Of System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)).Clear()
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.Clear
+  commentId: M:System.Collections.Generic.ICollection`1.Clear
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  name: Clear()
+  nameWithType: ICollection<T>.Clear()
+  fullName: System.Collections.Generic.ICollection<T>.Clear()
+  nameWithType.vb: ICollection(Of T).Clear()
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Clear()
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  - name: (
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Contains*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.Contains
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_Contains_System_Collections_Generic_KeyValuePair_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_BEncoding_BEncodedValue__
+  name: Contains
+  nameWithType: BEncodedDictionary.Contains
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Contains
+- uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Contains(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  commentId: M:System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Contains(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  parent: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  definition: System.Collections.Generic.ICollection`1.Contains(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  name: Contains(KeyValuePair<BEncodedString, BEncodedValue>)
+  nameWithType: ICollection<KeyValuePair<BEncodedString, BEncodedValue>>.Contains(KeyValuePair<BEncodedString, BEncodedValue>)
+  fullName: System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>>.Contains(System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>)
+  nameWithType.vb: ICollection(Of KeyValuePair(Of BEncodedString, BEncodedValue)).Contains(KeyValuePair(Of BEncodedString, BEncodedValue))
+  fullName.vb: System.Collections.Generic.ICollection(Of System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)).Contains(System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue))
+  name.vb: Contains(KeyValuePair(Of BEncodedString, BEncodedValue))
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Contains(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  - name: (
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Contains(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  - name: (
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.Contains(`0)
+  commentId: M:System.Collections.Generic.ICollection`1.Contains(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  name: Contains(T)
+  nameWithType: ICollection<T>.Contains(T)
+  fullName: System.Collections.Generic.ICollection<T>.Contains(T)
+  nameWithType.vb: ICollection(Of T).Contains(T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Contains(T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Contains(`0)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Contains(`0)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  - name: (
+  - name: T
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.ContainsKey*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.ContainsKey
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_ContainsKey_MonoTorrent_BEncoding_BEncodedString_
+  name: ContainsKey
+  nameWithType: BEncodedDictionary.ContainsKey
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.ContainsKey
+- uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.ContainsKey(MonoTorrent.BEncoding.BEncodedString)
+  commentId: M:System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.ContainsKey(MonoTorrent.BEncoding.BEncodedString)
+  parent: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+  definition: System.Collections.Generic.IDictionary`2.ContainsKey(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.containskey
+  name: ContainsKey(BEncodedString)
+  nameWithType: IDictionary<BEncodedString, BEncodedValue>.ContainsKey(BEncodedString)
+  fullName: System.Collections.Generic.IDictionary<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>.ContainsKey(MonoTorrent.BEncoding.BEncodedString)
+  nameWithType.vb: IDictionary(Of BEncodedString, BEncodedValue).ContainsKey(BEncodedString)
+  fullName.vb: System.Collections.Generic.IDictionary(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue).ContainsKey(MonoTorrent.BEncoding.BEncodedString)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.ContainsKey(MonoTorrent.BEncoding.BEncodedString)
+    name: ContainsKey
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.containskey
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.ContainsKey(MonoTorrent.BEncoding.BEncodedString)
+    name: ContainsKey
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.containskey
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+- uid: System.Collections.Generic.IDictionary`2.ContainsKey(`0)
+  commentId: M:System.Collections.Generic.IDictionary`2.ContainsKey(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.containskey
+  name: ContainsKey(TKey)
+  nameWithType: IDictionary<TKey, TValue>.ContainsKey(TKey)
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>.ContainsKey(TKey)
+  nameWithType.vb: IDictionary(Of TKey, TValue).ContainsKey(TKey)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue).ContainsKey(TKey)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2.ContainsKey(`0)
+    name: ContainsKey
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.containskey
+  - name: (
+  - name: TKey
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2.ContainsKey(`0)
+    name: ContainsKey
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.containskey
+  - name: (
+  - name: TKey
+  - name: )
+- uid: System.Array
+  commentId: T:System.Array
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.array
+  name: Array
+  nameWithType: Array
+  fullName: System.Array
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.CopyTo*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.CopyTo
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_CopyTo_System_Collections_Generic_KeyValuePair_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_BEncoding_BEncodedValue____System_Int32_
+  name: CopyTo
+  nameWithType: BEncodedDictionary.CopyTo
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.CopyTo
+- uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.CopyTo(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}[],System.Int32)
+  commentId: M:System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.CopyTo(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}[],System.Int32)
+  parent: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  definition: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  name: CopyTo(KeyValuePair<BEncodedString, BEncodedValue>[], int)
+  nameWithType: ICollection<KeyValuePair<BEncodedString, BEncodedValue>>.CopyTo(KeyValuePair<BEncodedString, BEncodedValue>[], int)
+  fullName: System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>>.CopyTo(System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>[], int)
+  nameWithType.vb: ICollection(Of KeyValuePair(Of BEncodedString, BEncodedValue)).CopyTo(KeyValuePair(Of BEncodedString, BEncodedValue)(), Integer)
+  fullName.vb: System.Collections.Generic.ICollection(Of System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)).CopyTo(System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)(), Integer)
+  name.vb: CopyTo(KeyValuePair(Of BEncodedString, BEncodedValue)(), Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.CopyTo(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  - name: (
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: '>'
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.CopyTo(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  - name: (
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  name: KeyValuePair<BEncodedString, BEncodedValue>[]
+  nameWithType: KeyValuePair<BEncodedString, BEncodedValue>[]
+  fullName: System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>[]
+  nameWithType.vb: KeyValuePair(Of BEncodedString, BEncodedValue)()
+  fullName.vb: System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)()
+  name.vb: KeyValuePair(Of BEncodedString, BEncodedValue)()
+  spec.csharp:
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: '>'
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+  commentId: M:System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  name: CopyTo(T[], int)
+  nameWithType: ICollection<T>.CopyTo(T[], int)
+  fullName: System.Collections.Generic.ICollection<T>.CopyTo(T[], int)
+  nameWithType.vb: ICollection(Of T).CopyTo(T(), Integer)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).CopyTo(T(), Integer)
+  name.vb: CopyTo(T(), Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  - name: (
+  - name: T
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  - name: (
+  - name: T
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Count*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.Count
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_Count
+  name: Count
+  nameWithType: BEncodedDictionary.Count
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Count
+- uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Count
+  commentId: P:System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Count
+  parent: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  definition: System.Collections.Generic.ICollection`1.Count
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.count
+  name: Count
+  nameWithType: ICollection<KeyValuePair<BEncodedString, BEncodedValue>>.Count
+  fullName: System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>>.Count
+  nameWithType.vb: ICollection(Of KeyValuePair(Of BEncodedString, BEncodedValue)).Count
+  fullName.vb: System.Collections.Generic.ICollection(Of System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)).Count
+- uid: System.Collections.Generic.ICollection`1.Count
+  commentId: P:System.Collections.Generic.ICollection`1.Count
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.count
+  name: Count
+  nameWithType: ICollection<T>.Count
+  fullName: System.Collections.Generic.ICollection<T>.Count
+  nameWithType.vb: ICollection(Of T).Count
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Count
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.GetValueOrDefault*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.GetValueOrDefault
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_GetValueOrDefault_MonoTorrent_BEncoding_BEncodedString_
+  name: GetValueOrDefault
+  nameWithType: BEncodedDictionary.GetValueOrDefault
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.GetValueOrDefault
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.IsReadOnly*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.IsReadOnly
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_IsReadOnly
+  name: IsReadOnly
+  nameWithType: BEncodedDictionary.IsReadOnly
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.IsReadOnly
+- uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.IsReadOnly
+  commentId: P:System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.IsReadOnly
+  parent: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  definition: System.Collections.Generic.ICollection`1.IsReadOnly
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.isreadonly
+  name: IsReadOnly
+  nameWithType: ICollection<KeyValuePair<BEncodedString, BEncodedValue>>.IsReadOnly
+  fullName: System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>>.IsReadOnly
+  nameWithType.vb: ICollection(Of KeyValuePair(Of BEncodedString, BEncodedValue)).IsReadOnly
+  fullName.vb: System.Collections.Generic.ICollection(Of System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)).IsReadOnly
+- uid: System.Collections.Generic.ICollection`1.IsReadOnly
+  commentId: P:System.Collections.Generic.ICollection`1.IsReadOnly
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.isreadonly
+  name: IsReadOnly
+  nameWithType: ICollection<T>.IsReadOnly
+  fullName: System.Collections.Generic.ICollection<T>.IsReadOnly
+  nameWithType.vb: ICollection(Of T).IsReadOnly
+  fullName.vb: System.Collections.Generic.ICollection(Of T).IsReadOnly
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Remove*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.Remove
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_Remove_MonoTorrent_BEncoding_BEncodedString_
+  name: Remove
+  nameWithType: BEncodedDictionary.Remove
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Remove
+- uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Remove(MonoTorrent.BEncoding.BEncodedString)
+  commentId: M:System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Remove(MonoTorrent.BEncoding.BEncodedString)
+  parent: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+  definition: System.Collections.Generic.IDictionary`2.Remove(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.remove
+  name: Remove(BEncodedString)
+  nameWithType: IDictionary<BEncodedString, BEncodedValue>.Remove(BEncodedString)
+  fullName: System.Collections.Generic.IDictionary<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>.Remove(MonoTorrent.BEncoding.BEncodedString)
+  nameWithType.vb: IDictionary(Of BEncodedString, BEncodedValue).Remove(BEncodedString)
+  fullName.vb: System.Collections.Generic.IDictionary(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue).Remove(MonoTorrent.BEncoding.BEncodedString)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Remove(MonoTorrent.BEncoding.BEncodedString)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.remove
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Remove(MonoTorrent.BEncoding.BEncodedString)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.remove
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+- uid: System.Collections.Generic.IDictionary`2.Remove(`0)
+  commentId: M:System.Collections.Generic.IDictionary`2.Remove(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.remove
+  name: Remove(TKey)
+  nameWithType: IDictionary<TKey, TValue>.Remove(TKey)
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>.Remove(TKey)
+  nameWithType.vb: IDictionary(Of TKey, TValue).Remove(TKey)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue).Remove(TKey)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2.Remove(`0)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.remove
+  - name: (
+  - name: TKey
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2.Remove(`0)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.remove
+  - name: (
+  - name: TKey
+  - name: )
+- uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Remove(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  commentId: M:System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Remove(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+  parent: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  definition: System.Collections.Generic.ICollection`1.Remove(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  name: Remove(KeyValuePair<BEncodedString, BEncodedValue>)
+  nameWithType: ICollection<KeyValuePair<BEncodedString, BEncodedValue>>.Remove(KeyValuePair<BEncodedString, BEncodedValue>)
+  fullName: System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>>.Remove(System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>)
+  nameWithType.vb: ICollection(Of KeyValuePair(Of BEncodedString, BEncodedValue)).Remove(KeyValuePair(Of BEncodedString, BEncodedValue))
+  fullName.vb: System.Collections.Generic.ICollection(Of System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)).Remove(System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue))
+  name.vb: Remove(KeyValuePair(Of BEncodedString, BEncodedValue))
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Remove(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  - name: (
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.Remove(System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue})
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  - name: (
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.Remove(`0)
+  commentId: M:System.Collections.Generic.ICollection`1.Remove(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  name: Remove(T)
+  nameWithType: ICollection<T>.Remove(T)
+  fullName: System.Collections.Generic.ICollection<T>.Remove(T)
+  nameWithType.vb: ICollection(Of T).Remove(T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Remove(T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Remove(`0)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Remove(`0)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  - name: (
+  - name: T
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.TryGetValue*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.TryGetValue
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_TryGetValue_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_BEncoding_BEncodedValue__
+  name: TryGetValue
+  nameWithType: BEncodedDictionary.TryGetValue
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.TryGetValue
+- uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.TryGetValue(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue@)
+  commentId: M:System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.TryGetValue(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue@)
+  parent: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+  definition: System.Collections.Generic.IDictionary`2.TryGetValue(`0,`1@)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.trygetvalue
+  name: TryGetValue(BEncodedString, out BEncodedValue)
+  nameWithType: IDictionary<BEncodedString, BEncodedValue>.TryGetValue(BEncodedString, out BEncodedValue)
+  fullName: System.Collections.Generic.IDictionary<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>.TryGetValue(MonoTorrent.BEncoding.BEncodedString, out MonoTorrent.BEncoding.BEncodedValue)
+  nameWithType.vb: IDictionary(Of BEncodedString, BEncodedValue).TryGetValue(BEncodedString, BEncodedValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue).TryGetValue(MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)
+  name.vb: TryGetValue(BEncodedString, BEncodedValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.TryGetValue(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue@)
+    name: TryGetValue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.trygetvalue
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.TryGetValue(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue@)
+    name: TryGetValue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.trygetvalue
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+- uid: System.Collections.Generic.IDictionary`2.TryGetValue(`0,`1@)
+  commentId: M:System.Collections.Generic.IDictionary`2.TryGetValue(`0,`1@)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.trygetvalue
+  name: TryGetValue(TKey, out TValue)
+  nameWithType: IDictionary<TKey, TValue>.TryGetValue(TKey, out TValue)
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>.TryGetValue(TKey, out TValue)
+  nameWithType.vb: IDictionary(Of TKey, TValue).TryGetValue(TKey, TValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue).TryGetValue(TKey, TValue)
+  name.vb: TryGetValue(TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2.TryGetValue(`0,`1@)
+    name: TryGetValue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.trygetvalue
+  - name: (
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: TValue
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2.TryGetValue(`0,`1@)
+    name: TryGetValue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.trygetvalue
+  - name: (
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic.KeyNotFoundException
+  commentId: T:System.Collections.Generic.KeyNotFoundException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception
+  name: KeyNotFoundException
+  nameWithType: KeyNotFoundException
+  fullName: System.Collections.Generic.KeyNotFoundException
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Item*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.Item
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_Item_MonoTorrent_BEncoding_BEncodedString_
+  name: this
+  nameWithType: BEncodedDictionary.this
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.this
+  nameWithType.vb: BEncodedDictionary.this[]
+  fullName.vb: MonoTorrent.BEncoding.BEncodedDictionary.this[]
+  name.vb: this[]
+- uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Item(MonoTorrent.BEncoding.BEncodedString)
+  commentId: P:System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Item(MonoTorrent.BEncoding.BEncodedString)
+  parent: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+  definition: System.Collections.Generic.IDictionary`2.Item(`0)
+  href: MonoTorrent.BEncoding.BEncodedString.html
+  name: this[BEncodedString]
+  nameWithType: IDictionary<BEncodedString, BEncodedValue>.this[BEncodedString]
+  fullName: System.Collections.Generic.IDictionary<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>.this[MonoTorrent.BEncoding.BEncodedString]
+  nameWithType.vb: IDictionary(Of BEncodedString, BEncodedValue).this[](BEncodedString)
+  fullName.vb: System.Collections.Generic.IDictionary(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue).this[](MonoTorrent.BEncoding.BEncodedString)
+  name.vb: this[](BEncodedString)
+  spec.csharp:
+  - name: this
+  - name: '['
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ']'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Item(MonoTorrent.BEncoding.BEncodedString)
+    name: this[]
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.item
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+- uid: System.Collections.Generic.IDictionary`2.Item(`0)
+  commentId: P:System.Collections.Generic.IDictionary`2.Item(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.item
+  name: this[TKey]
+  nameWithType: IDictionary<TKey, TValue>.this[TKey]
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>.this[TKey]
+  nameWithType.vb: IDictionary(Of TKey, TValue).this[](TKey)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue).this[](TKey)
+  name.vb: this[](TKey)
+  spec.csharp:
+  - name: this
+  - name: '['
+  - name: TKey
+  - name: ']'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2.Item(`0)
+    name: this[]
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.item
+  - name: (
+  - name: TKey
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Keys*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.Keys
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_Keys
+  name: Keys
+  nameWithType: BEncodedDictionary.Keys
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Keys
+- uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Keys
+  commentId: P:System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Keys
+  parent: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+  definition: System.Collections.Generic.IDictionary`2.Keys
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.keys
+  name: Keys
+  nameWithType: IDictionary<BEncodedString, BEncodedValue>.Keys
+  fullName: System.Collections.Generic.IDictionary<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>.Keys
+  nameWithType.vb: IDictionary(Of BEncodedString, BEncodedValue).Keys
+  fullName.vb: System.Collections.Generic.IDictionary(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue).Keys
+- uid: System.Collections.Generic.ICollection{MonoTorrent.BEncoding.BEncodedString}
+  commentId: T:System.Collections.Generic.ICollection{MonoTorrent.BEncoding.BEncodedString}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<BEncodedString>
+  nameWithType: ICollection<BEncodedString>
+  fullName: System.Collections.Generic.ICollection<MonoTorrent.BEncoding.BEncodedString>
+  nameWithType.vb: ICollection(Of BEncodedString)
+  fullName.vb: System.Collections.Generic.ICollection(Of MonoTorrent.BEncoding.BEncodedString)
+  name.vb: ICollection(Of BEncodedString)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+- uid: System.Collections.Generic.IDictionary`2.Keys
+  commentId: P:System.Collections.Generic.IDictionary`2.Keys
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.keys
+  name: Keys
+  nameWithType: IDictionary<TKey, TValue>.Keys
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>.Keys
+  nameWithType.vb: IDictionary(Of TKey, TValue).Keys
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue).Keys
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.Values*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.Values
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_Values
+  name: Values
+  nameWithType: BEncodedDictionary.Values
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.Values
+- uid: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Values
+  commentId: P:System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}.Values
+  parent: System.Collections.Generic.IDictionary{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}
+  definition: System.Collections.Generic.IDictionary`2.Values
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.values
+  name: Values
+  nameWithType: IDictionary<BEncodedString, BEncodedValue>.Values
+  fullName: System.Collections.Generic.IDictionary<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>.Values
+  nameWithType.vb: IDictionary(Of BEncodedString, BEncodedValue).Values
+  fullName.vb: System.Collections.Generic.IDictionary(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue).Values
+- uid: System.Collections.Generic.ICollection{MonoTorrent.BEncoding.BEncodedValue}
+  commentId: T:System.Collections.Generic.ICollection{MonoTorrent.BEncoding.BEncodedValue}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<BEncodedValue>
+  nameWithType: ICollection<BEncodedValue>
+  fullName: System.Collections.Generic.ICollection<MonoTorrent.BEncoding.BEncodedValue>
+  nameWithType.vb: ICollection(Of BEncodedValue)
+  fullName.vb: System.Collections.Generic.ICollection(Of MonoTorrent.BEncoding.BEncodedValue)
+  name.vb: ICollection(Of BEncodedValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+- uid: System.Collections.Generic.IDictionary`2.Values
+  commentId: P:System.Collections.Generic.IDictionary`2.Values
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.values
+  name: Values
+  nameWithType: IDictionary<TKey, TValue>.Values
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>.Values
+  nameWithType.vb: IDictionary(Of TKey, TValue).Values
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue).Values
+- uid: MonoTorrent.BEncoding.BEncodedDictionary.GetEnumerator*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedDictionary.GetEnumerator
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html#MonoTorrent_BEncoding_BEncodedDictionary_GetEnumerator
+  name: GetEnumerator
+  nameWithType: BEncodedDictionary.GetEnumerator
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary.GetEnumerator
+- uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.GetEnumerator
+  parent: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  definition: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<KeyValuePair<BEncodedString, BEncodedValue>>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of KeyValuePair(Of BEncodedString, BEncodedValue)).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  commentId: T:System.Collections.Generic.IEnumerator{System.Collections.Generic.KeyValuePair{MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<KeyValuePair<BEncodedString, BEncodedValue>>
+  nameWithType: IEnumerator<KeyValuePair<BEncodedString, BEncodedValue>>
+  fullName: System.Collections.Generic.IEnumerator<System.Collections.Generic.KeyValuePair<MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue>>
+  nameWithType.vb: IEnumerator(Of KeyValuePair(Of BEncodedString, BEncodedValue))
+  fullName.vb: System.Collections.Generic.IEnumerator(Of System.Collections.Generic.KeyValuePair(Of MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue))
+  name.vb: IEnumerator(Of KeyValuePair(Of BEncodedString, BEncodedValue))
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable`1.GetEnumerator
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<T>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of T).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

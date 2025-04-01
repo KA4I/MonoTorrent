@@ -1,0 +1,291 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PiecePicking.IMessageEnqueuer
+  commentId: T:MonoTorrent.PiecePicking.IMessageEnqueuer
+  id: IMessageEnqueuer
+  parent: MonoTorrent.PiecePicking
+  children:
+  - MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellation(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  - MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellations(MonoTorrent.PiecePicking.IRequester,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  - MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequest(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  - MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequests(MonoTorrent.PiecePicking.IRequester,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  langs:
+  - csharp
+  - vb
+  name: IMessageEnqueuer
+  nameWithType: IMessageEnqueuer
+  fullName: MonoTorrent.PiecePicking.IMessageEnqueuer
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPieceRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IMessageEnqueuer
+    path: src/PiecePicking/IPieceRequester.cs
+    startLine: 44
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: public interface IMessageEnqueuer
+    content.vb: Public Interface IMessageEnqueuer
+- uid: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequest(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  commentId: M:MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequest(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  id: EnqueueRequest(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  parent: MonoTorrent.PiecePicking.IMessageEnqueuer
+  langs:
+  - csharp
+  - vb
+  name: EnqueueRequest(IRequester, PieceSegment)
+  nameWithType: IMessageEnqueuer.EnqueueRequest(IRequester, PieceSegment)
+  fullName: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequest(MonoTorrent.PiecePicking.IRequester, MonoTorrent.PiecePicking.PieceSegment)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPieceRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: EnqueueRequest
+    path: src/PiecePicking/IPieceRequester.cs
+    startLine: 46
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: void EnqueueRequest(IRequester peer, PieceSegment block)
+    parameters:
+    - id: peer
+      type: MonoTorrent.PiecePicking.IRequester
+    - id: block
+      type: MonoTorrent.PiecePicking.PieceSegment
+    content.vb: Sub EnqueueRequest(peer As IRequester, block As PieceSegment)
+  overload: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequest*
+- uid: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequests(MonoTorrent.PiecePicking.IRequester,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  commentId: M:MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequests(MonoTorrent.PiecePicking.IRequester,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  id: EnqueueRequests(MonoTorrent.PiecePicking.IRequester,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  parent: MonoTorrent.PiecePicking.IMessageEnqueuer
+  langs:
+  - csharp
+  - vb
+  name: EnqueueRequests(IRequester, Span<PieceSegment>)
+  nameWithType: IMessageEnqueuer.EnqueueRequests(IRequester, Span<PieceSegment>)
+  fullName: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequests(MonoTorrent.PiecePicking.IRequester, System.Span<MonoTorrent.PiecePicking.PieceSegment>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPieceRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: EnqueueRequests
+    path: src/PiecePicking/IPieceRequester.cs
+    startLine: 47
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: void EnqueueRequests(IRequester peer, Span<PieceSegment> blocks)
+    parameters:
+    - id: peer
+      type: MonoTorrent.PiecePicking.IRequester
+    - id: blocks
+      type: System.Span{MonoTorrent.PiecePicking.PieceSegment}
+    content.vb: Sub EnqueueRequests(peer As IRequester, blocks As Span(Of PieceSegment))
+  overload: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequests*
+  nameWithType.vb: IMessageEnqueuer.EnqueueRequests(IRequester, Span(Of PieceSegment))
+  fullName.vb: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequests(MonoTorrent.PiecePicking.IRequester, System.Span(Of MonoTorrent.PiecePicking.PieceSegment))
+  name.vb: EnqueueRequests(IRequester, Span(Of PieceSegment))
+- uid: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellation(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  commentId: M:MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellation(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  id: EnqueueCancellation(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  parent: MonoTorrent.PiecePicking.IMessageEnqueuer
+  langs:
+  - csharp
+  - vb
+  name: EnqueueCancellation(IRequester, PieceSegment)
+  nameWithType: IMessageEnqueuer.EnqueueCancellation(IRequester, PieceSegment)
+  fullName: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellation(MonoTorrent.PiecePicking.IRequester, MonoTorrent.PiecePicking.PieceSegment)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPieceRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: EnqueueCancellation
+    path: src/PiecePicking/IPieceRequester.cs
+    startLine: 48
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: void EnqueueCancellation(IRequester peer, PieceSegment segment)
+    parameters:
+    - id: peer
+      type: MonoTorrent.PiecePicking.IRequester
+    - id: segment
+      type: MonoTorrent.PiecePicking.PieceSegment
+    content.vb: Sub EnqueueCancellation(peer As IRequester, segment As PieceSegment)
+  overload: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellation*
+- uid: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellations(MonoTorrent.PiecePicking.IRequester,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  commentId: M:MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellations(MonoTorrent.PiecePicking.IRequester,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  id: EnqueueCancellations(MonoTorrent.PiecePicking.IRequester,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  parent: MonoTorrent.PiecePicking.IMessageEnqueuer
+  langs:
+  - csharp
+  - vb
+  name: EnqueueCancellations(IRequester, Span<PieceSegment>)
+  nameWithType: IMessageEnqueuer.EnqueueCancellations(IRequester, Span<PieceSegment>)
+  fullName: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellations(MonoTorrent.PiecePicking.IRequester, System.Span<MonoTorrent.PiecePicking.PieceSegment>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPieceRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: EnqueueCancellations
+    path: src/PiecePicking/IPieceRequester.cs
+    startLine: 49
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: void EnqueueCancellations(IRequester peer, Span<PieceSegment> segments)
+    parameters:
+    - id: peer
+      type: MonoTorrent.PiecePicking.IRequester
+    - id: segments
+      type: System.Span{MonoTorrent.PiecePicking.PieceSegment}
+    content.vb: Sub EnqueueCancellations(peer As IRequester, segments As Span(Of PieceSegment))
+  overload: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellations*
+  nameWithType.vb: IMessageEnqueuer.EnqueueCancellations(IRequester, Span(Of PieceSegment))
+  fullName.vb: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellations(MonoTorrent.PiecePicking.IRequester, System.Span(Of MonoTorrent.PiecePicking.PieceSegment))
+  name.vb: EnqueueCancellations(IRequester, Span(Of PieceSegment))
+references:
+- uid: MonoTorrent.PiecePicking
+  commentId: N:MonoTorrent.PiecePicking
+  href: MonoTorrent.html
+  name: MonoTorrent.PiecePicking
+  nameWithType: MonoTorrent.PiecePicking
+  fullName: MonoTorrent.PiecePicking
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+- uid: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequest*
+  commentId: Overload:MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequest
+  href: MonoTorrent.PiecePicking.IMessageEnqueuer.html#MonoTorrent_PiecePicking_IMessageEnqueuer_EnqueueRequest_MonoTorrent_PiecePicking_IRequester_MonoTorrent_PiecePicking_PieceSegment_
+  name: EnqueueRequest
+  nameWithType: IMessageEnqueuer.EnqueueRequest
+  fullName: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequest
+- uid: MonoTorrent.PiecePicking.IRequester
+  commentId: T:MonoTorrent.PiecePicking.IRequester
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.IRequester.html
+  name: IRequester
+  nameWithType: IRequester
+  fullName: MonoTorrent.PiecePicking.IRequester
+- uid: MonoTorrent.PiecePicking.PieceSegment
+  commentId: T:MonoTorrent.PiecePicking.PieceSegment
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.PieceSegment.html
+  name: PieceSegment
+  nameWithType: PieceSegment
+  fullName: MonoTorrent.PiecePicking.PieceSegment
+- uid: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequests*
+  commentId: Overload:MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequests
+  href: MonoTorrent.PiecePicking.IMessageEnqueuer.html#MonoTorrent_PiecePicking_IMessageEnqueuer_EnqueueRequests_MonoTorrent_PiecePicking_IRequester_System_Span_MonoTorrent_PiecePicking_PieceSegment__
+  name: EnqueueRequests
+  nameWithType: IMessageEnqueuer.EnqueueRequests
+  fullName: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueRequests
+- uid: System.Span{MonoTorrent.PiecePicking.PieceSegment}
+  commentId: T:System.Span{MonoTorrent.PiecePicking.PieceSegment}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<PieceSegment>
+  nameWithType: Span<PieceSegment>
+  fullName: System.Span<MonoTorrent.PiecePicking.PieceSegment>
+  nameWithType.vb: Span(Of PieceSegment)
+  fullName.vb: System.Span(Of MonoTorrent.PiecePicking.PieceSegment)
+  name.vb: Span(Of PieceSegment)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellation*
+  commentId: Overload:MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellation
+  href: MonoTorrent.PiecePicking.IMessageEnqueuer.html#MonoTorrent_PiecePicking_IMessageEnqueuer_EnqueueCancellation_MonoTorrent_PiecePicking_IRequester_MonoTorrent_PiecePicking_PieceSegment_
+  name: EnqueueCancellation
+  nameWithType: IMessageEnqueuer.EnqueueCancellation
+  fullName: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellation
+- uid: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellations*
+  commentId: Overload:MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellations
+  href: MonoTorrent.PiecePicking.IMessageEnqueuer.html#MonoTorrent_PiecePicking_IMessageEnqueuer_EnqueueCancellations_MonoTorrent_PiecePicking_IRequester_System_Span_MonoTorrent_PiecePicking_PieceSegment__
+  name: EnqueueCancellations
+  nameWithType: IMessageEnqueuer.EnqueueCancellations
+  fullName: MonoTorrent.PiecePicking.IMessageEnqueuer.EnqueueCancellations

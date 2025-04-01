@@ -81,7 +81,7 @@ namespace MonoTorrent.Client
         {
             var v1Data = new BEncodedDictionary {
                 { FastResume.VersionKey, (BEncodedNumber)1 },
-                { FastResume.InfoHashKey, new BEncodedString(InfoHash.Span.ToArray ()) },
+                { FastResume.InfoHashV1Key, new BEncodedString(InfoHash.Span.ToArray ()) },
                 { FastResume.BitfieldKey, new BEncodedString(new BitField (10).SetAll (true).ToBytes ()) },
                 { FastResume.BitfieldLengthKey, (BEncodedNumber)10 },
             };
@@ -96,9 +96,9 @@ namespace MonoTorrent.Client
         [Test]
         public void LoadV2FastResumeData ()
         {
-            var v1Data = new BEncodedDictionary {
+            var v2Data = new BEncodedDictionary {
                 { FastResume.VersionKey, (BEncodedNumber)1 },
-                { FastResume.InfoHashKey, new BEncodedString(InfoHash.Span.ToArray ()) },
+                { FastResume.InfoHashV2Key, new BEncodedString(new byte[32]) }, // Use a 32-byte array for V2 hash
                 { FastResume.BitfieldKey, new BEncodedString(new BitField (10).SetAll (false).Set (0, true).ToBytes ()) },
                 { FastResume.BitfieldLengthKey, (BEncodedNumber)10 },
                 { FastResume.UnhashedPiecesKey, new BEncodedString (new BitField (10).SetAll (true).Set (0, false).ToBytes ()) },
@@ -106,7 +106,7 @@ namespace MonoTorrent.Client
 
             // If this is a v1 FastResume data then it comes from a version of MonoTorrent which always
             // hashes the entire file.
-            var fastResume = new FastResume (v1Data);
+            var fastResume = new FastResume (v2Data);
             Assert.AreEqual (1, fastResume.Bitfield.TrueCount, "#1");
             Assert.AreEqual (9, fastResume.UnhashedPieces.TrueCount, "#2");
         }

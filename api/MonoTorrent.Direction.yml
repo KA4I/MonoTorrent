@@ -1,0 +1,123 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Direction
+  commentId: T:MonoTorrent.Direction
+  id: Direction
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.Direction.Incoming
+  - MonoTorrent.Direction.None
+  - MonoTorrent.Direction.Outgoing
+  langs:
+  - csharp
+  - vb
+  name: Direction
+  nameWithType: Direction
+  fullName: MonoTorrent.Direction
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/Enums.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Direction
+    path: src/Enums.cs
+    startLine: 49
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public enum Direction
+    content.vb: Public Enum Direction
+- uid: MonoTorrent.Direction.None
+  commentId: F:MonoTorrent.Direction.None
+  id: None
+  parent: MonoTorrent.Direction
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: Direction.None
+  fullName: MonoTorrent.Direction.None
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Enums.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: None
+    path: src/Enums.cs
+    startLine: 51
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: None = 0
+    return:
+      type: MonoTorrent.Direction
+- uid: MonoTorrent.Direction.Incoming
+  commentId: F:MonoTorrent.Direction.Incoming
+  id: Incoming
+  parent: MonoTorrent.Direction
+  langs:
+  - csharp
+  - vb
+  name: Incoming
+  nameWithType: Direction.Incoming
+  fullName: MonoTorrent.Direction.Incoming
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Enums.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Incoming
+    path: src/Enums.cs
+    startLine: 52
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Incoming = 1
+    return:
+      type: MonoTorrent.Direction
+- uid: MonoTorrent.Direction.Outgoing
+  commentId: F:MonoTorrent.Direction.Outgoing
+  id: Outgoing
+  parent: MonoTorrent.Direction
+  langs:
+  - csharp
+  - vb
+  name: Outgoing
+  nameWithType: Direction.Outgoing
+  fullName: MonoTorrent.Direction.Outgoing
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Enums.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Outgoing
+    path: src/Enums.cs
+    startLine: 53
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Outgoing = 2
+    return:
+      type: MonoTorrent.Direction
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.Direction
+  commentId: T:MonoTorrent.Direction
+  parent: MonoTorrent
+  href: MonoTorrent.Direction.html
+  name: Direction
+  nameWithType: Direction
+  fullName: MonoTorrent.Direction

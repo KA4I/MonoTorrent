@@ -1,0 +1,1323 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.InfoHash
+  commentId: T:MonoTorrent.InfoHash
+  id: InfoHash
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.InfoHash.#ctor(System.Byte[])
+  - MonoTorrent.InfoHash.#ctor(System.ReadOnlySpan{System.Byte})
+  - MonoTorrent.InfoHash.AsMemory
+  - MonoTorrent.InfoHash.Equals(MonoTorrent.InfoHash)
+  - MonoTorrent.InfoHash.Equals(System.Object)
+  - MonoTorrent.InfoHash.FromBase32(System.String)
+  - MonoTorrent.InfoHash.FromHex(System.String)
+  - MonoTorrent.InfoHash.FromMemory(System.ReadOnlyMemory{System.Byte})
+  - MonoTorrent.InfoHash.FromMultiHash(System.String)
+  - MonoTorrent.InfoHash.GetHashCode
+  - MonoTorrent.InfoHash.Span
+  - MonoTorrent.InfoHash.ToBase32
+  - MonoTorrent.InfoHash.ToHex
+  - MonoTorrent.InfoHash.Truncate
+  - MonoTorrent.InfoHash.UrlDecode(System.String)
+  - MonoTorrent.InfoHash.UrlEncode
+  - MonoTorrent.InfoHash.op_Equality(MonoTorrent.InfoHash,MonoTorrent.InfoHash)
+  - MonoTorrent.InfoHash.op_Inequality(MonoTorrent.InfoHash,MonoTorrent.InfoHash)
+  langs:
+  - csharp
+  - vb
+  name: InfoHash
+  nameWithType: InfoHash
+  fullName: MonoTorrent.InfoHash
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: InfoHash
+    path: src/InfoHash.cs
+    startLine: 38
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: 'public class InfoHash : IEquatable<InfoHash>'
+    content.vb: Public Class InfoHash Implements IEquatable(Of InfoHash)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{MonoTorrent.InfoHash}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.InfoHash.Span
+  commentId: P:MonoTorrent.InfoHash.Span
+  id: Span
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: Span
+  nameWithType: InfoHash.Span
+  fullName: MonoTorrent.InfoHash.Span
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Span
+    path: src/InfoHash.cs
+    startLine: 61
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public ReadOnlySpan<byte> Span { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public ReadOnly Property Span As ReadOnlySpan(Of Byte)
+  overload: MonoTorrent.InfoHash.Span*
+- uid: MonoTorrent.InfoHash.#ctor(System.Byte[])
+  commentId: M:MonoTorrent.InfoHash.#ctor(System.Byte[])
+  id: '#ctor(System.Byte[])'
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: InfoHash(byte[])
+  nameWithType: InfoHash.InfoHash(byte[])
+  fullName: MonoTorrent.InfoHash.InfoHash(byte[])
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/InfoHash.cs
+    startLine: 67
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Clones the provided byte[] before storing the value internally.
+  example: []
+  syntax:
+    content: public InfoHash(byte[] infoHash)
+    parameters:
+    - id: infoHash
+      type: System.Byte[]
+      description: ''
+    content.vb: Public Sub New(infoHash As Byte())
+  overload: MonoTorrent.InfoHash.#ctor*
+  nameWithType.vb: InfoHash.New(Byte())
+  fullName.vb: MonoTorrent.InfoHash.New(Byte())
+  name.vb: New(Byte())
+- uid: MonoTorrent.InfoHash.#ctor(System.ReadOnlySpan{System.Byte})
+  commentId: M:MonoTorrent.InfoHash.#ctor(System.ReadOnlySpan{System.Byte})
+  id: '#ctor(System.ReadOnlySpan{System.Byte})'
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: InfoHash(ReadOnlySpan<byte>)
+  nameWithType: InfoHash.InfoHash(ReadOnlySpan<byte>)
+  fullName: MonoTorrent.InfoHash.InfoHash(System.ReadOnlySpan<byte>)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/InfoHash.cs
+    startLine: 80
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Clones the provided span before storing the value internally.
+  example: []
+  syntax:
+    content: public InfoHash(ReadOnlySpan<byte> infoHash)
+    parameters:
+    - id: infoHash
+      type: System.ReadOnlySpan{System.Byte}
+      description: ''
+    content.vb: Public Sub New(infoHash As ReadOnlySpan(Of Byte))
+  overload: MonoTorrent.InfoHash.#ctor*
+  nameWithType.vb: InfoHash.New(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.InfoHash.New(System.ReadOnlySpan(Of Byte))
+  name.vb: New(ReadOnlySpan(Of Byte))
+- uid: MonoTorrent.InfoHash.AsMemory
+  commentId: M:MonoTorrent.InfoHash.AsMemory
+  id: AsMemory
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: AsMemory()
+  nameWithType: InfoHash.AsMemory()
+  fullName: MonoTorrent.InfoHash.AsMemory()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AsMemory
+    path: src/InfoHash.cs
+    startLine: 93
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public ReadOnlyMemory<byte> AsMemory()
+    return:
+      type: System.ReadOnlyMemory{System.Byte}
+    content.vb: Public Function AsMemory() As ReadOnlyMemory(Of Byte)
+  overload: MonoTorrent.InfoHash.AsMemory*
+- uid: MonoTorrent.InfoHash.GetHashCode
+  commentId: M:MonoTorrent.InfoHash.GetHashCode
+  id: GetHashCode
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: InfoHash.GetHashCode()
+  fullName: MonoTorrent.InfoHash.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetHashCode
+    path: src/InfoHash.cs
+    startLine: 96
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: MonoTorrent.InfoHash.GetHashCode*
+- uid: MonoTorrent.InfoHash.Equals(System.Object)
+  commentId: M:MonoTorrent.InfoHash.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: InfoHash.Equals(object?)
+  fullName: MonoTorrent.InfoHash.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Equals
+    path: src/InfoHash.cs
+    startLine: 99
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: MonoTorrent.InfoHash.Equals*
+  nameWithType.vb: InfoHash.Equals(Object)
+  fullName.vb: MonoTorrent.InfoHash.Equals(Object)
+  name.vb: Equals(Object)
+- uid: MonoTorrent.InfoHash.Equals(MonoTorrent.InfoHash)
+  commentId: M:MonoTorrent.InfoHash.Equals(MonoTorrent.InfoHash)
+  id: Equals(MonoTorrent.InfoHash)
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: Equals(InfoHash?)
+  nameWithType: InfoHash.Equals(InfoHash?)
+  fullName: MonoTorrent.InfoHash.Equals(MonoTorrent.InfoHash?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Equals
+    path: src/InfoHash.cs
+    startLine: 102
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(InfoHash? other)
+    parameters:
+    - id: other
+      type: MonoTorrent.InfoHash
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As InfoHash) As Boolean
+  overload: MonoTorrent.InfoHash.Equals*
+  implements:
+  - System.IEquatable{MonoTorrent.InfoHash}.Equals(MonoTorrent.InfoHash)
+  nameWithType.vb: InfoHash.Equals(InfoHash)
+  fullName.vb: MonoTorrent.InfoHash.Equals(MonoTorrent.InfoHash)
+  name.vb: Equals(InfoHash)
+- uid: MonoTorrent.InfoHash.Truncate
+  commentId: M:MonoTorrent.InfoHash.Truncate
+  id: Truncate
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: Truncate()
+  nameWithType: InfoHash.Truncate()
+  fullName: MonoTorrent.InfoHash.Truncate()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Truncate
+    path: src/InfoHash.cs
+    startLine: 110
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: >-
+    If this <xref href="MonoTorrent.InfoHash" data-throw-if-not-resolved="false"></xref> object represents a SHA256 hash the return value will be the first
+
+    20 bytes of the hash. If it represents a SHA1 hash the full (untruncated) value will be returned.
+  example: []
+  syntax:
+    content: public InfoHash Truncate()
+    return:
+      type: MonoTorrent.InfoHash
+      description: ''
+    content.vb: Public Function Truncate() As InfoHash
+  overload: MonoTorrent.InfoHash.Truncate*
+- uid: MonoTorrent.InfoHash.ToHex
+  commentId: M:MonoTorrent.InfoHash.ToHex
+  id: ToHex
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: ToHex()
+  nameWithType: InfoHash.ToHex()
+  fullName: MonoTorrent.InfoHash.ToHex()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToHex
+    path: src/InfoHash.cs
+    startLine: 113
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public string ToHex()
+    return:
+      type: System.String
+    content.vb: Public Function ToHex() As String
+  overload: MonoTorrent.InfoHash.ToHex*
+- uid: MonoTorrent.InfoHash.ToBase32
+  commentId: M:MonoTorrent.InfoHash.ToBase32
+  id: ToBase32
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: ToBase32()
+  nameWithType: InfoHash.ToBase32()
+  fullName: MonoTorrent.InfoHash.ToBase32()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToBase32
+    path: src/InfoHash.cs
+    startLine: 126
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public string ToBase32()
+    return:
+      type: System.String
+    content.vb: Public Function ToBase32() As String
+  overload: MonoTorrent.InfoHash.ToBase32*
+- uid: MonoTorrent.InfoHash.UrlEncode
+  commentId: M:MonoTorrent.InfoHash.UrlEncode
+  id: UrlEncode
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: UrlEncode()
+  nameWithType: InfoHash.UrlEncode()
+  fullName: MonoTorrent.InfoHash.UrlEncode()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: UrlEncode
+    path: src/InfoHash.cs
+    startLine: 155
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public string UrlEncode()
+    return:
+      type: System.String
+    content.vb: Public Function UrlEncode() As String
+  overload: MonoTorrent.InfoHash.UrlEncode*
+- uid: MonoTorrent.InfoHash.op_Equality(MonoTorrent.InfoHash,MonoTorrent.InfoHash)
+  commentId: M:MonoTorrent.InfoHash.op_Equality(MonoTorrent.InfoHash,MonoTorrent.InfoHash)
+  id: op_Equality(MonoTorrent.InfoHash,MonoTorrent.InfoHash)
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: operator ==(InfoHash?, InfoHash?)
+  nameWithType: InfoHash.operator ==(InfoHash?, InfoHash?)
+  fullName: MonoTorrent.InfoHash.operator ==(MonoTorrent.InfoHash?, MonoTorrent.InfoHash?)
+  type: Operator
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: op_Equality
+    path: src/InfoHash.cs
+    startLine: 158
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static bool operator ==(InfoHash? left, InfoHash? right)
+    parameters:
+    - id: left
+      type: MonoTorrent.InfoHash
+    - id: right
+      type: MonoTorrent.InfoHash
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As InfoHash, right As InfoHash) As Boolean
+  overload: MonoTorrent.InfoHash.op_Equality*
+  nameWithType.vb: InfoHash.=(InfoHash, InfoHash)
+  fullName.vb: MonoTorrent.InfoHash.=(MonoTorrent.InfoHash, MonoTorrent.InfoHash)
+  name.vb: =(InfoHash, InfoHash)
+- uid: MonoTorrent.InfoHash.op_Inequality(MonoTorrent.InfoHash,MonoTorrent.InfoHash)
+  commentId: M:MonoTorrent.InfoHash.op_Inequality(MonoTorrent.InfoHash,MonoTorrent.InfoHash)
+  id: op_Inequality(MonoTorrent.InfoHash,MonoTorrent.InfoHash)
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: operator !=(InfoHash?, InfoHash?)
+  nameWithType: InfoHash.operator !=(InfoHash?, InfoHash?)
+  fullName: MonoTorrent.InfoHash.operator !=(MonoTorrent.InfoHash?, MonoTorrent.InfoHash?)
+  type: Operator
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: op_Inequality
+    path: src/InfoHash.cs
+    startLine: 168
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static bool operator !=(InfoHash? left, InfoHash? right)
+    parameters:
+    - id: left
+      type: MonoTorrent.InfoHash
+    - id: right
+      type: MonoTorrent.InfoHash
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As InfoHash, right As InfoHash) As Boolean
+  overload: MonoTorrent.InfoHash.op_Inequality*
+  nameWithType.vb: InfoHash.<>(InfoHash, InfoHash)
+  fullName.vb: MonoTorrent.InfoHash.<>(MonoTorrent.InfoHash, MonoTorrent.InfoHash)
+  name.vb: <>(InfoHash, InfoHash)
+- uid: MonoTorrent.InfoHash.FromBase32(System.String)
+  commentId: M:MonoTorrent.InfoHash.FromBase32(System.String)
+  id: FromBase32(System.String)
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: FromBase32(string)
+  nameWithType: InfoHash.FromBase32(string)
+  fullName: MonoTorrent.InfoHash.FromBase32(string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FromBase32
+    path: src/InfoHash.cs
+    startLine: 171
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static InfoHash FromBase32(string infoHash)
+    parameters:
+    - id: infoHash
+      type: System.String
+    return:
+      type: MonoTorrent.InfoHash
+    content.vb: Public Shared Function FromBase32(infoHash As String) As InfoHash
+  overload: MonoTorrent.InfoHash.FromBase32*
+  nameWithType.vb: InfoHash.FromBase32(String)
+  fullName.vb: MonoTorrent.InfoHash.FromBase32(String)
+  name.vb: FromBase32(String)
+- uid: MonoTorrent.InfoHash.FromHex(System.String)
+  commentId: M:MonoTorrent.InfoHash.FromHex(System.String)
+  id: FromHex(System.String)
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: FromHex(string)
+  nameWithType: InfoHash.FromHex(string)
+  fullName: MonoTorrent.InfoHash.FromHex(string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FromHex
+    path: src/InfoHash.cs
+    startLine: 199
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static InfoHash FromHex(string infoHash)
+    parameters:
+    - id: infoHash
+      type: System.String
+    return:
+      type: MonoTorrent.InfoHash
+    content.vb: Public Shared Function FromHex(infoHash As String) As InfoHash
+  overload: MonoTorrent.InfoHash.FromHex*
+  nameWithType.vb: InfoHash.FromHex(String)
+  fullName.vb: MonoTorrent.InfoHash.FromHex(String)
+  name.vb: FromHex(String)
+- uid: MonoTorrent.InfoHash.FromMultiHash(System.String)
+  commentId: M:MonoTorrent.InfoHash.FromMultiHash(System.String)
+  id: FromMultiHash(System.String)
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: FromMultiHash(string)
+  nameWithType: InfoHash.FromMultiHash(string)
+  fullName: MonoTorrent.InfoHash.FromMultiHash(string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FromMultiHash
+    path: src/InfoHash.cs
+    startLine: 211
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static InfoHash FromMultiHash(string multiHash)
+    parameters:
+    - id: multiHash
+      type: System.String
+    return:
+      type: MonoTorrent.InfoHash
+    content.vb: Public Shared Function FromMultiHash(multiHash As String) As InfoHash
+  overload: MonoTorrent.InfoHash.FromMultiHash*
+  nameWithType.vb: InfoHash.FromMultiHash(String)
+  fullName.vb: MonoTorrent.InfoHash.FromMultiHash(String)
+  name.vb: FromMultiHash(String)
+- uid: MonoTorrent.InfoHash.FromMemory(System.ReadOnlyMemory{System.Byte})
+  commentId: M:MonoTorrent.InfoHash.FromMemory(System.ReadOnlyMemory{System.Byte})
+  id: FromMemory(System.ReadOnlyMemory{System.Byte})
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: FromMemory(ReadOnlyMemory<byte>)
+  nameWithType: InfoHash.FromMemory(ReadOnlyMemory<byte>)
+  fullName: MonoTorrent.InfoHash.FromMemory(System.ReadOnlyMemory<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FromMemory
+    path: src/InfoHash.cs
+    startLine: 233
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Stores the supplied value internally.
+  example: []
+  syntax:
+    content: public static InfoHash FromMemory(ReadOnlyMemory<byte> infoHash)
+    parameters:
+    - id: infoHash
+      type: System.ReadOnlyMemory{System.Byte}
+      description: ''
+    return:
+      type: MonoTorrent.InfoHash
+    content.vb: Public Shared Function FromMemory(infoHash As ReadOnlyMemory(Of Byte)) As InfoHash
+  overload: MonoTorrent.InfoHash.FromMemory*
+  nameWithType.vb: InfoHash.FromMemory(ReadOnlyMemory(Of Byte))
+  fullName.vb: MonoTorrent.InfoHash.FromMemory(System.ReadOnlyMemory(Of Byte))
+  name.vb: FromMemory(ReadOnlyMemory(Of Byte))
+- uid: MonoTorrent.InfoHash.UrlDecode(System.String)
+  commentId: M:MonoTorrent.InfoHash.UrlDecode(System.String)
+  id: UrlDecode(System.String)
+  parent: MonoTorrent.InfoHash
+  langs:
+  - csharp
+  - vb
+  name: UrlDecode(string)
+  nameWithType: InfoHash.UrlDecode(string)
+  fullName: MonoTorrent.InfoHash.UrlDecode(string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/InfoHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: UrlDecode
+    path: src/InfoHash.cs
+    startLine: 236
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static InfoHash UrlDecode(string infoHash)
+    parameters:
+    - id: infoHash
+      type: System.String
+    return:
+      type: MonoTorrent.InfoHash
+    content.vb: Public Shared Function UrlDecode(infoHash As String) As InfoHash
+  overload: MonoTorrent.InfoHash.UrlDecode*
+  nameWithType.vb: InfoHash.UrlDecode(String)
+  fullName.vb: MonoTorrent.InfoHash.UrlDecode(String)
+  name.vb: UrlDecode(String)
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{MonoTorrent.InfoHash}
+  commentId: T:System.IEquatable{MonoTorrent.InfoHash}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<InfoHash>
+  nameWithType: IEquatable<InfoHash>
+  fullName: System.IEquatable<MonoTorrent.InfoHash>
+  nameWithType.vb: IEquatable(Of InfoHash)
+  fullName.vb: System.IEquatable(Of MonoTorrent.InfoHash)
+  name.vb: IEquatable(Of InfoHash)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: MonoTorrent.InfoHash
+    name: InfoHash
+    href: MonoTorrent.InfoHash.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.InfoHash
+    name: InfoHash
+    href: MonoTorrent.InfoHash.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.InfoHash.Span*
+  commentId: Overload:MonoTorrent.InfoHash.Span
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_Span
+  name: Span
+  nameWithType: InfoHash.Span
+  fullName: MonoTorrent.InfoHash.Span
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.InfoHash.#ctor*
+  commentId: Overload:MonoTorrent.InfoHash.#ctor
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash__ctor_System_Byte___
+  name: InfoHash
+  nameWithType: InfoHash.InfoHash
+  fullName: MonoTorrent.InfoHash.InfoHash
+  nameWithType.vb: InfoHash.New
+  fullName.vb: MonoTorrent.InfoHash.New
+  name.vb: New
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: MonoTorrent.InfoHash.AsMemory*
+  commentId: Overload:MonoTorrent.InfoHash.AsMemory
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_AsMemory
+  name: AsMemory
+  nameWithType: InfoHash.AsMemory
+  fullName: MonoTorrent.InfoHash.AsMemory
+- uid: System.ReadOnlyMemory{System.Byte}
+  commentId: T:System.ReadOnlyMemory{System.Byte}
+  parent: System
+  definition: System.ReadOnlyMemory`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<byte>
+  nameWithType: ReadOnlyMemory<byte>
+  fullName: System.ReadOnlyMemory<byte>
+  nameWithType.vb: ReadOnlyMemory(Of Byte)
+  fullName.vb: System.ReadOnlyMemory(Of Byte)
+  name.vb: ReadOnlyMemory(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlyMemory`1
+  commentId: T:System.ReadOnlyMemory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<T>
+  nameWithType: ReadOnlyMemory<T>
+  fullName: System.ReadOnlyMemory<T>
+  nameWithType.vb: ReadOnlyMemory(Of T)
+  fullName.vb: System.ReadOnlyMemory(Of T)
+  name.vb: ReadOnlyMemory(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: MonoTorrent.InfoHash.GetHashCode*
+  commentId: Overload:MonoTorrent.InfoHash.GetHashCode
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_GetHashCode
+  name: GetHashCode
+  nameWithType: InfoHash.GetHashCode
+  fullName: MonoTorrent.InfoHash.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: MonoTorrent.InfoHash.Equals*
+  commentId: Overload:MonoTorrent.InfoHash.Equals
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_Equals_System_Object_
+  name: Equals
+  nameWithType: InfoHash.Equals
+  fullName: MonoTorrent.InfoHash.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable{MonoTorrent.InfoHash}.Equals(MonoTorrent.InfoHash)
+  commentId: M:System.IEquatable{MonoTorrent.InfoHash}.Equals(MonoTorrent.InfoHash)
+  parent: System.IEquatable{MonoTorrent.InfoHash}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(InfoHash)
+  nameWithType: IEquatable<InfoHash>.Equals(InfoHash)
+  fullName: System.IEquatable<MonoTorrent.InfoHash>.Equals(MonoTorrent.InfoHash)
+  nameWithType.vb: IEquatable(Of InfoHash).Equals(InfoHash)
+  fullName.vb: System.IEquatable(Of MonoTorrent.InfoHash).Equals(MonoTorrent.InfoHash)
+  spec.csharp:
+  - uid: System.IEquatable{MonoTorrent.InfoHash}.Equals(MonoTorrent.InfoHash)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: MonoTorrent.InfoHash
+    name: InfoHash
+    href: MonoTorrent.InfoHash.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{MonoTorrent.InfoHash}.Equals(MonoTorrent.InfoHash)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: MonoTorrent.InfoHash
+    name: InfoHash
+    href: MonoTorrent.InfoHash.html
+  - name: )
+- uid: MonoTorrent.InfoHash
+  commentId: T:MonoTorrent.InfoHash
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHash.html
+  name: InfoHash
+  nameWithType: InfoHash
+  fullName: MonoTorrent.InfoHash
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: MonoTorrent.InfoHash.Truncate*
+  commentId: Overload:MonoTorrent.InfoHash.Truncate
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_Truncate
+  name: Truncate
+  nameWithType: InfoHash.Truncate
+  fullName: MonoTorrent.InfoHash.Truncate
+- uid: MonoTorrent.InfoHash.ToHex*
+  commentId: Overload:MonoTorrent.InfoHash.ToHex
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_ToHex
+  name: ToHex
+  nameWithType: InfoHash.ToHex
+  fullName: MonoTorrent.InfoHash.ToHex
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MonoTorrent.InfoHash.ToBase32*
+  commentId: Overload:MonoTorrent.InfoHash.ToBase32
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_ToBase32
+  name: ToBase32
+  nameWithType: InfoHash.ToBase32
+  fullName: MonoTorrent.InfoHash.ToBase32
+- uid: MonoTorrent.InfoHash.UrlEncode*
+  commentId: Overload:MonoTorrent.InfoHash.UrlEncode
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_UrlEncode
+  name: UrlEncode
+  nameWithType: InfoHash.UrlEncode
+  fullName: MonoTorrent.InfoHash.UrlEncode
+- uid: MonoTorrent.InfoHash.op_Equality*
+  commentId: Overload:MonoTorrent.InfoHash.op_Equality
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_op_Equality_MonoTorrent_InfoHash_MonoTorrent_InfoHash_
+  name: operator ==
+  nameWithType: InfoHash.operator ==
+  fullName: MonoTorrent.InfoHash.operator ==
+  nameWithType.vb: InfoHash.=
+  fullName.vb: MonoTorrent.InfoHash.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: MonoTorrent.InfoHash.op_Equality*
+    name: ==
+    href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_op_Equality_MonoTorrent_InfoHash_MonoTorrent_InfoHash_
+- uid: MonoTorrent.InfoHash.op_Inequality*
+  commentId: Overload:MonoTorrent.InfoHash.op_Inequality
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_op_Inequality_MonoTorrent_InfoHash_MonoTorrent_InfoHash_
+  name: operator !=
+  nameWithType: InfoHash.operator !=
+  fullName: MonoTorrent.InfoHash.operator !=
+  nameWithType.vb: InfoHash.<>
+  fullName.vb: MonoTorrent.InfoHash.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: MonoTorrent.InfoHash.op_Inequality*
+    name: '!='
+    href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_op_Inequality_MonoTorrent_InfoHash_MonoTorrent_InfoHash_
+- uid: MonoTorrent.InfoHash.FromBase32*
+  commentId: Overload:MonoTorrent.InfoHash.FromBase32
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_FromBase32_System_String_
+  name: FromBase32
+  nameWithType: InfoHash.FromBase32
+  fullName: MonoTorrent.InfoHash.FromBase32
+- uid: MonoTorrent.InfoHash.FromHex*
+  commentId: Overload:MonoTorrent.InfoHash.FromHex
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_FromHex_System_String_
+  name: FromHex
+  nameWithType: InfoHash.FromHex
+  fullName: MonoTorrent.InfoHash.FromHex
+- uid: MonoTorrent.InfoHash.FromMultiHash*
+  commentId: Overload:MonoTorrent.InfoHash.FromMultiHash
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_FromMultiHash_System_String_
+  name: FromMultiHash
+  nameWithType: InfoHash.FromMultiHash
+  fullName: MonoTorrent.InfoHash.FromMultiHash
+- uid: MonoTorrent.InfoHash.FromMemory*
+  commentId: Overload:MonoTorrent.InfoHash.FromMemory
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_FromMemory_System_ReadOnlyMemory_System_Byte__
+  name: FromMemory
+  nameWithType: InfoHash.FromMemory
+  fullName: MonoTorrent.InfoHash.FromMemory
+- uid: MonoTorrent.InfoHash.UrlDecode*
+  commentId: Overload:MonoTorrent.InfoHash.UrlDecode
+  href: MonoTorrent.InfoHash.html#MonoTorrent_InfoHash_UrlDecode_System_String_
+  name: UrlDecode
+  nameWithType: InfoHash.UrlDecode
+  fullName: MonoTorrent.InfoHash.UrlDecode

@@ -1,0 +1,1440 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Trackers.AnnounceRequest
+  commentId: T:MonoTorrent.Trackers.AnnounceRequest
+  id: AnnounceRequest
+  parent: MonoTorrent.Trackers
+  children:
+  - MonoTorrent.Trackers.AnnounceRequest.#ctor(MonoTorrent.InfoHashes)
+  - MonoTorrent.Trackers.AnnounceRequest.#ctor(System.Int64,System.Int64,System.Int64,MonoTorrent.TorrentEvent,MonoTorrent.InfoHashes,System.Boolean,System.ReadOnlyMemory{System.Byte},System.Func{System.String,System.ValueTuple{System.String,System.Int32}},System.Boolean)
+  - MonoTorrent.Trackers.AnnounceRequest.BytesDownloaded
+  - MonoTorrent.Trackers.AnnounceRequest.BytesLeft
+  - MonoTorrent.Trackers.AnnounceRequest.BytesUploaded
+  - MonoTorrent.Trackers.AnnounceRequest.ClientEvent
+  - MonoTorrent.Trackers.AnnounceRequest.GetReportedAddress(System.String)
+  - MonoTorrent.Trackers.AnnounceRequest.InfoHashes
+  - MonoTorrent.Trackers.AnnounceRequest.Key
+  - MonoTorrent.Trackers.AnnounceRequest.PeerId
+  - MonoTorrent.Trackers.AnnounceRequest.RequireEncryption
+  - MonoTorrent.Trackers.AnnounceRequest.SupportsEncryption
+  - MonoTorrent.Trackers.AnnounceRequest.WithBytesDownloaded(System.Int64)
+  - MonoTorrent.Trackers.AnnounceRequest.WithBytesLeft(System.Int64)
+  - MonoTorrent.Trackers.AnnounceRequest.WithBytesUploaded(System.Int64)
+  - MonoTorrent.Trackers.AnnounceRequest.WithClientEvent(MonoTorrent.TorrentEvent)
+  - MonoTorrent.Trackers.AnnounceRequest.WithInfoHashes(MonoTorrent.InfoHashes)
+  - MonoTorrent.Trackers.AnnounceRequest.WithKey(System.Int32)
+  - MonoTorrent.Trackers.AnnounceRequest.WithPeerId(System.ReadOnlyMemory{System.Byte})
+  - MonoTorrent.Trackers.AnnounceRequest.WithReportedEndPointFunc(System.Func{System.String,System.ValueTuple{System.String,System.Int32}})
+  - MonoTorrent.Trackers.AnnounceRequest.WithRequireEncryption(System.Boolean)
+  - MonoTorrent.Trackers.AnnounceRequest.WithSupportsEncryption(System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: AnnounceRequest
+  nameWithType: AnnounceRequest
+  fullName: MonoTorrent.Trackers.AnnounceRequest
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AnnounceRequest
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 32
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public sealed class AnnounceRequest
+    content.vb: Public NotInheritable Class AnnounceRequest
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.Trackers.AnnounceRequest.BytesDownloaded
+  commentId: P:MonoTorrent.Trackers.AnnounceRequest.BytesDownloaded
+  id: BytesDownloaded
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: BytesDownloaded
+  nameWithType: AnnounceRequest.BytesDownloaded
+  fullName: MonoTorrent.Trackers.AnnounceRequest.BytesDownloaded
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BytesDownloaded
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public long BytesDownloaded { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property BytesDownloaded As Long
+  overload: MonoTorrent.Trackers.AnnounceRequest.BytesDownloaded*
+- uid: MonoTorrent.Trackers.AnnounceRequest.BytesLeft
+  commentId: P:MonoTorrent.Trackers.AnnounceRequest.BytesLeft
+  id: BytesLeft
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: BytesLeft
+  nameWithType: AnnounceRequest.BytesLeft
+  fullName: MonoTorrent.Trackers.AnnounceRequest.BytesLeft
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BytesLeft
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public long BytesLeft { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property BytesLeft As Long
+  overload: MonoTorrent.Trackers.AnnounceRequest.BytesLeft*
+- uid: MonoTorrent.Trackers.AnnounceRequest.BytesUploaded
+  commentId: P:MonoTorrent.Trackers.AnnounceRequest.BytesUploaded
+  id: BytesUploaded
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: BytesUploaded
+  nameWithType: AnnounceRequest.BytesUploaded
+  fullName: MonoTorrent.Trackers.AnnounceRequest.BytesUploaded
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BytesUploaded
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 36
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public long BytesUploaded { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property BytesUploaded As Long
+  overload: MonoTorrent.Trackers.AnnounceRequest.BytesUploaded*
+- uid: MonoTorrent.Trackers.AnnounceRequest.ClientEvent
+  commentId: P:MonoTorrent.Trackers.AnnounceRequest.ClientEvent
+  id: ClientEvent
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: ClientEvent
+  nameWithType: AnnounceRequest.ClientEvent
+  fullName: MonoTorrent.Trackers.AnnounceRequest.ClientEvent
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ClientEvent
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public TorrentEvent ClientEvent { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.TorrentEvent
+    content.vb: Public Property ClientEvent As TorrentEvent
+  overload: MonoTorrent.Trackers.AnnounceRequest.ClientEvent*
+- uid: MonoTorrent.Trackers.AnnounceRequest.InfoHashes
+  commentId: P:MonoTorrent.Trackers.AnnounceRequest.InfoHashes
+  id: InfoHashes
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: InfoHashes
+  nameWithType: AnnounceRequest.InfoHashes
+  fullName: MonoTorrent.Trackers.AnnounceRequest.InfoHashes
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: InfoHashes
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public InfoHashes InfoHashes { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.InfoHashes
+    content.vb: Public Property InfoHashes As InfoHashes
+  overload: MonoTorrent.Trackers.AnnounceRequest.InfoHashes*
+- uid: MonoTorrent.Trackers.AnnounceRequest.Key
+  commentId: P:MonoTorrent.Trackers.AnnounceRequest.Key
+  id: Key
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: Key
+  nameWithType: AnnounceRequest.Key
+  fullName: MonoTorrent.Trackers.AnnounceRequest.Key
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Key
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 40
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public int Key { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Key As Integer
+  overload: MonoTorrent.Trackers.AnnounceRequest.Key*
+- uid: MonoTorrent.Trackers.AnnounceRequest.PeerId
+  commentId: P:MonoTorrent.Trackers.AnnounceRequest.PeerId
+  id: PeerId
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: PeerId
+  nameWithType: AnnounceRequest.PeerId
+  fullName: MonoTorrent.Trackers.AnnounceRequest.PeerId
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PeerId
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 41
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public ReadOnlyMemory<byte> PeerId { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlyMemory{System.Byte}
+    content.vb: Public Property PeerId As ReadOnlyMemory(Of Byte)
+  overload: MonoTorrent.Trackers.AnnounceRequest.PeerId*
+- uid: MonoTorrent.Trackers.AnnounceRequest.RequireEncryption
+  commentId: P:MonoTorrent.Trackers.AnnounceRequest.RequireEncryption
+  id: RequireEncryption
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: RequireEncryption
+  nameWithType: AnnounceRequest.RequireEncryption
+  fullName: MonoTorrent.Trackers.AnnounceRequest.RequireEncryption
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RequireEncryption
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 42
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public bool RequireEncryption { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property RequireEncryption As Boolean
+  overload: MonoTorrent.Trackers.AnnounceRequest.RequireEncryption*
+- uid: MonoTorrent.Trackers.AnnounceRequest.SupportsEncryption
+  commentId: P:MonoTorrent.Trackers.AnnounceRequest.SupportsEncryption
+  id: SupportsEncryption
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: SupportsEncryption
+  nameWithType: AnnounceRequest.SupportsEncryption
+  fullName: MonoTorrent.Trackers.AnnounceRequest.SupportsEncryption
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SupportsEncryption
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 43
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public bool SupportsEncryption { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsEncryption As Boolean
+  overload: MonoTorrent.Trackers.AnnounceRequest.SupportsEncryption*
+- uid: MonoTorrent.Trackers.AnnounceRequest.#ctor(MonoTorrent.InfoHashes)
+  commentId: M:MonoTorrent.Trackers.AnnounceRequest.#ctor(MonoTorrent.InfoHashes)
+  id: '#ctor(MonoTorrent.InfoHashes)'
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: AnnounceRequest(InfoHashes)
+  nameWithType: AnnounceRequest.AnnounceRequest(InfoHashes)
+  fullName: MonoTorrent.Trackers.AnnounceRequest.AnnounceRequest(MonoTorrent.InfoHashes)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 46
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public AnnounceRequest(InfoHashes infoHashes)
+    parameters:
+    - id: infoHashes
+      type: MonoTorrent.InfoHashes
+    content.vb: Public Sub New(infoHashes As InfoHashes)
+  overload: MonoTorrent.Trackers.AnnounceRequest.#ctor*
+  nameWithType.vb: AnnounceRequest.New(InfoHashes)
+  fullName.vb: MonoTorrent.Trackers.AnnounceRequest.New(MonoTorrent.InfoHashes)
+  name.vb: New(InfoHashes)
+- uid: MonoTorrent.Trackers.AnnounceRequest.#ctor(System.Int64,System.Int64,System.Int64,MonoTorrent.TorrentEvent,MonoTorrent.InfoHashes,System.Boolean,System.ReadOnlyMemory{System.Byte},System.Func{System.String,System.ValueTuple{System.String,System.Int32}},System.Boolean)
+  commentId: M:MonoTorrent.Trackers.AnnounceRequest.#ctor(System.Int64,System.Int64,System.Int64,MonoTorrent.TorrentEvent,MonoTorrent.InfoHashes,System.Boolean,System.ReadOnlyMemory{System.Byte},System.Func{System.String,System.ValueTuple{System.String,System.Int32}},System.Boolean)
+  id: '#ctor(System.Int64,System.Int64,System.Int64,MonoTorrent.TorrentEvent,MonoTorrent.InfoHashes,System.Boolean,System.ReadOnlyMemory{System.Byte},System.Func{System.String,System.ValueTuple{System.String,System.Int32}},System.Boolean)'
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: AnnounceRequest(long, long, long, TorrentEvent, InfoHashes, bool, ReadOnlyMemory<byte>, Func<string, (string?, int)>, bool)
+  nameWithType: AnnounceRequest.AnnounceRequest(long, long, long, TorrentEvent, InfoHashes, bool, ReadOnlyMemory<byte>, Func<string, (string?, int)>, bool)
+  fullName: MonoTorrent.Trackers.AnnounceRequest.AnnounceRequest(long, long, long, MonoTorrent.TorrentEvent, MonoTorrent.InfoHashes, bool, System.ReadOnlyMemory<byte>, System.Func<string, (string?, int)>, bool)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 52
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public AnnounceRequest(long bytesDownloaded, long bytesUploaded, long bytesLeft, TorrentEvent clientEvent, InfoHashes infoHashes, bool requireEncryption, ReadOnlyMemory<byte> peerId, Func<string, (string?, int)> endpointFunc, bool supportsEncryption)
+    parameters:
+    - id: bytesDownloaded
+      type: System.Int64
+    - id: bytesUploaded
+      type: System.Int64
+    - id: bytesLeft
+      type: System.Int64
+    - id: clientEvent
+      type: MonoTorrent.TorrentEvent
+    - id: infoHashes
+      type: MonoTorrent.InfoHashes
+    - id: requireEncryption
+      type: System.Boolean
+    - id: peerId
+      type: System.ReadOnlyMemory{System.Byte}
+    - id: endpointFunc
+      type: System.Func{System.String,System.ValueTuple{System.String,System.Int32}}
+    - id: supportsEncryption
+      type: System.Boolean
+    content.vb: Public Sub New(bytesDownloaded As Long, bytesUploaded As Long, bytesLeft As Long, clientEvent As TorrentEvent, infoHashes As InfoHashes, requireEncryption As Boolean, peerId As ReadOnlyMemory(Of Byte), endpointFunc As Func(Of String, (String, Integer)), supportsEncryption As Boolean)
+  overload: MonoTorrent.Trackers.AnnounceRequest.#ctor*
+  nameWithType.vb: AnnounceRequest.New(Long, Long, Long, TorrentEvent, InfoHashes, Boolean, ReadOnlyMemory(Of Byte), Func(Of String, (String, Integer)), Boolean)
+  fullName.vb: MonoTorrent.Trackers.AnnounceRequest.New(Long, Long, Long, MonoTorrent.TorrentEvent, MonoTorrent.InfoHashes, Boolean, System.ReadOnlyMemory(Of Byte), System.Func(Of String, (String, Integer)), Boolean)
+  name.vb: New(Long, Long, Long, TorrentEvent, InfoHashes, Boolean, ReadOnlyMemory(Of Byte), Func(Of String, (String, Integer)), Boolean)
+- uid: MonoTorrent.Trackers.AnnounceRequest.GetReportedAddress(System.String)
+  commentId: M:MonoTorrent.Trackers.AnnounceRequest.GetReportedAddress(System.String)
+  id: GetReportedAddress(System.String)
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: GetReportedAddress(string)
+  nameWithType: AnnounceRequest.GetReportedAddress(string)
+  fullName: MonoTorrent.Trackers.AnnounceRequest.GetReportedAddress(string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetReportedAddress
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 67
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public (string? address, int port) GetReportedAddress(string type)
+    parameters:
+    - id: type
+      type: System.String
+    return:
+      type: System.ValueTuple{System.String,System.Int32}
+    content.vb: Public Function GetReportedAddress(type As String) As (address As String, port As Integer)
+  overload: MonoTorrent.Trackers.AnnounceRequest.GetReportedAddress*
+  nameWithType.vb: AnnounceRequest.GetReportedAddress(String)
+  fullName.vb: MonoTorrent.Trackers.AnnounceRequest.GetReportedAddress(String)
+  name.vb: GetReportedAddress(String)
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithBytesDownloaded(System.Int64)
+  commentId: M:MonoTorrent.Trackers.AnnounceRequest.WithBytesDownloaded(System.Int64)
+  id: WithBytesDownloaded(System.Int64)
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: WithBytesDownloaded(long)
+  nameWithType: AnnounceRequest.WithBytesDownloaded(long)
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithBytesDownloaded(long)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithBytesDownloaded
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 70
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public AnnounceRequest WithBytesDownloaded(long bytesDownloaded)
+    parameters:
+    - id: bytesDownloaded
+      type: System.Int64
+    return:
+      type: MonoTorrent.Trackers.AnnounceRequest
+    content.vb: Public Function WithBytesDownloaded(bytesDownloaded As Long) As AnnounceRequest
+  overload: MonoTorrent.Trackers.AnnounceRequest.WithBytesDownloaded*
+  nameWithType.vb: AnnounceRequest.WithBytesDownloaded(Long)
+  fullName.vb: MonoTorrent.Trackers.AnnounceRequest.WithBytesDownloaded(Long)
+  name.vb: WithBytesDownloaded(Long)
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithBytesLeft(System.Int64)
+  commentId: M:MonoTorrent.Trackers.AnnounceRequest.WithBytesLeft(System.Int64)
+  id: WithBytesLeft(System.Int64)
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: WithBytesLeft(long)
+  nameWithType: AnnounceRequest.WithBytesLeft(long)
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithBytesLeft(long)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithBytesLeft
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 80
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public AnnounceRequest WithBytesLeft(long bytesLeft)
+    parameters:
+    - id: bytesLeft
+      type: System.Int64
+    return:
+      type: MonoTorrent.Trackers.AnnounceRequest
+    content.vb: Public Function WithBytesLeft(bytesLeft As Long) As AnnounceRequest
+  overload: MonoTorrent.Trackers.AnnounceRequest.WithBytesLeft*
+  nameWithType.vb: AnnounceRequest.WithBytesLeft(Long)
+  fullName.vb: MonoTorrent.Trackers.AnnounceRequest.WithBytesLeft(Long)
+  name.vb: WithBytesLeft(Long)
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithBytesUploaded(System.Int64)
+  commentId: M:MonoTorrent.Trackers.AnnounceRequest.WithBytesUploaded(System.Int64)
+  id: WithBytesUploaded(System.Int64)
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: WithBytesUploaded(long)
+  nameWithType: AnnounceRequest.WithBytesUploaded(long)
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithBytesUploaded(long)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithBytesUploaded
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 90
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public AnnounceRequest WithBytesUploaded(long bytesUploaded)
+    parameters:
+    - id: bytesUploaded
+      type: System.Int64
+    return:
+      type: MonoTorrent.Trackers.AnnounceRequest
+    content.vb: Public Function WithBytesUploaded(bytesUploaded As Long) As AnnounceRequest
+  overload: MonoTorrent.Trackers.AnnounceRequest.WithBytesUploaded*
+  nameWithType.vb: AnnounceRequest.WithBytesUploaded(Long)
+  fullName.vb: MonoTorrent.Trackers.AnnounceRequest.WithBytesUploaded(Long)
+  name.vb: WithBytesUploaded(Long)
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithClientEvent(MonoTorrent.TorrentEvent)
+  commentId: M:MonoTorrent.Trackers.AnnounceRequest.WithClientEvent(MonoTorrent.TorrentEvent)
+  id: WithClientEvent(MonoTorrent.TorrentEvent)
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: WithClientEvent(TorrentEvent)
+  nameWithType: AnnounceRequest.WithClientEvent(TorrentEvent)
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithClientEvent(MonoTorrent.TorrentEvent)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithClientEvent
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 100
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public AnnounceRequest WithClientEvent(TorrentEvent clientEvent)
+    parameters:
+    - id: clientEvent
+      type: MonoTorrent.TorrentEvent
+    return:
+      type: MonoTorrent.Trackers.AnnounceRequest
+    content.vb: Public Function WithClientEvent(clientEvent As TorrentEvent) As AnnounceRequest
+  overload: MonoTorrent.Trackers.AnnounceRequest.WithClientEvent*
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithReportedEndPointFunc(System.Func{System.String,System.ValueTuple{System.String,System.Int32}})
+  commentId: M:MonoTorrent.Trackers.AnnounceRequest.WithReportedEndPointFunc(System.Func{System.String,System.ValueTuple{System.String,System.Int32}})
+  id: WithReportedEndPointFunc(System.Func{System.String,System.ValueTuple{System.String,System.Int32}})
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: WithReportedEndPointFunc(Func<string, (string?, int)>)
+  nameWithType: AnnounceRequest.WithReportedEndPointFunc(Func<string, (string?, int)>)
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithReportedEndPointFunc(System.Func<string, (string?, int)>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithReportedEndPointFunc
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 110
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public AnnounceRequest WithReportedEndPointFunc(Func<string, (string?, int)> func)
+    parameters:
+    - id: func
+      type: System.Func{System.String,System.ValueTuple{System.String,System.Int32}}
+    return:
+      type: MonoTorrent.Trackers.AnnounceRequest
+    content.vb: Public Function WithReportedEndPointFunc(func As Func(Of String, (String, Integer))) As AnnounceRequest
+  overload: MonoTorrent.Trackers.AnnounceRequest.WithReportedEndPointFunc*
+  nameWithType.vb: AnnounceRequest.WithReportedEndPointFunc(Func(Of String, (String, Integer)))
+  fullName.vb: MonoTorrent.Trackers.AnnounceRequest.WithReportedEndPointFunc(System.Func(Of String, (String, Integer)))
+  name.vb: WithReportedEndPointFunc(Func(Of String, (String, Integer)))
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithInfoHashes(MonoTorrent.InfoHashes)
+  commentId: M:MonoTorrent.Trackers.AnnounceRequest.WithInfoHashes(MonoTorrent.InfoHashes)
+  id: WithInfoHashes(MonoTorrent.InfoHashes)
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: WithInfoHashes(InfoHashes)
+  nameWithType: AnnounceRequest.WithInfoHashes(InfoHashes)
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithInfoHashes(MonoTorrent.InfoHashes)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithInfoHashes
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 120
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public AnnounceRequest WithInfoHashes(InfoHashes infoHashes)
+    parameters:
+    - id: infoHashes
+      type: MonoTorrent.InfoHashes
+    return:
+      type: MonoTorrent.Trackers.AnnounceRequest
+    content.vb: Public Function WithInfoHashes(infoHashes As InfoHashes) As AnnounceRequest
+  overload: MonoTorrent.Trackers.AnnounceRequest.WithInfoHashes*
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithKey(System.Int32)
+  commentId: M:MonoTorrent.Trackers.AnnounceRequest.WithKey(System.Int32)
+  id: WithKey(System.Int32)
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: WithKey(int)
+  nameWithType: AnnounceRequest.WithKey(int)
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithKey(int)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithKey
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 130
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public AnnounceRequest WithKey(int key)
+    parameters:
+    - id: key
+      type: System.Int32
+    return:
+      type: MonoTorrent.Trackers.AnnounceRequest
+    content.vb: Public Function WithKey(key As Integer) As AnnounceRequest
+  overload: MonoTorrent.Trackers.AnnounceRequest.WithKey*
+  nameWithType.vb: AnnounceRequest.WithKey(Integer)
+  fullName.vb: MonoTorrent.Trackers.AnnounceRequest.WithKey(Integer)
+  name.vb: WithKey(Integer)
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithPeerId(System.ReadOnlyMemory{System.Byte})
+  commentId: M:MonoTorrent.Trackers.AnnounceRequest.WithPeerId(System.ReadOnlyMemory{System.Byte})
+  id: WithPeerId(System.ReadOnlyMemory{System.Byte})
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: WithPeerId(ReadOnlyMemory<byte>)
+  nameWithType: AnnounceRequest.WithPeerId(ReadOnlyMemory<byte>)
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithPeerId(System.ReadOnlyMemory<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithPeerId
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 140
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public AnnounceRequest WithPeerId(ReadOnlyMemory<byte> peerId)
+    parameters:
+    - id: peerId
+      type: System.ReadOnlyMemory{System.Byte}
+    return:
+      type: MonoTorrent.Trackers.AnnounceRequest
+    content.vb: Public Function WithPeerId(peerId As ReadOnlyMemory(Of Byte)) As AnnounceRequest
+  overload: MonoTorrent.Trackers.AnnounceRequest.WithPeerId*
+  nameWithType.vb: AnnounceRequest.WithPeerId(ReadOnlyMemory(Of Byte))
+  fullName.vb: MonoTorrent.Trackers.AnnounceRequest.WithPeerId(System.ReadOnlyMemory(Of Byte))
+  name.vb: WithPeerId(ReadOnlyMemory(Of Byte))
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithRequireEncryption(System.Boolean)
+  commentId: M:MonoTorrent.Trackers.AnnounceRequest.WithRequireEncryption(System.Boolean)
+  id: WithRequireEncryption(System.Boolean)
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: WithRequireEncryption(bool)
+  nameWithType: AnnounceRequest.WithRequireEncryption(bool)
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithRequireEncryption(bool)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithRequireEncryption
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 150
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public AnnounceRequest WithRequireEncryption(bool requireEncryption)
+    parameters:
+    - id: requireEncryption
+      type: System.Boolean
+    return:
+      type: MonoTorrent.Trackers.AnnounceRequest
+    content.vb: Public Function WithRequireEncryption(requireEncryption As Boolean) As AnnounceRequest
+  overload: MonoTorrent.Trackers.AnnounceRequest.WithRequireEncryption*
+  nameWithType.vb: AnnounceRequest.WithRequireEncryption(Boolean)
+  fullName.vb: MonoTorrent.Trackers.AnnounceRequest.WithRequireEncryption(Boolean)
+  name.vb: WithRequireEncryption(Boolean)
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithSupportsEncryption(System.Boolean)
+  commentId: M:MonoTorrent.Trackers.AnnounceRequest.WithSupportsEncryption(System.Boolean)
+  id: WithSupportsEncryption(System.Boolean)
+  parent: MonoTorrent.Trackers.AnnounceRequest
+  langs:
+  - csharp
+  - vb
+  name: WithSupportsEncryption(bool)
+  nameWithType: AnnounceRequest.WithSupportsEncryption(bool)
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithSupportsEncryption(bool)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/AnnounceRequest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithSupportsEncryption
+    path: src/Trackers/AnnounceRequest.cs
+    startLine: 160
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public AnnounceRequest WithSupportsEncryption(bool supportsEncryption)
+    parameters:
+    - id: supportsEncryption
+      type: System.Boolean
+    return:
+      type: MonoTorrent.Trackers.AnnounceRequest
+    content.vb: Public Function WithSupportsEncryption(supportsEncryption As Boolean) As AnnounceRequest
+  overload: MonoTorrent.Trackers.AnnounceRequest.WithSupportsEncryption*
+  nameWithType.vb: AnnounceRequest.WithSupportsEncryption(Boolean)
+  fullName.vb: MonoTorrent.Trackers.AnnounceRequest.WithSupportsEncryption(Boolean)
+  name.vb: WithSupportsEncryption(Boolean)
+references:
+- uid: MonoTorrent.Trackers
+  commentId: N:MonoTorrent.Trackers
+  href: MonoTorrent.html
+  name: MonoTorrent.Trackers
+  nameWithType: MonoTorrent.Trackers
+  fullName: MonoTorrent.Trackers
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Trackers.AnnounceRequest.BytesDownloaded*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.BytesDownloaded
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_BytesDownloaded
+  name: BytesDownloaded
+  nameWithType: AnnounceRequest.BytesDownloaded
+  fullName: MonoTorrent.Trackers.AnnounceRequest.BytesDownloaded
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: MonoTorrent.Trackers.AnnounceRequest.BytesLeft*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.BytesLeft
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_BytesLeft
+  name: BytesLeft
+  nameWithType: AnnounceRequest.BytesLeft
+  fullName: MonoTorrent.Trackers.AnnounceRequest.BytesLeft
+- uid: MonoTorrent.Trackers.AnnounceRequest.BytesUploaded*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.BytesUploaded
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_BytesUploaded
+  name: BytesUploaded
+  nameWithType: AnnounceRequest.BytesUploaded
+  fullName: MonoTorrent.Trackers.AnnounceRequest.BytesUploaded
+- uid: MonoTorrent.Trackers.AnnounceRequest.ClientEvent*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.ClientEvent
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_ClientEvent
+  name: ClientEvent
+  nameWithType: AnnounceRequest.ClientEvent
+  fullName: MonoTorrent.Trackers.AnnounceRequest.ClientEvent
+- uid: MonoTorrent.TorrentEvent
+  commentId: T:MonoTorrent.TorrentEvent
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentEvent.html
+  name: TorrentEvent
+  nameWithType: TorrentEvent
+  fullName: MonoTorrent.TorrentEvent
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.Trackers.AnnounceRequest.InfoHashes*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.InfoHashes
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_InfoHashes
+  name: InfoHashes
+  nameWithType: AnnounceRequest.InfoHashes
+  fullName: MonoTorrent.Trackers.AnnounceRequest.InfoHashes
+- uid: MonoTorrent.InfoHashes
+  commentId: T:MonoTorrent.InfoHashes
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHashes.html
+  name: InfoHashes
+  nameWithType: InfoHashes
+  fullName: MonoTorrent.InfoHashes
+- uid: MonoTorrent.Trackers.AnnounceRequest.Key*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.Key
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_Key
+  name: Key
+  nameWithType: AnnounceRequest.Key
+  fullName: MonoTorrent.Trackers.AnnounceRequest.Key
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.Trackers.AnnounceRequest.PeerId*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.PeerId
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_PeerId
+  name: PeerId
+  nameWithType: AnnounceRequest.PeerId
+  fullName: MonoTorrent.Trackers.AnnounceRequest.PeerId
+- uid: System.ReadOnlyMemory{System.Byte}
+  commentId: T:System.ReadOnlyMemory{System.Byte}
+  parent: System
+  definition: System.ReadOnlyMemory`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<byte>
+  nameWithType: ReadOnlyMemory<byte>
+  fullName: System.ReadOnlyMemory<byte>
+  nameWithType.vb: ReadOnlyMemory(Of Byte)
+  fullName.vb: System.ReadOnlyMemory(Of Byte)
+  name.vb: ReadOnlyMemory(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlyMemory`1
+  commentId: T:System.ReadOnlyMemory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<T>
+  nameWithType: ReadOnlyMemory<T>
+  fullName: System.ReadOnlyMemory<T>
+  nameWithType.vb: ReadOnlyMemory(Of T)
+  fullName.vb: System.ReadOnlyMemory(Of T)
+  name.vb: ReadOnlyMemory(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.Trackers.AnnounceRequest.RequireEncryption*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.RequireEncryption
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_RequireEncryption
+  name: RequireEncryption
+  nameWithType: AnnounceRequest.RequireEncryption
+  fullName: MonoTorrent.Trackers.AnnounceRequest.RequireEncryption
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.Trackers.AnnounceRequest.SupportsEncryption*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.SupportsEncryption
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_SupportsEncryption
+  name: SupportsEncryption
+  nameWithType: AnnounceRequest.SupportsEncryption
+  fullName: MonoTorrent.Trackers.AnnounceRequest.SupportsEncryption
+- uid: MonoTorrent.Trackers.AnnounceRequest.#ctor*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.#ctor
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest__ctor_MonoTorrent_InfoHashes_
+  name: AnnounceRequest
+  nameWithType: AnnounceRequest.AnnounceRequest
+  fullName: MonoTorrent.Trackers.AnnounceRequest.AnnounceRequest
+  nameWithType.vb: AnnounceRequest.New
+  fullName.vb: MonoTorrent.Trackers.AnnounceRequest.New
+  name.vb: New
+- uid: System.Func{System.String,System.ValueTuple{System.String,System.Int32}}
+  commentId: T:System.Func{System.String,System.ValueTuple{System.String,System.Int32}}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<string, (string, int)>
+  nameWithType: Func<string, (string, int)>
+  fullName: System.Func<string, (string, int)>
+  nameWithType.vb: Func(Of String, (String, Integer))
+  fullName.vb: System.Func(Of String, (String, Integer))
+  name.vb: Func(Of String, (String, Integer))
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: MonoTorrent.Trackers.AnnounceRequest.GetReportedAddress*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.GetReportedAddress
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_GetReportedAddress_System_String_
+  name: GetReportedAddress
+  nameWithType: AnnounceRequest.GetReportedAddress
+  fullName: MonoTorrent.Trackers.AnnounceRequest.GetReportedAddress
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.ValueTuple{System.String,System.Int32}
+  commentId: T:System.ValueTuple{System.String,System.Int32}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: (string address, int port)
+  nameWithType: (string address, int port)
+  fullName: (string address, int port)
+  nameWithType.vb: (address As String, port As Integer)
+  fullName.vb: (address As String, port As Integer)
+  name.vb: (address As String, port As Integer)
+  spec.csharp:
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.Int32}.address
+    name: address
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.int32-.address
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.Int32}.port
+    name: port
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.int32-.port
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.String,System.Int32}.address
+    name: address
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.int32-.address
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.Int32}.port
+    name: port
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.int32-.port
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithBytesDownloaded*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.WithBytesDownloaded
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_WithBytesDownloaded_System_Int64_
+  name: WithBytesDownloaded
+  nameWithType: AnnounceRequest.WithBytesDownloaded
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithBytesDownloaded
+- uid: MonoTorrent.Trackers.AnnounceRequest
+  commentId: T:MonoTorrent.Trackers.AnnounceRequest
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.AnnounceRequest.html
+  name: AnnounceRequest
+  nameWithType: AnnounceRequest
+  fullName: MonoTorrent.Trackers.AnnounceRequest
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithBytesLeft*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.WithBytesLeft
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_WithBytesLeft_System_Int64_
+  name: WithBytesLeft
+  nameWithType: AnnounceRequest.WithBytesLeft
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithBytesLeft
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithBytesUploaded*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.WithBytesUploaded
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_WithBytesUploaded_System_Int64_
+  name: WithBytesUploaded
+  nameWithType: AnnounceRequest.WithBytesUploaded
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithBytesUploaded
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithClientEvent*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.WithClientEvent
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_WithClientEvent_MonoTorrent_TorrentEvent_
+  name: WithClientEvent
+  nameWithType: AnnounceRequest.WithClientEvent
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithClientEvent
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithReportedEndPointFunc*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.WithReportedEndPointFunc
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_WithReportedEndPointFunc_System_Func_System_String_System_ValueTuple_System_String_System_Int32___
+  name: WithReportedEndPointFunc
+  nameWithType: AnnounceRequest.WithReportedEndPointFunc
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithReportedEndPointFunc
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithInfoHashes*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.WithInfoHashes
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_WithInfoHashes_MonoTorrent_InfoHashes_
+  name: WithInfoHashes
+  nameWithType: AnnounceRequest.WithInfoHashes
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithInfoHashes
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithKey*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.WithKey
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_WithKey_System_Int32_
+  name: WithKey
+  nameWithType: AnnounceRequest.WithKey
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithKey
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithPeerId*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.WithPeerId
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_WithPeerId_System_ReadOnlyMemory_System_Byte__
+  name: WithPeerId
+  nameWithType: AnnounceRequest.WithPeerId
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithPeerId
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithRequireEncryption*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.WithRequireEncryption
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_WithRequireEncryption_System_Boolean_
+  name: WithRequireEncryption
+  nameWithType: AnnounceRequest.WithRequireEncryption
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithRequireEncryption
+- uid: MonoTorrent.Trackers.AnnounceRequest.WithSupportsEncryption*
+  commentId: Overload:MonoTorrent.Trackers.AnnounceRequest.WithSupportsEncryption
+  href: MonoTorrent.Trackers.AnnounceRequest.html#MonoTorrent_Trackers_AnnounceRequest_WithSupportsEncryption_System_Boolean_
+  name: WithSupportsEncryption
+  nameWithType: AnnounceRequest.WithSupportsEncryption
+  fullName: MonoTorrent.Trackers.AnnounceRequest.WithSupportsEncryption

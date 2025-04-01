@@ -1,0 +1,410 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Client.TorrentEventArgs
+  commentId: T:MonoTorrent.Client.TorrentEventArgs
+  id: TorrentEventArgs
+  parent: MonoTorrent.Client
+  children:
+  - MonoTorrent.Client.TorrentEventArgs.#ctor(MonoTorrent.Client.TorrentManager)
+  - MonoTorrent.Client.TorrentEventArgs.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: TorrentEventArgs
+  nameWithType: TorrentEventArgs
+  fullName: MonoTorrent.Client.TorrentEventArgs
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Client/EventArgs/TorrentEventArgs.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentEventArgs
+    path: src/Client/EventArgs/TorrentEventArgs.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: 'public class TorrentEventArgs : EventArgs'
+    content.vb: Public Class TorrentEventArgs Inherits EventArgs
+  inheritance:
+  - System.Object
+  - System.EventArgs
+  derivedClasses:
+  - MonoTorrent.Client.ConnectionAttemptFailedEventArgs
+  - MonoTorrent.Client.NewConnectionEventArgs
+  - MonoTorrent.Client.PeerAddedEventArgs
+  - MonoTorrent.Client.PeerConnectedEventArgs
+  - MonoTorrent.Client.PeerDisconnectedEventArgs
+  - MonoTorrent.Client.PeersAddedEventArgs
+  - MonoTorrent.Client.PieceHashedEventArgs
+  - MonoTorrent.Client.TorrentStateChangedEventArgs
+  inheritedMembers:
+  - System.EventArgs.Empty
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.Client.TorrentEventArgs.TorrentManager
+  commentId: P:MonoTorrent.Client.TorrentEventArgs.TorrentManager
+  id: TorrentManager
+  parent: MonoTorrent.Client.TorrentEventArgs
+  langs:
+  - csharp
+  - vb
+  name: TorrentManager
+  nameWithType: TorrentEventArgs.TorrentManager
+  fullName: MonoTorrent.Client.TorrentEventArgs.TorrentManager
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/EventArgs/TorrentEventArgs.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentManager
+    path: src/Client/EventArgs/TorrentEventArgs.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public TorrentManager TorrentManager { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Client.TorrentManager
+    content.vb: Public ReadOnly Property TorrentManager As TorrentManager
+  overload: MonoTorrent.Client.TorrentEventArgs.TorrentManager*
+- uid: MonoTorrent.Client.TorrentEventArgs.#ctor(MonoTorrent.Client.TorrentManager)
+  commentId: M:MonoTorrent.Client.TorrentEventArgs.#ctor(MonoTorrent.Client.TorrentManager)
+  id: '#ctor(MonoTorrent.Client.TorrentManager)'
+  parent: MonoTorrent.Client.TorrentEventArgs
+  langs:
+  - csharp
+  - vb
+  name: TorrentEventArgs(TorrentManager)
+  nameWithType: TorrentEventArgs.TorrentEventArgs(TorrentManager)
+  fullName: MonoTorrent.Client.TorrentEventArgs.TorrentEventArgs(MonoTorrent.Client.TorrentManager)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Client/EventArgs/TorrentEventArgs.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Client/EventArgs/TorrentEventArgs.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: protected TorrentEventArgs(TorrentManager manager)
+    parameters:
+    - id: manager
+      type: MonoTorrent.Client.TorrentManager
+    content.vb: Protected Sub New(manager As TorrentManager)
+  overload: MonoTorrent.Client.TorrentEventArgs.#ctor*
+  nameWithType.vb: TorrentEventArgs.New(TorrentManager)
+  fullName.vb: MonoTorrent.Client.TorrentEventArgs.New(MonoTorrent.Client.TorrentManager)
+  name.vb: New(TorrentManager)
+references:
+- uid: MonoTorrent.Client
+  commentId: N:MonoTorrent.Client
+  href: MonoTorrent.html
+  name: MonoTorrent.Client
+  nameWithType: MonoTorrent.Client
+  fullName: MonoTorrent.Client
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.EventArgs
+  commentId: T:System.EventArgs
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventargs
+  name: EventArgs
+  nameWithType: EventArgs
+  fullName: System.EventArgs
+- uid: System.EventArgs.Empty
+  commentId: F:System.EventArgs.Empty
+  parent: System.EventArgs
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventargs.empty
+  name: Empty
+  nameWithType: EventArgs.Empty
+  fullName: System.EventArgs.Empty
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Client.TorrentEventArgs.TorrentManager*
+  commentId: Overload:MonoTorrent.Client.TorrentEventArgs.TorrentManager
+  href: MonoTorrent.Client.TorrentEventArgs.html#MonoTorrent_Client_TorrentEventArgs_TorrentManager
+  name: TorrentManager
+  nameWithType: TorrentEventArgs.TorrentManager
+  fullName: MonoTorrent.Client.TorrentEventArgs.TorrentManager
+- uid: MonoTorrent.Client.TorrentManager
+  commentId: T:MonoTorrent.Client.TorrentManager
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.TorrentManager.html
+  name: TorrentManager
+  nameWithType: TorrentManager
+  fullName: MonoTorrent.Client.TorrentManager
+- uid: MonoTorrent.Client.TorrentEventArgs.#ctor*
+  commentId: Overload:MonoTorrent.Client.TorrentEventArgs.#ctor
+  href: MonoTorrent.Client.TorrentEventArgs.html#MonoTorrent_Client_TorrentEventArgs__ctor_MonoTorrent_Client_TorrentManager_
+  name: TorrentEventArgs
+  nameWithType: TorrentEventArgs.TorrentEventArgs
+  fullName: MonoTorrent.Client.TorrentEventArgs.TorrentEventArgs
+  nameWithType.vb: TorrentEventArgs.New
+  fullName.vb: MonoTorrent.Client.TorrentEventArgs.New
+  name.vb: New

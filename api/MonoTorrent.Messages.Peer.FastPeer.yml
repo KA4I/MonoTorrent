@@ -1,0 +1,100 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Messages.Peer.FastPeer
+  commentId: N:MonoTorrent.Messages.Peer.FastPeer
+  id: MonoTorrent.Messages.Peer.FastPeer
+  children:
+  - MonoTorrent.Messages.Peer.FastPeer.AllowedFastMessage
+  - MonoTorrent.Messages.Peer.FastPeer.HaveAllMessage
+  - MonoTorrent.Messages.Peer.FastPeer.HaveNoneMessage
+  - MonoTorrent.Messages.Peer.FastPeer.IFastPeerMessage
+  - MonoTorrent.Messages.Peer.FastPeer.RejectRequestMessage
+  - MonoTorrent.Messages.Peer.FastPeer.SuggestPieceMessage
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.Messages.Peer.FastPeer
+  nameWithType: MonoTorrent.Messages.Peer.FastPeer
+  fullName: MonoTorrent.Messages.Peer.FastPeer
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.Messages.Peer.FastPeer.AllowedFastMessage
+  commentId: T:MonoTorrent.Messages.Peer.FastPeer.AllowedFastMessage
+  href: MonoTorrent.Messages.Peer.FastPeer.AllowedFastMessage.html
+  name: AllowedFastMessage
+  nameWithType: AllowedFastMessage
+  fullName: MonoTorrent.Messages.Peer.FastPeer.AllowedFastMessage
+- uid: MonoTorrent.Messages.Peer.FastPeer.HaveAllMessage
+  commentId: T:MonoTorrent.Messages.Peer.FastPeer.HaveAllMessage
+  parent: MonoTorrent.Messages.Peer.FastPeer
+  href: MonoTorrent.Messages.Peer.FastPeer.HaveAllMessage.html
+  name: HaveAllMessage
+  nameWithType: HaveAllMessage
+  fullName: MonoTorrent.Messages.Peer.FastPeer.HaveAllMessage
+- uid: MonoTorrent.Messages.Peer.FastPeer.HaveNoneMessage
+  commentId: T:MonoTorrent.Messages.Peer.FastPeer.HaveNoneMessage
+  parent: MonoTorrent.Messages.Peer.FastPeer
+  href: MonoTorrent.Messages.Peer.FastPeer.HaveNoneMessage.html
+  name: HaveNoneMessage
+  nameWithType: HaveNoneMessage
+  fullName: MonoTorrent.Messages.Peer.FastPeer.HaveNoneMessage
+- uid: MonoTorrent.Messages.Peer.FastPeer.IFastPeerMessage
+  commentId: T:MonoTorrent.Messages.Peer.FastPeer.IFastPeerMessage
+  parent: MonoTorrent.Messages.Peer.FastPeer
+  href: MonoTorrent.Messages.Peer.FastPeer.IFastPeerMessage.html
+  name: IFastPeerMessage
+  nameWithType: IFastPeerMessage
+  fullName: MonoTorrent.Messages.Peer.FastPeer.IFastPeerMessage
+- uid: MonoTorrent.Messages.Peer.FastPeer.RejectRequestMessage
+  commentId: T:MonoTorrent.Messages.Peer.FastPeer.RejectRequestMessage
+  parent: MonoTorrent.Messages.Peer.FastPeer
+  href: MonoTorrent.Messages.Peer.FastPeer.RejectRequestMessage.html
+  name: RejectRequestMessage
+  nameWithType: RejectRequestMessage
+  fullName: MonoTorrent.Messages.Peer.FastPeer.RejectRequestMessage
+- uid: MonoTorrent.Messages.Peer.FastPeer.SuggestPieceMessage
+  commentId: T:MonoTorrent.Messages.Peer.FastPeer.SuggestPieceMessage
+  href: MonoTorrent.Messages.Peer.FastPeer.SuggestPieceMessage.html
+  name: SuggestPieceMessage
+  nameWithType: SuggestPieceMessage
+  fullName: MonoTorrent.Messages.Peer.FastPeer.SuggestPieceMessage
+- uid: MonoTorrent.Messages.Peer.FastPeer
+  commentId: N:MonoTorrent.Messages.Peer.FastPeer
+  href: MonoTorrent.html
+  name: MonoTorrent.Messages.Peer.FastPeer
+  nameWithType: MonoTorrent.Messages.Peer.FastPeer
+  fullName: MonoTorrent.Messages.Peer.FastPeer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer.FastPeer
+    name: FastPeer
+    href: MonoTorrent.Messages.Peer.FastPeer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer.FastPeer
+    name: FastPeer
+    href: MonoTorrent.Messages.Peer.FastPeer.html

@@ -1,0 +1,796 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  id: MonoTorrent
+  children:
+  - MonoTorrent.BitField
+  - MonoTorrent.BitFieldIndices
+  - MonoTorrent.BitFieldScanner
+  - MonoTorrent.BlockInfo
+  - MonoTorrent.ByteBufferPool
+  - MonoTorrent.ByteBufferPool.Releaser
+  - MonoTorrent.ClientApp
+  - MonoTorrent.Constants
+  - MonoTorrent.Direction
+  - MonoTorrent.EditableTorrent
+  - MonoTorrent.Factories
+  - MonoTorrent.Factories.BlockCacheCreator
+  - MonoTorrent.Factories.DhtCreator
+  - MonoTorrent.Factories.DhtListenerCreator
+  - MonoTorrent.Factories.HttpClientCreator
+  - MonoTorrent.Factories.LocalPeerDiscoveryCreator
+  - MonoTorrent.Factories.PeerConnectionCreator
+  - MonoTorrent.Factories.PeerConnectionGateCreator
+  - MonoTorrent.Factories.PeerConnectionListenerCreator
+  - MonoTorrent.Factories.PieceRequesterCreator
+  - MonoTorrent.Factories.PieceWriterCreator
+  - MonoTorrent.Factories.PortForwarderCreator
+  - MonoTorrent.Factories.SocketConnectorCreator
+  - MonoTorrent.Factories.StreamingPieceRequesterCreator
+  - MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+  - MonoTorrent.Factories.TrackerCreator
+  - MonoTorrent.FileMapping
+  - MonoTorrent.IPieceHashes
+  - MonoTorrent.IPieceHashesProvider
+  - MonoTorrent.ITorrentFile
+  - MonoTorrent.ITorrentFileInfoExtensions
+  - MonoTorrent.ITorrentFileSource
+  - MonoTorrent.ITorrentInfo
+  - MonoTorrent.ITorrentInfoExtensions
+  - MonoTorrent.ITorrentManagerFile
+  - MonoTorrent.ITorrentManagerInfo
+  - MonoTorrent.InfoHash
+  - MonoTorrent.InfoHashes
+  - MonoTorrent.LatencyMonitor
+  - MonoTorrent.MagnetLink
+  - MonoTorrent.MemoryPool
+  - MonoTorrent.MerkleRoot
+  - MonoTorrent.MerkleTree
+  - MonoTorrent.PeerInfo
+  - MonoTorrent.PieceHash
+  - MonoTorrent.PieceHashesExtensions
+  - MonoTorrent.Priority
+  - MonoTorrent.ReadOnlyBitField
+  - MonoTorrent.ReadOnlyMerkleTree
+  - MonoTorrent.ReadOnlyPieceHash
+  - MonoTorrent.ReadOnlyPieceHashSpan
+  - MonoTorrent.Software
+  - MonoTorrent.SpeedMonitor
+  - MonoTorrent.Torrent
+  - MonoTorrent.TorrentCreator
+  - MonoTorrent.TorrentCreatorEventArgs
+  - MonoTorrent.TorrentEditor
+  - MonoTorrent.TorrentEvent
+  - MonoTorrent.TorrentException
+  - MonoTorrent.TorrentFile
+  - MonoTorrent.TorrentFileAttributes
+  - MonoTorrent.TorrentFileSource
+  - MonoTorrent.TorrentPath
+  - MonoTorrent.TorrentProtocol
+  - MonoTorrent.TorrentType
+  - MonoTorrent.VersionInfo
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.BitField
+  commentId: T:MonoTorrent.BitField
+  parent: MonoTorrent
+  href: MonoTorrent.BitField.html
+  name: BitField
+  nameWithType: BitField
+  fullName: MonoTorrent.BitField
+- uid: MonoTorrent.BitFieldScanner
+  commentId: T:MonoTorrent.BitFieldScanner
+  parent: MonoTorrent
+  href: MonoTorrent.BitFieldScanner.html
+  name: BitFieldScanner
+  nameWithType: BitFieldScanner
+  fullName: MonoTorrent.BitFieldScanner
+- uid: MonoTorrent.BitFieldIndices
+  commentId: T:MonoTorrent.BitFieldIndices
+  parent: MonoTorrent
+  href: MonoTorrent.BitFieldIndices.html
+  name: BitFieldIndices
+  nameWithType: BitFieldIndices
+  fullName: MonoTorrent.BitFieldIndices
+- uid: MonoTorrent.BlockInfo
+  commentId: T:MonoTorrent.BlockInfo
+  parent: MonoTorrent
+  href: MonoTorrent.BlockInfo.html
+  name: BlockInfo
+  nameWithType: BlockInfo
+  fullName: MonoTorrent.BlockInfo
+- uid: MonoTorrent.ByteBufferPool
+  commentId: T:MonoTorrent.ByteBufferPool
+  parent: MonoTorrent
+  href: MonoTorrent.ByteBufferPool.html
+  name: ByteBufferPool
+  nameWithType: ByteBufferPool
+  fullName: MonoTorrent.ByteBufferPool
+- uid: MonoTorrent.ByteBufferPool.Releaser
+  commentId: T:MonoTorrent.ByteBufferPool.Releaser
+  parent: MonoTorrent
+  href: MonoTorrent.ByteBufferPool.html
+  name: ByteBufferPool.Releaser
+  nameWithType: ByteBufferPool.Releaser
+  fullName: MonoTorrent.ByteBufferPool.Releaser
+  spec.csharp:
+  - uid: MonoTorrent.ByteBufferPool
+    name: ByteBufferPool
+    href: MonoTorrent.ByteBufferPool.html
+  - name: .
+  - uid: MonoTorrent.ByteBufferPool.Releaser
+    name: Releaser
+    href: MonoTorrent.ByteBufferPool.Releaser.html
+  spec.vb:
+  - uid: MonoTorrent.ByteBufferPool
+    name: ByteBufferPool
+    href: MonoTorrent.ByteBufferPool.html
+  - name: .
+  - uid: MonoTorrent.ByteBufferPool.Releaser
+    name: Releaser
+    href: MonoTorrent.ByteBufferPool.Releaser.html
+- uid: MonoTorrent.Constants
+  commentId: T:MonoTorrent.Constants
+  href: MonoTorrent.Constants.html
+  name: Constants
+  nameWithType: Constants
+  fullName: MonoTorrent.Constants
+- uid: MonoTorrent.EditableTorrent
+  commentId: T:MonoTorrent.EditableTorrent
+  parent: MonoTorrent
+  href: MonoTorrent.EditableTorrent.html
+  name: EditableTorrent
+  nameWithType: EditableTorrent
+  fullName: MonoTorrent.EditableTorrent
+- uid: MonoTorrent.Direction
+  commentId: T:MonoTorrent.Direction
+  parent: MonoTorrent
+  href: MonoTorrent.Direction.html
+  name: Direction
+  nameWithType: Direction
+  fullName: MonoTorrent.Direction
+- uid: MonoTorrent.Factories
+  commentId: T:MonoTorrent.Factories
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories
+  nameWithType: Factories
+  fullName: MonoTorrent.Factories
+- uid: MonoTorrent.Factories.BlockCacheCreator
+  commentId: T:MonoTorrent.Factories.BlockCacheCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.BlockCacheCreator
+  nameWithType: Factories.BlockCacheCreator
+  fullName: MonoTorrent.Factories.BlockCacheCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.BlockCacheCreator
+    name: BlockCacheCreator
+    href: MonoTorrent.Factories.BlockCacheCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.BlockCacheCreator
+    name: BlockCacheCreator
+    href: MonoTorrent.Factories.BlockCacheCreator.html
+- uid: MonoTorrent.Factories.DhtCreator
+  commentId: T:MonoTorrent.Factories.DhtCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.DhtCreator
+  nameWithType: Factories.DhtCreator
+  fullName: MonoTorrent.Factories.DhtCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.DhtCreator
+    name: DhtCreator
+    href: MonoTorrent.Factories.DhtCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.DhtCreator
+    name: DhtCreator
+    href: MonoTorrent.Factories.DhtCreator.html
+- uid: MonoTorrent.Factories.DhtListenerCreator
+  commentId: T:MonoTorrent.Factories.DhtListenerCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.DhtListenerCreator
+  nameWithType: Factories.DhtListenerCreator
+  fullName: MonoTorrent.Factories.DhtListenerCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.DhtListenerCreator
+    name: DhtListenerCreator
+    href: MonoTorrent.Factories.DhtListenerCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.DhtListenerCreator
+    name: DhtListenerCreator
+    href: MonoTorrent.Factories.DhtListenerCreator.html
+- uid: MonoTorrent.Factories.HttpClientCreator
+  commentId: T:MonoTorrent.Factories.HttpClientCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.HttpClientCreator
+  nameWithType: Factories.HttpClientCreator
+  fullName: MonoTorrent.Factories.HttpClientCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.HttpClientCreator
+    name: HttpClientCreator
+    href: MonoTorrent.Factories.HttpClientCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.HttpClientCreator
+    name: HttpClientCreator
+    href: MonoTorrent.Factories.HttpClientCreator.html
+- uid: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+  commentId: T:MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.TemporaryLocalPeerIdGenerator
+  nameWithType: Factories.TemporaryLocalPeerIdGenerator
+  fullName: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+    name: TemporaryLocalPeerIdGenerator
+    href: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+    name: TemporaryLocalPeerIdGenerator
+    href: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator.html
+- uid: MonoTorrent.Factories.LocalPeerDiscoveryCreator
+  commentId: T:MonoTorrent.Factories.LocalPeerDiscoveryCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.LocalPeerDiscoveryCreator
+  nameWithType: Factories.LocalPeerDiscoveryCreator
+  fullName: MonoTorrent.Factories.LocalPeerDiscoveryCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.LocalPeerDiscoveryCreator
+    name: LocalPeerDiscoveryCreator
+    href: MonoTorrent.Factories.LocalPeerDiscoveryCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.LocalPeerDiscoveryCreator
+    name: LocalPeerDiscoveryCreator
+    href: MonoTorrent.Factories.LocalPeerDiscoveryCreator.html
+- uid: MonoTorrent.Factories.PeerConnectionCreator
+  commentId: T:MonoTorrent.Factories.PeerConnectionCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.PeerConnectionCreator
+  nameWithType: Factories.PeerConnectionCreator
+  fullName: MonoTorrent.Factories.PeerConnectionCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PeerConnectionCreator
+    name: PeerConnectionCreator
+    href: MonoTorrent.Factories.PeerConnectionCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PeerConnectionCreator
+    name: PeerConnectionCreator
+    href: MonoTorrent.Factories.PeerConnectionCreator.html
+- uid: MonoTorrent.Factories.PeerConnectionListenerCreator
+  commentId: T:MonoTorrent.Factories.PeerConnectionListenerCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.PeerConnectionListenerCreator
+  nameWithType: Factories.PeerConnectionListenerCreator
+  fullName: MonoTorrent.Factories.PeerConnectionListenerCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PeerConnectionListenerCreator
+    name: PeerConnectionListenerCreator
+    href: MonoTorrent.Factories.PeerConnectionListenerCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PeerConnectionListenerCreator
+    name: PeerConnectionListenerCreator
+    href: MonoTorrent.Factories.PeerConnectionListenerCreator.html
+- uid: MonoTorrent.Factories.PieceRequesterCreator
+  commentId: T:MonoTorrent.Factories.PieceRequesterCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.PieceRequesterCreator
+  nameWithType: Factories.PieceRequesterCreator
+  fullName: MonoTorrent.Factories.PieceRequesterCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PieceRequesterCreator
+    name: PieceRequesterCreator
+    href: MonoTorrent.Factories.PieceRequesterCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PieceRequesterCreator
+    name: PieceRequesterCreator
+    href: MonoTorrent.Factories.PieceRequesterCreator.html
+- uid: MonoTorrent.Factories.PieceWriterCreator
+  commentId: T:MonoTorrent.Factories.PieceWriterCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.PieceWriterCreator
+  nameWithType: Factories.PieceWriterCreator
+  fullName: MonoTorrent.Factories.PieceWriterCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PieceWriterCreator
+    name: PieceWriterCreator
+    href: MonoTorrent.Factories.PieceWriterCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PieceWriterCreator
+    name: PieceWriterCreator
+    href: MonoTorrent.Factories.PieceWriterCreator.html
+- uid: MonoTorrent.Factories.PortForwarderCreator
+  commentId: T:MonoTorrent.Factories.PortForwarderCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.PortForwarderCreator
+  nameWithType: Factories.PortForwarderCreator
+  fullName: MonoTorrent.Factories.PortForwarderCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PortForwarderCreator
+    name: PortForwarderCreator
+    href: MonoTorrent.Factories.PortForwarderCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PortForwarderCreator
+    name: PortForwarderCreator
+    href: MonoTorrent.Factories.PortForwarderCreator.html
+- uid: MonoTorrent.Factories.SocketConnectorCreator
+  commentId: T:MonoTorrent.Factories.SocketConnectorCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.SocketConnectorCreator
+  nameWithType: Factories.SocketConnectorCreator
+  fullName: MonoTorrent.Factories.SocketConnectorCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.SocketConnectorCreator
+    name: SocketConnectorCreator
+    href: MonoTorrent.Factories.SocketConnectorCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.SocketConnectorCreator
+    name: SocketConnectorCreator
+    href: MonoTorrent.Factories.SocketConnectorCreator.html
+- uid: MonoTorrent.Factories.StreamingPieceRequesterCreator
+  commentId: T:MonoTorrent.Factories.StreamingPieceRequesterCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.StreamingPieceRequesterCreator
+  nameWithType: Factories.StreamingPieceRequesterCreator
+  fullName: MonoTorrent.Factories.StreamingPieceRequesterCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.StreamingPieceRequesterCreator
+    name: StreamingPieceRequesterCreator
+    href: MonoTorrent.Factories.StreamingPieceRequesterCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.StreamingPieceRequesterCreator
+    name: StreamingPieceRequesterCreator
+    href: MonoTorrent.Factories.StreamingPieceRequesterCreator.html
+- uid: MonoTorrent.Factories.TrackerCreator
+  commentId: T:MonoTorrent.Factories.TrackerCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.TrackerCreator
+  nameWithType: Factories.TrackerCreator
+  fullName: MonoTorrent.Factories.TrackerCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.TrackerCreator
+    name: TrackerCreator
+    href: MonoTorrent.Factories.TrackerCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.TrackerCreator
+    name: TrackerCreator
+    href: MonoTorrent.Factories.TrackerCreator.html
+- uid: MonoTorrent.Factories.PeerConnectionGateCreator
+  commentId: T:MonoTorrent.Factories.PeerConnectionGateCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.PeerConnectionGateCreator
+  nameWithType: Factories.PeerConnectionGateCreator
+  fullName: MonoTorrent.Factories.PeerConnectionGateCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PeerConnectionGateCreator
+    name: PeerConnectionGateCreator
+    href: MonoTorrent.Factories.PeerConnectionGateCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PeerConnectionGateCreator
+    name: PeerConnectionGateCreator
+    href: MonoTorrent.Factories.PeerConnectionGateCreator.html
+- uid: MonoTorrent.FileMapping
+  commentId: T:MonoTorrent.FileMapping
+  href: MonoTorrent.FileMapping.html
+  name: FileMapping
+  nameWithType: FileMapping
+  fullName: MonoTorrent.FileMapping
+- uid: MonoTorrent.InfoHash
+  commentId: T:MonoTorrent.InfoHash
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHash.html
+  name: InfoHash
+  nameWithType: InfoHash
+  fullName: MonoTorrent.InfoHash
+- uid: MonoTorrent.TorrentProtocol
+  commentId: T:MonoTorrent.TorrentProtocol
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentProtocol.html
+  name: TorrentProtocol
+  nameWithType: TorrentProtocol
+  fullName: MonoTorrent.TorrentProtocol
+- uid: MonoTorrent.InfoHashes
+  commentId: T:MonoTorrent.InfoHashes
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHashes.html
+  name: InfoHashes
+  nameWithType: InfoHashes
+  fullName: MonoTorrent.InfoHashes
+- uid: MonoTorrent.IPieceHashes
+  commentId: T:MonoTorrent.IPieceHashes
+  parent: MonoTorrent
+  href: MonoTorrent.IPieceHashes.html
+  name: IPieceHashes
+  nameWithType: IPieceHashes
+  fullName: MonoTorrent.IPieceHashes
+- uid: MonoTorrent.PieceHashesExtensions
+  commentId: T:MonoTorrent.PieceHashesExtensions
+  parent: MonoTorrent
+  href: MonoTorrent.PieceHashesExtensions.html
+  name: PieceHashesExtensions
+  nameWithType: PieceHashesExtensions
+  fullName: MonoTorrent.PieceHashesExtensions
+- uid: MonoTorrent.IPieceHashesProvider
+  commentId: T:MonoTorrent.IPieceHashesProvider
+  parent: MonoTorrent
+  href: MonoTorrent.IPieceHashesProvider.html
+  name: IPieceHashesProvider
+  nameWithType: IPieceHashesProvider
+  fullName: MonoTorrent.IPieceHashesProvider
+- uid: MonoTorrent.ITorrentFile
+  commentId: T:MonoTorrent.ITorrentFile
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentFile.html
+  name: ITorrentFile
+  nameWithType: ITorrentFile
+  fullName: MonoTorrent.ITorrentFile
+- uid: MonoTorrent.ITorrentManagerFile
+  commentId: T:MonoTorrent.ITorrentManagerFile
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentManagerFile.html
+  name: ITorrentManagerFile
+  nameWithType: ITorrentManagerFile
+  fullName: MonoTorrent.ITorrentManagerFile
+- uid: MonoTorrent.ITorrentFileInfoExtensions
+  commentId: T:MonoTorrent.ITorrentFileInfoExtensions
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentFileInfoExtensions.html
+  name: ITorrentFileInfoExtensions
+  nameWithType: ITorrentFileInfoExtensions
+  fullName: MonoTorrent.ITorrentFileInfoExtensions
+- uid: MonoTorrent.ITorrentFileSource
+  commentId: T:MonoTorrent.ITorrentFileSource
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentFileSource.html
+  name: ITorrentFileSource
+  nameWithType: ITorrentFileSource
+  fullName: MonoTorrent.ITorrentFileSource
+- uid: MonoTorrent.ITorrentInfo
+  commentId: T:MonoTorrent.ITorrentInfo
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentInfo.html
+  name: ITorrentInfo
+  nameWithType: ITorrentInfo
+  fullName: MonoTorrent.ITorrentInfo
+- uid: MonoTorrent.ITorrentInfoExtensions
+  commentId: T:MonoTorrent.ITorrentInfoExtensions
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentInfoExtensions.html
+  name: ITorrentInfoExtensions
+  nameWithType: ITorrentInfoExtensions
+  fullName: MonoTorrent.ITorrentInfoExtensions
+- uid: MonoTorrent.ITorrentManagerInfo
+  commentId: T:MonoTorrent.ITorrentManagerInfo
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentManagerInfo.html
+  name: ITorrentManagerInfo
+  nameWithType: ITorrentManagerInfo
+  fullName: MonoTorrent.ITorrentManagerInfo
+- uid: MonoTorrent.LatencyMonitor
+  commentId: T:MonoTorrent.LatencyMonitor
+  href: MonoTorrent.LatencyMonitor.html
+  name: LatencyMonitor
+  nameWithType: LatencyMonitor
+  fullName: MonoTorrent.LatencyMonitor
+- uid: MonoTorrent.MagnetLink
+  commentId: T:MonoTorrent.MagnetLink
+  parent: MonoTorrent
+  href: MonoTorrent.MagnetLink.html
+  name: MagnetLink
+  nameWithType: MagnetLink
+  fullName: MonoTorrent.MagnetLink
+- uid: MonoTorrent.MemoryPool
+  commentId: T:MonoTorrent.MemoryPool
+  parent: MonoTorrent
+  href: MonoTorrent.MemoryPool.html
+  name: MemoryPool
+  nameWithType: MemoryPool
+  fullName: MonoTorrent.MemoryPool
+- uid: MonoTorrent.MerkleRoot
+  commentId: T:MonoTorrent.MerkleRoot
+  parent: MonoTorrent
+  href: MonoTorrent.MerkleRoot.html
+  name: MerkleRoot
+  nameWithType: MerkleRoot
+  fullName: MonoTorrent.MerkleRoot
+- uid: MonoTorrent.MerkleTree
+  commentId: T:MonoTorrent.MerkleTree
+  href: MonoTorrent.MerkleTree.html
+  name: MerkleTree
+  nameWithType: MerkleTree
+  fullName: MonoTorrent.MerkleTree
+- uid: MonoTorrent.ClientApp
+  commentId: T:MonoTorrent.ClientApp
+  parent: MonoTorrent
+  href: MonoTorrent.ClientApp.html
+  name: ClientApp
+  nameWithType: ClientApp
+  fullName: MonoTorrent.ClientApp
+- uid: MonoTorrent.Software
+  commentId: T:MonoTorrent.Software
+  parent: MonoTorrent
+  href: MonoTorrent.Software.html
+  name: Software
+  nameWithType: Software
+  fullName: MonoTorrent.Software
+- uid: MonoTorrent.PeerInfo
+  commentId: T:MonoTorrent.PeerInfo
+  parent: MonoTorrent
+  href: MonoTorrent.PeerInfo.html
+  name: PeerInfo
+  nameWithType: PeerInfo
+  fullName: MonoTorrent.PeerInfo
+- uid: MonoTorrent.PieceHash
+  commentId: T:MonoTorrent.PieceHash
+  parent: MonoTorrent
+  href: MonoTorrent.PieceHash.html
+  name: PieceHash
+  nameWithType: PieceHash
+  fullName: MonoTorrent.PieceHash
+- uid: MonoTorrent.Priority
+  commentId: T:MonoTorrent.Priority
+  parent: MonoTorrent
+  href: MonoTorrent.Priority.html
+  name: Priority
+  nameWithType: Priority
+  fullName: MonoTorrent.Priority
+- uid: MonoTorrent.ReadOnlyBitField
+  commentId: T:MonoTorrent.ReadOnlyBitField
+  parent: MonoTorrent
+  href: MonoTorrent.ReadOnlyBitField.html
+  name: ReadOnlyBitField
+  nameWithType: ReadOnlyBitField
+  fullName: MonoTorrent.ReadOnlyBitField
+- uid: MonoTorrent.ReadOnlyMerkleTree
+  commentId: T:MonoTorrent.ReadOnlyMerkleTree
+  parent: MonoTorrent
+  href: MonoTorrent.ReadOnlyMerkleTree.html
+  name: ReadOnlyMerkleTree
+  nameWithType: ReadOnlyMerkleTree
+  fullName: MonoTorrent.ReadOnlyMerkleTree
+- uid: MonoTorrent.ReadOnlyPieceHash
+  commentId: T:MonoTorrent.ReadOnlyPieceHash
+  parent: MonoTorrent
+  href: MonoTorrent.ReadOnlyPieceHash.html
+  name: ReadOnlyPieceHash
+  nameWithType: ReadOnlyPieceHash
+  fullName: MonoTorrent.ReadOnlyPieceHash
+- uid: MonoTorrent.ReadOnlyPieceHashSpan
+  commentId: T:MonoTorrent.ReadOnlyPieceHashSpan
+  parent: MonoTorrent
+  href: MonoTorrent.ReadOnlyPieceHashSpan.html
+  name: ReadOnlyPieceHashSpan
+  nameWithType: ReadOnlyPieceHashSpan
+  fullName: MonoTorrent.ReadOnlyPieceHashSpan
+- uid: MonoTorrent.SpeedMonitor
+  commentId: T:MonoTorrent.SpeedMonitor
+  href: MonoTorrent.SpeedMonitor.html
+  name: SpeedMonitor
+  nameWithType: SpeedMonitor
+  fullName: MonoTorrent.SpeedMonitor
+- uid: MonoTorrent.Torrent
+  commentId: T:MonoTorrent.Torrent
+  parent: MonoTorrent
+  href: MonoTorrent.Torrent.html
+  name: Torrent
+  nameWithType: Torrent
+  fullName: MonoTorrent.Torrent
+- uid: MonoTorrent.TorrentCreator
+  commentId: T:MonoTorrent.TorrentCreator
+  href: MonoTorrent.TorrentCreator.html
+  name: TorrentCreator
+  nameWithType: TorrentCreator
+  fullName: MonoTorrent.TorrentCreator
+- uid: MonoTorrent.TorrentCreatorEventArgs
+  commentId: T:MonoTorrent.TorrentCreatorEventArgs
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentCreatorEventArgs.html
+  name: TorrentCreatorEventArgs
+  nameWithType: TorrentCreatorEventArgs
+  fullName: MonoTorrent.TorrentCreatorEventArgs
+- uid: MonoTorrent.TorrentEditor
+  commentId: T:MonoTorrent.TorrentEditor
+  href: MonoTorrent.TorrentEditor.html
+  name: TorrentEditor
+  nameWithType: TorrentEditor
+  fullName: MonoTorrent.TorrentEditor
+- uid: MonoTorrent.TorrentEvent
+  commentId: T:MonoTorrent.TorrentEvent
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentEvent.html
+  name: TorrentEvent
+  nameWithType: TorrentEvent
+  fullName: MonoTorrent.TorrentEvent
+- uid: MonoTorrent.TorrentException
+  commentId: T:MonoTorrent.TorrentException
+  href: MonoTorrent.TorrentException.html
+  name: TorrentException
+  nameWithType: TorrentException
+  fullName: MonoTorrent.TorrentException
+- uid: MonoTorrent.TorrentFileAttributes
+  commentId: T:MonoTorrent.TorrentFileAttributes
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentFileAttributes.html
+  name: TorrentFileAttributes
+  nameWithType: TorrentFileAttributes
+  fullName: MonoTorrent.TorrentFileAttributes
+- uid: MonoTorrent.TorrentFile
+  commentId: T:MonoTorrent.TorrentFile
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentFile.html
+  name: TorrentFile
+  nameWithType: TorrentFile
+  fullName: MonoTorrent.TorrentFile
+- uid: MonoTorrent.TorrentFileSource
+  commentId: T:MonoTorrent.TorrentFileSource
+  href: MonoTorrent.TorrentFileSource.html
+  name: TorrentFileSource
+  nameWithType: TorrentFileSource
+  fullName: MonoTorrent.TorrentFileSource
+- uid: MonoTorrent.TorrentPath
+  commentId: T:MonoTorrent.TorrentPath
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentPath.html
+  name: TorrentPath
+  nameWithType: TorrentPath
+  fullName: MonoTorrent.TorrentPath
+- uid: MonoTorrent.TorrentType
+  commentId: T:MonoTorrent.TorrentType
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentType.html
+  name: TorrentType
+  nameWithType: TorrentType
+  fullName: MonoTorrent.TorrentType
+- uid: MonoTorrent.VersionInfo
+  commentId: T:MonoTorrent.VersionInfo
+  href: MonoTorrent.VersionInfo.html
+  name: VersionInfo
+  nameWithType: VersionInfo
+  fullName: MonoTorrent.VersionInfo
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent

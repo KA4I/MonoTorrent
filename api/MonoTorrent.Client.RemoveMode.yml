@@ -1,0 +1,212 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Client.RemoveMode
+  commentId: T:MonoTorrent.Client.RemoveMode
+  id: RemoveMode
+  parent: MonoTorrent.Client
+  children:
+  - MonoTorrent.Client.RemoveMode.CacheDataAndDownloadedData
+  - MonoTorrent.Client.RemoveMode.CacheDataOnly
+  - MonoTorrent.Client.RemoveMode.DownloadedDataOnly
+  - MonoTorrent.Client.RemoveMode.KeepAllData
+  langs:
+  - csharp
+  - vb
+  name: RemoveMode
+  nameWithType: RemoveMode
+  fullName: MonoTorrent.Client.RemoveMode
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/Client/RemoveMode.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RemoveMode
+    path: src/Client/RemoveMode.cs
+    startLine: 31
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public enum RemoveMode
+    content.vb: Public Enum RemoveMode
+- uid: MonoTorrent.Client.RemoveMode.KeepAllData
+  commentId: F:MonoTorrent.Client.RemoveMode.KeepAllData
+  id: KeepAllData
+  parent: MonoTorrent.Client.RemoveMode
+  langs:
+  - csharp
+  - vb
+  name: KeepAllData
+  nameWithType: RemoveMode.KeepAllData
+  fullName: MonoTorrent.Client.RemoveMode.KeepAllData
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/RemoveMode.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: KeepAllData
+    path: src/Client/RemoveMode.cs
+    startLine: 38
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    Does not remove any cache data, such as fast resume data and the copy of the .torrent metadata,
+
+    from the <xref href="MonoTorrent.Client.EngineSettings.CacheDirectory" data-throw-if-not-resolved="false"></xref> when removing the <xref href="MonoTorrent.Client.TorrentManager" data-throw-if-not-resolved="false"></xref>
+
+    from the <xref href="MonoTorrent.Client.ClientEngine" data-throw-if-not-resolved="false"></xref>. Any data downloaded by the <xref href="MonoTorrent.Client.TorrentManager" data-throw-if-not-resolved="false"></xref> will not be deleted.
+  example: []
+  syntax:
+    content: KeepAllData = 0
+    return:
+      type: MonoTorrent.Client.RemoveMode
+- uid: MonoTorrent.Client.RemoveMode.CacheDataOnly
+  commentId: F:MonoTorrent.Client.RemoveMode.CacheDataOnly
+  id: CacheDataOnly
+  parent: MonoTorrent.Client.RemoveMode
+  langs:
+  - csharp
+  - vb
+  name: CacheDataOnly
+  nameWithType: RemoveMode.CacheDataOnly
+  fullName: MonoTorrent.Client.RemoveMode.CacheDataOnly
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/RemoveMode.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CacheDataOnly
+    path: src/Client/RemoveMode.cs
+    startLine: 45
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    Removes all cache data, such as fast resume data and the copy of the .torrent metadata,
+
+    from the <xref href="MonoTorrent.Client.EngineSettings.CacheDirectory" data-throw-if-not-resolved="false"></xref> when removing the <xref href="MonoTorrent.Client.TorrentManager" data-throw-if-not-resolved="false"></xref>
+
+    from the <xref href="MonoTorrent.Client.ClientEngine" data-throw-if-not-resolved="false"></xref>. Any data downloaded by the <xref href="MonoTorrent.Client.TorrentManager" data-throw-if-not-resolved="false"></xref> will not be deleted.
+  example: []
+  syntax:
+    content: CacheDataOnly = 1
+    return:
+      type: MonoTorrent.Client.RemoveMode
+- uid: MonoTorrent.Client.RemoveMode.DownloadedDataOnly
+  commentId: F:MonoTorrent.Client.RemoveMode.DownloadedDataOnly
+  id: DownloadedDataOnly
+  parent: MonoTorrent.Client.RemoveMode
+  langs:
+  - csharp
+  - vb
+  name: DownloadedDataOnly
+  nameWithType: RemoveMode.DownloadedDataOnly
+  fullName: MonoTorrent.Client.RemoveMode.DownloadedDataOnly
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/RemoveMode.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DownloadedDataOnly
+    path: src/Client/RemoveMode.cs
+    startLine: 52
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    Any data downloaded by the <xref href="MonoTorrent.Client.TorrentManager" data-throw-if-not-resolved="false"></xref> will be deleted. Does not remove any cache data,
+
+    such as fast resume data and the copy of the .torrent metadata, from the <xref href="MonoTorrent.Client.EngineSettings.CacheDirectory" data-throw-if-not-resolved="false"></xref>
+
+    when removing the <xref href="MonoTorrent.Client.TorrentManager" data-throw-if-not-resolved="false"></xref> from the <xref href="MonoTorrent.Client.ClientEngine" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: DownloadedDataOnly = 2
+    return:
+      type: MonoTorrent.Client.RemoveMode
+- uid: MonoTorrent.Client.RemoveMode.CacheDataAndDownloadedData
+  commentId: F:MonoTorrent.Client.RemoveMode.CacheDataAndDownloadedData
+  id: CacheDataAndDownloadedData
+  parent: MonoTorrent.Client.RemoveMode
+  langs:
+  - csharp
+  - vb
+  name: CacheDataAndDownloadedData
+  nameWithType: RemoveMode.CacheDataAndDownloadedData
+  fullName: MonoTorrent.Client.RemoveMode.CacheDataAndDownloadedData
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/RemoveMode.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CacheDataAndDownloadedData
+    path: src/Client/RemoveMode.cs
+    startLine: 58
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    Removes all cache data from the <xref href="MonoTorrent.Client.EngineSettings.CacheDirectory" data-throw-if-not-resolved="false"></xref> when removing the <xref href="MonoTorrent.Client.TorrentManager" data-throw-if-not-resolved="false"></xref>
+
+    from the <xref href="MonoTorrent.Client.ClientEngine" data-throw-if-not-resolved="false"></xref>. Any data downloaded by the <xref href="MonoTorrent.Client.TorrentManager" data-throw-if-not-resolved="false"></xref> will be deleted.
+  example: []
+  syntax:
+    content: CacheDataAndDownloadedData = 3
+    return:
+      type: MonoTorrent.Client.RemoveMode
+references:
+- uid: MonoTorrent.Client
+  commentId: N:MonoTorrent.Client
+  href: MonoTorrent.html
+  name: MonoTorrent.Client
+  nameWithType: MonoTorrent.Client
+  fullName: MonoTorrent.Client
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+- uid: MonoTorrent.Client.EngineSettings.CacheDirectory
+  commentId: P:MonoTorrent.Client.EngineSettings.CacheDirectory
+  href: MonoTorrent.Client.EngineSettings.html#MonoTorrent_Client_EngineSettings_CacheDirectory
+  name: CacheDirectory
+  nameWithType: EngineSettings.CacheDirectory
+  fullName: MonoTorrent.Client.EngineSettings.CacheDirectory
+- uid: MonoTorrent.Client.TorrentManager
+  commentId: T:MonoTorrent.Client.TorrentManager
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.TorrentManager.html
+  name: TorrentManager
+  nameWithType: TorrentManager
+  fullName: MonoTorrent.Client.TorrentManager
+- uid: MonoTorrent.Client.ClientEngine
+  commentId: T:MonoTorrent.Client.ClientEngine
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.ClientEngine.html
+  name: ClientEngine
+  nameWithType: ClientEngine
+  fullName: MonoTorrent.Client.ClientEngine
+- uid: MonoTorrent.Client.RemoveMode
+  commentId: T:MonoTorrent.Client.RemoveMode
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.RemoveMode.html
+  name: RemoveMode
+  nameWithType: RemoveMode
+  fullName: MonoTorrent.Client.RemoveMode

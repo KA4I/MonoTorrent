@@ -1,0 +1,1342 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PeerInfo
+  commentId: T:MonoTorrent.PeerInfo
+  id: PeerInfo
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.PeerInfo.#ctor(System.Uri)
+  - MonoTorrent.PeerInfo.#ctor(System.Uri,MonoTorrent.BEncoding.BEncodedString)
+  - MonoTorrent.PeerInfo.#ctor(System.Uri,MonoTorrent.BEncoding.BEncodedString,System.Boolean)
+  - MonoTorrent.PeerInfo.CompactPeer
+  - MonoTorrent.PeerInfo.ConnectionUri
+  - MonoTorrent.PeerInfo.Equals(MonoTorrent.PeerInfo)
+  - MonoTorrent.PeerInfo.Equals(System.Object)
+  - MonoTorrent.PeerInfo.FromCompact(System.Collections.Generic.IEnumerable{System.Byte[]},System.Net.Sockets.AddressFamily)
+  - MonoTorrent.PeerInfo.FromCompact(System.ReadOnlySpan{System.Byte},System.Net.Sockets.AddressFamily)
+  - MonoTorrent.PeerInfo.GetHashCode
+  - MonoTorrent.PeerInfo.MaybeSeeder
+  - MonoTorrent.PeerInfo.PeerId
+  - MonoTorrent.PeerInfo.TryWriteCompactPeer(System.Span{System.Byte},System.Int32@)
+  - MonoTorrent.PeerInfo.WithPeerId(MonoTorrent.BEncoding.BEncodedString)
+  langs:
+  - csharp
+  - vb
+  name: PeerInfo
+  nameWithType: PeerInfo
+  fullName: MonoTorrent.PeerInfo
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PeerInfo
+    path: src/PeerInfo.cs
+    startLine: 42
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: 'public sealed class PeerInfo : IEquatable<PeerInfo>'
+    content.vb: Public NotInheritable Class PeerInfo Implements IEquatable(Of PeerInfo)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{MonoTorrent.PeerInfo}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.PeerInfo.MaybeSeeder
+  commentId: P:MonoTorrent.PeerInfo.MaybeSeeder
+  id: MaybeSeeder
+  parent: MonoTorrent.PeerInfo
+  langs:
+  - csharp
+  - vb
+  name: MaybeSeeder
+  nameWithType: PeerInfo.MaybeSeeder
+  fullName: MonoTorrent.PeerInfo.MaybeSeeder
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MaybeSeeder
+    path: src/PeerInfo.cs
+    startLine: 44
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public bool MaybeSeeder { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property MaybeSeeder As Boolean
+  overload: MonoTorrent.PeerInfo.MaybeSeeder*
+- uid: MonoTorrent.PeerInfo.PeerId
+  commentId: P:MonoTorrent.PeerInfo.PeerId
+  id: PeerId
+  parent: MonoTorrent.PeerInfo
+  langs:
+  - csharp
+  - vb
+  name: PeerId
+  nameWithType: PeerInfo.PeerId
+  fullName: MonoTorrent.PeerInfo.PeerId
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PeerId
+    path: src/PeerInfo.cs
+    startLine: 45
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public BEncodedString PeerId { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.BEncoding.BEncodedString
+    content.vb: Public ReadOnly Property PeerId As BEncodedString
+  overload: MonoTorrent.PeerInfo.PeerId*
+- uid: MonoTorrent.PeerInfo.ConnectionUri
+  commentId: P:MonoTorrent.PeerInfo.ConnectionUri
+  id: ConnectionUri
+  parent: MonoTorrent.PeerInfo
+  langs:
+  - csharp
+  - vb
+  name: ConnectionUri
+  nameWithType: PeerInfo.ConnectionUri
+  fullName: MonoTorrent.PeerInfo.ConnectionUri
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ConnectionUri
+    path: src/PeerInfo.cs
+    startLine: 47
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Uri ConnectionUri { get; }
+    parameters: []
+    return:
+      type: System.Uri
+    content.vb: Public ReadOnly Property ConnectionUri As Uri
+  overload: MonoTorrent.PeerInfo.ConnectionUri*
+- uid: MonoTorrent.PeerInfo.#ctor(System.Uri)
+  commentId: M:MonoTorrent.PeerInfo.#ctor(System.Uri)
+  id: '#ctor(System.Uri)'
+  parent: MonoTorrent.PeerInfo
+  langs:
+  - csharp
+  - vb
+  name: PeerInfo(Uri)
+  nameWithType: PeerInfo.PeerInfo(Uri)
+  fullName: MonoTorrent.PeerInfo.PeerInfo(System.Uri)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/PeerInfo.cs
+    startLine: 51
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public PeerInfo(Uri connectionUri)
+    parameters:
+    - id: connectionUri
+      type: System.Uri
+    content.vb: Public Sub New(connectionUri As Uri)
+  overload: MonoTorrent.PeerInfo.#ctor*
+  nameWithType.vb: PeerInfo.New(Uri)
+  fullName.vb: MonoTorrent.PeerInfo.New(System.Uri)
+  name.vb: New(Uri)
+- uid: MonoTorrent.PeerInfo.#ctor(System.Uri,MonoTorrent.BEncoding.BEncodedString)
+  commentId: M:MonoTorrent.PeerInfo.#ctor(System.Uri,MonoTorrent.BEncoding.BEncodedString)
+  id: '#ctor(System.Uri,MonoTorrent.BEncoding.BEncodedString)'
+  parent: MonoTorrent.PeerInfo
+  langs:
+  - csharp
+  - vb
+  name: PeerInfo(Uri, BEncodedString)
+  nameWithType: PeerInfo.PeerInfo(Uri, BEncodedString)
+  fullName: MonoTorrent.PeerInfo.PeerInfo(System.Uri, MonoTorrent.BEncoding.BEncodedString)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/PeerInfo.cs
+    startLine: 56
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public PeerInfo(Uri connectionUri, BEncodedString peerId)
+    parameters:
+    - id: connectionUri
+      type: System.Uri
+    - id: peerId
+      type: MonoTorrent.BEncoding.BEncodedString
+    content.vb: Public Sub New(connectionUri As Uri, peerId As BEncodedString)
+  overload: MonoTorrent.PeerInfo.#ctor*
+  nameWithType.vb: PeerInfo.New(Uri, BEncodedString)
+  fullName.vb: MonoTorrent.PeerInfo.New(System.Uri, MonoTorrent.BEncoding.BEncodedString)
+  name.vb: New(Uri, BEncodedString)
+- uid: MonoTorrent.PeerInfo.#ctor(System.Uri,MonoTorrent.BEncoding.BEncodedString,System.Boolean)
+  commentId: M:MonoTorrent.PeerInfo.#ctor(System.Uri,MonoTorrent.BEncoding.BEncodedString,System.Boolean)
+  id: '#ctor(System.Uri,MonoTorrent.BEncoding.BEncodedString,System.Boolean)'
+  parent: MonoTorrent.PeerInfo
+  langs:
+  - csharp
+  - vb
+  name: PeerInfo(Uri, BEncodedString, bool)
+  nameWithType: PeerInfo.PeerInfo(Uri, BEncodedString, bool)
+  fullName: MonoTorrent.PeerInfo.PeerInfo(System.Uri, MonoTorrent.BEncoding.BEncodedString, bool)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/PeerInfo.cs
+    startLine: 61
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public PeerInfo(Uri connectionUri, BEncodedString peerId, bool maybeSeeder)
+    parameters:
+    - id: connectionUri
+      type: System.Uri
+    - id: peerId
+      type: MonoTorrent.BEncoding.BEncodedString
+    - id: maybeSeeder
+      type: System.Boolean
+    content.vb: Public Sub New(connectionUri As Uri, peerId As BEncodedString, maybeSeeder As Boolean)
+  overload: MonoTorrent.PeerInfo.#ctor*
+  nameWithType.vb: PeerInfo.New(Uri, BEncodedString, Boolean)
+  fullName.vb: MonoTorrent.PeerInfo.New(System.Uri, MonoTorrent.BEncoding.BEncodedString, Boolean)
+  name.vb: New(Uri, BEncodedString, Boolean)
+- uid: MonoTorrent.PeerInfo.WithPeerId(MonoTorrent.BEncoding.BEncodedString)
+  commentId: M:MonoTorrent.PeerInfo.WithPeerId(MonoTorrent.BEncoding.BEncodedString)
+  id: WithPeerId(MonoTorrent.BEncoding.BEncodedString)
+  parent: MonoTorrent.PeerInfo
+  langs:
+  - csharp
+  - vb
+  name: WithPeerId(BEncodedString)
+  nameWithType: PeerInfo.WithPeerId(BEncodedString)
+  fullName: MonoTorrent.PeerInfo.WithPeerId(MonoTorrent.BEncoding.BEncodedString)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithPeerId
+    path: src/PeerInfo.cs
+    startLine: 70
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public PeerInfo WithPeerId(BEncodedString peerId)
+    parameters:
+    - id: peerId
+      type: MonoTorrent.BEncoding.BEncodedString
+    return:
+      type: MonoTorrent.PeerInfo
+    content.vb: Public Function WithPeerId(peerId As BEncodedString) As PeerInfo
+  overload: MonoTorrent.PeerInfo.WithPeerId*
+- uid: MonoTorrent.PeerInfo.Equals(System.Object)
+  commentId: M:MonoTorrent.PeerInfo.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: MonoTorrent.PeerInfo
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: PeerInfo.Equals(object?)
+  fullName: MonoTorrent.PeerInfo.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Equals
+    path: src/PeerInfo.cs
+    startLine: 73
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: MonoTorrent.PeerInfo.Equals*
+  nameWithType.vb: PeerInfo.Equals(Object)
+  fullName.vb: MonoTorrent.PeerInfo.Equals(Object)
+  name.vb: Equals(Object)
+- uid: MonoTorrent.PeerInfo.Equals(MonoTorrent.PeerInfo)
+  commentId: M:MonoTorrent.PeerInfo.Equals(MonoTorrent.PeerInfo)
+  id: Equals(MonoTorrent.PeerInfo)
+  parent: MonoTorrent.PeerInfo
+  langs:
+  - csharp
+  - vb
+  name: Equals(PeerInfo?)
+  nameWithType: PeerInfo.Equals(PeerInfo?)
+  fullName: MonoTorrent.PeerInfo.Equals(MonoTorrent.PeerInfo?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Equals
+    path: src/PeerInfo.cs
+    startLine: 76
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(PeerInfo? other)
+    parameters:
+    - id: other
+      type: MonoTorrent.PeerInfo
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As PeerInfo) As Boolean
+  overload: MonoTorrent.PeerInfo.Equals*
+  implements:
+  - System.IEquatable{MonoTorrent.PeerInfo}.Equals(MonoTorrent.PeerInfo)
+  nameWithType.vb: PeerInfo.Equals(PeerInfo)
+  fullName.vb: MonoTorrent.PeerInfo.Equals(MonoTorrent.PeerInfo)
+  name.vb: Equals(PeerInfo)
+- uid: MonoTorrent.PeerInfo.GetHashCode
+  commentId: M:MonoTorrent.PeerInfo.GetHashCode
+  id: GetHashCode
+  parent: MonoTorrent.PeerInfo
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PeerInfo.GetHashCode()
+  fullName: MonoTorrent.PeerInfo.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetHashCode
+    path: src/PeerInfo.cs
+    startLine: 79
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: MonoTorrent.PeerInfo.GetHashCode*
+- uid: MonoTorrent.PeerInfo.CompactPeer
+  commentId: M:MonoTorrent.PeerInfo.CompactPeer
+  id: CompactPeer
+  parent: MonoTorrent.PeerInfo
+  langs:
+  - csharp
+  - vb
+  name: CompactPeer()
+  nameWithType: PeerInfo.CompactPeer()
+  fullName: MonoTorrent.PeerInfo.CompactPeer()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CompactPeer
+    path: src/PeerInfo.cs
+    startLine: 82
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public byte[] CompactPeer()
+    return:
+      type: System.Byte[]
+    content.vb: Public Function CompactPeer() As Byte()
+  overload: MonoTorrent.PeerInfo.CompactPeer*
+- uid: MonoTorrent.PeerInfo.TryWriteCompactPeer(System.Span{System.Byte},System.Int32@)
+  commentId: M:MonoTorrent.PeerInfo.TryWriteCompactPeer(System.Span{System.Byte},System.Int32@)
+  id: TryWriteCompactPeer(System.Span{System.Byte},System.Int32@)
+  parent: MonoTorrent.PeerInfo
+  langs:
+  - csharp
+  - vb
+  name: TryWriteCompactPeer(Span<byte>, out int)
+  nameWithType: PeerInfo.TryWriteCompactPeer(Span<byte>, out int)
+  fullName: MonoTorrent.PeerInfo.TryWriteCompactPeer(System.Span<byte>, out int)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TryWriteCompactPeer
+    path: src/PeerInfo.cs
+    startLine: 90
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public bool TryWriteCompactPeer(Span<byte> buffer, out int written)
+    parameters:
+    - id: buffer
+      type: System.Span{System.Byte}
+    - id: written
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryWriteCompactPeer(buffer As Span(Of Byte), written As Integer) As Boolean
+  overload: MonoTorrent.PeerInfo.TryWriteCompactPeer*
+  nameWithType.vb: PeerInfo.TryWriteCompactPeer(Span(Of Byte), Integer)
+  fullName.vb: MonoTorrent.PeerInfo.TryWriteCompactPeer(System.Span(Of Byte), Integer)
+  name.vb: TryWriteCompactPeer(Span(Of Byte), Integer)
+- uid: MonoTorrent.PeerInfo.FromCompact(System.ReadOnlySpan{System.Byte},System.Net.Sockets.AddressFamily)
+  commentId: M:MonoTorrent.PeerInfo.FromCompact(System.ReadOnlySpan{System.Byte},System.Net.Sockets.AddressFamily)
+  id: FromCompact(System.ReadOnlySpan{System.Byte},System.Net.Sockets.AddressFamily)
+  parent: MonoTorrent.PeerInfo
+  langs:
+  - csharp
+  - vb
+  name: FromCompact(ReadOnlySpan<byte>, AddressFamily)
+  nameWithType: PeerInfo.FromCompact(ReadOnlySpan<byte>, AddressFamily)
+  fullName: MonoTorrent.PeerInfo.FromCompact(System.ReadOnlySpan<byte>, System.Net.Sockets.AddressFamily)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FromCompact
+    path: src/PeerInfo.cs
+    startLine: 108
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static IList<PeerInfo> FromCompact(ReadOnlySpan<byte> buffer, AddressFamily addressFamily)
+    parameters:
+    - id: buffer
+      type: System.ReadOnlySpan{System.Byte}
+    - id: addressFamily
+      type: System.Net.Sockets.AddressFamily
+    return:
+      type: System.Collections.Generic.IList{MonoTorrent.PeerInfo}
+    content.vb: Public Shared Function FromCompact(buffer As ReadOnlySpan(Of Byte), addressFamily As AddressFamily) As IList(Of PeerInfo)
+  overload: MonoTorrent.PeerInfo.FromCompact*
+  nameWithType.vb: PeerInfo.FromCompact(ReadOnlySpan(Of Byte), AddressFamily)
+  fullName.vb: MonoTorrent.PeerInfo.FromCompact(System.ReadOnlySpan(Of Byte), System.Net.Sockets.AddressFamily)
+  name.vb: FromCompact(ReadOnlySpan(Of Byte), AddressFamily)
+- uid: MonoTorrent.PeerInfo.FromCompact(System.Collections.Generic.IEnumerable{System.Byte[]},System.Net.Sockets.AddressFamily)
+  commentId: M:MonoTorrent.PeerInfo.FromCompact(System.Collections.Generic.IEnumerable{System.Byte[]},System.Net.Sockets.AddressFamily)
+  id: FromCompact(System.Collections.Generic.IEnumerable{System.Byte[]},System.Net.Sockets.AddressFamily)
+  parent: MonoTorrent.PeerInfo
+  langs:
+  - csharp
+  - vb
+  name: FromCompact(IEnumerable<byte[]>, AddressFamily)
+  nameWithType: PeerInfo.FromCompact(IEnumerable<byte[]>, AddressFamily)
+  fullName: MonoTorrent.PeerInfo.FromCompact(System.Collections.Generic.IEnumerable<byte[]>, System.Net.Sockets.AddressFamily)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PeerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FromCompact
+    path: src/PeerInfo.cs
+    startLine: 115
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static IList<PeerInfo> FromCompact(IEnumerable<byte[]> data, AddressFamily addressFamily)
+    parameters:
+    - id: data
+      type: System.Collections.Generic.IEnumerable{System.Byte[]}
+    - id: addressFamily
+      type: System.Net.Sockets.AddressFamily
+    return:
+      type: System.Collections.Generic.IList{MonoTorrent.PeerInfo}
+    content.vb: Public Shared Function FromCompact(data As IEnumerable(Of Byte()), addressFamily As AddressFamily) As IList(Of PeerInfo)
+  overload: MonoTorrent.PeerInfo.FromCompact*
+  nameWithType.vb: PeerInfo.FromCompact(IEnumerable(Of Byte()), AddressFamily)
+  fullName.vb: MonoTorrent.PeerInfo.FromCompact(System.Collections.Generic.IEnumerable(Of Byte()), System.Net.Sockets.AddressFamily)
+  name.vb: FromCompact(IEnumerable(Of Byte()), AddressFamily)
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{MonoTorrent.PeerInfo}
+  commentId: T:System.IEquatable{MonoTorrent.PeerInfo}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PeerInfo>
+  nameWithType: IEquatable<PeerInfo>
+  fullName: System.IEquatable<MonoTorrent.PeerInfo>
+  nameWithType.vb: IEquatable(Of PeerInfo)
+  fullName.vb: System.IEquatable(Of MonoTorrent.PeerInfo)
+  name.vb: IEquatable(Of PeerInfo)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: MonoTorrent.PeerInfo
+    name: PeerInfo
+    href: MonoTorrent.PeerInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.PeerInfo
+    name: PeerInfo
+    href: MonoTorrent.PeerInfo.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.PeerInfo.MaybeSeeder*
+  commentId: Overload:MonoTorrent.PeerInfo.MaybeSeeder
+  href: MonoTorrent.PeerInfo.html#MonoTorrent_PeerInfo_MaybeSeeder
+  name: MaybeSeeder
+  nameWithType: PeerInfo.MaybeSeeder
+  fullName: MonoTorrent.PeerInfo.MaybeSeeder
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.PeerInfo.PeerId*
+  commentId: Overload:MonoTorrent.PeerInfo.PeerId
+  href: MonoTorrent.PeerInfo.html#MonoTorrent_PeerInfo_PeerId
+  name: PeerId
+  nameWithType: PeerInfo.PeerId
+  fullName: MonoTorrent.PeerInfo.PeerId
+- uid: MonoTorrent.BEncoding.BEncodedString
+  commentId: T:MonoTorrent.BEncoding.BEncodedString
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedString.html
+  name: BEncodedString
+  nameWithType: BEncodedString
+  fullName: MonoTorrent.BEncoding.BEncodedString
+- uid: MonoTorrent.BEncoding
+  commentId: N:MonoTorrent.BEncoding
+  href: MonoTorrent.html
+  name: MonoTorrent.BEncoding
+  nameWithType: MonoTorrent.BEncoding
+  fullName: MonoTorrent.BEncoding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+- uid: MonoTorrent.PeerInfo.ConnectionUri*
+  commentId: Overload:MonoTorrent.PeerInfo.ConnectionUri
+  href: MonoTorrent.PeerInfo.html#MonoTorrent_PeerInfo_ConnectionUri
+  name: ConnectionUri
+  nameWithType: PeerInfo.ConnectionUri
+  fullName: MonoTorrent.PeerInfo.ConnectionUri
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: MonoTorrent.PeerInfo.#ctor*
+  commentId: Overload:MonoTorrent.PeerInfo.#ctor
+  href: MonoTorrent.PeerInfo.html#MonoTorrent_PeerInfo__ctor_System_Uri_
+  name: PeerInfo
+  nameWithType: PeerInfo.PeerInfo
+  fullName: MonoTorrent.PeerInfo.PeerInfo
+  nameWithType.vb: PeerInfo.New
+  fullName.vb: MonoTorrent.PeerInfo.New
+  name.vb: New
+- uid: MonoTorrent.PeerInfo.WithPeerId*
+  commentId: Overload:MonoTorrent.PeerInfo.WithPeerId
+  href: MonoTorrent.PeerInfo.html#MonoTorrent_PeerInfo_WithPeerId_MonoTorrent_BEncoding_BEncodedString_
+  name: WithPeerId
+  nameWithType: PeerInfo.WithPeerId
+  fullName: MonoTorrent.PeerInfo.WithPeerId
+- uid: MonoTorrent.PeerInfo
+  commentId: T:MonoTorrent.PeerInfo
+  parent: MonoTorrent
+  href: MonoTorrent.PeerInfo.html
+  name: PeerInfo
+  nameWithType: PeerInfo
+  fullName: MonoTorrent.PeerInfo
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: MonoTorrent.PeerInfo.Equals*
+  commentId: Overload:MonoTorrent.PeerInfo.Equals
+  href: MonoTorrent.PeerInfo.html#MonoTorrent_PeerInfo_Equals_System_Object_
+  name: Equals
+  nameWithType: PeerInfo.Equals
+  fullName: MonoTorrent.PeerInfo.Equals
+- uid: System.IEquatable{MonoTorrent.PeerInfo}.Equals(MonoTorrent.PeerInfo)
+  commentId: M:System.IEquatable{MonoTorrent.PeerInfo}.Equals(MonoTorrent.PeerInfo)
+  parent: System.IEquatable{MonoTorrent.PeerInfo}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(PeerInfo)
+  nameWithType: IEquatable<PeerInfo>.Equals(PeerInfo)
+  fullName: System.IEquatable<MonoTorrent.PeerInfo>.Equals(MonoTorrent.PeerInfo)
+  nameWithType.vb: IEquatable(Of PeerInfo).Equals(PeerInfo)
+  fullName.vb: System.IEquatable(Of MonoTorrent.PeerInfo).Equals(MonoTorrent.PeerInfo)
+  spec.csharp:
+  - uid: System.IEquatable{MonoTorrent.PeerInfo}.Equals(MonoTorrent.PeerInfo)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: MonoTorrent.PeerInfo
+    name: PeerInfo
+    href: MonoTorrent.PeerInfo.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{MonoTorrent.PeerInfo}.Equals(MonoTorrent.PeerInfo)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: MonoTorrent.PeerInfo
+    name: PeerInfo
+    href: MonoTorrent.PeerInfo.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: MonoTorrent.PeerInfo.GetHashCode*
+  commentId: Overload:MonoTorrent.PeerInfo.GetHashCode
+  href: MonoTorrent.PeerInfo.html#MonoTorrent_PeerInfo_GetHashCode
+  name: GetHashCode
+  nameWithType: PeerInfo.GetHashCode
+  fullName: MonoTorrent.PeerInfo.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.PeerInfo.CompactPeer*
+  commentId: Overload:MonoTorrent.PeerInfo.CompactPeer
+  href: MonoTorrent.PeerInfo.html#MonoTorrent_PeerInfo_CompactPeer
+  name: CompactPeer
+  nameWithType: PeerInfo.CompactPeer
+  fullName: MonoTorrent.PeerInfo.CompactPeer
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: MonoTorrent.PeerInfo.TryWriteCompactPeer*
+  commentId: Overload:MonoTorrent.PeerInfo.TryWriteCompactPeer
+  href: MonoTorrent.PeerInfo.html#MonoTorrent_PeerInfo_TryWriteCompactPeer_System_Span_System_Byte__System_Int32__
+  name: TryWriteCompactPeer
+  nameWithType: PeerInfo.TryWriteCompactPeer
+  fullName: MonoTorrent.PeerInfo.TryWriteCompactPeer
+- uid: System.Span{System.Byte}
+  commentId: T:System.Span{System.Byte}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<byte>
+  nameWithType: Span<byte>
+  fullName: System.Span<byte>
+  nameWithType.vb: Span(Of Byte)
+  fullName.vb: System.Span(Of Byte)
+  name.vb: Span(Of Byte)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.PeerInfo.FromCompact*
+  commentId: Overload:MonoTorrent.PeerInfo.FromCompact
+  href: MonoTorrent.PeerInfo.html#MonoTorrent_PeerInfo_FromCompact_System_ReadOnlySpan_System_Byte__System_Net_Sockets_AddressFamily_
+  name: FromCompact
+  nameWithType: PeerInfo.FromCompact
+  fullName: MonoTorrent.PeerInfo.FromCompact
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Net.Sockets.AddressFamily
+  commentId: T:System.Net.Sockets.AddressFamily
+  parent: System.Net.Sockets
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.sockets.addressfamily
+  name: AddressFamily
+  nameWithType: AddressFamily
+  fullName: System.Net.Sockets.AddressFamily
+- uid: System.Collections.Generic.IList{MonoTorrent.PeerInfo}
+  commentId: T:System.Collections.Generic.IList{MonoTorrent.PeerInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<PeerInfo>
+  nameWithType: IList<PeerInfo>
+  fullName: System.Collections.Generic.IList<MonoTorrent.PeerInfo>
+  nameWithType.vb: IList(Of PeerInfo)
+  fullName.vb: System.Collections.Generic.IList(Of MonoTorrent.PeerInfo)
+  name.vb: IList(Of PeerInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: MonoTorrent.PeerInfo
+    name: PeerInfo
+    href: MonoTorrent.PeerInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.PeerInfo
+    name: PeerInfo
+    href: MonoTorrent.PeerInfo.html
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Net.Sockets
+  commentId: N:System.Net.Sockets
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Sockets
+  nameWithType: System.Net.Sockets
+  fullName: System.Net.Sockets
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Sockets
+    name: Sockets
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.sockets
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Sockets
+    name: Sockets
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.sockets
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.IEnumerable{System.Byte[]}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Byte[]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<byte[]>
+  nameWithType: IEnumerable<byte[]>
+  fullName: System.Collections.Generic.IEnumerable<byte[]>
+  nameWithType.vb: IEnumerable(Of Byte())
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Byte())
+  name.vb: IEnumerable(Of Byte())
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

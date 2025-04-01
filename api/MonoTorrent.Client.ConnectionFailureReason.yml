@@ -1,0 +1,352 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Client.ConnectionFailureReason
+  commentId: T:MonoTorrent.Client.ConnectionFailureReason
+  id: ConnectionFailureReason
+  parent: MonoTorrent.Client
+  children:
+  - MonoTorrent.Client.ConnectionFailureReason.Banned
+  - MonoTorrent.Client.ConnectionFailureReason.ConnectedToSelf
+  - MonoTorrent.Client.ConnectionFailureReason.EncryptionNegiotiationFailed
+  - MonoTorrent.Client.ConnectionFailureReason.HandshakeFailed
+  - MonoTorrent.Client.ConnectionFailureReason.TooManyOpenConnections
+  - MonoTorrent.Client.ConnectionFailureReason.Unknown
+  - MonoTorrent.Client.ConnectionFailureReason.UnknownUriSchema
+  - MonoTorrent.Client.ConnectionFailureReason.Unreachable
+  langs:
+  - csharp
+  - vb
+  name: ConnectionFailureReason
+  nameWithType: ConnectionFailureReason
+  fullName: MonoTorrent.Client.ConnectionFailureReason
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ConnectionFailureReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ConnectionFailureReason
+    path: src/Client/ConnectionFailureReason.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Lists potential reasons why an outgoing connection could not be established.
+  example: []
+  syntax:
+    content: public enum ConnectionFailureReason
+    content.vb: Public Enum ConnectionFailureReason
+- uid: MonoTorrent.Client.ConnectionFailureReason.Unreachable
+  commentId: F:MonoTorrent.Client.ConnectionFailureReason.Unreachable
+  id: Unreachable
+  parent: MonoTorrent.Client.ConnectionFailureReason
+  langs:
+  - csharp
+  - vb
+  name: Unreachable
+  nameWithType: ConnectionFailureReason.Unreachable
+  fullName: MonoTorrent.Client.ConnectionFailureReason.Unreachable
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ConnectionFailureReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Unreachable
+    path: src/Client/ConnectionFailureReason.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    The remote peer did not accept the connection. This might mean the client has gone
+
+    offline or the client is behind a NAT/Firewall and cannot accept incoming connections.
+  example: []
+  syntax:
+    content: Unreachable = 0
+    return:
+      type: MonoTorrent.Client.ConnectionFailureReason
+- uid: MonoTorrent.Client.ConnectionFailureReason.UnknownUriSchema
+  commentId: F:MonoTorrent.Client.ConnectionFailureReason.UnknownUriSchema
+  id: UnknownUriSchema
+  parent: MonoTorrent.Client.ConnectionFailureReason
+  langs:
+  - csharp
+  - vb
+  name: UnknownUriSchema
+  nameWithType: ConnectionFailureReason.UnknownUriSchema
+  fullName: MonoTorrent.Client.ConnectionFailureReason.UnknownUriSchema
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ConnectionFailureReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: UnknownUriSchema
+    path: src/Client/ConnectionFailureReason.cs
+    startLine: 44
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: No compatible IPeerConnection could be instantiated by the <xref href="MonoTorrent.Factories.CreatePeerConnection(System.Uri)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: UnknownUriSchema = 1
+    return:
+      type: MonoTorrent.Client.ConnectionFailureReason
+- uid: MonoTorrent.Client.ConnectionFailureReason.ConnectedToSelf
+  commentId: F:MonoTorrent.Client.ConnectionFailureReason.ConnectedToSelf
+  id: ConnectedToSelf
+  parent: MonoTorrent.Client.ConnectionFailureReason
+  langs:
+  - csharp
+  - vb
+  name: ConnectedToSelf
+  nameWithType: ConnectionFailureReason.ConnectedToSelf
+  fullName: MonoTorrent.Client.ConnectionFailureReason.ConnectedToSelf
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ConnectionFailureReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ConnectedToSelf
+    path: src/Client/ConnectionFailureReason.cs
+    startLine: 50
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    This peer has been banned. This can happen if the peer repeatedly sends data which fails a hashcheck, or it can happen if
+
+    the user of the library has used the <xref href="MonoTorrent.Client.ConnectionManager.BanPeer" data-throw-if-not-resolved="false"></xref> event to indicate the peer should be banned.
+  example: []
+  syntax:
+    content: ConnectedToSelf = 2
+    return:
+      type: MonoTorrent.Client.ConnectionFailureReason
+- uid: MonoTorrent.Client.ConnectionFailureReason.EncryptionNegiotiationFailed
+  commentId: F:MonoTorrent.Client.ConnectionFailureReason.EncryptionNegiotiationFailed
+  id: EncryptionNegiotiationFailed
+  parent: MonoTorrent.Client.ConnectionFailureReason
+  langs:
+  - csharp
+  - vb
+  name: EncryptionNegiotiationFailed
+  nameWithType: ConnectionFailureReason.EncryptionNegiotiationFailed
+  fullName: MonoTorrent.Client.ConnectionFailureReason.EncryptionNegiotiationFailed
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ConnectionFailureReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: EncryptionNegiotiationFailed
+    path: src/Client/ConnectionFailureReason.cs
+    startLine: 58
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    After accepting the connection, a compatible connection encryption method could not
+
+    be selected. Alternatively the remote peer could have reached it's open connection
+
+    limit and simply closed the connection, or it could mean the peer did not support
+
+    encrypted connections.
+  example: []
+  syntax:
+    content: EncryptionNegiotiationFailed = 3
+    return:
+      type: MonoTorrent.Client.ConnectionFailureReason
+- uid: MonoTorrent.Client.ConnectionFailureReason.HandshakeFailed
+  commentId: F:MonoTorrent.Client.ConnectionFailureReason.HandshakeFailed
+  id: HandshakeFailed
+  parent: MonoTorrent.Client.ConnectionFailureReason
+  langs:
+  - csharp
+  - vb
+  name: HandshakeFailed
+  nameWithType: ConnectionFailureReason.HandshakeFailed
+  fullName: MonoTorrent.Client.ConnectionFailureReason.HandshakeFailed
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ConnectionFailureReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: HandshakeFailed
+    path: src/Client/ConnectionFailureReason.cs
+    startLine: 68
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    A compatible connection encryption method was selected, but the peer closed the
+
+    connection after the normal handshake was sent. This could mean the remote peer
+
+    reached it's open connection limit and simply closed the connection, or it could
+
+    mean the peer did not actually support the chosen encryption. This can happen
+
+    if we choose to create an unencrypted outgoing connection and the peer only
+
+    supports encrypted connections.
+  example: []
+  syntax:
+    content: HandshakeFailed = 4
+    return:
+      type: MonoTorrent.Client.ConnectionFailureReason
+- uid: MonoTorrent.Client.ConnectionFailureReason.TooManyOpenConnections
+  commentId: F:MonoTorrent.Client.ConnectionFailureReason.TooManyOpenConnections
+  id: TooManyOpenConnections
+  parent: MonoTorrent.Client.ConnectionFailureReason
+  langs:
+  - csharp
+  - vb
+  name: TooManyOpenConnections
+  nameWithType: ConnectionFailureReason.TooManyOpenConnections
+  fullName: MonoTorrent.Client.ConnectionFailureReason.TooManyOpenConnections
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ConnectionFailureReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TooManyOpenConnections
+    path: src/Client/ConnectionFailureReason.cs
+    startLine: 73
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The maximum number of open connections was exceeded after establishing the connection and so the connection was closed.
+  example: []
+  syntax:
+    content: TooManyOpenConnections = 5
+    return:
+      type: MonoTorrent.Client.ConnectionFailureReason
+- uid: MonoTorrent.Client.ConnectionFailureReason.Banned
+  commentId: F:MonoTorrent.Client.ConnectionFailureReason.Banned
+  id: Banned
+  parent: MonoTorrent.Client.ConnectionFailureReason
+  langs:
+  - csharp
+  - vb
+  name: Banned
+  nameWithType: ConnectionFailureReason.Banned
+  fullName: MonoTorrent.Client.ConnectionFailureReason.Banned
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ConnectionFailureReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Banned
+    path: src/Client/ConnectionFailureReason.cs
+    startLine: 79
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    This peer has been banned. This can happen if the peer repeatedly sends data which fails a hashcheck, or it can happen if
+
+    the user of the library has used the <xref href="MonoTorrent.Client.ConnectionManager.BanPeer" data-throw-if-not-resolved="false"></xref> event to indicate the peer should be banned.
+  example: []
+  syntax:
+    content: Banned = 6
+    return:
+      type: MonoTorrent.Client.ConnectionFailureReason
+- uid: MonoTorrent.Client.ConnectionFailureReason.Unknown
+  commentId: F:MonoTorrent.Client.ConnectionFailureReason.Unknown
+  id: Unknown
+  parent: MonoTorrent.Client.ConnectionFailureReason
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: ConnectionFailureReason.Unknown
+  fullName: MonoTorrent.Client.ConnectionFailureReason.Unknown
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ConnectionFailureReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Unknown
+    path: src/Client/ConnectionFailureReason.cs
+    startLine: 84
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: There is no clear reason why the connection attempt failed.
+  example: []
+  syntax:
+    content: Unknown = 7
+    return:
+      type: MonoTorrent.Client.ConnectionFailureReason
+references:
+- uid: MonoTorrent.Client
+  commentId: N:MonoTorrent.Client
+  href: MonoTorrent.html
+  name: MonoTorrent.Client
+  nameWithType: MonoTorrent.Client
+  fullName: MonoTorrent.Client
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+- uid: MonoTorrent.Client.ConnectionFailureReason
+  commentId: T:MonoTorrent.Client.ConnectionFailureReason
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.ConnectionFailureReason.html
+  name: ConnectionFailureReason
+  nameWithType: ConnectionFailureReason
+  fullName: MonoTorrent.Client.ConnectionFailureReason
+- uid: MonoTorrent.Factories.CreatePeerConnection(System.Uri)
+  commentId: M:MonoTorrent.Factories.CreatePeerConnection(System.Uri)
+  isExternal: true
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreatePeerConnection_System_Uri_
+  name: CreatePeerConnection(Uri)
+  nameWithType: Factories.CreatePeerConnection(Uri)
+  fullName: MonoTorrent.Factories.CreatePeerConnection(System.Uri)
+  spec.csharp:
+  - uid: MonoTorrent.Factories.CreatePeerConnection(System.Uri)
+    name: CreatePeerConnection
+    href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreatePeerConnection_System_Uri_
+  - name: (
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Factories.CreatePeerConnection(System.Uri)
+    name: CreatePeerConnection
+    href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreatePeerConnection_System_Uri_
+  - name: (
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: )
+- uid: MonoTorrent.Client.ConnectionManager.BanPeer
+  commentId: E:MonoTorrent.Client.ConnectionManager.BanPeer
+  href: MonoTorrent.Client.ConnectionManager.html#MonoTorrent_Client_ConnectionManager_BanPeer
+  name: BanPeer
+  nameWithType: ConnectionManager.BanPeer
+  fullName: MonoTorrent.Client.ConnectionManager.BanPeer

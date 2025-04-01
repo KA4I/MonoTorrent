@@ -1,0 +1,67 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Messages.Peer.FastPeer.IFastPeerMessage
+  commentId: T:MonoTorrent.Messages.Peer.FastPeer.IFastPeerMessage
+  id: IFastPeerMessage
+  parent: MonoTorrent.Messages.Peer.FastPeer
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IFastPeerMessage
+  nameWithType: IFastPeerMessage
+  fullName: MonoTorrent.Messages.Peer.FastPeer.IFastPeerMessage
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/FastPeer/IFastPeerMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IFastPeerMessage
+    path: src/Messages/Peer/FastPeer/IFastPeerMessage.cs
+    startLine: 31
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.FastPeer
+  syntax:
+    content: public interface IFastPeerMessage
+    content.vb: Public Interface IFastPeerMessage
+references:
+- uid: MonoTorrent.Messages.Peer.FastPeer
+  commentId: N:MonoTorrent.Messages.Peer.FastPeer
+  href: MonoTorrent.html
+  name: MonoTorrent.Messages.Peer.FastPeer
+  nameWithType: MonoTorrent.Messages.Peer.FastPeer
+  fullName: MonoTorrent.Messages.Peer.FastPeer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer.FastPeer
+    name: FastPeer
+    href: MonoTorrent.Messages.Peer.FastPeer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer.FastPeer
+    name: FastPeer
+    href: MonoTorrent.Messages.Peer.FastPeer.html

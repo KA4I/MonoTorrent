@@ -27,6 +27,8 @@
 //
 
 
+using MonoTorrent.BEncoding;
+
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -64,6 +66,16 @@ namespace MonoTorrent.Client
         public void GetPeers (InfoHash infohash)
         {
 
+        }
+
+
+        // BEP44/BEP46 functionality for testing
+        internal Func<NodeId, long?, Task<(BEncodedValue? value, BEncodedString? publicKey, BEncodedString? signature, long? sequenceNumber)>>? GetCallback { get; set; }
+
+        public Task<(BEncodedValue? value, BEncodedString? publicKey, BEncodedString? signature, long? sequenceNumber)> GetAsync(NodeId target, long? sequenceNumber = null)
+        {
+            return GetCallback?.Invoke(target, sequenceNumber) 
+                ?? Task.FromResult<(BEncodedValue?, BEncodedString?, BEncodedString?, long?)>((null, null, null, null));
         }
 
         public void RaisePeersFound (InfoHash infoHash, IList<PeerInfo> peers)

@@ -27,6 +27,8 @@
 //
 
 
+using MonoTorrent.BEncoding;
+
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -84,6 +86,12 @@ namespace MonoTorrent.Client
         public void GetPeers (InfoHash infoHash)
         {
 
+        }
+
+
+        public Task<(BEncodedValue? value, BEncodedString? publicKey, BEncodedString? signature, long? sequenceNumber)> GetAsync(NodeId target, long? sequenceNumber = null)
+        {
+            return Task.FromResult<(BEncodedValue? value, BEncodedString? publicKey, BEncodedString? signature, long? sequenceNumber)>((null, null, null, null));
         }
 
         public Task<ReadOnlyMemory<byte>> SaveNodesAsync ()

@@ -1,0 +1,129 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PieceWriter
+  commentId: N:MonoTorrent.PieceWriter
+  id: MonoTorrent.PieceWriter
+  children:
+  - MonoTorrent.PieceWriter.BlockBasedPieceWriter
+  - MonoTorrent.PieceWriter.CachePolicy
+  - MonoTorrent.PieceWriter.DiskWriter
+  - MonoTorrent.PieceWriter.FileCreationOptions
+  - MonoTorrent.PieceWriter.IBlockCache
+  - MonoTorrent.PieceWriter.IBlockWriter
+  - MonoTorrent.PieceWriter.IPieceHashStatusUpdater
+  - MonoTorrent.PieceWriter.IPieceWriter
+  - MonoTorrent.PieceWriter.MemoryCache
+  - MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+  - MonoTorrent.PieceWriter.StreamBlockReader
+  - MonoTorrent.PieceWriter.StreamBlockWriter
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.PieceWriter
+  nameWithType: MonoTorrent.PieceWriter
+  fullName: MonoTorrent.PieceWriter
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.PieceWriter.BlockBasedPieceWriter
+  commentId: T:MonoTorrent.PieceWriter.BlockBasedPieceWriter
+  href: MonoTorrent.PieceWriter.BlockBasedPieceWriter.html
+  name: BlockBasedPieceWriter
+  nameWithType: BlockBasedPieceWriter
+  fullName: MonoTorrent.PieceWriter.BlockBasedPieceWriter
+- uid: MonoTorrent.PieceWriter.CachePolicy
+  commentId: T:MonoTorrent.PieceWriter.CachePolicy
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.CachePolicy.html
+  name: CachePolicy
+  nameWithType: CachePolicy
+  fullName: MonoTorrent.PieceWriter.CachePolicy
+- uid: MonoTorrent.PieceWriter.DiskWriter
+  commentId: T:MonoTorrent.PieceWriter.DiskWriter
+  href: MonoTorrent.PieceWriter.DiskWriter.html
+  name: DiskWriter
+  nameWithType: DiskWriter
+  fullName: MonoTorrent.PieceWriter.DiskWriter
+- uid: MonoTorrent.PieceWriter.FileCreationOptions
+  commentId: T:MonoTorrent.PieceWriter.FileCreationOptions
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.FileCreationOptions.html
+  name: FileCreationOptions
+  nameWithType: FileCreationOptions
+  fullName: MonoTorrent.PieceWriter.FileCreationOptions
+- uid: MonoTorrent.PieceWriter.IBlockCache
+  commentId: T:MonoTorrent.PieceWriter.IBlockCache
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.IBlockCache.html
+  name: IBlockCache
+  nameWithType: IBlockCache
+  fullName: MonoTorrent.PieceWriter.IBlockCache
+- uid: MonoTorrent.PieceWriter.IBlockWriter
+  commentId: T:MonoTorrent.PieceWriter.IBlockWriter
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.IBlockWriter.html
+  name: IBlockWriter
+  nameWithType: IBlockWriter
+  fullName: MonoTorrent.PieceWriter.IBlockWriter
+- uid: MonoTorrent.PieceWriter.IPieceHashStatusUpdater
+  commentId: T:MonoTorrent.PieceWriter.IPieceHashStatusUpdater
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.html
+  name: IPieceHashStatusUpdater
+  nameWithType: IPieceHashStatusUpdater
+  fullName: MonoTorrent.PieceWriter.IPieceHashStatusUpdater
+- uid: MonoTorrent.PieceWriter.IPieceWriter
+  commentId: T:MonoTorrent.PieceWriter.IPieceWriter
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.IPieceWriter.html
+  name: IPieceWriter
+  nameWithType: IPieceWriter
+  fullName: MonoTorrent.PieceWriter.IPieceWriter
+- uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+  commentId: T:MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html
+  name: PaddingAwareIPieceWriterExtensions
+  nameWithType: PaddingAwareIPieceWriterExtensions
+  fullName: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+- uid: MonoTorrent.PieceWriter.MemoryCache
+  commentId: T:MonoTorrent.PieceWriter.MemoryCache
+  href: MonoTorrent.PieceWriter.MemoryCache.html
+  name: MemoryCache
+  nameWithType: MemoryCache
+  fullName: MonoTorrent.PieceWriter.MemoryCache
+- uid: MonoTorrent.PieceWriter.StreamBlockReader
+  commentId: T:MonoTorrent.PieceWriter.StreamBlockReader
+  href: MonoTorrent.PieceWriter.StreamBlockReader.html
+  name: StreamBlockReader
+  nameWithType: StreamBlockReader
+  fullName: MonoTorrent.PieceWriter.StreamBlockReader
+- uid: MonoTorrent.PieceWriter.StreamBlockWriter
+  commentId: T:MonoTorrent.PieceWriter.StreamBlockWriter
+  href: MonoTorrent.PieceWriter.StreamBlockWriter.html
+  name: StreamBlockWriter
+  nameWithType: StreamBlockWriter
+  fullName: MonoTorrent.PieceWriter.StreamBlockWriter
+- uid: MonoTorrent.PieceWriter
+  commentId: N:MonoTorrent.PieceWriter
+  href: MonoTorrent.html
+  name: MonoTorrent.PieceWriter
+  nameWithType: MonoTorrent.PieceWriter
+  fullName: MonoTorrent.PieceWriter
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html

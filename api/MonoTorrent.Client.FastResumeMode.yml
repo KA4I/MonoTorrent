@@ -1,0 +1,163 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Client.FastResumeMode
+  commentId: T:MonoTorrent.Client.FastResumeMode
+  id: FastResumeMode
+  parent: MonoTorrent.Client
+  children:
+  - MonoTorrent.Client.FastResumeMode.Accurate
+  - MonoTorrent.Client.FastResumeMode.BestEffort
+  langs:
+  - csharp
+  - vb
+  name: FastResumeMode
+  nameWithType: FastResumeMode
+  fullName: MonoTorrent.Client.FastResumeMode
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/FastResumeMode.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FastResumeMode
+    path: src/Client/Settings/FastResumeMode.cs
+    startLine: 31
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public enum FastResumeMode
+    content.vb: Public Enum FastResumeMode
+- uid: MonoTorrent.Client.FastResumeMode.Accurate
+  commentId: F:MonoTorrent.Client.FastResumeMode.Accurate
+  id: Accurate
+  parent: MonoTorrent.Client.FastResumeMode
+  langs:
+  - csharp
+  - vb
+  name: Accurate
+  nameWithType: FastResumeMode.Accurate
+  fullName: MonoTorrent.Client.FastResumeMode.Accurate
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/FastResumeMode.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Accurate
+    path: src/Client/Settings/FastResumeMode.cs
+    startLine: 40
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    When <xref href="MonoTorrent.Client.EngineSettings.AutoSaveLoadFastResume" data-throw-if-not-resolved="false"></xref> is enabled the engine will delete fast resume data from disk when
+
+    the <xref href="MonoTorrent.Client.TorrentManager" data-throw-if-not-resolved="false"></xref> enters the <xref href="MonoTorrent.Client.TorrentState.Downloading" data-throw-if-not-resolved="false"></xref> state, or if the hash check is cancelled.
+
+    FastResume data will be written to disk when the <xref href="MonoTorrent.Client.TorrentManager" data-throw-if-not-resolved="false"></xref> enters <xref href="MonoTorrent.Client.TorrentState.Seeding" data-throw-if-not-resolved="false"></xref> mode,
+
+    or when the torrent enters the <xref href="MonoTorrent.Client.TorrentState.Stopped" data-throw-if-not-resolved="false"></xref> state and no errors occurred. If a crash occurs, a full
+
+    hash check will be performed the next time the torrent is started, meaning there is no chance duplicate data will be downloaded.
+  example: []
+  syntax:
+    content: Accurate = 0
+    return:
+      type: MonoTorrent.Client.FastResumeMode
+- uid: MonoTorrent.Client.FastResumeMode.BestEffort
+  commentId: F:MonoTorrent.Client.FastResumeMode.BestEffort
+  id: BestEffort
+  parent: MonoTorrent.Client.FastResumeMode
+  langs:
+  - csharp
+  - vb
+  name: BestEffort
+  nameWithType: FastResumeMode.BestEffort
+  fullName: MonoTorrent.Client.FastResumeMode.BestEffort
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/FastResumeMode.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BestEffort
+    path: src/Client/Settings/FastResumeMode.cs
+    startLine: 47
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    When <xref href="MonoTorrent.Client.EngineSettings.AutoSaveLoadFastResume" data-throw-if-not-resolved="false"></xref> is enabled the engine will not delete fast resume data from disk when
+
+    the <xref href="MonoTorrent.Client.TorrentManager" data-throw-if-not-resolved="false"></xref> enters the <xref href="MonoTorrent.Client.TorrentState.Downloading" data-throw-if-not-resolved="false"></xref> state. In this mode the engine will write
+
+    an updated copy of the fast resume data on a regular cadence. In the event of a crash, the most recent fast resume data will
+
+    be loaded from disk and a full hash check will not be performed. This may result in a small amount of data being redownloaded.
+  example: []
+  syntax:
+    content: BestEffort = 1
+    return:
+      type: MonoTorrent.Client.FastResumeMode
+references:
+- uid: MonoTorrent.Client
+  commentId: N:MonoTorrent.Client
+  href: MonoTorrent.html
+  name: MonoTorrent.Client
+  nameWithType: MonoTorrent.Client
+  fullName: MonoTorrent.Client
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+- uid: MonoTorrent.Client.EngineSettings.AutoSaveLoadFastResume
+  commentId: P:MonoTorrent.Client.EngineSettings.AutoSaveLoadFastResume
+  href: MonoTorrent.Client.EngineSettings.html#MonoTorrent_Client_EngineSettings_AutoSaveLoadFastResume
+  name: AutoSaveLoadFastResume
+  nameWithType: EngineSettings.AutoSaveLoadFastResume
+  fullName: MonoTorrent.Client.EngineSettings.AutoSaveLoadFastResume
+- uid: MonoTorrent.Client.TorrentManager
+  commentId: T:MonoTorrent.Client.TorrentManager
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.TorrentManager.html
+  name: TorrentManager
+  nameWithType: TorrentManager
+  fullName: MonoTorrent.Client.TorrentManager
+- uid: MonoTorrent.Client.TorrentState.Downloading
+  commentId: F:MonoTorrent.Client.TorrentState.Downloading
+  href: MonoTorrent.Client.TorrentState.html#MonoTorrent_Client_TorrentState_Downloading
+  name: Downloading
+  nameWithType: TorrentState.Downloading
+  fullName: MonoTorrent.Client.TorrentState.Downloading
+- uid: MonoTorrent.Client.TorrentState.Seeding
+  commentId: F:MonoTorrent.Client.TorrentState.Seeding
+  href: MonoTorrent.Client.TorrentState.html#MonoTorrent_Client_TorrentState_Seeding
+  name: Seeding
+  nameWithType: TorrentState.Seeding
+  fullName: MonoTorrent.Client.TorrentState.Seeding
+- uid: MonoTorrent.Client.TorrentState.Stopped
+  commentId: F:MonoTorrent.Client.TorrentState.Stopped
+  href: MonoTorrent.Client.TorrentState.html#MonoTorrent_Client_TorrentState_Stopped
+  name: Stopped
+  nameWithType: TorrentState.Stopped
+  fullName: MonoTorrent.Client.TorrentState.Stopped
+- uid: MonoTorrent.Client.FastResumeMode
+  commentId: T:MonoTorrent.Client.FastResumeMode
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.FastResumeMode.html
+  name: FastResumeMode
+  nameWithType: FastResumeMode
+  fullName: MonoTorrent.Client.FastResumeMode

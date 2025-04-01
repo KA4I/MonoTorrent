@@ -135,14 +135,23 @@ namespace MonoTorrent.TrackerServer
         public AnnounceRequest (NameValueCollection collection, IPAddress address)
             : base (collection, address)
         {
+            // Check mandatory fields, including port validity. If any are missing/invalid, InfoHash will be null.
             InfoHash = CheckMandatoryFields ();
 
             /* If the user has supplied an IP address, we use that instead of
              * the IP address we read from the announce request connection. */
-            if (IPAddress.TryParse (Parameters["ip"] ?? "", out IPAddress? supplied) && !supplied.Equals (IPAddress.Any) && !supplied.Equals (IPAddress.IPv6Any))
-                ClientAddress = new IPEndPoint (supplied, Port);
-            else
-                ClientAddress = new IPEndPoint (address, Port);
+            // Only attempt to create the ClientAddress if the request is valid so far (i.e., InfoHash is not null)
+            if (IsValid) {
+                 if (IPAddress.TryParse (Parameters["ip"] ?? "", out IPAddress? supplied) && !supplied.Equals (IPAddress.Any) && !supplied.Equals (IPAddress.IPv6Any))
+                     ClientAddress = new IPEndPoint (supplied, Port);
+                 else
+                     ClientAddress = new IPEndPoint (address, Port);
+            } else {
+                 // If the request is invalid (due to missing fields or invalid port),
+                 // assign a dummy value. The IsValid check prevents further processing.
+                 // Use the provided address's family to avoid potential mismatches later if accessed unexpectedly.
+                 ClientAddress = new IPEndPoint(address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6 ? IPAddress.IPv6None : IPAddress.None, 0);
+            }
         }
 
         InfoHash? CheckMandatoryFields ()
@@ -161,6 +170,14 @@ namespace MonoTorrent.TrackerServer
                     $"infohash was {hash?.Length ?? 0} bytes long, it must be 20 bytes long."));
                 return null;
             }
+
+            // Validate the port specifically after checking for its presence.
+            if (!int.TryParse(Parameters["port"], out int port) || port <= 0 || port > 65535)
+            {
+                Response.Add(FailureKey, new BEncodedString("mandatory announce parameter 'port' was invalid or missing."));
+                return null;
+            }
+
             return InfoHash.FromMemory (hash);
         }
 

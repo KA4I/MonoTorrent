@@ -1,4 +1,4 @@
-﻿//
+﻿﻿﻿﻿//
 // ClientEngineTests.cs
 //
 // Authors:
@@ -34,8 +34,13 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
+using MonoTorrent.BEncoding; // Added for BEncodedString
 using MonoTorrent.Connections;
 using MonoTorrent.Connections.Peer;
+using Org.BouncyCastle.Crypto.Parameters; // Added for Ed25519 keys
+using Org.BouncyCastle.Crypto.Signers;   // Added for Ed25519 signing
+using Org.BouncyCastle.Security;
+using MonoTorrent.Dht; // Added for ManualDhtEngine
 using MonoTorrent.PieceWriter;
 
 using NUnit.Framework;
@@ -596,6 +601,410 @@ namespace MonoTorrent.Client
             Assert.IsTrue (hashingState.Wait (5000), "Started");
             await rig.Manager.StopAsync ();
             Assert.IsTrue (stoppedState.Wait (5000), "Stopped");
+        }
+
+        [Test]
+        public async Task BEP46_UpdateCheckTriggered()
+        {
+            var dhtMock = new ManualDhtEngine();
+            var factories = EngineHelpers.Factories.WithDhtCreator(() => dhtMock);
+            var settings = new EngineSettingsBuilder { MutableTorrentUpdateInterval = TimeSpan.FromMilliseconds(100) }.ToSettings(); // Short interval for testing
+            using var engine = new ClientEngine(settings, factories);
+            await engine.StartAsync(); // Start the engine loop
+
+            // Add a BEP46 torrent
+            string publicKeyHex = "8543d3e6115f0f98c944077a4493dcd543e49c739fd998550a1f614ab36ed63e";
+            var link = new MagnetLink(publicKeyHex, null);
+            var manager = await engine.AddAsync(link, "savepath");
+            await manager.StartAsync(); // Start the manager so it's active
+
+            bool getCalled = false;
+            NodeId? receivedTarget = null;
+            long? receivedSeq = null;
+
+            dhtMock.GetCallback = (target, seq) => {
+                getCalled = true;
+                receivedTarget = target;
+                receivedSeq = seq;
+                return Task.FromResult<(BEncodedValue?, BEncodedString?, BEncodedString?, long?)>((null, null, null, null)); // Return no update
+            };
+
+            // Wait longer than the interval
+            await Task.Delay(300);
+
+            // Force a logic tick (in real use this happens automatically)
+            var logicTickMethod = typeof(ClientEngine).GetMethod("LogicTick", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            Assert.IsNotNull(logicTickMethod, "Could not find LogicTick method via reflection");
+            ClientEngine.MainLoop.QueueWait(() => logicTickMethod.Invoke(engine, null));
+
+            // Wait a moment for the async check to potentially run
+            await Task.Delay(100);
+
+            Assert.IsTrue(getCalled, "DhtEngine.GetAsync should have been called");
+
+            var expectedTarget = DhtEngine.CalculateMutableTargetId((BEncodedString)HexDecode(publicKeyHex), null);
+            Assert.AreEqual(expectedTarget, receivedTarget, "Target ID mismatch");
+            Assert.IsNull(receivedSeq, "Initial sequence number should be null");
+
+            // Verify timer reset (approximate check)
+            Assert.IsTrue(manager.LastMutableUpdateCheckTimer.Elapsed < TimeSpan.FromMilliseconds(200), "Timer should have been reset recently");
+        }
+
+
+
+        [Test]
+        public async Task BEP46_UpdateIgnored_SameSequenceNumber()
+        {
+            var dhtMock = new ManualDhtEngine();
+            var factories = EngineHelpers.Factories.WithDhtCreator(() => dhtMock);
+            var settings = new EngineSettingsBuilder { MutableTorrentUpdateInterval = TimeSpan.FromMilliseconds(10) }.ToSettings(); // Very short interval
+            using var engine = new ClientEngine(settings, factories);
+            await engine.StartAsync();
+
+            string publicKeyHex = "8543d3e6115f0f98c944077a4493dcd543e49c739fd998550a1f614ab36ed63e";
+            var link = new MagnetLink(publicKeyHex, null);
+            var manager = await engine.AddAsync(link, "savepath");
+            await manager.StartAsync();
+
+            // Simulate having already received sequence 1
+            var seqProp = manager.GetType().GetProperty("LastKnownSequenceNumber", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
+            Assert.IsNotNull(seqProp, "Failed to get LastKnownSequenceNumber property via reflection");
+            seqProp.SetValue(manager, (long?)1);
+
+            bool updateEventRaised = false;
+            manager.TorrentUpdateAvailable += (s, e) => updateEventRaised = true;
+
+            var newInfoHash = InfoHash.FromMemory(new byte[20]); // Dummy infohash
+            var updateValue = new BEncodedDictionary { { "ih", new BEncodedString(newInfoHash.AsMemory().ToArray()) } };
+            var publicKey = new BEncodedString(HexDecode(publicKeyHex));
+            var signature = new BEncodedString(new byte[64]); // Dummy signature
+
+            dhtMock.GetCallback = (target, seq) => {
+                // Return the *same* sequence number
+                return Task.FromResult<(BEncodedValue?, BEncodedString?, BEncodedString?, long?)>((updateValue, publicKey, signature, 1));
+            };
+
+            // Trigger check
+            await Task.Delay(50); // Wait for interval
+            var logicTickMethod = typeof(ClientEngine).GetMethod("LogicTick", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            ClientEngine.MainLoop.QueueWait(() => logicTickMethod.Invoke(engine, null));
+            await Task.Delay(50); // Wait for check to run
+
+            Assert.IsFalse(updateEventRaised, "Update event should not be raised for same sequence number");
+        }
+
+        [Test]
+        public async Task BEP46_UpdateIgnored_LowerSequenceNumber()
+        {
+            var dhtMock = new ManualDhtEngine();
+            var factories = EngineHelpers.Factories.WithDhtCreator(() => dhtMock);
+            var settings = new EngineSettingsBuilder { MutableTorrentUpdateInterval = TimeSpan.FromMilliseconds(10) }.ToSettings();
+            using var engine = new ClientEngine(settings, factories);
+            await engine.StartAsync();
+
+            string publicKeyHex = "8543d3e6115f0f98c944077a4493dcd543e49c739fd998550a1f614ab36ed63e";
+            var link = new MagnetLink(publicKeyHex, null);
+            var manager = await engine.AddAsync(link, "savepath");
+            await manager.StartAsync();
+
+            // Simulate having already received sequence 2
+            var seqProp2 = manager.GetType().GetProperty("LastKnownSequenceNumber", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
+            Assert.IsNotNull(seqProp2, "Failed to get LastKnownSequenceNumber property via reflection (test 2)");
+            seqProp2.SetValue(manager, (long?)2);
+
+            bool updateEventRaised = false;
+            manager.TorrentUpdateAvailable += (s, e) => updateEventRaised = true;
+
+            var newInfoHash = InfoHash.FromMemory(new byte[20]);
+            var updateValue = new BEncodedDictionary { { "ih", new BEncodedString(newInfoHash.AsMemory().ToArray()) } };
+            var publicKey = new BEncodedString(HexDecode(publicKeyHex));
+            var signature = new BEncodedString(new byte[64]);
+
+            dhtMock.GetCallback = (target, seq) => {
+                // Return a *lower* sequence number
+                return Task.FromResult<(BEncodedValue?, BEncodedString?, BEncodedString?, long?)>((updateValue, publicKey, signature, 1));
+            };
+
+            // Trigger check
+            await Task.Delay(50);
+            var logicTickMethod = typeof(ClientEngine).GetMethod("LogicTick", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            ClientEngine.MainLoop.QueueWait(() => logicTickMethod.Invoke(engine, null));
+            await Task.Delay(50);
+
+            Assert.IsFalse(updateEventRaised, "Update event should not be raised for lower sequence number");
+        }
+
+        [Test]
+        public async Task BEP46_UpdateIgnored_InvalidSignature()
+        {
+            var dhtMock = new ManualDhtEngine();
+            var factories = EngineHelpers.Factories.WithDhtCreator(() => dhtMock);
+            var settings = new EngineSettingsBuilder { MutableTorrentUpdateInterval = TimeSpan.FromMilliseconds(10) }.ToSettings();
+            using var engine = new ClientEngine(settings, factories);
+            await engine.StartAsync();
+
+            string publicKeyHex = "8543d3e6115f0f98c944077a4493dcd543e49c739fd998550a1f614ab36ed63e";
+            var link = new MagnetLink(publicKeyHex, null);
+            var manager = await engine.AddAsync(link, "savepath");
+            await manager.StartAsync();
+
+            bool updateEventRaised = false;
+            manager.TorrentUpdateAvailable += (s, e) => updateEventRaised = true;
+
+            var newInfoHash = InfoHash.FromMemory(new byte[20]);
+            var updateValue = new BEncodedDictionary { { "ih", new BEncodedString(newInfoHash.AsMemory().ToArray()) } };
+            var publicKey = new BEncodedString(HexDecode(publicKeyHex));
+            // Provide a signature known to be invalid (e.g., wrong length or random bytes)
+            var invalidSignature = new BEncodedString(new byte[63]); // Incorrect length
+
+            // We rely on VerifyMutableSignature returning false internally.
+            // The mock DHT still returns the data as if it was retrieved.
+            dhtMock.GetCallback = (target, seq) => {
+                return Task.FromResult<(BEncodedValue?, BEncodedString?, BEncodedString?, long?)>((updateValue, publicKey, invalidSignature, 1));
+            };
+
+            // Trigger check
+            await Task.Delay(50);
+            var logicTickMethod = typeof(ClientEngine).GetMethod("LogicTick", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            ClientEngine.MainLoop.QueueWait(() => logicTickMethod.Invoke(engine, null));
+            await Task.Delay(50);
+
+            Assert.IsFalse(updateEventRaised, "Update event should not be raised for invalid signature");
+        }
+
+        [Test]
+        public async Task BEP46_UpdateIgnored_InvalidDataFormat()
+        {
+            var dhtMock = new ManualDhtEngine();
+            var factories = EngineHelpers.Factories.WithDhtCreator(() => dhtMock);
+            var settings = new EngineSettingsBuilder { MutableTorrentUpdateInterval = TimeSpan.FromMilliseconds(10) }.ToSettings();
+            using var engine = new ClientEngine(settings, factories);
+            await engine.StartAsync();
+
+            string publicKeyHex = "8543d3e6115f0f98c944077a4493dcd543e49c739fd998550a1f614ab36ed63e";
+            var link = new MagnetLink(publicKeyHex, null);
+            var manager = await engine.AddAsync(link, "savepath");
+            await manager.StartAsync();
+
+            bool updateEventRaised = false;
+            manager.TorrentUpdateAvailable += (s, e) => updateEventRaised = true;
+
+            // Invalid data: missing 'ih' key
+            var invalidUpdateValue = new BEncodedDictionary { { "other_key", new BEncodedString("some_value") } };
+            var publicKey = new BEncodedString(HexDecode(publicKeyHex));
+            var signature = new BEncodedString(new byte[64]); // Assume valid signature for this test
+
+            dhtMock.GetCallback = (target, seq) => {
+                // Return the item with invalid format but assume valid signature
+                return Task.FromResult<(BEncodedValue?, BEncodedString?, BEncodedString?, long?)>((invalidUpdateValue, publicKey, signature, 1));
+            };
+
+            // Trigger check
+            await Task.Delay(50);
+            var logicTickMethod = typeof(ClientEngine).GetMethod("LogicTick", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            ClientEngine.MainLoop.QueueWait(() => logicTickMethod.Invoke(engine, null));
+            await Task.Delay(50);
+
+            Assert.IsFalse(updateEventRaised, "Update event should not be raised for invalid data format");
+        }
+
+
+
+
+        [Test]
+        public async Task BEP46_TwoClient_UpdatePropagation()
+        {
+            //Console.WriteLine("TEST: Starting BEP46_TwoClient_UpdatePropagation");
+            var sharedDht = new ManualDhtEngine();
+            var factories = EngineHelpers.Factories.WithDhtCreator(() => sharedDht);
+            var settings = new EngineSettingsBuilder { MutableTorrentUpdateInterval = TimeSpan.FromMilliseconds(10) }.ToSettings();
+
+            using var engineA = new ClientEngine(settings, factories);
+            using var engineB = new ClientEngine(settings, factories);
+            await engineA.StartAsync();
+            await engineB.StartAsync();
+
+            // --- Test Setup ---
+            // --- Generate real Ed25519 key pair ---
+            var random = new SecureRandom();
+            var keyPairGenerator = new Org.BouncyCastle.Crypto.Generators.Ed25519KeyPairGenerator();
+            keyPairGenerator.Init(new Org.BouncyCastle.Crypto.KeyGenerationParameters(random, 256));
+            var keyPair = keyPairGenerator.GenerateKeyPair();
+            var privateKeyParams = (Ed25519PrivateKeyParameters)keyPair.Private;
+            var publicKeyParams = (Ed25519PublicKeyParameters)keyPair.Public;
+            var publicKeyABytes = new BEncodedString(publicKeyParams.GetEncoded());
+            string publicKeyHexA = BitConverter.ToString(publicKeyParams.GetEncoded()).Replace("-", "").ToLowerInvariant(); // Convert raw bytes to hex
+            // We will generate signatures dynamically now, so remove the static dummy signatureA
+            var infohash1 = InfoHash.FromMemory(Enumerable.Repeat((byte)1, 20).ToArray());
+            var infohash2 = InfoHash.FromMemory(Enumerable.Repeat((byte)2, 20).ToArray());
+            var infohash3 = InfoHash.FromMemory(Enumerable.Repeat((byte)3, 20).ToArray());
+
+            var value1 = new BEncodedDictionary { { "ih", new BEncodedString(infohash1.AsMemory().ToArray()) } };
+            var value2 = new BEncodedDictionary { { "ih", new BEncodedString(infohash2.AsMemory().ToArray()) } };
+            var value3 = new BEncodedDictionary { { "ih", new BEncodedString(infohash3.AsMemory().ToArray()) } };
+
+            long currentSequence = 0; // Start at 0
+            BEncodedValue? currentValue = value1; // Initial value
+            BEncodedString? currentSalt = null; // Assuming no salt for this test
+            BEncodedString? currentSignature = SignMutableData(privateKeyParams, currentSalt, currentSequence, currentValue); // Sign initial value
+            BEncodedString? currentPublicKey = publicKeyABytes; // The real public key
+
+            // Mock DHT Get: Returns the current state
+            sharedDht.GetCallback = (target, requestedSeq) => {
+                //Console.WriteLine($"TEST: DHT Mock GetCallback invoked. Target: {target}, Requested Seq: {requestedSeq?.ToString() ?? "null"}");
+                // Simulate DHT filtering based on sequence number
+                if (requestedSeq.HasValue && currentSequence <= requestedSeq.Value)
+                {
+                    return Task.FromResult<(BEncodedValue?, BEncodedString?, BEncodedString?, long?)>((null, null, null, null));
+                }
+                //Console.WriteLine($"TEST: DHT Mock returning: Value={currentValue}, PK={currentPublicKey?.ToHex()}, Sig={currentSignature?.ToHex()}, Seq={currentSequence}");
+                return Task.FromResult<(BEncodedValue?, BEncodedString?, BEncodedString?, long?)>((currentValue, currentPublicKey, currentSignature, currentSequence));
+            };
+
+            // --- Client B subscribes ---
+            //Console.WriteLine("TEST: Client B subscribing...");
+            var link = new MagnetLink(publicKeyHexA, null);
+            var managerB = await engineB.AddAsync(link, "savepathB");
+            await managerB.StartAsync();
+            // Trigger an initial check to process sequence 0 if necessary and wait for it
+            //Console.WriteLine("TEST: Triggering initial LogicTick for B...");
+            var logicTickMethodB = typeof(ClientEngine).GetMethod("LogicTick", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            Assert.IsNotNull(logicTickMethodB, "Could not find LogicTick method via reflection");
+            var initialTickTcs = new TaskCompletionSource<object?>(); // Use TaskCompletionSource
+            ClientEngine.MainLoop.QueueWait(() => { // Queue the action
+                try {
+                    logicTickMethodB.Invoke(engineB, null);
+                    initialTickTcs.TrySetResult(null); // Signal completion
+                } catch (Exception ex) {
+                    initialTickTcs.TrySetException(ex); // Signal error if invoke fails
+                }
+            });
+            var initialTickTask = initialTickTcs.Task; // Get the Task to await
+            await initialTickTask.WithTimeout(TimeSpan.FromSeconds(1)); // Ensure the tick runs
+            //Console.WriteLine("TEST: Initial LogicTick for B completed.");
+            await Task.Delay(50); // Allow subsequent async actions from the tick to settle
+
+
+            // --- Client A publishes update 1 (seq 1) ---
+            //Console.WriteLine("TEST: Client A publishing update 1 (seq 1)");
+            currentSequence = 1;
+            currentValue = value2;
+            currentSignature = SignMutableData(privateKeyParams, currentSalt, currentSequence, currentValue); // Recalculate signature
+
+            // --- Client B receives update 1 ---
+            InfoHash? receivedInfoHash1 = null;
+            long? receivedSeq1 = null;
+            var update1Tcs = new TaskCompletionSource<bool>();
+            //Console.WriteLine("TEST: Setting up handler for update 1");
+            managerB.TorrentUpdateAvailable += (s, e) => {
+                //Console.WriteLine($"TEST: TorrentUpdateAvailable handler (1) invoked for manager {e.Manager.GetHashCode()} with hash {e.NewInfoHash}");
+                if (e.Manager == managerB && e.NewInfoHash == infohash2)
+                {
+                    receivedInfoHash1 = e.NewInfoHash;
+                    receivedSeq1 = managerB.LastKnownSequenceNumber; // Check internal state after update
+                    //Console.WriteLine($"TEST: Update 1 TCS SetResult. Seq: {managerB.LastKnownSequenceNumber}");
+                    update1Tcs.TrySetResult(true);
+                }
+            };
+
+            // Trigger check on B
+            //Console.WriteLine("TEST: Triggering LogicTick for B (check 1)");
+            await Task.Delay(50);
+            ClientEngine.MainLoop.QueueWait(() => logicTickMethodB.Invoke(engineB, null));
+
+            // Wait for B to receive the update
+            //Console.WriteLine($"TEST: Awaiting update 1 TCS ({update1Tcs.Task.Status})...");
+            bool receivedUpdate1 = await update1Tcs.Task.WithTimeout(TimeSpan.FromSeconds(5));
+            //Console.WriteLine($"TEST: Update 1 received: {receivedUpdate1}");
+
+            Assert.IsTrue(receivedUpdate1, "Client B should have received update 1");
+            Assert.AreEqual(infohash2, receivedInfoHash1, "Client B received wrong infohash for update 1");
+            Assert.AreEqual(1, receivedSeq1, "Client B has wrong sequence number after update 1");
+
+            // --- Client A publishes update 2 (seq 2) ---
+            //Console.WriteLine("TEST: Client A publishing update 2 (seq 2)");
+            currentSequence = 2;
+            currentValue = value3;
+            currentSignature = SignMutableData(privateKeyParams, currentSalt, currentSequence, currentValue); // Recalculate signature
+
+            // --- Client B receives update 2 ---
+            InfoHash? receivedInfoHash2 = null;
+            long? receivedSeq2 = null;
+            var update2Tcs = new TaskCompletionSource<bool>();
+            //Console.WriteLine("TEST: Setting up handler for update 2");
+            managerB.TorrentUpdateAvailable += (s, e) => { // Re-hook or use a flag
+                 //Console.WriteLine($"TEST: TorrentUpdateAvailable handler (2) invoked for manager {e.Manager.GetHashCode()} with hash {e.NewInfoHash}");
+                 if (e.Manager == managerB && e.NewInfoHash == infohash3)
+                 {
+                    receivedInfoHash2 = e.NewInfoHash;
+                    receivedSeq2 = managerB.LastKnownSequenceNumber;
+                    //Console.WriteLine($"TEST: Update 2 TCS SetResult. Seq: {managerB.LastKnownSequenceNumber}");
+                    update2Tcs.TrySetResult(true);
+                 }
+            };
+
+            // Trigger check on B again
+            //Console.WriteLine("TEST: Triggering LogicTick for B (check 2)");
+            await Task.Delay(50);
+            ClientEngine.MainLoop.QueueWait(() => logicTickMethodB.Invoke(engineB, null));
+
+            // Wait for B to receive the second update
+            //Console.WriteLine($"TEST: Awaiting update 2 TCS ({update2Tcs.Task.Status})...");
+            bool receivedUpdate2 = await update2Tcs.Task.WithTimeout(TimeSpan.FromSeconds(5)); // This is the line that timed out (previously 907, now adjusted)
+            //Console.WriteLine($"TEST: Update 2 received: {receivedUpdate2}");
+
+            Assert.IsTrue(receivedUpdate2, "Client B should have received update 2");
+            Assert.AreEqual(infohash3, receivedInfoHash2, "Client B received wrong infohash for update 2");
+            Assert.AreEqual(2, receivedSeq2, "Client B has wrong sequence number after update 2");
+            //Console.WriteLine("TEST: Finished BEP46_TwoClient_UpdatePropagation");
+        }
+
+
+        // Helper function to sign mutable data for BEP46 tests
+        static BEncodedString SignMutableData(Ed25519PrivateKeyParameters privateKey, BEncodedString? salt, long sequenceNumber, BEncodedValue value)
+        {
+            // Construct the data to sign: "salt" + salt + "seq" + seq + "v" + value
+            int saltKeyLength = new BEncodedString("salt").LengthInBytes();
+            int seqKeyLength = new BEncodedString("seq").LengthInBytes();
+            int vKeyLength = new BEncodedString("v").LengthInBytes();
+
+            int saltLength = (salt == null || salt.Span.Length == 0) ? 0 : (saltKeyLength + salt.LengthInBytes());
+            int seqLength = seqKeyLength + new BEncodedNumber(sequenceNumber).LengthInBytes();
+            int valueLength = vKeyLength + value.LengthInBytes();
+            int totalLength = saltLength + seqLength + valueLength;
+
+            using var rented = System.Buffers.MemoryPool<byte>.Shared.Rent(totalLength);
+            Span<byte> dataToSign = rented.Memory.Span.Slice(0, totalLength);
+
+            int offset = 0;
+            if (saltLength > 0)
+            {
+                offset += new BEncodedString("salt").Encode(dataToSign.Slice(offset));
+                offset += salt!.Encode(dataToSign.Slice(offset));
+            }
+            offset += new BEncodedString("seq").Encode(dataToSign.Slice(offset));
+            offset += new BEncodedNumber(sequenceNumber).Encode(dataToSign.Slice(offset));
+            offset += new BEncodedString("v").Encode(dataToSign.Slice(offset));
+            offset += value.Encode(dataToSign.Slice(offset));
+
+            // Sign the data
+            var signer = new Ed25519Signer();
+            signer.Init(true, privateKey); // true for signing
+            signer.BlockUpdate(dataToSign.ToArray(), 0, dataToSign.Length); // Use the byte array overload
+            byte[] signatureBytes = signer.GenerateSignature();
+
+            return new BEncodedString(signatureBytes);
+        }
+
+        // Helper needed for tests
+        static byte[] HexDecode(string hex)
+        {
+            if (hex.Length % 2 != 0)
+                throw new ArgumentException("Hex string must have an even number of characters");
+            byte[] bytes = new byte[hex.Length / 2];
+            for (int i = 0; i < bytes.Length; i++)
+                bytes[i] = Convert.ToByte(hex.Substring(i * 2, 2), 16);
+            return bytes;
         }
     }
 }

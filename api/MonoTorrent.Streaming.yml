@@ -1,0 +1,53 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Streaming
+  commentId: N:MonoTorrent.Streaming
+  id: MonoTorrent.Streaming
+  children:
+  - MonoTorrent.Streaming.IHttpStream
+  - MonoTorrent.Streaming.StreamProvider
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.Streaming
+  nameWithType: MonoTorrent.Streaming
+  fullName: MonoTorrent.Streaming
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.Streaming.IHttpStream
+  commentId: T:MonoTorrent.Streaming.IHttpStream
+  href: MonoTorrent.Streaming.IHttpStream.html
+  name: IHttpStream
+  nameWithType: IHttpStream
+  fullName: MonoTorrent.Streaming.IHttpStream
+- uid: MonoTorrent.Streaming.StreamProvider
+  commentId: T:MonoTorrent.Streaming.StreamProvider
+  parent: MonoTorrent.Streaming
+  href: MonoTorrent.Streaming.StreamProvider.html
+  name: StreamProvider
+  nameWithType: StreamProvider
+  fullName: MonoTorrent.Streaming.StreamProvider
+- uid: MonoTorrent.Streaming
+  commentId: N:MonoTorrent.Streaming
+  href: MonoTorrent.html
+  name: MonoTorrent.Streaming
+  nameWithType: MonoTorrent.Streaming
+  fullName: MonoTorrent.Streaming
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Streaming
+    name: Streaming
+    href: MonoTorrent.Streaming.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Streaming
+    name: Streaming
+    href: MonoTorrent.Streaming.html

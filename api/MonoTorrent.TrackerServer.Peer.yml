@@ -1,0 +1,1048 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.TrackerServer.Peer
+  commentId: T:MonoTorrent.TrackerServer.Peer
+  id: Peer
+  parent: MonoTorrent.TrackerServer
+  children:
+  - MonoTorrent.TrackerServer.Peer.ClientAddress
+  - MonoTorrent.TrackerServer.Peer.ClientApp
+  - MonoTorrent.TrackerServer.Peer.DownloadSpeed
+  - MonoTorrent.TrackerServer.Peer.Downloaded
+  - MonoTorrent.TrackerServer.Peer.Equals(MonoTorrent.TrackerServer.Peer)
+  - MonoTorrent.TrackerServer.Peer.Equals(System.Object)
+  - MonoTorrent.TrackerServer.Peer.GetHashCode
+  - MonoTorrent.TrackerServer.Peer.HasCompleted
+  - MonoTorrent.TrackerServer.Peer.LastAnnounceTime
+  - MonoTorrent.TrackerServer.Peer.PeerId
+  - MonoTorrent.TrackerServer.Peer.Remaining
+  - MonoTorrent.TrackerServer.Peer.UploadSpeed
+  - MonoTorrent.TrackerServer.Peer.Uploaded
+  langs:
+  - csharp
+  - vb
+  name: Peer
+  nameWithType: Peer
+  fullName: MonoTorrent.TrackerServer.Peer
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/Peer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Peer
+    path: src/TrackerServer/Peer.cs
+    startLine: 38
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: This class holds informations about Peers downloading Files
+  example: []
+  syntax:
+    content: 'public class Peer : IEquatable<Peer>'
+    content.vb: Public Class Peer Implements IEquatable(Of Peer)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{MonoTorrent.TrackerServer.Peer}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.TrackerServer.Peer.ClientAddress
+  commentId: P:MonoTorrent.TrackerServer.Peer.ClientAddress
+  id: ClientAddress
+  parent: MonoTorrent.TrackerServer.Peer
+  langs:
+  - csharp
+  - vb
+  name: ClientAddress
+  nameWithType: Peer.ClientAddress
+  fullName: MonoTorrent.TrackerServer.Peer.ClientAddress
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/Peer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ClientAddress
+    path: src/TrackerServer/Peer.cs
+    startLine: 59
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The IPEndpoint at which the client is listening for connections at
+  example: []
+  syntax:
+    content: public IPEndPoint ClientAddress { get; }
+    parameters: []
+    return:
+      type: System.Net.IPEndPoint
+    content.vb: Public Property ClientAddress As IPEndPoint
+  overload: MonoTorrent.TrackerServer.Peer.ClientAddress*
+- uid: MonoTorrent.TrackerServer.Peer.ClientApp
+  commentId: P:MonoTorrent.TrackerServer.Peer.ClientApp
+  id: ClientApp
+  parent: MonoTorrent.TrackerServer.Peer
+  langs:
+  - csharp
+  - vb
+  name: ClientApp
+  nameWithType: Peer.ClientApp
+  fullName: MonoTorrent.TrackerServer.Peer.ClientApp
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/Peer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ClientApp
+    path: src/TrackerServer/Peer.cs
+    startLine: 61
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  syntax:
+    content: public Software ClientApp { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Software
+    content.vb: Public Property ClientApp As Software
+  overload: MonoTorrent.TrackerServer.Peer.ClientApp*
+- uid: MonoTorrent.TrackerServer.Peer.Downloaded
+  commentId: P:MonoTorrent.TrackerServer.Peer.Downloaded
+  id: Downloaded
+  parent: MonoTorrent.TrackerServer.Peer
+  langs:
+  - csharp
+  - vb
+  name: Downloaded
+  nameWithType: Peer.Downloaded
+  fullName: MonoTorrent.TrackerServer.Peer.Downloaded
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/Peer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Downloaded
+    path: src/TrackerServer/Peer.cs
+    startLine: 73
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The amount of data (in bytes) which the peer has downloaded this session
+  example: []
+  syntax:
+    content: public long Downloaded { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property Downloaded As Long
+  overload: MonoTorrent.TrackerServer.Peer.Downloaded*
+- uid: MonoTorrent.TrackerServer.Peer.DownloadSpeed
+  commentId: P:MonoTorrent.TrackerServer.Peer.DownloadSpeed
+  id: DownloadSpeed
+  parent: MonoTorrent.TrackerServer.Peer
+  langs:
+  - csharp
+  - vb
+  name: DownloadSpeed
+  nameWithType: Peer.DownloadSpeed
+  fullName: MonoTorrent.TrackerServer.Peer.DownloadSpeed
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/Peer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DownloadSpeed
+    path: src/TrackerServer/Peer.cs
+    startLine: 78
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The estimated download speed of the peer in bytes/second
+  example: []
+  syntax:
+    content: public int DownloadSpeed { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property DownloadSpeed As Integer
+  overload: MonoTorrent.TrackerServer.Peer.DownloadSpeed*
+- uid: MonoTorrent.TrackerServer.Peer.HasCompleted
+  commentId: P:MonoTorrent.TrackerServer.Peer.HasCompleted
+  id: HasCompleted
+  parent: MonoTorrent.TrackerServer.Peer
+  langs:
+  - csharp
+  - vb
+  name: HasCompleted
+  nameWithType: Peer.HasCompleted
+  fullName: MonoTorrent.TrackerServer.Peer.HasCompleted
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/Peer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: HasCompleted
+    path: src/TrackerServer/Peer.cs
+    startLine: 83
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: True if the peer has completed the torrent
+  example: []
+  syntax:
+    content: public bool HasCompleted { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasCompleted As Boolean
+  overload: MonoTorrent.TrackerServer.Peer.HasCompleted*
+- uid: MonoTorrent.TrackerServer.Peer.LastAnnounceTime
+  commentId: P:MonoTorrent.TrackerServer.Peer.LastAnnounceTime
+  id: LastAnnounceTime
+  parent: MonoTorrent.TrackerServer.Peer
+  langs:
+  - csharp
+  - vb
+  name: LastAnnounceTime
+  nameWithType: Peer.LastAnnounceTime
+  fullName: MonoTorrent.TrackerServer.Peer.LastAnnounceTime
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/Peer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LastAnnounceTime
+    path: src/TrackerServer/Peer.cs
+    startLine: 88
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The time when the peer last announced at
+  example: []
+  syntax:
+    content: public DateTime LastAnnounceTime { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property LastAnnounceTime As Date
+  overload: MonoTorrent.TrackerServer.Peer.LastAnnounceTime*
+- uid: MonoTorrent.TrackerServer.Peer.PeerId
+  commentId: P:MonoTorrent.TrackerServer.Peer.PeerId
+  id: PeerId
+  parent: MonoTorrent.TrackerServer.Peer
+  langs:
+  - csharp
+  - vb
+  name: PeerId
+  nameWithType: Peer.PeerId
+  fullName: MonoTorrent.TrackerServer.Peer.PeerId
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/Peer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PeerId
+    path: src/TrackerServer/Peer.cs
+    startLine: 96
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The Id of the client software
+  example: []
+  syntax:
+    content: public BEncodedString PeerId { get; set; }
+    parameters: []
+    return:
+      type: MonoTorrent.BEncoding.BEncodedString
+    content.vb: Public Property PeerId As BEncodedString
+  overload: MonoTorrent.TrackerServer.Peer.PeerId*
+- uid: MonoTorrent.TrackerServer.Peer.Remaining
+  commentId: P:MonoTorrent.TrackerServer.Peer.Remaining
+  id: Remaining
+  parent: MonoTorrent.TrackerServer.Peer
+  langs:
+  - csharp
+  - vb
+  name: Remaining
+  nameWithType: Peer.Remaining
+  fullName: MonoTorrent.TrackerServer.Peer.Remaining
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/Peer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Remaining
+    path: src/TrackerServer/Peer.cs
+    startLine: 101
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The amount of data (in bytes) which the peer has to download to complete the torrent
+  example: []
+  syntax:
+    content: public long Remaining { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property Remaining As Long
+  overload: MonoTorrent.TrackerServer.Peer.Remaining*
+- uid: MonoTorrent.TrackerServer.Peer.Uploaded
+  commentId: P:MonoTorrent.TrackerServer.Peer.Uploaded
+  id: Uploaded
+  parent: MonoTorrent.TrackerServer.Peer
+  langs:
+  - csharp
+  - vb
+  name: Uploaded
+  nameWithType: Peer.Uploaded
+  fullName: MonoTorrent.TrackerServer.Peer.Uploaded
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/Peer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Uploaded
+    path: src/TrackerServer/Peer.cs
+    startLine: 106
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The amount of data the peer has uploaded this session
+  example: []
+  syntax:
+    content: public long Uploaded { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property Uploaded As Long
+  overload: MonoTorrent.TrackerServer.Peer.Uploaded*
+- uid: MonoTorrent.TrackerServer.Peer.UploadSpeed
+  commentId: P:MonoTorrent.TrackerServer.Peer.UploadSpeed
+  id: UploadSpeed
+  parent: MonoTorrent.TrackerServer.Peer
+  langs:
+  - csharp
+  - vb
+  name: UploadSpeed
+  nameWithType: Peer.UploadSpeed
+  fullName: MonoTorrent.TrackerServer.Peer.UploadSpeed
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/Peer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: UploadSpeed
+    path: src/TrackerServer/Peer.cs
+    startLine: 111
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The estimated upload speed of the peer in bytes/second
+  example: []
+  syntax:
+    content: public int UploadSpeed { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property UploadSpeed As Integer
+  overload: MonoTorrent.TrackerServer.Peer.UploadSpeed*
+- uid: MonoTorrent.TrackerServer.Peer.Equals(System.Object)
+  commentId: M:MonoTorrent.TrackerServer.Peer.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: MonoTorrent.TrackerServer.Peer
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: Peer.Equals(object?)
+  fullName: MonoTorrent.TrackerServer.Peer.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/Peer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Equals
+    path: src/TrackerServer/Peer.cs
+    startLine: 113
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: MonoTorrent.TrackerServer.Peer.Equals*
+  nameWithType.vb: Peer.Equals(Object)
+  fullName.vb: MonoTorrent.TrackerServer.Peer.Equals(Object)
+  name.vb: Equals(Object)
+- uid: MonoTorrent.TrackerServer.Peer.Equals(MonoTorrent.TrackerServer.Peer)
+  commentId: M:MonoTorrent.TrackerServer.Peer.Equals(MonoTorrent.TrackerServer.Peer)
+  id: Equals(MonoTorrent.TrackerServer.Peer)
+  parent: MonoTorrent.TrackerServer.Peer
+  langs:
+  - csharp
+  - vb
+  name: Equals(Peer?)
+  nameWithType: Peer.Equals(Peer?)
+  fullName: MonoTorrent.TrackerServer.Peer.Equals(MonoTorrent.TrackerServer.Peer?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/Peer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Equals
+    path: src/TrackerServer/Peer.cs
+    startLine: 118
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(Peer? other)
+    parameters:
+    - id: other
+      type: MonoTorrent.TrackerServer.Peer
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As Peer) As Boolean
+  overload: MonoTorrent.TrackerServer.Peer.Equals*
+  implements:
+  - System.IEquatable{MonoTorrent.TrackerServer.Peer}.Equals(MonoTorrent.TrackerServer.Peer)
+  nameWithType.vb: Peer.Equals(Peer)
+  fullName.vb: MonoTorrent.TrackerServer.Peer.Equals(MonoTorrent.TrackerServer.Peer)
+  name.vb: Equals(Peer)
+- uid: MonoTorrent.TrackerServer.Peer.GetHashCode
+  commentId: M:MonoTorrent.TrackerServer.Peer.GetHashCode
+  id: GetHashCode
+  parent: MonoTorrent.TrackerServer.Peer
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Peer.GetHashCode()
+  fullName: MonoTorrent.TrackerServer.Peer.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/Peer.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetHashCode
+    path: src/TrackerServer/Peer.cs
+    startLine: 125
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: MonoTorrent.TrackerServer.Peer.GetHashCode*
+references:
+- uid: MonoTorrent.TrackerServer
+  commentId: N:MonoTorrent.TrackerServer
+  href: MonoTorrent.html
+  name: MonoTorrent.TrackerServer
+  nameWithType: MonoTorrent.TrackerServer
+  fullName: MonoTorrent.TrackerServer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.TrackerServer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.TrackerServer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{MonoTorrent.TrackerServer.Peer}
+  commentId: T:System.IEquatable{MonoTorrent.TrackerServer.Peer}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<Peer>
+  nameWithType: IEquatable<Peer>
+  fullName: System.IEquatable<MonoTorrent.TrackerServer.Peer>
+  nameWithType.vb: IEquatable(Of Peer)
+  fullName.vb: System.IEquatable(Of MonoTorrent.TrackerServer.Peer)
+  name.vb: IEquatable(Of Peer)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: MonoTorrent.TrackerServer.Peer
+    name: Peer
+    href: MonoTorrent.TrackerServer.Peer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.TrackerServer.Peer
+    name: Peer
+    href: MonoTorrent.TrackerServer.Peer.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.TrackerServer.Peer.ClientAddress*
+  commentId: Overload:MonoTorrent.TrackerServer.Peer.ClientAddress
+  href: MonoTorrent.TrackerServer.Peer.html#MonoTorrent_TrackerServer_Peer_ClientAddress
+  name: ClientAddress
+  nameWithType: Peer.ClientAddress
+  fullName: MonoTorrent.TrackerServer.Peer.ClientAddress
+- uid: System.Net.IPEndPoint
+  commentId: T:System.Net.IPEndPoint
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  name: IPEndPoint
+  nameWithType: IPEndPoint
+  fullName: System.Net.IPEndPoint
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+- uid: MonoTorrent.TrackerServer.Peer.ClientApp*
+  commentId: Overload:MonoTorrent.TrackerServer.Peer.ClientApp
+  href: MonoTorrent.TrackerServer.Peer.html#MonoTorrent_TrackerServer_Peer_ClientApp
+  name: ClientApp
+  nameWithType: Peer.ClientApp
+  fullName: MonoTorrent.TrackerServer.Peer.ClientApp
+- uid: MonoTorrent.Software
+  commentId: T:MonoTorrent.Software
+  parent: MonoTorrent
+  href: MonoTorrent.Software.html
+  name: Software
+  nameWithType: Software
+  fullName: MonoTorrent.Software
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.TrackerServer.Peer.Downloaded*
+  commentId: Overload:MonoTorrent.TrackerServer.Peer.Downloaded
+  href: MonoTorrent.TrackerServer.Peer.html#MonoTorrent_TrackerServer_Peer_Downloaded
+  name: Downloaded
+  nameWithType: Peer.Downloaded
+  fullName: MonoTorrent.TrackerServer.Peer.Downloaded
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: MonoTorrent.TrackerServer.Peer.DownloadSpeed*
+  commentId: Overload:MonoTorrent.TrackerServer.Peer.DownloadSpeed
+  href: MonoTorrent.TrackerServer.Peer.html#MonoTorrent_TrackerServer_Peer_DownloadSpeed
+  name: DownloadSpeed
+  nameWithType: Peer.DownloadSpeed
+  fullName: MonoTorrent.TrackerServer.Peer.DownloadSpeed
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.TrackerServer.Peer.HasCompleted*
+  commentId: Overload:MonoTorrent.TrackerServer.Peer.HasCompleted
+  href: MonoTorrent.TrackerServer.Peer.html#MonoTorrent_TrackerServer_Peer_HasCompleted
+  name: HasCompleted
+  nameWithType: Peer.HasCompleted
+  fullName: MonoTorrent.TrackerServer.Peer.HasCompleted
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.TrackerServer.Peer.LastAnnounceTime*
+  commentId: Overload:MonoTorrent.TrackerServer.Peer.LastAnnounceTime
+  href: MonoTorrent.TrackerServer.Peer.html#MonoTorrent_TrackerServer_Peer_LastAnnounceTime
+  name: LastAnnounceTime
+  nameWithType: Peer.LastAnnounceTime
+  fullName: MonoTorrent.TrackerServer.Peer.LastAnnounceTime
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: MonoTorrent.TrackerServer.Peer.PeerId*
+  commentId: Overload:MonoTorrent.TrackerServer.Peer.PeerId
+  href: MonoTorrent.TrackerServer.Peer.html#MonoTorrent_TrackerServer_Peer_PeerId
+  name: PeerId
+  nameWithType: Peer.PeerId
+  fullName: MonoTorrent.TrackerServer.Peer.PeerId
+- uid: MonoTorrent.BEncoding.BEncodedString
+  commentId: T:MonoTorrent.BEncoding.BEncodedString
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedString.html
+  name: BEncodedString
+  nameWithType: BEncodedString
+  fullName: MonoTorrent.BEncoding.BEncodedString
+- uid: MonoTorrent.BEncoding
+  commentId: N:MonoTorrent.BEncoding
+  href: MonoTorrent.html
+  name: MonoTorrent.BEncoding
+  nameWithType: MonoTorrent.BEncoding
+  fullName: MonoTorrent.BEncoding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+- uid: MonoTorrent.TrackerServer.Peer.Remaining*
+  commentId: Overload:MonoTorrent.TrackerServer.Peer.Remaining
+  href: MonoTorrent.TrackerServer.Peer.html#MonoTorrent_TrackerServer_Peer_Remaining
+  name: Remaining
+  nameWithType: Peer.Remaining
+  fullName: MonoTorrent.TrackerServer.Peer.Remaining
+- uid: MonoTorrent.TrackerServer.Peer.Uploaded*
+  commentId: Overload:MonoTorrent.TrackerServer.Peer.Uploaded
+  href: MonoTorrent.TrackerServer.Peer.html#MonoTorrent_TrackerServer_Peer_Uploaded
+  name: Uploaded
+  nameWithType: Peer.Uploaded
+  fullName: MonoTorrent.TrackerServer.Peer.Uploaded
+- uid: MonoTorrent.TrackerServer.Peer.UploadSpeed*
+  commentId: Overload:MonoTorrent.TrackerServer.Peer.UploadSpeed
+  href: MonoTorrent.TrackerServer.Peer.html#MonoTorrent_TrackerServer_Peer_UploadSpeed
+  name: UploadSpeed
+  nameWithType: Peer.UploadSpeed
+  fullName: MonoTorrent.TrackerServer.Peer.UploadSpeed
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: MonoTorrent.TrackerServer.Peer.Equals*
+  commentId: Overload:MonoTorrent.TrackerServer.Peer.Equals
+  href: MonoTorrent.TrackerServer.Peer.html#MonoTorrent_TrackerServer_Peer_Equals_System_Object_
+  name: Equals
+  nameWithType: Peer.Equals
+  fullName: MonoTorrent.TrackerServer.Peer.Equals
+- uid: System.IEquatable{MonoTorrent.TrackerServer.Peer}.Equals(MonoTorrent.TrackerServer.Peer)
+  commentId: M:System.IEquatable{MonoTorrent.TrackerServer.Peer}.Equals(MonoTorrent.TrackerServer.Peer)
+  parent: System.IEquatable{MonoTorrent.TrackerServer.Peer}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(Peer)
+  nameWithType: IEquatable<Peer>.Equals(Peer)
+  fullName: System.IEquatable<MonoTorrent.TrackerServer.Peer>.Equals(MonoTorrent.TrackerServer.Peer)
+  nameWithType.vb: IEquatable(Of Peer).Equals(Peer)
+  fullName.vb: System.IEquatable(Of MonoTorrent.TrackerServer.Peer).Equals(MonoTorrent.TrackerServer.Peer)
+  spec.csharp:
+  - uid: System.IEquatable{MonoTorrent.TrackerServer.Peer}.Equals(MonoTorrent.TrackerServer.Peer)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: MonoTorrent.TrackerServer.Peer
+    name: Peer
+    href: MonoTorrent.TrackerServer.Peer.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{MonoTorrent.TrackerServer.Peer}.Equals(MonoTorrent.TrackerServer.Peer)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: MonoTorrent.TrackerServer.Peer
+    name: Peer
+    href: MonoTorrent.TrackerServer.Peer.html
+  - name: )
+- uid: MonoTorrent.TrackerServer.Peer
+  commentId: T:MonoTorrent.TrackerServer.Peer
+  parent: MonoTorrent.TrackerServer
+  href: MonoTorrent.TrackerServer.Peer.html
+  name: Peer
+  nameWithType: Peer
+  fullName: MonoTorrent.TrackerServer.Peer
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: MonoTorrent.TrackerServer.Peer.GetHashCode*
+  commentId: Overload:MonoTorrent.TrackerServer.Peer.GetHashCode
+  href: MonoTorrent.TrackerServer.Peer.html#MonoTorrent_TrackerServer_Peer_GetHashCode
+  name: GetHashCode
+  nameWithType: Peer.GetHashCode
+  fullName: MonoTorrent.TrackerServer.Peer.GetHashCode

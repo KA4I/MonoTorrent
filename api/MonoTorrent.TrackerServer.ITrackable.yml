@@ -1,0 +1,160 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.TrackerServer.ITrackable
+  commentId: T:MonoTorrent.TrackerServer.ITrackable
+  id: ITrackable
+  parent: MonoTorrent.TrackerServer
+  children:
+  - MonoTorrent.TrackerServer.ITrackable.InfoHash
+  - MonoTorrent.TrackerServer.ITrackable.Name
+  langs:
+  - csharp
+  - vb
+  name: ITrackable
+  nameWithType: ITrackable
+  fullName: MonoTorrent.TrackerServer.ITrackable
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/ITrackable.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ITrackable
+    path: src/TrackerServer/ITrackable.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The tracker monitors peers for any ITrackable item
+  example: []
+  syntax:
+    content: public interface ITrackable
+    content.vb: Public Interface ITrackable
+- uid: MonoTorrent.TrackerServer.ITrackable.InfoHash
+  commentId: P:MonoTorrent.TrackerServer.ITrackable.InfoHash
+  id: InfoHash
+  parent: MonoTorrent.TrackerServer.ITrackable
+  langs:
+  - csharp
+  - vb
+  name: InfoHash
+  nameWithType: ITrackable.InfoHash
+  fullName: MonoTorrent.TrackerServer.ITrackable.InfoHash
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/ITrackable.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: InfoHash
+    path: src/TrackerServer/ITrackable.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The infohash of the torrent being tracked
+  example: []
+  syntax:
+    content: InfoHash InfoHash { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.InfoHash
+    content.vb: ReadOnly Property InfoHash As InfoHash
+  overload: MonoTorrent.TrackerServer.ITrackable.InfoHash*
+- uid: MonoTorrent.TrackerServer.ITrackable.Name
+  commentId: P:MonoTorrent.TrackerServer.ITrackable.Name
+  id: Name
+  parent: MonoTorrent.TrackerServer.ITrackable
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ITrackable.Name
+  fullName: MonoTorrent.TrackerServer.ITrackable.Name
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/ITrackable.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Name
+    path: src/TrackerServer/ITrackable.cs
+    startLine: 44
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The name of the torrent being tracked
+  example: []
+  syntax:
+    content: string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Name As String
+  overload: MonoTorrent.TrackerServer.ITrackable.Name*
+references:
+- uid: MonoTorrent.TrackerServer
+  commentId: N:MonoTorrent.TrackerServer
+  href: MonoTorrent.html
+  name: MonoTorrent.TrackerServer
+  nameWithType: MonoTorrent.TrackerServer
+  fullName: MonoTorrent.TrackerServer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.TrackerServer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.TrackerServer.html
+- uid: MonoTorrent.TrackerServer.ITrackable.InfoHash*
+  commentId: Overload:MonoTorrent.TrackerServer.ITrackable.InfoHash
+  href: MonoTorrent.TrackerServer.ITrackable.html#MonoTorrent_TrackerServer_ITrackable_InfoHash
+  name: InfoHash
+  nameWithType: ITrackable.InfoHash
+  fullName: MonoTorrent.TrackerServer.ITrackable.InfoHash
+- uid: MonoTorrent.InfoHash
+  commentId: T:MonoTorrent.InfoHash
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHash.html
+  name: InfoHash
+  nameWithType: InfoHash
+  fullName: MonoTorrent.InfoHash
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.TrackerServer.ITrackable.Name*
+  commentId: Overload:MonoTorrent.TrackerServer.ITrackable.Name
+  href: MonoTorrent.TrackerServer.ITrackable.html#MonoTorrent_TrackerServer_ITrackable_Name
+  name: Name
+  nameWithType: ITrackable.Name
+  fullName: MonoTorrent.TrackerServer.ITrackable.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

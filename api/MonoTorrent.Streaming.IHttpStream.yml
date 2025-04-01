@@ -1,0 +1,241 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Streaming.IHttpStream
+  commentId: T:MonoTorrent.Streaming.IHttpStream
+  id: IHttpStream
+  parent: MonoTorrent.Streaming
+  children:
+  - MonoTorrent.Streaming.IHttpStream.FullUri
+  - MonoTorrent.Streaming.IHttpStream.HttpPrefix
+  - MonoTorrent.Streaming.IHttpStream.RelativeUri
+  langs:
+  - csharp
+  - vb
+  name: IHttpStream
+  nameWithType: IHttpStream
+  fullName: MonoTorrent.Streaming.IHttpStream
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Streaming/IUriStream.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IHttpStream
+    path: src/Streaming/IUriStream.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Streaming
+  syntax:
+    content: 'public interface IHttpStream : IDisposable'
+    content.vb: Public Interface IHttpStream Inherits IDisposable
+  inheritedMembers:
+  - System.IDisposable.Dispose
+- uid: MonoTorrent.Streaming.IHttpStream.HttpPrefix
+  commentId: P:MonoTorrent.Streaming.IHttpStream.HttpPrefix
+  id: HttpPrefix
+  parent: MonoTorrent.Streaming.IHttpStream
+  langs:
+  - csharp
+  - vb
+  name: HttpPrefix
+  nameWithType: IHttpStream.HttpPrefix
+  fullName: MonoTorrent.Streaming.IHttpStream.HttpPrefix
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Streaming/IUriStream.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: HttpPrefix
+    path: src/Streaming/IUriStream.cs
+    startLine: 41
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Streaming
+  summary: >-
+    The HTTP prefix registered with the underlying HttpListener. This is the same value as configured in the
+
+    <xref href="MonoTorrent.Client.EngineSettings.HttpStreamingPrefix" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: string HttpPrefix { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property HttpPrefix As String
+  overload: MonoTorrent.Streaming.IHttpStream.HttpPrefix*
+- uid: MonoTorrent.Streaming.IHttpStream.FullUri
+  commentId: P:MonoTorrent.Streaming.IHttpStream.FullUri
+  id: FullUri
+  parent: MonoTorrent.Streaming.IHttpStream
+  langs:
+  - csharp
+  - vb
+  name: FullUri
+  nameWithType: IHttpStream.FullUri
+  fullName: MonoTorrent.Streaming.IHttpStream.FullUri
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Streaming/IUriStream.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FullUri
+    path: src/Streaming/IUriStream.cs
+    startLine: 48
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Streaming
+  summary: >-
+    The full Uri to the underlying file. This is created by concatenating <xref href="MonoTorrent.Streaming.IHttpStream.HttpPrefix" data-throw-if-not-resolved="false"></xref> and <xref href="MonoTorrent.Streaming.IHttpStream.RelativeUri" data-throw-if-not-resolved="false"></xref>.
+
+    If the HttpPrefix is of the form 'http://*:12345/' or 'http://+:12345' then the full Uri will need to be constructed using
+
+    an addressable IP address, or hostname.
+  example: []
+  syntax:
+    content: string FullUri { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property FullUri As String
+  overload: MonoTorrent.Streaming.IHttpStream.FullUri*
+- uid: MonoTorrent.Streaming.IHttpStream.RelativeUri
+  commentId: P:MonoTorrent.Streaming.IHttpStream.RelativeUri
+  id: RelativeUri
+  parent: MonoTorrent.Streaming.IHttpStream
+  langs:
+  - csharp
+  - vb
+  name: RelativeUri
+  nameWithType: IHttpStream.RelativeUri
+  fullName: MonoTorrent.Streaming.IHttpStream.RelativeUri
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Streaming/IUriStream.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RelativeUri
+    path: src/Streaming/IUriStream.cs
+    startLine: 53
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Streaming
+  summary: The unique identifier used to access the underlying file.
+  example: []
+  syntax:
+    content: string RelativeUri { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property RelativeUri As String
+  overload: MonoTorrent.Streaming.IHttpStream.RelativeUri*
+references:
+- uid: MonoTorrent.Streaming
+  commentId: N:MonoTorrent.Streaming
+  href: MonoTorrent.html
+  name: MonoTorrent.Streaming
+  nameWithType: MonoTorrent.Streaming
+  fullName: MonoTorrent.Streaming
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Streaming
+    name: Streaming
+    href: MonoTorrent.Streaming.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Streaming
+    name: Streaming
+    href: MonoTorrent.Streaming.html
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Client.EngineSettings.HttpStreamingPrefix
+  commentId: P:MonoTorrent.Client.EngineSettings.HttpStreamingPrefix
+  href: MonoTorrent.Client.EngineSettings.html#MonoTorrent_Client_EngineSettings_HttpStreamingPrefix
+  name: HttpStreamingPrefix
+  nameWithType: EngineSettings.HttpStreamingPrefix
+  fullName: MonoTorrent.Client.EngineSettings.HttpStreamingPrefix
+- uid: MonoTorrent.Streaming.IHttpStream.HttpPrefix*
+  commentId: Overload:MonoTorrent.Streaming.IHttpStream.HttpPrefix
+  href: MonoTorrent.Streaming.IHttpStream.html#MonoTorrent_Streaming_IHttpStream_HttpPrefix
+  name: HttpPrefix
+  nameWithType: IHttpStream.HttpPrefix
+  fullName: MonoTorrent.Streaming.IHttpStream.HttpPrefix
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MonoTorrent.Streaming.IHttpStream.HttpPrefix
+  commentId: P:MonoTorrent.Streaming.IHttpStream.HttpPrefix
+  href: MonoTorrent.Streaming.IHttpStream.html#MonoTorrent_Streaming_IHttpStream_HttpPrefix
+  name: HttpPrefix
+  nameWithType: IHttpStream.HttpPrefix
+  fullName: MonoTorrent.Streaming.IHttpStream.HttpPrefix
+- uid: MonoTorrent.Streaming.IHttpStream.RelativeUri
+  commentId: P:MonoTorrent.Streaming.IHttpStream.RelativeUri
+  href: MonoTorrent.Streaming.IHttpStream.html#MonoTorrent_Streaming_IHttpStream_RelativeUri
+  name: RelativeUri
+  nameWithType: IHttpStream.RelativeUri
+  fullName: MonoTorrent.Streaming.IHttpStream.RelativeUri
+- uid: MonoTorrent.Streaming.IHttpStream.FullUri*
+  commentId: Overload:MonoTorrent.Streaming.IHttpStream.FullUri
+  href: MonoTorrent.Streaming.IHttpStream.html#MonoTorrent_Streaming_IHttpStream_FullUri
+  name: FullUri
+  nameWithType: IHttpStream.FullUri
+  fullName: MonoTorrent.Streaming.IHttpStream.FullUri
+- uid: MonoTorrent.Streaming.IHttpStream.RelativeUri*
+  commentId: Overload:MonoTorrent.Streaming.IHttpStream.RelativeUri
+  href: MonoTorrent.Streaming.IHttpStream.html#MonoTorrent_Streaming_IHttpStream_RelativeUri
+  name: RelativeUri
+  nameWithType: IHttpStream.RelativeUri
+  fullName: MonoTorrent.Streaming.IHttpStream.RelativeUri

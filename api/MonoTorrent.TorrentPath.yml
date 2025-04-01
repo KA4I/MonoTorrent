@@ -1,0 +1,1285 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.TorrentPath
+  commentId: T:MonoTorrent.TorrentPath
+  id: TorrentPath
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.TorrentPath.#ctor(MonoTorrent.BEncoding.BEncodedList)
+  - MonoTorrent.TorrentPath.#ctor(System.String[])
+  - MonoTorrent.TorrentPath.Combine(System.String[])
+  - MonoTorrent.TorrentPath.CompareTo(MonoTorrent.TorrentPath)
+  - MonoTorrent.TorrentPath.Encode
+  - MonoTorrent.TorrentPath.Equals(MonoTorrent.TorrentPath)
+  - MonoTorrent.TorrentPath.Equals(System.Object)
+  - MonoTorrent.TorrentPath.GetHashCode
+  - MonoTorrent.TorrentPath.IsValidPart(System.String)
+  - MonoTorrent.TorrentPath.Parts
+  - MonoTorrent.TorrentPath.ToString
+  - MonoTorrent.TorrentPath.ToString(System.Char)
+  - MonoTorrent.TorrentPath.op_Division(MonoTorrent.TorrentPath,System.String)
+  - MonoTorrent.TorrentPath.op_Equality(MonoTorrent.TorrentPath,MonoTorrent.TorrentPath)
+  - MonoTorrent.TorrentPath.op_Inequality(MonoTorrent.TorrentPath,MonoTorrent.TorrentPath)
+  langs:
+  - csharp
+  - vb
+  name: TorrentPath
+  nameWithType: TorrentPath
+  fullName: MonoTorrent.TorrentPath
+  type: Struct
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentPath
+    path: src/TorrentPath.cs
+    startLine: 8
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: 'public readonly struct TorrentPath : IComparable<TorrentPath>, IEquatable<TorrentPath>'
+    content.vb: Public Structure TorrentPath Implements IComparable(Of TorrentPath), IEquatable(Of TorrentPath)
+  implements:
+  - System.IComparable{MonoTorrent.TorrentPath}
+  - System.IEquatable{MonoTorrent.TorrentPath}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: MonoTorrent.TorrentPath.#ctor(System.String[])
+  commentId: M:MonoTorrent.TorrentPath.#ctor(System.String[])
+  id: '#ctor(System.String[])'
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: TorrentPath(params string[])
+  nameWithType: TorrentPath.TorrentPath(params string[])
+  fullName: MonoTorrent.TorrentPath.TorrentPath(params string[])
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/TorrentPath.cs
+    startLine: 8
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public TorrentPath(params string[] parts)
+    parameters:
+    - id: parts
+      type: System.String[]
+    content.vb: Public Sub New(ParamArray parts As String())
+  overload: MonoTorrent.TorrentPath.#ctor*
+  nameWithType.vb: TorrentPath.New(ParamArray String())
+  fullName.vb: MonoTorrent.TorrentPath.New(ParamArray String())
+  name.vb: New(ParamArray String())
+- uid: MonoTorrent.TorrentPath.#ctor(MonoTorrent.BEncoding.BEncodedList)
+  commentId: M:MonoTorrent.TorrentPath.#ctor(MonoTorrent.BEncoding.BEncodedList)
+  id: '#ctor(MonoTorrent.BEncoding.BEncodedList)'
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: TorrentPath(BEncodedList)
+  nameWithType: TorrentPath.TorrentPath(BEncodedList)
+  fullName: MonoTorrent.TorrentPath.TorrentPath(MonoTorrent.BEncoding.BEncodedList)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/TorrentPath.cs
+    startLine: 12
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public TorrentPath(BEncodedList parts)
+    parameters:
+    - id: parts
+      type: MonoTorrent.BEncoding.BEncodedList
+    content.vb: Public Sub New(parts As BEncodedList)
+  overload: MonoTorrent.TorrentPath.#ctor*
+  nameWithType.vb: TorrentPath.New(BEncodedList)
+  fullName.vb: MonoTorrent.TorrentPath.New(MonoTorrent.BEncoding.BEncodedList)
+  name.vb: New(BEncodedList)
+- uid: MonoTorrent.TorrentPath.Parts
+  commentId: P:MonoTorrent.TorrentPath.Parts
+  id: Parts
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: Parts
+  nameWithType: TorrentPath.Parts
+  fullName: MonoTorrent.TorrentPath.Parts
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Parts
+    path: src/TorrentPath.cs
+    startLine: 18
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public ReadOnlySpan<string> Parts { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlySpan{System.String}
+    content.vb: Public ReadOnly Property Parts As ReadOnlySpan(Of String)
+  overload: MonoTorrent.TorrentPath.Parts*
+- uid: MonoTorrent.TorrentPath.Combine(System.String[])
+  commentId: M:MonoTorrent.TorrentPath.Combine(System.String[])
+  id: Combine(System.String[])
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: Combine(params string[])
+  nameWithType: TorrentPath.Combine(params string[])
+  fullName: MonoTorrent.TorrentPath.Combine(params string[])
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Combine
+    path: src/TorrentPath.cs
+    startLine: 19
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static TorrentPath Combine(params string[] parts)
+    parameters:
+    - id: parts
+      type: System.String[]
+    return:
+      type: MonoTorrent.TorrentPath
+    content.vb: Public Shared Function Combine(ParamArray parts As String()) As TorrentPath
+  overload: MonoTorrent.TorrentPath.Combine*
+  nameWithType.vb: TorrentPath.Combine(ParamArray String())
+  fullName.vb: MonoTorrent.TorrentPath.Combine(ParamArray String())
+  name.vb: Combine(ParamArray String())
+- uid: MonoTorrent.TorrentPath.ToString
+  commentId: M:MonoTorrent.TorrentPath.ToString
+  id: ToString
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: TorrentPath.ToString()
+  fullName: MonoTorrent.TorrentPath.ToString()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToString
+    path: src/TorrentPath.cs
+    startLine: 21
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: MonoTorrent.TorrentPath.ToString*
+- uid: MonoTorrent.TorrentPath.ToString(System.Char)
+  commentId: M:MonoTorrent.TorrentPath.ToString(System.Char)
+  id: ToString(System.Char)
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: ToString(char)
+  nameWithType: TorrentPath.ToString(char)
+  fullName: MonoTorrent.TorrentPath.ToString(char)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToString
+    path: src/TorrentPath.cs
+    startLine: 22
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public string ToString(char separator)
+    parameters:
+    - id: separator
+      type: System.Char
+    return:
+      type: System.String
+    content.vb: Public Function ToString(separator As Char) As String
+  overload: MonoTorrent.TorrentPath.ToString*
+  nameWithType.vb: TorrentPath.ToString(Char)
+  fullName.vb: MonoTorrent.TorrentPath.ToString(Char)
+  name.vb: ToString(Char)
+- uid: MonoTorrent.TorrentPath.Encode
+  commentId: M:MonoTorrent.TorrentPath.Encode
+  id: Encode
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: Encode()
+  nameWithType: TorrentPath.Encode()
+  fullName: MonoTorrent.TorrentPath.Encode()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Encode
+    path: src/TorrentPath.cs
+    startLine: 24
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public BEncodedList Encode()
+    return:
+      type: MonoTorrent.BEncoding.BEncodedList
+    content.vb: Public Function Encode() As BEncodedList
+  overload: MonoTorrent.TorrentPath.Encode*
+- uid: MonoTorrent.TorrentPath.Equals(MonoTorrent.TorrentPath)
+  commentId: M:MonoTorrent.TorrentPath.Equals(MonoTorrent.TorrentPath)
+  id: Equals(MonoTorrent.TorrentPath)
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: Equals(TorrentPath)
+  nameWithType: TorrentPath.Equals(TorrentPath)
+  fullName: MonoTorrent.TorrentPath.Equals(MonoTorrent.TorrentPath)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Equals
+    path: src/TorrentPath.cs
+    startLine: 26
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(TorrentPath other)
+    parameters:
+    - id: other
+      type: MonoTorrent.TorrentPath
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As TorrentPath) As Boolean
+  overload: MonoTorrent.TorrentPath.Equals*
+  implements:
+  - System.IEquatable{MonoTorrent.TorrentPath}.Equals(MonoTorrent.TorrentPath)
+- uid: MonoTorrent.TorrentPath.op_Equality(MonoTorrent.TorrentPath,MonoTorrent.TorrentPath)
+  commentId: M:MonoTorrent.TorrentPath.op_Equality(MonoTorrent.TorrentPath,MonoTorrent.TorrentPath)
+  id: op_Equality(MonoTorrent.TorrentPath,MonoTorrent.TorrentPath)
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: operator ==(TorrentPath, TorrentPath)
+  nameWithType: TorrentPath.operator ==(TorrentPath, TorrentPath)
+  fullName: MonoTorrent.TorrentPath.operator ==(MonoTorrent.TorrentPath, MonoTorrent.TorrentPath)
+  type: Operator
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: op_Equality
+    path: src/TorrentPath.cs
+    startLine: 27
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static bool operator ==(TorrentPath left, TorrentPath right)
+    parameters:
+    - id: left
+      type: MonoTorrent.TorrentPath
+    - id: right
+      type: MonoTorrent.TorrentPath
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As TorrentPath, right As TorrentPath) As Boolean
+  overload: MonoTorrent.TorrentPath.op_Equality*
+  nameWithType.vb: TorrentPath.=(TorrentPath, TorrentPath)
+  fullName.vb: MonoTorrent.TorrentPath.=(MonoTorrent.TorrentPath, MonoTorrent.TorrentPath)
+  name.vb: =(TorrentPath, TorrentPath)
+- uid: MonoTorrent.TorrentPath.op_Inequality(MonoTorrent.TorrentPath,MonoTorrent.TorrentPath)
+  commentId: M:MonoTorrent.TorrentPath.op_Inequality(MonoTorrent.TorrentPath,MonoTorrent.TorrentPath)
+  id: op_Inequality(MonoTorrent.TorrentPath,MonoTorrent.TorrentPath)
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: operator !=(TorrentPath, TorrentPath)
+  nameWithType: TorrentPath.operator !=(TorrentPath, TorrentPath)
+  fullName: MonoTorrent.TorrentPath.operator !=(MonoTorrent.TorrentPath, MonoTorrent.TorrentPath)
+  type: Operator
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: op_Inequality
+    path: src/TorrentPath.cs
+    startLine: 28
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static bool operator !=(TorrentPath left, TorrentPath right)
+    parameters:
+    - id: left
+      type: MonoTorrent.TorrentPath
+    - id: right
+      type: MonoTorrent.TorrentPath
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As TorrentPath, right As TorrentPath) As Boolean
+  overload: MonoTorrent.TorrentPath.op_Inequality*
+  nameWithType.vb: TorrentPath.<>(TorrentPath, TorrentPath)
+  fullName.vb: MonoTorrent.TorrentPath.<>(MonoTorrent.TorrentPath, MonoTorrent.TorrentPath)
+  name.vb: <>(TorrentPath, TorrentPath)
+- uid: MonoTorrent.TorrentPath.Equals(System.Object)
+  commentId: M:MonoTorrent.TorrentPath.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: TorrentPath.Equals(object?)
+  fullName: MonoTorrent.TorrentPath.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Equals
+    path: src/TorrentPath.cs
+    startLine: 30
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: MonoTorrent.TorrentPath.Equals*
+  nameWithType.vb: TorrentPath.Equals(Object)
+  fullName.vb: MonoTorrent.TorrentPath.Equals(Object)
+  name.vb: Equals(Object)
+- uid: MonoTorrent.TorrentPath.GetHashCode
+  commentId: M:MonoTorrent.TorrentPath.GetHashCode
+  id: GetHashCode
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: TorrentPath.GetHashCode()
+  fullName: MonoTorrent.TorrentPath.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetHashCode
+    path: src/TorrentPath.cs
+    startLine: 32
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: MonoTorrent.TorrentPath.GetHashCode*
+- uid: MonoTorrent.TorrentPath.op_Division(MonoTorrent.TorrentPath,System.String)
+  commentId: M:MonoTorrent.TorrentPath.op_Division(MonoTorrent.TorrentPath,System.String)
+  id: op_Division(MonoTorrent.TorrentPath,System.String)
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: operator /(TorrentPath, string)
+  nameWithType: TorrentPath.operator /(TorrentPath, string)
+  fullName: MonoTorrent.TorrentPath.operator /(MonoTorrent.TorrentPath, string)
+  type: Operator
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: op_Division
+    path: src/TorrentPath.cs
+    startLine: 42
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static TorrentPath operator /(TorrentPath parent, string child)
+    parameters:
+    - id: parent
+      type: MonoTorrent.TorrentPath
+    - id: child
+      type: System.String
+    return:
+      type: MonoTorrent.TorrentPath
+    content.vb: Public Shared Operator /(parent As TorrentPath, child As String) As TorrentPath
+  overload: MonoTorrent.TorrentPath.op_Division*
+  nameWithType.vb: TorrentPath./(TorrentPath, String)
+  fullName.vb: MonoTorrent.TorrentPath./(MonoTorrent.TorrentPath, String)
+  name.vb: /(TorrentPath, String)
+- uid: MonoTorrent.TorrentPath.CompareTo(MonoTorrent.TorrentPath)
+  commentId: M:MonoTorrent.TorrentPath.CompareTo(MonoTorrent.TorrentPath)
+  id: CompareTo(MonoTorrent.TorrentPath)
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: CompareTo(TorrentPath)
+  nameWithType: TorrentPath.CompareTo(TorrentPath)
+  fullName: MonoTorrent.TorrentPath.CompareTo(MonoTorrent.TorrentPath)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CompareTo
+    path: src/TorrentPath.cs
+    startLine: 44
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes, follows, or occurs in the same position in the sort order as the other object.
+  example: []
+  syntax:
+    content: public int CompareTo(TorrentPath other)
+    parameters:
+    - id: other
+      type: MonoTorrent.TorrentPath
+      description: An object to compare with this instance.
+    return:
+      type: System.Int32
+      description: >-
+        A value that indicates the relative order of the objects being compared. The return value has these meanings:  
+
+         <table><thead><tr><th class="term"> Value</th><th class="description"> Meaning</th></tr></thead><tbody><tr><td class="term"> Less than zero</td><td class="description"> This instance precedes <code class="paramref">other</code> in the sort order.</td></tr><tr><td class="term"> Zero</td><td class="description"> This instance occurs in the same position in the sort order as <code class="paramref">other</code>.</td></tr><tr><td class="term"> Greater than zero</td><td class="description"> This instance follows <code class="paramref">other</code> in the sort order.</td></tr></tbody></table>
+    content.vb: Public Function CompareTo(other As TorrentPath) As Integer
+  overload: MonoTorrent.TorrentPath.CompareTo*
+  implements:
+  - System.IComparable{MonoTorrent.TorrentPath}.CompareTo(MonoTorrent.TorrentPath)
+- uid: MonoTorrent.TorrentPath.IsValidPart(System.String)
+  commentId: M:MonoTorrent.TorrentPath.IsValidPart(System.String)
+  id: IsValidPart(System.String)
+  parent: MonoTorrent.TorrentPath
+  langs:
+  - csharp
+  - vb
+  name: IsValidPart(string)
+  nameWithType: TorrentPath.IsValidPart(string)
+  fullName: MonoTorrent.TorrentPath.IsValidPart(string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentPath.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IsValidPart
+    path: src/TorrentPath.cs
+    startLine: 58
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static bool IsValidPart(string part)
+    parameters:
+    - id: part
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsValidPart(part As String) As Boolean
+  overload: MonoTorrent.TorrentPath.IsValidPart*
+  nameWithType.vb: TorrentPath.IsValidPart(String)
+  fullName.vb: MonoTorrent.TorrentPath.IsValidPart(String)
+  name.vb: IsValidPart(String)
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.IComparable{MonoTorrent.TorrentPath}
+  commentId: T:System.IComparable{MonoTorrent.TorrentPath}
+  parent: System
+  definition: System.IComparable`1
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  name: IComparable<TorrentPath>
+  nameWithType: IComparable<TorrentPath>
+  fullName: System.IComparable<MonoTorrent.TorrentPath>
+  nameWithType.vb: IComparable(Of TorrentPath)
+  fullName.vb: System.IComparable(Of MonoTorrent.TorrentPath)
+  name.vb: IComparable(Of TorrentPath)
+  spec.csharp:
+  - uid: System.IComparable`1
+    name: IComparable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  - name: <
+  - uid: MonoTorrent.TorrentPath
+    name: TorrentPath
+    href: MonoTorrent.TorrentPath.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IComparable`1
+    name: IComparable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.TorrentPath
+    name: TorrentPath
+    href: MonoTorrent.TorrentPath.html
+  - name: )
+- uid: System.IEquatable{MonoTorrent.TorrentPath}
+  commentId: T:System.IEquatable{MonoTorrent.TorrentPath}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<TorrentPath>
+  nameWithType: IEquatable<TorrentPath>
+  fullName: System.IEquatable<MonoTorrent.TorrentPath>
+  nameWithType.vb: IEquatable(Of TorrentPath)
+  fullName.vb: System.IEquatable(Of MonoTorrent.TorrentPath)
+  name.vb: IEquatable(Of TorrentPath)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: MonoTorrent.TorrentPath
+    name: TorrentPath
+    href: MonoTorrent.TorrentPath.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.TorrentPath
+    name: TorrentPath
+    href: MonoTorrent.TorrentPath.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IComparable`1
+  commentId: T:System.IComparable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  name: IComparable<T>
+  nameWithType: IComparable<T>
+  fullName: System.IComparable<T>
+  nameWithType.vb: IComparable(Of T)
+  fullName.vb: System.IComparable(Of T)
+  name.vb: IComparable(Of T)
+  spec.csharp:
+  - uid: System.IComparable`1
+    name: IComparable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IComparable`1
+    name: IComparable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MonoTorrent.TorrentPath.#ctor*
+  commentId: Overload:MonoTorrent.TorrentPath.#ctor
+  href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath__ctor_System_String___
+  name: TorrentPath
+  nameWithType: TorrentPath.TorrentPath
+  fullName: MonoTorrent.TorrentPath.TorrentPath
+  nameWithType.vb: TorrentPath.New
+  fullName.vb: MonoTorrent.TorrentPath.New
+  name.vb: New
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedList
+  commentId: T:MonoTorrent.BEncoding.BEncodedList
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedList.html
+  name: BEncodedList
+  nameWithType: BEncodedList
+  fullName: MonoTorrent.BEncoding.BEncodedList
+- uid: MonoTorrent.BEncoding
+  commentId: N:MonoTorrent.BEncoding
+  href: MonoTorrent.html
+  name: MonoTorrent.BEncoding
+  nameWithType: MonoTorrent.BEncoding
+  fullName: MonoTorrent.BEncoding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+- uid: MonoTorrent.TorrentPath.Parts*
+  commentId: Overload:MonoTorrent.TorrentPath.Parts
+  href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath_Parts
+  name: Parts
+  nameWithType: TorrentPath.Parts
+  fullName: MonoTorrent.TorrentPath.Parts
+- uid: System.ReadOnlySpan{System.String}
+  commentId: T:System.ReadOnlySpan{System.String}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<string>
+  nameWithType: ReadOnlySpan<string>
+  fullName: System.ReadOnlySpan<string>
+  nameWithType.vb: ReadOnlySpan(Of String)
+  fullName.vb: System.ReadOnlySpan(Of String)
+  name.vb: ReadOnlySpan(Of String)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.TorrentPath.Combine*
+  commentId: Overload:MonoTorrent.TorrentPath.Combine
+  href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath_Combine_System_String___
+  name: Combine
+  nameWithType: TorrentPath.Combine
+  fullName: MonoTorrent.TorrentPath.Combine
+- uid: MonoTorrent.TorrentPath
+  commentId: T:MonoTorrent.TorrentPath
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentPath.html
+  name: TorrentPath
+  nameWithType: TorrentPath
+  fullName: MonoTorrent.TorrentPath
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: MonoTorrent.TorrentPath.ToString*
+  commentId: Overload:MonoTorrent.TorrentPath.ToString
+  href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath_ToString
+  name: ToString
+  nameWithType: TorrentPath.ToString
+  fullName: MonoTorrent.TorrentPath.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Char
+  commentId: T:System.Char
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.char
+  name: char
+  nameWithType: char
+  fullName: char
+  nameWithType.vb: Char
+  fullName.vb: Char
+  name.vb: Char
+- uid: MonoTorrent.TorrentPath.Encode*
+  commentId: Overload:MonoTorrent.TorrentPath.Encode
+  href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath_Encode
+  name: Encode
+  nameWithType: TorrentPath.Encode
+  fullName: MonoTorrent.TorrentPath.Encode
+- uid: MonoTorrent.TorrentPath.Equals*
+  commentId: Overload:MonoTorrent.TorrentPath.Equals
+  href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath_Equals_MonoTorrent_TorrentPath_
+  name: Equals
+  nameWithType: TorrentPath.Equals
+  fullName: MonoTorrent.TorrentPath.Equals
+- uid: System.IEquatable{MonoTorrent.TorrentPath}.Equals(MonoTorrent.TorrentPath)
+  commentId: M:System.IEquatable{MonoTorrent.TorrentPath}.Equals(MonoTorrent.TorrentPath)
+  parent: System.IEquatable{MonoTorrent.TorrentPath}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(TorrentPath)
+  nameWithType: IEquatable<TorrentPath>.Equals(TorrentPath)
+  fullName: System.IEquatable<MonoTorrent.TorrentPath>.Equals(MonoTorrent.TorrentPath)
+  nameWithType.vb: IEquatable(Of TorrentPath).Equals(TorrentPath)
+  fullName.vb: System.IEquatable(Of MonoTorrent.TorrentPath).Equals(MonoTorrent.TorrentPath)
+  spec.csharp:
+  - uid: System.IEquatable{MonoTorrent.TorrentPath}.Equals(MonoTorrent.TorrentPath)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: MonoTorrent.TorrentPath
+    name: TorrentPath
+    href: MonoTorrent.TorrentPath.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{MonoTorrent.TorrentPath}.Equals(MonoTorrent.TorrentPath)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: MonoTorrent.TorrentPath
+    name: TorrentPath
+    href: MonoTorrent.TorrentPath.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: MonoTorrent.TorrentPath.op_Equality*
+  commentId: Overload:MonoTorrent.TorrentPath.op_Equality
+  href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath_op_Equality_MonoTorrent_TorrentPath_MonoTorrent_TorrentPath_
+  name: operator ==
+  nameWithType: TorrentPath.operator ==
+  fullName: MonoTorrent.TorrentPath.operator ==
+  nameWithType.vb: TorrentPath.=
+  fullName.vb: MonoTorrent.TorrentPath.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: MonoTorrent.TorrentPath.op_Equality*
+    name: ==
+    href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath_op_Equality_MonoTorrent_TorrentPath_MonoTorrent_TorrentPath_
+- uid: MonoTorrent.TorrentPath.op_Inequality*
+  commentId: Overload:MonoTorrent.TorrentPath.op_Inequality
+  href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath_op_Inequality_MonoTorrent_TorrentPath_MonoTorrent_TorrentPath_
+  name: operator !=
+  nameWithType: TorrentPath.operator !=
+  fullName: MonoTorrent.TorrentPath.operator !=
+  nameWithType.vb: TorrentPath.<>
+  fullName.vb: MonoTorrent.TorrentPath.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: MonoTorrent.TorrentPath.op_Inequality*
+    name: '!='
+    href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath_op_Inequality_MonoTorrent_TorrentPath_MonoTorrent_TorrentPath_
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: MonoTorrent.TorrentPath.GetHashCode*
+  commentId: Overload:MonoTorrent.TorrentPath.GetHashCode
+  href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath_GetHashCode
+  name: GetHashCode
+  nameWithType: TorrentPath.GetHashCode
+  fullName: MonoTorrent.TorrentPath.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.TorrentPath.op_Division*
+  commentId: Overload:MonoTorrent.TorrentPath.op_Division
+  href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath_op_Division_MonoTorrent_TorrentPath_System_String_
+  name: operator /
+  nameWithType: TorrentPath.operator /
+  fullName: MonoTorrent.TorrentPath.operator /
+  nameWithType.vb: TorrentPath./
+  fullName.vb: MonoTorrent.TorrentPath./
+  name.vb: /
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: MonoTorrent.TorrentPath.op_Division*
+    name: /
+    href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath_op_Division_MonoTorrent_TorrentPath_System_String_
+- uid: MonoTorrent.TorrentPath.CompareTo*
+  commentId: Overload:MonoTorrent.TorrentPath.CompareTo
+  href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath_CompareTo_MonoTorrent_TorrentPath_
+  name: CompareTo
+  nameWithType: TorrentPath.CompareTo
+  fullName: MonoTorrent.TorrentPath.CompareTo
+- uid: System.IComparable{MonoTorrent.TorrentPath}.CompareTo(MonoTorrent.TorrentPath)
+  commentId: M:System.IComparable{MonoTorrent.TorrentPath}.CompareTo(MonoTorrent.TorrentPath)
+  parent: System.IComparable{MonoTorrent.TorrentPath}
+  definition: System.IComparable`1.CompareTo(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  name: CompareTo(TorrentPath)
+  nameWithType: IComparable<TorrentPath>.CompareTo(TorrentPath)
+  fullName: System.IComparable<MonoTorrent.TorrentPath>.CompareTo(MonoTorrent.TorrentPath)
+  nameWithType.vb: IComparable(Of TorrentPath).CompareTo(TorrentPath)
+  fullName.vb: System.IComparable(Of MonoTorrent.TorrentPath).CompareTo(MonoTorrent.TorrentPath)
+  spec.csharp:
+  - uid: System.IComparable{MonoTorrent.TorrentPath}.CompareTo(MonoTorrent.TorrentPath)
+    name: CompareTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  - name: (
+  - uid: MonoTorrent.TorrentPath
+    name: TorrentPath
+    href: MonoTorrent.TorrentPath.html
+  - name: )
+  spec.vb:
+  - uid: System.IComparable{MonoTorrent.TorrentPath}.CompareTo(MonoTorrent.TorrentPath)
+    name: CompareTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  - name: (
+  - uid: MonoTorrent.TorrentPath
+    name: TorrentPath
+    href: MonoTorrent.TorrentPath.html
+  - name: )
+- uid: System.IComparable`1.CompareTo(`0)
+  commentId: M:System.IComparable`1.CompareTo(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  name: CompareTo(T)
+  nameWithType: IComparable<T>.CompareTo(T)
+  fullName: System.IComparable<T>.CompareTo(T)
+  nameWithType.vb: IComparable(Of T).CompareTo(T)
+  fullName.vb: System.IComparable(Of T).CompareTo(T)
+  spec.csharp:
+  - uid: System.IComparable`1.CompareTo(`0)
+    name: CompareTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IComparable`1.CompareTo(`0)
+    name: CompareTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  - name: (
+  - name: T
+  - name: )
+- uid: MonoTorrent.TorrentPath.IsValidPart*
+  commentId: Overload:MonoTorrent.TorrentPath.IsValidPart
+  href: MonoTorrent.TorrentPath.html#MonoTorrent_TorrentPath_IsValidPart_System_String_
+  name: IsValidPart
+  nameWithType: TorrentPath.IsValidPart
+  fullName: MonoTorrent.TorrentPath.IsValidPart

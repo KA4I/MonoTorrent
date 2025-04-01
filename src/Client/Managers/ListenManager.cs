@@ -61,8 +61,12 @@ namespace MonoTorrent.Client
             SKeys = Array.Empty<InfoHash> ();
         }
 
-        public void Add (InfoHashes skey)
+        public void Add (InfoHashes? skey) // Allow null explicitly
         {
+            // If the InfoHashes object itself is null, there's nothing to add.
+            if (skey is null)
+                return;
+
             var clone = new List<InfoHash> (SKeys);
             if (skey.V1 != null)
                 clone.Add (skey.V1);

@@ -1,0 +1,124 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PieceWriter.FileCreationOptions
+  commentId: T:MonoTorrent.PieceWriter.FileCreationOptions
+  id: FileCreationOptions
+  parent: MonoTorrent.PieceWriter
+  children:
+  - MonoTorrent.PieceWriter.FileCreationOptions.PreferPreallocation
+  - MonoTorrent.PieceWriter.FileCreationOptions.PreferSparse
+  langs:
+  - csharp
+  - vb
+  name: FileCreationOptions
+  nameWithType: FileCreationOptions
+  fullName: MonoTorrent.PieceWriter.FileCreationOptions
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/FileCreationOptions.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FileCreationOptions
+    path: src/PieceWriter/FileCreationOptions.cs
+    startLine: 31
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  syntax:
+    content: public enum FileCreationOptions
+    content.vb: Public Enum FileCreationOptions
+- uid: MonoTorrent.PieceWriter.FileCreationOptions.PreferSparse
+  commentId: F:MonoTorrent.PieceWriter.FileCreationOptions.PreferSparse
+  id: PreferSparse
+  parent: MonoTorrent.PieceWriter.FileCreationOptions
+  langs:
+  - csharp
+  - vb
+  name: PreferSparse
+  nameWithType: FileCreationOptions.PreferSparse
+  fullName: MonoTorrent.PieceWriter.FileCreationOptions.PreferSparse
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/FileCreationOptions.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PreferSparse
+    path: src/PieceWriter/FileCreationOptions.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: >-
+    On filesystems where sparse files can be created, an attempt will be made to create a sparse file.
+
+    Otherwise an empty file will be created.
+  example: []
+  syntax:
+    content: PreferSparse = 0
+    return:
+      type: MonoTorrent.PieceWriter.FileCreationOptions
+- uid: MonoTorrent.PieceWriter.FileCreationOptions.PreferPreallocation
+  commentId: F:MonoTorrent.PieceWriter.FileCreationOptions.PreferPreallocation
+  id: PreferPreallocation
+  parent: MonoTorrent.PieceWriter.FileCreationOptions
+  langs:
+  - csharp
+  - vb
+  name: PreferPreallocation
+  nameWithType: FileCreationOptions.PreferPreallocation
+  fullName: MonoTorrent.PieceWriter.FileCreationOptions.PreferPreallocation
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/FileCreationOptions.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PreferPreallocation
+    path: src/PieceWriter/FileCreationOptions.cs
+    startLine: 43
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: >-
+    On filesystems which support preallocation the space required for the file will be reserved as soon
+
+    as the file is created. Otherwise, a best effort to pre-allocate will be made by writing 1 byte at
+
+    the end of the file.
+  example: []
+  syntax:
+    content: PreferPreallocation = 1
+    return:
+      type: MonoTorrent.PieceWriter.FileCreationOptions
+references:
+- uid: MonoTorrent.PieceWriter
+  commentId: N:MonoTorrent.PieceWriter
+  href: MonoTorrent.html
+  name: MonoTorrent.PieceWriter
+  nameWithType: MonoTorrent.PieceWriter
+  fullName: MonoTorrent.PieceWriter
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+- uid: MonoTorrent.PieceWriter.FileCreationOptions
+  commentId: T:MonoTorrent.PieceWriter.FileCreationOptions
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.FileCreationOptions.html
+  name: FileCreationOptions
+  nameWithType: FileCreationOptions
+  fullName: MonoTorrent.PieceWriter.FileCreationOptions

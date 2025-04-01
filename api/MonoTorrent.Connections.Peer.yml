@@ -1,0 +1,128 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.Peer
+  commentId: N:MonoTorrent.Connections.Peer
+  id: MonoTorrent.Connections.Peer
+  children:
+  - MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+  - MonoTorrent.Connections.Peer.IPeerConnection
+  - MonoTorrent.Connections.Peer.IPeerConnectionGate
+  - MonoTorrent.Connections.Peer.IPeerConnectionListener
+  - MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo
+  - MonoTorrent.Connections.Peer.LocalPeerDiscovery
+  - MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs
+  - MonoTorrent.Connections.Peer.NoGating
+  - MonoTorrent.Connections.Peer.PeerConnectionEventArgs
+  - MonoTorrent.Connections.Peer.PeerConnectionListener
+  - MonoTorrent.Connections.Peer.SocketPeerConnection
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.Connections.Peer
+  nameWithType: MonoTorrent.Connections.Peer
+  fullName: MonoTorrent.Connections.Peer
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+  commentId: T:MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+  parent: MonoTorrent.Connections.Peer
+  href: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.html
+  name: ILocalPeerDiscovery
+  nameWithType: ILocalPeerDiscovery
+  fullName: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+- uid: MonoTorrent.Connections.Peer.IPeerConnection
+  commentId: T:MonoTorrent.Connections.Peer.IPeerConnection
+  parent: MonoTorrent.Connections.Peer
+  href: MonoTorrent.Connections.Peer.IPeerConnection.html
+  name: IPeerConnection
+  nameWithType: IPeerConnection
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionGate
+  commentId: T:MonoTorrent.Connections.Peer.IPeerConnectionGate
+  parent: MonoTorrent.Connections.Peer
+  href: MonoTorrent.Connections.Peer.IPeerConnectionGate.html
+  name: IPeerConnectionGate
+  nameWithType: IPeerConnectionGate
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionGate
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionListener
+  commentId: T:MonoTorrent.Connections.Peer.IPeerConnectionListener
+  parent: MonoTorrent.Connections.Peer
+  href: MonoTorrent.Connections.Peer.IPeerConnectionListener.html
+  name: IPeerConnectionListener
+  nameWithType: IPeerConnectionListener
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionListener
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo
+  commentId: T:MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo
+  parent: MonoTorrent.Connections.Peer
+  href: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo.html
+  name: IPeerConnectionLocalInfo
+  nameWithType: IPeerConnectionLocalInfo
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo
+- uid: MonoTorrent.Connections.Peer.LocalPeerDiscovery
+  commentId: T:MonoTorrent.Connections.Peer.LocalPeerDiscovery
+  href: MonoTorrent.Connections.Peer.LocalPeerDiscovery.html
+  name: LocalPeerDiscovery
+  nameWithType: LocalPeerDiscovery
+  fullName: MonoTorrent.Connections.Peer.LocalPeerDiscovery
+- uid: MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs
+  commentId: T:MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs
+  href: MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs.html
+  name: LocalPeerFoundEventArgs
+  nameWithType: LocalPeerFoundEventArgs
+  fullName: MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs
+- uid: MonoTorrent.Connections.Peer.NoGating
+  commentId: T:MonoTorrent.Connections.Peer.NoGating
+  href: MonoTorrent.Connections.Peer.NoGating.html
+  name: NoGating
+  nameWithType: NoGating
+  fullName: MonoTorrent.Connections.Peer.NoGating
+- uid: MonoTorrent.Connections.Peer.PeerConnectionEventArgs
+  commentId: T:MonoTorrent.Connections.Peer.PeerConnectionEventArgs
+  href: MonoTorrent.Connections.Peer.PeerConnectionEventArgs.html
+  name: PeerConnectionEventArgs
+  nameWithType: PeerConnectionEventArgs
+  fullName: MonoTorrent.Connections.Peer.PeerConnectionEventArgs
+- uid: MonoTorrent.Connections.Peer.PeerConnectionListener
+  commentId: T:MonoTorrent.Connections.Peer.PeerConnectionListener
+  href: MonoTorrent.Connections.Peer.PeerConnectionListener.html
+  name: PeerConnectionListener
+  nameWithType: PeerConnectionListener
+  fullName: MonoTorrent.Connections.Peer.PeerConnectionListener
+- uid: MonoTorrent.Connections.Peer.SocketPeerConnection
+  commentId: T:MonoTorrent.Connections.Peer.SocketPeerConnection
+  href: MonoTorrent.Connections.Peer.SocketPeerConnection.html
+  name: SocketPeerConnection
+  nameWithType: SocketPeerConnection
+  fullName: MonoTorrent.Connections.Peer.SocketPeerConnection
+- uid: MonoTorrent.Connections.Peer
+  commentId: N:MonoTorrent.Connections.Peer
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.Peer
+  nameWithType: MonoTorrent.Connections.Peer
+  fullName: MonoTorrent.Connections.Peer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html

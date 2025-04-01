@@ -1,0 +1,403 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.ITorrentFile
+  commentId: T:MonoTorrent.ITorrentFile
+  id: ITorrentFile
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.ITorrentFile.EndPieceIndex
+  - MonoTorrent.ITorrentFile.Length
+  - MonoTorrent.ITorrentFile.OffsetInTorrent
+  - MonoTorrent.ITorrentFile.Padding
+  - MonoTorrent.ITorrentFile.Path
+  - MonoTorrent.ITorrentFile.PieceCount
+  - MonoTorrent.ITorrentFile.PiecesRoot
+  - MonoTorrent.ITorrentFile.StartPieceIndex
+  langs:
+  - csharp
+  - vb
+  name: ITorrentFile
+  nameWithType: ITorrentFile
+  fullName: MonoTorrent.ITorrentFile
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFile.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ITorrentFile
+    path: src/ITorrentFile.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public interface ITorrentFile
+    content.vb: Public Interface ITorrentFile
+- uid: MonoTorrent.ITorrentFile.Path
+  commentId: P:MonoTorrent.ITorrentFile.Path
+  id: Path
+  parent: MonoTorrent.ITorrentFile
+  langs:
+  - csharp
+  - vb
+  name: Path
+  nameWithType: ITorrentFile.Path
+  fullName: MonoTorrent.ITorrentFile.Path
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFile.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Path
+    path: src/ITorrentFile.cs
+    startLine: 38
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The relative path to the file within the torrent.
+  example: []
+  syntax:
+    content: TorrentPath Path { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.TorrentPath
+    content.vb: ReadOnly Property Path As TorrentPath
+  overload: MonoTorrent.ITorrentFile.Path*
+- uid: MonoTorrent.ITorrentFile.StartPieceIndex
+  commentId: P:MonoTorrent.ITorrentFile.StartPieceIndex
+  id: StartPieceIndex
+  parent: MonoTorrent.ITorrentFile
+  langs:
+  - csharp
+  - vb
+  name: StartPieceIndex
+  nameWithType: ITorrentFile.StartPieceIndex
+  fullName: MonoTorrent.ITorrentFile.StartPieceIndex
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFile.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StartPieceIndex
+    path: src/ITorrentFile.cs
+    startLine: 43
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The first piece which contains data for this file
+  example: []
+  syntax:
+    content: int StartPieceIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property StartPieceIndex As Integer
+  overload: MonoTorrent.ITorrentFile.StartPieceIndex*
+- uid: MonoTorrent.ITorrentFile.EndPieceIndex
+  commentId: P:MonoTorrent.ITorrentFile.EndPieceIndex
+  id: EndPieceIndex
+  parent: MonoTorrent.ITorrentFile
+  langs:
+  - csharp
+  - vb
+  name: EndPieceIndex
+  nameWithType: ITorrentFile.EndPieceIndex
+  fullName: MonoTorrent.ITorrentFile.EndPieceIndex
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFile.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: EndPieceIndex
+    path: src/ITorrentFile.cs
+    startLine: 48
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The last piece which contains data for this file.
+  example: []
+  syntax:
+    content: int EndPieceIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property EndPieceIndex As Integer
+  overload: MonoTorrent.ITorrentFile.EndPieceIndex*
+- uid: MonoTorrent.ITorrentFile.PieceCount
+  commentId: P:MonoTorrent.ITorrentFile.PieceCount
+  id: PieceCount
+  parent: MonoTorrent.ITorrentFile
+  langs:
+  - csharp
+  - vb
+  name: PieceCount
+  nameWithType: ITorrentFile.PieceCount
+  fullName: MonoTorrent.ITorrentFile.PieceCount
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFile.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PieceCount
+    path: src/ITorrentFile.cs
+    startLine: 53
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Returns the number of pieces for this file. This is the same as `<xref href="MonoTorrent.ITorrentFile.EndPieceIndex" data-throw-if-not-resolved="false"></xref> - <xref href="MonoTorrent.ITorrentFile.StartPieceIndex" data-throw-if-not-resolved="false"></xref> + 1`.
+  example: []
+  syntax:
+    content: int PieceCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property PieceCount As Integer
+  overload: MonoTorrent.ITorrentFile.PieceCount*
+- uid: MonoTorrent.ITorrentFile.Length
+  commentId: P:MonoTorrent.ITorrentFile.Length
+  id: Length
+  parent: MonoTorrent.ITorrentFile
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: ITorrentFile.Length
+  fullName: MonoTorrent.ITorrentFile.Length
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFile.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Length
+    path: src/ITorrentFile.cs
+    startLine: 58
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The size of this file in bytes.
+  example: []
+  syntax:
+    content: long Length { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: ReadOnly Property Length As Long
+  overload: MonoTorrent.ITorrentFile.Length*
+- uid: MonoTorrent.ITorrentFile.Padding
+  commentId: P:MonoTorrent.ITorrentFile.Padding
+  id: Padding
+  parent: MonoTorrent.ITorrentFile
+  langs:
+  - csharp
+  - vb
+  name: Padding
+  nameWithType: ITorrentFile.Padding
+  fullName: MonoTorrent.ITorrentFile.Padding
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFile.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Padding
+    path: src/ITorrentFile.cs
+    startLine: 63
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: bep-0047 padding.
+  example: []
+  syntax:
+    content: long Padding { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: ReadOnly Property Padding As Long
+  overload: MonoTorrent.ITorrentFile.Padding*
+- uid: MonoTorrent.ITorrentFile.OffsetInTorrent
+  commentId: P:MonoTorrent.ITorrentFile.OffsetInTorrent
+  id: OffsetInTorrent
+  parent: MonoTorrent.ITorrentFile
+  langs:
+  - csharp
+  - vb
+  name: OffsetInTorrent
+  nameWithType: ITorrentFile.OffsetInTorrent
+  fullName: MonoTorrent.ITorrentFile.OffsetInTorrent
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFile.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: OffsetInTorrent
+    path: src/ITorrentFile.cs
+    startLine: 68
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The offset, relative to the first byte in the torrent, where this file begins.
+  example: []
+  syntax:
+    content: long OffsetInTorrent { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: ReadOnly Property OffsetInTorrent As Long
+  overload: MonoTorrent.ITorrentFile.OffsetInTorrent*
+- uid: MonoTorrent.ITorrentFile.PiecesRoot
+  commentId: P:MonoTorrent.ITorrentFile.PiecesRoot
+  id: PiecesRoot
+  parent: MonoTorrent.ITorrentFile
+  langs:
+  - csharp
+  - vb
+  name: PiecesRoot
+  nameWithType: ITorrentFile.PiecesRoot
+  fullName: MonoTorrent.ITorrentFile.PiecesRoot
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFile.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PiecesRoot
+    path: src/ITorrentFile.cs
+    startLine: 73
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The root of the merkle tree constructed for this file. Generated using a SHA256 hash by BEP52 compliant torrents.
+  example: []
+  syntax:
+    content: MerkleRoot PiecesRoot { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.MerkleRoot
+    content.vb: ReadOnly Property PiecesRoot As MerkleRoot
+  overload: MonoTorrent.ITorrentFile.PiecesRoot*
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.ITorrentFile.Path*
+  commentId: Overload:MonoTorrent.ITorrentFile.Path
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_Path
+  name: Path
+  nameWithType: ITorrentFile.Path
+  fullName: MonoTorrent.ITorrentFile.Path
+- uid: MonoTorrent.TorrentPath
+  commentId: T:MonoTorrent.TorrentPath
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentPath.html
+  name: TorrentPath
+  nameWithType: TorrentPath
+  fullName: MonoTorrent.TorrentPath
+- uid: MonoTorrent.ITorrentFile.StartPieceIndex*
+  commentId: Overload:MonoTorrent.ITorrentFile.StartPieceIndex
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_StartPieceIndex
+  name: StartPieceIndex
+  nameWithType: ITorrentFile.StartPieceIndex
+  fullName: MonoTorrent.ITorrentFile.StartPieceIndex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.ITorrentFile.EndPieceIndex*
+  commentId: Overload:MonoTorrent.ITorrentFile.EndPieceIndex
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_EndPieceIndex
+  name: EndPieceIndex
+  nameWithType: ITorrentFile.EndPieceIndex
+  fullName: MonoTorrent.ITorrentFile.EndPieceIndex
+- uid: MonoTorrent.ITorrentFile.EndPieceIndex
+  commentId: P:MonoTorrent.ITorrentFile.EndPieceIndex
+  parent: MonoTorrent.ITorrentFile
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_EndPieceIndex
+  name: EndPieceIndex
+  nameWithType: ITorrentFile.EndPieceIndex
+  fullName: MonoTorrent.ITorrentFile.EndPieceIndex
+- uid: MonoTorrent.ITorrentFile.StartPieceIndex
+  commentId: P:MonoTorrent.ITorrentFile.StartPieceIndex
+  parent: MonoTorrent.ITorrentFile
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_StartPieceIndex
+  name: StartPieceIndex
+  nameWithType: ITorrentFile.StartPieceIndex
+  fullName: MonoTorrent.ITorrentFile.StartPieceIndex
+- uid: MonoTorrent.ITorrentFile.PieceCount*
+  commentId: Overload:MonoTorrent.ITorrentFile.PieceCount
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_PieceCount
+  name: PieceCount
+  nameWithType: ITorrentFile.PieceCount
+  fullName: MonoTorrent.ITorrentFile.PieceCount
+- uid: MonoTorrent.ITorrentFile
+  commentId: T:MonoTorrent.ITorrentFile
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentFile.html
+  name: ITorrentFile
+  nameWithType: ITorrentFile
+  fullName: MonoTorrent.ITorrentFile
+- uid: MonoTorrent.ITorrentFile.Length*
+  commentId: Overload:MonoTorrent.ITorrentFile.Length
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_Length
+  name: Length
+  nameWithType: ITorrentFile.Length
+  fullName: MonoTorrent.ITorrentFile.Length
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: MonoTorrent.ITorrentFile.Padding*
+  commentId: Overload:MonoTorrent.ITorrentFile.Padding
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_Padding
+  name: Padding
+  nameWithType: ITorrentFile.Padding
+  fullName: MonoTorrent.ITorrentFile.Padding
+- uid: MonoTorrent.ITorrentFile.OffsetInTorrent*
+  commentId: Overload:MonoTorrent.ITorrentFile.OffsetInTorrent
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_OffsetInTorrent
+  name: OffsetInTorrent
+  nameWithType: ITorrentFile.OffsetInTorrent
+  fullName: MonoTorrent.ITorrentFile.OffsetInTorrent
+- uid: MonoTorrent.ITorrentFile.PiecesRoot*
+  commentId: Overload:MonoTorrent.ITorrentFile.PiecesRoot
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_PiecesRoot
+  name: PiecesRoot
+  nameWithType: ITorrentFile.PiecesRoot
+  fullName: MonoTorrent.ITorrentFile.PiecesRoot
+- uid: MonoTorrent.MerkleRoot
+  commentId: T:MonoTorrent.MerkleRoot
+  parent: MonoTorrent
+  href: MonoTorrent.MerkleRoot.html
+  name: MerkleRoot
+  nameWithType: MerkleRoot
+  fullName: MonoTorrent.MerkleRoot

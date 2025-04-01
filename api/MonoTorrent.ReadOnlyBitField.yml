@@ -1,0 +1,1218 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.ReadOnlyBitField
+  commentId: T:MonoTorrent.ReadOnlyBitField
+  id: ReadOnlyBitField
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.ReadOnlyBitField.#ctor(MonoTorrent.ReadOnlyBitField)
+  - MonoTorrent.ReadOnlyBitField.#ctor(System.Boolean[])
+  - MonoTorrent.ReadOnlyBitField.#ctor(System.Int32)
+  - MonoTorrent.ReadOnlyBitField.#ctor(System.ReadOnlySpan{System.Byte},System.Int32)
+  - MonoTorrent.ReadOnlyBitField.AllFalse
+  - MonoTorrent.ReadOnlyBitField.AllTrue
+  - MonoTorrent.ReadOnlyBitField.CountTrue(MonoTorrent.ReadOnlyBitField)
+  - MonoTorrent.ReadOnlyBitField.FirstFalse
+  - MonoTorrent.ReadOnlyBitField.FirstFalse(System.Int32,System.Int32)
+  - MonoTorrent.ReadOnlyBitField.FirstTrue
+  - MonoTorrent.ReadOnlyBitField.FirstTrue(System.Int32,System.Int32)
+  - MonoTorrent.ReadOnlyBitField.Item(System.Int32)
+  - MonoTorrent.ReadOnlyBitField.Length
+  - MonoTorrent.ReadOnlyBitField.LengthInBytes
+  - MonoTorrent.ReadOnlyBitField.PercentComplete
+  - MonoTorrent.ReadOnlyBitField.SequenceEqual(MonoTorrent.ReadOnlyBitField)
+  - MonoTorrent.ReadOnlyBitField.ToBytes
+  - MonoTorrent.ReadOnlyBitField.ToBytes(System.Span{System.Byte})
+  - MonoTorrent.ReadOnlyBitField.TrueCount
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyBitField
+  nameWithType: ReadOnlyBitField
+  fullName: MonoTorrent.ReadOnlyBitField
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ReadOnlyBitField
+    path: src/ReadOnlyBitField.cs
+    startLine: 41
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public class ReadOnlyBitField
+    content.vb: Public Class ReadOnlyBitField
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.ReadOnlyBitField.AllFalse
+  commentId: P:MonoTorrent.ReadOnlyBitField.AllFalse
+  id: AllFalse
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: AllFalse
+  nameWithType: ReadOnlyBitField.AllFalse
+  fullName: MonoTorrent.ReadOnlyBitField.AllFalse
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AllFalse
+    path: src/ReadOnlyBitField.cs
+    startLine: 48
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public bool AllFalse { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property AllFalse As Boolean
+  overload: MonoTorrent.ReadOnlyBitField.AllFalse*
+- uid: MonoTorrent.ReadOnlyBitField.AllTrue
+  commentId: P:MonoTorrent.ReadOnlyBitField.AllTrue
+  id: AllTrue
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: AllTrue
+  nameWithType: ReadOnlyBitField.AllTrue
+  fullName: MonoTorrent.ReadOnlyBitField.AllTrue
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AllTrue
+    path: src/ReadOnlyBitField.cs
+    startLine: 50
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public bool AllTrue { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property AllTrue As Boolean
+  overload: MonoTorrent.ReadOnlyBitField.AllTrue*
+- uid: MonoTorrent.ReadOnlyBitField.Length
+  commentId: P:MonoTorrent.ReadOnlyBitField.Length
+  id: Length
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: ReadOnlyBitField.Length
+  fullName: MonoTorrent.ReadOnlyBitField.Length
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Length
+    path: src/ReadOnlyBitField.cs
+    startLine: 52
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public int Length { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Length As Integer
+  overload: MonoTorrent.ReadOnlyBitField.Length*
+- uid: MonoTorrent.ReadOnlyBitField.LengthInBytes
+  commentId: P:MonoTorrent.ReadOnlyBitField.LengthInBytes
+  id: LengthInBytes
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: LengthInBytes
+  nameWithType: ReadOnlyBitField.LengthInBytes
+  fullName: MonoTorrent.ReadOnlyBitField.LengthInBytes
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LengthInBytes
+    path: src/ReadOnlyBitField.cs
+    startLine: 54
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public int LengthInBytes { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property LengthInBytes As Integer
+  overload: MonoTorrent.ReadOnlyBitField.LengthInBytes*
+- uid: MonoTorrent.ReadOnlyBitField.PercentComplete
+  commentId: P:MonoTorrent.ReadOnlyBitField.PercentComplete
+  id: PercentComplete
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: PercentComplete
+  nameWithType: ReadOnlyBitField.PercentComplete
+  fullName: MonoTorrent.ReadOnlyBitField.PercentComplete
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PercentComplete
+    path: src/ReadOnlyBitField.cs
+    startLine: 56
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public double PercentComplete { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property PercentComplete As Double
+  overload: MonoTorrent.ReadOnlyBitField.PercentComplete*
+- uid: MonoTorrent.ReadOnlyBitField.TrueCount
+  commentId: P:MonoTorrent.ReadOnlyBitField.TrueCount
+  id: TrueCount
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: TrueCount
+  nameWithType: ReadOnlyBitField.TrueCount
+  fullName: MonoTorrent.ReadOnlyBitField.TrueCount
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TrueCount
+    path: src/ReadOnlyBitField.cs
+    startLine: 60
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public int TrueCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property TrueCount As Integer
+  overload: MonoTorrent.ReadOnlyBitField.TrueCount*
+- uid: MonoTorrent.ReadOnlyBitField.Item(System.Int32)
+  commentId: P:MonoTorrent.ReadOnlyBitField.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: this[int]
+  nameWithType: ReadOnlyBitField.this[int]
+  fullName: MonoTorrent.ReadOnlyBitField.this[int]
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: this[]
+    path: src/ReadOnlyBitField.cs
+    startLine: 62
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public bool this[int index] { get; }
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Default Property this[](index As Integer) As Boolean
+  overload: MonoTorrent.ReadOnlyBitField.Item*
+  nameWithType.vb: ReadOnlyBitField.this[](Integer)
+  fullName.vb: MonoTorrent.ReadOnlyBitField.this[](Integer)
+  name.vb: this[](Integer)
+- uid: MonoTorrent.ReadOnlyBitField.#ctor(MonoTorrent.ReadOnlyBitField)
+  commentId: M:MonoTorrent.ReadOnlyBitField.#ctor(MonoTorrent.ReadOnlyBitField)
+  id: '#ctor(MonoTorrent.ReadOnlyBitField)'
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyBitField(ReadOnlyBitField)
+  nameWithType: ReadOnlyBitField.ReadOnlyBitField(ReadOnlyBitField)
+  fullName: MonoTorrent.ReadOnlyBitField.ReadOnlyBitField(MonoTorrent.ReadOnlyBitField)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/ReadOnlyBitField.cs
+    startLine: 66
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public ReadOnlyBitField(ReadOnlyBitField other)
+    parameters:
+    - id: other
+      type: MonoTorrent.ReadOnlyBitField
+    content.vb: Public Sub New(other As ReadOnlyBitField)
+  overload: MonoTorrent.ReadOnlyBitField.#ctor*
+  nameWithType.vb: ReadOnlyBitField.New(ReadOnlyBitField)
+  fullName.vb: MonoTorrent.ReadOnlyBitField.New(MonoTorrent.ReadOnlyBitField)
+  name.vb: New(ReadOnlyBitField)
+- uid: MonoTorrent.ReadOnlyBitField.#ctor(System.ReadOnlySpan{System.Byte},System.Int32)
+  commentId: M:MonoTorrent.ReadOnlyBitField.#ctor(System.ReadOnlySpan{System.Byte},System.Int32)
+  id: '#ctor(System.ReadOnlySpan{System.Byte},System.Int32)'
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyBitField(ReadOnlySpan<byte>, int)
+  nameWithType: ReadOnlyBitField.ReadOnlyBitField(ReadOnlySpan<byte>, int)
+  fullName: MonoTorrent.ReadOnlyBitField.ReadOnlyBitField(System.ReadOnlySpan<byte>, int)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/ReadOnlyBitField.cs
+    startLine: 69
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public ReadOnlyBitField(ReadOnlySpan<byte> array, int length)
+    parameters:
+    - id: array
+      type: System.ReadOnlySpan{System.Byte}
+    - id: length
+      type: System.Int32
+    content.vb: Public Sub New(array As ReadOnlySpan(Of Byte), length As Integer)
+  overload: MonoTorrent.ReadOnlyBitField.#ctor*
+  nameWithType.vb: ReadOnlyBitField.New(ReadOnlySpan(Of Byte), Integer)
+  fullName.vb: MonoTorrent.ReadOnlyBitField.New(System.ReadOnlySpan(Of Byte), Integer)
+  name.vb: New(ReadOnlySpan(Of Byte), Integer)
+- uid: MonoTorrent.ReadOnlyBitField.#ctor(System.Int32)
+  commentId: M:MonoTorrent.ReadOnlyBitField.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyBitField(int)
+  nameWithType: ReadOnlyBitField.ReadOnlyBitField(int)
+  fullName: MonoTorrent.ReadOnlyBitField.ReadOnlyBitField(int)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/ReadOnlyBitField.cs
+    startLine: 72
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public ReadOnlyBitField(int length)
+    parameters:
+    - id: length
+      type: System.Int32
+    content.vb: Public Sub New(length As Integer)
+  overload: MonoTorrent.ReadOnlyBitField.#ctor*
+  nameWithType.vb: ReadOnlyBitField.New(Integer)
+  fullName.vb: MonoTorrent.ReadOnlyBitField.New(Integer)
+  name.vb: New(Integer)
+- uid: MonoTorrent.ReadOnlyBitField.#ctor(System.Boolean[])
+  commentId: M:MonoTorrent.ReadOnlyBitField.#ctor(System.Boolean[])
+  id: '#ctor(System.Boolean[])'
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyBitField(bool[])
+  nameWithType: ReadOnlyBitField.ReadOnlyBitField(bool[])
+  fullName: MonoTorrent.ReadOnlyBitField.ReadOnlyBitField(bool[])
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/ReadOnlyBitField.cs
+    startLine: 75
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public ReadOnlyBitField(bool[] array)
+    parameters:
+    - id: array
+      type: System.Boolean[]
+    content.vb: Public Sub New(array As Boolean())
+  overload: MonoTorrent.ReadOnlyBitField.#ctor*
+  nameWithType.vb: ReadOnlyBitField.New(Boolean())
+  fullName.vb: MonoTorrent.ReadOnlyBitField.New(Boolean())
+  name.vb: New(Boolean())
+- uid: MonoTorrent.ReadOnlyBitField.SequenceEqual(MonoTorrent.ReadOnlyBitField)
+  commentId: M:MonoTorrent.ReadOnlyBitField.SequenceEqual(MonoTorrent.ReadOnlyBitField)
+  id: SequenceEqual(MonoTorrent.ReadOnlyBitField)
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: SequenceEqual(ReadOnlyBitField?)
+  nameWithType: ReadOnlyBitField.SequenceEqual(ReadOnlyBitField?)
+  fullName: MonoTorrent.ReadOnlyBitField.SequenceEqual(MonoTorrent.ReadOnlyBitField?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SequenceEqual
+    path: src/ReadOnlyBitField.cs
+    startLine: 81
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public bool SequenceEqual(ReadOnlyBitField? other)
+    parameters:
+    - id: other
+      type: MonoTorrent.ReadOnlyBitField
+    return:
+      type: System.Boolean
+    content.vb: Public Function SequenceEqual(other As ReadOnlyBitField) As Boolean
+  overload: MonoTorrent.ReadOnlyBitField.SequenceEqual*
+  nameWithType.vb: ReadOnlyBitField.SequenceEqual(ReadOnlyBitField)
+  fullName.vb: MonoTorrent.ReadOnlyBitField.SequenceEqual(MonoTorrent.ReadOnlyBitField)
+  name.vb: SequenceEqual(ReadOnlyBitField)
+- uid: MonoTorrent.ReadOnlyBitField.CountTrue(MonoTorrent.ReadOnlyBitField)
+  commentId: M:MonoTorrent.ReadOnlyBitField.CountTrue(MonoTorrent.ReadOnlyBitField)
+  id: CountTrue(MonoTorrent.ReadOnlyBitField)
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: CountTrue(ReadOnlyBitField)
+  nameWithType: ReadOnlyBitField.CountTrue(ReadOnlyBitField)
+  fullName: MonoTorrent.ReadOnlyBitField.CountTrue(MonoTorrent.ReadOnlyBitField)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CountTrue
+    path: src/ReadOnlyBitField.cs
+    startLine: 84
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public int CountTrue(ReadOnlyBitField selector)
+    parameters:
+    - id: selector
+      type: MonoTorrent.ReadOnlyBitField
+    return:
+      type: System.Int32
+    content.vb: Public Function CountTrue(selector As ReadOnlyBitField) As Integer
+  overload: MonoTorrent.ReadOnlyBitField.CountTrue*
+- uid: MonoTorrent.ReadOnlyBitField.FirstFalse
+  commentId: M:MonoTorrent.ReadOnlyBitField.FirstFalse
+  id: FirstFalse
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: FirstFalse()
+  nameWithType: ReadOnlyBitField.FirstFalse()
+  fullName: MonoTorrent.ReadOnlyBitField.FirstFalse()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FirstFalse
+    path: src/ReadOnlyBitField.cs
+    startLine: 92
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: >-
+    Returns the index of the first <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> bit in the bitfield.
+
+    Returns -1 if no <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> bit is found. /&gt;
+  example: []
+  syntax:
+    content: public int FirstFalse()
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Function FirstFalse() As Integer
+  overload: MonoTorrent.ReadOnlyBitField.FirstFalse*
+- uid: MonoTorrent.ReadOnlyBitField.FirstFalse(System.Int32,System.Int32)
+  commentId: M:MonoTorrent.ReadOnlyBitField.FirstFalse(System.Int32,System.Int32)
+  id: FirstFalse(System.Int32,System.Int32)
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: FirstFalse(int, int)
+  nameWithType: ReadOnlyBitField.FirstFalse(int, int)
+  fullName: MonoTorrent.ReadOnlyBitField.FirstFalse(int, int)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FirstFalse
+    path: src/ReadOnlyBitField.cs
+    startLine: 102
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: >-
+    Returns the index of the first <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> bit between <code class="paramref">startIndex</code> and <code class="paramref">endIndex</code> (inclusive).
+
+    Returns -1 if no <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> bit is found. /&gt;
+  example: []
+  syntax:
+    content: public int FirstFalse(int startIndex, int endIndex)
+    parameters:
+    - id: startIndex
+      type: System.Int32
+      description: The first index to check
+    - id: endIndex
+      type: System.Int32
+      description: The last index to check
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Function FirstFalse(startIndex As Integer, endIndex As Integer) As Integer
+  overload: MonoTorrent.ReadOnlyBitField.FirstFalse*
+  nameWithType.vb: ReadOnlyBitField.FirstFalse(Integer, Integer)
+  fullName.vb: MonoTorrent.ReadOnlyBitField.FirstFalse(Integer, Integer)
+  name.vb: FirstFalse(Integer, Integer)
+- uid: MonoTorrent.ReadOnlyBitField.FirstTrue
+  commentId: M:MonoTorrent.ReadOnlyBitField.FirstTrue
+  id: FirstTrue
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: FirstTrue()
+  nameWithType: ReadOnlyBitField.FirstTrue()
+  fullName: MonoTorrent.ReadOnlyBitField.FirstTrue()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FirstTrue
+    path: src/ReadOnlyBitField.cs
+    startLine: 110
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: >-
+    Returns the index of the first <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> bit in the bitfield.
+
+    Returns -1 if no <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> bit is found. /&gt;
+  example: []
+  syntax:
+    content: public int FirstTrue()
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Function FirstTrue() As Integer
+  overload: MonoTorrent.ReadOnlyBitField.FirstTrue*
+- uid: MonoTorrent.ReadOnlyBitField.FirstTrue(System.Int32,System.Int32)
+  commentId: M:MonoTorrent.ReadOnlyBitField.FirstTrue(System.Int32,System.Int32)
+  id: FirstTrue(System.Int32,System.Int32)
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: FirstTrue(int, int)
+  nameWithType: ReadOnlyBitField.FirstTrue(int, int)
+  fullName: MonoTorrent.ReadOnlyBitField.FirstTrue(int, int)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FirstTrue
+    path: src/ReadOnlyBitField.cs
+    startLine: 120
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: >-
+    Returns the index of the first <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> bit between <code class="paramref">startIndex</code> and <code class="paramref">endIndex</code> (inclusive).
+
+    Returns -1 if no <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> bit is found. /&gt;
+  example: []
+  syntax:
+    content: public int FirstTrue(int startIndex, int endIndex)
+    parameters:
+    - id: startIndex
+      type: System.Int32
+      description: The first index to check
+    - id: endIndex
+      type: System.Int32
+      description: The last index to check
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Function FirstTrue(startIndex As Integer, endIndex As Integer) As Integer
+  overload: MonoTorrent.ReadOnlyBitField.FirstTrue*
+  nameWithType.vb: ReadOnlyBitField.FirstTrue(Integer, Integer)
+  fullName.vb: MonoTorrent.ReadOnlyBitField.FirstTrue(Integer, Integer)
+  name.vb: FirstTrue(Integer, Integer)
+- uid: MonoTorrent.ReadOnlyBitField.ToBytes
+  commentId: M:MonoTorrent.ReadOnlyBitField.ToBytes
+  id: ToBytes
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: ToBytes()
+  nameWithType: ReadOnlyBitField.ToBytes()
+  fullName: MonoTorrent.ReadOnlyBitField.ToBytes()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToBytes
+    path: src/ReadOnlyBitField.cs
+    startLine: 123
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public byte[] ToBytes()
+    return:
+      type: System.Byte[]
+    content.vb: Public Function ToBytes() As Byte()
+  overload: MonoTorrent.ReadOnlyBitField.ToBytes*
+- uid: MonoTorrent.ReadOnlyBitField.ToBytes(System.Span{System.Byte})
+  commentId: M:MonoTorrent.ReadOnlyBitField.ToBytes(System.Span{System.Byte})
+  id: ToBytes(System.Span{System.Byte})
+  parent: MonoTorrent.ReadOnlyBitField
+  langs:
+  - csharp
+  - vb
+  name: ToBytes(Span<byte>)
+  nameWithType: ReadOnlyBitField.ToBytes(Span<byte>)
+  fullName: MonoTorrent.ReadOnlyBitField.ToBytes(System.Span<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyBitField.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToBytes
+    path: src/ReadOnlyBitField.cs
+    startLine: 126
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public int ToBytes(Span<byte> buffer)
+    parameters:
+    - id: buffer
+      type: System.Span{System.Byte}
+    return:
+      type: System.Int32
+    content.vb: Public Function ToBytes(buffer As Span(Of Byte)) As Integer
+  overload: MonoTorrent.ReadOnlyBitField.ToBytes*
+  nameWithType.vb: ReadOnlyBitField.ToBytes(Span(Of Byte))
+  fullName.vb: MonoTorrent.ReadOnlyBitField.ToBytes(System.Span(Of Byte))
+  name.vb: ToBytes(Span(Of Byte))
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.ReadOnlyBitField.AllFalse*
+  commentId: Overload:MonoTorrent.ReadOnlyBitField.AllFalse
+  href: MonoTorrent.ReadOnlyBitField.html#MonoTorrent_ReadOnlyBitField_AllFalse
+  name: AllFalse
+  nameWithType: ReadOnlyBitField.AllFalse
+  fullName: MonoTorrent.ReadOnlyBitField.AllFalse
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.ReadOnlyBitField.AllTrue*
+  commentId: Overload:MonoTorrent.ReadOnlyBitField.AllTrue
+  href: MonoTorrent.ReadOnlyBitField.html#MonoTorrent_ReadOnlyBitField_AllTrue
+  name: AllTrue
+  nameWithType: ReadOnlyBitField.AllTrue
+  fullName: MonoTorrent.ReadOnlyBitField.AllTrue
+- uid: MonoTorrent.ReadOnlyBitField.Length*
+  commentId: Overload:MonoTorrent.ReadOnlyBitField.Length
+  href: MonoTorrent.ReadOnlyBitField.html#MonoTorrent_ReadOnlyBitField_Length
+  name: Length
+  nameWithType: ReadOnlyBitField.Length
+  fullName: MonoTorrent.ReadOnlyBitField.Length
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.ReadOnlyBitField.LengthInBytes*
+  commentId: Overload:MonoTorrent.ReadOnlyBitField.LengthInBytes
+  href: MonoTorrent.ReadOnlyBitField.html#MonoTorrent_ReadOnlyBitField_LengthInBytes
+  name: LengthInBytes
+  nameWithType: ReadOnlyBitField.LengthInBytes
+  fullName: MonoTorrent.ReadOnlyBitField.LengthInBytes
+- uid: MonoTorrent.ReadOnlyBitField.PercentComplete*
+  commentId: Overload:MonoTorrent.ReadOnlyBitField.PercentComplete
+  href: MonoTorrent.ReadOnlyBitField.html#MonoTorrent_ReadOnlyBitField_PercentComplete
+  name: PercentComplete
+  nameWithType: ReadOnlyBitField.PercentComplete
+  fullName: MonoTorrent.ReadOnlyBitField.PercentComplete
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: MonoTorrent.ReadOnlyBitField.TrueCount*
+  commentId: Overload:MonoTorrent.ReadOnlyBitField.TrueCount
+  href: MonoTorrent.ReadOnlyBitField.html#MonoTorrent_ReadOnlyBitField_TrueCount
+  name: TrueCount
+  nameWithType: ReadOnlyBitField.TrueCount
+  fullName: MonoTorrent.ReadOnlyBitField.TrueCount
+- uid: MonoTorrent.ReadOnlyBitField.Item*
+  commentId: Overload:MonoTorrent.ReadOnlyBitField.Item
+  href: MonoTorrent.ReadOnlyBitField.html#MonoTorrent_ReadOnlyBitField_Item_System_Int32_
+  name: this
+  nameWithType: ReadOnlyBitField.this
+  fullName: MonoTorrent.ReadOnlyBitField.this
+  nameWithType.vb: ReadOnlyBitField.this[]
+  fullName.vb: MonoTorrent.ReadOnlyBitField.this[]
+  name.vb: this[]
+- uid: MonoTorrent.ReadOnlyBitField.#ctor*
+  commentId: Overload:MonoTorrent.ReadOnlyBitField.#ctor
+  href: MonoTorrent.ReadOnlyBitField.html#MonoTorrent_ReadOnlyBitField__ctor_MonoTorrent_ReadOnlyBitField_
+  name: ReadOnlyBitField
+  nameWithType: ReadOnlyBitField.ReadOnlyBitField
+  fullName: MonoTorrent.ReadOnlyBitField.ReadOnlyBitField
+  nameWithType.vb: ReadOnlyBitField.New
+  fullName.vb: MonoTorrent.ReadOnlyBitField.New
+  name.vb: New
+- uid: MonoTorrent.ReadOnlyBitField
+  commentId: T:MonoTorrent.ReadOnlyBitField
+  parent: MonoTorrent
+  href: MonoTorrent.ReadOnlyBitField.html
+  name: ReadOnlyBitField
+  nameWithType: ReadOnlyBitField
+  fullName: MonoTorrent.ReadOnlyBitField
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Boolean[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool[]
+  nameWithType: bool[]
+  fullName: bool[]
+  nameWithType.vb: Boolean()
+  fullName.vb: Boolean()
+  name.vb: Boolean()
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: (
+  - name: )
+- uid: MonoTorrent.ReadOnlyBitField.SequenceEqual*
+  commentId: Overload:MonoTorrent.ReadOnlyBitField.SequenceEqual
+  href: MonoTorrent.ReadOnlyBitField.html#MonoTorrent_ReadOnlyBitField_SequenceEqual_MonoTorrent_ReadOnlyBitField_
+  name: SequenceEqual
+  nameWithType: ReadOnlyBitField.SequenceEqual
+  fullName: MonoTorrent.ReadOnlyBitField.SequenceEqual
+- uid: MonoTorrent.ReadOnlyBitField.CountTrue*
+  commentId: Overload:MonoTorrent.ReadOnlyBitField.CountTrue
+  href: MonoTorrent.ReadOnlyBitField.html#MonoTorrent_ReadOnlyBitField_CountTrue_MonoTorrent_ReadOnlyBitField_
+  name: CountTrue
+  nameWithType: ReadOnlyBitField.CountTrue
+  fullName: MonoTorrent.ReadOnlyBitField.CountTrue
+- uid: MonoTorrent.ReadOnlyBitField.FirstFalse*
+  commentId: Overload:MonoTorrent.ReadOnlyBitField.FirstFalse
+  href: MonoTorrent.ReadOnlyBitField.html#MonoTorrent_ReadOnlyBitField_FirstFalse
+  name: FirstFalse
+  nameWithType: ReadOnlyBitField.FirstFalse
+  fullName: MonoTorrent.ReadOnlyBitField.FirstFalse
+- uid: MonoTorrent.ReadOnlyBitField.FirstTrue*
+  commentId: Overload:MonoTorrent.ReadOnlyBitField.FirstTrue
+  href: MonoTorrent.ReadOnlyBitField.html#MonoTorrent_ReadOnlyBitField_FirstTrue
+  name: FirstTrue
+  nameWithType: ReadOnlyBitField.FirstTrue
+  fullName: MonoTorrent.ReadOnlyBitField.FirstTrue
+- uid: MonoTorrent.ReadOnlyBitField.ToBytes*
+  commentId: Overload:MonoTorrent.ReadOnlyBitField.ToBytes
+  href: MonoTorrent.ReadOnlyBitField.html#MonoTorrent_ReadOnlyBitField_ToBytes
+  name: ToBytes
+  nameWithType: ReadOnlyBitField.ToBytes
+  fullName: MonoTorrent.ReadOnlyBitField.ToBytes
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.Span{System.Byte}
+  commentId: T:System.Span{System.Byte}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<byte>
+  nameWithType: Span<byte>
+  fullName: System.Span<byte>
+  nameWithType.vb: Span(Of Byte)
+  fullName.vb: System.Span(Of Byte)
+  name.vb: Span(Of Byte)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

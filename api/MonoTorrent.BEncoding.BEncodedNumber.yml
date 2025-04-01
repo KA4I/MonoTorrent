@@ -1,0 +1,1564 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.BEncoding.BEncodedNumber
+  commentId: T:MonoTorrent.BEncoding.BEncodedNumber
+  id: BEncodedNumber
+  parent: MonoTorrent.BEncoding
+  children:
+  - MonoTorrent.BEncoding.BEncodedNumber.#ctor
+  - MonoTorrent.BEncoding.BEncodedNumber.#ctor(System.Int64)
+  - MonoTorrent.BEncoding.BEncodedNumber.CompareTo(MonoTorrent.BEncoding.BEncodedNumber)
+  - MonoTorrent.BEncoding.BEncodedNumber.CompareTo(System.Int64)
+  - MonoTorrent.BEncoding.BEncodedNumber.CompareTo(System.Object)
+  - MonoTorrent.BEncoding.BEncodedNumber.Encode(System.Span{System.Byte})
+  - MonoTorrent.BEncoding.BEncodedNumber.Equals(System.Object)
+  - MonoTorrent.BEncoding.BEncodedNumber.GetHashCode
+  - MonoTorrent.BEncoding.BEncodedNumber.LengthInBytes
+  - MonoTorrent.BEncoding.BEncodedNumber.Number
+  - MonoTorrent.BEncoding.BEncodedNumber.ToString
+  - MonoTorrent.BEncoding.BEncodedNumber.op_Implicit(System.Int64)~MonoTorrent.BEncoding.BEncodedNumber
+  langs:
+  - csharp
+  - vb
+  name: BEncodedNumber
+  nameWithType: BEncodedNumber
+  fullName: MonoTorrent.BEncoding.BEncodedNumber
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedNumber.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BEncodedNumber
+    path: src/BEncoding/BEncodedNumber.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Class representing a BEncoded number
+  example: []
+  syntax:
+    content: 'public class BEncodedNumber : BEncodedValue, IComparable<BEncodedNumber>'
+    content.vb: Public Class BEncodedNumber Inherits BEncodedValue Implements IComparable(Of BEncodedNumber)
+  inheritance:
+  - System.Object
+  - MonoTorrent.BEncoding.BEncodedValue
+  implements:
+  - System.IComparable{MonoTorrent.BEncoding.BEncodedNumber}
+  inheritedMembers:
+  - MonoTorrent.BEncoding.BEncodedValue.Encode
+  - MonoTorrent.BEncoding.BEncodedValue.Clone``1({T})
+  - MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte})
+  - MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte},System.Boolean)
+  - MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream)
+  - MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream,System.Boolean)
+  - MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte})
+  - MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte},System.Boolean)
+  - MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream)
+  - MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream,System.Boolean)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: MonoTorrent.BEncoding.BEncodedNumber.Number
+  commentId: P:MonoTorrent.BEncoding.BEncodedNumber.Number
+  id: Number
+  parent: MonoTorrent.BEncoding.BEncodedNumber
+  langs:
+  - csharp
+  - vb
+  name: Number
+  nameWithType: BEncodedNumber.Number
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.Number
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedNumber.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Number
+    path: src/BEncoding/BEncodedNumber.cs
+    startLine: 42
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: The value of the BEncodedNumber
+  example: []
+  syntax:
+    content: public long Number { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property Number As Long
+  overload: MonoTorrent.BEncoding.BEncodedNumber.Number*
+- uid: MonoTorrent.BEncoding.BEncodedNumber.#ctor
+  commentId: M:MonoTorrent.BEncoding.BEncodedNumber.#ctor
+  id: '#ctor'
+  parent: MonoTorrent.BEncoding.BEncodedNumber
+  langs:
+  - csharp
+  - vb
+  name: BEncodedNumber()
+  nameWithType: BEncodedNumber.BEncodedNumber()
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.BEncodedNumber()
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedNumber.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/BEncoding/BEncodedNumber.cs
+    startLine: 44
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  syntax:
+    content: public BEncodedNumber()
+    content.vb: Public Sub New()
+  overload: MonoTorrent.BEncoding.BEncodedNumber.#ctor*
+  nameWithType.vb: BEncodedNumber.New()
+  fullName.vb: MonoTorrent.BEncoding.BEncodedNumber.New()
+  name.vb: New()
+- uid: MonoTorrent.BEncoding.BEncodedNumber.#ctor(System.Int64)
+  commentId: M:MonoTorrent.BEncoding.BEncodedNumber.#ctor(System.Int64)
+  id: '#ctor(System.Int64)'
+  parent: MonoTorrent.BEncoding.BEncodedNumber
+  langs:
+  - csharp
+  - vb
+  name: BEncodedNumber(long)
+  nameWithType: BEncodedNumber.BEncodedNumber(long)
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.BEncodedNumber(long)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedNumber.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/BEncoding/BEncodedNumber.cs
+    startLine: 53
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Create a new BEncoded number with the given value
+  example: []
+  syntax:
+    content: public BEncodedNumber(long value)
+    parameters:
+    - id: value
+      type: System.Int64
+      description: The value of the BEncodedNumber
+    content.vb: Public Sub New(value As Long)
+  overload: MonoTorrent.BEncoding.BEncodedNumber.#ctor*
+  nameWithType.vb: BEncodedNumber.New(Long)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedNumber.New(Long)
+  name.vb: New(Long)
+- uid: MonoTorrent.BEncoding.BEncodedNumber.op_Implicit(System.Int64)~MonoTorrent.BEncoding.BEncodedNumber
+  commentId: M:MonoTorrent.BEncoding.BEncodedNumber.op_Implicit(System.Int64)~MonoTorrent.BEncoding.BEncodedNumber
+  id: op_Implicit(System.Int64)~MonoTorrent.BEncoding.BEncodedNumber
+  parent: MonoTorrent.BEncoding.BEncodedNumber
+  langs:
+  - csharp
+  - vb
+  name: implicit operator BEncodedNumber(long)
+  nameWithType: BEncodedNumber.implicit operator BEncodedNumber(long)
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.implicit operator MonoTorrent.BEncoding.BEncodedNumber(long)
+  type: Operator
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedNumber.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: op_Implicit
+    path: src/BEncoding/BEncodedNumber.cs
+    startLine: 58
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  syntax:
+    content: public static implicit operator BEncodedNumber(long value)
+    parameters:
+    - id: value
+      type: System.Int64
+    return:
+      type: MonoTorrent.BEncoding.BEncodedNumber
+    content.vb: Public Shared Widening Operator CType(value As Long) As BEncodedNumber
+  overload: MonoTorrent.BEncoding.BEncodedNumber.op_Implicit*
+  nameWithType.vb: BEncodedNumber.CType(Long)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedNumber.CType(Long)
+  name.vb: CType(Long)
+- uid: MonoTorrent.BEncoding.BEncodedNumber.Encode(System.Span{System.Byte})
+  commentId: M:MonoTorrent.BEncoding.BEncodedNumber.Encode(System.Span{System.Byte})
+  id: Encode(System.Span{System.Byte})
+  parent: MonoTorrent.BEncoding.BEncodedNumber
+  langs:
+  - csharp
+  - vb
+  name: Encode(Span<byte>)
+  nameWithType: BEncodedNumber.Encode(Span<byte>)
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.Encode(System.Span<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedNumber.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Encode
+    path: src/BEncoding/BEncodedNumber.cs
+    startLine: 66
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Encodes this number to the supplied byte[] starting at the supplied offset
+  example: []
+  syntax:
+    content: public override int Encode(Span<byte> buffer)
+    parameters:
+    - id: buffer
+      type: System.Span{System.Byte}
+      description: The buffer to write the data to
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Overrides Function Encode(buffer As Span(Of Byte)) As Integer
+  overridden: MonoTorrent.BEncoding.BEncodedValue.Encode(System.Span{System.Byte})
+  overload: MonoTorrent.BEncoding.BEncodedNumber.Encode*
+  nameWithType.vb: BEncodedNumber.Encode(Span(Of Byte))
+  fullName.vb: MonoTorrent.BEncoding.BEncodedNumber.Encode(System.Span(Of Byte))
+  name.vb: Encode(Span(Of Byte))
+- uid: MonoTorrent.BEncoding.BEncodedNumber.LengthInBytes
+  commentId: M:MonoTorrent.BEncoding.BEncodedNumber.LengthInBytes
+  id: LengthInBytes
+  parent: MonoTorrent.BEncoding.BEncodedNumber
+  langs:
+  - csharp
+  - vb
+  name: LengthInBytes()
+  nameWithType: BEncodedNumber.LengthInBytes()
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.LengthInBytes()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedNumber.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LengthInBytes
+    path: src/BEncoding/BEncodedNumber.cs
+    startLine: 107
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Returns the length of the encoded string in bytes
+  example: []
+  syntax:
+    content: public override int LengthInBytes()
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Overrides Function LengthInBytes() As Integer
+  overridden: MonoTorrent.BEncoding.BEncodedValue.LengthInBytes
+  overload: MonoTorrent.BEncoding.BEncodedNumber.LengthInBytes*
+- uid: MonoTorrent.BEncoding.BEncodedNumber.CompareTo(System.Object)
+  commentId: M:MonoTorrent.BEncoding.BEncodedNumber.CompareTo(System.Object)
+  id: CompareTo(System.Object)
+  parent: MonoTorrent.BEncoding.BEncodedNumber
+  langs:
+  - csharp
+  - vb
+  name: CompareTo(object?)
+  nameWithType: BEncodedNumber.CompareTo(object?)
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.CompareTo(object?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedNumber.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CompareTo
+    path: src/BEncoding/BEncodedNumber.cs
+    startLine: 122
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  syntax:
+    content: public int CompareTo(object? other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Int32
+    content.vb: Public Function CompareTo(other As Object) As Integer
+  overload: MonoTorrent.BEncoding.BEncodedNumber.CompareTo*
+  nameWithType.vb: BEncodedNumber.CompareTo(Object)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedNumber.CompareTo(Object)
+  name.vb: CompareTo(Object)
+- uid: MonoTorrent.BEncoding.BEncodedNumber.CompareTo(MonoTorrent.BEncoding.BEncodedNumber)
+  commentId: M:MonoTorrent.BEncoding.BEncodedNumber.CompareTo(MonoTorrent.BEncoding.BEncodedNumber)
+  id: CompareTo(MonoTorrent.BEncoding.BEncodedNumber)
+  parent: MonoTorrent.BEncoding.BEncodedNumber
+  langs:
+  - csharp
+  - vb
+  name: CompareTo(BEncodedNumber?)
+  nameWithType: BEncodedNumber.CompareTo(BEncodedNumber?)
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.CompareTo(MonoTorrent.BEncoding.BEncodedNumber?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedNumber.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CompareTo
+    path: src/BEncoding/BEncodedNumber.cs
+    startLine: 130
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes, follows, or occurs in the same position in the sort order as the other object.
+  example: []
+  syntax:
+    content: public int CompareTo(BEncodedNumber? other)
+    parameters:
+    - id: other
+      type: MonoTorrent.BEncoding.BEncodedNumber
+      description: An object to compare with this instance.
+    return:
+      type: System.Int32
+      description: >-
+        A value that indicates the relative order of the objects being compared. The return value has these meanings:  
+
+         <table><thead><tr><th class="term"> Value</th><th class="description"> Meaning</th></tr></thead><tbody><tr><td class="term"> Less than zero</td><td class="description"> This instance precedes <code class="paramref">other</code> in the sort order.</td></tr><tr><td class="term"> Zero</td><td class="description"> This instance occurs in the same position in the sort order as <code class="paramref">other</code>.</td></tr><tr><td class="term"> Greater than zero</td><td class="description"> This instance follows <code class="paramref">other</code> in the sort order.</td></tr></tbody></table>
+    content.vb: Public Function CompareTo(other As BEncodedNumber) As Integer
+  overload: MonoTorrent.BEncoding.BEncodedNumber.CompareTo*
+  implements:
+  - System.IComparable{MonoTorrent.BEncoding.BEncodedNumber}.CompareTo(MonoTorrent.BEncoding.BEncodedNumber)
+  nameWithType.vb: BEncodedNumber.CompareTo(BEncodedNumber)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedNumber.CompareTo(MonoTorrent.BEncoding.BEncodedNumber)
+  name.vb: CompareTo(BEncodedNumber)
+- uid: MonoTorrent.BEncoding.BEncodedNumber.CompareTo(System.Int64)
+  commentId: M:MonoTorrent.BEncoding.BEncodedNumber.CompareTo(System.Int64)
+  id: CompareTo(System.Int64)
+  parent: MonoTorrent.BEncoding.BEncodedNumber
+  langs:
+  - csharp
+  - vb
+  name: CompareTo(long)
+  nameWithType: BEncodedNumber.CompareTo(long)
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.CompareTo(long)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedNumber.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CompareTo
+    path: src/BEncoding/BEncodedNumber.cs
+    startLine: 133
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  syntax:
+    content: public int CompareTo(long other)
+    parameters:
+    - id: other
+      type: System.Int64
+    return:
+      type: System.Int32
+    content.vb: Public Function CompareTo(other As Long) As Integer
+  overload: MonoTorrent.BEncoding.BEncodedNumber.CompareTo*
+  nameWithType.vb: BEncodedNumber.CompareTo(Long)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedNumber.CompareTo(Long)
+  name.vb: CompareTo(Long)
+- uid: MonoTorrent.BEncoding.BEncodedNumber.Equals(System.Object)
+  commentId: M:MonoTorrent.BEncoding.BEncodedNumber.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: MonoTorrent.BEncoding.BEncodedNumber
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: BEncodedNumber.Equals(object?)
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedNumber.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Equals
+    path: src/BEncoding/BEncodedNumber.cs
+    startLine: 141
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: ''
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: MonoTorrent.BEncoding.BEncodedNumber.Equals*
+  nameWithType.vb: BEncodedNumber.Equals(Object)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedNumber.Equals(Object)
+  name.vb: Equals(Object)
+- uid: MonoTorrent.BEncoding.BEncodedNumber.GetHashCode
+  commentId: M:MonoTorrent.BEncoding.BEncodedNumber.GetHashCode
+  id: GetHashCode
+  parent: MonoTorrent.BEncoding.BEncodedNumber
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: BEncodedNumber.GetHashCode()
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedNumber.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetHashCode
+    path: src/BEncoding/BEncodedNumber.cs
+    startLine: 148
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: ''
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: MonoTorrent.BEncoding.BEncodedNumber.GetHashCode*
+- uid: MonoTorrent.BEncoding.BEncodedNumber.ToString
+  commentId: M:MonoTorrent.BEncoding.BEncodedNumber.ToString
+  id: ToString
+  parent: MonoTorrent.BEncoding.BEncodedNumber
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: BEncodedNumber.ToString()
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.ToString()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/BEncoding/BEncodedNumber.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToString
+    path: src/BEncoding/BEncodedNumber.cs
+    startLine: 155
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BEncoding
+  summary: ''
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: MonoTorrent.BEncoding.BEncodedNumber.ToString*
+references:
+- uid: MonoTorrent.BEncoding
+  commentId: N:MonoTorrent.BEncoding
+  href: MonoTorrent.html
+  name: MonoTorrent.BEncoding
+  nameWithType: MonoTorrent.BEncoding
+  fullName: MonoTorrent.BEncoding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MonoTorrent.BEncoding.BEncodedValue
+  commentId: T:MonoTorrent.BEncoding.BEncodedValue
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedValue.html
+  name: BEncodedValue
+  nameWithType: BEncodedValue
+  fullName: MonoTorrent.BEncoding.BEncodedValue
+- uid: System.IComparable{MonoTorrent.BEncoding.BEncodedNumber}
+  commentId: T:System.IComparable{MonoTorrent.BEncoding.BEncodedNumber}
+  parent: System
+  definition: System.IComparable`1
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  name: IComparable<BEncodedNumber>
+  nameWithType: IComparable<BEncodedNumber>
+  fullName: System.IComparable<MonoTorrent.BEncoding.BEncodedNumber>
+  nameWithType.vb: IComparable(Of BEncodedNumber)
+  fullName.vb: System.IComparable(Of MonoTorrent.BEncoding.BEncodedNumber)
+  name.vb: IComparable(Of BEncodedNumber)
+  spec.csharp:
+  - uid: System.IComparable`1
+    name: IComparable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedNumber
+    name: BEncodedNumber
+    href: MonoTorrent.BEncoding.BEncodedNumber.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IComparable`1
+    name: IComparable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedNumber
+    name: BEncodedNumber
+    href: MonoTorrent.BEncoding.BEncodedNumber.html
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Encode
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Encode
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Encode
+  name: Encode()
+  nameWithType: BEncodedValue.Encode()
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Encode()
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Encode
+    name: Encode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Encode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Encode
+    name: Encode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Encode
+  - name: (
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Clone``1({T})
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  definition: MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Clone__1___0_
+  name: Clone<T>(T)
+  nameWithType: BEncodedValue.Clone<T>(T)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Clone<T>(T)
+  nameWithType.vb: BEncodedValue.Clone(Of T)(T)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Clone(Of T)(T)
+  name.vb: Clone(Of T)(T)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+    name: Clone
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Clone__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+    name: Clone
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Clone__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte})
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte})
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_ReadOnlySpan_System_Byte__
+  name: Decode(ReadOnlySpan<byte>)
+  nameWithType: BEncodedValue.Decode(ReadOnlySpan<byte>)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan<byte>)
+  nameWithType.vb: BEncodedValue.Decode(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan(Of Byte))
+  name.vb: Decode(ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte})
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte})
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte},System.Boolean)
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte},System.Boolean)
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_ReadOnlySpan_System_Byte__System_Boolean_
+  name: Decode(ReadOnlySpan<byte>, bool)
+  nameWithType: BEncodedValue.Decode(ReadOnlySpan<byte>, bool)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan<byte>, bool)
+  nameWithType.vb: BEncodedValue.Decode(ReadOnlySpan(Of Byte), Boolean)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan(Of Byte), Boolean)
+  name.vb: Decode(ReadOnlySpan(Of Byte), Boolean)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte},System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_ReadOnlySpan_System_Byte__System_Boolean_
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.ReadOnlySpan{System.Byte},System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_ReadOnlySpan_System_Byte__System_Boolean_
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream)
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream)
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_IO_Stream_
+  name: Decode(Stream)
+  nameWithType: BEncodedValue.Decode(Stream)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_IO_Stream_
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_IO_Stream_
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream,System.Boolean)
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream,System.Boolean)
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_IO_Stream_System_Boolean_
+  name: Decode(Stream, bool)
+  nameWithType: BEncodedValue.Decode(Stream, bool)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream, bool)
+  nameWithType.vb: BEncodedValue.Decode(Stream, Boolean)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream, Boolean)
+  name.vb: Decode(Stream, Boolean)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream,System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_IO_Stream_System_Boolean_
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode(System.IO.Stream,System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode_System_IO_Stream_System_Boolean_
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte})
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte})
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_ReadOnlySpan_System_Byte__
+  name: Decode<T>(ReadOnlySpan<byte>)
+  nameWithType: BEncodedValue.Decode<T>(ReadOnlySpan<byte>)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode<T>(System.ReadOnlySpan<byte>)
+  nameWithType.vb: BEncodedValue.Decode(Of T)(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Decode(Of T)(System.ReadOnlySpan(Of Byte))
+  name.vb: Decode(Of T)(ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte})
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_ReadOnlySpan_System_Byte__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte})
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte},System.Boolean)
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte},System.Boolean)
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_ReadOnlySpan_System_Byte__System_Boolean_
+  name: Decode<T>(ReadOnlySpan<byte>, bool)
+  nameWithType: BEncodedValue.Decode<T>(ReadOnlySpan<byte>, bool)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode<T>(System.ReadOnlySpan<byte>, bool)
+  nameWithType.vb: BEncodedValue.Decode(Of T)(ReadOnlySpan(Of Byte), Boolean)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Decode(Of T)(System.ReadOnlySpan(Of Byte), Boolean)
+  name.vb: Decode(Of T)(ReadOnlySpan(Of Byte), Boolean)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte},System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_ReadOnlySpan_System_Byte__System_Boolean_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.ReadOnlySpan{System.Byte},System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_ReadOnlySpan_System_Byte__System_Boolean_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream)
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream)
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_IO_Stream_
+  name: Decode<T>(Stream)
+  nameWithType: BEncodedValue.Decode<T>(Stream)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode<T>(System.IO.Stream)
+  nameWithType.vb: BEncodedValue.Decode(Of T)(Stream)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Decode(Of T)(System.IO.Stream)
+  name.vb: Decode(Of T)(Stream)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_IO_Stream_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_IO_Stream_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream,System.Boolean)
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream,System.Boolean)
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_IO_Stream_System_Boolean_
+  name: Decode<T>(Stream, bool)
+  nameWithType: BEncodedValue.Decode<T>(Stream, bool)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Decode<T>(System.IO.Stream, bool)
+  nameWithType.vb: BEncodedValue.Decode(Of T)(Stream, Boolean)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Decode(Of T)(System.IO.Stream, Boolean)
+  name.vb: Decode(Of T)(Stream, Boolean)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream,System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_IO_Stream_System_Boolean_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Decode``1(System.IO.Stream,System.Boolean)
+    name: Decode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Decode__1_System_IO_Stream_System_Boolean_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IComparable`1
+  commentId: T:System.IComparable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  name: IComparable<T>
+  nameWithType: IComparable<T>
+  fullName: System.IComparable<T>
+  nameWithType.vb: IComparable(Of T)
+  fullName.vb: System.IComparable(Of T)
+  name.vb: IComparable(Of T)
+  spec.csharp:
+  - uid: System.IComparable`1
+    name: IComparable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IComparable`1
+    name: IComparable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Clone__1___0_
+  name: Clone<T>(T)
+  nameWithType: BEncodedValue.Clone<T>(T)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Clone<T>(T)
+  nameWithType.vb: BEncodedValue.Clone(Of T)(T)
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Clone(Of T)(T)
+  name.vb: Clone(Of T)(T)
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+    name: Clone
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Clone__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Clone``1(``0)
+    name: Clone
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Clone__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedNumber.Number*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedNumber.Number
+  href: MonoTorrent.BEncoding.BEncodedNumber.html#MonoTorrent_BEncoding_BEncodedNumber_Number
+  name: Number
+  nameWithType: BEncodedNumber.Number
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.Number
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: MonoTorrent.BEncoding.BEncodedNumber.#ctor*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedNumber.#ctor
+  href: MonoTorrent.BEncoding.BEncodedNumber.html#MonoTorrent_BEncoding_BEncodedNumber__ctor
+  name: BEncodedNumber
+  nameWithType: BEncodedNumber.BEncodedNumber
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.BEncodedNumber
+  nameWithType.vb: BEncodedNumber.New
+  fullName.vb: MonoTorrent.BEncoding.BEncodedNumber.New
+  name.vb: New
+- uid: MonoTorrent.BEncoding.BEncodedNumber.op_Implicit*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedNumber.op_Implicit
+  name: implicit operator
+  nameWithType: BEncodedNumber.implicit operator
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.implicit operator
+  nameWithType.vb: BEncodedNumber.CType
+  fullName.vb: MonoTorrent.BEncoding.BEncodedNumber.CType
+  name.vb: CType
+  spec.csharp:
+  - name: implicit
+  - name: " "
+  - name: operator
+- uid: MonoTorrent.BEncoding.BEncodedNumber
+  commentId: T:MonoTorrent.BEncoding.BEncodedNumber
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedNumber.html
+  name: BEncodedNumber
+  nameWithType: BEncodedNumber
+  fullName: MonoTorrent.BEncoding.BEncodedNumber
+- uid: MonoTorrent.BEncoding.BEncodedValue.Encode(System.Span{System.Byte})
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.Encode(System.Span{System.Byte})
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  isExternal: true
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Encode_System_Span_System_Byte__
+  name: Encode(Span<byte>)
+  nameWithType: BEncodedValue.Encode(Span<byte>)
+  fullName: MonoTorrent.BEncoding.BEncodedValue.Encode(System.Span<byte>)
+  nameWithType.vb: BEncodedValue.Encode(Span(Of Byte))
+  fullName.vb: MonoTorrent.BEncoding.BEncodedValue.Encode(System.Span(Of Byte))
+  name.vb: Encode(Span(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Encode(System.Span{System.Byte})
+    name: Encode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Encode_System_Span_System_Byte__
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.Encode(System.Span{System.Byte})
+    name: Encode
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_Encode_System_Span_System_Byte__
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedNumber.Encode*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedNumber.Encode
+  href: MonoTorrent.BEncoding.BEncodedNumber.html#MonoTorrent_BEncoding_BEncodedNumber_Encode_System_Span_System_Byte__
+  name: Encode
+  nameWithType: BEncodedNumber.Encode
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.Encode
+- uid: System.Span{System.Byte}
+  commentId: T:System.Span{System.Byte}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<byte>
+  nameWithType: Span<byte>
+  fullName: System.Span<byte>
+  nameWithType.vb: Span(Of Byte)
+  fullName.vb: System.Span(Of Byte)
+  name.vb: Span(Of Byte)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedValue.LengthInBytes
+  commentId: M:MonoTorrent.BEncoding.BEncodedValue.LengthInBytes
+  parent: MonoTorrent.BEncoding.BEncodedValue
+  href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_LengthInBytes
+  name: LengthInBytes()
+  nameWithType: BEncodedValue.LengthInBytes()
+  fullName: MonoTorrent.BEncoding.BEncodedValue.LengthInBytes()
+  spec.csharp:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.LengthInBytes
+    name: LengthInBytes
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_LengthInBytes
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BEncoding.BEncodedValue.LengthInBytes
+    name: LengthInBytes
+    href: MonoTorrent.BEncoding.BEncodedValue.html#MonoTorrent_BEncoding_BEncodedValue_LengthInBytes
+  - name: (
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedNumber.LengthInBytes*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedNumber.LengthInBytes
+  href: MonoTorrent.BEncoding.BEncodedNumber.html#MonoTorrent_BEncoding_BEncodedNumber_LengthInBytes
+  name: LengthInBytes
+  nameWithType: BEncodedNumber.LengthInBytes
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.LengthInBytes
+- uid: MonoTorrent.BEncoding.BEncodedNumber.CompareTo*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedNumber.CompareTo
+  href: MonoTorrent.BEncoding.BEncodedNumber.html#MonoTorrent_BEncoding_BEncodedNumber_CompareTo_System_Object_
+  name: CompareTo
+  nameWithType: BEncodedNumber.CompareTo
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.CompareTo
+- uid: System.IComparable{MonoTorrent.BEncoding.BEncodedNumber}.CompareTo(MonoTorrent.BEncoding.BEncodedNumber)
+  commentId: M:System.IComparable{MonoTorrent.BEncoding.BEncodedNumber}.CompareTo(MonoTorrent.BEncoding.BEncodedNumber)
+  parent: System.IComparable{MonoTorrent.BEncoding.BEncodedNumber}
+  definition: System.IComparable`1.CompareTo(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  name: CompareTo(BEncodedNumber)
+  nameWithType: IComparable<BEncodedNumber>.CompareTo(BEncodedNumber)
+  fullName: System.IComparable<MonoTorrent.BEncoding.BEncodedNumber>.CompareTo(MonoTorrent.BEncoding.BEncodedNumber)
+  nameWithType.vb: IComparable(Of BEncodedNumber).CompareTo(BEncodedNumber)
+  fullName.vb: System.IComparable(Of MonoTorrent.BEncoding.BEncodedNumber).CompareTo(MonoTorrent.BEncoding.BEncodedNumber)
+  spec.csharp:
+  - uid: System.IComparable{MonoTorrent.BEncoding.BEncodedNumber}.CompareTo(MonoTorrent.BEncoding.BEncodedNumber)
+    name: CompareTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedNumber
+    name: BEncodedNumber
+    href: MonoTorrent.BEncoding.BEncodedNumber.html
+  - name: )
+  spec.vb:
+  - uid: System.IComparable{MonoTorrent.BEncoding.BEncodedNumber}.CompareTo(MonoTorrent.BEncoding.BEncodedNumber)
+    name: CompareTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedNumber
+    name: BEncodedNumber
+    href: MonoTorrent.BEncoding.BEncodedNumber.html
+  - name: )
+- uid: System.IComparable`1.CompareTo(`0)
+  commentId: M:System.IComparable`1.CompareTo(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  name: CompareTo(T)
+  nameWithType: IComparable<T>.CompareTo(T)
+  fullName: System.IComparable<T>.CompareTo(T)
+  nameWithType.vb: IComparable(Of T).CompareTo(T)
+  fullName.vb: System.IComparable(Of T).CompareTo(T)
+  spec.csharp:
+  - uid: System.IComparable`1.CompareTo(`0)
+    name: CompareTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IComparable`1.CompareTo(`0)
+    name: CompareTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable-1.compareto
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedNumber.Equals*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedNumber.Equals
+  href: MonoTorrent.BEncoding.BEncodedNumber.html#MonoTorrent_BEncoding_BEncodedNumber_Equals_System_Object_
+  name: Equals
+  nameWithType: BEncodedNumber.Equals
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedNumber.GetHashCode*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedNumber.GetHashCode
+  href: MonoTorrent.BEncoding.BEncodedNumber.html#MonoTorrent_BEncoding_BEncodedNumber_GetHashCode
+  name: GetHashCode
+  nameWithType: BEncodedNumber.GetHashCode
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: MonoTorrent.BEncoding.BEncodedNumber.ToString*
+  commentId: Overload:MonoTorrent.BEncoding.BEncodedNumber.ToString
+  href: MonoTorrent.BEncoding.BEncodedNumber.html#MonoTorrent_BEncoding_BEncodedNumber_ToString
+  name: ToString
+  nameWithType: BEncodedNumber.ToString
+  fullName: MonoTorrent.BEncoding.BEncodedNumber.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

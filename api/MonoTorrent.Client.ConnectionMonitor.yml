@@ -1,0 +1,637 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Client.ConnectionMonitor
+  commentId: T:MonoTorrent.Client.ConnectionMonitor
+  id: ConnectionMonitor
+  parent: MonoTorrent.Client
+  children:
+  - MonoTorrent.Client.ConnectionMonitor.DataBytesReceived
+  - MonoTorrent.Client.ConnectionMonitor.DataBytesSent
+  - MonoTorrent.Client.ConnectionMonitor.DownloadRate
+  - MonoTorrent.Client.ConnectionMonitor.ProtocolBytesReceived
+  - MonoTorrent.Client.ConnectionMonitor.ProtocolBytesSent
+  - MonoTorrent.Client.ConnectionMonitor.Reset
+  - MonoTorrent.Client.ConnectionMonitor.UploadRate
+  langs:
+  - csharp
+  - vb
+  name: ConnectionMonitor
+  nameWithType: ConnectionMonitor
+  fullName: MonoTorrent.Client.ConnectionMonitor
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/ConnectionMonitor.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ConnectionMonitor
+    path: src/Client/Managers/ConnectionMonitor.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: This class is used to track upload/download speed and bytes uploaded/downloaded for each connection
+  example: []
+  syntax:
+    content: public class ConnectionMonitor
+    content.vb: Public Class ConnectionMonitor
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - MonoTorrent.Client.PeerMonitor
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.Client.ConnectionMonitor.DataBytesReceived
+  commentId: P:MonoTorrent.Client.ConnectionMonitor.DataBytesReceived
+  id: DataBytesReceived
+  parent: MonoTorrent.Client.ConnectionMonitor
+  langs:
+  - csharp
+  - vb
+  name: DataBytesReceived
+  nameWithType: ConnectionMonitor.DataBytesReceived
+  fullName: MonoTorrent.Client.ConnectionMonitor.DataBytesReceived
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/ConnectionMonitor.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DataBytesReceived
+    path: src/Client/Managers/ConnectionMonitor.cs
+    startLine: 74
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Total bytes of <xref href="MonoTorrent.ITorrentFile" data-throw-if-not-resolved="false"></xref> data received from this peer. This value tracks the size of the payload of each <xref href="MonoTorrent.Messages.Peer.PieceMessage" data-throw-if-not-resolved="false"></xref> received from this peer, which is <xref href="MonoTorrent.Messages.Peer.PieceMessage.RequestLength" data-throw-if-not-resolved="false"></xref> bytes.
+  example: []
+  syntax:
+    content: public long DataBytesReceived { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property DataBytesReceived As Long
+  overload: MonoTorrent.Client.ConnectionMonitor.DataBytesReceived*
+- uid: MonoTorrent.Client.ConnectionMonitor.DataBytesSent
+  commentId: P:MonoTorrent.Client.ConnectionMonitor.DataBytesSent
+  id: DataBytesSent
+  parent: MonoTorrent.Client.ConnectionMonitor
+  langs:
+  - csharp
+  - vb
+  name: DataBytesSent
+  nameWithType: ConnectionMonitor.DataBytesSent
+  fullName: MonoTorrent.Client.ConnectionMonitor.DataBytesSent
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/ConnectionMonitor.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DataBytesSent
+    path: src/Client/Managers/ConnectionMonitor.cs
+    startLine: 79
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Total bytes of <xref href="MonoTorrent.ITorrentFile" data-throw-if-not-resolved="false"></xref> data sent to this peer. This value tracks the size of the payload of each <xref href="MonoTorrent.Messages.Peer.PieceMessage" data-throw-if-not-resolved="false"></xref> sent to this peer, which is <xref href="MonoTorrent.Messages.Peer.PieceMessage.RequestLength" data-throw-if-not-resolved="false"></xref> bytes.
+  example: []
+  syntax:
+    content: public long DataBytesSent { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property DataBytesSent As Long
+  overload: MonoTorrent.Client.ConnectionMonitor.DataBytesSent*
+- uid: MonoTorrent.Client.ConnectionMonitor.DownloadRate
+  commentId: P:MonoTorrent.Client.ConnectionMonitor.DownloadRate
+  id: DownloadRate
+  parent: MonoTorrent.Client.ConnectionMonitor
+  langs:
+  - csharp
+  - vb
+  name: DownloadRate
+  nameWithType: ConnectionMonitor.DownloadRate
+  fullName: MonoTorrent.Client.ConnectionMonitor.DownloadRate
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/ConnectionMonitor.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DownloadRate
+    path: src/Client/Managers/ConnectionMonitor.cs
+    startLine: 84
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Current receive rate, in bytes/second, for this peer. This value includes 'data' as well as 'protocol'.
+  example: []
+  syntax:
+    content: public long DownloadRate { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property DownloadRate As Long
+  overload: MonoTorrent.Client.ConnectionMonitor.DownloadRate*
+- uid: MonoTorrent.Client.ConnectionMonitor.ProtocolBytesReceived
+  commentId: P:MonoTorrent.Client.ConnectionMonitor.ProtocolBytesReceived
+  id: ProtocolBytesReceived
+  parent: MonoTorrent.Client.ConnectionMonitor
+  langs:
+  - csharp
+  - vb
+  name: ProtocolBytesReceived
+  nameWithType: ConnectionMonitor.ProtocolBytesReceived
+  fullName: MonoTorrent.Client.ConnectionMonitor.ProtocolBytesReceived
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/ConnectionMonitor.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ProtocolBytesReceived
+    path: src/Client/Managers/ConnectionMonitor.cs
+    startLine: 89
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Total bytes of protocol data received from this peer. This value tracks the size of each <xref href="MonoTorrent.Messages.Peer.PeerMessage" data-throw-if-not-resolved="false"></xref> received from this peer, excluding the payload portion of each <xref href="MonoTorrent.Messages.Peer.PieceMessage" data-throw-if-not-resolved="false"></xref>, which is <xref href="MonoTorrent.Messages.Peer.PieceMessage.RequestLength" data-throw-if-not-resolved="false"></xref> bytes.
+  example: []
+  syntax:
+    content: public long ProtocolBytesReceived { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property ProtocolBytesReceived As Long
+  overload: MonoTorrent.Client.ConnectionMonitor.ProtocolBytesReceived*
+- uid: MonoTorrent.Client.ConnectionMonitor.ProtocolBytesSent
+  commentId: P:MonoTorrent.Client.ConnectionMonitor.ProtocolBytesSent
+  id: ProtocolBytesSent
+  parent: MonoTorrent.Client.ConnectionMonitor
+  langs:
+  - csharp
+  - vb
+  name: ProtocolBytesSent
+  nameWithType: ConnectionMonitor.ProtocolBytesSent
+  fullName: MonoTorrent.Client.ConnectionMonitor.ProtocolBytesSent
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/ConnectionMonitor.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ProtocolBytesSent
+    path: src/Client/Managers/ConnectionMonitor.cs
+    startLine: 94
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Total bytes of protocol data sent to this peer. This value tracks the size of each <xref href="MonoTorrent.Messages.Peer.PeerMessage" data-throw-if-not-resolved="false"></xref> sent to this peer, excluding the payload portion of each <xref href="MonoTorrent.Messages.Peer.PieceMessage" data-throw-if-not-resolved="false"></xref>, which is <xref href="MonoTorrent.Messages.Peer.PieceMessage.RequestLength" data-throw-if-not-resolved="false"></xref> bytes.
+  example: []
+  syntax:
+    content: public long ProtocolBytesSent { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property ProtocolBytesSent As Long
+  overload: MonoTorrent.Client.ConnectionMonitor.ProtocolBytesSent*
+- uid: MonoTorrent.Client.ConnectionMonitor.UploadRate
+  commentId: P:MonoTorrent.Client.ConnectionMonitor.UploadRate
+  id: UploadRate
+  parent: MonoTorrent.Client.ConnectionMonitor
+  langs:
+  - csharp
+  - vb
+  name: UploadRate
+  nameWithType: ConnectionMonitor.UploadRate
+  fullName: MonoTorrent.Client.ConnectionMonitor.UploadRate
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/ConnectionMonitor.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: UploadRate
+    path: src/Client/Managers/ConnectionMonitor.cs
+    startLine: 99
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Current send rate, in bytes/second, for this peer. This value includes 'data' as well as 'protocol'.
+  example: []
+  syntax:
+    content: public long UploadRate { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property UploadRate As Long
+  overload: MonoTorrent.Client.ConnectionMonitor.UploadRate*
+- uid: MonoTorrent.Client.ConnectionMonitor.Reset
+  commentId: M:MonoTorrent.Client.ConnectionMonitor.Reset
+  id: Reset
+  parent: MonoTorrent.Client.ConnectionMonitor
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: ConnectionMonitor.Reset()
+  fullName: MonoTorrent.Client.ConnectionMonitor.Reset()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/ConnectionMonitor.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Reset
+    path: src/Client/Managers/ConnectionMonitor.cs
+    startLine: 115
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: protected virtual void Reset()
+    content.vb: Protected Overridable Sub Reset()
+  overload: MonoTorrent.Client.ConnectionMonitor.Reset*
+references:
+- uid: MonoTorrent.Client
+  commentId: N:MonoTorrent.Client
+  href: MonoTorrent.html
+  name: MonoTorrent.Client
+  nameWithType: MonoTorrent.Client
+  fullName: MonoTorrent.Client
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.ITorrentFile
+  commentId: T:MonoTorrent.ITorrentFile
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentFile.html
+  name: ITorrentFile
+  nameWithType: ITorrentFile
+  fullName: MonoTorrent.ITorrentFile
+- uid: MonoTorrent.Messages.Peer.PieceMessage
+  commentId: T:MonoTorrent.Messages.Peer.PieceMessage
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.PieceMessage.html
+  name: PieceMessage
+  nameWithType: PieceMessage
+  fullName: MonoTorrent.Messages.Peer.PieceMessage
+- uid: MonoTorrent.Messages.Peer.PieceMessage.RequestLength
+  commentId: P:MonoTorrent.Messages.Peer.PieceMessage.RequestLength
+  href: MonoTorrent.Messages.Peer.PieceMessage.html#MonoTorrent_Messages_Peer_PieceMessage_RequestLength
+  name: RequestLength
+  nameWithType: PieceMessage.RequestLength
+  fullName: MonoTorrent.Messages.Peer.PieceMessage.RequestLength
+- uid: MonoTorrent.Client.ConnectionMonitor.DataBytesReceived*
+  commentId: Overload:MonoTorrent.Client.ConnectionMonitor.DataBytesReceived
+  href: MonoTorrent.Client.ConnectionMonitor.html#MonoTorrent_Client_ConnectionMonitor_DataBytesReceived
+  name: DataBytesReceived
+  nameWithType: ConnectionMonitor.DataBytesReceived
+  fullName: MonoTorrent.Client.ConnectionMonitor.DataBytesReceived
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.Messages.Peer
+  commentId: N:MonoTorrent.Messages.Peer
+  href: MonoTorrent.html
+  name: MonoTorrent.Messages.Peer
+  nameWithType: MonoTorrent.Messages.Peer
+  fullName: MonoTorrent.Messages.Peer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+- uid: MonoTorrent.Client.ConnectionMonitor.DataBytesSent*
+  commentId: Overload:MonoTorrent.Client.ConnectionMonitor.DataBytesSent
+  href: MonoTorrent.Client.ConnectionMonitor.html#MonoTorrent_Client_ConnectionMonitor_DataBytesSent
+  name: DataBytesSent
+  nameWithType: ConnectionMonitor.DataBytesSent
+  fullName: MonoTorrent.Client.ConnectionMonitor.DataBytesSent
+- uid: MonoTorrent.Client.ConnectionMonitor.DownloadRate*
+  commentId: Overload:MonoTorrent.Client.ConnectionMonitor.DownloadRate
+  href: MonoTorrent.Client.ConnectionMonitor.html#MonoTorrent_Client_ConnectionMonitor_DownloadRate
+  name: DownloadRate
+  nameWithType: ConnectionMonitor.DownloadRate
+  fullName: MonoTorrent.Client.ConnectionMonitor.DownloadRate
+- uid: MonoTorrent.Messages.Peer.PeerMessage
+  commentId: T:MonoTorrent.Messages.Peer.PeerMessage
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.PeerMessage.html
+  name: PeerMessage
+  nameWithType: PeerMessage
+  fullName: MonoTorrent.Messages.Peer.PeerMessage
+- uid: MonoTorrent.Client.ConnectionMonitor.ProtocolBytesReceived*
+  commentId: Overload:MonoTorrent.Client.ConnectionMonitor.ProtocolBytesReceived
+  href: MonoTorrent.Client.ConnectionMonitor.html#MonoTorrent_Client_ConnectionMonitor_ProtocolBytesReceived
+  name: ProtocolBytesReceived
+  nameWithType: ConnectionMonitor.ProtocolBytesReceived
+  fullName: MonoTorrent.Client.ConnectionMonitor.ProtocolBytesReceived
+- uid: MonoTorrent.Client.ConnectionMonitor.ProtocolBytesSent*
+  commentId: Overload:MonoTorrent.Client.ConnectionMonitor.ProtocolBytesSent
+  href: MonoTorrent.Client.ConnectionMonitor.html#MonoTorrent_Client_ConnectionMonitor_ProtocolBytesSent
+  name: ProtocolBytesSent
+  nameWithType: ConnectionMonitor.ProtocolBytesSent
+  fullName: MonoTorrent.Client.ConnectionMonitor.ProtocolBytesSent
+- uid: MonoTorrent.Client.ConnectionMonitor.UploadRate*
+  commentId: Overload:MonoTorrent.Client.ConnectionMonitor.UploadRate
+  href: MonoTorrent.Client.ConnectionMonitor.html#MonoTorrent_Client_ConnectionMonitor_UploadRate
+  name: UploadRate
+  nameWithType: ConnectionMonitor.UploadRate
+  fullName: MonoTorrent.Client.ConnectionMonitor.UploadRate
+- uid: MonoTorrent.Client.ConnectionMonitor.Reset*
+  commentId: Overload:MonoTorrent.Client.ConnectionMonitor.Reset
+  href: MonoTorrent.Client.ConnectionMonitor.html#MonoTorrent_Client_ConnectionMonitor_Reset
+  name: Reset
+  nameWithType: ConnectionMonitor.Reset
+  fullName: MonoTorrent.Client.ConnectionMonitor.Reset

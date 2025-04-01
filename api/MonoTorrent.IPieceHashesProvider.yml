@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.IPieceHashesProvider
+  commentId: T:MonoTorrent.IPieceHashesProvider
+  id: IPieceHashesProvider
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.IPieceHashesProvider.PieceHashes
+  langs:
+  - csharp
+  - vb
+  name: IPieceHashesProvider
+  nameWithType: IPieceHashesProvider
+  fullName: MonoTorrent.IPieceHashesProvider
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/IPieceHashesProvider.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IPieceHashesProvider
+    path: src/IPieceHashesProvider.cs
+    startLine: 2
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public interface IPieceHashesProvider
+    content.vb: Public Interface IPieceHashesProvider
+- uid: MonoTorrent.IPieceHashesProvider.PieceHashes
+  commentId: P:MonoTorrent.IPieceHashesProvider.PieceHashes
+  id: PieceHashes
+  parent: MonoTorrent.IPieceHashesProvider
+  langs:
+  - csharp
+  - vb
+  name: PieceHashes
+  nameWithType: IPieceHashesProvider.PieceHashes
+  fullName: MonoTorrent.IPieceHashesProvider.PieceHashes
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/IPieceHashesProvider.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PieceHashes
+    path: src/IPieceHashesProvider.cs
+    startLine: 4
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: IPieceHashes PieceHashes { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.IPieceHashes
+    content.vb: ReadOnly Property PieceHashes As IPieceHashes
+  overload: MonoTorrent.IPieceHashesProvider.PieceHashes*
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.IPieceHashesProvider.PieceHashes*
+  commentId: Overload:MonoTorrent.IPieceHashesProvider.PieceHashes
+  href: MonoTorrent.IPieceHashesProvider.html#MonoTorrent_IPieceHashesProvider_PieceHashes
+  name: PieceHashes
+  nameWithType: IPieceHashesProvider.PieceHashes
+  fullName: MonoTorrent.IPieceHashesProvider.PieceHashes
+- uid: MonoTorrent.IPieceHashes
+  commentId: T:MonoTorrent.IPieceHashes
+  parent: MonoTorrent
+  href: MonoTorrent.IPieceHashes.html
+  name: IPieceHashes
+  nameWithType: IPieceHashes
+  fullName: MonoTorrent.IPieceHashes

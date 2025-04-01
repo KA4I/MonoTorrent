@@ -1,0 +1,810 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  commentId: T:MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  id: TorrentFolderWatcher
+  parent: MonoTorrent.TorrentWatcher
+  children:
+  - MonoTorrent.TorrentWatcher.TorrentFolderWatcher.#ctor(System.IO.DirectoryInfo)
+  - MonoTorrent.TorrentWatcher.TorrentFolderWatcher.#ctor(System.String,System.String)
+  - MonoTorrent.TorrentWatcher.TorrentFolderWatcher.ForceScan
+  - MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentFound(System.String)
+  - MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentLost(System.String)
+  - MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Start
+  - MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Stop
+  - MonoTorrent.TorrentWatcher.TorrentFolderWatcher.TorrentFound
+  - MonoTorrent.TorrentWatcher.TorrentFolderWatcher.TorrentLost
+  langs:
+  - csharp
+  - vb
+  name: TorrentFolderWatcher
+  nameWithType: TorrentFolderWatcher
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/TorrentFolderWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentFolderWatcher
+    path: src/TorrentWatchers/TorrentFolderWatcher.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  syntax:
+    content: 'public class TorrentFolderWatcher : ITorrentWatcher'
+    content.vb: Public Class TorrentFolderWatcher Implements ITorrentWatcher
+  inheritance:
+  - System.Object
+  implements:
+  - MonoTorrent.TorrentWatcher.ITorrentWatcher
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.TorrentFound
+  commentId: E:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.TorrentFound
+  id: TorrentFound
+  parent: MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  langs:
+  - csharp
+  - vb
+  name: TorrentFound
+  nameWithType: TorrentFolderWatcher.TorrentFound
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.TorrentFound
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/TorrentFolderWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentFound
+    path: src/TorrentWatchers/TorrentFolderWatcher.cs
+    startLine: 38
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  example: []
+  syntax:
+    content: public event EventHandler<TorrentWatcherEventArgs>? TorrentFound
+    return:
+      type: System.EventHandler{MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs}
+    content.vb: Public Event TorrentFound As EventHandler(Of TorrentWatcherEventArgs)
+  implements:
+  - MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentFound
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.TorrentLost
+  commentId: E:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.TorrentLost
+  id: TorrentLost
+  parent: MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  langs:
+  - csharp
+  - vb
+  name: TorrentLost
+  nameWithType: TorrentFolderWatcher.TorrentLost
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.TorrentLost
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/TorrentFolderWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentLost
+    path: src/TorrentWatchers/TorrentFolderWatcher.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  example: []
+  syntax:
+    content: public event EventHandler<TorrentWatcherEventArgs>? TorrentLost
+    return:
+      type: System.EventHandler{MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs}
+    content.vb: Public Event TorrentLost As EventHandler(Of TorrentWatcherEventArgs)
+  implements:
+  - MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentLost
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.#ctor(System.String,System.String)
+  commentId: M:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  langs:
+  - csharp
+  - vb
+  name: TorrentFolderWatcher(string, string)
+  nameWithType: TorrentFolderWatcher.TorrentFolderWatcher(string, string)
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.TorrentFolderWatcher(string, string)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/TorrentFolderWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/TorrentWatchers/TorrentFolderWatcher.cs
+    startLine: 55
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  syntax:
+    content: public TorrentFolderWatcher(string torrentDirectory, string watchFilter)
+    parameters:
+    - id: torrentDirectory
+      type: System.String
+    - id: watchFilter
+      type: System.String
+    content.vb: Public Sub New(torrentDirectory As String, watchFilter As String)
+  overload: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.#ctor*
+  nameWithType.vb: TorrentFolderWatcher.New(String, String)
+  fullName.vb: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.New(String, String)
+  name.vb: New(String, String)
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.#ctor(System.IO.DirectoryInfo)
+  commentId: M:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.#ctor(System.IO.DirectoryInfo)
+  id: '#ctor(System.IO.DirectoryInfo)'
+  parent: MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  langs:
+  - csharp
+  - vb
+  name: TorrentFolderWatcher(DirectoryInfo)
+  nameWithType: TorrentFolderWatcher.TorrentFolderWatcher(DirectoryInfo)
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.TorrentFolderWatcher(System.IO.DirectoryInfo)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/TorrentFolderWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/TorrentWatchers/TorrentFolderWatcher.cs
+    startLine: 76
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  syntax:
+    content: public TorrentFolderWatcher(DirectoryInfo torrentDirectory)
+    parameters:
+    - id: torrentDirectory
+      type: System.IO.DirectoryInfo
+    content.vb: Public Sub New(torrentDirectory As DirectoryInfo)
+  overload: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.#ctor*
+  nameWithType.vb: TorrentFolderWatcher.New(DirectoryInfo)
+  fullName.vb: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.New(System.IO.DirectoryInfo)
+  name.vb: New(DirectoryInfo)
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.ForceScan
+  commentId: M:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.ForceScan
+  id: ForceScan
+  parent: MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  langs:
+  - csharp
+  - vb
+  name: ForceScan()
+  nameWithType: TorrentFolderWatcher.ForceScan()
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.ForceScan()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/TorrentFolderWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ForceScan
+    path: src/TorrentWatchers/TorrentFolderWatcher.cs
+    startLine: 87
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  example: []
+  syntax:
+    content: public void ForceScan()
+    content.vb: Public Sub ForceScan()
+  overload: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.ForceScan*
+  implements:
+  - MonoTorrent.TorrentWatcher.ITorrentWatcher.ForceScan
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Start
+  commentId: M:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Start
+  id: Start
+  parent: MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  langs:
+  - csharp
+  - vb
+  name: Start()
+  nameWithType: TorrentFolderWatcher.Start()
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Start()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/TorrentFolderWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Start
+    path: src/TorrentWatchers/TorrentFolderWatcher.cs
+    startLine: 93
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  example: []
+  syntax:
+    content: public void Start()
+    content.vb: Public Sub Start()
+  overload: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Start*
+  implements:
+  - MonoTorrent.TorrentWatcher.ITorrentWatcher.Start
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Stop
+  commentId: M:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Stop
+  id: Stop
+  parent: MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  langs:
+  - csharp
+  - vb
+  name: Stop()
+  nameWithType: TorrentFolderWatcher.Stop()
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Stop()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/TorrentFolderWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Stop
+    path: src/TorrentWatchers/TorrentFolderWatcher.cs
+    startLine: 98
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  example: []
+  syntax:
+    content: public void Stop()
+    content.vb: Public Sub [Stop]()
+  overload: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Stop*
+  implements:
+  - MonoTorrent.TorrentWatcher.ITorrentWatcher.Stop
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentFound(System.String)
+  commentId: M:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentFound(System.String)
+  id: RaiseTorrentFound(System.String)
+  parent: MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  langs:
+  - csharp
+  - vb
+  name: RaiseTorrentFound(string)
+  nameWithType: TorrentFolderWatcher.RaiseTorrentFound(string)
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentFound(string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/TorrentFolderWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RaiseTorrentFound
+    path: src/TorrentWatchers/TorrentFolderWatcher.cs
+    startLine: 120
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  syntax:
+    content: protected virtual void RaiseTorrentFound(string path)
+    parameters:
+    - id: path
+      type: System.String
+    content.vb: Protected Overridable Sub RaiseTorrentFound(path As String)
+  overload: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentFound*
+  nameWithType.vb: TorrentFolderWatcher.RaiseTorrentFound(String)
+  fullName.vb: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentFound(String)
+  name.vb: RaiseTorrentFound(String)
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentLost(System.String)
+  commentId: M:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentLost(System.String)
+  id: RaiseTorrentLost(System.String)
+  parent: MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  langs:
+  - csharp
+  - vb
+  name: RaiseTorrentLost(string)
+  nameWithType: TorrentFolderWatcher.RaiseTorrentLost(string)
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentLost(string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/TorrentFolderWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RaiseTorrentLost
+    path: src/TorrentWatchers/TorrentFolderWatcher.cs
+    startLine: 125
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  syntax:
+    content: protected virtual void RaiseTorrentLost(string path)
+    parameters:
+    - id: path
+      type: System.String
+    content.vb: Protected Overridable Sub RaiseTorrentLost(path As String)
+  overload: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentLost*
+  nameWithType.vb: TorrentFolderWatcher.RaiseTorrentLost(String)
+  fullName.vb: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentLost(String)
+  name.vb: RaiseTorrentLost(String)
+references:
+- uid: MonoTorrent.TorrentWatcher
+  commentId: N:MonoTorrent.TorrentWatcher
+  href: MonoTorrent.html
+  name: MonoTorrent.TorrentWatcher
+  nameWithType: MonoTorrent.TorrentWatcher
+  fullName: MonoTorrent.TorrentWatcher
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TorrentWatcher
+    name: TorrentWatcher
+    href: MonoTorrent.TorrentWatcher.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TorrentWatcher
+    name: TorrentWatcher
+    href: MonoTorrent.TorrentWatcher.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher
+  commentId: T:MonoTorrent.TorrentWatcher.ITorrentWatcher
+  parent: MonoTorrent.TorrentWatcher
+  href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html
+  name: ITorrentWatcher
+  nameWithType: ITorrentWatcher
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentFound
+  commentId: E:MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentFound
+  parent: MonoTorrent.TorrentWatcher.ITorrentWatcher
+  href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html#MonoTorrent_TorrentWatcher_ITorrentWatcher_TorrentFound
+  name: TorrentFound
+  nameWithType: ITorrentWatcher.TorrentFound
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentFound
+- uid: System.EventHandler{MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs}
+  commentId: T:System.EventHandler{MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TorrentWatcherEventArgs>
+  nameWithType: EventHandler<TorrentWatcherEventArgs>
+  fullName: System.EventHandler<MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs>
+  nameWithType.vb: EventHandler(Of TorrentWatcherEventArgs)
+  fullName.vb: System.EventHandler(Of MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs)
+  name.vb: EventHandler(Of TorrentWatcherEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs
+    name: TorrentWatcherEventArgs
+    href: MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs
+    name: TorrentWatcherEventArgs
+    href: MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentLost
+  commentId: E:MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentLost
+  parent: MonoTorrent.TorrentWatcher.ITorrentWatcher
+  href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html#MonoTorrent_TorrentWatcher_ITorrentWatcher_TorrentLost
+  name: TorrentLost
+  nameWithType: ITorrentWatcher.TorrentLost
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentLost
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.#ctor*
+  commentId: Overload:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.#ctor
+  href: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.html#MonoTorrent_TorrentWatcher_TorrentFolderWatcher__ctor_System_String_System_String_
+  name: TorrentFolderWatcher
+  nameWithType: TorrentFolderWatcher.TorrentFolderWatcher
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.TorrentFolderWatcher
+  nameWithType.vb: TorrentFolderWatcher.New
+  fullName.vb: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.IO.DirectoryInfo
+  commentId: T:System.IO.DirectoryInfo
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.directoryinfo
+  name: DirectoryInfo
+  nameWithType: DirectoryInfo
+  fullName: System.IO.DirectoryInfo
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.ForceScan*
+  commentId: Overload:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.ForceScan
+  href: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.html#MonoTorrent_TorrentWatcher_TorrentFolderWatcher_ForceScan
+  name: ForceScan
+  nameWithType: TorrentFolderWatcher.ForceScan
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.ForceScan
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.ForceScan
+  commentId: M:MonoTorrent.TorrentWatcher.ITorrentWatcher.ForceScan
+  parent: MonoTorrent.TorrentWatcher.ITorrentWatcher
+  href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html#MonoTorrent_TorrentWatcher_ITorrentWatcher_ForceScan
+  name: ForceScan()
+  nameWithType: ITorrentWatcher.ForceScan()
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher.ForceScan()
+  spec.csharp:
+  - uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.ForceScan
+    name: ForceScan
+    href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html#MonoTorrent_TorrentWatcher_ITorrentWatcher_ForceScan
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.ForceScan
+    name: ForceScan
+    href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html#MonoTorrent_TorrentWatcher_ITorrentWatcher_ForceScan
+  - name: (
+  - name: )
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Start*
+  commentId: Overload:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Start
+  href: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.html#MonoTorrent_TorrentWatcher_TorrentFolderWatcher_Start
+  name: Start
+  nameWithType: TorrentFolderWatcher.Start
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Start
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.Start
+  commentId: M:MonoTorrent.TorrentWatcher.ITorrentWatcher.Start
+  parent: MonoTorrent.TorrentWatcher.ITorrentWatcher
+  href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html#MonoTorrent_TorrentWatcher_ITorrentWatcher_Start
+  name: Start()
+  nameWithType: ITorrentWatcher.Start()
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher.Start()
+  spec.csharp:
+  - uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.Start
+    name: Start
+    href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html#MonoTorrent_TorrentWatcher_ITorrentWatcher_Start
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.Start
+    name: Start
+    href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html#MonoTorrent_TorrentWatcher_ITorrentWatcher_Start
+  - name: (
+  - name: )
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Stop*
+  commentId: Overload:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Stop
+  href: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.html#MonoTorrent_TorrentWatcher_TorrentFolderWatcher_Stop
+  name: Stop
+  nameWithType: TorrentFolderWatcher.Stop
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.Stop
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.Stop
+  commentId: M:MonoTorrent.TorrentWatcher.ITorrentWatcher.Stop
+  parent: MonoTorrent.TorrentWatcher.ITorrentWatcher
+  href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html#MonoTorrent_TorrentWatcher_ITorrentWatcher_Stop
+  name: Stop()
+  nameWithType: ITorrentWatcher.Stop()
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher.Stop()
+  spec.csharp:
+  - uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.Stop
+    name: Stop
+    href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html#MonoTorrent_TorrentWatcher_ITorrentWatcher_Stop
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.Stop
+    name: Stop
+    href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html#MonoTorrent_TorrentWatcher_ITorrentWatcher_Stop
+  - name: (
+  - name: )
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentFound*
+  commentId: Overload:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentFound
+  href: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.html#MonoTorrent_TorrentWatcher_TorrentFolderWatcher_RaiseTorrentFound_System_String_
+  name: RaiseTorrentFound
+  nameWithType: TorrentFolderWatcher.RaiseTorrentFound
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentFound
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentLost*
+  commentId: Overload:MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentLost
+  href: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.html#MonoTorrent_TorrentWatcher_TorrentFolderWatcher_RaiseTorrentLost_System_String_
+  name: RaiseTorrentLost
+  nameWithType: TorrentFolderWatcher.RaiseTorrentLost
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.RaiseTorrentLost

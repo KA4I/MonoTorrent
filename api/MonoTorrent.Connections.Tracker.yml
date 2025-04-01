@@ -1,0 +1,99 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.Tracker
+  commentId: N:MonoTorrent.Connections.Tracker
+  id: MonoTorrent.Connections.Tracker
+  children:
+  - MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters
+  - MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder
+  - MonoTorrent.Connections.Tracker.HttpTrackerConnection
+  - MonoTorrent.Connections.Tracker.ITrackerConnection
+  - MonoTorrent.Connections.Tracker.UdpTrackerConnection
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.Connections.Tracker
+  nameWithType: MonoTorrent.Connections.Tracker
+  fullName: MonoTorrent.Connections.Tracker
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.Connections.Tracker.HttpTrackerConnection
+  commentId: T:MonoTorrent.Connections.Tracker.HttpTrackerConnection
+  href: MonoTorrent.Connections.Tracker.HttpTrackerConnection.html
+  name: HttpTrackerConnection
+  nameWithType: HttpTrackerConnection
+  fullName: MonoTorrent.Connections.Tracker.HttpTrackerConnection
+- uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters
+  commentId: T:MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters
+  parent: MonoTorrent.Connections.Tracker
+  href: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.html
+  name: HTTPTrackerConnectionParameters
+  nameWithType: HTTPTrackerConnectionParameters
+  fullName: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters
+- uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder
+  commentId: T:MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder
+  href: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.html
+  name: HTTPTrackerConnectionParameters.Builder
+  nameWithType: HTTPTrackerConnectionParameters.Builder
+  fullName: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder
+  spec.csharp:
+  - uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters
+    name: HTTPTrackerConnectionParameters
+    href: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.html
+  - name: .
+  - uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder
+    name: Builder
+    href: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.html
+  spec.vb:
+  - uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters
+    name: HTTPTrackerConnectionParameters
+    href: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.html
+  - name: .
+  - uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder
+    name: Builder
+    href: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.html
+- uid: MonoTorrent.Connections.Tracker.ITrackerConnection
+  commentId: T:MonoTorrent.Connections.Tracker.ITrackerConnection
+  parent: MonoTorrent.Connections.Tracker
+  href: MonoTorrent.Connections.Tracker.ITrackerConnection.html
+  name: ITrackerConnection
+  nameWithType: ITrackerConnection
+  fullName: MonoTorrent.Connections.Tracker.ITrackerConnection
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection
+  commentId: T:MonoTorrent.Connections.Tracker.UdpTrackerConnection
+  href: MonoTorrent.Connections.Tracker.UdpTrackerConnection.html
+  name: UdpTrackerConnection
+  nameWithType: UdpTrackerConnection
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection
+- uid: MonoTorrent.Connections.Tracker
+  commentId: N:MonoTorrent.Connections.Tracker
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.Tracker
+  nameWithType: MonoTorrent.Connections.Tracker
+  fullName: MonoTorrent.Connections.Tracker
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Tracker
+    name: Tracker
+    href: MonoTorrent.Connections.Tracker.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Tracker
+    name: Tracker
+    href: MonoTorrent.Connections.Tracker.html

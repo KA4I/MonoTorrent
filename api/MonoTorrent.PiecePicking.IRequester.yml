@@ -1,0 +1,601 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PiecePicking.IRequester
+  commentId: T:MonoTorrent.PiecePicking.IRequester
+  id: IRequester
+  parent: MonoTorrent.PiecePicking
+  children:
+  - MonoTorrent.PiecePicking.IRequester.AmRequestingPiecesCount
+  - MonoTorrent.PiecePicking.IRequester.CanCancelRequests
+  - MonoTorrent.PiecePicking.IRequester.CanRequestMorePieces
+  - MonoTorrent.PiecePicking.IRequester.DownloadSpeed
+  - MonoTorrent.PiecePicking.IRequester.IsAllowedFastPieces
+  - MonoTorrent.PiecePicking.IRequester.IsChoking
+  - MonoTorrent.PiecePicking.IRequester.MaxPendingRequests
+  - MonoTorrent.PiecePicking.IRequester.PreferredRequestAmount(System.Int32)
+  - MonoTorrent.PiecePicking.IRequester.RepeatedHashFails
+  - MonoTorrent.PiecePicking.IRequester.SuggestedPieces
+  - MonoTorrent.PiecePicking.IRequester.SupportsFastPeer
+  langs:
+  - csharp
+  - vb
+  name: IRequester
+  nameWithType: IRequester
+  fullName: MonoTorrent.PiecePicking.IRequester
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IRequester
+    path: src/PiecePicking/IRequester.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: public interface IRequester
+    content.vb: Public Interface IRequester
+- uid: MonoTorrent.PiecePicking.IRequester.AmRequestingPiecesCount
+  commentId: P:MonoTorrent.PiecePicking.IRequester.AmRequestingPiecesCount
+  id: AmRequestingPiecesCount
+  parent: MonoTorrent.PiecePicking.IRequester
+  langs:
+  - csharp
+  - vb
+  name: AmRequestingPiecesCount
+  nameWithType: IRequester.AmRequestingPiecesCount
+  fullName: MonoTorrent.PiecePicking.IRequester.AmRequestingPiecesCount
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AmRequestingPiecesCount
+    path: src/PiecePicking/IRequester.cs
+    startLine: 36
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: int AmRequestingPiecesCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Property AmRequestingPiecesCount As Integer
+  overload: MonoTorrent.PiecePicking.IRequester.AmRequestingPiecesCount*
+- uid: MonoTorrent.PiecePicking.IRequester.CanRequestMorePieces
+  commentId: P:MonoTorrent.PiecePicking.IRequester.CanRequestMorePieces
+  id: CanRequestMorePieces
+  parent: MonoTorrent.PiecePicking.IRequester
+  langs:
+  - csharp
+  - vb
+  name: CanRequestMorePieces
+  nameWithType: IRequester.CanRequestMorePieces
+  fullName: MonoTorrent.PiecePicking.IRequester.CanRequestMorePieces
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CanRequestMorePieces
+    path: src/PiecePicking/IRequester.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: bool CanRequestMorePieces { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property CanRequestMorePieces As Boolean
+  overload: MonoTorrent.PiecePicking.IRequester.CanRequestMorePieces*
+- uid: MonoTorrent.PiecePicking.IRequester.DownloadSpeed
+  commentId: P:MonoTorrent.PiecePicking.IRequester.DownloadSpeed
+  id: DownloadSpeed
+  parent: MonoTorrent.PiecePicking.IRequester
+  langs:
+  - csharp
+  - vb
+  name: DownloadSpeed
+  nameWithType: IRequester.DownloadSpeed
+  fullName: MonoTorrent.PiecePicking.IRequester.DownloadSpeed
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DownloadSpeed
+    path: src/PiecePicking/IRequester.cs
+    startLine: 41
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: In bytes/second
+  example: []
+  syntax:
+    content: long DownloadSpeed { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: ReadOnly Property DownloadSpeed As Long
+  overload: MonoTorrent.PiecePicking.IRequester.DownloadSpeed*
+- uid: MonoTorrent.PiecePicking.IRequester.IsAllowedFastPieces
+  commentId: P:MonoTorrent.PiecePicking.IRequester.IsAllowedFastPieces
+  id: IsAllowedFastPieces
+  parent: MonoTorrent.PiecePicking.IRequester
+  langs:
+  - csharp
+  - vb
+  name: IsAllowedFastPieces
+  nameWithType: IRequester.IsAllowedFastPieces
+  fullName: MonoTorrent.PiecePicking.IRequester.IsAllowedFastPieces
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IsAllowedFastPieces
+    path: src/PiecePicking/IRequester.cs
+    startLine: 42
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: List<int> IsAllowedFastPieces { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: ReadOnly Property IsAllowedFastPieces As List(Of Integer)
+  overload: MonoTorrent.PiecePicking.IRequester.IsAllowedFastPieces*
+- uid: MonoTorrent.PiecePicking.IRequester.IsChoking
+  commentId: P:MonoTorrent.PiecePicking.IRequester.IsChoking
+  id: IsChoking
+  parent: MonoTorrent.PiecePicking.IRequester
+  langs:
+  - csharp
+  - vb
+  name: IsChoking
+  nameWithType: IRequester.IsChoking
+  fullName: MonoTorrent.PiecePicking.IRequester.IsChoking
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IsChoking
+    path: src/PiecePicking/IRequester.cs
+    startLine: 43
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: bool IsChoking { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsChoking As Boolean
+  overload: MonoTorrent.PiecePicking.IRequester.IsChoking*
+- uid: MonoTorrent.PiecePicking.IRequester.MaxPendingRequests
+  commentId: P:MonoTorrent.PiecePicking.IRequester.MaxPendingRequests
+  id: MaxPendingRequests
+  parent: MonoTorrent.PiecePicking.IRequester
+  langs:
+  - csharp
+  - vb
+  name: MaxPendingRequests
+  nameWithType: IRequester.MaxPendingRequests
+  fullName: MonoTorrent.PiecePicking.IRequester.MaxPendingRequests
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MaxPendingRequests
+    path: src/PiecePicking/IRequester.cs
+    startLine: 44
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: int MaxPendingRequests { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property MaxPendingRequests As Integer
+  overload: MonoTorrent.PiecePicking.IRequester.MaxPendingRequests*
+- uid: MonoTorrent.PiecePicking.IRequester.RepeatedHashFails
+  commentId: P:MonoTorrent.PiecePicking.IRequester.RepeatedHashFails
+  id: RepeatedHashFails
+  parent: MonoTorrent.PiecePicking.IRequester
+  langs:
+  - csharp
+  - vb
+  name: RepeatedHashFails
+  nameWithType: IRequester.RepeatedHashFails
+  fullName: MonoTorrent.PiecePicking.IRequester.RepeatedHashFails
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RepeatedHashFails
+    path: src/PiecePicking/IRequester.cs
+    startLine: 45
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: int RepeatedHashFails { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property RepeatedHashFails As Integer
+  overload: MonoTorrent.PiecePicking.IRequester.RepeatedHashFails*
+- uid: MonoTorrent.PiecePicking.IRequester.SuggestedPieces
+  commentId: P:MonoTorrent.PiecePicking.IRequester.SuggestedPieces
+  id: SuggestedPieces
+  parent: MonoTorrent.PiecePicking.IRequester
+  langs:
+  - csharp
+  - vb
+  name: SuggestedPieces
+  nameWithType: IRequester.SuggestedPieces
+  fullName: MonoTorrent.PiecePicking.IRequester.SuggestedPieces
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SuggestedPieces
+    path: src/PiecePicking/IRequester.cs
+    startLine: 46
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: List<int> SuggestedPieces { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: ReadOnly Property SuggestedPieces As List(Of Integer)
+  overload: MonoTorrent.PiecePicking.IRequester.SuggestedPieces*
+- uid: MonoTorrent.PiecePicking.IRequester.SupportsFastPeer
+  commentId: P:MonoTorrent.PiecePicking.IRequester.SupportsFastPeer
+  id: SupportsFastPeer
+  parent: MonoTorrent.PiecePicking.IRequester
+  langs:
+  - csharp
+  - vb
+  name: SupportsFastPeer
+  nameWithType: IRequester.SupportsFastPeer
+  fullName: MonoTorrent.PiecePicking.IRequester.SupportsFastPeer
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SupportsFastPeer
+    path: src/PiecePicking/IRequester.cs
+    startLine: 47
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: bool SupportsFastPeer { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property SupportsFastPeer As Boolean
+  overload: MonoTorrent.PiecePicking.IRequester.SupportsFastPeer*
+- uid: MonoTorrent.PiecePicking.IRequester.CanCancelRequests
+  commentId: P:MonoTorrent.PiecePicking.IRequester.CanCancelRequests
+  id: CanCancelRequests
+  parent: MonoTorrent.PiecePicking.IRequester
+  langs:
+  - csharp
+  - vb
+  name: CanCancelRequests
+  nameWithType: IRequester.CanCancelRequests
+  fullName: MonoTorrent.PiecePicking.IRequester.CanCancelRequests
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CanCancelRequests
+    path: src/PiecePicking/IRequester.cs
+    startLine: 52
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: bool CanCancelRequests { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property CanCancelRequests As Boolean
+  overload: MonoTorrent.PiecePicking.IRequester.CanCancelRequests*
+- uid: MonoTorrent.PiecePicking.IRequester.PreferredRequestAmount(System.Int32)
+  commentId: M:MonoTorrent.PiecePicking.IRequester.PreferredRequestAmount(System.Int32)
+  id: PreferredRequestAmount(System.Int32)
+  parent: MonoTorrent.PiecePicking.IRequester
+  langs:
+  - csharp
+  - vb
+  name: PreferredRequestAmount(int)
+  nameWithType: IRequester.PreferredRequestAmount(int)
+  fullName: MonoTorrent.PiecePicking.IRequester.PreferredRequestAmount(int)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PreferredRequestAmount
+    path: src/PiecePicking/IRequester.cs
+    startLine: 60
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: >-
+    Returns the number of blocks to request. If the value is greater than 1 it will be
+
+    rounded up to 1 full piece.
+  example: []
+  syntax:
+    content: int PreferredRequestAmount(int pieceLength)
+    parameters:
+    - id: pieceLength
+      type: System.Int32
+      description: ''
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Function PreferredRequestAmount(pieceLength As Integer) As Integer
+  overload: MonoTorrent.PiecePicking.IRequester.PreferredRequestAmount*
+  nameWithType.vb: IRequester.PreferredRequestAmount(Integer)
+  fullName.vb: MonoTorrent.PiecePicking.IRequester.PreferredRequestAmount(Integer)
+  name.vb: PreferredRequestAmount(Integer)
+references:
+- uid: MonoTorrent.PiecePicking
+  commentId: N:MonoTorrent.PiecePicking
+  href: MonoTorrent.html
+  name: MonoTorrent.PiecePicking
+  nameWithType: MonoTorrent.PiecePicking
+  fullName: MonoTorrent.PiecePicking
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+- uid: MonoTorrent.PiecePicking.IRequester.AmRequestingPiecesCount*
+  commentId: Overload:MonoTorrent.PiecePicking.IRequester.AmRequestingPiecesCount
+  href: MonoTorrent.PiecePicking.IRequester.html#MonoTorrent_PiecePicking_IRequester_AmRequestingPiecesCount
+  name: AmRequestingPiecesCount
+  nameWithType: IRequester.AmRequestingPiecesCount
+  fullName: MonoTorrent.PiecePicking.IRequester.AmRequestingPiecesCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.PiecePicking.IRequester.CanRequestMorePieces*
+  commentId: Overload:MonoTorrent.PiecePicking.IRequester.CanRequestMorePieces
+  href: MonoTorrent.PiecePicking.IRequester.html#MonoTorrent_PiecePicking_IRequester_CanRequestMorePieces
+  name: CanRequestMorePieces
+  nameWithType: IRequester.CanRequestMorePieces
+  fullName: MonoTorrent.PiecePicking.IRequester.CanRequestMorePieces
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.PiecePicking.IRequester.DownloadSpeed*
+  commentId: Overload:MonoTorrent.PiecePicking.IRequester.DownloadSpeed
+  href: MonoTorrent.PiecePicking.IRequester.html#MonoTorrent_PiecePicking_IRequester_DownloadSpeed
+  name: DownloadSpeed
+  nameWithType: IRequester.DownloadSpeed
+  fullName: MonoTorrent.PiecePicking.IRequester.DownloadSpeed
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: MonoTorrent.PiecePicking.IRequester.IsAllowedFastPieces*
+  commentId: Overload:MonoTorrent.PiecePicking.IRequester.IsAllowedFastPieces
+  href: MonoTorrent.PiecePicking.IRequester.html#MonoTorrent_PiecePicking_IRequester_IsAllowedFastPieces
+  name: IsAllowedFastPieces
+  nameWithType: IRequester.IsAllowedFastPieces
+  fullName: MonoTorrent.PiecePicking.IRequester.IsAllowedFastPieces
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<int>
+  nameWithType: List<int>
+  fullName: System.Collections.Generic.List<int>
+  nameWithType.vb: List(Of Integer)
+  fullName.vb: System.Collections.Generic.List(Of Integer)
+  name.vb: List(Of Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: MonoTorrent.PiecePicking.IRequester.IsChoking*
+  commentId: Overload:MonoTorrent.PiecePicking.IRequester.IsChoking
+  href: MonoTorrent.PiecePicking.IRequester.html#MonoTorrent_PiecePicking_IRequester_IsChoking
+  name: IsChoking
+  nameWithType: IRequester.IsChoking
+  fullName: MonoTorrent.PiecePicking.IRequester.IsChoking
+- uid: MonoTorrent.PiecePicking.IRequester.MaxPendingRequests*
+  commentId: Overload:MonoTorrent.PiecePicking.IRequester.MaxPendingRequests
+  href: MonoTorrent.PiecePicking.IRequester.html#MonoTorrent_PiecePicking_IRequester_MaxPendingRequests
+  name: MaxPendingRequests
+  nameWithType: IRequester.MaxPendingRequests
+  fullName: MonoTorrent.PiecePicking.IRequester.MaxPendingRequests
+- uid: MonoTorrent.PiecePicking.IRequester.RepeatedHashFails*
+  commentId: Overload:MonoTorrent.PiecePicking.IRequester.RepeatedHashFails
+  href: MonoTorrent.PiecePicking.IRequester.html#MonoTorrent_PiecePicking_IRequester_RepeatedHashFails
+  name: RepeatedHashFails
+  nameWithType: IRequester.RepeatedHashFails
+  fullName: MonoTorrent.PiecePicking.IRequester.RepeatedHashFails
+- uid: MonoTorrent.PiecePicking.IRequester.SuggestedPieces*
+  commentId: Overload:MonoTorrent.PiecePicking.IRequester.SuggestedPieces
+  href: MonoTorrent.PiecePicking.IRequester.html#MonoTorrent_PiecePicking_IRequester_SuggestedPieces
+  name: SuggestedPieces
+  nameWithType: IRequester.SuggestedPieces
+  fullName: MonoTorrent.PiecePicking.IRequester.SuggestedPieces
+- uid: MonoTorrent.PiecePicking.IRequester.SupportsFastPeer*
+  commentId: Overload:MonoTorrent.PiecePicking.IRequester.SupportsFastPeer
+  href: MonoTorrent.PiecePicking.IRequester.html#MonoTorrent_PiecePicking_IRequester_SupportsFastPeer
+  name: SupportsFastPeer
+  nameWithType: IRequester.SupportsFastPeer
+  fullName: MonoTorrent.PiecePicking.IRequester.SupportsFastPeer
+- uid: MonoTorrent.PiecePicking.IRequester.CanCancelRequests*
+  commentId: Overload:MonoTorrent.PiecePicking.IRequester.CanCancelRequests
+  href: MonoTorrent.PiecePicking.IRequester.html#MonoTorrent_PiecePicking_IRequester_CanCancelRequests
+  name: CanCancelRequests
+  nameWithType: IRequester.CanCancelRequests
+  fullName: MonoTorrent.PiecePicking.IRequester.CanCancelRequests
+- uid: MonoTorrent.PiecePicking.IRequester.PreferredRequestAmount*
+  commentId: Overload:MonoTorrent.PiecePicking.IRequester.PreferredRequestAmount
+  href: MonoTorrent.PiecePicking.IRequester.html#MonoTorrent_PiecePicking_IRequester_PreferredRequestAmount_System_Int32_
+  name: PreferredRequestAmount
+  nameWithType: IRequester.PreferredRequestAmount
+  fullName: MonoTorrent.PiecePicking.IRequester.PreferredRequestAmount

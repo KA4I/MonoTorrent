@@ -1,0 +1,124 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PiecePicking.IHaveLatencyInfo
+  commentId: T:MonoTorrent.PiecePicking.IHaveLatencyInfo
+  id: IHaveLatencyInfo
+  parent: MonoTorrent.PiecePicking
+  children:
+  - MonoTorrent.PiecePicking.IHaveLatencyInfo.WorstLatency
+  langs:
+  - csharp
+  - vb
+  name: IHaveLatencyInfo
+  nameWithType: IHaveLatencyInfo
+  fullName: MonoTorrent.PiecePicking.IHaveLatencyInfo
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IHaveLatencyInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IHaveLatencyInfo
+    path: src/PiecePicking/IHaveLatencyInfo.cs
+    startLine: 4
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: public interface IHaveLatencyInfo
+    content.vb: Public Interface IHaveLatencyInfo
+- uid: MonoTorrent.PiecePicking.IHaveLatencyInfo.WorstLatency
+  commentId: P:MonoTorrent.PiecePicking.IHaveLatencyInfo.WorstLatency
+  id: WorstLatency
+  parent: MonoTorrent.PiecePicking.IHaveLatencyInfo
+  langs:
+  - csharp
+  - vb
+  name: WorstLatency
+  nameWithType: IHaveLatencyInfo.WorstLatency
+  fullName: MonoTorrent.PiecePicking.IHaveLatencyInfo.WorstLatency
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IHaveLatencyInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WorstLatency
+    path: src/PiecePicking/IHaveLatencyInfo.cs
+    startLine: 8
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: In <xref href="System.Diagnostics.Stopwatch" data-throw-if-not-resolved="false"></xref> ticks
+  example: []
+  syntax:
+    content: int WorstLatency { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property WorstLatency As Integer
+  overload: MonoTorrent.PiecePicking.IHaveLatencyInfo.WorstLatency*
+  seealso:
+  - linkId: System.Diagnostics.Stopwatch.Frequency
+    commentId: F:System.Diagnostics.Stopwatch.Frequency
+references:
+- uid: MonoTorrent.PiecePicking
+  commentId: N:MonoTorrent.PiecePicking
+  href: MonoTorrent.html
+  name: MonoTorrent.PiecePicking
+  nameWithType: MonoTorrent.PiecePicking
+  fullName: MonoTorrent.PiecePicking
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+- uid: System.Diagnostics.Stopwatch.Frequency
+  commentId: F:System.Diagnostics.Stopwatch.Frequency
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.diagnostics.stopwatch.frequency
+  name: Frequency
+  nameWithType: Stopwatch.Frequency
+  fullName: System.Diagnostics.Stopwatch.Frequency
+- uid: System.Diagnostics.Stopwatch
+  commentId: T:System.Diagnostics.Stopwatch
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.diagnostics.stopwatch
+  name: Stopwatch
+  nameWithType: Stopwatch
+  fullName: System.Diagnostics.Stopwatch
+- uid: MonoTorrent.PiecePicking.IHaveLatencyInfo.WorstLatency*
+  commentId: Overload:MonoTorrent.PiecePicking.IHaveLatencyInfo.WorstLatency
+  href: MonoTorrent.PiecePicking.IHaveLatencyInfo.html#MonoTorrent_PiecePicking_IHaveLatencyInfo_WorstLatency
+  name: WorstLatency
+  nameWithType: IHaveLatencyInfo.WorstLatency
+  fullName: MonoTorrent.PiecePicking.IHaveLatencyInfo.WorstLatency
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

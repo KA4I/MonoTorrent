@@ -42,7 +42,7 @@ namespace MonoTorrent.Messages.Peer
 
         const byte ExtendedMessagingFlag = 0b00010000;
         const byte FastPeersFlag = 0b00000100;
-        const byte UpgradeToV2Flag = 0b00010000;
+        const byte UpgradeToV2Flag = 0b00001000; // Bit 3 in the 8th byte (index 7) indicates V2 support when V1 hash is sent (BEP52).
 
         public override int ByteLength => Constants.HandshakeLengthV100;
 

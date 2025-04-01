@@ -1,0 +1,1306 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PieceWriter.IPieceWriter
+  commentId: T:MonoTorrent.PieceWriter.IPieceWriter
+  id: IPieceWriter
+  parent: MonoTorrent.PieceWriter
+  children:
+  - MonoTorrent.PieceWriter.IPieceWriter.CloseAsync(MonoTorrent.ITorrentManagerFile)
+  - MonoTorrent.PieceWriter.IPieceWriter.CreateAsync(MonoTorrent.ITorrentManagerFile,MonoTorrent.PieceWriter.FileCreationOptions)
+  - MonoTorrent.PieceWriter.IPieceWriter.ExistsAsync(MonoTorrent.ITorrentManagerFile)
+  - MonoTorrent.PieceWriter.IPieceWriter.FlushAsync(MonoTorrent.ITorrentManagerFile)
+  - MonoTorrent.PieceWriter.IPieceWriter.GetLengthAsync(MonoTorrent.ITorrentManagerFile)
+  - MonoTorrent.PieceWriter.IPieceWriter.MaximumOpenFiles
+  - MonoTorrent.PieceWriter.IPieceWriter.MoveAsync(MonoTorrent.ITorrentManagerFile,System.String,System.Boolean)
+  - MonoTorrent.PieceWriter.IPieceWriter.OpenFiles
+  - MonoTorrent.PieceWriter.IPieceWriter.ReadAsync(MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+  - MonoTorrent.PieceWriter.IPieceWriter.SetLengthAsync(MonoTorrent.ITorrentManagerFile,System.Int64)
+  - MonoTorrent.PieceWriter.IPieceWriter.SetMaximumOpenFilesAsync(System.Int32)
+  - MonoTorrent.PieceWriter.IPieceWriter.WriteAsync(MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+  langs:
+  - csharp
+  - vb
+  name: IPieceWriter
+  nameWithType: IPieceWriter
+  fullName: MonoTorrent.PieceWriter.IPieceWriter
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IPieceWriter
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  syntax:
+    content: 'public interface IPieceWriter : IDisposable'
+    content.vb: Public Interface IPieceWriter Inherits IDisposable
+  inheritedMembers:
+  - System.IDisposable.Dispose
+  extensionMethods:
+  - MonoTorrent.PieceWriter.IPieceWriter.MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+  - MonoTorrent.PieceWriter.IPieceWriter.MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+- uid: MonoTorrent.PieceWriter.IPieceWriter.OpenFiles
+  commentId: P:MonoTorrent.PieceWriter.IPieceWriter.OpenFiles
+  id: OpenFiles
+  parent: MonoTorrent.PieceWriter.IPieceWriter
+  langs:
+  - csharp
+  - vb
+  name: OpenFiles
+  nameWithType: IPieceWriter.OpenFiles
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.OpenFiles
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: OpenFiles
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  syntax:
+    content: int OpenFiles { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property OpenFiles As Integer
+  overload: MonoTorrent.PieceWriter.IPieceWriter.OpenFiles*
+- uid: MonoTorrent.PieceWriter.IPieceWriter.MaximumOpenFiles
+  commentId: P:MonoTorrent.PieceWriter.IPieceWriter.MaximumOpenFiles
+  id: MaximumOpenFiles
+  parent: MonoTorrent.PieceWriter.IPieceWriter
+  langs:
+  - csharp
+  - vb
+  name: MaximumOpenFiles
+  nameWithType: IPieceWriter.MaximumOpenFiles
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.MaximumOpenFiles
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MaximumOpenFiles
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 38
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  syntax:
+    content: int MaximumOpenFiles { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property MaximumOpenFiles As Integer
+  overload: MonoTorrent.PieceWriter.IPieceWriter.MaximumOpenFiles*
+- uid: MonoTorrent.PieceWriter.IPieceWriter.CloseAsync(MonoTorrent.ITorrentManagerFile)
+  commentId: M:MonoTorrent.PieceWriter.IPieceWriter.CloseAsync(MonoTorrent.ITorrentManagerFile)
+  id: CloseAsync(MonoTorrent.ITorrentManagerFile)
+  parent: MonoTorrent.PieceWriter.IPieceWriter
+  langs:
+  - csharp
+  - vb
+  name: CloseAsync(ITorrentManagerFile)
+  nameWithType: IPieceWriter.CloseAsync(ITorrentManagerFile)
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.CloseAsync(MonoTorrent.ITorrentManagerFile)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CloseAsync
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 45
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: Releases all resources associated with the specified file.
+  example: []
+  syntax:
+    content: ReusableTask CloseAsync(ITorrentManagerFile file)
+    parameters:
+    - id: file
+      type: MonoTorrent.ITorrentManagerFile
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask
+      description: ''
+    content.vb: Function CloseAsync(file As ITorrentManagerFile) As ReusableTask
+  overload: MonoTorrent.PieceWriter.IPieceWriter.CloseAsync*
+- uid: MonoTorrent.PieceWriter.IPieceWriter.CreateAsync(MonoTorrent.ITorrentManagerFile,MonoTorrent.PieceWriter.FileCreationOptions)
+  commentId: M:MonoTorrent.PieceWriter.IPieceWriter.CreateAsync(MonoTorrent.ITorrentManagerFile,MonoTorrent.PieceWriter.FileCreationOptions)
+  id: CreateAsync(MonoTorrent.ITorrentManagerFile,MonoTorrent.PieceWriter.FileCreationOptions)
+  parent: MonoTorrent.PieceWriter.IPieceWriter
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(ITorrentManagerFile, FileCreationOptions)
+  nameWithType: IPieceWriter.CreateAsync(ITorrentManagerFile, FileCreationOptions)
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.CreateAsync(MonoTorrent.ITorrentManagerFile, MonoTorrent.PieceWriter.FileCreationOptions)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateAsync
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 53
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: Returns false if the file already exists, otherwise creates the file and returns true.
+  example: []
+  syntax:
+    content: ReusableTask<bool> CreateAsync(ITorrentManagerFile file, FileCreationOptions options)
+    parameters:
+    - id: file
+      type: MonoTorrent.ITorrentManagerFile
+      description: The file to create
+    - id: options
+      type: MonoTorrent.PieceWriter.FileCreationOptions
+      description: Determines how new files will be created.
+    return:
+      type: ReusableTasks.ReusableTask{System.Boolean}
+      description: ''
+    content.vb: Function CreateAsync(file As ITorrentManagerFile, options As FileCreationOptions) As ReusableTask(Of Boolean)
+  overload: MonoTorrent.PieceWriter.IPieceWriter.CreateAsync*
+- uid: MonoTorrent.PieceWriter.IPieceWriter.ExistsAsync(MonoTorrent.ITorrentManagerFile)
+  commentId: M:MonoTorrent.PieceWriter.IPieceWriter.ExistsAsync(MonoTorrent.ITorrentManagerFile)
+  id: ExistsAsync(MonoTorrent.ITorrentManagerFile)
+  parent: MonoTorrent.PieceWriter.IPieceWriter
+  langs:
+  - csharp
+  - vb
+  name: ExistsAsync(ITorrentManagerFile)
+  nameWithType: IPieceWriter.ExistsAsync(ITorrentManagerFile)
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.ExistsAsync(MonoTorrent.ITorrentManagerFile)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ExistsAsync
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 60
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: Returns true if the file exists.
+  example: []
+  syntax:
+    content: ReusableTask<bool> ExistsAsync(ITorrentManagerFile file)
+    parameters:
+    - id: file
+      type: MonoTorrent.ITorrentManagerFile
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask{System.Boolean}
+      description: ''
+    content.vb: Function ExistsAsync(file As ITorrentManagerFile) As ReusableTask(Of Boolean)
+  overload: MonoTorrent.PieceWriter.IPieceWriter.ExistsAsync*
+- uid: MonoTorrent.PieceWriter.IPieceWriter.FlushAsync(MonoTorrent.ITorrentManagerFile)
+  commentId: M:MonoTorrent.PieceWriter.IPieceWriter.FlushAsync(MonoTorrent.ITorrentManagerFile)
+  id: FlushAsync(MonoTorrent.ITorrentManagerFile)
+  parent: MonoTorrent.PieceWriter.IPieceWriter
+  langs:
+  - csharp
+  - vb
+  name: FlushAsync(ITorrentManagerFile)
+  nameWithType: IPieceWriter.FlushAsync(ITorrentManagerFile)
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.FlushAsync(MonoTorrent.ITorrentManagerFile)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FlushAsync
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 67
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: Flush any cached data to the file.
+  example: []
+  syntax:
+    content: ReusableTask FlushAsync(ITorrentManagerFile file)
+    parameters:
+    - id: file
+      type: MonoTorrent.ITorrentManagerFile
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask
+      description: ''
+    content.vb: Function FlushAsync(file As ITorrentManagerFile) As ReusableTask
+  overload: MonoTorrent.PieceWriter.IPieceWriter.FlushAsync*
+- uid: MonoTorrent.PieceWriter.IPieceWriter.GetLengthAsync(MonoTorrent.ITorrentManagerFile)
+  commentId: M:MonoTorrent.PieceWriter.IPieceWriter.GetLengthAsync(MonoTorrent.ITorrentManagerFile)
+  id: GetLengthAsync(MonoTorrent.ITorrentManagerFile)
+  parent: MonoTorrent.PieceWriter.IPieceWriter
+  langs:
+  - csharp
+  - vb
+  name: GetLengthAsync(ITorrentManagerFile)
+  nameWithType: IPieceWriter.GetLengthAsync(ITorrentManagerFile)
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.GetLengthAsync(MonoTorrent.ITorrentManagerFile)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetLengthAsync
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 74
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: Returns null if the specified file does not exist, otherwise returns the length of the file in bytes.
+  example: []
+  syntax:
+    content: ReusableTask<long?> GetLengthAsync(ITorrentManagerFile file)
+    parameters:
+    - id: file
+      type: MonoTorrent.ITorrentManagerFile
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask{System.Nullable{System.Int64}}
+      description: ''
+    content.vb: Function GetLengthAsync(file As ITorrentManagerFile) As ReusableTask(Of Long?)
+  overload: MonoTorrent.PieceWriter.IPieceWriter.GetLengthAsync*
+- uid: MonoTorrent.PieceWriter.IPieceWriter.MoveAsync(MonoTorrent.ITorrentManagerFile,System.String,System.Boolean)
+  commentId: M:MonoTorrent.PieceWriter.IPieceWriter.MoveAsync(MonoTorrent.ITorrentManagerFile,System.String,System.Boolean)
+  id: MoveAsync(MonoTorrent.ITorrentManagerFile,System.String,System.Boolean)
+  parent: MonoTorrent.PieceWriter.IPieceWriter
+  langs:
+  - csharp
+  - vb
+  name: MoveAsync(ITorrentManagerFile, string, bool)
+  nameWithType: IPieceWriter.MoveAsync(ITorrentManagerFile, string, bool)
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.MoveAsync(MonoTorrent.ITorrentManagerFile, string, bool)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MoveAsync
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 83
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: Moves the specified file to the new location. Optionally overwrite any pre-existing files.
+  example: []
+  syntax:
+    content: ReusableTask MoveAsync(ITorrentManagerFile file, string fullPath, bool overwrite)
+    parameters:
+    - id: file
+      type: MonoTorrent.ITorrentManagerFile
+      description: ''
+    - id: fullPath
+      type: System.String
+      description: ''
+    - id: overwrite
+      type: System.Boolean
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask
+      description: ''
+    content.vb: Function MoveAsync(file As ITorrentManagerFile, fullPath As String, overwrite As Boolean) As ReusableTask
+  overload: MonoTorrent.PieceWriter.IPieceWriter.MoveAsync*
+  nameWithType.vb: IPieceWriter.MoveAsync(ITorrentManagerFile, String, Boolean)
+  fullName.vb: MonoTorrent.PieceWriter.IPieceWriter.MoveAsync(MonoTorrent.ITorrentManagerFile, String, Boolean)
+  name.vb: MoveAsync(ITorrentManagerFile, String, Boolean)
+- uid: MonoTorrent.PieceWriter.IPieceWriter.ReadAsync(MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+  commentId: M:MonoTorrent.PieceWriter.IPieceWriter.ReadAsync(MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+  id: ReadAsync(MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+  parent: MonoTorrent.PieceWriter.IPieceWriter
+  langs:
+  - csharp
+  - vb
+  name: ReadAsync(ITorrentManagerFile, long, Memory<byte>)
+  nameWithType: IPieceWriter.ReadAsync(ITorrentManagerFile, long, Memory<byte>)
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.ReadAsync(MonoTorrent.ITorrentManagerFile, long, System.Memory<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ReadAsync
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 92
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: Reads the specified amount of data from the specified file.
+  example: []
+  syntax:
+    content: ReusableTask<int> ReadAsync(ITorrentManagerFile file, long offset, Memory<byte> buffer)
+    parameters:
+    - id: file
+      type: MonoTorrent.ITorrentManagerFile
+      description: ''
+    - id: offset
+      type: System.Int64
+      description: ''
+    - id: buffer
+      type: System.Memory{System.Byte}
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask{System.Int32}
+      description: ''
+    content.vb: Function ReadAsync(file As ITorrentManagerFile, offset As Long, buffer As Memory(Of Byte)) As ReusableTask(Of Integer)
+  overload: MonoTorrent.PieceWriter.IPieceWriter.ReadAsync*
+  nameWithType.vb: IPieceWriter.ReadAsync(ITorrentManagerFile, Long, Memory(Of Byte))
+  fullName.vb: MonoTorrent.PieceWriter.IPieceWriter.ReadAsync(MonoTorrent.ITorrentManagerFile, Long, System.Memory(Of Byte))
+  name.vb: ReadAsync(ITorrentManagerFile, Long, Memory(Of Byte))
+- uid: MonoTorrent.PieceWriter.IPieceWriter.SetLengthAsync(MonoTorrent.ITorrentManagerFile,System.Int64)
+  commentId: M:MonoTorrent.PieceWriter.IPieceWriter.SetLengthAsync(MonoTorrent.ITorrentManagerFile,System.Int64)
+  id: SetLengthAsync(MonoTorrent.ITorrentManagerFile,System.Int64)
+  parent: MonoTorrent.PieceWriter.IPieceWriter
+  langs:
+  - csharp
+  - vb
+  name: SetLengthAsync(ITorrentManagerFile, long)
+  nameWithType: IPieceWriter.SetLengthAsync(ITorrentManagerFile, long)
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.SetLengthAsync(MonoTorrent.ITorrentManagerFile, long)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SetLengthAsync
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 101
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: >-
+    Returns false and no action is taken if the file does not already exist. If the file does exist
+
+    it's length is set to the provided value.
+  example: []
+  syntax:
+    content: ReusableTask<bool> SetLengthAsync(ITorrentManagerFile file, long length)
+    parameters:
+    - id: file
+      type: MonoTorrent.ITorrentManagerFile
+      description: ''
+    - id: length
+      type: System.Int64
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask{System.Boolean}
+      description: ''
+    content.vb: Function SetLengthAsync(file As ITorrentManagerFile, length As Long) As ReusableTask(Of Boolean)
+  overload: MonoTorrent.PieceWriter.IPieceWriter.SetLengthAsync*
+  nameWithType.vb: IPieceWriter.SetLengthAsync(ITorrentManagerFile, Long)
+  fullName.vb: MonoTorrent.PieceWriter.IPieceWriter.SetLengthAsync(MonoTorrent.ITorrentManagerFile, Long)
+  name.vb: SetLengthAsync(ITorrentManagerFile, Long)
+- uid: MonoTorrent.PieceWriter.IPieceWriter.SetMaximumOpenFilesAsync(System.Int32)
+  commentId: M:MonoTorrent.PieceWriter.IPieceWriter.SetMaximumOpenFilesAsync(System.Int32)
+  id: SetMaximumOpenFilesAsync(System.Int32)
+  parent: MonoTorrent.PieceWriter.IPieceWriter
+  langs:
+  - csharp
+  - vb
+  name: SetMaximumOpenFilesAsync(int)
+  nameWithType: IPieceWriter.SetMaximumOpenFilesAsync(int)
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.SetMaximumOpenFilesAsync(int)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SetMaximumOpenFilesAsync
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 108
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: Optional limit to the maximum number of files this writer can have open concurrently.
+  example: []
+  syntax:
+    content: ReusableTask SetMaximumOpenFilesAsync(int maximumOpenFiles)
+    parameters:
+    - id: maximumOpenFiles
+      type: System.Int32
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask
+      description: ''
+    content.vb: Function SetMaximumOpenFilesAsync(maximumOpenFiles As Integer) As ReusableTask
+  overload: MonoTorrent.PieceWriter.IPieceWriter.SetMaximumOpenFilesAsync*
+  nameWithType.vb: IPieceWriter.SetMaximumOpenFilesAsync(Integer)
+  fullName.vb: MonoTorrent.PieceWriter.IPieceWriter.SetMaximumOpenFilesAsync(Integer)
+  name.vb: SetMaximumOpenFilesAsync(Integer)
+- uid: MonoTorrent.PieceWriter.IPieceWriter.WriteAsync(MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+  commentId: M:MonoTorrent.PieceWriter.IPieceWriter.WriteAsync(MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+  id: WriteAsync(MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+  parent: MonoTorrent.PieceWriter.IPieceWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteAsync(ITorrentManagerFile, long, ReadOnlyMemory<byte>)
+  nameWithType: IPieceWriter.WriteAsync(ITorrentManagerFile, long, ReadOnlyMemory<byte>)
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.WriteAsync(MonoTorrent.ITorrentManagerFile, long, System.ReadOnlyMemory<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WriteAsync
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 119
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: >-
+    Writes all data in the provided buffer to the specified file. Some implementatations may
+
+    have an internal cache, which means <xref href="MonoTorrent.PieceWriter.IPieceWriter.FlushAsync(MonoTorrent.ITorrentManagerFile)" data-throw-if-not-resolved="false"></xref> should
+
+    be invoked to guarantee the data is written to it's final destination.
+  example: []
+  syntax:
+    content: ReusableTask WriteAsync(ITorrentManagerFile file, long offset, ReadOnlyMemory<byte> buffer)
+    parameters:
+    - id: file
+      type: MonoTorrent.ITorrentManagerFile
+      description: ''
+    - id: offset
+      type: System.Int64
+      description: ''
+    - id: buffer
+      type: System.ReadOnlyMemory{System.Byte}
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask
+      description: ''
+    content.vb: Function WriteAsync(file As ITorrentManagerFile, offset As Long, buffer As ReadOnlyMemory(Of Byte)) As ReusableTask
+  overload: MonoTorrent.PieceWriter.IPieceWriter.WriteAsync*
+  nameWithType.vb: IPieceWriter.WriteAsync(ITorrentManagerFile, Long, ReadOnlyMemory(Of Byte))
+  fullName.vb: MonoTorrent.PieceWriter.IPieceWriter.WriteAsync(MonoTorrent.ITorrentManagerFile, Long, System.ReadOnlyMemory(Of Byte))
+  name.vb: WriteAsync(ITorrentManagerFile, Long, ReadOnlyMemory(Of Byte))
+references:
+- uid: MonoTorrent.PieceWriter
+  commentId: N:MonoTorrent.PieceWriter
+  href: MonoTorrent.html
+  name: MonoTorrent.PieceWriter
+  nameWithType: MonoTorrent.PieceWriter
+  fullName: MonoTorrent.PieceWriter
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: MonoTorrent.PieceWriter.IPieceWriter.MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+  commentId: M:MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+  parent: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+  definition: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+  href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html#MonoTorrent_PieceWriter_PaddingAwareIPieceWriterExtensions_PaddingAwareReadAsync_MonoTorrent_PieceWriter_IPieceWriter_MonoTorrent_ITorrentManagerFile_System_Int64_System_Memory_System_Byte__
+  name: PaddingAwareReadAsync(IPieceWriter, ITorrentManagerFile, long, Memory<byte>)
+  nameWithType: PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(IPieceWriter, ITorrentManagerFile, long, Memory<byte>)
+  fullName: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter, MonoTorrent.ITorrentManagerFile, long, System.Memory<byte>)
+  nameWithType.vb: PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(IPieceWriter, ITorrentManagerFile, Long, Memory(Of Byte))
+  fullName.vb: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter, MonoTorrent.ITorrentManagerFile, Long, System.Memory(Of Byte))
+  name.vb: PaddingAwareReadAsync(IPieceWriter, ITorrentManagerFile, Long, Memory(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+    name: PaddingAwareReadAsync
+    href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html#MonoTorrent_PieceWriter_PaddingAwareIPieceWriterExtensions_PaddingAwareReadAsync_MonoTorrent_PieceWriter_IPieceWriter_MonoTorrent_ITorrentManagerFile_System_Int64_System_Memory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.PieceWriter.IPieceWriter
+    name: IPieceWriter
+    href: MonoTorrent.PieceWriter.IPieceWriter.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+    name: PaddingAwareReadAsync
+    href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html#MonoTorrent_PieceWriter_PaddingAwareIPieceWriterExtensions_PaddingAwareReadAsync_MonoTorrent_PieceWriter_IPieceWriter_MonoTorrent_ITorrentManagerFile_System_Int64_System_Memory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.PieceWriter.IPieceWriter
+    name: IPieceWriter
+    href: MonoTorrent.PieceWriter.IPieceWriter.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.PieceWriter.IPieceWriter.MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+  commentId: M:MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+  parent: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+  definition: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+  href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html#MonoTorrent_PieceWriter_PaddingAwareIPieceWriterExtensions_PaddingAwareWriteAsync_MonoTorrent_PieceWriter_IPieceWriter_MonoTorrent_ITorrentManagerFile_System_Int64_System_ReadOnlyMemory_System_Byte__
+  name: PaddingAwareWriteAsync(IPieceWriter, ITorrentManagerFile, long, ReadOnlyMemory<byte>)
+  nameWithType: PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(IPieceWriter, ITorrentManagerFile, long, ReadOnlyMemory<byte>)
+  fullName: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter, MonoTorrent.ITorrentManagerFile, long, System.ReadOnlyMemory<byte>)
+  nameWithType.vb: PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(IPieceWriter, ITorrentManagerFile, Long, ReadOnlyMemory(Of Byte))
+  fullName.vb: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter, MonoTorrent.ITorrentManagerFile, Long, System.ReadOnlyMemory(Of Byte))
+  name.vb: PaddingAwareWriteAsync(IPieceWriter, ITorrentManagerFile, Long, ReadOnlyMemory(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+    name: PaddingAwareWriteAsync
+    href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html#MonoTorrent_PieceWriter_PaddingAwareIPieceWriterExtensions_PaddingAwareWriteAsync_MonoTorrent_PieceWriter_IPieceWriter_MonoTorrent_ITorrentManagerFile_System_Int64_System_ReadOnlyMemory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.PieceWriter.IPieceWriter
+    name: IPieceWriter
+    href: MonoTorrent.PieceWriter.IPieceWriter.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+    name: PaddingAwareWriteAsync
+    href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html#MonoTorrent_PieceWriter_PaddingAwareIPieceWriterExtensions_PaddingAwareWriteAsync_MonoTorrent_PieceWriter_IPieceWriter_MonoTorrent_ITorrentManagerFile_System_Int64_System_ReadOnlyMemory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.PieceWriter.IPieceWriter
+    name: IPieceWriter
+    href: MonoTorrent.PieceWriter.IPieceWriter.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+  commentId: M:MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+  isExternal: true
+  href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html#MonoTorrent_PieceWriter_PaddingAwareIPieceWriterExtensions_PaddingAwareReadAsync_MonoTorrent_PieceWriter_IPieceWriter_MonoTorrent_ITorrentManagerFile_System_Int64_System_Memory_System_Byte__
+  name: PaddingAwareReadAsync(IPieceWriter, ITorrentManagerFile, long, Memory<byte>)
+  nameWithType: PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(IPieceWriter, ITorrentManagerFile, long, Memory<byte>)
+  fullName: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter, MonoTorrent.ITorrentManagerFile, long, System.Memory<byte>)
+  nameWithType.vb: PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(IPieceWriter, ITorrentManagerFile, Long, Memory(Of Byte))
+  fullName.vb: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter, MonoTorrent.ITorrentManagerFile, Long, System.Memory(Of Byte))
+  name.vb: PaddingAwareReadAsync(IPieceWriter, ITorrentManagerFile, Long, Memory(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+    name: PaddingAwareReadAsync
+    href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html#MonoTorrent_PieceWriter_PaddingAwareIPieceWriterExtensions_PaddingAwareReadAsync_MonoTorrent_PieceWriter_IPieceWriter_MonoTorrent_ITorrentManagerFile_System_Int64_System_Memory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.PieceWriter.IPieceWriter
+    name: IPieceWriter
+    href: MonoTorrent.PieceWriter.IPieceWriter.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+    name: PaddingAwareReadAsync
+    href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html#MonoTorrent_PieceWriter_PaddingAwareIPieceWriterExtensions_PaddingAwareReadAsync_MonoTorrent_PieceWriter_IPieceWriter_MonoTorrent_ITorrentManagerFile_System_Int64_System_Memory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.PieceWriter.IPieceWriter
+    name: IPieceWriter
+    href: MonoTorrent.PieceWriter.IPieceWriter.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+  commentId: T:MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html
+  name: PaddingAwareIPieceWriterExtensions
+  nameWithType: PaddingAwareIPieceWriterExtensions
+  fullName: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+- uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+  commentId: M:MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+  isExternal: true
+  href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html#MonoTorrent_PieceWriter_PaddingAwareIPieceWriterExtensions_PaddingAwareWriteAsync_MonoTorrent_PieceWriter_IPieceWriter_MonoTorrent_ITorrentManagerFile_System_Int64_System_ReadOnlyMemory_System_Byte__
+  name: PaddingAwareWriteAsync(IPieceWriter, ITorrentManagerFile, long, ReadOnlyMemory<byte>)
+  nameWithType: PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(IPieceWriter, ITorrentManagerFile, long, ReadOnlyMemory<byte>)
+  fullName: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter, MonoTorrent.ITorrentManagerFile, long, System.ReadOnlyMemory<byte>)
+  nameWithType.vb: PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(IPieceWriter, ITorrentManagerFile, Long, ReadOnlyMemory(Of Byte))
+  fullName.vb: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter, MonoTorrent.ITorrentManagerFile, Long, System.ReadOnlyMemory(Of Byte))
+  name.vb: PaddingAwareWriteAsync(IPieceWriter, ITorrentManagerFile, Long, ReadOnlyMemory(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+    name: PaddingAwareWriteAsync
+    href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html#MonoTorrent_PieceWriter_PaddingAwareIPieceWriterExtensions_PaddingAwareWriteAsync_MonoTorrent_PieceWriter_IPieceWriter_MonoTorrent_ITorrentManagerFile_System_Int64_System_ReadOnlyMemory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.PieceWriter.IPieceWriter
+    name: IPieceWriter
+    href: MonoTorrent.PieceWriter.IPieceWriter.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+    name: PaddingAwareWriteAsync
+    href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html#MonoTorrent_PieceWriter_PaddingAwareIPieceWriterExtensions_PaddingAwareWriteAsync_MonoTorrent_PieceWriter_IPieceWriter_MonoTorrent_ITorrentManagerFile_System_Int64_System_ReadOnlyMemory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.PieceWriter.IPieceWriter
+    name: IPieceWriter
+    href: MonoTorrent.PieceWriter.IPieceWriter.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.PieceWriter.IPieceWriter.OpenFiles*
+  commentId: Overload:MonoTorrent.PieceWriter.IPieceWriter.OpenFiles
+  href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_OpenFiles
+  name: OpenFiles
+  nameWithType: IPieceWriter.OpenFiles
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.OpenFiles
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.PieceWriter.IPieceWriter.MaximumOpenFiles*
+  commentId: Overload:MonoTorrent.PieceWriter.IPieceWriter.MaximumOpenFiles
+  href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_MaximumOpenFiles
+  name: MaximumOpenFiles
+  nameWithType: IPieceWriter.MaximumOpenFiles
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.MaximumOpenFiles
+- uid: MonoTorrent.PieceWriter.IPieceWriter.CloseAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.IPieceWriter.CloseAsync
+  href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_CloseAsync_MonoTorrent_ITorrentManagerFile_
+  name: CloseAsync
+  nameWithType: IPieceWriter.CloseAsync
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.CloseAsync
+- uid: MonoTorrent.ITorrentManagerFile
+  commentId: T:MonoTorrent.ITorrentManagerFile
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentManagerFile.html
+  name: ITorrentManagerFile
+  nameWithType: ITorrentManagerFile
+  fullName: MonoTorrent.ITorrentManagerFile
+- uid: ReusableTasks.ReusableTask
+  commentId: T:ReusableTasks.ReusableTask
+  parent: ReusableTasks
+  isExternal: true
+  name: ReusableTask
+  nameWithType: ReusableTask
+  fullName: ReusableTasks.ReusableTask
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: ReusableTasks
+  commentId: N:ReusableTasks
+  isExternal: true
+  name: ReusableTasks
+  nameWithType: ReusableTasks
+  fullName: ReusableTasks
+- uid: MonoTorrent.PieceWriter.IPieceWriter.CreateAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.IPieceWriter.CreateAsync
+  href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_CreateAsync_MonoTorrent_ITorrentManagerFile_MonoTorrent_PieceWriter_FileCreationOptions_
+  name: CreateAsync
+  nameWithType: IPieceWriter.CreateAsync
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.CreateAsync
+- uid: MonoTorrent.PieceWriter.FileCreationOptions
+  commentId: T:MonoTorrent.PieceWriter.FileCreationOptions
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.FileCreationOptions.html
+  name: FileCreationOptions
+  nameWithType: FileCreationOptions
+  fullName: MonoTorrent.PieceWriter.FileCreationOptions
+- uid: ReusableTasks.ReusableTask{System.Boolean}
+  commentId: T:ReusableTasks.ReusableTask{System.Boolean}
+  parent: ReusableTasks
+  definition: ReusableTasks.ReusableTask`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: ReusableTask<bool>
+  nameWithType: ReusableTask<bool>
+  fullName: ReusableTasks.ReusableTask<bool>
+  nameWithType.vb: ReusableTask(Of Boolean)
+  fullName.vb: ReusableTasks.ReusableTask(Of Boolean)
+  name.vb: ReusableTask(Of Boolean)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: ReusableTasks.ReusableTask`1
+  commentId: T:ReusableTasks.ReusableTask`1
+  isExternal: true
+  name: ReusableTask<T>
+  nameWithType: ReusableTask<T>
+  fullName: ReusableTasks.ReusableTask<T>
+  nameWithType.vb: ReusableTask(Of T)
+  fullName.vb: ReusableTasks.ReusableTask(Of T)
+  name.vb: ReusableTask(Of T)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.PieceWriter.IPieceWriter.ExistsAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.IPieceWriter.ExistsAsync
+  href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_ExistsAsync_MonoTorrent_ITorrentManagerFile_
+  name: ExistsAsync
+  nameWithType: IPieceWriter.ExistsAsync
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.ExistsAsync
+- uid: MonoTorrent.PieceWriter.IPieceWriter.FlushAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.IPieceWriter.FlushAsync
+  href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_FlushAsync_MonoTorrent_ITorrentManagerFile_
+  name: FlushAsync
+  nameWithType: IPieceWriter.FlushAsync
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.FlushAsync
+- uid: MonoTorrent.PieceWriter.IPieceWriter.GetLengthAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.IPieceWriter.GetLengthAsync
+  href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_GetLengthAsync_MonoTorrent_ITorrentManagerFile_
+  name: GetLengthAsync
+  nameWithType: IPieceWriter.GetLengthAsync
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.GetLengthAsync
+- uid: ReusableTasks.ReusableTask{System.Nullable{System.Int64}}
+  commentId: T:ReusableTasks.ReusableTask{System.Nullable{System.Int64}}
+  parent: ReusableTasks
+  definition: ReusableTasks.ReusableTask`1
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: ReusableTask<long?>
+  nameWithType: ReusableTask<long?>
+  fullName: ReusableTasks.ReusableTask<long?>
+  nameWithType.vb: ReusableTask(Of Long?)
+  fullName.vb: ReusableTasks.ReusableTask(Of Long?)
+  name.vb: ReusableTask(Of Long?)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+  - name: )
+- uid: MonoTorrent.PieceWriter.IPieceWriter.MoveAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.IPieceWriter.MoveAsync
+  href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_MoveAsync_MonoTorrent_ITorrentManagerFile_System_String_System_Boolean_
+  name: MoveAsync
+  nameWithType: IPieceWriter.MoveAsync
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.MoveAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.PieceWriter.IPieceWriter.ReadAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.IPieceWriter.ReadAsync
+  href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_ReadAsync_MonoTorrent_ITorrentManagerFile_System_Int64_System_Memory_System_Byte__
+  name: ReadAsync
+  nameWithType: IPieceWriter.ReadAsync
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.ReadAsync
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: System.Memory{System.Byte}
+  commentId: T:System.Memory{System.Byte}
+  parent: System
+  definition: System.Memory`1
+  href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  name: Memory<byte>
+  nameWithType: Memory<byte>
+  fullName: System.Memory<byte>
+  nameWithType.vb: Memory(Of Byte)
+  fullName.vb: System.Memory(Of Byte)
+  name.vb: Memory(Of Byte)
+  spec.csharp:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: ReusableTasks.ReusableTask{System.Int32}
+  commentId: T:ReusableTasks.ReusableTask{System.Int32}
+  parent: ReusableTasks
+  definition: ReusableTasks.ReusableTask`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: ReusableTask<int>
+  nameWithType: ReusableTask<int>
+  fullName: ReusableTasks.ReusableTask<int>
+  nameWithType.vb: ReusableTask(Of Integer)
+  fullName.vb: ReusableTasks.ReusableTask(Of Integer)
+  name.vb: ReusableTask(Of Integer)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Memory`1
+  commentId: T:System.Memory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  name: Memory<T>
+  nameWithType: Memory<T>
+  fullName: System.Memory<T>
+  nameWithType.vb: Memory(Of T)
+  fullName.vb: System.Memory(Of T)
+  name.vb: Memory(Of T)
+  spec.csharp:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.PieceWriter.IPieceWriter.SetLengthAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.IPieceWriter.SetLengthAsync
+  href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_SetLengthAsync_MonoTorrent_ITorrentManagerFile_System_Int64_
+  name: SetLengthAsync
+  nameWithType: IPieceWriter.SetLengthAsync
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.SetLengthAsync
+- uid: MonoTorrent.PieceWriter.IPieceWriter.SetMaximumOpenFilesAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.IPieceWriter.SetMaximumOpenFilesAsync
+  href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_SetMaximumOpenFilesAsync_System_Int32_
+  name: SetMaximumOpenFilesAsync
+  nameWithType: IPieceWriter.SetMaximumOpenFilesAsync
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.SetMaximumOpenFilesAsync
+- uid: MonoTorrent.PieceWriter.IPieceWriter.FlushAsync(MonoTorrent.ITorrentManagerFile)
+  commentId: M:MonoTorrent.PieceWriter.IPieceWriter.FlushAsync(MonoTorrent.ITorrentManagerFile)
+  parent: MonoTorrent.PieceWriter.IPieceWriter
+  href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_FlushAsync_MonoTorrent_ITorrentManagerFile_
+  name: FlushAsync(ITorrentManagerFile)
+  nameWithType: IPieceWriter.FlushAsync(ITorrentManagerFile)
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.FlushAsync(MonoTorrent.ITorrentManagerFile)
+  spec.csharp:
+  - uid: MonoTorrent.PieceWriter.IPieceWriter.FlushAsync(MonoTorrent.ITorrentManagerFile)
+    name: FlushAsync
+    href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_FlushAsync_MonoTorrent_ITorrentManagerFile_
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PieceWriter.IPieceWriter.FlushAsync(MonoTorrent.ITorrentManagerFile)
+    name: FlushAsync
+    href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_FlushAsync_MonoTorrent_ITorrentManagerFile_
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: )
+- uid: MonoTorrent.PieceWriter.IPieceWriter.WriteAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.IPieceWriter.WriteAsync
+  href: MonoTorrent.PieceWriter.IPieceWriter.html#MonoTorrent_PieceWriter_IPieceWriter_WriteAsync_MonoTorrent_ITorrentManagerFile_System_Int64_System_ReadOnlyMemory_System_Byte__
+  name: WriteAsync
+  nameWithType: IPieceWriter.WriteAsync
+  fullName: MonoTorrent.PieceWriter.IPieceWriter.WriteAsync
+- uid: System.ReadOnlyMemory{System.Byte}
+  commentId: T:System.ReadOnlyMemory{System.Byte}
+  parent: System
+  definition: System.ReadOnlyMemory`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<byte>
+  nameWithType: ReadOnlyMemory<byte>
+  fullName: System.ReadOnlyMemory<byte>
+  nameWithType.vb: ReadOnlyMemory(Of Byte)
+  fullName.vb: System.ReadOnlyMemory(Of Byte)
+  name.vb: ReadOnlyMemory(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: MonoTorrent.PieceWriter.IPieceWriter
+  commentId: T:MonoTorrent.PieceWriter.IPieceWriter
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.IPieceWriter.html
+  name: IPieceWriter
+  nameWithType: IPieceWriter
+  fullName: MonoTorrent.PieceWriter.IPieceWriter
+- uid: System.ReadOnlyMemory`1
+  commentId: T:System.ReadOnlyMemory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<T>
+  nameWithType: ReadOnlyMemory<T>
+  fullName: System.ReadOnlyMemory<T>
+  nameWithType.vb: ReadOnlyMemory(Of T)
+  fullName.vb: System.ReadOnlyMemory(Of T)
+  name.vb: ReadOnlyMemory(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

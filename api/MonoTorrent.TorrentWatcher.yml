@@ -1,0 +1,67 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.TorrentWatcher
+  commentId: N:MonoTorrent.TorrentWatcher
+  id: MonoTorrent.TorrentWatcher
+  children:
+  - MonoTorrent.TorrentWatcher.ITorrentWatcher
+  - MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  - MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs
+  - MonoTorrent.TorrentWatcher.TorrentWatchers
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.TorrentWatcher
+  nameWithType: MonoTorrent.TorrentWatcher
+  fullName: MonoTorrent.TorrentWatcher
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher
+  commentId: T:MonoTorrent.TorrentWatcher.ITorrentWatcher
+  parent: MonoTorrent.TorrentWatcher
+  href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html
+  name: ITorrentWatcher
+  nameWithType: ITorrentWatcher
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher
+- uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  commentId: T:MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+  href: MonoTorrent.TorrentWatcher.TorrentFolderWatcher.html
+  name: TorrentFolderWatcher
+  nameWithType: TorrentFolderWatcher
+  fullName: MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+- uid: MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs
+  commentId: T:MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs
+  href: MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs.html
+  name: TorrentWatcherEventArgs
+  nameWithType: TorrentWatcherEventArgs
+  fullName: MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs
+- uid: MonoTorrent.TorrentWatcher.TorrentWatchers
+  commentId: T:MonoTorrent.TorrentWatcher.TorrentWatchers
+  href: MonoTorrent.TorrentWatcher.TorrentWatchers.html
+  name: TorrentWatchers
+  nameWithType: TorrentWatchers
+  fullName: MonoTorrent.TorrentWatcher.TorrentWatchers
+- uid: MonoTorrent.TorrentWatcher
+  commentId: N:MonoTorrent.TorrentWatcher
+  href: MonoTorrent.html
+  name: MonoTorrent.TorrentWatcher
+  nameWithType: MonoTorrent.TorrentWatcher
+  fullName: MonoTorrent.TorrentWatcher
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TorrentWatcher
+    name: TorrentWatcher
+    href: MonoTorrent.TorrentWatcher.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TorrentWatcher
+    name: TorrentWatcher
+    href: MonoTorrent.TorrentWatcher.html

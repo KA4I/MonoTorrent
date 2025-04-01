@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.BlockReader
+  commentId: N:MonoTorrent.BlockReader
+  id: MonoTorrent.BlockReader
+  children:
+  - MonoTorrent.BlockReader.IBlockReader
+  - MonoTorrent.BlockReader.PieceReaderExtensions
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.BlockReader
+  nameWithType: MonoTorrent.BlockReader
+  fullName: MonoTorrent.BlockReader
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.BlockReader.IBlockReader
+  commentId: T:MonoTorrent.BlockReader.IBlockReader
+  parent: MonoTorrent.BlockReader
+  href: MonoTorrent.BlockReader.IBlockReader.html
+  name: IBlockReader
+  nameWithType: IBlockReader
+  fullName: MonoTorrent.BlockReader.IBlockReader
+- uid: MonoTorrent.BlockReader.PieceReaderExtensions
+  commentId: T:MonoTorrent.BlockReader.PieceReaderExtensions
+  parent: MonoTorrent.BlockReader
+  href: MonoTorrent.BlockReader.PieceReaderExtensions.html
+  name: PieceReaderExtensions
+  nameWithType: PieceReaderExtensions
+  fullName: MonoTorrent.BlockReader.PieceReaderExtensions
+- uid: MonoTorrent.BlockReader
+  commentId: N:MonoTorrent.BlockReader
+  href: MonoTorrent.html
+  name: MonoTorrent.BlockReader
+  nameWithType: MonoTorrent.BlockReader
+  fullName: MonoTorrent.BlockReader
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BlockReader
+    name: BlockReader
+    href: MonoTorrent.BlockReader.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BlockReader
+    name: BlockReader
+    href: MonoTorrent.BlockReader.html

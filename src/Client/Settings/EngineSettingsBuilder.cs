@@ -58,6 +58,8 @@ namespace MonoTorrent.Client
         TimeSpan webSeedConnectionTimeout;
         TimeSpan webSeedDelay;
         int webSeedSpeedTrigger;
+        TimeSpan mutableTorrentUpdateInterval;
+
 
 
         /// <summary>
@@ -365,6 +367,16 @@ namespace MonoTorrent.Client
             set => webSeedSpeedTrigger = CheckZeroOrPositive (value);
         }
 
+        /// <summary>
+        /// The time interval between checking for updates for torrents loaded via a BEP46 magnet link.
+        /// Defaults to 15 minutes.
+        /// </summary>
+        public TimeSpan MutableTorrentUpdateInterval {
+            get => mutableTorrentUpdateInterval;
+            set => mutableTorrentUpdateInterval = CheckZeroOrPositive(value);
+        }
+
+
         public EngineSettingsBuilder ()
             : this (new EngineSettings ())
         {
@@ -409,6 +421,7 @@ namespace MonoTorrent.Client
             UsePartialFiles = settings.UsePartialFiles;
             WebSeedConnectionTimeout = settings.WebSeedConnectionTimeout;
             WebSeedDelay = settings.WebSeedDelay;
+            MutableTorrentUpdateInterval = settings.MutableTorrentUpdateInterval;
             WebSeedSpeedTrigger = settings.WebSeedSpeedTrigger;
         }
 
@@ -462,7 +475,9 @@ namespace MonoTorrent.Client
                 usePartialFiles: UsePartialFiles,
                 webSeedConnectionTimeout: WebSeedConnectionTimeout,
                 webSeedDelay: WebSeedDelay,
-                webSeedSpeedTrigger: webSeedSpeedTrigger
+                webSeedSpeedTrigger: webSeedSpeedTrigger,
+                mutableTorrentUpdateInterval: MutableTorrentUpdateInterval
+
             );
         }
 

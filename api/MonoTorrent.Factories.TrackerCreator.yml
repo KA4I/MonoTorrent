@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Factories.TrackerCreator
+  commentId: T:MonoTorrent.Factories.TrackerCreator
+  id: Factories.TrackerCreator
+  parent: MonoTorrent
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: Factories.TrackerCreator
+  nameWithType: Factories.TrackerCreator
+  fullName: MonoTorrent.Factories.TrackerCreator
+  type: Delegate
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TrackerCreator
+    path: src/Factories.cs
+    startLine: 70
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public delegate ITracker Factories.TrackerCreator(Uri uri)
+    parameters:
+    - id: uri
+      type: System.Uri
+    return:
+      type: MonoTorrent.Trackers.ITracker
+    content.vb: Public Delegate Function Factories.TrackerCreator(uri As Uri) As ITracker
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: MonoTorrent.Trackers.ITracker
+  commentId: T:MonoTorrent.Trackers.ITracker
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.ITracker.html
+  name: ITracker
+  nameWithType: ITracker
+  fullName: MonoTorrent.Trackers.ITracker
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Trackers
+  commentId: N:MonoTorrent.Trackers
+  href: MonoTorrent.html
+  name: MonoTorrent.Trackers
+  nameWithType: MonoTorrent.Trackers
+  fullName: MonoTorrent.Trackers
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html

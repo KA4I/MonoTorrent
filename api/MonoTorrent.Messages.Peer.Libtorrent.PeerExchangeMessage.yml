@@ -1,0 +1,3018 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  commentId: T:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  id: PeerExchangeMessage
+  parent: MonoTorrent.Messages.Peer.Libtorrent
+  children:
+  - MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.#ctor
+  - MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added
+  - MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6
+  - MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6DotF
+  - MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.AddedDotF
+  - MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ByteLength
+  - MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Decode(System.ReadOnlySpan{System.Byte})
+  - MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped
+  - MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped6
+  - MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Encode(System.Span{System.Byte})
+  - MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Initialize(MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupports,System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},MonoTorrent.ByteBufferPool.Releaser)
+  - MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Reset
+  - MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Support
+  - MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ToString
+  langs:
+  - csharp
+  - vb
+  name: PeerExchangeMessage
+  nameWithType: PeerExchangeMessage
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PeerExchangeMessage
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: 'public class PeerExchangeMessage : ExtensionMessage, IMessage, IRentable'
+    content.vb: Public Class PeerExchangeMessage Inherits ExtensionMessage Implements IMessage, IRentable
+  inheritance:
+  - System.Object
+  - MonoTorrent.Messages.Message
+  - MonoTorrent.Messages.Peer.PeerMessage
+  - MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage
+  implements:
+  - MonoTorrent.Messages.IMessage
+  - MonoTorrent.Messages.IRentable
+  inheritedMembers:
+  - MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.ExtensionId
+  - MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.Register(System.Func{MonoTorrent.ITorrentManagerInfo,System.ValueTuple{MonoTorrent.Messages.Peer.PeerMessage,MonoTorrent.Messages.Peer.PeerMessage.Releaser}})
+  - MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.CreateSupport(System.String)
+  - MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.DecodeExtensionMessage(System.ReadOnlySpan{System.Byte},MonoTorrent.ITorrentManagerInfo)
+  - MonoTorrent.Messages.Peer.PeerMessage.Rent``1
+  - MonoTorrent.Messages.Peer.PeerMessage.DecodeMessage(System.ReadOnlySpan{System.Byte},MonoTorrent.ITorrentManagerInfo)
+  - MonoTorrent.Messages.Message.Encode
+  - MonoTorrent.Messages.Message.ReadBencodedValue``1(System.ReadOnlySpan{System.Byte}@,System.Boolean)
+  - MonoTorrent.Messages.Message.ReadByte(System.ReadOnlySpan{System.Byte}@)
+  - MonoTorrent.Messages.Message.ReadBytes(System.ReadOnlySpan{System.Byte}@,System.Int32)
+  - MonoTorrent.Messages.Message.ReadShort(System.ReadOnlySpan{System.Byte})
+  - MonoTorrent.Messages.Message.ReadShort(System.ReadOnlySpan{System.Byte}@)
+  - MonoTorrent.Messages.Message.ReadLong(System.ReadOnlySpan{System.Byte}@)
+  - MonoTorrent.Messages.Message.ReadUInt(System.ReadOnlySpan{System.Byte}@)
+  - MonoTorrent.Messages.Message.ReadUShort(System.ReadOnlySpan{System.Byte}@)
+  - MonoTorrent.Messages.Message.ReadString(System.ReadOnlySpan{System.Byte}@,System.Int32)
+  - MonoTorrent.Messages.Message.ReadInt(System.ReadOnlySpan{System.Byte})
+  - MonoTorrent.Messages.Message.ReadInt(System.ReadOnlySpan{System.Byte}@)
+  - MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.ReadOnlySpan{System.Byte})
+  - MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.ReadOnlySpan{System.Byte})
+  - MonoTorrent.Messages.Message.Write(System.Span{System.Byte},System.Byte)
+  - MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Byte)
+  - MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Byte)
+  - MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Int16)
+  - MonoTorrent.Messages.Message.WriteAscii(System.Span{System.Byte}@,System.String)
+  - MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.UInt16)
+  - MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.UInt32)
+  - MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Int32)
+  - MonoTorrent.Messages.Message.Write(System.Span{System.Byte},System.Int32)
+  - MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Int32)
+  - MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Int64)
+  - MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,MonoTorrent.BEncoding.BEncodedValue)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Support
+  commentId: F:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Support
+  id: Support
+  parent: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  langs:
+  - csharp
+  - vb
+  name: Support
+  nameWithType: PeerExchangeMessage.Support
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Support
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Support
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: public static readonly ExtensionSupport Support
+    return:
+      type: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport
+    content.vb: Public Shared ReadOnly Support As ExtensionSupport
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ByteLength
+  commentId: P:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ByteLength
+  id: ByteLength
+  parent: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  langs:
+  - csharp
+  - vb
+  name: ByteLength
+  nameWithType: PeerExchangeMessage.ByteLength
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ByteLength
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ByteLength
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 48
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  example: []
+  syntax:
+    content: public override int ByteLength { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Overrides ReadOnly Property ByteLength As Integer
+  overridden: MonoTorrent.Messages.Message.ByteLength
+  overload: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ByteLength*
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added
+  commentId: P:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added
+  id: Added
+  parent: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  langs:
+  - csharp
+  - vb
+  name: Added
+  nameWithType: PeerExchangeMessage.Added
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Added
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 50
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: public ReadOnlyMemory<byte> Added { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlyMemory{System.Byte}
+    content.vb: Public ReadOnly Property Added As ReadOnlyMemory(Of Byte)
+  overload: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added*
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.AddedDotF
+  commentId: P:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.AddedDotF
+  id: AddedDotF
+  parent: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  langs:
+  - csharp
+  - vb
+  name: AddedDotF
+  nameWithType: PeerExchangeMessage.AddedDotF
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.AddedDotF
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AddedDotF
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 51
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: public ReadOnlyMemory<byte> AddedDotF { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlyMemory{System.Byte}
+    content.vb: Public ReadOnly Property AddedDotF As ReadOnlyMemory(Of Byte)
+  overload: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.AddedDotF*
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped
+  commentId: P:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped
+  id: Dropped
+  parent: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  langs:
+  - csharp
+  - vb
+  name: Dropped
+  nameWithType: PeerExchangeMessage.Dropped
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Dropped
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 52
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: public ReadOnlyMemory<byte> Dropped { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlyMemory{System.Byte}
+    content.vb: Public ReadOnly Property Dropped As ReadOnlyMemory(Of Byte)
+  overload: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped*
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6
+  commentId: P:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6
+  id: Added6
+  parent: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  langs:
+  - csharp
+  - vb
+  name: Added6
+  nameWithType: PeerExchangeMessage.Added6
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Added6
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 54
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: public ReadOnlyMemory<byte> Added6 { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlyMemory{System.Byte}
+    content.vb: Public ReadOnly Property Added6 As ReadOnlyMemory(Of Byte)
+  overload: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6*
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6DotF
+  commentId: P:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6DotF
+  id: Added6DotF
+  parent: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  langs:
+  - csharp
+  - vb
+  name: Added6DotF
+  nameWithType: PeerExchangeMessage.Added6DotF
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6DotF
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Added6DotF
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 55
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: public ReadOnlyMemory<byte> Added6DotF { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlyMemory{System.Byte}
+    content.vb: Public ReadOnly Property Added6DotF As ReadOnlyMemory(Of Byte)
+  overload: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6DotF*
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped6
+  commentId: P:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped6
+  id: Dropped6
+  parent: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  langs:
+  - csharp
+  - vb
+  name: Dropped6
+  nameWithType: PeerExchangeMessage.Dropped6
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped6
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Dropped6
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 56
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: public ReadOnlyMemory<byte> Dropped6 { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlyMemory{System.Byte}
+    content.vb: Public ReadOnly Property Dropped6 As ReadOnlyMemory(Of Byte)
+  overload: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped6*
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.#ctor
+  commentId: M:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.#ctor
+  id: '#ctor'
+  parent: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  langs:
+  - csharp
+  - vb
+  name: PeerExchangeMessage()
+  nameWithType: PeerExchangeMessage.PeerExchangeMessage()
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.PeerExchangeMessage()
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 60
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: public PeerExchangeMessage()
+    content.vb: Public Sub New()
+  overload: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.#ctor*
+  nameWithType.vb: PeerExchangeMessage.New()
+  fullName.vb: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.New()
+  name.vb: New()
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Decode(System.ReadOnlySpan{System.Byte})
+  commentId: M:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Decode(System.ReadOnlySpan{System.Byte})
+  id: Decode(System.ReadOnlySpan{System.Byte})
+  parent: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  langs:
+  - csharp
+  - vb
+  name: Decode(ReadOnlySpan<byte>)
+  nameWithType: PeerExchangeMessage.Decode(ReadOnlySpan<byte>)
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Decode(System.ReadOnlySpan<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Decode
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 73
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  example: []
+  syntax:
+    content: public override void Decode(ReadOnlySpan<byte> buffer)
+    parameters:
+    - id: buffer
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Overrides Sub Decode(buffer As ReadOnlySpan(Of Byte))
+  overridden: MonoTorrent.Messages.Message.Decode(System.ReadOnlySpan{System.Byte})
+  overload: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Decode*
+  nameWithType.vb: PeerExchangeMessage.Decode(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Decode(System.ReadOnlySpan(Of Byte))
+  name.vb: Decode(ReadOnlySpan(Of Byte))
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Encode(System.Span{System.Byte})
+  commentId: M:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Encode(System.Span{System.Byte})
+  id: Encode(System.Span{System.Byte})
+  parent: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  langs:
+  - csharp
+  - vb
+  name: Encode(Span<byte>)
+  nameWithType: PeerExchangeMessage.Encode(Span<byte>)
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Encode(System.Span<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Encode
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 91
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  example: []
+  syntax:
+    content: public override int Encode(Span<byte> buffer)
+    parameters:
+    - id: buffer
+      type: System.Span{System.Byte}
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function Encode(buffer As Span(Of Byte)) As Integer
+  overridden: MonoTorrent.Messages.Message.Encode(System.Span{System.Byte})
+  overload: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Encode*
+  nameWithType.vb: PeerExchangeMessage.Encode(Span(Of Byte))
+  fullName.vb: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Encode(System.Span(Of Byte))
+  name.vb: Encode(Span(Of Byte))
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Initialize(MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupports,System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},MonoTorrent.ByteBufferPool.Releaser)
+  commentId: M:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Initialize(MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupports,System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},MonoTorrent.ByteBufferPool.Releaser)
+  id: Initialize(MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupports,System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},System.ReadOnlyMemory{System.Byte},MonoTorrent.ByteBufferPool.Releaser)
+  parent: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  langs:
+  - csharp
+  - vb
+  name: Initialize(ExtensionSupports, ReadOnlyMemory<byte>, ReadOnlyMemory<byte>, ReadOnlyMemory<byte>, ReadOnlyMemory<byte>, ReadOnlyMemory<byte>, ReadOnlyMemory<byte>, Releaser)
+  nameWithType: PeerExchangeMessage.Initialize(ExtensionSupports, ReadOnlyMemory<byte>, ReadOnlyMemory<byte>, ReadOnlyMemory<byte>, ReadOnlyMemory<byte>, ReadOnlyMemory<byte>, ReadOnlyMemory<byte>, ByteBufferPool.Releaser)
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Initialize(MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupports, System.ReadOnlyMemory<byte>, System.ReadOnlyMemory<byte>, System.ReadOnlyMemory<byte>, System.ReadOnlyMemory<byte>, System.ReadOnlyMemory<byte>, System.ReadOnlyMemory<byte>, MonoTorrent.ByteBufferPool.Releaser)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Initialize
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 103
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: public PeerExchangeMessage Initialize(ExtensionSupports supportedExtensions, ReadOnlyMemory<byte> added, ReadOnlyMemory<byte> addedDotF, ReadOnlyMemory<byte> dropped, ReadOnlyMemory<byte> added6, ReadOnlyMemory<byte> added6DotF, ReadOnlyMemory<byte> dropped6, ByteBufferPool.Releaser memoryReleaser)
+    parameters:
+    - id: supportedExtensions
+      type: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupports
+    - id: added
+      type: System.ReadOnlyMemory{System.Byte}
+    - id: addedDotF
+      type: System.ReadOnlyMemory{System.Byte}
+    - id: dropped
+      type: System.ReadOnlyMemory{System.Byte}
+    - id: added6
+      type: System.ReadOnlyMemory{System.Byte}
+    - id: added6DotF
+      type: System.ReadOnlyMemory{System.Byte}
+    - id: dropped6
+      type: System.ReadOnlyMemory{System.Byte}
+    - id: memoryReleaser
+      type: MonoTorrent.ByteBufferPool.Releaser
+    return:
+      type: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+    content.vb: Public Function Initialize(supportedExtensions As ExtensionSupports, added As ReadOnlyMemory(Of Byte), addedDotF As ReadOnlyMemory(Of Byte), dropped As ReadOnlyMemory(Of Byte), added6 As ReadOnlyMemory(Of Byte), added6DotF As ReadOnlyMemory(Of Byte), dropped6 As ReadOnlyMemory(Of Byte), memoryReleaser As ByteBufferPool.Releaser) As PeerExchangeMessage
+  overload: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Initialize*
+  nameWithType.vb: PeerExchangeMessage.Initialize(ExtensionSupports, ReadOnlyMemory(Of Byte), ReadOnlyMemory(Of Byte), ReadOnlyMemory(Of Byte), ReadOnlyMemory(Of Byte), ReadOnlyMemory(Of Byte), ReadOnlyMemory(Of Byte), ByteBufferPool.Releaser)
+  fullName.vb: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Initialize(MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupports, System.ReadOnlyMemory(Of Byte), System.ReadOnlyMemory(Of Byte), System.ReadOnlyMemory(Of Byte), System.ReadOnlyMemory(Of Byte), System.ReadOnlyMemory(Of Byte), System.ReadOnlyMemory(Of Byte), MonoTorrent.ByteBufferPool.Releaser)
+  name.vb: Initialize(ExtensionSupports, ReadOnlyMemory(Of Byte), ReadOnlyMemory(Of Byte), ReadOnlyMemory(Of Byte), ReadOnlyMemory(Of Byte), ReadOnlyMemory(Of Byte), ReadOnlyMemory(Of Byte), Releaser)
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Reset
+  commentId: M:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Reset
+  id: Reset
+  parent: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: PeerExchangeMessage.Reset()
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Reset()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Reset
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 119
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  example: []
+  syntax:
+    content: protected override void Reset()
+    content.vb: Protected Overrides Sub Reset()
+  overridden: MonoTorrent.Messages.Peer.PeerMessage.Reset
+  overload: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Reset*
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ToString
+  commentId: M:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ToString
+  id: ToString
+  parent: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: PeerExchangeMessage.ToString()
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ToString()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToString
+    path: src/Messages/Peer/Libtorrent/PeerExchangeMessage.cs
+    startLine: 128
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ToString*
+references:
+- uid: MonoTorrent.Messages.Peer.Libtorrent
+  commentId: N:MonoTorrent.Messages.Peer.Libtorrent
+  href: MonoTorrent.html
+  name: MonoTorrent.Messages.Peer.Libtorrent
+  nameWithType: MonoTorrent.Messages.Peer.Libtorrent
+  fullName: MonoTorrent.Messages.Peer.Libtorrent
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer.Libtorrent
+    name: Libtorrent
+    href: MonoTorrent.Messages.Peer.Libtorrent.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer.Libtorrent
+    name: Libtorrent
+    href: MonoTorrent.Messages.Peer.Libtorrent.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MonoTorrent.Messages.Message
+  commentId: T:MonoTorrent.Messages.Message
+  parent: MonoTorrent.Messages
+  href: MonoTorrent.Messages.Message.html
+  name: Message
+  nameWithType: Message
+  fullName: MonoTorrent.Messages.Message
+- uid: MonoTorrent.Messages.Peer.PeerMessage
+  commentId: T:MonoTorrent.Messages.Peer.PeerMessage
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.PeerMessage.html
+  name: PeerMessage
+  nameWithType: PeerMessage
+  fullName: MonoTorrent.Messages.Peer.PeerMessage
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage
+  commentId: T:MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage
+  parent: MonoTorrent.Messages.Peer.Libtorrent
+  href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.html
+  name: ExtensionMessage
+  nameWithType: ExtensionMessage
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage
+- uid: MonoTorrent.Messages.IMessage
+  commentId: T:MonoTorrent.Messages.IMessage
+  parent: MonoTorrent.Messages
+  href: MonoTorrent.Messages.IMessage.html
+  name: IMessage
+  nameWithType: IMessage
+  fullName: MonoTorrent.Messages.IMessage
+- uid: MonoTorrent.Messages.IRentable
+  commentId: T:MonoTorrent.Messages.IRentable
+  parent: MonoTorrent.Messages
+  href: MonoTorrent.Messages.IRentable.html
+  name: IRentable
+  nameWithType: IRentable
+  fullName: MonoTorrent.Messages.IRentable
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.ExtensionId
+  commentId: P:MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.ExtensionId
+  parent: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage
+  href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.html#MonoTorrent_Messages_Peer_Libtorrent_ExtensionMessage_ExtensionId
+  name: ExtensionId
+  nameWithType: ExtensionMessage.ExtensionId
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.ExtensionId
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.Register(System.Func{MonoTorrent.ITorrentManagerInfo,System.ValueTuple{MonoTorrent.Messages.Peer.PeerMessage,MonoTorrent.Messages.Peer.PeerMessage.Releaser}})
+  commentId: M:MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.Register(System.Func{MonoTorrent.ITorrentManagerInfo,System.ValueTuple{MonoTorrent.Messages.Peer.PeerMessage,MonoTorrent.Messages.Peer.PeerMessage.Releaser}})
+  parent: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage
+  isExternal: true
+  href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.html#MonoTorrent_Messages_Peer_Libtorrent_ExtensionMessage_Register_System_Func_MonoTorrent_ITorrentManagerInfo_System_ValueTuple_MonoTorrent_Messages_Peer_PeerMessage_MonoTorrent_Messages_Peer_PeerMessage_Releaser___
+  name: Register(Func<ITorrentManagerInfo, (PeerMessage, Releaser)>)
+  nameWithType: ExtensionMessage.Register(Func<ITorrentManagerInfo, (PeerMessage, PeerMessage.Releaser)>)
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.Register(System.Func<MonoTorrent.ITorrentManagerInfo, (MonoTorrent.Messages.Peer.PeerMessage, MonoTorrent.Messages.Peer.PeerMessage.Releaser)>)
+  nameWithType.vb: ExtensionMessage.Register(Func(Of ITorrentManagerInfo, (PeerMessage, PeerMessage.Releaser)))
+  fullName.vb: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.Register(System.Func(Of MonoTorrent.ITorrentManagerInfo, (MonoTorrent.Messages.Peer.PeerMessage, MonoTorrent.Messages.Peer.PeerMessage.Releaser)))
+  name.vb: Register(Func(Of ITorrentManagerInfo, (PeerMessage, Releaser)))
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.Register(System.Func{MonoTorrent.ITorrentManagerInfo,System.ValueTuple{MonoTorrent.Messages.Peer.PeerMessage,MonoTorrent.Messages.Peer.PeerMessage.Releaser}})
+    name: Register
+    href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.html#MonoTorrent_Messages_Peer_Libtorrent_ExtensionMessage_Register_System_Func_MonoTorrent_ITorrentManagerInfo_System_ValueTuple_MonoTorrent_Messages_Peer_PeerMessage_MonoTorrent_Messages_Peer_PeerMessage_Releaser___
+  - name: (
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: ','
+  - name: " "
+  - name: (
+  - uid: MonoTorrent.Messages.Peer.PeerMessage
+    name: PeerMessage
+    href: MonoTorrent.Messages.Peer.PeerMessage.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.Messages.Peer.PeerMessage.Releaser
+    name: Releaser
+    href: MonoTorrent.Messages.Peer.PeerMessage.Releaser.html
+  - name: )
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.Register(System.Func{MonoTorrent.ITorrentManagerInfo,System.ValueTuple{MonoTorrent.Messages.Peer.PeerMessage,MonoTorrent.Messages.Peer.PeerMessage.Releaser}})
+    name: Register
+    href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.html#MonoTorrent_Messages_Peer_Libtorrent_ExtensionMessage_Register_System_Func_MonoTorrent_ITorrentManagerInfo_System_ValueTuple_MonoTorrent_Messages_Peer_PeerMessage_MonoTorrent_Messages_Peer_PeerMessage_Releaser___
+  - name: (
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: ','
+  - name: " "
+  - name: (
+  - uid: MonoTorrent.Messages.Peer.PeerMessage
+    name: PeerMessage
+    href: MonoTorrent.Messages.Peer.PeerMessage.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.Messages.Peer.PeerMessage.Releaser
+    name: Releaser
+    href: MonoTorrent.Messages.Peer.PeerMessage.Releaser.html
+  - name: )
+  - name: )
+  - name: )
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.CreateSupport(System.String)
+  commentId: M:MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.CreateSupport(System.String)
+  parent: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage
+  isExternal: true
+  href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.html#MonoTorrent_Messages_Peer_Libtorrent_ExtensionMessage_CreateSupport_System_String_
+  name: CreateSupport(string)
+  nameWithType: ExtensionMessage.CreateSupport(string)
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.CreateSupport(string)
+  nameWithType.vb: ExtensionMessage.CreateSupport(String)
+  fullName.vb: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.CreateSupport(String)
+  name.vb: CreateSupport(String)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.CreateSupport(System.String)
+    name: CreateSupport
+    href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.html#MonoTorrent_Messages_Peer_Libtorrent_ExtensionMessage_CreateSupport_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.CreateSupport(System.String)
+    name: CreateSupport
+    href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.html#MonoTorrent_Messages_Peer_Libtorrent_ExtensionMessage_CreateSupport_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.DecodeExtensionMessage(System.ReadOnlySpan{System.Byte},MonoTorrent.ITorrentManagerInfo)
+  commentId: M:MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.DecodeExtensionMessage(System.ReadOnlySpan{System.Byte},MonoTorrent.ITorrentManagerInfo)
+  parent: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage
+  isExternal: true
+  href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.html#MonoTorrent_Messages_Peer_Libtorrent_ExtensionMessage_DecodeExtensionMessage_System_ReadOnlySpan_System_Byte__MonoTorrent_ITorrentManagerInfo_
+  name: DecodeExtensionMessage(ReadOnlySpan<byte>, ITorrentManagerInfo)
+  nameWithType: ExtensionMessage.DecodeExtensionMessage(ReadOnlySpan<byte>, ITorrentManagerInfo)
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.DecodeExtensionMessage(System.ReadOnlySpan<byte>, MonoTorrent.ITorrentManagerInfo)
+  nameWithType.vb: ExtensionMessage.DecodeExtensionMessage(ReadOnlySpan(Of Byte), ITorrentManagerInfo)
+  fullName.vb: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.DecodeExtensionMessage(System.ReadOnlySpan(Of Byte), MonoTorrent.ITorrentManagerInfo)
+  name.vb: DecodeExtensionMessage(ReadOnlySpan(Of Byte), ITorrentManagerInfo)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.DecodeExtensionMessage(System.ReadOnlySpan{System.Byte},MonoTorrent.ITorrentManagerInfo)
+    name: DecodeExtensionMessage
+    href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.html#MonoTorrent_Messages_Peer_Libtorrent_ExtensionMessage_DecodeExtensionMessage_System_ReadOnlySpan_System_Byte__MonoTorrent_ITorrentManagerInfo_
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.DecodeExtensionMessage(System.ReadOnlySpan{System.Byte},MonoTorrent.ITorrentManagerInfo)
+    name: DecodeExtensionMessage
+    href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage.html#MonoTorrent_Messages_Peer_Libtorrent_ExtensionMessage_DecodeExtensionMessage_System_ReadOnlySpan_System_Byte__MonoTorrent_ITorrentManagerInfo_
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: )
+- uid: MonoTorrent.Messages.Peer.PeerMessage.Rent``1
+  commentId: M:MonoTorrent.Messages.Peer.PeerMessage.Rent``1
+  parent: MonoTorrent.Messages.Peer.PeerMessage
+  href: MonoTorrent.Messages.Peer.PeerMessage.html#MonoTorrent_Messages_Peer_PeerMessage_Rent__1
+  name: Rent<T>()
+  nameWithType: PeerMessage.Rent<T>()
+  fullName: MonoTorrent.Messages.Peer.PeerMessage.Rent<T>()
+  nameWithType.vb: PeerMessage.Rent(Of T)()
+  fullName.vb: MonoTorrent.Messages.Peer.PeerMessage.Rent(Of T)()
+  name.vb: Rent(Of T)()
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Peer.PeerMessage.Rent``1
+    name: Rent
+    href: MonoTorrent.Messages.Peer.PeerMessage.html#MonoTorrent_Messages_Peer_PeerMessage_Rent__1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Peer.PeerMessage.Rent``1
+    name: Rent
+    href: MonoTorrent.Messages.Peer.PeerMessage.html#MonoTorrent_Messages_Peer_PeerMessage_Rent__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: MonoTorrent.Messages.Peer.PeerMessage.DecodeMessage(System.ReadOnlySpan{System.Byte},MonoTorrent.ITorrentManagerInfo)
+  commentId: M:MonoTorrent.Messages.Peer.PeerMessage.DecodeMessage(System.ReadOnlySpan{System.Byte},MonoTorrent.ITorrentManagerInfo)
+  parent: MonoTorrent.Messages.Peer.PeerMessage
+  isExternal: true
+  href: MonoTorrent.Messages.Peer.PeerMessage.html#MonoTorrent_Messages_Peer_PeerMessage_DecodeMessage_System_ReadOnlySpan_System_Byte__MonoTorrent_ITorrentManagerInfo_
+  name: DecodeMessage(ReadOnlySpan<byte>, ITorrentManagerInfo)
+  nameWithType: PeerMessage.DecodeMessage(ReadOnlySpan<byte>, ITorrentManagerInfo)
+  fullName: MonoTorrent.Messages.Peer.PeerMessage.DecodeMessage(System.ReadOnlySpan<byte>, MonoTorrent.ITorrentManagerInfo)
+  nameWithType.vb: PeerMessage.DecodeMessage(ReadOnlySpan(Of Byte), ITorrentManagerInfo)
+  fullName.vb: MonoTorrent.Messages.Peer.PeerMessage.DecodeMessage(System.ReadOnlySpan(Of Byte), MonoTorrent.ITorrentManagerInfo)
+  name.vb: DecodeMessage(ReadOnlySpan(Of Byte), ITorrentManagerInfo)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Peer.PeerMessage.DecodeMessage(System.ReadOnlySpan{System.Byte},MonoTorrent.ITorrentManagerInfo)
+    name: DecodeMessage
+    href: MonoTorrent.Messages.Peer.PeerMessage.html#MonoTorrent_Messages_Peer_PeerMessage_DecodeMessage_System_ReadOnlySpan_System_Byte__MonoTorrent_ITorrentManagerInfo_
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Peer.PeerMessage.DecodeMessage(System.ReadOnlySpan{System.Byte},MonoTorrent.ITorrentManagerInfo)
+    name: DecodeMessage
+    href: MonoTorrent.Messages.Peer.PeerMessage.html#MonoTorrent_Messages_Peer_PeerMessage_DecodeMessage_System_ReadOnlySpan_System_Byte__MonoTorrent_ITorrentManagerInfo_
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: )
+- uid: MonoTorrent.Messages.Message.Encode
+  commentId: M:MonoTorrent.Messages.Message.Encode
+  parent: MonoTorrent.Messages.Message
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Encode
+  name: Encode()
+  nameWithType: Message.Encode()
+  fullName: MonoTorrent.Messages.Message.Encode()
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Encode
+    name: Encode
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Encode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Encode
+    name: Encode
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Encode
+  - name: (
+  - name: )
+- uid: MonoTorrent.Messages.Message.ReadBencodedValue``1(System.ReadOnlySpan{System.Byte}@,System.Boolean)
+  commentId: M:MonoTorrent.Messages.Message.ReadBencodedValue``1(System.ReadOnlySpan{System.Byte}@,System.Boolean)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadBencodedValue__1_System_ReadOnlySpan_System_Byte___System_Boolean_
+  name: ReadBencodedValue<T>(ref ReadOnlySpan<byte>, bool)
+  nameWithType: Message.ReadBencodedValue<T>(ref ReadOnlySpan<byte>, bool)
+  fullName: MonoTorrent.Messages.Message.ReadBencodedValue<T>(ref System.ReadOnlySpan<byte>, bool)
+  nameWithType.vb: Message.ReadBencodedValue(Of T)(ReadOnlySpan(Of Byte), Boolean)
+  fullName.vb: MonoTorrent.Messages.Message.ReadBencodedValue(Of T)(System.ReadOnlySpan(Of Byte), Boolean)
+  name.vb: ReadBencodedValue(Of T)(ReadOnlySpan(Of Byte), Boolean)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.ReadBencodedValue``1(System.ReadOnlySpan{System.Byte}@,System.Boolean)
+    name: ReadBencodedValue
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadBencodedValue__1_System_ReadOnlySpan_System_Byte___System_Boolean_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.ReadBencodedValue``1(System.ReadOnlySpan{System.Byte}@,System.Boolean)
+    name: ReadBencodedValue
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadBencodedValue__1_System_ReadOnlySpan_System_Byte___System_Boolean_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: MonoTorrent.Messages.Message.ReadByte(System.ReadOnlySpan{System.Byte}@)
+  commentId: M:MonoTorrent.Messages.Message.ReadByte(System.ReadOnlySpan{System.Byte}@)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadByte_System_ReadOnlySpan_System_Byte___
+  name: ReadByte(ref ReadOnlySpan<byte>)
+  nameWithType: Message.ReadByte(ref ReadOnlySpan<byte>)
+  fullName: MonoTorrent.Messages.Message.ReadByte(ref System.ReadOnlySpan<byte>)
+  nameWithType.vb: Message.ReadByte(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.Messages.Message.ReadByte(System.ReadOnlySpan(Of Byte))
+  name.vb: ReadByte(ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.ReadByte(System.ReadOnlySpan{System.Byte}@)
+    name: ReadByte
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadByte_System_ReadOnlySpan_System_Byte___
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.ReadByte(System.ReadOnlySpan{System.Byte}@)
+    name: ReadByte
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadByte_System_ReadOnlySpan_System_Byte___
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.Messages.Message.ReadBytes(System.ReadOnlySpan{System.Byte}@,System.Int32)
+  commentId: M:MonoTorrent.Messages.Message.ReadBytes(System.ReadOnlySpan{System.Byte}@,System.Int32)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadBytes_System_ReadOnlySpan_System_Byte___System_Int32_
+  name: ReadBytes(ref ReadOnlySpan<byte>, int)
+  nameWithType: Message.ReadBytes(ref ReadOnlySpan<byte>, int)
+  fullName: MonoTorrent.Messages.Message.ReadBytes(ref System.ReadOnlySpan<byte>, int)
+  nameWithType.vb: Message.ReadBytes(ReadOnlySpan(Of Byte), Integer)
+  fullName.vb: MonoTorrent.Messages.Message.ReadBytes(System.ReadOnlySpan(Of Byte), Integer)
+  name.vb: ReadBytes(ReadOnlySpan(Of Byte), Integer)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.ReadBytes(System.ReadOnlySpan{System.Byte}@,System.Int32)
+    name: ReadBytes
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadBytes_System_ReadOnlySpan_System_Byte___System_Int32_
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.ReadBytes(System.ReadOnlySpan{System.Byte}@,System.Int32)
+    name: ReadBytes
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadBytes_System_ReadOnlySpan_System_Byte___System_Int32_
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.Messages.Message.ReadShort(System.ReadOnlySpan{System.Byte})
+  commentId: M:MonoTorrent.Messages.Message.ReadShort(System.ReadOnlySpan{System.Byte})
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadShort_System_ReadOnlySpan_System_Byte__
+  name: ReadShort(ReadOnlySpan<byte>)
+  nameWithType: Message.ReadShort(ReadOnlySpan<byte>)
+  fullName: MonoTorrent.Messages.Message.ReadShort(System.ReadOnlySpan<byte>)
+  nameWithType.vb: Message.ReadShort(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.Messages.Message.ReadShort(System.ReadOnlySpan(Of Byte))
+  name.vb: ReadShort(ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.ReadShort(System.ReadOnlySpan{System.Byte})
+    name: ReadShort
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadShort_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.ReadShort(System.ReadOnlySpan{System.Byte})
+    name: ReadShort
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadShort_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.Messages.Message.ReadShort(System.ReadOnlySpan{System.Byte}@)
+  commentId: M:MonoTorrent.Messages.Message.ReadShort(System.ReadOnlySpan{System.Byte}@)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadShort_System_ReadOnlySpan_System_Byte___
+  name: ReadShort(ref ReadOnlySpan<byte>)
+  nameWithType: Message.ReadShort(ref ReadOnlySpan<byte>)
+  fullName: MonoTorrent.Messages.Message.ReadShort(ref System.ReadOnlySpan<byte>)
+  nameWithType.vb: Message.ReadShort(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.Messages.Message.ReadShort(System.ReadOnlySpan(Of Byte))
+  name.vb: ReadShort(ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.ReadShort(System.ReadOnlySpan{System.Byte}@)
+    name: ReadShort
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadShort_System_ReadOnlySpan_System_Byte___
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.ReadShort(System.ReadOnlySpan{System.Byte}@)
+    name: ReadShort
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadShort_System_ReadOnlySpan_System_Byte___
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.Messages.Message.ReadLong(System.ReadOnlySpan{System.Byte}@)
+  commentId: M:MonoTorrent.Messages.Message.ReadLong(System.ReadOnlySpan{System.Byte}@)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadLong_System_ReadOnlySpan_System_Byte___
+  name: ReadLong(ref ReadOnlySpan<byte>)
+  nameWithType: Message.ReadLong(ref ReadOnlySpan<byte>)
+  fullName: MonoTorrent.Messages.Message.ReadLong(ref System.ReadOnlySpan<byte>)
+  nameWithType.vb: Message.ReadLong(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.Messages.Message.ReadLong(System.ReadOnlySpan(Of Byte))
+  name.vb: ReadLong(ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.ReadLong(System.ReadOnlySpan{System.Byte}@)
+    name: ReadLong
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadLong_System_ReadOnlySpan_System_Byte___
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.ReadLong(System.ReadOnlySpan{System.Byte}@)
+    name: ReadLong
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadLong_System_ReadOnlySpan_System_Byte___
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.Messages.Message.ReadUInt(System.ReadOnlySpan{System.Byte}@)
+  commentId: M:MonoTorrent.Messages.Message.ReadUInt(System.ReadOnlySpan{System.Byte}@)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadUInt_System_ReadOnlySpan_System_Byte___
+  name: ReadUInt(ref ReadOnlySpan<byte>)
+  nameWithType: Message.ReadUInt(ref ReadOnlySpan<byte>)
+  fullName: MonoTorrent.Messages.Message.ReadUInt(ref System.ReadOnlySpan<byte>)
+  nameWithType.vb: Message.ReadUInt(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.Messages.Message.ReadUInt(System.ReadOnlySpan(Of Byte))
+  name.vb: ReadUInt(ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.ReadUInt(System.ReadOnlySpan{System.Byte}@)
+    name: ReadUInt
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadUInt_System_ReadOnlySpan_System_Byte___
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.ReadUInt(System.ReadOnlySpan{System.Byte}@)
+    name: ReadUInt
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadUInt_System_ReadOnlySpan_System_Byte___
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.Messages.Message.ReadUShort(System.ReadOnlySpan{System.Byte}@)
+  commentId: M:MonoTorrent.Messages.Message.ReadUShort(System.ReadOnlySpan{System.Byte}@)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadUShort_System_ReadOnlySpan_System_Byte___
+  name: ReadUShort(ref ReadOnlySpan<byte>)
+  nameWithType: Message.ReadUShort(ref ReadOnlySpan<byte>)
+  fullName: MonoTorrent.Messages.Message.ReadUShort(ref System.ReadOnlySpan<byte>)
+  nameWithType.vb: Message.ReadUShort(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.Messages.Message.ReadUShort(System.ReadOnlySpan(Of Byte))
+  name.vb: ReadUShort(ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.ReadUShort(System.ReadOnlySpan{System.Byte}@)
+    name: ReadUShort
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadUShort_System_ReadOnlySpan_System_Byte___
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.ReadUShort(System.ReadOnlySpan{System.Byte}@)
+    name: ReadUShort
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadUShort_System_ReadOnlySpan_System_Byte___
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.Messages.Message.ReadString(System.ReadOnlySpan{System.Byte}@,System.Int32)
+  commentId: M:MonoTorrent.Messages.Message.ReadString(System.ReadOnlySpan{System.Byte}@,System.Int32)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadString_System_ReadOnlySpan_System_Byte___System_Int32_
+  name: ReadString(ref ReadOnlySpan<byte>, int)
+  nameWithType: Message.ReadString(ref ReadOnlySpan<byte>, int)
+  fullName: MonoTorrent.Messages.Message.ReadString(ref System.ReadOnlySpan<byte>, int)
+  nameWithType.vb: Message.ReadString(ReadOnlySpan(Of Byte), Integer)
+  fullName.vb: MonoTorrent.Messages.Message.ReadString(System.ReadOnlySpan(Of Byte), Integer)
+  name.vb: ReadString(ReadOnlySpan(Of Byte), Integer)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.ReadString(System.ReadOnlySpan{System.Byte}@,System.Int32)
+    name: ReadString
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadString_System_ReadOnlySpan_System_Byte___System_Int32_
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.ReadString(System.ReadOnlySpan{System.Byte}@,System.Int32)
+    name: ReadString
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadString_System_ReadOnlySpan_System_Byte___System_Int32_
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.Messages.Message.ReadInt(System.ReadOnlySpan{System.Byte})
+  commentId: M:MonoTorrent.Messages.Message.ReadInt(System.ReadOnlySpan{System.Byte})
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadInt_System_ReadOnlySpan_System_Byte__
+  name: ReadInt(ReadOnlySpan<byte>)
+  nameWithType: Message.ReadInt(ReadOnlySpan<byte>)
+  fullName: MonoTorrent.Messages.Message.ReadInt(System.ReadOnlySpan<byte>)
+  nameWithType.vb: Message.ReadInt(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.Messages.Message.ReadInt(System.ReadOnlySpan(Of Byte))
+  name.vb: ReadInt(ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.ReadInt(System.ReadOnlySpan{System.Byte})
+    name: ReadInt
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadInt_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.ReadInt(System.ReadOnlySpan{System.Byte})
+    name: ReadInt
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadInt_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.Messages.Message.ReadInt(System.ReadOnlySpan{System.Byte}@)
+  commentId: M:MonoTorrent.Messages.Message.ReadInt(System.ReadOnlySpan{System.Byte}@)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadInt_System_ReadOnlySpan_System_Byte___
+  name: ReadInt(ref ReadOnlySpan<byte>)
+  nameWithType: Message.ReadInt(ref ReadOnlySpan<byte>)
+  fullName: MonoTorrent.Messages.Message.ReadInt(ref System.ReadOnlySpan<byte>)
+  nameWithType.vb: Message.ReadInt(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.Messages.Message.ReadInt(System.ReadOnlySpan(Of Byte))
+  name.vb: ReadInt(ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.ReadInt(System.ReadOnlySpan{System.Byte}@)
+    name: ReadInt
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadInt_System_ReadOnlySpan_System_Byte___
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.ReadInt(System.ReadOnlySpan{System.Byte}@)
+    name: ReadInt
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ReadInt_System_ReadOnlySpan_System_Byte___
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.ReadOnlySpan{System.Byte})
+  commentId: M:MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.ReadOnlySpan{System.Byte})
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Memory_System_Byte___System_ReadOnlySpan_System_Byte__
+  name: Write(ref Memory<byte>, ReadOnlySpan<byte>)
+  nameWithType: Message.Write(ref Memory<byte>, ReadOnlySpan<byte>)
+  fullName: MonoTorrent.Messages.Message.Write(ref System.Memory<byte>, System.ReadOnlySpan<byte>)
+  nameWithType.vb: Message.Write(Memory(Of Byte), ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.Messages.Message.Write(System.Memory(Of Byte), System.ReadOnlySpan(Of Byte))
+  name.vb: Write(Memory(Of Byte), ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.ReadOnlySpan{System.Byte})
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Memory_System_Byte___System_ReadOnlySpan_System_Byte__
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.ReadOnlySpan{System.Byte})
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Memory_System_Byte___System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.ReadOnlySpan{System.Byte})
+  commentId: M:MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.ReadOnlySpan{System.Byte})
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_ReadOnlySpan_System_Byte__
+  name: Write(ref Span<byte>, ReadOnlySpan<byte>)
+  nameWithType: Message.Write(ref Span<byte>, ReadOnlySpan<byte>)
+  fullName: MonoTorrent.Messages.Message.Write(ref System.Span<byte>, System.ReadOnlySpan<byte>)
+  nameWithType.vb: Message.Write(Span(Of Byte), ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.Messages.Message.Write(System.Span(Of Byte), System.ReadOnlySpan(Of Byte))
+  name.vb: Write(Span(Of Byte), ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.ReadOnlySpan{System.Byte})
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_ReadOnlySpan_System_Byte__
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.ReadOnlySpan{System.Byte})
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte},System.Byte)
+  commentId: M:MonoTorrent.Messages.Message.Write(System.Span{System.Byte},System.Byte)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte__System_Byte_
+  name: Write(Span<byte>, byte)
+  nameWithType: Message.Write(Span<byte>, byte)
+  fullName: MonoTorrent.Messages.Message.Write(System.Span<byte>, byte)
+  nameWithType.vb: Message.Write(Span(Of Byte), Byte)
+  fullName.vb: MonoTorrent.Messages.Message.Write(System.Span(Of Byte), Byte)
+  name.vb: Write(Span(Of Byte), Byte)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte},System.Byte)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte__System_Byte_
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte},System.Byte)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte__System_Byte_
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Byte)
+  commentId: M:MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Byte)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Memory_System_Byte___System_Byte_
+  name: Write(ref Memory<byte>, byte)
+  nameWithType: Message.Write(ref Memory<byte>, byte)
+  fullName: MonoTorrent.Messages.Message.Write(ref System.Memory<byte>, byte)
+  nameWithType.vb: Message.Write(Memory(Of Byte), Byte)
+  fullName.vb: MonoTorrent.Messages.Message.Write(System.Memory(Of Byte), Byte)
+  name.vb: Write(Memory(Of Byte), Byte)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Byte)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Memory_System_Byte___System_Byte_
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Byte)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Memory_System_Byte___System_Byte_
+  - name: (
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Byte)
+  commentId: M:MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Byte)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_Byte_
+  name: Write(ref Span<byte>, byte)
+  nameWithType: Message.Write(ref Span<byte>, byte)
+  fullName: MonoTorrent.Messages.Message.Write(ref System.Span<byte>, byte)
+  nameWithType.vb: Message.Write(Span(Of Byte), Byte)
+  fullName.vb: MonoTorrent.Messages.Message.Write(System.Span(Of Byte), Byte)
+  name.vb: Write(Span(Of Byte), Byte)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Byte)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_Byte_
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Byte)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_Byte_
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Int16)
+  commentId: M:MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Int16)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Memory_System_Byte___System_Int16_
+  name: Write(ref Memory<byte>, short)
+  nameWithType: Message.Write(ref Memory<byte>, short)
+  fullName: MonoTorrent.Messages.Message.Write(ref System.Memory<byte>, short)
+  nameWithType.vb: Message.Write(Memory(Of Byte), Short)
+  fullName.vb: MonoTorrent.Messages.Message.Write(System.Memory(Of Byte), Short)
+  name.vb: Write(Memory(Of Byte), Short)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Int16)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Memory_System_Byte___System_Int16_
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Int16
+    name: short
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int16
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Int16)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Memory_System_Byte___System_Int16_
+  - name: (
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int16
+    name: Short
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int16
+  - name: )
+- uid: MonoTorrent.Messages.Message.WriteAscii(System.Span{System.Byte}@,System.String)
+  commentId: M:MonoTorrent.Messages.Message.WriteAscii(System.Span{System.Byte}@,System.String)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_WriteAscii_System_Span_System_Byte___System_String_
+  name: WriteAscii(ref Span<byte>, string)
+  nameWithType: Message.WriteAscii(ref Span<byte>, string)
+  fullName: MonoTorrent.Messages.Message.WriteAscii(ref System.Span<byte>, string)
+  nameWithType.vb: Message.WriteAscii(Span(Of Byte), String)
+  fullName.vb: MonoTorrent.Messages.Message.WriteAscii(System.Span(Of Byte), String)
+  name.vb: WriteAscii(Span(Of Byte), String)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.WriteAscii(System.Span{System.Byte}@,System.String)
+    name: WriteAscii
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_WriteAscii_System_Span_System_Byte___System_String_
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.WriteAscii(System.Span{System.Byte}@,System.String)
+    name: WriteAscii
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_WriteAscii_System_Span_System_Byte___System_String_
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.UInt16)
+  commentId: M:MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.UInt16)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_UInt16_
+  name: Write(ref Span<byte>, ushort)
+  nameWithType: Message.Write(ref Span<byte>, ushort)
+  fullName: MonoTorrent.Messages.Message.Write(ref System.Span<byte>, ushort)
+  nameWithType.vb: Message.Write(Span(Of Byte), UShort)
+  fullName.vb: MonoTorrent.Messages.Message.Write(System.Span(Of Byte), UShort)
+  name.vb: Write(Span(Of Byte), UShort)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.UInt16)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_UInt16_
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.UInt16
+    name: ushort
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint16
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.UInt16)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_UInt16_
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.UInt16
+    name: UShort
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint16
+  - name: )
+- uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.UInt32)
+  commentId: M:MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.UInt32)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_UInt32_
+  name: Write(ref Span<byte>, uint)
+  nameWithType: Message.Write(ref Span<byte>, uint)
+  fullName: MonoTorrent.Messages.Message.Write(ref System.Span<byte>, uint)
+  nameWithType.vb: Message.Write(Span(Of Byte), UInteger)
+  fullName.vb: MonoTorrent.Messages.Message.Write(System.Span(Of Byte), UInteger)
+  name.vb: Write(Span(Of Byte), UInteger)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.UInt32)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_UInt32_
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.UInt32)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_UInt32_
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
+- uid: MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Int32)
+  commentId: M:MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Int32)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Memory_System_Byte___System_Int32_
+  name: Write(ref Memory<byte>, int)
+  nameWithType: Message.Write(ref Memory<byte>, int)
+  fullName: MonoTorrent.Messages.Message.Write(ref System.Memory<byte>, int)
+  nameWithType.vb: Message.Write(Memory(Of Byte), Integer)
+  fullName.vb: MonoTorrent.Messages.Message.Write(System.Memory(Of Byte), Integer)
+  name.vb: Write(Memory(Of Byte), Integer)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Int32)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Memory_System_Byte___System_Int32_
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Write(System.Memory{System.Byte}@,System.Int32)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Memory_System_Byte___System_Int32_
+  - name: (
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte},System.Int32)
+  commentId: M:MonoTorrent.Messages.Message.Write(System.Span{System.Byte},System.Int32)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte__System_Int32_
+  name: Write(Span<byte>, int)
+  nameWithType: Message.Write(Span<byte>, int)
+  fullName: MonoTorrent.Messages.Message.Write(System.Span<byte>, int)
+  nameWithType.vb: Message.Write(Span(Of Byte), Integer)
+  fullName.vb: MonoTorrent.Messages.Message.Write(System.Span(Of Byte), Integer)
+  name.vb: Write(Span(Of Byte), Integer)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte},System.Int32)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte__System_Int32_
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte},System.Int32)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte__System_Int32_
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Int32)
+  commentId: M:MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Int32)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_Int32_
+  name: Write(ref Span<byte>, int)
+  nameWithType: Message.Write(ref Span<byte>, int)
+  fullName: MonoTorrent.Messages.Message.Write(ref System.Span<byte>, int)
+  nameWithType.vb: Message.Write(Span(Of Byte), Integer)
+  fullName.vb: MonoTorrent.Messages.Message.Write(System.Span(Of Byte), Integer)
+  name.vb: Write(Span(Of Byte), Integer)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Int32)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_Int32_
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Int32)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_Int32_
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Int64)
+  commentId: M:MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Int64)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_Int64_
+  name: Write(ref Span<byte>, long)
+  nameWithType: Message.Write(ref Span<byte>, long)
+  fullName: MonoTorrent.Messages.Message.Write(ref System.Span<byte>, long)
+  nameWithType.vb: Message.Write(Span(Of Byte), Long)
+  fullName.vb: MonoTorrent.Messages.Message.Write(System.Span(Of Byte), Long)
+  name.vb: Write(Span(Of Byte), Long)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Int64)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_Int64_
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,System.Int64)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___System_Int64_
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+- uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,MonoTorrent.BEncoding.BEncodedValue)
+  commentId: M:MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,MonoTorrent.BEncoding.BEncodedValue)
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___MonoTorrent_BEncoding_BEncodedValue_
+  name: Write(ref Span<byte>, BEncodedValue)
+  nameWithType: Message.Write(ref Span<byte>, BEncodedValue)
+  fullName: MonoTorrent.Messages.Message.Write(ref System.Span<byte>, MonoTorrent.BEncoding.BEncodedValue)
+  nameWithType.vb: Message.Write(Span(Of Byte), BEncodedValue)
+  fullName.vb: MonoTorrent.Messages.Message.Write(System.Span(Of Byte), MonoTorrent.BEncoding.BEncodedValue)
+  name.vb: Write(Span(Of Byte), BEncodedValue)
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,MonoTorrent.BEncoding.BEncodedValue)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___MonoTorrent_BEncoding_BEncodedValue_
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Write(System.Span{System.Byte}@,MonoTorrent.BEncoding.BEncodedValue)
+    name: Write
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Write_System_Span_System_Byte___MonoTorrent_BEncoding_BEncodedValue_
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Messages
+  commentId: N:MonoTorrent.Messages
+  href: MonoTorrent.html
+  name: MonoTorrent.Messages
+  nameWithType: MonoTorrent.Messages
+  fullName: MonoTorrent.Messages
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+- uid: MonoTorrent.Messages.Peer
+  commentId: N:MonoTorrent.Messages.Peer
+  href: MonoTorrent.html
+  name: MonoTorrent.Messages.Peer
+  nameWithType: MonoTorrent.Messages.Peer
+  fullName: MonoTorrent.Messages.Peer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport
+  commentId: T:MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport
+  parent: MonoTorrent.Messages.Peer.Libtorrent
+  href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.html
+  name: ExtensionSupport
+  nameWithType: ExtensionSupport
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport
+- uid: MonoTorrent.Messages.Message.ByteLength
+  commentId: P:MonoTorrent.Messages.Message.ByteLength
+  parent: MonoTorrent.Messages.Message
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_ByteLength
+  name: ByteLength
+  nameWithType: Message.ByteLength
+  fullName: MonoTorrent.Messages.Message.ByteLength
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ByteLength*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ByteLength
+  href: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.html#MonoTorrent_Messages_Peer_Libtorrent_PeerExchangeMessage_ByteLength
+  name: ByteLength
+  nameWithType: PeerExchangeMessage.ByteLength
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ByteLength
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added
+  href: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.html#MonoTorrent_Messages_Peer_Libtorrent_PeerExchangeMessage_Added
+  name: Added
+  nameWithType: PeerExchangeMessage.Added
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added
+- uid: System.ReadOnlyMemory{System.Byte}
+  commentId: T:System.ReadOnlyMemory{System.Byte}
+  parent: System
+  definition: System.ReadOnlyMemory`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<byte>
+  nameWithType: ReadOnlyMemory<byte>
+  fullName: System.ReadOnlyMemory<byte>
+  nameWithType.vb: ReadOnlyMemory(Of Byte)
+  fullName.vb: System.ReadOnlyMemory(Of Byte)
+  name.vb: ReadOnlyMemory(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlyMemory`1
+  commentId: T:System.ReadOnlyMemory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<T>
+  nameWithType: ReadOnlyMemory<T>
+  fullName: System.ReadOnlyMemory<T>
+  nameWithType.vb: ReadOnlyMemory(Of T)
+  fullName.vb: System.ReadOnlyMemory(Of T)
+  name.vb: ReadOnlyMemory(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.AddedDotF*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.AddedDotF
+  href: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.html#MonoTorrent_Messages_Peer_Libtorrent_PeerExchangeMessage_AddedDotF
+  name: AddedDotF
+  nameWithType: PeerExchangeMessage.AddedDotF
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.AddedDotF
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped
+  href: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.html#MonoTorrent_Messages_Peer_Libtorrent_PeerExchangeMessage_Dropped
+  name: Dropped
+  nameWithType: PeerExchangeMessage.Dropped
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6
+  href: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.html#MonoTorrent_Messages_Peer_Libtorrent_PeerExchangeMessage_Added6
+  name: Added6
+  nameWithType: PeerExchangeMessage.Added6
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6DotF*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6DotF
+  href: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.html#MonoTorrent_Messages_Peer_Libtorrent_PeerExchangeMessage_Added6DotF
+  name: Added6DotF
+  nameWithType: PeerExchangeMessage.Added6DotF
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Added6DotF
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped6*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped6
+  href: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.html#MonoTorrent_Messages_Peer_Libtorrent_PeerExchangeMessage_Dropped6
+  name: Dropped6
+  nameWithType: PeerExchangeMessage.Dropped6
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Dropped6
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.#ctor*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.#ctor
+  href: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.html#MonoTorrent_Messages_Peer_Libtorrent_PeerExchangeMessage__ctor
+  name: PeerExchangeMessage
+  nameWithType: PeerExchangeMessage.PeerExchangeMessage
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.PeerExchangeMessage
+  nameWithType.vb: PeerExchangeMessage.New
+  fullName.vb: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.New
+  name.vb: New
+- uid: MonoTorrent.Messages.Message.Decode(System.ReadOnlySpan{System.Byte})
+  commentId: M:MonoTorrent.Messages.Message.Decode(System.ReadOnlySpan{System.Byte})
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Decode_System_ReadOnlySpan_System_Byte__
+  name: Decode(ReadOnlySpan<byte>)
+  nameWithType: Message.Decode(ReadOnlySpan<byte>)
+  fullName: MonoTorrent.Messages.Message.Decode(System.ReadOnlySpan<byte>)
+  nameWithType.vb: Message.Decode(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.Messages.Message.Decode(System.ReadOnlySpan(Of Byte))
+  name.vb: Decode(ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Decode(System.ReadOnlySpan{System.Byte})
+    name: Decode
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Decode_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Decode(System.ReadOnlySpan{System.Byte})
+    name: Decode
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Decode_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Decode*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Decode
+  href: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.html#MonoTorrent_Messages_Peer_Libtorrent_PeerExchangeMessage_Decode_System_ReadOnlySpan_System_Byte__
+  name: Decode
+  nameWithType: PeerExchangeMessage.Decode
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Decode
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.Messages.Message.Encode(System.Span{System.Byte})
+  commentId: M:MonoTorrent.Messages.Message.Encode(System.Span{System.Byte})
+  parent: MonoTorrent.Messages.Message
+  isExternal: true
+  href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Encode_System_Span_System_Byte__
+  name: Encode(Span<byte>)
+  nameWithType: Message.Encode(Span<byte>)
+  fullName: MonoTorrent.Messages.Message.Encode(System.Span<byte>)
+  nameWithType.vb: Message.Encode(Span(Of Byte))
+  fullName.vb: MonoTorrent.Messages.Message.Encode(System.Span(Of Byte))
+  name.vb: Encode(Span(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Message.Encode(System.Span{System.Byte})
+    name: Encode
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Encode_System_Span_System_Byte__
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Message.Encode(System.Span{System.Byte})
+    name: Encode
+    href: MonoTorrent.Messages.Message.html#MonoTorrent_Messages_Message_Encode_System_Span_System_Byte__
+  - name: (
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Encode*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Encode
+  href: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.html#MonoTorrent_Messages_Peer_Libtorrent_PeerExchangeMessage_Encode_System_Span_System_Byte__
+  name: Encode
+  nameWithType: PeerExchangeMessage.Encode
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Encode
+- uid: System.Span{System.Byte}
+  commentId: T:System.Span{System.Byte}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<byte>
+  nameWithType: Span<byte>
+  fullName: System.Span<byte>
+  nameWithType.vb: Span(Of Byte)
+  fullName.vb: System.Span(Of Byte)
+  name.vb: Span(Of Byte)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Initialize*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Initialize
+  href: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.html#MonoTorrent_Messages_Peer_Libtorrent_PeerExchangeMessage_Initialize_MonoTorrent_Messages_Peer_Libtorrent_ExtensionSupports_System_ReadOnlyMemory_System_Byte__System_ReadOnlyMemory_System_Byte__System_ReadOnlyMemory_System_Byte__System_ReadOnlyMemory_System_Byte__System_ReadOnlyMemory_System_Byte__System_ReadOnlyMemory_System_Byte__MonoTorrent_ByteBufferPool_Releaser_
+  name: Initialize
+  nameWithType: PeerExchangeMessage.Initialize
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Initialize
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupports
+  commentId: T:MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupports
+  parent: MonoTorrent.Messages.Peer.Libtorrent
+  href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupports.html
+  name: ExtensionSupports
+  nameWithType: ExtensionSupports
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupports
+- uid: MonoTorrent.ByteBufferPool.Releaser
+  commentId: T:MonoTorrent.ByteBufferPool.Releaser
+  parent: MonoTorrent
+  href: MonoTorrent.ByteBufferPool.html
+  name: ByteBufferPool.Releaser
+  nameWithType: ByteBufferPool.Releaser
+  fullName: MonoTorrent.ByteBufferPool.Releaser
+  spec.csharp:
+  - uid: MonoTorrent.ByteBufferPool
+    name: ByteBufferPool
+    href: MonoTorrent.ByteBufferPool.html
+  - name: .
+  - uid: MonoTorrent.ByteBufferPool.Releaser
+    name: Releaser
+    href: MonoTorrent.ByteBufferPool.Releaser.html
+  spec.vb:
+  - uid: MonoTorrent.ByteBufferPool
+    name: ByteBufferPool
+    href: MonoTorrent.ByteBufferPool.html
+  - name: .
+  - uid: MonoTorrent.ByteBufferPool.Releaser
+    name: Releaser
+    href: MonoTorrent.ByteBufferPool.Releaser.html
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  commentId: T:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+  parent: MonoTorrent.Messages.Peer.Libtorrent
+  href: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.html
+  name: PeerExchangeMessage
+  nameWithType: PeerExchangeMessage
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.Messages.Peer.PeerMessage.Reset
+  commentId: M:MonoTorrent.Messages.Peer.PeerMessage.Reset
+  parent: MonoTorrent.Messages.Peer.PeerMessage
+  href: MonoTorrent.Messages.Peer.PeerMessage.html#MonoTorrent_Messages_Peer_PeerMessage_Reset
+  name: Reset()
+  nameWithType: PeerMessage.Reset()
+  fullName: MonoTorrent.Messages.Peer.PeerMessage.Reset()
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Peer.PeerMessage.Reset
+    name: Reset
+    href: MonoTorrent.Messages.Peer.PeerMessage.html#MonoTorrent_Messages_Peer_PeerMessage_Reset
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Messages.Peer.PeerMessage.Reset
+    name: Reset
+    href: MonoTorrent.Messages.Peer.PeerMessage.html#MonoTorrent_Messages_Peer_PeerMessage_Reset
+  - name: (
+  - name: )
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Reset*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Reset
+  href: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.html#MonoTorrent_Messages_Peer_Libtorrent_PeerExchangeMessage_Reset
+  name: Reset
+  nameWithType: PeerExchangeMessage.Reset
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.Reset
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ToString*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ToString
+  href: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.html#MonoTorrent_Messages_Peer_Libtorrent_PeerExchangeMessage_ToString
+  name: ToString
+  nameWithType: PeerExchangeMessage.ToString
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

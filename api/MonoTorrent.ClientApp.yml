@@ -1,0 +1,1563 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.ClientApp
+  commentId: T:MonoTorrent.ClientApp
+  id: ClientApp
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.ClientApp.ABC
+  - MonoTorrent.ClientApp.Ares
+  - MonoTorrent.ClientApp.Artemis
+  - MonoTorrent.ClientApp.Artic
+  - MonoTorrent.ClientApp.Avicora
+  - MonoTorrent.ClientApp.Azureus
+  - MonoTorrent.ClientApp.BTG
+  - MonoTorrent.ClientApp.BTSlave
+  - MonoTorrent.ClientApp.BitBuddy
+  - MonoTorrent.ClientApp.BitComet
+  - MonoTorrent.ClientApp.BitLet
+  - MonoTorrent.ClientApp.BitLord
+  - MonoTorrent.ClientApp.BitPump
+  - MonoTorrent.ClientApp.BitRocket
+  - MonoTorrent.ClientApp.BitSpirit
+  - MonoTorrent.ClientApp.BitTornado
+  - MonoTorrent.ClientApp.BitTorrent
+  - MonoTorrent.ClientApp.BitTorrentX
+  - MonoTorrent.ClientApp.Bitflu
+  - MonoTorrent.ClientApp.BitsOnWheels
+  - MonoTorrent.ClientApp.CTorrent
+  - MonoTorrent.ClientApp.DelugeTorrent
+  - MonoTorrent.ClientApp.EBit
+  - MonoTorrent.ClientApp.ElectricSheep
+  - MonoTorrent.ClientApp.EnhancedCTorrent
+  - MonoTorrent.ClientApp.KTorrent
+  - MonoTorrent.ClientApp.LibTorrent
+  - MonoTorrent.ClientApp.Lphant
+  - MonoTorrent.ClientApp.MLDonkey
+  - MonoTorrent.ClientApp.MonoTorrent
+  - MonoTorrent.ClientApp.MooPolice
+  - MonoTorrent.ClientApp.MoonlightTorrent
+  - MonoTorrent.ClientApp.Opera
+  - MonoTorrent.ClientApp.OspreyPermaseed
+  - MonoTorrent.ClientApp.Qt4Torrent
+  - MonoTorrent.ClientApp.QueenBee
+  - MonoTorrent.ClientApp.Retriever
+  - MonoTorrent.ClientApp.ShadowsClient
+  - MonoTorrent.ClientApp.Shareaza
+  - MonoTorrent.ClientApp.SwarmScope
+  - MonoTorrent.ClientApp.Swiftbit
+  - MonoTorrent.ClientApp.TorrentDotNET
+  - MonoTorrent.ClientApp.Torrentstorm
+  - MonoTorrent.ClientApp.Transmission
+  - MonoTorrent.ClientApp.Tribler
+  - MonoTorrent.ClientApp.UPnPNatBitTorrent
+  - MonoTorrent.ClientApp.Unknown
+  - MonoTorrent.ClientApp.Vuze
+  - MonoTorrent.ClientApp.WebSeed
+  - MonoTorrent.ClientApp.XBTClient
+  - MonoTorrent.ClientApp.XanTorrent
+  - MonoTorrent.ClientApp.ZipTorrent
+  - MonoTorrent.ClientApp.qBittorrent
+  - MonoTorrent.ClientApp.uLeecher
+  - MonoTorrent.ClientApp.uTorrent
+  - MonoTorrent.ClientApp.uTorrentWeb
+  langs:
+  - csharp
+  - vb
+  name: ClientApp
+  nameWithType: ClientApp
+  fullName: MonoTorrent.ClientApp
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ClientApp
+    path: src/PeerID.cs
+    startLine: 47
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: BitTorrrent
+  remarks: >-
+    Good place for information about BT peer ID conventions:
+        http://wiki.theory.org/BitTorrentSpecification
+        http://transmission.m0k.org/trac/browser/trunk/libtransmission/clients.c (hello Transmission authors!) :)
+        http://rufus.cvs.sourceforge.net/rufus/Rufus/g3peerid.py?view=log (for older clients)
+        http://shareaza.svn.sourceforge.net/viewvc/shareaza/trunk/shareaza/BTClient.cpp?view=markup
+        http://libtorrent.rakshasa.no/browser/trunk/libtorrent/src/torrent/peer/client_list.cc
+  example: []
+  syntax:
+    content: public enum ClientApp
+    content.vb: Public Enum ClientApp
+- uid: MonoTorrent.ClientApp.ABC
+  commentId: F:MonoTorrent.ClientApp.ABC
+  id: ABC
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: ABC
+  nameWithType: ClientApp.ABC
+  fullName: MonoTorrent.ClientApp.ABC
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ABC
+    path: src/PeerID.cs
+    startLine: 49
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: ABC = 0
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Ares
+  commentId: F:MonoTorrent.ClientApp.Ares
+  id: Ares
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Ares
+  nameWithType: ClientApp.Ares
+  fullName: MonoTorrent.ClientApp.Ares
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Ares
+    path: src/PeerID.cs
+    startLine: 50
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Ares = 1
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Artemis
+  commentId: F:MonoTorrent.ClientApp.Artemis
+  id: Artemis
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Artemis
+  nameWithType: ClientApp.Artemis
+  fullName: MonoTorrent.ClientApp.Artemis
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Artemis
+    path: src/PeerID.cs
+    startLine: 51
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Artemis = 2
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Artic
+  commentId: F:MonoTorrent.ClientApp.Artic
+  id: Artic
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Artic
+  nameWithType: ClientApp.Artic
+  fullName: MonoTorrent.ClientApp.Artic
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Artic
+    path: src/PeerID.cs
+    startLine: 52
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Artic = 3
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Avicora
+  commentId: F:MonoTorrent.ClientApp.Avicora
+  id: Avicora
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Avicora
+  nameWithType: ClientApp.Avicora
+  fullName: MonoTorrent.ClientApp.Avicora
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Avicora
+    path: src/PeerID.cs
+    startLine: 53
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Avicora = 4
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Azureus
+  commentId: F:MonoTorrent.ClientApp.Azureus
+  id: Azureus
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Azureus
+  nameWithType: ClientApp.Azureus
+  fullName: MonoTorrent.ClientApp.Azureus
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Azureus
+    path: src/PeerID.cs
+    startLine: 54
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Azureus = 5
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.BitBuddy
+  commentId: F:MonoTorrent.ClientApp.BitBuddy
+  id: BitBuddy
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: BitBuddy
+  nameWithType: ClientApp.BitBuddy
+  fullName: MonoTorrent.ClientApp.BitBuddy
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BitBuddy
+    path: src/PeerID.cs
+    startLine: 55
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: BitBuddy = 6
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.BitComet
+  commentId: F:MonoTorrent.ClientApp.BitComet
+  id: BitComet
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: BitComet
+  nameWithType: ClientApp.BitComet
+  fullName: MonoTorrent.ClientApp.BitComet
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BitComet
+    path: src/PeerID.cs
+    startLine: 56
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: BitComet = 7
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Bitflu
+  commentId: F:MonoTorrent.ClientApp.Bitflu
+  id: Bitflu
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Bitflu
+  nameWithType: ClientApp.Bitflu
+  fullName: MonoTorrent.ClientApp.Bitflu
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Bitflu
+    path: src/PeerID.cs
+    startLine: 57
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Bitflu = 8
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.BitLet
+  commentId: F:MonoTorrent.ClientApp.BitLet
+  id: BitLet
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: BitLet
+  nameWithType: ClientApp.BitLet
+  fullName: MonoTorrent.ClientApp.BitLet
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BitLet
+    path: src/PeerID.cs
+    startLine: 58
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: BitLet = 9
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.BitLord
+  commentId: F:MonoTorrent.ClientApp.BitLord
+  id: BitLord
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: BitLord
+  nameWithType: ClientApp.BitLord
+  fullName: MonoTorrent.ClientApp.BitLord
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BitLord
+    path: src/PeerID.cs
+    startLine: 59
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: BitLord = 10
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.BitPump
+  commentId: F:MonoTorrent.ClientApp.BitPump
+  id: BitPump
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: BitPump
+  nameWithType: ClientApp.BitPump
+  fullName: MonoTorrent.ClientApp.BitPump
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BitPump
+    path: src/PeerID.cs
+    startLine: 60
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: BitPump = 11
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.BitRocket
+  commentId: F:MonoTorrent.ClientApp.BitRocket
+  id: BitRocket
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: BitRocket
+  nameWithType: ClientApp.BitRocket
+  fullName: MonoTorrent.ClientApp.BitRocket
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BitRocket
+    path: src/PeerID.cs
+    startLine: 61
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: BitRocket = 12
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.BitsOnWheels
+  commentId: F:MonoTorrent.ClientApp.BitsOnWheels
+  id: BitsOnWheels
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: BitsOnWheels
+  nameWithType: ClientApp.BitsOnWheels
+  fullName: MonoTorrent.ClientApp.BitsOnWheels
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BitsOnWheels
+    path: src/PeerID.cs
+    startLine: 62
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: BitsOnWheels = 13
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.BTSlave
+  commentId: F:MonoTorrent.ClientApp.BTSlave
+  id: BTSlave
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: BTSlave
+  nameWithType: ClientApp.BTSlave
+  fullName: MonoTorrent.ClientApp.BTSlave
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BTSlave
+    path: src/PeerID.cs
+    startLine: 63
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: BTSlave = 14
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.BitSpirit
+  commentId: F:MonoTorrent.ClientApp.BitSpirit
+  id: BitSpirit
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: BitSpirit
+  nameWithType: ClientApp.BitSpirit
+  fullName: MonoTorrent.ClientApp.BitSpirit
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BitSpirit
+    path: src/PeerID.cs
+    startLine: 64
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: BitSpirit = 15
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.BitTornado
+  commentId: F:MonoTorrent.ClientApp.BitTornado
+  id: BitTornado
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: BitTornado
+  nameWithType: ClientApp.BitTornado
+  fullName: MonoTorrent.ClientApp.BitTornado
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BitTornado
+    path: src/PeerID.cs
+    startLine: 65
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: BitTornado = 16
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.BitTorrent
+  commentId: F:MonoTorrent.ClientApp.BitTorrent
+  id: BitTorrent
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: BitTorrent
+  nameWithType: ClientApp.BitTorrent
+  fullName: MonoTorrent.ClientApp.BitTorrent
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BitTorrent
+    path: src/PeerID.cs
+    startLine: 66
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: BitTorrent = 17
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.BitTorrentX
+  commentId: F:MonoTorrent.ClientApp.BitTorrentX
+  id: BitTorrentX
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: BitTorrentX
+  nameWithType: ClientApp.BitTorrentX
+  fullName: MonoTorrent.ClientApp.BitTorrentX
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BitTorrentX
+    path: src/PeerID.cs
+    startLine: 67
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: BitTorrentX = 18
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.BTG
+  commentId: F:MonoTorrent.ClientApp.BTG
+  id: BTG
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: BTG
+  nameWithType: ClientApp.BTG
+  fullName: MonoTorrent.ClientApp.BTG
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BTG
+    path: src/PeerID.cs
+    startLine: 68
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: BTG = 19
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.EnhancedCTorrent
+  commentId: F:MonoTorrent.ClientApp.EnhancedCTorrent
+  id: EnhancedCTorrent
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: EnhancedCTorrent
+  nameWithType: ClientApp.EnhancedCTorrent
+  fullName: MonoTorrent.ClientApp.EnhancedCTorrent
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: EnhancedCTorrent
+    path: src/PeerID.cs
+    startLine: 69
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: EnhancedCTorrent = 20
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.CTorrent
+  commentId: F:MonoTorrent.ClientApp.CTorrent
+  id: CTorrent
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: CTorrent
+  nameWithType: ClientApp.CTorrent
+  fullName: MonoTorrent.ClientApp.CTorrent
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CTorrent
+    path: src/PeerID.cs
+    startLine: 70
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: CTorrent = 21
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.DelugeTorrent
+  commentId: F:MonoTorrent.ClientApp.DelugeTorrent
+  id: DelugeTorrent
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: DelugeTorrent
+  nameWithType: ClientApp.DelugeTorrent
+  fullName: MonoTorrent.ClientApp.DelugeTorrent
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DelugeTorrent
+    path: src/PeerID.cs
+    startLine: 71
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: DelugeTorrent = 22
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.EBit
+  commentId: F:MonoTorrent.ClientApp.EBit
+  id: EBit
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: EBit
+  nameWithType: ClientApp.EBit
+  fullName: MonoTorrent.ClientApp.EBit
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: EBit
+    path: src/PeerID.cs
+    startLine: 72
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: EBit = 23
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.ElectricSheep
+  commentId: F:MonoTorrent.ClientApp.ElectricSheep
+  id: ElectricSheep
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: ElectricSheep
+  nameWithType: ClientApp.ElectricSheep
+  fullName: MonoTorrent.ClientApp.ElectricSheep
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ElectricSheep
+    path: src/PeerID.cs
+    startLine: 73
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: ElectricSheep = 24
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.KTorrent
+  commentId: F:MonoTorrent.ClientApp.KTorrent
+  id: KTorrent
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: KTorrent
+  nameWithType: ClientApp.KTorrent
+  fullName: MonoTorrent.ClientApp.KTorrent
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: KTorrent
+    path: src/PeerID.cs
+    startLine: 74
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: KTorrent = 25
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Lphant
+  commentId: F:MonoTorrent.ClientApp.Lphant
+  id: Lphant
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Lphant
+  nameWithType: ClientApp.Lphant
+  fullName: MonoTorrent.ClientApp.Lphant
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Lphant
+    path: src/PeerID.cs
+    startLine: 75
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Lphant = 26
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.LibTorrent
+  commentId: F:MonoTorrent.ClientApp.LibTorrent
+  id: LibTorrent
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: LibTorrent
+  nameWithType: ClientApp.LibTorrent
+  fullName: MonoTorrent.ClientApp.LibTorrent
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LibTorrent
+    path: src/PeerID.cs
+    startLine: 76
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: LibTorrent = 27
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.MLDonkey
+  commentId: F:MonoTorrent.ClientApp.MLDonkey
+  id: MLDonkey
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: MLDonkey
+  nameWithType: ClientApp.MLDonkey
+  fullName: MonoTorrent.ClientApp.MLDonkey
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MLDonkey
+    path: src/PeerID.cs
+    startLine: 77
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: MLDonkey = 28
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.MooPolice
+  commentId: F:MonoTorrent.ClientApp.MooPolice
+  id: MooPolice
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: MooPolice
+  nameWithType: ClientApp.MooPolice
+  fullName: MonoTorrent.ClientApp.MooPolice
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MooPolice
+    path: src/PeerID.cs
+    startLine: 78
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: MooPolice = 29
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.MoonlightTorrent
+  commentId: F:MonoTorrent.ClientApp.MoonlightTorrent
+  id: MoonlightTorrent
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: MoonlightTorrent
+  nameWithType: ClientApp.MoonlightTorrent
+  fullName: MonoTorrent.ClientApp.MoonlightTorrent
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MoonlightTorrent
+    path: src/PeerID.cs
+    startLine: 79
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: MoonlightTorrent = 30
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.MonoTorrent
+  commentId: F:MonoTorrent.ClientApp.MonoTorrent
+  id: MonoTorrent
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent
+  nameWithType: ClientApp.MonoTorrent
+  fullName: MonoTorrent.ClientApp.MonoTorrent
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MonoTorrent
+    path: src/PeerID.cs
+    startLine: 80
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: MonoTorrent = 31
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Opera
+  commentId: F:MonoTorrent.ClientApp.Opera
+  id: Opera
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Opera
+  nameWithType: ClientApp.Opera
+  fullName: MonoTorrent.ClientApp.Opera
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Opera
+    path: src/PeerID.cs
+    startLine: 81
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Opera = 32
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.OspreyPermaseed
+  commentId: F:MonoTorrent.ClientApp.OspreyPermaseed
+  id: OspreyPermaseed
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: OspreyPermaseed
+  nameWithType: ClientApp.OspreyPermaseed
+  fullName: MonoTorrent.ClientApp.OspreyPermaseed
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: OspreyPermaseed
+    path: src/PeerID.cs
+    startLine: 82
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: OspreyPermaseed = 33
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.qBittorrent
+  commentId: F:MonoTorrent.ClientApp.qBittorrent
+  id: qBittorrent
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: qBittorrent
+  nameWithType: ClientApp.qBittorrent
+  fullName: MonoTorrent.ClientApp.qBittorrent
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: qBittorrent
+    path: src/PeerID.cs
+    startLine: 83
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: qBittorrent = 34
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.QueenBee
+  commentId: F:MonoTorrent.ClientApp.QueenBee
+  id: QueenBee
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: QueenBee
+  nameWithType: ClientApp.QueenBee
+  fullName: MonoTorrent.ClientApp.QueenBee
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: QueenBee
+    path: src/PeerID.cs
+    startLine: 84
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: QueenBee = 35
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Qt4Torrent
+  commentId: F:MonoTorrent.ClientApp.Qt4Torrent
+  id: Qt4Torrent
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Qt4Torrent
+  nameWithType: ClientApp.Qt4Torrent
+  fullName: MonoTorrent.ClientApp.Qt4Torrent
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Qt4Torrent
+    path: src/PeerID.cs
+    startLine: 85
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Qt4Torrent = 36
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Retriever
+  commentId: F:MonoTorrent.ClientApp.Retriever
+  id: Retriever
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Retriever
+  nameWithType: ClientApp.Retriever
+  fullName: MonoTorrent.ClientApp.Retriever
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Retriever
+    path: src/PeerID.cs
+    startLine: 86
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Retriever = 37
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.ShadowsClient
+  commentId: F:MonoTorrent.ClientApp.ShadowsClient
+  id: ShadowsClient
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: ShadowsClient
+  nameWithType: ClientApp.ShadowsClient
+  fullName: MonoTorrent.ClientApp.ShadowsClient
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ShadowsClient
+    path: src/PeerID.cs
+    startLine: 87
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: ShadowsClient = 38
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Swiftbit
+  commentId: F:MonoTorrent.ClientApp.Swiftbit
+  id: Swiftbit
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Swiftbit
+  nameWithType: ClientApp.Swiftbit
+  fullName: MonoTorrent.ClientApp.Swiftbit
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Swiftbit
+    path: src/PeerID.cs
+    startLine: 88
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Swiftbit = 39
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.SwarmScope
+  commentId: F:MonoTorrent.ClientApp.SwarmScope
+  id: SwarmScope
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: SwarmScope
+  nameWithType: ClientApp.SwarmScope
+  fullName: MonoTorrent.ClientApp.SwarmScope
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SwarmScope
+    path: src/PeerID.cs
+    startLine: 89
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: SwarmScope = 40
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Shareaza
+  commentId: F:MonoTorrent.ClientApp.Shareaza
+  id: Shareaza
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Shareaza
+  nameWithType: ClientApp.Shareaza
+  fullName: MonoTorrent.ClientApp.Shareaza
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Shareaza
+    path: src/PeerID.cs
+    startLine: 90
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Shareaza = 41
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.TorrentDotNET
+  commentId: F:MonoTorrent.ClientApp.TorrentDotNET
+  id: TorrentDotNET
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: TorrentDotNET
+  nameWithType: ClientApp.TorrentDotNET
+  fullName: MonoTorrent.ClientApp.TorrentDotNET
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentDotNET
+    path: src/PeerID.cs
+    startLine: 91
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: TorrentDotNET = 42
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Transmission
+  commentId: F:MonoTorrent.ClientApp.Transmission
+  id: Transmission
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Transmission
+  nameWithType: ClientApp.Transmission
+  fullName: MonoTorrent.ClientApp.Transmission
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Transmission
+    path: src/PeerID.cs
+    startLine: 92
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Transmission = 43
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Tribler
+  commentId: F:MonoTorrent.ClientApp.Tribler
+  id: Tribler
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Tribler
+  nameWithType: ClientApp.Tribler
+  fullName: MonoTorrent.ClientApp.Tribler
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Tribler
+    path: src/PeerID.cs
+    startLine: 93
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Tribler = 44
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Torrentstorm
+  commentId: F:MonoTorrent.ClientApp.Torrentstorm
+  id: Torrentstorm
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Torrentstorm
+  nameWithType: ClientApp.Torrentstorm
+  fullName: MonoTorrent.ClientApp.Torrentstorm
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Torrentstorm
+    path: src/PeerID.cs
+    startLine: 94
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Torrentstorm = 45
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.uLeecher
+  commentId: F:MonoTorrent.ClientApp.uLeecher
+  id: uLeecher
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: uLeecher
+  nameWithType: ClientApp.uLeecher
+  fullName: MonoTorrent.ClientApp.uLeecher
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: uLeecher
+    path: src/PeerID.cs
+    startLine: 95
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: uLeecher = 46
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Unknown
+  commentId: F:MonoTorrent.ClientApp.Unknown
+  id: Unknown
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: ClientApp.Unknown
+  fullName: MonoTorrent.ClientApp.Unknown
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Unknown
+    path: src/PeerID.cs
+    startLine: 96
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Unknown = 47
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.uTorrent
+  commentId: F:MonoTorrent.ClientApp.uTorrent
+  id: uTorrent
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: uTorrent
+  nameWithType: ClientApp.uTorrent
+  fullName: MonoTorrent.ClientApp.uTorrent
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: uTorrent
+    path: src/PeerID.cs
+    startLine: 97
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: uTorrent = 48
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.uTorrentWeb
+  commentId: F:MonoTorrent.ClientApp.uTorrentWeb
+  id: uTorrentWeb
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: uTorrentWeb
+  nameWithType: ClientApp.uTorrentWeb
+  fullName: MonoTorrent.ClientApp.uTorrentWeb
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: uTorrentWeb
+    path: src/PeerID.cs
+    startLine: 98
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: uTorrentWeb = 49
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.UPnPNatBitTorrent
+  commentId: F:MonoTorrent.ClientApp.UPnPNatBitTorrent
+  id: UPnPNatBitTorrent
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: UPnPNatBitTorrent
+  nameWithType: ClientApp.UPnPNatBitTorrent
+  fullName: MonoTorrent.ClientApp.UPnPNatBitTorrent
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: UPnPNatBitTorrent
+    path: src/PeerID.cs
+    startLine: 99
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: UPnPNatBitTorrent = 50
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.Vuze
+  commentId: F:MonoTorrent.ClientApp.Vuze
+  id: Vuze
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: Vuze
+  nameWithType: ClientApp.Vuze
+  fullName: MonoTorrent.ClientApp.Vuze
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Vuze
+    path: src/PeerID.cs
+    startLine: 100
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Vuze = 51
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.WebSeed
+  commentId: F:MonoTorrent.ClientApp.WebSeed
+  id: WebSeed
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: WebSeed
+  nameWithType: ClientApp.WebSeed
+  fullName: MonoTorrent.ClientApp.WebSeed
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WebSeed
+    path: src/PeerID.cs
+    startLine: 101
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: WebSeed = 52
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.XanTorrent
+  commentId: F:MonoTorrent.ClientApp.XanTorrent
+  id: XanTorrent
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: XanTorrent
+  nameWithType: ClientApp.XanTorrent
+  fullName: MonoTorrent.ClientApp.XanTorrent
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: XanTorrent
+    path: src/PeerID.cs
+    startLine: 102
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: XanTorrent = 53
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.XBTClient
+  commentId: F:MonoTorrent.ClientApp.XBTClient
+  id: XBTClient
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: XBTClient
+  nameWithType: ClientApp.XBTClient
+  fullName: MonoTorrent.ClientApp.XBTClient
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: XBTClient
+    path: src/PeerID.cs
+    startLine: 103
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: XBTClient = 54
+    return:
+      type: MonoTorrent.ClientApp
+- uid: MonoTorrent.ClientApp.ZipTorrent
+  commentId: F:MonoTorrent.ClientApp.ZipTorrent
+  id: ZipTorrent
+  parent: MonoTorrent.ClientApp
+  langs:
+  - csharp
+  - vb
+  name: ZipTorrent
+  nameWithType: ClientApp.ZipTorrent
+  fullName: MonoTorrent.ClientApp.ZipTorrent
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ZipTorrent
+    path: src/PeerID.cs
+    startLine: 104
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: ZipTorrent = 55
+    return:
+      type: MonoTorrent.ClientApp
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.ClientApp
+  commentId: T:MonoTorrent.ClientApp
+  parent: MonoTorrent
+  href: MonoTorrent.ClientApp.html
+  name: ClientApp
+  nameWithType: ClientApp
+  fullName: MonoTorrent.ClientApp

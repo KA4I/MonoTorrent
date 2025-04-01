@@ -1,0 +1,704 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Client.FastResume
+  commentId: T:MonoTorrent.Client.FastResume
+  id: FastResume
+  parent: MonoTorrent.Client
+  children:
+  - MonoTorrent.Client.FastResume.#ctor(MonoTorrent.InfoHashes,MonoTorrent.ReadOnlyBitField,MonoTorrent.ReadOnlyBitField)
+  - MonoTorrent.Client.FastResume.Bitfield
+  - MonoTorrent.Client.FastResume.Encode
+  - MonoTorrent.Client.FastResume.Encode(System.IO.Stream)
+  - MonoTorrent.Client.FastResume.InfoHashes
+  - MonoTorrent.Client.FastResume.TryLoad(System.IO.Stream,MonoTorrent.Client.FastResume@)
+  - MonoTorrent.Client.FastResume.TryLoad(System.String,MonoTorrent.Client.FastResume@)
+  - MonoTorrent.Client.FastResume.UnhashedPieces
+  langs:
+  - csharp
+  - vb
+  name: FastResume
+  nameWithType: FastResume
+  fullName: MonoTorrent.Client.FastResume
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Client/FastResume/FastResume.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FastResume
+    path: src/Client/FastResume/FastResume.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public class FastResume
+    content.vb: Public Class FastResume
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.Client.FastResume.Bitfield
+  commentId: P:MonoTorrent.Client.FastResume.Bitfield
+  id: Bitfield
+  parent: MonoTorrent.Client.FastResume
+  langs:
+  - csharp
+  - vb
+  name: Bitfield
+  nameWithType: FastResume.Bitfield
+  fullName: MonoTorrent.Client.FastResume.Bitfield
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/FastResume/FastResume.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Bitfield
+    path: src/Client/FastResume/FastResume.cs
+    startLine: 52
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public ReadOnlyBitField Bitfield { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.ReadOnlyBitField
+    content.vb: Public ReadOnly Property Bitfield As ReadOnlyBitField
+  overload: MonoTorrent.Client.FastResume.Bitfield*
+- uid: MonoTorrent.Client.FastResume.InfoHashes
+  commentId: P:MonoTorrent.Client.FastResume.InfoHashes
+  id: InfoHashes
+  parent: MonoTorrent.Client.FastResume
+  langs:
+  - csharp
+  - vb
+  name: InfoHashes
+  nameWithType: FastResume.InfoHashes
+  fullName: MonoTorrent.Client.FastResume.InfoHashes
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/FastResume/FastResume.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: InfoHashes
+    path: src/Client/FastResume/FastResume.cs
+    startLine: 54
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public InfoHashes InfoHashes { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.InfoHashes
+    content.vb: Public ReadOnly Property InfoHashes As InfoHashes
+  overload: MonoTorrent.Client.FastResume.InfoHashes*
+- uid: MonoTorrent.Client.FastResume.UnhashedPieces
+  commentId: P:MonoTorrent.Client.FastResume.UnhashedPieces
+  id: UnhashedPieces
+  parent: MonoTorrent.Client.FastResume
+  langs:
+  - csharp
+  - vb
+  name: UnhashedPieces
+  nameWithType: FastResume.UnhashedPieces
+  fullName: MonoTorrent.Client.FastResume.UnhashedPieces
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/FastResume/FastResume.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: UnhashedPieces
+    path: src/Client/FastResume/FastResume.cs
+    startLine: 56
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public ReadOnlyBitField UnhashedPieces { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.ReadOnlyBitField
+    content.vb: Public ReadOnly Property UnhashedPieces As ReadOnlyBitField
+  overload: MonoTorrent.Client.FastResume.UnhashedPieces*
+- uid: MonoTorrent.Client.FastResume.#ctor(MonoTorrent.InfoHashes,MonoTorrent.ReadOnlyBitField,MonoTorrent.ReadOnlyBitField)
+  commentId: M:MonoTorrent.Client.FastResume.#ctor(MonoTorrent.InfoHashes,MonoTorrent.ReadOnlyBitField,MonoTorrent.ReadOnlyBitField)
+  id: '#ctor(MonoTorrent.InfoHashes,MonoTorrent.ReadOnlyBitField,MonoTorrent.ReadOnlyBitField)'
+  parent: MonoTorrent.Client.FastResume
+  langs:
+  - csharp
+  - vb
+  name: FastResume(InfoHashes, ReadOnlyBitField, ReadOnlyBitField)
+  nameWithType: FastResume.FastResume(InfoHashes, ReadOnlyBitField, ReadOnlyBitField)
+  fullName: MonoTorrent.Client.FastResume.FastResume(MonoTorrent.InfoHashes, MonoTorrent.ReadOnlyBitField, MonoTorrent.ReadOnlyBitField)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Client/FastResume/FastResume.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Client/FastResume/FastResume.cs
+    startLine: 58
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public FastResume(InfoHashes infoHashes, ReadOnlyBitField bitfield, ReadOnlyBitField unhashedPieces)
+    parameters:
+    - id: infoHashes
+      type: MonoTorrent.InfoHashes
+    - id: bitfield
+      type: MonoTorrent.ReadOnlyBitField
+    - id: unhashedPieces
+      type: MonoTorrent.ReadOnlyBitField
+    content.vb: Public Sub New(infoHashes As InfoHashes, bitfield As ReadOnlyBitField, unhashedPieces As ReadOnlyBitField)
+  overload: MonoTorrent.Client.FastResume.#ctor*
+  nameWithType.vb: FastResume.New(InfoHashes, ReadOnlyBitField, ReadOnlyBitField)
+  fullName.vb: MonoTorrent.Client.FastResume.New(MonoTorrent.InfoHashes, MonoTorrent.ReadOnlyBitField, MonoTorrent.ReadOnlyBitField)
+  name.vb: New(InfoHashes, ReadOnlyBitField, ReadOnlyBitField)
+- uid: MonoTorrent.Client.FastResume.Encode
+  commentId: M:MonoTorrent.Client.FastResume.Encode
+  id: Encode
+  parent: MonoTorrent.Client.FastResume
+  langs:
+  - csharp
+  - vb
+  name: Encode()
+  nameWithType: FastResume.Encode()
+  fullName: MonoTorrent.Client.FastResume.Encode()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/FastResume/FastResume.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Encode
+    path: src/Client/FastResume/FastResume.cs
+    startLine: 124
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public byte[] Encode()
+    return:
+      type: System.Byte[]
+    content.vb: Public Function Encode() As Byte()
+  overload: MonoTorrent.Client.FastResume.Encode*
+- uid: MonoTorrent.Client.FastResume.Encode(System.IO.Stream)
+  commentId: M:MonoTorrent.Client.FastResume.Encode(System.IO.Stream)
+  id: Encode(System.IO.Stream)
+  parent: MonoTorrent.Client.FastResume
+  langs:
+  - csharp
+  - vb
+  name: Encode(Stream)
+  nameWithType: FastResume.Encode(Stream)
+  fullName: MonoTorrent.Client.FastResume.Encode(System.IO.Stream)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/FastResume/FastResume.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Encode
+    path: src/Client/FastResume/FastResume.cs
+    startLine: 140
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public void Encode(Stream s)
+    parameters:
+    - id: s
+      type: System.IO.Stream
+    content.vb: Public Sub Encode(s As Stream)
+  overload: MonoTorrent.Client.FastResume.Encode*
+- uid: MonoTorrent.Client.FastResume.TryLoad(System.IO.Stream,MonoTorrent.Client.FastResume@)
+  commentId: M:MonoTorrent.Client.FastResume.TryLoad(System.IO.Stream,MonoTorrent.Client.FastResume@)
+  id: TryLoad(System.IO.Stream,MonoTorrent.Client.FastResume@)
+  parent: MonoTorrent.Client.FastResume
+  langs:
+  - csharp
+  - vb
+  name: TryLoad(Stream, out FastResume?)
+  nameWithType: FastResume.TryLoad(Stream, out FastResume?)
+  fullName: MonoTorrent.Client.FastResume.TryLoad(System.IO.Stream, out MonoTorrent.Client.FastResume?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/FastResume/FastResume.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TryLoad
+    path: src/Client/FastResume/FastResume.cs
+    startLine: 146
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public static bool TryLoad(Stream s, out FastResume? fastResume)
+    parameters:
+    - id: s
+      type: System.IO.Stream
+    - id: fastResume
+      type: MonoTorrent.Client.FastResume
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function TryLoad(s As Stream, fastResume As FastResume) As Boolean
+  overload: MonoTorrent.Client.FastResume.TryLoad*
+  nameWithType.vb: FastResume.TryLoad(Stream, FastResume)
+  fullName.vb: MonoTorrent.Client.FastResume.TryLoad(System.IO.Stream, MonoTorrent.Client.FastResume)
+  name.vb: TryLoad(Stream, FastResume)
+- uid: MonoTorrent.Client.FastResume.TryLoad(System.String,MonoTorrent.Client.FastResume@)
+  commentId: M:MonoTorrent.Client.FastResume.TryLoad(System.String,MonoTorrent.Client.FastResume@)
+  id: TryLoad(System.String,MonoTorrent.Client.FastResume@)
+  parent: MonoTorrent.Client.FastResume
+  langs:
+  - csharp
+  - vb
+  name: TryLoad(string, out FastResume?)
+  nameWithType: FastResume.TryLoad(string, out FastResume?)
+  fullName: MonoTorrent.Client.FastResume.TryLoad(string, out MonoTorrent.Client.FastResume?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/FastResume/FastResume.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TryLoad
+    path: src/Client/FastResume/FastResume.cs
+    startLine: 152
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public static bool TryLoad(string fastResumeFilePath, out FastResume? fastResume)
+    parameters:
+    - id: fastResumeFilePath
+      type: System.String
+    - id: fastResume
+      type: MonoTorrent.Client.FastResume
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function TryLoad(fastResumeFilePath As String, fastResume As FastResume) As Boolean
+  overload: MonoTorrent.Client.FastResume.TryLoad*
+  nameWithType.vb: FastResume.TryLoad(String, FastResume)
+  fullName.vb: MonoTorrent.Client.FastResume.TryLoad(String, MonoTorrent.Client.FastResume)
+  name.vb: TryLoad(String, FastResume)
+references:
+- uid: MonoTorrent.Client
+  commentId: N:MonoTorrent.Client
+  href: MonoTorrent.html
+  name: MonoTorrent.Client
+  nameWithType: MonoTorrent.Client
+  fullName: MonoTorrent.Client
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Client.FastResume.Bitfield*
+  commentId: Overload:MonoTorrent.Client.FastResume.Bitfield
+  href: MonoTorrent.Client.FastResume.html#MonoTorrent_Client_FastResume_Bitfield
+  name: Bitfield
+  nameWithType: FastResume.Bitfield
+  fullName: MonoTorrent.Client.FastResume.Bitfield
+- uid: MonoTorrent.ReadOnlyBitField
+  commentId: T:MonoTorrent.ReadOnlyBitField
+  parent: MonoTorrent
+  href: MonoTorrent.ReadOnlyBitField.html
+  name: ReadOnlyBitField
+  nameWithType: ReadOnlyBitField
+  fullName: MonoTorrent.ReadOnlyBitField
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.Client.FastResume.InfoHashes*
+  commentId: Overload:MonoTorrent.Client.FastResume.InfoHashes
+  href: MonoTorrent.Client.FastResume.html#MonoTorrent_Client_FastResume_InfoHashes
+  name: InfoHashes
+  nameWithType: FastResume.InfoHashes
+  fullName: MonoTorrent.Client.FastResume.InfoHashes
+- uid: MonoTorrent.InfoHashes
+  commentId: T:MonoTorrent.InfoHashes
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHashes.html
+  name: InfoHashes
+  nameWithType: InfoHashes
+  fullName: MonoTorrent.InfoHashes
+- uid: MonoTorrent.Client.FastResume.UnhashedPieces*
+  commentId: Overload:MonoTorrent.Client.FastResume.UnhashedPieces
+  href: MonoTorrent.Client.FastResume.html#MonoTorrent_Client_FastResume_UnhashedPieces
+  name: UnhashedPieces
+  nameWithType: FastResume.UnhashedPieces
+  fullName: MonoTorrent.Client.FastResume.UnhashedPieces
+- uid: MonoTorrent.Client.FastResume.#ctor*
+  commentId: Overload:MonoTorrent.Client.FastResume.#ctor
+  href: MonoTorrent.Client.FastResume.html#MonoTorrent_Client_FastResume__ctor_MonoTorrent_InfoHashes_MonoTorrent_ReadOnlyBitField_MonoTorrent_ReadOnlyBitField_
+  name: FastResume
+  nameWithType: FastResume.FastResume
+  fullName: MonoTorrent.Client.FastResume.FastResume
+  nameWithType.vb: FastResume.New
+  fullName.vb: MonoTorrent.Client.FastResume.New
+  name.vb: New
+- uid: MonoTorrent.Client.FastResume.Encode*
+  commentId: Overload:MonoTorrent.Client.FastResume.Encode
+  href: MonoTorrent.Client.FastResume.html#MonoTorrent_Client_FastResume_Encode
+  name: Encode
+  nameWithType: FastResume.Encode
+  fullName: MonoTorrent.Client.FastResume.Encode
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  name: Stream
+  nameWithType: Stream
+  fullName: System.IO.Stream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: MonoTorrent.Client.FastResume.TryLoad*
+  commentId: Overload:MonoTorrent.Client.FastResume.TryLoad
+  href: MonoTorrent.Client.FastResume.html#MonoTorrent_Client_FastResume_TryLoad_System_IO_Stream_MonoTorrent_Client_FastResume__
+  name: TryLoad
+  nameWithType: FastResume.TryLoad
+  fullName: MonoTorrent.Client.FastResume.TryLoad
+- uid: MonoTorrent.Client.FastResume
+  commentId: T:MonoTorrent.Client.FastResume
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.FastResume.html
+  name: FastResume
+  nameWithType: FastResume
+  fullName: MonoTorrent.Client.FastResume
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

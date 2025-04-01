@@ -1,0 +1,707 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.ReadOnlyMerkleTree
+  commentId: T:MonoTorrent.ReadOnlyMerkleTree
+  id: ReadOnlyMerkleTree
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.ReadOnlyMerkleTree.FromLayer(System.Int32,System.ReadOnlySpan{System.Byte})
+  - MonoTorrent.ReadOnlyMerkleTree.FromLayer(System.Int32,System.ReadOnlySpan{System.Byte},MonoTorrent.MerkleRoot)
+  - MonoTorrent.ReadOnlyMerkleTree.GetHash(System.Int32,System.Int32)
+  - MonoTorrent.ReadOnlyMerkleTree.LayerCount
+  - MonoTorrent.ReadOnlyMerkleTree.PieceLayerHashCount
+  - MonoTorrent.ReadOnlyMerkleTree.PieceLayerIndex
+  - MonoTorrent.ReadOnlyMerkleTree.Root
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyMerkleTree
+  nameWithType: ReadOnlyMerkleTree
+  fullName: MonoTorrent.ReadOnlyMerkleTree
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyMerkleTree.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ReadOnlyMerkleTree
+    path: src/ReadOnlyMerkleTree.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public class ReadOnlyMerkleTree
+    content.vb: Public Class ReadOnlyMerkleTree
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.ReadOnlyMerkleTree.FromLayer(System.Int32,System.ReadOnlySpan{System.Byte})
+  commentId: M:MonoTorrent.ReadOnlyMerkleTree.FromLayer(System.Int32,System.ReadOnlySpan{System.Byte})
+  id: FromLayer(System.Int32,System.ReadOnlySpan{System.Byte})
+  parent: MonoTorrent.ReadOnlyMerkleTree
+  langs:
+  - csharp
+  - vb
+  name: FromLayer(int, ReadOnlySpan<byte>)
+  nameWithType: ReadOnlyMerkleTree.FromLayer(int, ReadOnlySpan<byte>)
+  fullName: MonoTorrent.ReadOnlyMerkleTree.FromLayer(int, System.ReadOnlySpan<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyMerkleTree.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FromLayer
+    path: src/ReadOnlyMerkleTree.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static ReadOnlyMerkleTree FromLayer(int pieceLength, ReadOnlySpan<byte> layer)
+    parameters:
+    - id: pieceLength
+      type: System.Int32
+    - id: layer
+      type: System.ReadOnlySpan{System.Byte}
+    return:
+      type: MonoTorrent.ReadOnlyMerkleTree
+    content.vb: Public Shared Function FromLayer(pieceLength As Integer, layer As ReadOnlySpan(Of Byte)) As ReadOnlyMerkleTree
+  overload: MonoTorrent.ReadOnlyMerkleTree.FromLayer*
+  nameWithType.vb: ReadOnlyMerkleTree.FromLayer(Integer, ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.ReadOnlyMerkleTree.FromLayer(Integer, System.ReadOnlySpan(Of Byte))
+  name.vb: FromLayer(Integer, ReadOnlySpan(Of Byte))
+- uid: MonoTorrent.ReadOnlyMerkleTree.FromLayer(System.Int32,System.ReadOnlySpan{System.Byte},MonoTorrent.MerkleRoot)
+  commentId: M:MonoTorrent.ReadOnlyMerkleTree.FromLayer(System.Int32,System.ReadOnlySpan{System.Byte},MonoTorrent.MerkleRoot)
+  id: FromLayer(System.Int32,System.ReadOnlySpan{System.Byte},MonoTorrent.MerkleRoot)
+  parent: MonoTorrent.ReadOnlyMerkleTree
+  langs:
+  - csharp
+  - vb
+  name: FromLayer(int, ReadOnlySpan<byte>, MerkleRoot)
+  nameWithType: ReadOnlyMerkleTree.FromLayer(int, ReadOnlySpan<byte>, MerkleRoot)
+  fullName: MonoTorrent.ReadOnlyMerkleTree.FromLayer(int, System.ReadOnlySpan<byte>, MonoTorrent.MerkleRoot)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyMerkleTree.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FromLayer
+    path: src/ReadOnlyMerkleTree.cs
+    startLine: 54
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static ReadOnlyMerkleTree FromLayer(int pieceLength, ReadOnlySpan<byte> layer, MerkleRoot expectedRoot)
+    parameters:
+    - id: pieceLength
+      type: System.Int32
+    - id: layer
+      type: System.ReadOnlySpan{System.Byte}
+    - id: expectedRoot
+      type: MonoTorrent.MerkleRoot
+    return:
+      type: MonoTorrent.ReadOnlyMerkleTree
+    content.vb: Public Shared Function FromLayer(pieceLength As Integer, layer As ReadOnlySpan(Of Byte), expectedRoot As MerkleRoot) As ReadOnlyMerkleTree
+  overload: MonoTorrent.ReadOnlyMerkleTree.FromLayer*
+  nameWithType.vb: ReadOnlyMerkleTree.FromLayer(Integer, ReadOnlySpan(Of Byte), MerkleRoot)
+  fullName.vb: MonoTorrent.ReadOnlyMerkleTree.FromLayer(Integer, System.ReadOnlySpan(Of Byte), MonoTorrent.MerkleRoot)
+  name.vb: FromLayer(Integer, ReadOnlySpan(Of Byte), MerkleRoot)
+- uid: MonoTorrent.ReadOnlyMerkleTree.LayerCount
+  commentId: P:MonoTorrent.ReadOnlyMerkleTree.LayerCount
+  id: LayerCount
+  parent: MonoTorrent.ReadOnlyMerkleTree
+  langs:
+  - csharp
+  - vb
+  name: LayerCount
+  nameWithType: ReadOnlyMerkleTree.LayerCount
+  fullName: MonoTorrent.ReadOnlyMerkleTree.LayerCount
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyMerkleTree.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LayerCount
+    path: src/ReadOnlyMerkleTree.cs
+    startLine: 68
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public int LayerCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property LayerCount As Integer
+  overload: MonoTorrent.ReadOnlyMerkleTree.LayerCount*
+- uid: MonoTorrent.ReadOnlyMerkleTree.PieceLayerIndex
+  commentId: P:MonoTorrent.ReadOnlyMerkleTree.PieceLayerIndex
+  id: PieceLayerIndex
+  parent: MonoTorrent.ReadOnlyMerkleTree
+  langs:
+  - csharp
+  - vb
+  name: PieceLayerIndex
+  nameWithType: ReadOnlyMerkleTree.PieceLayerIndex
+  fullName: MonoTorrent.ReadOnlyMerkleTree.PieceLayerIndex
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyMerkleTree.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PieceLayerIndex
+    path: src/ReadOnlyMerkleTree.cs
+    startLine: 70
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public int PieceLayerIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property PieceLayerIndex As Integer
+  overload: MonoTorrent.ReadOnlyMerkleTree.PieceLayerIndex*
+- uid: MonoTorrent.ReadOnlyMerkleTree.PieceLayerHashCount
+  commentId: P:MonoTorrent.ReadOnlyMerkleTree.PieceLayerHashCount
+  id: PieceLayerHashCount
+  parent: MonoTorrent.ReadOnlyMerkleTree
+  langs:
+  - csharp
+  - vb
+  name: PieceLayerHashCount
+  nameWithType: ReadOnlyMerkleTree.PieceLayerHashCount
+  fullName: MonoTorrent.ReadOnlyMerkleTree.PieceLayerHashCount
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyMerkleTree.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PieceLayerHashCount
+    path: src/ReadOnlyMerkleTree.cs
+    startLine: 76
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: >-
+    This is the number of hashes in the MerkleLayer, which is always a power of two. In the event the
+
+    piece layer for a file has 5 hashes, the associated piece layer hash count would be 8.
+  example: []
+  syntax:
+    content: public int PieceLayerHashCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property PieceLayerHashCount As Integer
+  overload: MonoTorrent.ReadOnlyMerkleTree.PieceLayerHashCount*
+- uid: MonoTorrent.ReadOnlyMerkleTree.Root
+  commentId: P:MonoTorrent.ReadOnlyMerkleTree.Root
+  id: Root
+  parent: MonoTorrent.ReadOnlyMerkleTree
+  langs:
+  - csharp
+  - vb
+  name: Root
+  nameWithType: ReadOnlyMerkleTree.Root
+  fullName: MonoTorrent.ReadOnlyMerkleTree.Root
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyMerkleTree.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Root
+    path: src/ReadOnlyMerkleTree.cs
+    startLine: 78
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public MerkleRoot Root { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.MerkleRoot
+    content.vb: Public ReadOnly Property Root As MerkleRoot
+  overload: MonoTorrent.ReadOnlyMerkleTree.Root*
+- uid: MonoTorrent.ReadOnlyMerkleTree.GetHash(System.Int32,System.Int32)
+  commentId: M:MonoTorrent.ReadOnlyMerkleTree.GetHash(System.Int32,System.Int32)
+  id: GetHash(System.Int32,System.Int32)
+  parent: MonoTorrent.ReadOnlyMerkleTree
+  langs:
+  - csharp
+  - vb
+  name: GetHash(int, int)
+  nameWithType: ReadOnlyMerkleTree.GetHash(int, int)
+  fullName: MonoTorrent.ReadOnlyMerkleTree.GetHash(int, int)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/ReadOnlyMerkleTree.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetHash
+    path: src/ReadOnlyMerkleTree.cs
+    startLine: 86
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public ReadOnlyMemory<byte> GetHash(int layer, int index)
+    parameters:
+    - id: layer
+      type: System.Int32
+    - id: index
+      type: System.Int32
+    return:
+      type: System.ReadOnlyMemory{System.Byte}
+    content.vb: Public Function GetHash(layer As Integer, index As Integer) As ReadOnlyMemory(Of Byte)
+  overload: MonoTorrent.ReadOnlyMerkleTree.GetHash*
+  nameWithType.vb: ReadOnlyMerkleTree.GetHash(Integer, Integer)
+  fullName.vb: MonoTorrent.ReadOnlyMerkleTree.GetHash(Integer, Integer)
+  name.vb: GetHash(Integer, Integer)
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.ReadOnlyMerkleTree.FromLayer*
+  commentId: Overload:MonoTorrent.ReadOnlyMerkleTree.FromLayer
+  href: MonoTorrent.ReadOnlyMerkleTree.html#MonoTorrent_ReadOnlyMerkleTree_FromLayer_System_Int32_System_ReadOnlySpan_System_Byte__
+  name: FromLayer
+  nameWithType: ReadOnlyMerkleTree.FromLayer
+  fullName: MonoTorrent.ReadOnlyMerkleTree.FromLayer
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: MonoTorrent.ReadOnlyMerkleTree
+  commentId: T:MonoTorrent.ReadOnlyMerkleTree
+  parent: MonoTorrent
+  href: MonoTorrent.ReadOnlyMerkleTree.html
+  name: ReadOnlyMerkleTree
+  nameWithType: ReadOnlyMerkleTree
+  fullName: MonoTorrent.ReadOnlyMerkleTree
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.MerkleRoot
+  commentId: T:MonoTorrent.MerkleRoot
+  parent: MonoTorrent
+  href: MonoTorrent.MerkleRoot.html
+  name: MerkleRoot
+  nameWithType: MerkleRoot
+  fullName: MonoTorrent.MerkleRoot
+- uid: MonoTorrent.ReadOnlyMerkleTree.LayerCount*
+  commentId: Overload:MonoTorrent.ReadOnlyMerkleTree.LayerCount
+  href: MonoTorrent.ReadOnlyMerkleTree.html#MonoTorrent_ReadOnlyMerkleTree_LayerCount
+  name: LayerCount
+  nameWithType: ReadOnlyMerkleTree.LayerCount
+  fullName: MonoTorrent.ReadOnlyMerkleTree.LayerCount
+- uid: MonoTorrent.ReadOnlyMerkleTree.PieceLayerIndex*
+  commentId: Overload:MonoTorrent.ReadOnlyMerkleTree.PieceLayerIndex
+  href: MonoTorrent.ReadOnlyMerkleTree.html#MonoTorrent_ReadOnlyMerkleTree_PieceLayerIndex
+  name: PieceLayerIndex
+  nameWithType: ReadOnlyMerkleTree.PieceLayerIndex
+  fullName: MonoTorrent.ReadOnlyMerkleTree.PieceLayerIndex
+- uid: MonoTorrent.ReadOnlyMerkleTree.PieceLayerHashCount*
+  commentId: Overload:MonoTorrent.ReadOnlyMerkleTree.PieceLayerHashCount
+  href: MonoTorrent.ReadOnlyMerkleTree.html#MonoTorrent_ReadOnlyMerkleTree_PieceLayerHashCount
+  name: PieceLayerHashCount
+  nameWithType: ReadOnlyMerkleTree.PieceLayerHashCount
+  fullName: MonoTorrent.ReadOnlyMerkleTree.PieceLayerHashCount
+- uid: MonoTorrent.ReadOnlyMerkleTree.Root*
+  commentId: Overload:MonoTorrent.ReadOnlyMerkleTree.Root
+  href: MonoTorrent.ReadOnlyMerkleTree.html#MonoTorrent_ReadOnlyMerkleTree_Root
+  name: Root
+  nameWithType: ReadOnlyMerkleTree.Root
+  fullName: MonoTorrent.ReadOnlyMerkleTree.Root
+- uid: MonoTorrent.ReadOnlyMerkleTree.GetHash*
+  commentId: Overload:MonoTorrent.ReadOnlyMerkleTree.GetHash
+  href: MonoTorrent.ReadOnlyMerkleTree.html#MonoTorrent_ReadOnlyMerkleTree_GetHash_System_Int32_System_Int32_
+  name: GetHash
+  nameWithType: ReadOnlyMerkleTree.GetHash
+  fullName: MonoTorrent.ReadOnlyMerkleTree.GetHash
+- uid: System.ReadOnlyMemory{System.Byte}
+  commentId: T:System.ReadOnlyMemory{System.Byte}
+  parent: System
+  definition: System.ReadOnlyMemory`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<byte>
+  nameWithType: ReadOnlyMemory<byte>
+  fullName: System.ReadOnlyMemory<byte>
+  nameWithType.vb: ReadOnlyMemory(Of Byte)
+  fullName.vb: System.ReadOnlyMemory(Of Byte)
+  name.vb: ReadOnlyMemory(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlyMemory`1
+  commentId: T:System.ReadOnlyMemory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<T>
+  nameWithType: ReadOnlyMemory<T>
+  fullName: System.ReadOnlyMemory<T>
+  nameWithType.vb: ReadOnlyMemory(Of T)
+  fullName.vb: System.ReadOnlyMemory(Of T)
+  name.vb: ReadOnlyMemory(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

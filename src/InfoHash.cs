@@ -39,17 +39,20 @@ namespace MonoTorrent
     [DebuggerDisplay ("InfoHash: (hex) {ToHex ()}")]
     public class InfoHash : IEquatable<InfoHash>
     {
-        static readonly Dictionary<char, byte> Base32DecodeTable;
+        static readonly Dictionary<char, byte> Base32DecodeTable = new Dictionary<char, byte> () {
+            {'a', 0}, {'b', 1}, {'c', 2}, {'d', 3}, {'e', 4}, {'f', 5}, {'g', 6}, {'h', 7},
+            {'i', 8}, {'j', 9}, {'k', 10}, {'l', 11}, {'m', 12}, {'n', 13}, {'o', 14}, {'p', 15},
+            {'q', 16}, {'r', 17}, {'s', 18}, {'t', 19}, {'u', 20}, {'v', 21}, {'w', 22}, {'x', 23},
+            {'y', 24}, {'z', 25}, {'2', 26}, {'3', 27}, {'4', 28}, {'5', 29}, {'6', 30}, {'7', 31}
+        };
+        private const string Base32Alphabet = "abcdefghijklmnopqrstuvwxyz234567";
+
         internal static InfoHash EmptyV1 { get; }
         internal static InfoHash EmptyV2 { get; }
 
         static InfoHash ()
         {
-            Base32DecodeTable = new Dictionary<char, byte> ();
-            const string table = "abcdefghijklmnopqrstuvwxyz234567";
-            for (int i = 0; i < table.Length; i++)
-                Base32DecodeTable[table[i]] = (byte) i;
-
+            // Base32DecodeTable is initialized directly at declaration now.
             EmptyV1 = new InfoHash (new byte[20]);
             EmptyV2 = new InfoHash (new byte[32]);
         }
@@ -121,6 +124,35 @@ namespace MonoTorrent
             return sb.ToString ();
         }
 
+        public string ToBase32 ()
+        {
+            // BEP52 uses Base32 encoding without padding
+            var data = Hash.Span;
+            var sb = new StringBuilder ((data.Length * 8 + 4) / 5); // Calculate required length
+
+            int bits = 0;
+            int value = 0;
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                value = (value << 8) | data[i];
+                bits += 8;
+
+                while (bits >= 5)
+                {
+                    sb.Append (Base32Alphabet[(value >> (bits - 5)) & 31]);
+                    bits -= 5;
+                }
+            }
+
+            // Handle remaining bits if necessary for standard Base32, but BEP52 omits padding
+            // if (bits > 0)
+            // {
+            //     sb.Append (Base32Alphabet[(value << (5 - bits)) & 31]);
+            // }
+
+            return sb.ToString ();
+        }
         public string UrlEncode ()
             => HttpUtility.UrlEncode (Hash.Span.ToArray ()).Replace("+", "%20");
 

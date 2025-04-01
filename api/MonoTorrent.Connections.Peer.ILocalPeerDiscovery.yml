@@ -1,0 +1,461 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+  commentId: T:MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+  id: ILocalPeerDiscovery
+  parent: MonoTorrent.Connections.Peer
+  children:
+  - MonoTorrent.Connections.Peer.ILocalPeerDiscovery.Announce(MonoTorrent.InfoHash,System.Net.IPEndPoint)
+  - MonoTorrent.Connections.Peer.ILocalPeerDiscovery.AnnounceInternal
+  - MonoTorrent.Connections.Peer.ILocalPeerDiscovery.MinimumAnnounceInternal
+  - MonoTorrent.Connections.Peer.ILocalPeerDiscovery.PeerFound
+  langs:
+  - csharp
+  - vb
+  name: ILocalPeerDiscovery
+  nameWithType: ILocalPeerDiscovery
+  fullName: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/ILocalPeerDiscovery.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ILocalPeerDiscovery
+    path: src/Connections/Peer/ILocalPeerDiscovery.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: 'public interface ILocalPeerDiscovery : IListener'
+    content.vb: Public Interface ILocalPeerDiscovery Inherits IListener
+  inheritedMembers:
+  - MonoTorrent.Connections.IListener.StatusChanged
+  - MonoTorrent.Connections.IListener.Status
+  - MonoTorrent.Connections.IListener.Start
+  - MonoTorrent.Connections.IListener.Stop
+- uid: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.MinimumAnnounceInternal
+  commentId: P:MonoTorrent.Connections.Peer.ILocalPeerDiscovery.MinimumAnnounceInternal
+  id: MinimumAnnounceInternal
+  parent: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+  langs:
+  - csharp
+  - vb
+  name: MinimumAnnounceInternal
+  nameWithType: ILocalPeerDiscovery.MinimumAnnounceInternal
+  fullName: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.MinimumAnnounceInternal
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/ILocalPeerDiscovery.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MinimumAnnounceInternal
+    path: src/Connections/Peer/ILocalPeerDiscovery.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: TimeSpan MinimumAnnounceInternal { get; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: ReadOnly Property MinimumAnnounceInternal As TimeSpan
+  overload: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.MinimumAnnounceInternal*
+- uid: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.AnnounceInternal
+  commentId: P:MonoTorrent.Connections.Peer.ILocalPeerDiscovery.AnnounceInternal
+  id: AnnounceInternal
+  parent: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+  langs:
+  - csharp
+  - vb
+  name: AnnounceInternal
+  nameWithType: ILocalPeerDiscovery.AnnounceInternal
+  fullName: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.AnnounceInternal
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/ILocalPeerDiscovery.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AnnounceInternal
+    path: src/Connections/Peer/ILocalPeerDiscovery.cs
+    startLine: 38
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: TimeSpan AnnounceInternal { get; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: ReadOnly Property AnnounceInternal As TimeSpan
+  overload: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.AnnounceInternal*
+- uid: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.PeerFound
+  commentId: E:MonoTorrent.Connections.Peer.ILocalPeerDiscovery.PeerFound
+  id: PeerFound
+  parent: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+  langs:
+  - csharp
+  - vb
+  name: PeerFound
+  nameWithType: ILocalPeerDiscovery.PeerFound
+  fullName: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.PeerFound
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/ILocalPeerDiscovery.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PeerFound
+    path: src/Connections/Peer/ILocalPeerDiscovery.cs
+    startLine: 43
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  summary: This event is raised whenever a peer is discovered.
+  example: []
+  syntax:
+    content: event EventHandler<LocalPeerFoundEventArgs> PeerFound
+    return:
+      type: System.EventHandler{MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs}
+    content.vb: Event PeerFound As EventHandler(Of LocalPeerFoundEventArgs)
+- uid: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.Announce(MonoTorrent.InfoHash,System.Net.IPEndPoint)
+  commentId: M:MonoTorrent.Connections.Peer.ILocalPeerDiscovery.Announce(MonoTorrent.InfoHash,System.Net.IPEndPoint)
+  id: Announce(MonoTorrent.InfoHash,System.Net.IPEndPoint)
+  parent: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+  langs:
+  - csharp
+  - vb
+  name: Announce(InfoHash, IPEndPoint)
+  nameWithType: ILocalPeerDiscovery.Announce(InfoHash, IPEndPoint)
+  fullName: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.Announce(MonoTorrent.InfoHash, System.Net.IPEndPoint)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/ILocalPeerDiscovery.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Announce
+    path: src/Connections/Peer/ILocalPeerDiscovery.cs
+    startLine: 51
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  summary: Send an announce request for this InfoHash to all available network adapters.
+  example: []
+  syntax:
+    content: Task Announce(InfoHash infoHash, IPEndPoint listeningPort)
+    parameters:
+    - id: infoHash
+      type: MonoTorrent.InfoHash
+      description: ''
+    - id: listeningPort
+      type: System.Net.IPEndPoint
+      description: The TCP port used to accept incoming connections.
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Function Announce(infoHash As InfoHash, listeningPort As IPEndPoint) As Task
+  overload: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.Announce*
+references:
+- uid: MonoTorrent.Connections.Peer
+  commentId: N:MonoTorrent.Connections.Peer
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.Peer
+  nameWithType: MonoTorrent.Connections.Peer
+  fullName: MonoTorrent.Connections.Peer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html
+- uid: MonoTorrent.Connections.IListener.StatusChanged
+  commentId: E:MonoTorrent.Connections.IListener.StatusChanged
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_StatusChanged
+  name: StatusChanged
+  nameWithType: IListener.StatusChanged
+  fullName: MonoTorrent.Connections.IListener.StatusChanged
+- uid: MonoTorrent.Connections.IListener.Status
+  commentId: P:MonoTorrent.Connections.IListener.Status
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Status
+  name: Status
+  nameWithType: IListener.Status
+  fullName: MonoTorrent.Connections.IListener.Status
+- uid: MonoTorrent.Connections.IListener.Start
+  commentId: M:MonoTorrent.Connections.IListener.Start
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  name: Start()
+  nameWithType: IListener.Start()
+  fullName: MonoTorrent.Connections.IListener.Start()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.IListener.Start
+    name: Start
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.IListener.Start
+    name: Start
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  - name: (
+  - name: )
+- uid: MonoTorrent.Connections.IListener.Stop
+  commentId: M:MonoTorrent.Connections.IListener.Stop
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  name: Stop()
+  nameWithType: IListener.Stop()
+  fullName: MonoTorrent.Connections.IListener.Stop()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.IListener.Stop
+    name: Stop
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.IListener.Stop
+    name: Stop
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  - name: (
+  - name: )
+- uid: MonoTorrent.Connections.IListener
+  commentId: T:MonoTorrent.Connections.IListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.IListener.html
+  name: IListener
+  nameWithType: IListener
+  fullName: MonoTorrent.Connections.IListener
+- uid: MonoTorrent.Connections
+  commentId: N:MonoTorrent.Connections
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections
+  nameWithType: MonoTorrent.Connections
+  fullName: MonoTorrent.Connections
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+- uid: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.MinimumAnnounceInternal*
+  commentId: Overload:MonoTorrent.Connections.Peer.ILocalPeerDiscovery.MinimumAnnounceInternal
+  href: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.html#MonoTorrent_Connections_Peer_ILocalPeerDiscovery_MinimumAnnounceInternal
+  name: MinimumAnnounceInternal
+  nameWithType: ILocalPeerDiscovery.MinimumAnnounceInternal
+  fullName: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.MinimumAnnounceInternal
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.AnnounceInternal*
+  commentId: Overload:MonoTorrent.Connections.Peer.ILocalPeerDiscovery.AnnounceInternal
+  href: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.html#MonoTorrent_Connections_Peer_ILocalPeerDiscovery_AnnounceInternal
+  name: AnnounceInternal
+  nameWithType: ILocalPeerDiscovery.AnnounceInternal
+  fullName: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.AnnounceInternal
+- uid: System.EventHandler{MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs}
+  commentId: T:System.EventHandler{MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<LocalPeerFoundEventArgs>
+  nameWithType: EventHandler<LocalPeerFoundEventArgs>
+  fullName: System.EventHandler<MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs>
+  nameWithType.vb: EventHandler(Of LocalPeerFoundEventArgs)
+  fullName.vb: System.EventHandler(Of MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs)
+  name.vb: EventHandler(Of LocalPeerFoundEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs
+    name: LocalPeerFoundEventArgs
+    href: MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs
+    name: LocalPeerFoundEventArgs
+    href: MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.Announce*
+  commentId: Overload:MonoTorrent.Connections.Peer.ILocalPeerDiscovery.Announce
+  href: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.html#MonoTorrent_Connections_Peer_ILocalPeerDiscovery_Announce_MonoTorrent_InfoHash_System_Net_IPEndPoint_
+  name: Announce
+  nameWithType: ILocalPeerDiscovery.Announce
+  fullName: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.Announce
+- uid: MonoTorrent.InfoHash
+  commentId: T:MonoTorrent.InfoHash
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHash.html
+  name: InfoHash
+  nameWithType: InfoHash
+  fullName: MonoTorrent.InfoHash
+- uid: System.Net.IPEndPoint
+  commentId: T:System.Net.IPEndPoint
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  name: IPEndPoint
+  nameWithType: IPEndPoint
+  fullName: System.Net.IPEndPoint
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

@@ -1,0 +1,458 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.TrackerServer.ITrackerItem
+  commentId: T:MonoTorrent.TrackerServer.ITrackerItem
+  id: ITrackerItem
+  parent: MonoTorrent.TrackerServer
+  children:
+  - MonoTorrent.TrackerServer.ITrackerItem.Complete
+  - MonoTorrent.TrackerServer.ITrackerItem.Count
+  - MonoTorrent.TrackerServer.ITrackerItem.Downloaded
+  - MonoTorrent.TrackerServer.ITrackerItem.GetPeers(System.Net.Sockets.AddressFamily)
+  - MonoTorrent.TrackerServer.ITrackerItem.Incomplete
+  - MonoTorrent.TrackerServer.ITrackerItem.Trackable
+  langs:
+  - csharp
+  - vb
+  name: ITrackerItem
+  nameWithType: ITrackerItem
+  fullName: MonoTorrent.TrackerServer.ITrackerItem
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/ITrackerItem.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ITrackerItem
+    path: src/TrackerServer/ITrackerItem.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: Represents the metadata for a torrent when it is being tracked in a <xref href="MonoTorrent.TrackerServer.TrackerServer" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public interface ITrackerItem
+    content.vb: Public Interface ITrackerItem
+- uid: MonoTorrent.TrackerServer.ITrackerItem.Complete
+  commentId: P:MonoTorrent.TrackerServer.ITrackerItem.Complete
+  id: Complete
+  parent: MonoTorrent.TrackerServer.ITrackerItem
+  langs:
+  - csharp
+  - vb
+  name: Complete
+  nameWithType: ITrackerItem.Complete
+  fullName: MonoTorrent.TrackerServer.ITrackerItem.Complete
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/ITrackerItem.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Complete
+    path: src/TrackerServer/ITrackerItem.cs
+    startLine: 42
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The number of active seeders
+  example: []
+  syntax:
+    content: int Complete { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property Complete As Integer
+  overload: MonoTorrent.TrackerServer.ITrackerItem.Complete*
+- uid: MonoTorrent.TrackerServer.ITrackerItem.Count
+  commentId: P:MonoTorrent.TrackerServer.ITrackerItem.Count
+  id: Count
+  parent: MonoTorrent.TrackerServer.ITrackerItem
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: ITrackerItem.Count
+  fullName: MonoTorrent.TrackerServer.ITrackerItem.Count
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/ITrackerItem.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Count
+    path: src/TrackerServer/ITrackerItem.cs
+    startLine: 47
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The total number of peers being tracked
+  example: []
+  syntax:
+    content: int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property Count As Integer
+  overload: MonoTorrent.TrackerServer.ITrackerItem.Count*
+- uid: MonoTorrent.TrackerServer.ITrackerItem.Downloaded
+  commentId: P:MonoTorrent.TrackerServer.ITrackerItem.Downloaded
+  id: Downloaded
+  parent: MonoTorrent.TrackerServer.ITrackerItem
+  langs:
+  - csharp
+  - vb
+  name: Downloaded
+  nameWithType: ITrackerItem.Downloaded
+  fullName: MonoTorrent.TrackerServer.ITrackerItem.Downloaded
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/ITrackerItem.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Downloaded
+    path: src/TrackerServer/ITrackerItem.cs
+    startLine: 52
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The total number of times the torrent has been fully downloaded
+  example: []
+  syntax:
+    content: int Downloaded { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property Downloaded As Integer
+  overload: MonoTorrent.TrackerServer.ITrackerItem.Downloaded*
+- uid: MonoTorrent.TrackerServer.ITrackerItem.Incomplete
+  commentId: P:MonoTorrent.TrackerServer.ITrackerItem.Incomplete
+  id: Incomplete
+  parent: MonoTorrent.TrackerServer.ITrackerItem
+  langs:
+  - csharp
+  - vb
+  name: Incomplete
+  nameWithType: ITrackerItem.Incomplete
+  fullName: MonoTorrent.TrackerServer.ITrackerItem.Incomplete
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/ITrackerItem.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Incomplete
+    path: src/TrackerServer/ITrackerItem.cs
+    startLine: 57
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The number of active leechers
+  example: []
+  syntax:
+    content: int Incomplete { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property Incomplete As Integer
+  overload: MonoTorrent.TrackerServer.ITrackerItem.Incomplete*
+- uid: MonoTorrent.TrackerServer.ITrackerItem.Trackable
+  commentId: P:MonoTorrent.TrackerServer.ITrackerItem.Trackable
+  id: Trackable
+  parent: MonoTorrent.TrackerServer.ITrackerItem
+  langs:
+  - csharp
+  - vb
+  name: Trackable
+  nameWithType: ITrackerItem.Trackable
+  fullName: MonoTorrent.TrackerServer.ITrackerItem.Trackable
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/ITrackerItem.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Trackable
+    path: src/TrackerServer/ITrackerItem.cs
+    startLine: 62
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: Represents the InfoHash (or equivalent) of the torrent which is being tracked.
+  example: []
+  syntax:
+    content: ITrackable Trackable { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.TrackerServer.ITrackable
+    content.vb: ReadOnly Property Trackable As ITrackable
+  overload: MonoTorrent.TrackerServer.ITrackerItem.Trackable*
+- uid: MonoTorrent.TrackerServer.ITrackerItem.GetPeers(System.Net.Sockets.AddressFamily)
+  commentId: M:MonoTorrent.TrackerServer.ITrackerItem.GetPeers(System.Net.Sockets.AddressFamily)
+  id: GetPeers(System.Net.Sockets.AddressFamily)
+  parent: MonoTorrent.TrackerServer.ITrackerItem
+  langs:
+  - csharp
+  - vb
+  name: GetPeers(AddressFamily)
+  nameWithType: ITrackerItem.GetPeers(AddressFamily)
+  fullName: MonoTorrent.TrackerServer.ITrackerItem.GetPeers(System.Net.Sockets.AddressFamily)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/ITrackerItem.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetPeers
+    path: src/TrackerServer/ITrackerItem.cs
+    startLine: 68
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: Return a copy of the list of peers
+  example: []
+  syntax:
+    content: List<Peer> GetPeers(AddressFamily addressFamily)
+    parameters:
+    - id: addressFamily
+      type: System.Net.Sockets.AddressFamily
+    return:
+      type: System.Collections.Generic.List{MonoTorrent.TrackerServer.Peer}
+      description: ''
+    content.vb: Function GetPeers(addressFamily As AddressFamily) As List(Of Peer)
+  overload: MonoTorrent.TrackerServer.ITrackerItem.GetPeers*
+references:
+- uid: MonoTorrent.TrackerServer.TrackerServer
+  commentId: T:MonoTorrent.TrackerServer.TrackerServer
+  href: MonoTorrent.TrackerServer.TrackerServer.html
+  name: TrackerServer
+  nameWithType: TrackerServer
+  fullName: MonoTorrent.TrackerServer.TrackerServer
+- uid: MonoTorrent.TrackerServer
+  commentId: N:MonoTorrent.TrackerServer
+  href: MonoTorrent.html
+  name: MonoTorrent.TrackerServer
+  nameWithType: MonoTorrent.TrackerServer
+  fullName: MonoTorrent.TrackerServer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.TrackerServer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.TrackerServer.html
+- uid: MonoTorrent.TrackerServer.ITrackerItem.Complete*
+  commentId: Overload:MonoTorrent.TrackerServer.ITrackerItem.Complete
+  href: MonoTorrent.TrackerServer.ITrackerItem.html#MonoTorrent_TrackerServer_ITrackerItem_Complete
+  name: Complete
+  nameWithType: ITrackerItem.Complete
+  fullName: MonoTorrent.TrackerServer.ITrackerItem.Complete
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.TrackerServer.ITrackerItem.Count*
+  commentId: Overload:MonoTorrent.TrackerServer.ITrackerItem.Count
+  href: MonoTorrent.TrackerServer.ITrackerItem.html#MonoTorrent_TrackerServer_ITrackerItem_Count
+  name: Count
+  nameWithType: ITrackerItem.Count
+  fullName: MonoTorrent.TrackerServer.ITrackerItem.Count
+- uid: MonoTorrent.TrackerServer.ITrackerItem.Downloaded*
+  commentId: Overload:MonoTorrent.TrackerServer.ITrackerItem.Downloaded
+  href: MonoTorrent.TrackerServer.ITrackerItem.html#MonoTorrent_TrackerServer_ITrackerItem_Downloaded
+  name: Downloaded
+  nameWithType: ITrackerItem.Downloaded
+  fullName: MonoTorrent.TrackerServer.ITrackerItem.Downloaded
+- uid: MonoTorrent.TrackerServer.ITrackerItem.Incomplete*
+  commentId: Overload:MonoTorrent.TrackerServer.ITrackerItem.Incomplete
+  href: MonoTorrent.TrackerServer.ITrackerItem.html#MonoTorrent_TrackerServer_ITrackerItem_Incomplete
+  name: Incomplete
+  nameWithType: ITrackerItem.Incomplete
+  fullName: MonoTorrent.TrackerServer.ITrackerItem.Incomplete
+- uid: MonoTorrent.TrackerServer.ITrackerItem.Trackable*
+  commentId: Overload:MonoTorrent.TrackerServer.ITrackerItem.Trackable
+  href: MonoTorrent.TrackerServer.ITrackerItem.html#MonoTorrent_TrackerServer_ITrackerItem_Trackable
+  name: Trackable
+  nameWithType: ITrackerItem.Trackable
+  fullName: MonoTorrent.TrackerServer.ITrackerItem.Trackable
+- uid: MonoTorrent.TrackerServer.ITrackable
+  commentId: T:MonoTorrent.TrackerServer.ITrackable
+  parent: MonoTorrent.TrackerServer
+  href: MonoTorrent.TrackerServer.ITrackable.html
+  name: ITrackable
+  nameWithType: ITrackable
+  fullName: MonoTorrent.TrackerServer.ITrackable
+- uid: MonoTorrent.TrackerServer.ITrackerItem.GetPeers*
+  commentId: Overload:MonoTorrent.TrackerServer.ITrackerItem.GetPeers
+  href: MonoTorrent.TrackerServer.ITrackerItem.html#MonoTorrent_TrackerServer_ITrackerItem_GetPeers_System_Net_Sockets_AddressFamily_
+  name: GetPeers
+  nameWithType: ITrackerItem.GetPeers
+  fullName: MonoTorrent.TrackerServer.ITrackerItem.GetPeers
+- uid: System.Net.Sockets.AddressFamily
+  commentId: T:System.Net.Sockets.AddressFamily
+  parent: System.Net.Sockets
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.sockets.addressfamily
+  name: AddressFamily
+  nameWithType: AddressFamily
+  fullName: System.Net.Sockets.AddressFamily
+- uid: System.Collections.Generic.List{MonoTorrent.TrackerServer.Peer}
+  commentId: T:System.Collections.Generic.List{MonoTorrent.TrackerServer.Peer}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Peer>
+  nameWithType: List<Peer>
+  fullName: System.Collections.Generic.List<MonoTorrent.TrackerServer.Peer>
+  nameWithType.vb: List(Of Peer)
+  fullName.vb: System.Collections.Generic.List(Of MonoTorrent.TrackerServer.Peer)
+  name.vb: List(Of Peer)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: MonoTorrent.TrackerServer.Peer
+    name: Peer
+    href: MonoTorrent.TrackerServer.Peer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.TrackerServer.Peer
+    name: Peer
+    href: MonoTorrent.TrackerServer.Peer.html
+  - name: )
+- uid: System.Net.Sockets
+  commentId: N:System.Net.Sockets
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Sockets
+  nameWithType: System.Net.Sockets
+  fullName: System.Net.Sockets
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Sockets
+    name: Sockets
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.sockets
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Sockets
+    name: Sockets
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.sockets
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

@@ -1,0 +1,467 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport
+  commentId: T:MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport
+  id: ExtensionSupport
+  parent: MonoTorrent.Messages.Peer.Libtorrent
+  children:
+  - MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.#ctor(System.String,System.Byte)
+  - MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.MessageId
+  - MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.Name
+  - MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.ToString
+  langs:
+  - csharp
+  - vb
+  name: ExtensionSupport
+  nameWithType: ExtensionSupport
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport
+  type: Struct
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/ExtensionSupport.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ExtensionSupport
+    path: src/Messages/Peer/Libtorrent/ExtensionSupport.cs
+    startLine: 31
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: public struct ExtensionSupport
+    content.vb: Public Structure ExtensionSupport
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.MessageId
+  commentId: P:MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.MessageId
+  id: MessageId
+  parent: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport
+  langs:
+  - csharp
+  - vb
+  name: MessageId
+  nameWithType: ExtensionSupport.MessageId
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.MessageId
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/ExtensionSupport.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MessageId
+    path: src/Messages/Peer/Libtorrent/ExtensionSupport.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: public readonly byte MessageId { get; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public ReadOnly Property MessageId As Byte
+  overload: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.MessageId*
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.Name
+  commentId: P:MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.Name
+  id: Name
+  parent: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ExtensionSupport.Name
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.Name
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/ExtensionSupport.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Name
+    path: src/Messages/Peer/Libtorrent/ExtensionSupport.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: public readonly string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.Name*
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.#ctor(System.String,System.Byte)
+  commentId: M:MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.#ctor(System.String,System.Byte)
+  id: '#ctor(System.String,System.Byte)'
+  parent: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport
+  langs:
+  - csharp
+  - vb
+  name: ExtensionSupport(string, byte)
+  nameWithType: ExtensionSupport.ExtensionSupport(string, byte)
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.ExtensionSupport(string, byte)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/ExtensionSupport.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Messages/Peer/Libtorrent/ExtensionSupport.cs
+    startLine: 36
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: public ExtensionSupport(string name, byte messageId)
+    parameters:
+    - id: name
+      type: System.String
+    - id: messageId
+      type: System.Byte
+    content.vb: Public Sub New(name As String, messageId As Byte)
+  overload: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.#ctor*
+  nameWithType.vb: ExtensionSupport.New(String, Byte)
+  fullName.vb: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.New(String, Byte)
+  name.vb: New(String, Byte)
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.ToString
+  commentId: M:MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.ToString
+  id: ToString
+  parent: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ExtensionSupport.ToString()
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.ToString()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/ExtensionSupport.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToString
+    path: src/Messages/Peer/Libtorrent/ExtensionSupport.cs
+    startLine: 42
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.ToString*
+references:
+- uid: MonoTorrent.Messages.Peer.Libtorrent
+  commentId: N:MonoTorrent.Messages.Peer.Libtorrent
+  href: MonoTorrent.html
+  name: MonoTorrent.Messages.Peer.Libtorrent
+  nameWithType: MonoTorrent.Messages.Peer.Libtorrent
+  fullName: MonoTorrent.Messages.Peer.Libtorrent
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer.Libtorrent
+    name: Libtorrent
+    href: MonoTorrent.Messages.Peer.Libtorrent.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer.Libtorrent
+    name: Libtorrent
+    href: MonoTorrent.Messages.Peer.Libtorrent.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.MessageId*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.MessageId
+  href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.html#MonoTorrent_Messages_Peer_Libtorrent_ExtensionSupport_MessageId
+  name: MessageId
+  nameWithType: ExtensionSupport.MessageId
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.MessageId
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.Name*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.Name
+  href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.html#MonoTorrent_Messages_Peer_Libtorrent_ExtensionSupport_Name
+  name: Name
+  nameWithType: ExtensionSupport.Name
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.#ctor*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.#ctor
+  href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.html#MonoTorrent_Messages_Peer_Libtorrent_ExtensionSupport__ctor_System_String_System_Byte_
+  name: ExtensionSupport
+  nameWithType: ExtensionSupport.ExtensionSupport
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.ExtensionSupport
+  nameWithType.vb: ExtensionSupport.New
+  fullName.vb: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.New
+  name.vb: New
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.ToString*
+  commentId: Overload:MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.ToString
+  href: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.html#MonoTorrent_Messages_Peer_Libtorrent_ExtensionSupport_ToString
+  name: ToString
+  nameWithType: ExtensionSupport.ToString
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport.ToString

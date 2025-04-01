@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Messages
+  commentId: N:MonoTorrent.Messages
+  id: MonoTorrent.Messages
+  children:
+  - MonoTorrent.Messages.IMessage
+  - MonoTorrent.Messages.IRentable
+  - MonoTorrent.Messages.Message
+  - MonoTorrent.Messages.MessageException
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.Messages
+  nameWithType: MonoTorrent.Messages
+  fullName: MonoTorrent.Messages
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.Messages.IMessage
+  commentId: T:MonoTorrent.Messages.IMessage
+  parent: MonoTorrent.Messages
+  href: MonoTorrent.Messages.IMessage.html
+  name: IMessage
+  nameWithType: IMessage
+  fullName: MonoTorrent.Messages.IMessage
+- uid: MonoTorrent.Messages.IRentable
+  commentId: T:MonoTorrent.Messages.IRentable
+  parent: MonoTorrent.Messages
+  href: MonoTorrent.Messages.IRentable.html
+  name: IRentable
+  nameWithType: IRentable
+  fullName: MonoTorrent.Messages.IRentable
+- uid: MonoTorrent.Messages.Message
+  commentId: T:MonoTorrent.Messages.Message
+  parent: MonoTorrent.Messages
+  href: MonoTorrent.Messages.Message.html
+  name: Message
+  nameWithType: Message
+  fullName: MonoTorrent.Messages.Message
+- uid: MonoTorrent.Messages.MessageException
+  commentId: T:MonoTorrent.Messages.MessageException
+  href: MonoTorrent.Messages.MessageException.html
+  name: MessageException
+  nameWithType: MessageException
+  fullName: MonoTorrent.Messages.MessageException
+- uid: MonoTorrent.Messages
+  commentId: N:MonoTorrent.Messages
+  href: MonoTorrent.html
+  name: MonoTorrent.Messages
+  nameWithType: MonoTorrent.Messages
+  fullName: MonoTorrent.Messages
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html

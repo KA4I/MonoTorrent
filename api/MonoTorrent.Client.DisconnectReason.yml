@@ -1,0 +1,733 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Client.DisconnectReason
+  commentId: T:MonoTorrent.Client.DisconnectReason
+  id: DisconnectReason
+  parent: MonoTorrent.Client
+  children:
+  - MonoTorrent.Client.DisconnectReason.Ban
+  - MonoTorrent.Client.DisconnectReason.ConsideredInactive
+  - MonoTorrent.Client.DisconnectReason.DisconnectedTooManyTimes
+  - MonoTorrent.Client.DisconnectReason.ErrorMode
+  - MonoTorrent.Client.DisconnectReason.GeneralIncomingConnectionFailure
+  - MonoTorrent.Client.DisconnectReason.GeneralOutgoingConnectionFailure
+  - MonoTorrent.Client.DisconnectReason.HashingMode
+  - MonoTorrent.Client.DisconnectReason.InternalMessageHandlingError
+  - MonoTorrent.Client.DisconnectReason.LastMessageReceivedTooLongAgo
+  - MonoTorrent.Client.DisconnectReason.MaximumConnectionsExceeded
+  - MonoTorrent.Client.DisconnectReason.MessageQueueProcessingError
+  - MonoTorrent.Client.DisconnectReason.MetadataReset
+  - MonoTorrent.Client.DisconnectReason.None
+  - MonoTorrent.Client.DisconnectReason.NotAcceptingConnections
+  - MonoTorrent.Client.DisconnectReason.PieceValidationFailure
+  - MonoTorrent.Client.DisconnectReason.ReceiverLoopError
+  - MonoTorrent.Client.DisconnectReason.RepeatedHashFailsExceeded
+  - MonoTorrent.Client.DisconnectReason.SeederToSeeder
+  - MonoTorrent.Client.DisconnectReason.Self
+  - MonoTorrent.Client.DisconnectReason.StaleRequestTimeout
+  - MonoTorrent.Client.DisconnectReason.StartingMode
+  - MonoTorrent.Client.DisconnectReason.StoppedMode
+  - MonoTorrent.Client.DisconnectReason.StoppingMode
+  - MonoTorrent.Client.DisconnectReason.TooManyFailedConnectionAttempts
+  - MonoTorrent.Client.DisconnectReason.TotalHashFailsExceeded
+  langs:
+  - csharp
+  - vb
+  name: DisconnectReason
+  nameWithType: DisconnectReason
+  fullName: MonoTorrent.Client.DisconnectReason
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DisconnectReason
+    path: src/Client/DisconnectReason.cs
+    startLine: 2
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public enum DisconnectReason
+    content.vb: Public Enum DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.None
+  commentId: F:MonoTorrent.Client.DisconnectReason.None
+  id: None
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: DisconnectReason.None
+  fullName: MonoTorrent.Client.DisconnectReason.None
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: None
+    path: src/Client/DisconnectReason.cs
+    startLine: 4
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: None = 0
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.TooManyFailedConnectionAttempts
+  commentId: F:MonoTorrent.Client.DisconnectReason.TooManyFailedConnectionAttempts
+  id: TooManyFailedConnectionAttempts
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: TooManyFailedConnectionAttempts
+  nameWithType: DisconnectReason.TooManyFailedConnectionAttempts
+  fullName: MonoTorrent.Client.DisconnectReason.TooManyFailedConnectionAttempts
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TooManyFailedConnectionAttempts
+    path: src/Client/DisconnectReason.cs
+    startLine: 5
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: TooManyFailedConnectionAttempts = 1
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.DisconnectedTooManyTimes
+  commentId: F:MonoTorrent.Client.DisconnectReason.DisconnectedTooManyTimes
+  id: DisconnectedTooManyTimes
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: DisconnectedTooManyTimes
+  nameWithType: DisconnectReason.DisconnectedTooManyTimes
+  fullName: MonoTorrent.Client.DisconnectReason.DisconnectedTooManyTimes
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DisconnectedTooManyTimes
+    path: src/Client/DisconnectReason.cs
+    startLine: 6
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: DisconnectedTooManyTimes = 2
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.SeederToSeeder
+  commentId: F:MonoTorrent.Client.DisconnectReason.SeederToSeeder
+  id: SeederToSeeder
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: SeederToSeeder
+  nameWithType: DisconnectReason.SeederToSeeder
+  fullName: MonoTorrent.Client.DisconnectReason.SeederToSeeder
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SeederToSeeder
+    path: src/Client/DisconnectReason.cs
+    startLine: 7
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: SeederToSeeder = 3
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.NotAcceptingConnections
+  commentId: F:MonoTorrent.Client.DisconnectReason.NotAcceptingConnections
+  id: NotAcceptingConnections
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: NotAcceptingConnections
+  nameWithType: DisconnectReason.NotAcceptingConnections
+  fullName: MonoTorrent.Client.DisconnectReason.NotAcceptingConnections
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: NotAcceptingConnections
+    path: src/Client/DisconnectReason.cs
+    startLine: 8
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: NotAcceptingConnections = 4
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.TotalHashFailsExceeded
+  commentId: F:MonoTorrent.Client.DisconnectReason.TotalHashFailsExceeded
+  id: TotalHashFailsExceeded
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: TotalHashFailsExceeded
+  nameWithType: DisconnectReason.TotalHashFailsExceeded
+  fullName: MonoTorrent.Client.DisconnectReason.TotalHashFailsExceeded
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TotalHashFailsExceeded
+    path: src/Client/DisconnectReason.cs
+    startLine: 9
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: TotalHashFailsExceeded = 5
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.RepeatedHashFailsExceeded
+  commentId: F:MonoTorrent.Client.DisconnectReason.RepeatedHashFailsExceeded
+  id: RepeatedHashFailsExceeded
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: RepeatedHashFailsExceeded
+  nameWithType: DisconnectReason.RepeatedHashFailsExceeded
+  fullName: MonoTorrent.Client.DisconnectReason.RepeatedHashFailsExceeded
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RepeatedHashFailsExceeded
+    path: src/Client/DisconnectReason.cs
+    startLine: 10
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: RepeatedHashFailsExceeded = 6
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.StaleRequestTimeout
+  commentId: F:MonoTorrent.Client.DisconnectReason.StaleRequestTimeout
+  id: StaleRequestTimeout
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: StaleRequestTimeout
+  nameWithType: DisconnectReason.StaleRequestTimeout
+  fullName: MonoTorrent.Client.DisconnectReason.StaleRequestTimeout
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StaleRequestTimeout
+    path: src/Client/DisconnectReason.cs
+    startLine: 11
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: StaleRequestTimeout = 7
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.GeneralOutgoingConnectionFailure
+  commentId: F:MonoTorrent.Client.DisconnectReason.GeneralOutgoingConnectionFailure
+  id: GeneralOutgoingConnectionFailure
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: GeneralOutgoingConnectionFailure
+  nameWithType: DisconnectReason.GeneralOutgoingConnectionFailure
+  fullName: MonoTorrent.Client.DisconnectReason.GeneralOutgoingConnectionFailure
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GeneralOutgoingConnectionFailure
+    path: src/Client/DisconnectReason.cs
+    startLine: 12
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: GeneralOutgoingConnectionFailure = 8
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.LastMessageReceivedTooLongAgo
+  commentId: F:MonoTorrent.Client.DisconnectReason.LastMessageReceivedTooLongAgo
+  id: LastMessageReceivedTooLongAgo
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: LastMessageReceivedTooLongAgo
+  nameWithType: DisconnectReason.LastMessageReceivedTooLongAgo
+  fullName: MonoTorrent.Client.DisconnectReason.LastMessageReceivedTooLongAgo
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LastMessageReceivedTooLongAgo
+    path: src/Client/DisconnectReason.cs
+    startLine: 13
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: LastMessageReceivedTooLongAgo = 9
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.ReceiverLoopError
+  commentId: F:MonoTorrent.Client.DisconnectReason.ReceiverLoopError
+  id: ReceiverLoopError
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: ReceiverLoopError
+  nameWithType: DisconnectReason.ReceiverLoopError
+  fullName: MonoTorrent.Client.DisconnectReason.ReceiverLoopError
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ReceiverLoopError
+    path: src/Client/DisconnectReason.cs
+    startLine: 14
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: ReceiverLoopError = 10
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.InternalMessageHandlingError
+  commentId: F:MonoTorrent.Client.DisconnectReason.InternalMessageHandlingError
+  id: InternalMessageHandlingError
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: InternalMessageHandlingError
+  nameWithType: DisconnectReason.InternalMessageHandlingError
+  fullName: MonoTorrent.Client.DisconnectReason.InternalMessageHandlingError
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: InternalMessageHandlingError
+    path: src/Client/DisconnectReason.cs
+    startLine: 15
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: InternalMessageHandlingError = 11
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.MaximumConnectionsExceeded
+  commentId: F:MonoTorrent.Client.DisconnectReason.MaximumConnectionsExceeded
+  id: MaximumConnectionsExceeded
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: MaximumConnectionsExceeded
+  nameWithType: DisconnectReason.MaximumConnectionsExceeded
+  fullName: MonoTorrent.Client.DisconnectReason.MaximumConnectionsExceeded
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MaximumConnectionsExceeded
+    path: src/Client/DisconnectReason.cs
+    startLine: 16
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: MaximumConnectionsExceeded = 12
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.Ban
+  commentId: F:MonoTorrent.Client.DisconnectReason.Ban
+  id: Ban
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: Ban
+  nameWithType: DisconnectReason.Ban
+  fullName: MonoTorrent.Client.DisconnectReason.Ban
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Ban
+    path: src/Client/DisconnectReason.cs
+    startLine: 17
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: Ban = 13
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.Self
+  commentId: F:MonoTorrent.Client.DisconnectReason.Self
+  id: Self
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: Self
+  nameWithType: DisconnectReason.Self
+  fullName: MonoTorrent.Client.DisconnectReason.Self
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Self
+    path: src/Client/DisconnectReason.cs
+    startLine: 18
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: Self = 14
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.GeneralIncomingConnectionFailure
+  commentId: F:MonoTorrent.Client.DisconnectReason.GeneralIncomingConnectionFailure
+  id: GeneralIncomingConnectionFailure
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: GeneralIncomingConnectionFailure
+  nameWithType: DisconnectReason.GeneralIncomingConnectionFailure
+  fullName: MonoTorrent.Client.DisconnectReason.GeneralIncomingConnectionFailure
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GeneralIncomingConnectionFailure
+    path: src/Client/DisconnectReason.cs
+    startLine: 19
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: GeneralIncomingConnectionFailure = 15
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.MessageQueueProcessingError
+  commentId: F:MonoTorrent.Client.DisconnectReason.MessageQueueProcessingError
+  id: MessageQueueProcessingError
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: MessageQueueProcessingError
+  nameWithType: DisconnectReason.MessageQueueProcessingError
+  fullName: MonoTorrent.Client.DisconnectReason.MessageQueueProcessingError
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MessageQueueProcessingError
+    path: src/Client/DisconnectReason.cs
+    startLine: 20
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: MessageQueueProcessingError = 16
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.MetadataReset
+  commentId: F:MonoTorrent.Client.DisconnectReason.MetadataReset
+  id: MetadataReset
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: MetadataReset
+  nameWithType: DisconnectReason.MetadataReset
+  fullName: MonoTorrent.Client.DisconnectReason.MetadataReset
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MetadataReset
+    path: src/Client/DisconnectReason.cs
+    startLine: 21
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: MetadataReset = 17
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.ErrorMode
+  commentId: F:MonoTorrent.Client.DisconnectReason.ErrorMode
+  id: ErrorMode
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: ErrorMode
+  nameWithType: DisconnectReason.ErrorMode
+  fullName: MonoTorrent.Client.DisconnectReason.ErrorMode
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ErrorMode
+    path: src/Client/DisconnectReason.cs
+    startLine: 22
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: ErrorMode = 18
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.HashingMode
+  commentId: F:MonoTorrent.Client.DisconnectReason.HashingMode
+  id: HashingMode
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: HashingMode
+  nameWithType: DisconnectReason.HashingMode
+  fullName: MonoTorrent.Client.DisconnectReason.HashingMode
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: HashingMode
+    path: src/Client/DisconnectReason.cs
+    startLine: 23
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: HashingMode = 19
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.PieceValidationFailure
+  commentId: F:MonoTorrent.Client.DisconnectReason.PieceValidationFailure
+  id: PieceValidationFailure
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: PieceValidationFailure
+  nameWithType: DisconnectReason.PieceValidationFailure
+  fullName: MonoTorrent.Client.DisconnectReason.PieceValidationFailure
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PieceValidationFailure
+    path: src/Client/DisconnectReason.cs
+    startLine: 24
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: PieceValidationFailure = 20
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.StartingMode
+  commentId: F:MonoTorrent.Client.DisconnectReason.StartingMode
+  id: StartingMode
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: StartingMode
+  nameWithType: DisconnectReason.StartingMode
+  fullName: MonoTorrent.Client.DisconnectReason.StartingMode
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StartingMode
+    path: src/Client/DisconnectReason.cs
+    startLine: 25
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: StartingMode = 21
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.StoppedMode
+  commentId: F:MonoTorrent.Client.DisconnectReason.StoppedMode
+  id: StoppedMode
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: StoppedMode
+  nameWithType: DisconnectReason.StoppedMode
+  fullName: MonoTorrent.Client.DisconnectReason.StoppedMode
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StoppedMode
+    path: src/Client/DisconnectReason.cs
+    startLine: 26
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: StoppedMode = 22
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.StoppingMode
+  commentId: F:MonoTorrent.Client.DisconnectReason.StoppingMode
+  id: StoppingMode
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: StoppingMode
+  nameWithType: DisconnectReason.StoppingMode
+  fullName: MonoTorrent.Client.DisconnectReason.StoppingMode
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StoppingMode
+    path: src/Client/DisconnectReason.cs
+    startLine: 27
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: StoppingMode = 23
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+- uid: MonoTorrent.Client.DisconnectReason.ConsideredInactive
+  commentId: F:MonoTorrent.Client.DisconnectReason.ConsideredInactive
+  id: ConsideredInactive
+  parent: MonoTorrent.Client.DisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: ConsideredInactive
+  nameWithType: DisconnectReason.ConsideredInactive
+  fullName: MonoTorrent.Client.DisconnectReason.ConsideredInactive
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/DisconnectReason.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ConsideredInactive
+    path: src/Client/DisconnectReason.cs
+    startLine: 28
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: ConsideredInactive = 24
+    return:
+      type: MonoTorrent.Client.DisconnectReason
+references:
+- uid: MonoTorrent.Client
+  commentId: N:MonoTorrent.Client
+  href: MonoTorrent.html
+  name: MonoTorrent.Client
+  nameWithType: MonoTorrent.Client
+  fullName: MonoTorrent.Client
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+- uid: MonoTorrent.Client.DisconnectReason
+  commentId: T:MonoTorrent.Client.DisconnectReason
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.DisconnectReason.html
+  name: DisconnectReason
+  nameWithType: DisconnectReason
+  fullName: MonoTorrent.Client.DisconnectReason

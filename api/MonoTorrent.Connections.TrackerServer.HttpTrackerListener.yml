@@ -1,0 +1,967 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.TrackerServer.HttpTrackerListener
+  commentId: T:MonoTorrent.Connections.TrackerServer.HttpTrackerListener
+  id: HttpTrackerListener
+  parent: MonoTorrent.Connections.TrackerServer
+  children:
+  - MonoTorrent.Connections.TrackerServer.HttpTrackerListener.#ctor(System.Net.IPAddress,System.Int32)
+  - MonoTorrent.Connections.TrackerServer.HttpTrackerListener.#ctor(System.Net.IPEndPoint)
+  - MonoTorrent.Connections.TrackerServer.HttpTrackerListener.#ctor(System.String)
+  - MonoTorrent.Connections.TrackerServer.HttpTrackerListener.ProcessContextAsync(System.Net.HttpListenerContext,System.Threading.CancellationToken)
+  - MonoTorrent.Connections.TrackerServer.HttpTrackerListener.StartCore(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: HttpTrackerListener
+  nameWithType: HttpTrackerListener
+  fullName: MonoTorrent.Connections.TrackerServer.HttpTrackerListener
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/TrackerServer/HttpTrackerListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: HttpTrackerListener
+    path: src/Connections/TrackerServer/HttpTrackerListener.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.TrackerServer
+  syntax:
+    content: 'public class HttpTrackerListener : TrackerListener, ITrackerListener, IListener, IDisposable'
+    content.vb: Public Class HttpTrackerListener Inherits TrackerListener Implements ITrackerListener, IListener, IDisposable
+  inheritance:
+  - System.Object
+  - MonoTorrent.Connections.TrackerServer.TrackerListener
+  implements:
+  - MonoTorrent.Connections.TrackerServer.ITrackerListener
+  - MonoTorrent.Connections.IListener
+  - System.IDisposable
+  inheritedMembers:
+  - MonoTorrent.Connections.TrackerServer.TrackerListener.Status
+  - MonoTorrent.Connections.TrackerServer.TrackerListener.ScrapeReceived
+  - MonoTorrent.Connections.TrackerServer.TrackerListener.AnnounceReceived
+  - MonoTorrent.Connections.TrackerServer.TrackerListener.StatusChanged
+  - MonoTorrent.Connections.TrackerServer.TrackerListener.Handle(System.String,System.Net.IPAddress,System.Boolean)
+  - MonoTorrent.Connections.TrackerServer.TrackerListener.Handle(System.Collections.Specialized.NameValueCollection,System.Net.IPAddress,System.Boolean)
+  - MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseAnnounceReceived(MonoTorrent.TrackerServer.AnnounceRequest)
+  - MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseStatusChanged(MonoTorrent.Connections.ListenerStatus)
+  - MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseScrapeReceived(MonoTorrent.TrackerServer.ScrapeRequest)
+  - MonoTorrent.Connections.TrackerServer.TrackerListener.Start
+  - MonoTorrent.Connections.TrackerServer.TrackerListener.Stop
+  - MonoTorrent.Connections.TrackerServer.TrackerListener.Dispose
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.#ctor(System.Net.IPAddress,System.Int32)
+  commentId: M:MonoTorrent.Connections.TrackerServer.HttpTrackerListener.#ctor(System.Net.IPAddress,System.Int32)
+  id: '#ctor(System.Net.IPAddress,System.Int32)'
+  parent: MonoTorrent.Connections.TrackerServer.HttpTrackerListener
+  langs:
+  - csharp
+  - vb
+  name: HttpTrackerListener(IPAddress, int)
+  nameWithType: HttpTrackerListener.HttpTrackerListener(IPAddress, int)
+  fullName: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.HttpTrackerListener(System.Net.IPAddress, int)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/TrackerServer/HttpTrackerListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Connections/TrackerServer/HttpTrackerListener.cs
+    startLine: 45
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.TrackerServer
+  syntax:
+    content: public HttpTrackerListener(IPAddress address, int port)
+    parameters:
+    - id: address
+      type: System.Net.IPAddress
+    - id: port
+      type: System.Int32
+    content.vb: Public Sub New(address As IPAddress, port As Integer)
+  overload: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.#ctor*
+  nameWithType.vb: HttpTrackerListener.New(IPAddress, Integer)
+  fullName.vb: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.New(System.Net.IPAddress, Integer)
+  name.vb: New(IPAddress, Integer)
+- uid: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.#ctor(System.Net.IPEndPoint)
+  commentId: M:MonoTorrent.Connections.TrackerServer.HttpTrackerListener.#ctor(System.Net.IPEndPoint)
+  id: '#ctor(System.Net.IPEndPoint)'
+  parent: MonoTorrent.Connections.TrackerServer.HttpTrackerListener
+  langs:
+  - csharp
+  - vb
+  name: HttpTrackerListener(IPEndPoint)
+  nameWithType: HttpTrackerListener.HttpTrackerListener(IPEndPoint)
+  fullName: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.HttpTrackerListener(System.Net.IPEndPoint)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/TrackerServer/HttpTrackerListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Connections/TrackerServer/HttpTrackerListener.cs
+    startLine: 51
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.TrackerServer
+  syntax:
+    content: public HttpTrackerListener(IPEndPoint endpoint)
+    parameters:
+    - id: endpoint
+      type: System.Net.IPEndPoint
+    content.vb: Public Sub New(endpoint As IPEndPoint)
+  overload: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.#ctor*
+  nameWithType.vb: HttpTrackerListener.New(IPEndPoint)
+  fullName.vb: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.New(System.Net.IPEndPoint)
+  name.vb: New(IPEndPoint)
+- uid: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.#ctor(System.String)
+  commentId: M:MonoTorrent.Connections.TrackerServer.HttpTrackerListener.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: MonoTorrent.Connections.TrackerServer.HttpTrackerListener
+  langs:
+  - csharp
+  - vb
+  name: HttpTrackerListener(string)
+  nameWithType: HttpTrackerListener.HttpTrackerListener(string)
+  fullName: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.HttpTrackerListener(string)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/TrackerServer/HttpTrackerListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Connections/TrackerServer/HttpTrackerListener.cs
+    startLine: 57
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.TrackerServer
+  syntax:
+    content: public HttpTrackerListener(string httpPrefix)
+    parameters:
+    - id: httpPrefix
+      type: System.String
+    content.vb: Public Sub New(httpPrefix As String)
+  overload: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.#ctor*
+  nameWithType.vb: HttpTrackerListener.New(String)
+  fullName.vb: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.New(String)
+  name.vb: New(String)
+- uid: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.StartCore(System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.Connections.TrackerServer.HttpTrackerListener.StartCore(System.Threading.CancellationToken)
+  id: StartCore(System.Threading.CancellationToken)
+  parent: MonoTorrent.Connections.TrackerServer.HttpTrackerListener
+  langs:
+  - csharp
+  - vb
+  name: StartCore(CancellationToken)
+  nameWithType: HttpTrackerListener.StartCore(CancellationToken)
+  fullName: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.StartCore(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/TrackerServer/HttpTrackerListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StartCore
+    path: src/Connections/TrackerServer/HttpTrackerListener.cs
+    startLine: 68
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.TrackerServer
+  summary: Starts listening for incoming connections
+  example: []
+  syntax:
+    content: protected override void StartCore(CancellationToken token)
+    parameters:
+    - id: token
+      type: System.Threading.CancellationToken
+    content.vb: Protected Overrides Sub StartCore(token As CancellationToken)
+  overridden: MonoTorrent.Connections.TrackerServer.TrackerListener.StartCore(System.Threading.CancellationToken)
+  overload: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.StartCore*
+- uid: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.ProcessContextAsync(System.Net.HttpListenerContext,System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.Connections.TrackerServer.HttpTrackerListener.ProcessContextAsync(System.Net.HttpListenerContext,System.Threading.CancellationToken)
+  id: ProcessContextAsync(System.Net.HttpListenerContext,System.Threading.CancellationToken)
+  parent: MonoTorrent.Connections.TrackerServer.HttpTrackerListener
+  langs:
+  - csharp
+  - vb
+  name: ProcessContextAsync(HttpListenerContext, CancellationToken)
+  nameWithType: HttpTrackerListener.ProcessContextAsync(HttpListenerContext, CancellationToken)
+  fullName: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.ProcessContextAsync(System.Net.HttpListenerContext, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/TrackerServer/HttpTrackerListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ProcessContextAsync
+    path: src/Connections/TrackerServer/HttpTrackerListener.cs
+    startLine: 95
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.TrackerServer
+  syntax:
+    content: protected virtual void ProcessContextAsync(HttpListenerContext context, CancellationToken token)
+    parameters:
+    - id: context
+      type: System.Net.HttpListenerContext
+    - id: token
+      type: System.Threading.CancellationToken
+    content.vb: Protected Overridable Sub ProcessContextAsync(context As HttpListenerContext, token As CancellationToken)
+  overload: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.ProcessContextAsync*
+references:
+- uid: MonoTorrent.Connections.TrackerServer
+  commentId: N:MonoTorrent.Connections.TrackerServer
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.TrackerServer
+  nameWithType: MonoTorrent.Connections.TrackerServer
+  fullName: MonoTorrent.Connections.TrackerServer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.Connections.TrackerServer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.Connections.TrackerServer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener
+  commentId: T:MonoTorrent.Connections.TrackerServer.TrackerListener
+  parent: MonoTorrent.Connections.TrackerServer
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html
+  name: TrackerListener
+  nameWithType: TrackerListener
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener
+- uid: MonoTorrent.Connections.TrackerServer.ITrackerListener
+  commentId: T:MonoTorrent.Connections.TrackerServer.ITrackerListener
+  parent: MonoTorrent.Connections.TrackerServer
+  href: MonoTorrent.Connections.TrackerServer.ITrackerListener.html
+  name: ITrackerListener
+  nameWithType: ITrackerListener
+  fullName: MonoTorrent.Connections.TrackerServer.ITrackerListener
+- uid: MonoTorrent.Connections.IListener
+  commentId: T:MonoTorrent.Connections.IListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.IListener.html
+  name: IListener
+  nameWithType: IListener
+  fullName: MonoTorrent.Connections.IListener
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Status
+  commentId: P:MonoTorrent.Connections.TrackerServer.TrackerListener.Status
+  parent: MonoTorrent.Connections.TrackerServer.TrackerListener
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Status
+  name: Status
+  nameWithType: TrackerListener.Status
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener.Status
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener.ScrapeReceived
+  commentId: E:MonoTorrent.Connections.TrackerServer.TrackerListener.ScrapeReceived
+  parent: MonoTorrent.Connections.TrackerServer.TrackerListener
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_ScrapeReceived
+  name: ScrapeReceived
+  nameWithType: TrackerListener.ScrapeReceived
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener.ScrapeReceived
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener.AnnounceReceived
+  commentId: E:MonoTorrent.Connections.TrackerServer.TrackerListener.AnnounceReceived
+  parent: MonoTorrent.Connections.TrackerServer.TrackerListener
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_AnnounceReceived
+  name: AnnounceReceived
+  nameWithType: TrackerListener.AnnounceReceived
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener.AnnounceReceived
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener.StatusChanged
+  commentId: E:MonoTorrent.Connections.TrackerServer.TrackerListener.StatusChanged
+  parent: MonoTorrent.Connections.TrackerServer.TrackerListener
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_StatusChanged
+  name: StatusChanged
+  nameWithType: TrackerListener.StatusChanged
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener.StatusChanged
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Handle(System.String,System.Net.IPAddress,System.Boolean)
+  commentId: M:MonoTorrent.Connections.TrackerServer.TrackerListener.Handle(System.String,System.Net.IPAddress,System.Boolean)
+  parent: MonoTorrent.Connections.TrackerServer.TrackerListener
+  isExternal: true
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Handle_System_String_System_Net_IPAddress_System_Boolean_
+  name: Handle(string, IPAddress, bool)
+  nameWithType: TrackerListener.Handle(string, IPAddress, bool)
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener.Handle(string, System.Net.IPAddress, bool)
+  nameWithType.vb: TrackerListener.Handle(String, IPAddress, Boolean)
+  fullName.vb: MonoTorrent.Connections.TrackerServer.TrackerListener.Handle(String, System.Net.IPAddress, Boolean)
+  name.vb: Handle(String, IPAddress, Boolean)
+  spec.csharp:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Handle(System.String,System.Net.IPAddress,System.Boolean)
+    name: Handle
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Handle_System_String_System_Net_IPAddress_System_Boolean_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Net.IPAddress
+    name: IPAddress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipaddress
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Handle(System.String,System.Net.IPAddress,System.Boolean)
+    name: Handle
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Handle_System_String_System_Net_IPAddress_System_Boolean_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Net.IPAddress
+    name: IPAddress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipaddress
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Handle(System.Collections.Specialized.NameValueCollection,System.Net.IPAddress,System.Boolean)
+  commentId: M:MonoTorrent.Connections.TrackerServer.TrackerListener.Handle(System.Collections.Specialized.NameValueCollection,System.Net.IPAddress,System.Boolean)
+  parent: MonoTorrent.Connections.TrackerServer.TrackerListener
+  isExternal: true
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Handle_System_Collections_Specialized_NameValueCollection_System_Net_IPAddress_System_Boolean_
+  name: Handle(NameValueCollection, IPAddress, bool)
+  nameWithType: TrackerListener.Handle(NameValueCollection, IPAddress, bool)
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener.Handle(System.Collections.Specialized.NameValueCollection, System.Net.IPAddress, bool)
+  nameWithType.vb: TrackerListener.Handle(NameValueCollection, IPAddress, Boolean)
+  fullName.vb: MonoTorrent.Connections.TrackerServer.TrackerListener.Handle(System.Collections.Specialized.NameValueCollection, System.Net.IPAddress, Boolean)
+  name.vb: Handle(NameValueCollection, IPAddress, Boolean)
+  spec.csharp:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Handle(System.Collections.Specialized.NameValueCollection,System.Net.IPAddress,System.Boolean)
+    name: Handle
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Handle_System_Collections_Specialized_NameValueCollection_System_Net_IPAddress_System_Boolean_
+  - name: (
+  - uid: System.Collections.Specialized.NameValueCollection
+    name: NameValueCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.specialized.namevaluecollection
+  - name: ','
+  - name: " "
+  - uid: System.Net.IPAddress
+    name: IPAddress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipaddress
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Handle(System.Collections.Specialized.NameValueCollection,System.Net.IPAddress,System.Boolean)
+    name: Handle
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Handle_System_Collections_Specialized_NameValueCollection_System_Net_IPAddress_System_Boolean_
+  - name: (
+  - uid: System.Collections.Specialized.NameValueCollection
+    name: NameValueCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.specialized.namevaluecollection
+  - name: ','
+  - name: " "
+  - uid: System.Net.IPAddress
+    name: IPAddress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipaddress
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseAnnounceReceived(MonoTorrent.TrackerServer.AnnounceRequest)
+  commentId: M:MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseAnnounceReceived(MonoTorrent.TrackerServer.AnnounceRequest)
+  parent: MonoTorrent.Connections.TrackerServer.TrackerListener
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_RaiseAnnounceReceived_MonoTorrent_TrackerServer_AnnounceRequest_
+  name: RaiseAnnounceReceived(AnnounceRequest)
+  nameWithType: TrackerListener.RaiseAnnounceReceived(AnnounceRequest)
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseAnnounceReceived(MonoTorrent.TrackerServer.AnnounceRequest)
+  spec.csharp:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseAnnounceReceived(MonoTorrent.TrackerServer.AnnounceRequest)
+    name: RaiseAnnounceReceived
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_RaiseAnnounceReceived_MonoTorrent_TrackerServer_AnnounceRequest_
+  - name: (
+  - uid: MonoTorrent.TrackerServer.AnnounceRequest
+    name: AnnounceRequest
+    href: MonoTorrent.TrackerServer.AnnounceRequest.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseAnnounceReceived(MonoTorrent.TrackerServer.AnnounceRequest)
+    name: RaiseAnnounceReceived
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_RaiseAnnounceReceived_MonoTorrent_TrackerServer_AnnounceRequest_
+  - name: (
+  - uid: MonoTorrent.TrackerServer.AnnounceRequest
+    name: AnnounceRequest
+    href: MonoTorrent.TrackerServer.AnnounceRequest.html
+  - name: )
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseStatusChanged(MonoTorrent.Connections.ListenerStatus)
+  commentId: M:MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseStatusChanged(MonoTorrent.Connections.ListenerStatus)
+  parent: MonoTorrent.Connections.TrackerServer.TrackerListener
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_RaiseStatusChanged_MonoTorrent_Connections_ListenerStatus_
+  name: RaiseStatusChanged(ListenerStatus)
+  nameWithType: TrackerListener.RaiseStatusChanged(ListenerStatus)
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseStatusChanged(MonoTorrent.Connections.ListenerStatus)
+  spec.csharp:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseStatusChanged(MonoTorrent.Connections.ListenerStatus)
+    name: RaiseStatusChanged
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_RaiseStatusChanged_MonoTorrent_Connections_ListenerStatus_
+  - name: (
+  - uid: MonoTorrent.Connections.ListenerStatus
+    name: ListenerStatus
+    href: MonoTorrent.Connections.ListenerStatus.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseStatusChanged(MonoTorrent.Connections.ListenerStatus)
+    name: RaiseStatusChanged
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_RaiseStatusChanged_MonoTorrent_Connections_ListenerStatus_
+  - name: (
+  - uid: MonoTorrent.Connections.ListenerStatus
+    name: ListenerStatus
+    href: MonoTorrent.Connections.ListenerStatus.html
+  - name: )
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseScrapeReceived(MonoTorrent.TrackerServer.ScrapeRequest)
+  commentId: M:MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseScrapeReceived(MonoTorrent.TrackerServer.ScrapeRequest)
+  parent: MonoTorrent.Connections.TrackerServer.TrackerListener
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_RaiseScrapeReceived_MonoTorrent_TrackerServer_ScrapeRequest_
+  name: RaiseScrapeReceived(ScrapeRequest)
+  nameWithType: TrackerListener.RaiseScrapeReceived(ScrapeRequest)
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseScrapeReceived(MonoTorrent.TrackerServer.ScrapeRequest)
+  spec.csharp:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseScrapeReceived(MonoTorrent.TrackerServer.ScrapeRequest)
+    name: RaiseScrapeReceived
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_RaiseScrapeReceived_MonoTorrent_TrackerServer_ScrapeRequest_
+  - name: (
+  - uid: MonoTorrent.TrackerServer.ScrapeRequest
+    name: ScrapeRequest
+    href: MonoTorrent.TrackerServer.ScrapeRequest.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.RaiseScrapeReceived(MonoTorrent.TrackerServer.ScrapeRequest)
+    name: RaiseScrapeReceived
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_RaiseScrapeReceived_MonoTorrent_TrackerServer_ScrapeRequest_
+  - name: (
+  - uid: MonoTorrent.TrackerServer.ScrapeRequest
+    name: ScrapeRequest
+    href: MonoTorrent.TrackerServer.ScrapeRequest.html
+  - name: )
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Start
+  commentId: M:MonoTorrent.Connections.TrackerServer.TrackerListener.Start
+  parent: MonoTorrent.Connections.TrackerServer.TrackerListener
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Start
+  name: Start()
+  nameWithType: TrackerListener.Start()
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener.Start()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Start
+    name: Start
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Start
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Start
+    name: Start
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Start
+  - name: (
+  - name: )
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Stop
+  commentId: M:MonoTorrent.Connections.TrackerServer.TrackerListener.Stop
+  parent: MonoTorrent.Connections.TrackerServer.TrackerListener
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Stop
+  name: Stop()
+  nameWithType: TrackerListener.Stop()
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener.Stop()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Stop
+    name: Stop
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Stop
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Stop
+    name: Stop
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Stop
+  - name: (
+  - name: )
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Dispose
+  commentId: M:MonoTorrent.Connections.TrackerServer.TrackerListener.Dispose
+  parent: MonoTorrent.Connections.TrackerServer.TrackerListener
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Dispose
+  name: Dispose()
+  nameWithType: TrackerListener.Dispose()
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener.Dispose()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Dispose
+    name: Dispose
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.Dispose
+    name: Dispose
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_Dispose
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Connections
+  commentId: N:MonoTorrent.Connections
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections
+  nameWithType: MonoTorrent.Connections
+  fullName: MonoTorrent.Connections
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+- uid: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.#ctor*
+  commentId: Overload:MonoTorrent.Connections.TrackerServer.HttpTrackerListener.#ctor
+  href: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.html#MonoTorrent_Connections_TrackerServer_HttpTrackerListener__ctor_System_Net_IPAddress_System_Int32_
+  name: HttpTrackerListener
+  nameWithType: HttpTrackerListener.HttpTrackerListener
+  fullName: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.HttpTrackerListener
+  nameWithType.vb: HttpTrackerListener.New
+  fullName.vb: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.New
+  name.vb: New
+- uid: System.Net.IPAddress
+  commentId: T:System.Net.IPAddress
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipaddress
+  name: IPAddress
+  nameWithType: IPAddress
+  fullName: System.Net.IPAddress
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+- uid: System.Net.IPEndPoint
+  commentId: T:System.Net.IPEndPoint
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  name: IPEndPoint
+  nameWithType: IPEndPoint
+  fullName: System.Net.IPEndPoint
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener.StartCore(System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.Connections.TrackerServer.TrackerListener.StartCore(System.Threading.CancellationToken)
+  parent: MonoTorrent.Connections.TrackerServer.TrackerListener
+  isExternal: true
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_StartCore_System_Threading_CancellationToken_
+  name: StartCore(CancellationToken)
+  nameWithType: TrackerListener.StartCore(CancellationToken)
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener.StartCore(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.StartCore(System.Threading.CancellationToken)
+    name: StartCore
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_StartCore_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener.StartCore(System.Threading.CancellationToken)
+    name: StartCore
+    href: MonoTorrent.Connections.TrackerServer.TrackerListener.html#MonoTorrent_Connections_TrackerServer_TrackerListener_StartCore_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.StartCore*
+  commentId: Overload:MonoTorrent.Connections.TrackerServer.HttpTrackerListener.StartCore
+  href: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.html#MonoTorrent_Connections_TrackerServer_HttpTrackerListener_StartCore_System_Threading_CancellationToken_
+  name: StartCore
+  nameWithType: HttpTrackerListener.StartCore
+  fullName: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.StartCore
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.ProcessContextAsync*
+  commentId: Overload:MonoTorrent.Connections.TrackerServer.HttpTrackerListener.ProcessContextAsync
+  href: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.html#MonoTorrent_Connections_TrackerServer_HttpTrackerListener_ProcessContextAsync_System_Net_HttpListenerContext_System_Threading_CancellationToken_
+  name: ProcessContextAsync
+  nameWithType: HttpTrackerListener.ProcessContextAsync
+  fullName: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.ProcessContextAsync
+- uid: System.Net.HttpListenerContext
+  commentId: T:System.Net.HttpListenerContext
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.httplistenercontext
+  name: HttpListenerContext
+  nameWithType: HttpListenerContext
+  fullName: System.Net.HttpListenerContext

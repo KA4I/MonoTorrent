@@ -1,0 +1,124 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections
+  commentId: N:MonoTorrent.Connections
+  id: MonoTorrent.Connections
+  children:
+  - MonoTorrent.Connections.EncryptionType
+  - MonoTorrent.Connections.IListener
+  - MonoTorrent.Connections.ISocketConnector
+  - MonoTorrent.Connections.ISocketListener
+  - MonoTorrent.Connections.ISocketMessageListener
+  - MonoTorrent.Connections.Listener
+  - MonoTorrent.Connections.ListenerStatus
+  - MonoTorrent.Connections.SocketConnector
+  - MonoTorrent.Connections.SocketListener
+  - MonoTorrent.Connections.UdpListener
+  - MonoTorrent.Connections.UriExtensions
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.Connections
+  nameWithType: MonoTorrent.Connections
+  fullName: MonoTorrent.Connections
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.Connections.EncryptionType
+  commentId: T:MonoTorrent.Connections.EncryptionType
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.EncryptionType.html
+  name: EncryptionType
+  nameWithType: EncryptionType
+  fullName: MonoTorrent.Connections.EncryptionType
+- uid: MonoTorrent.Connections.IListener
+  commentId: T:MonoTorrent.Connections.IListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.IListener.html
+  name: IListener
+  nameWithType: IListener
+  fullName: MonoTorrent.Connections.IListener
+- uid: MonoTorrent.Connections.ISocketConnector
+  commentId: T:MonoTorrent.Connections.ISocketConnector
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.ISocketConnector.html
+  name: ISocketConnector
+  nameWithType: ISocketConnector
+  fullName: MonoTorrent.Connections.ISocketConnector
+- uid: MonoTorrent.Connections.ISocketListener
+  commentId: T:MonoTorrent.Connections.ISocketListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.ISocketListener.html
+  name: ISocketListener
+  nameWithType: ISocketListener
+  fullName: MonoTorrent.Connections.ISocketListener
+- uid: MonoTorrent.Connections.ISocketMessageListener
+  commentId: T:MonoTorrent.Connections.ISocketMessageListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.ISocketMessageListener.html
+  name: ISocketMessageListener
+  nameWithType: ISocketMessageListener
+  fullName: MonoTorrent.Connections.ISocketMessageListener
+- uid: MonoTorrent.Connections.Listener
+  commentId: T:MonoTorrent.Connections.Listener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.Listener.html
+  name: Listener
+  nameWithType: Listener
+  fullName: MonoTorrent.Connections.Listener
+- uid: MonoTorrent.Connections.ListenerStatus
+  commentId: T:MonoTorrent.Connections.ListenerStatus
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.ListenerStatus.html
+  name: ListenerStatus
+  nameWithType: ListenerStatus
+  fullName: MonoTorrent.Connections.ListenerStatus
+- uid: MonoTorrent.Connections.SocketConnector
+  commentId: T:MonoTorrent.Connections.SocketConnector
+  href: MonoTorrent.Connections.SocketConnector.html
+  name: SocketConnector
+  nameWithType: SocketConnector
+  fullName: MonoTorrent.Connections.SocketConnector
+- uid: MonoTorrent.Connections.SocketListener
+  commentId: T:MonoTorrent.Connections.SocketListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.SocketListener.html
+  name: SocketListener
+  nameWithType: SocketListener
+  fullName: MonoTorrent.Connections.SocketListener
+- uid: MonoTorrent.Connections.UdpListener
+  commentId: T:MonoTorrent.Connections.UdpListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.UdpListener.html
+  name: UdpListener
+  nameWithType: UdpListener
+  fullName: MonoTorrent.Connections.UdpListener
+- uid: MonoTorrent.Connections.UriExtensions
+  commentId: T:MonoTorrent.Connections.UriExtensions
+  href: MonoTorrent.Connections.UriExtensions.html
+  name: UriExtensions
+  nameWithType: UriExtensions
+  fullName: MonoTorrent.Connections.UriExtensions
+- uid: MonoTorrent.Connections
+  commentId: N:MonoTorrent.Connections
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections
+  nameWithType: MonoTorrent.Connections
+  fullName: MonoTorrent.Connections
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html

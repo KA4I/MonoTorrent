@@ -1,0 +1,120 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Messages.UdpTracker.MessageType
+  commentId: T:MonoTorrent.Messages.UdpTracker.MessageType
+  id: MessageType
+  parent: MonoTorrent.Messages.UdpTracker
+  children:
+  - MonoTorrent.Messages.UdpTracker.MessageType.Request
+  - MonoTorrent.Messages.UdpTracker.MessageType.Response
+  langs:
+  - csharp
+  - vb
+  name: MessageType
+  nameWithType: MessageType
+  fullName: MonoTorrent.Messages.UdpTracker.MessageType
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/Udp/Messages/MessageType.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MessageType
+    path: src/Connections/Tracker/Udp/Messages/MessageType.cs
+    startLine: 31
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.UdpTracker
+  syntax:
+    content: public enum MessageType
+    content.vb: Public Enum MessageType
+- uid: MonoTorrent.Messages.UdpTracker.MessageType.Request
+  commentId: F:MonoTorrent.Messages.UdpTracker.MessageType.Request
+  id: Request
+  parent: MonoTorrent.Messages.UdpTracker.MessageType
+  langs:
+  - csharp
+  - vb
+  name: Request
+  nameWithType: MessageType.Request
+  fullName: MonoTorrent.Messages.UdpTracker.MessageType.Request
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/Udp/Messages/MessageType.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Request
+    path: src/Connections/Tracker/Udp/Messages/MessageType.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.UdpTracker
+  syntax:
+    content: Request = 0
+    return:
+      type: MonoTorrent.Messages.UdpTracker.MessageType
+- uid: MonoTorrent.Messages.UdpTracker.MessageType.Response
+  commentId: F:MonoTorrent.Messages.UdpTracker.MessageType.Response
+  id: Response
+  parent: MonoTorrent.Messages.UdpTracker.MessageType
+  langs:
+  - csharp
+  - vb
+  name: Response
+  nameWithType: MessageType.Response
+  fullName: MonoTorrent.Messages.UdpTracker.MessageType.Response
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/Udp/Messages/MessageType.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Response
+    path: src/Connections/Tracker/Udp/Messages/MessageType.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.UdpTracker
+  syntax:
+    content: Response = 1
+    return:
+      type: MonoTorrent.Messages.UdpTracker.MessageType
+references:
+- uid: MonoTorrent.Messages.UdpTracker
+  commentId: N:MonoTorrent.Messages.UdpTracker
+  href: MonoTorrent.html
+  name: MonoTorrent.Messages.UdpTracker
+  nameWithType: MonoTorrent.Messages.UdpTracker
+  fullName: MonoTorrent.Messages.UdpTracker
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.UdpTracker
+    name: UdpTracker
+    href: MonoTorrent.Messages.UdpTracker.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.UdpTracker
+    name: UdpTracker
+    href: MonoTorrent.Messages.UdpTracker.html
+- uid: MonoTorrent.Messages.UdpTracker.MessageType
+  commentId: T:MonoTorrent.Messages.UdpTracker.MessageType
+  parent: MonoTorrent.Messages.UdpTracker
+  href: MonoTorrent.Messages.UdpTracker.MessageType.html
+  name: MessageType
+  nameWithType: MessageType
+  fullName: MonoTorrent.Messages.UdpTracker.MessageType

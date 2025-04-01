@@ -1,0 +1,656 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Logging.TextWriterLogger
+  commentId: T:MonoTorrent.Logging.TextWriterLogger
+  id: TextWriterLogger
+  parent: MonoTorrent.Logging
+  children:
+  - MonoTorrent.Logging.TextWriterLogger.#ctor(System.IO.TextWriter)
+  - MonoTorrent.Logging.TextWriterLogger.Debug(System.String,System.String)
+  - MonoTorrent.Logging.TextWriterLogger.Error(System.String,System.String)
+  - MonoTorrent.Logging.TextWriterLogger.Info(System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: TextWriterLogger
+  nameWithType: TextWriterLogger
+  fullName: MonoTorrent.Logging.TextWriterLogger
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Logging/TextWriterLogger.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TextWriterLogger
+    path: src/Logging/TextWriterLogger.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Logging
+  syntax:
+    content: 'public class TextWriterLogger : IRootLogger'
+    content.vb: Public Class TextWriterLogger Implements IRootLogger
+  inheritance:
+  - System.Object
+  implements:
+  - MonoTorrent.Logging.IRootLogger
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.Logging.TextWriterLogger.#ctor(System.IO.TextWriter)
+  commentId: M:MonoTorrent.Logging.TextWriterLogger.#ctor(System.IO.TextWriter)
+  id: '#ctor(System.IO.TextWriter)'
+  parent: MonoTorrent.Logging.TextWriterLogger
+  langs:
+  - csharp
+  - vb
+  name: TextWriterLogger(TextWriter)
+  nameWithType: TextWriterLogger.TextWriterLogger(TextWriter)
+  fullName: MonoTorrent.Logging.TextWriterLogger.TextWriterLogger(System.IO.TextWriter)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Logging/TextWriterLogger.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Logging/TextWriterLogger.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Logging
+  syntax:
+    content: public TextWriterLogger(TextWriter writer)
+    parameters:
+    - id: writer
+      type: System.IO.TextWriter
+    content.vb: Public Sub New(writer As TextWriter)
+  overload: MonoTorrent.Logging.TextWriterLogger.#ctor*
+  nameWithType.vb: TextWriterLogger.New(TextWriter)
+  fullName.vb: MonoTorrent.Logging.TextWriterLogger.New(System.IO.TextWriter)
+  name.vb: New(TextWriter)
+- uid: MonoTorrent.Logging.TextWriterLogger.Debug(System.String,System.String)
+  commentId: M:MonoTorrent.Logging.TextWriterLogger.Debug(System.String,System.String)
+  id: Debug(System.String,System.String)
+  parent: MonoTorrent.Logging.TextWriterLogger
+  langs:
+  - csharp
+  - vb
+  name: Debug(string, string)
+  nameWithType: TextWriterLogger.Debug(string, string)
+  fullName: MonoTorrent.Logging.TextWriterLogger.Debug(string, string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Logging/TextWriterLogger.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Debug
+    path: src/Logging/TextWriterLogger.cs
+    startLine: 40
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Logging
+  example: []
+  syntax:
+    content: public void Debug(string prefix, string message)
+    parameters:
+    - id: prefix
+      type: System.String
+    - id: message
+      type: System.String
+    content.vb: Public Sub Debug(prefix As String, message As String)
+  overload: MonoTorrent.Logging.TextWriterLogger.Debug*
+  implements:
+  - MonoTorrent.Logging.IRootLogger.Debug(System.String,System.String)
+  nameWithType.vb: TextWriterLogger.Debug(String, String)
+  fullName.vb: MonoTorrent.Logging.TextWriterLogger.Debug(String, String)
+  name.vb: Debug(String, String)
+- uid: MonoTorrent.Logging.TextWriterLogger.Error(System.String,System.String)
+  commentId: M:MonoTorrent.Logging.TextWriterLogger.Error(System.String,System.String)
+  id: Error(System.String,System.String)
+  parent: MonoTorrent.Logging.TextWriterLogger
+  langs:
+  - csharp
+  - vb
+  name: Error(string, string)
+  nameWithType: TextWriterLogger.Error(string, string)
+  fullName: MonoTorrent.Logging.TextWriterLogger.Error(string, string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Logging/TextWriterLogger.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Error
+    path: src/Logging/TextWriterLogger.cs
+    startLine: 45
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Logging
+  example: []
+  syntax:
+    content: public void Error(string prefix, string message)
+    parameters:
+    - id: prefix
+      type: System.String
+    - id: message
+      type: System.String
+    content.vb: Public Sub [Error](prefix As String, message As String)
+  overload: MonoTorrent.Logging.TextWriterLogger.Error*
+  implements:
+  - MonoTorrent.Logging.IRootLogger.Error(System.String,System.String)
+  nameWithType.vb: TextWriterLogger.Error(String, String)
+  fullName.vb: MonoTorrent.Logging.TextWriterLogger.Error(String, String)
+  name.vb: Error(String, String)
+- uid: MonoTorrent.Logging.TextWriterLogger.Info(System.String,System.String)
+  commentId: M:MonoTorrent.Logging.TextWriterLogger.Info(System.String,System.String)
+  id: Info(System.String,System.String)
+  parent: MonoTorrent.Logging.TextWriterLogger
+  langs:
+  - csharp
+  - vb
+  name: Info(string, string)
+  nameWithType: TextWriterLogger.Info(string, string)
+  fullName: MonoTorrent.Logging.TextWriterLogger.Info(string, string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Logging/TextWriterLogger.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Info
+    path: src/Logging/TextWriterLogger.cs
+    startLine: 50
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Logging
+  example: []
+  syntax:
+    content: public void Info(string prefix, string message)
+    parameters:
+    - id: prefix
+      type: System.String
+    - id: message
+      type: System.String
+    content.vb: Public Sub Info(prefix As String, message As String)
+  overload: MonoTorrent.Logging.TextWriterLogger.Info*
+  implements:
+  - MonoTorrent.Logging.IRootLogger.Info(System.String,System.String)
+  nameWithType.vb: TextWriterLogger.Info(String, String)
+  fullName.vb: MonoTorrent.Logging.TextWriterLogger.Info(String, String)
+  name.vb: Info(String, String)
+references:
+- uid: MonoTorrent.Logging
+  commentId: N:MonoTorrent.Logging
+  href: MonoTorrent.html
+  name: MonoTorrent.Logging
+  nameWithType: MonoTorrent.Logging
+  fullName: MonoTorrent.Logging
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Logging
+    name: Logging
+    href: MonoTorrent.Logging.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Logging
+    name: Logging
+    href: MonoTorrent.Logging.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MonoTorrent.Logging.IRootLogger
+  commentId: T:MonoTorrent.Logging.IRootLogger
+  parent: MonoTorrent.Logging
+  href: MonoTorrent.Logging.IRootLogger.html
+  name: IRootLogger
+  nameWithType: IRootLogger
+  fullName: MonoTorrent.Logging.IRootLogger
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Logging.TextWriterLogger.#ctor*
+  commentId: Overload:MonoTorrent.Logging.TextWriterLogger.#ctor
+  href: MonoTorrent.Logging.TextWriterLogger.html#MonoTorrent_Logging_TextWriterLogger__ctor_System_IO_TextWriter_
+  name: TextWriterLogger
+  nameWithType: TextWriterLogger.TextWriterLogger
+  fullName: MonoTorrent.Logging.TextWriterLogger.TextWriterLogger
+  nameWithType.vb: TextWriterLogger.New
+  fullName.vb: MonoTorrent.Logging.TextWriterLogger.New
+  name.vb: New
+- uid: System.IO.TextWriter
+  commentId: T:System.IO.TextWriter
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.textwriter
+  name: TextWriter
+  nameWithType: TextWriter
+  fullName: System.IO.TextWriter
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: MonoTorrent.Logging.TextWriterLogger.Debug*
+  commentId: Overload:MonoTorrent.Logging.TextWriterLogger.Debug
+  href: MonoTorrent.Logging.TextWriterLogger.html#MonoTorrent_Logging_TextWriterLogger_Debug_System_String_System_String_
+  name: Debug
+  nameWithType: TextWriterLogger.Debug
+  fullName: MonoTorrent.Logging.TextWriterLogger.Debug
+- uid: MonoTorrent.Logging.IRootLogger.Debug(System.String,System.String)
+  commentId: M:MonoTorrent.Logging.IRootLogger.Debug(System.String,System.String)
+  parent: MonoTorrent.Logging.IRootLogger
+  isExternal: true
+  href: MonoTorrent.Logging.IRootLogger.html#MonoTorrent_Logging_IRootLogger_Debug_System_String_System_String_
+  name: Debug(string, string)
+  nameWithType: IRootLogger.Debug(string, string)
+  fullName: MonoTorrent.Logging.IRootLogger.Debug(string, string)
+  nameWithType.vb: IRootLogger.Debug(String, String)
+  fullName.vb: MonoTorrent.Logging.IRootLogger.Debug(String, String)
+  name.vb: Debug(String, String)
+  spec.csharp:
+  - uid: MonoTorrent.Logging.IRootLogger.Debug(System.String,System.String)
+    name: Debug
+    href: MonoTorrent.Logging.IRootLogger.html#MonoTorrent_Logging_IRootLogger_Debug_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Logging.IRootLogger.Debug(System.String,System.String)
+    name: Debug
+    href: MonoTorrent.Logging.IRootLogger.html#MonoTorrent_Logging_IRootLogger_Debug_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MonoTorrent.Logging.TextWriterLogger.Error*
+  commentId: Overload:MonoTorrent.Logging.TextWriterLogger.Error
+  href: MonoTorrent.Logging.TextWriterLogger.html#MonoTorrent_Logging_TextWriterLogger_Error_System_String_System_String_
+  name: Error
+  nameWithType: TextWriterLogger.Error
+  fullName: MonoTorrent.Logging.TextWriterLogger.Error
+- uid: MonoTorrent.Logging.IRootLogger.Error(System.String,System.String)
+  commentId: M:MonoTorrent.Logging.IRootLogger.Error(System.String,System.String)
+  parent: MonoTorrent.Logging.IRootLogger
+  isExternal: true
+  href: MonoTorrent.Logging.IRootLogger.html#MonoTorrent_Logging_IRootLogger_Error_System_String_System_String_
+  name: Error(string, string)
+  nameWithType: IRootLogger.Error(string, string)
+  fullName: MonoTorrent.Logging.IRootLogger.Error(string, string)
+  nameWithType.vb: IRootLogger.Error(String, String)
+  fullName.vb: MonoTorrent.Logging.IRootLogger.Error(String, String)
+  name.vb: Error(String, String)
+  spec.csharp:
+  - uid: MonoTorrent.Logging.IRootLogger.Error(System.String,System.String)
+    name: Error
+    href: MonoTorrent.Logging.IRootLogger.html#MonoTorrent_Logging_IRootLogger_Error_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Logging.IRootLogger.Error(System.String,System.String)
+    name: Error
+    href: MonoTorrent.Logging.IRootLogger.html#MonoTorrent_Logging_IRootLogger_Error_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: MonoTorrent.Logging.TextWriterLogger.Info*
+  commentId: Overload:MonoTorrent.Logging.TextWriterLogger.Info
+  href: MonoTorrent.Logging.TextWriterLogger.html#MonoTorrent_Logging_TextWriterLogger_Info_System_String_System_String_
+  name: Info
+  nameWithType: TextWriterLogger.Info
+  fullName: MonoTorrent.Logging.TextWriterLogger.Info
+- uid: MonoTorrent.Logging.IRootLogger.Info(System.String,System.String)
+  commentId: M:MonoTorrent.Logging.IRootLogger.Info(System.String,System.String)
+  parent: MonoTorrent.Logging.IRootLogger
+  isExternal: true
+  href: MonoTorrent.Logging.IRootLogger.html#MonoTorrent_Logging_IRootLogger_Info_System_String_System_String_
+  name: Info(string, string)
+  nameWithType: IRootLogger.Info(string, string)
+  fullName: MonoTorrent.Logging.IRootLogger.Info(string, string)
+  nameWithType.vb: IRootLogger.Info(String, String)
+  fullName.vb: MonoTorrent.Logging.IRootLogger.Info(String, String)
+  name.vb: Info(String, String)
+  spec.csharp:
+  - uid: MonoTorrent.Logging.IRootLogger.Info(System.String,System.String)
+    name: Info
+    href: MonoTorrent.Logging.IRootLogger.html#MonoTorrent_Logging_IRootLogger_Info_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Logging.IRootLogger.Info(System.String,System.String)
+    name: Info
+    href: MonoTorrent.Logging.IRootLogger.html#MonoTorrent_Logging_IRootLogger_Info_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )

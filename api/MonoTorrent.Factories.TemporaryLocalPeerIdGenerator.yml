@@ -1,0 +1,168 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+  commentId: T:MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+  id: Factories.TemporaryLocalPeerIdGenerator
+  parent: MonoTorrent
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: Factories.TemporaryLocalPeerIdGenerator
+  nameWithType: Factories.TemporaryLocalPeerIdGenerator
+  fullName: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+  type: Delegate
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TemporaryLocalPeerIdGenerator
+    path: src/Factories.cs
+    startLine: 61
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public delegate ReusableTask<BEncodedString> Factories.TemporaryLocalPeerIdGenerator(ITorrentManagerInfo torrent, BEncodedString permanentLocalPeerId, BEncodedString peerId, InfoHash infoHash, Uri peerUri)
+    parameters:
+    - id: torrent
+      type: MonoTorrent.ITorrentManagerInfo
+    - id: permanentLocalPeerId
+      type: MonoTorrent.BEncoding.BEncodedString
+    - id: peerId
+      type: MonoTorrent.BEncoding.BEncodedString
+    - id: infoHash
+      type: MonoTorrent.InfoHash
+    - id: peerUri
+      type: System.Uri
+    return:
+      type: ReusableTasks.ReusableTask{MonoTorrent.BEncoding.BEncodedString}
+    content.vb: Public Delegate Function Factories.TemporaryLocalPeerIdGenerator(torrent As ITorrentManagerInfo, permanentLocalPeerId As BEncodedString, peerId As BEncodedString, infoHash As InfoHash, peerUri As Uri) As ReusableTask(Of BEncodedString)
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.ITorrentManagerInfo
+  commentId: T:MonoTorrent.ITorrentManagerInfo
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentManagerInfo.html
+  name: ITorrentManagerInfo
+  nameWithType: ITorrentManagerInfo
+  fullName: MonoTorrent.ITorrentManagerInfo
+- uid: MonoTorrent.BEncoding.BEncodedString
+  commentId: T:MonoTorrent.BEncoding.BEncodedString
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedString.html
+  name: BEncodedString
+  nameWithType: BEncodedString
+  fullName: MonoTorrent.BEncoding.BEncodedString
+- uid: MonoTorrent.InfoHash
+  commentId: T:MonoTorrent.InfoHash
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHash.html
+  name: InfoHash
+  nameWithType: InfoHash
+  fullName: MonoTorrent.InfoHash
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: ReusableTasks.ReusableTask{MonoTorrent.BEncoding.BEncodedString}
+  commentId: T:ReusableTasks.ReusableTask{MonoTorrent.BEncoding.BEncodedString}
+  parent: ReusableTasks
+  definition: ReusableTasks.ReusableTask`1
+  href: MonoTorrent.BEncoding.BEncodedString.html
+  name: ReusableTask<BEncodedString>
+  nameWithType: ReusableTask<BEncodedString>
+  fullName: ReusableTasks.ReusableTask<MonoTorrent.BEncoding.BEncodedString>
+  nameWithType.vb: ReusableTask(Of BEncodedString)
+  fullName.vb: ReusableTasks.ReusableTask(Of MonoTorrent.BEncoding.BEncodedString)
+  name.vb: ReusableTask(Of BEncodedString)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+- uid: MonoTorrent.BEncoding
+  commentId: N:MonoTorrent.BEncoding
+  href: MonoTorrent.html
+  name: MonoTorrent.BEncoding
+  nameWithType: MonoTorrent.BEncoding
+  fullName: MonoTorrent.BEncoding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ReusableTasks.ReusableTask`1
+  commentId: T:ReusableTasks.ReusableTask`1
+  isExternal: true
+  name: ReusableTask<T>
+  nameWithType: ReusableTask<T>
+  fullName: ReusableTasks.ReusableTask<T>
+  nameWithType.vb: ReusableTask(Of T)
+  fullName.vb: ReusableTasks.ReusableTask(Of T)
+  name.vb: ReusableTask(Of T)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ReusableTasks
+  commentId: N:ReusableTasks
+  isExternal: true
+  name: ReusableTasks
+  nameWithType: ReusableTasks
+  fullName: ReusableTasks

@@ -28,6 +28,8 @@
 
 
 using System;
+using MonoTorrent.BEncoding;
+
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -73,6 +75,8 @@ namespace MonoTorrent.Dht
         void Add (IEnumerable<ReadOnlyMemory<byte>> nodes);
         void Announce (InfoHash infoHash, int port);
         void GetPeers (InfoHash infoHash);
+        Task<(BEncodedValue? value, BEncodedString? publicKey, BEncodedString? signature, long? sequenceNumber)> GetAsync(NodeId target, long? sequenceNumber = null);
+
         Task<ReadOnlyMemory<byte>> SaveNodesAsync ();
         Task SetListenerAsync (IDhtListener listener);
         Task StartAsync ();

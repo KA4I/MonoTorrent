@@ -1,0 +1,139 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.ListenerStatus
+  commentId: T:MonoTorrent.Connections.ListenerStatus
+  id: ListenerStatus
+  parent: MonoTorrent.Connections
+  children:
+  - MonoTorrent.Connections.ListenerStatus.Listening
+  - MonoTorrent.Connections.ListenerStatus.NotListening
+  - MonoTorrent.Connections.ListenerStatus.PortNotFree
+  langs:
+  - csharp
+  - vb
+  name: ListenerStatus
+  nameWithType: ListenerStatus
+  fullName: MonoTorrent.Connections.ListenerStatus
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/ListenerStatus.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ListenerStatus
+    path: src/Connections/ListenerStatus.cs
+    startLine: 2
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: public enum ListenerStatus
+    content.vb: Public Enum ListenerStatus
+- uid: MonoTorrent.Connections.ListenerStatus.Listening
+  commentId: F:MonoTorrent.Connections.ListenerStatus.Listening
+  id: Listening
+  parent: MonoTorrent.Connections.ListenerStatus
+  langs:
+  - csharp
+  - vb
+  name: Listening
+  nameWithType: ListenerStatus.Listening
+  fullName: MonoTorrent.Connections.ListenerStatus.Listening
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/ListenerStatus.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Listening
+    path: src/Connections/ListenerStatus.cs
+    startLine: 4
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: Listening = 0
+    return:
+      type: MonoTorrent.Connections.ListenerStatus
+- uid: MonoTorrent.Connections.ListenerStatus.PortNotFree
+  commentId: F:MonoTorrent.Connections.ListenerStatus.PortNotFree
+  id: PortNotFree
+  parent: MonoTorrent.Connections.ListenerStatus
+  langs:
+  - csharp
+  - vb
+  name: PortNotFree
+  nameWithType: ListenerStatus.PortNotFree
+  fullName: MonoTorrent.Connections.ListenerStatus.PortNotFree
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/ListenerStatus.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PortNotFree
+    path: src/Connections/ListenerStatus.cs
+    startLine: 5
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: PortNotFree = 1
+    return:
+      type: MonoTorrent.Connections.ListenerStatus
+- uid: MonoTorrent.Connections.ListenerStatus.NotListening
+  commentId: F:MonoTorrent.Connections.ListenerStatus.NotListening
+  id: NotListening
+  parent: MonoTorrent.Connections.ListenerStatus
+  langs:
+  - csharp
+  - vb
+  name: NotListening
+  nameWithType: ListenerStatus.NotListening
+  fullName: MonoTorrent.Connections.ListenerStatus.NotListening
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/ListenerStatus.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: NotListening
+    path: src/Connections/ListenerStatus.cs
+    startLine: 6
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: NotListening = 2
+    return:
+      type: MonoTorrent.Connections.ListenerStatus
+references:
+- uid: MonoTorrent.Connections
+  commentId: N:MonoTorrent.Connections
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections
+  nameWithType: MonoTorrent.Connections
+  fullName: MonoTorrent.Connections
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+- uid: MonoTorrent.Connections.ListenerStatus
+  commentId: T:MonoTorrent.Connections.ListenerStatus
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.ListenerStatus.html
+  name: ListenerStatus
+  nameWithType: ListenerStatus
+  fullName: MonoTorrent.Connections.ListenerStatus

@@ -1,0 +1,925 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PiecePicking.IPiecePicker
+  commentId: T:MonoTorrent.PiecePicking.IPiecePicker
+  id: IPiecePicker
+  parent: MonoTorrent.PiecePicking
+  children:
+  - MonoTorrent.PiecePicking.IPiecePicker.CancelRequests(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  - MonoTorrent.PiecePicking.IPiecePicker.ContinueAnyExistingRequest(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.Int32,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+  - MonoTorrent.PiecePicking.IPiecePicker.ContinueExistingRequest(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+  - MonoTorrent.PiecePicking.IPiecePicker.CurrentReceivedCount
+  - MonoTorrent.PiecePicking.IPiecePicker.CurrentRequestCount
+  - MonoTorrent.PiecePicking.IPiecePicker.ExportActiveRequests
+  - MonoTorrent.PiecePicking.IPiecePicker.Initialise(MonoTorrent.PiecePicking.IPieceRequesterData)
+  - MonoTorrent.PiecePicking.IPiecePicker.IsInteresting(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField)
+  - MonoTorrent.PiecePicking.IPiecePicker.PickPiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField},System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  - MonoTorrent.PiecePicking.IPiecePicker.RequestRejected(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  - MonoTorrent.PiecePicking.IPiecePicker.ValidatePiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment,System.Boolean@,System.Collections.Generic.HashSet{MonoTorrent.PiecePicking.IRequester})
+  langs:
+  - csharp
+  - vb
+  name: IPiecePicker
+  nameWithType: IPiecePicker
+  fullName: MonoTorrent.PiecePicking.IPiecePicker
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPiecePicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IPiecePicker
+    path: src/PiecePicking/IPiecePicker.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: public interface IPiecePicker
+    content.vb: Public Interface IPiecePicker
+- uid: MonoTorrent.PiecePicking.IPiecePicker.CancelRequests(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  commentId: M:MonoTorrent.PiecePicking.IPiecePicker.CancelRequests(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  id: CancelRequests(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  parent: MonoTorrent.PiecePicking.IPiecePicker
+  langs:
+  - csharp
+  - vb
+  name: CancelRequests(IRequester, int, int, Span<PieceSegment>)
+  nameWithType: IPiecePicker.CancelRequests(IRequester, int, int, Span<PieceSegment>)
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.CancelRequests(MonoTorrent.PiecePicking.IRequester, int, int, System.Span<MonoTorrent.PiecePicking.PieceSegment>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPiecePicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CancelRequests
+    path: src/PiecePicking/IPiecePicker.cs
+    startLine: 44
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: Cancel all unreceived requests between startIndex and endIndex.
+  example: []
+  syntax:
+    content: int CancelRequests(IRequester peer, int startIndex, int endIndex, Span<PieceSegment> cancellations)
+    parameters:
+    - id: peer
+      type: MonoTorrent.PiecePicking.IRequester
+      description: The peer to request the block from
+    - id: startIndex
+      type: System.Int32
+      description: The lowest piece index to consider
+    - id: endIndex
+      type: System.Int32
+      description: The highest piece index to consider
+    - id: cancellations
+      type: System.Span{MonoTorrent.PiecePicking.PieceSegment}
+      description: ''
+    return:
+      type: System.Int32
+      description: The number of entries written to the span
+    content.vb: Function CancelRequests(peer As IRequester, startIndex As Integer, endIndex As Integer, cancellations As Span(Of PieceSegment)) As Integer
+  overload: MonoTorrent.PiecePicking.IPiecePicker.CancelRequests*
+  nameWithType.vb: IPiecePicker.CancelRequests(IRequester, Integer, Integer, Span(Of PieceSegment))
+  fullName.vb: MonoTorrent.PiecePicking.IPiecePicker.CancelRequests(MonoTorrent.PiecePicking.IRequester, Integer, Integer, System.Span(Of MonoTorrent.PiecePicking.PieceSegment))
+  name.vb: CancelRequests(IRequester, Integer, Integer, Span(Of PieceSegment))
+- uid: MonoTorrent.PiecePicking.IPiecePicker.ContinueAnyExistingRequest(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.Int32,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+  commentId: M:MonoTorrent.PiecePicking.IPiecePicker.ContinueAnyExistingRequest(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.Int32,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+  id: ContinueAnyExistingRequest(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.Int32,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+  parent: MonoTorrent.PiecePicking.IPiecePicker
+  langs:
+  - csharp
+  - vb
+  name: ContinueAnyExistingRequest(IRequester, ReadOnlyBitField, int, int, int, out PieceSegment)
+  nameWithType: IPiecePicker.ContinueAnyExistingRequest(IRequester, ReadOnlyBitField, int, int, int, out PieceSegment)
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.ContinueAnyExistingRequest(MonoTorrent.PiecePicking.IRequester, MonoTorrent.ReadOnlyBitField, int, int, int, out MonoTorrent.PiecePicking.PieceSegment)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPiecePicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ContinueAnyExistingRequest
+    path: src/PiecePicking/IPiecePicker.cs
+    startLine: 56
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: Request any unrequested block from a piece owned by this peer, or any other peer, within the specified bounds.
+  example: []
+  syntax:
+    content: bool ContinueAnyExistingRequest(IRequester peer, ReadOnlyBitField available, int startIndex, int endIndex, int maxDuplicateRequests, out PieceSegment segment)
+    parameters:
+    - id: peer
+      type: MonoTorrent.PiecePicking.IRequester
+      description: The peer to request the block from
+    - id: available
+      type: MonoTorrent.ReadOnlyBitField
+      description: ''
+    - id: startIndex
+      type: System.Int32
+      description: The lowest piece index to consider
+    - id: endIndex
+      type: System.Int32
+      description: The highest piece index to consider
+    - id: maxDuplicateRequests
+      type: System.Int32
+      description: The maximum number of concurrent duplicate requests
+    - id: segment
+      type: MonoTorrent.PiecePicking.PieceSegment
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Function ContinueAnyExistingRequest(peer As IRequester, available As ReadOnlyBitField, startIndex As Integer, endIndex As Integer, maxDuplicateRequests As Integer, segment As PieceSegment) As Boolean
+  overload: MonoTorrent.PiecePicking.IPiecePicker.ContinueAnyExistingRequest*
+  nameWithType.vb: IPiecePicker.ContinueAnyExistingRequest(IRequester, ReadOnlyBitField, Integer, Integer, Integer, PieceSegment)
+  fullName.vb: MonoTorrent.PiecePicking.IPiecePicker.ContinueAnyExistingRequest(MonoTorrent.PiecePicking.IRequester, MonoTorrent.ReadOnlyBitField, Integer, Integer, Integer, MonoTorrent.PiecePicking.PieceSegment)
+  name.vb: ContinueAnyExistingRequest(IRequester, ReadOnlyBitField, Integer, Integer, Integer, PieceSegment)
+- uid: MonoTorrent.PiecePicking.IPiecePicker.ContinueExistingRequest(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+  commentId: M:MonoTorrent.PiecePicking.IPiecePicker.ContinueExistingRequest(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+  id: ContinueExistingRequest(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+  parent: MonoTorrent.PiecePicking.IPiecePicker
+  langs:
+  - csharp
+  - vb
+  name: ContinueExistingRequest(IRequester, int, int, out PieceSegment)
+  nameWithType: IPiecePicker.ContinueExistingRequest(IRequester, int, int, out PieceSegment)
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.ContinueExistingRequest(MonoTorrent.PiecePicking.IRequester, int, int, out MonoTorrent.PiecePicking.PieceSegment)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPiecePicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ContinueExistingRequest
+    path: src/PiecePicking/IPiecePicker.cs
+    startLine: 66
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: Request the next unrequested block from a piece owned by this peer, within the specified bounds.
+  example: []
+  syntax:
+    content: bool ContinueExistingRequest(IRequester peer, int startIndex, int endIndex, out PieceSegment segment)
+    parameters:
+    - id: peer
+      type: MonoTorrent.PiecePicking.IRequester
+      description: The peer to request the block from
+    - id: startIndex
+      type: System.Int32
+      description: The lowest piece index to consider
+    - id: endIndex
+      type: System.Int32
+      description: The highest piece index to consider
+    - id: segment
+      type: MonoTorrent.PiecePicking.PieceSegment
+      description: If an existing block is successfully continued, the details for that block will be set here
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Function ContinueExistingRequest(peer As IRequester, startIndex As Integer, endIndex As Integer, segment As PieceSegment) As Boolean
+  overload: MonoTorrent.PiecePicking.IPiecePicker.ContinueExistingRequest*
+  nameWithType.vb: IPiecePicker.ContinueExistingRequest(IRequester, Integer, Integer, PieceSegment)
+  fullName.vb: MonoTorrent.PiecePicking.IPiecePicker.ContinueExistingRequest(MonoTorrent.PiecePicking.IRequester, Integer, Integer, MonoTorrent.PiecePicking.PieceSegment)
+  name.vb: ContinueExistingRequest(IRequester, Integer, Integer, PieceSegment)
+- uid: MonoTorrent.PiecePicking.IPiecePicker.CurrentReceivedCount
+  commentId: M:MonoTorrent.PiecePicking.IPiecePicker.CurrentReceivedCount
+  id: CurrentReceivedCount
+  parent: MonoTorrent.PiecePicking.IPiecePicker
+  langs:
+  - csharp
+  - vb
+  name: CurrentReceivedCount()
+  nameWithType: IPiecePicker.CurrentReceivedCount()
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.CurrentReceivedCount()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPiecePicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CurrentReceivedCount
+    path: src/PiecePicking/IPiecePicker.cs
+    startLine: 72
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: Returns the number of blocks which have been received f pieces currently being requested.
+  example: []
+  syntax:
+    content: int CurrentReceivedCount()
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Function CurrentReceivedCount() As Integer
+  overload: MonoTorrent.PiecePicking.IPiecePicker.CurrentReceivedCount*
+- uid: MonoTorrent.PiecePicking.IPiecePicker.CurrentRequestCount
+  commentId: M:MonoTorrent.PiecePicking.IPiecePicker.CurrentRequestCount
+  id: CurrentRequestCount
+  parent: MonoTorrent.PiecePicking.IPiecePicker
+  langs:
+  - csharp
+  - vb
+  name: CurrentRequestCount()
+  nameWithType: IPiecePicker.CurrentRequestCount()
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.CurrentRequestCount()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPiecePicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CurrentRequestCount
+    path: src/PiecePicking/IPiecePicker.cs
+    startLine: 78
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: Returns the number of pieces currently being requested.
+  example: []
+  syntax:
+    content: int CurrentRequestCount()
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Function CurrentRequestCount() As Integer
+  overload: MonoTorrent.PiecePicking.IPiecePicker.CurrentRequestCount*
+- uid: MonoTorrent.PiecePicking.IPiecePicker.ExportActiveRequests
+  commentId: M:MonoTorrent.PiecePicking.IPiecePicker.ExportActiveRequests
+  id: ExportActiveRequests
+  parent: MonoTorrent.PiecePicking.IPiecePicker
+  langs:
+  - csharp
+  - vb
+  name: ExportActiveRequests()
+  nameWithType: IPiecePicker.ExportActiveRequests()
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.ExportActiveRequests()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPiecePicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ExportActiveRequests
+    path: src/PiecePicking/IPiecePicker.cs
+    startLine: 84
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: Returns a list of all
+  example: []
+  syntax:
+    content: IList<ActivePieceRequest> ExportActiveRequests()
+    return:
+      type: System.Collections.Generic.IList{MonoTorrent.PiecePicking.ActivePieceRequest}
+      description: ''
+    content.vb: Function ExportActiveRequests() As IList(Of ActivePieceRequest)
+  overload: MonoTorrent.PiecePicking.IPiecePicker.ExportActiveRequests*
+- uid: MonoTorrent.PiecePicking.IPiecePicker.Initialise(MonoTorrent.PiecePicking.IPieceRequesterData)
+  commentId: M:MonoTorrent.PiecePicking.IPiecePicker.Initialise(MonoTorrent.PiecePicking.IPieceRequesterData)
+  id: Initialise(MonoTorrent.PiecePicking.IPieceRequesterData)
+  parent: MonoTorrent.PiecePicking.IPiecePicker
+  langs:
+  - csharp
+  - vb
+  name: Initialise(IPieceRequesterData)
+  nameWithType: IPiecePicker.Initialise(IPieceRequesterData)
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.Initialise(MonoTorrent.PiecePicking.IPieceRequesterData)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPiecePicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Initialise
+    path: src/PiecePicking/IPiecePicker.cs
+    startLine: 90
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: Reset all internal state.
+  example: []
+  syntax:
+    content: void Initialise(IPieceRequesterData torrentData)
+    parameters:
+    - id: torrentData
+      type: MonoTorrent.PiecePicking.IPieceRequesterData
+      description: ''
+    content.vb: Sub Initialise(torrentData As IPieceRequesterData)
+  overload: MonoTorrent.PiecePicking.IPiecePicker.Initialise*
+- uid: MonoTorrent.PiecePicking.IPiecePicker.IsInteresting(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField)
+  commentId: M:MonoTorrent.PiecePicking.IPiecePicker.IsInteresting(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField)
+  id: IsInteresting(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField)
+  parent: MonoTorrent.PiecePicking.IPiecePicker
+  langs:
+  - csharp
+  - vb
+  name: IsInteresting(IRequester, ReadOnlyBitField)
+  nameWithType: IPiecePicker.IsInteresting(IRequester, ReadOnlyBitField)
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.IsInteresting(MonoTorrent.PiecePicking.IRequester, MonoTorrent.ReadOnlyBitField)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPiecePicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IsInteresting
+    path: src/PiecePicking/IPiecePicker.cs
+    startLine: 98
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: ''
+  example: []
+  syntax:
+    content: bool IsInteresting(IRequester peer, ReadOnlyBitField bitfield)
+    parameters:
+    - id: peer
+      type: MonoTorrent.PiecePicking.IRequester
+      description: ''
+    - id: bitfield
+      type: MonoTorrent.ReadOnlyBitField
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Function IsInteresting(peer As IRequester, bitfield As ReadOnlyBitField) As Boolean
+  overload: MonoTorrent.PiecePicking.IPiecePicker.IsInteresting*
+- uid: MonoTorrent.PiecePicking.IPiecePicker.RequestRejected(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  commentId: M:MonoTorrent.PiecePicking.IPiecePicker.RequestRejected(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  id: RequestRejected(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  parent: MonoTorrent.PiecePicking.IPiecePicker
+  langs:
+  - csharp
+  - vb
+  name: RequestRejected(IRequester, PieceSegment)
+  nameWithType: IPiecePicker.RequestRejected(IRequester, PieceSegment)
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.RequestRejected(MonoTorrent.PiecePicking.IRequester, MonoTorrent.PiecePicking.PieceSegment)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPiecePicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RequestRejected
+    path: src/PiecePicking/IPiecePicker.cs
+    startLine: 106
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: >-
+    Called when a piece request has been rejected by a <code class="paramref">peer</code>, which indicates
+
+    the <xref href="MonoTorrent.PiecePicking.PieceSegment" data-throw-if-not-resolved="false"></xref> will not be fulfilled.
+  example: []
+  syntax:
+    content: void RequestRejected(IRequester peer, PieceSegment request)
+    parameters:
+    - id: peer
+      type: MonoTorrent.PiecePicking.IRequester
+      description: ''
+    - id: request
+      type: MonoTorrent.PiecePicking.PieceSegment
+      description: ''
+    content.vb: Sub RequestRejected(peer As IRequester, request As PieceSegment)
+  overload: MonoTorrent.PiecePicking.IPiecePicker.RequestRejected*
+- uid: MonoTorrent.PiecePicking.IPiecePicker.PickPiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField},System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  commentId: M:MonoTorrent.PiecePicking.IPiecePicker.PickPiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField},System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  id: PickPiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField},System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  parent: MonoTorrent.PiecePicking.IPiecePicker
+  langs:
+  - csharp
+  - vb
+  name: PickPiece(IRequester, ReadOnlyBitField, ReadOnlySpan<ReadOnlyBitField>, int, int, Span<PieceSegment>)
+  nameWithType: IPiecePicker.PickPiece(IRequester, ReadOnlyBitField, ReadOnlySpan<ReadOnlyBitField>, int, int, Span<PieceSegment>)
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.PickPiece(MonoTorrent.PiecePicking.IRequester, MonoTorrent.ReadOnlyBitField, System.ReadOnlySpan<MonoTorrent.ReadOnlyBitField>, int, int, System.Span<MonoTorrent.PiecePicking.PieceSegment>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPiecePicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PickPiece
+    path: src/PiecePicking/IPiecePicker.cs
+    startLine: 118
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: ''
+  example: []
+  syntax:
+    content: int PickPiece(IRequester peer, ReadOnlyBitField available, ReadOnlySpan<ReadOnlyBitField> otherAvailable, int startIndex, int endIndex, Span<PieceSegment> requests)
+    parameters:
+    - id: peer
+      type: MonoTorrent.PiecePicking.IRequester
+      description: ''
+    - id: available
+      type: MonoTorrent.ReadOnlyBitField
+      description: ''
+    - id: otherAvailable
+      type: System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField}
+      description: ''
+    - id: startIndex
+      type: System.Int32
+      description: ''
+    - id: endIndex
+      type: System.Int32
+      description: ''
+    - id: requests
+      type: System.Span{MonoTorrent.PiecePicking.PieceSegment}
+      description: ''
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Function PickPiece(peer As IRequester, available As ReadOnlyBitField, otherAvailable As ReadOnlySpan(Of ReadOnlyBitField), startIndex As Integer, endIndex As Integer, requests As Span(Of PieceSegment)) As Integer
+  overload: MonoTorrent.PiecePicking.IPiecePicker.PickPiece*
+  nameWithType.vb: IPiecePicker.PickPiece(IRequester, ReadOnlyBitField, ReadOnlySpan(Of ReadOnlyBitField), Integer, Integer, Span(Of PieceSegment))
+  fullName.vb: MonoTorrent.PiecePicking.IPiecePicker.PickPiece(MonoTorrent.PiecePicking.IRequester, MonoTorrent.ReadOnlyBitField, System.ReadOnlySpan(Of MonoTorrent.ReadOnlyBitField), Integer, Integer, System.Span(Of MonoTorrent.PiecePicking.PieceSegment))
+  name.vb: PickPiece(IRequester, ReadOnlyBitField, ReadOnlySpan(Of ReadOnlyBitField), Integer, Integer, Span(Of PieceSegment))
+- uid: MonoTorrent.PiecePicking.IPiecePicker.ValidatePiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment,System.Boolean@,System.Collections.Generic.HashSet{MonoTorrent.PiecePicking.IRequester})
+  commentId: M:MonoTorrent.PiecePicking.IPiecePicker.ValidatePiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment,System.Boolean@,System.Collections.Generic.HashSet{MonoTorrent.PiecePicking.IRequester})
+  id: ValidatePiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment,System.Boolean@,System.Collections.Generic.HashSet{MonoTorrent.PiecePicking.IRequester})
+  parent: MonoTorrent.PiecePicking.IPiecePicker
+  langs:
+  - csharp
+  - vb
+  name: ValidatePiece(IRequester, PieceSegment, out bool, HashSet<IRequester>)
+  nameWithType: IPiecePicker.ValidatePiece(IRequester, PieceSegment, out bool, HashSet<IRequester>)
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.ValidatePiece(MonoTorrent.PiecePicking.IRequester, MonoTorrent.PiecePicking.PieceSegment, out bool, System.Collections.Generic.HashSet<MonoTorrent.PiecePicking.IRequester>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPiecePicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ValidatePiece
+    path: src/PiecePicking/IPiecePicker.cs
+    startLine: 130
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: >-
+    Called when a piece is received from the <code class="paramref">peer</code>. Returns true if the
+
+    piece was requested from this peer and should be accepted, otherwise returns false if the piece was not requested from this peer and should
+
+    be discarded.
+  example: []
+  syntax:
+    content: bool ValidatePiece(IRequester peer, PieceSegment request, out bool pieceComplete, HashSet<IRequester> peersInvolved)
+    parameters:
+    - id: peer
+      type: MonoTorrent.PiecePicking.IRequester
+      description: ''
+    - id: request
+      type: MonoTorrent.PiecePicking.PieceSegment
+      description: ''
+    - id: pieceComplete
+      type: System.Boolean
+      description: True if this was the final block for the piece
+    - id: peersInvolved
+      type: System.Collections.Generic.HashSet{MonoTorrent.PiecePicking.IRequester}
+      description: When <code class="paramref">pieceComplete</code> is true this is a non-null list of peers used to download the piece. Otherwise this is null.
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Function ValidatePiece(peer As IRequester, request As PieceSegment, pieceComplete As Boolean, peersInvolved As HashSet(Of IRequester)) As Boolean
+  overload: MonoTorrent.PiecePicking.IPiecePicker.ValidatePiece*
+  nameWithType.vb: IPiecePicker.ValidatePiece(IRequester, PieceSegment, Boolean, HashSet(Of IRequester))
+  fullName.vb: MonoTorrent.PiecePicking.IPiecePicker.ValidatePiece(MonoTorrent.PiecePicking.IRequester, MonoTorrent.PiecePicking.PieceSegment, Boolean, System.Collections.Generic.HashSet(Of MonoTorrent.PiecePicking.IRequester))
+  name.vb: ValidatePiece(IRequester, PieceSegment, Boolean, HashSet(Of IRequester))
+references:
+- uid: MonoTorrent.PiecePicking
+  commentId: N:MonoTorrent.PiecePicking
+  href: MonoTorrent.html
+  name: MonoTorrent.PiecePicking
+  nameWithType: MonoTorrent.PiecePicking
+  fullName: MonoTorrent.PiecePicking
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+- uid: MonoTorrent.PiecePicking.IPiecePicker.CancelRequests*
+  commentId: Overload:MonoTorrent.PiecePicking.IPiecePicker.CancelRequests
+  href: MonoTorrent.PiecePicking.IPiecePicker.html#MonoTorrent_PiecePicking_IPiecePicker_CancelRequests_MonoTorrent_PiecePicking_IRequester_System_Int32_System_Int32_System_Span_MonoTorrent_PiecePicking_PieceSegment__
+  name: CancelRequests
+  nameWithType: IPiecePicker.CancelRequests
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.CancelRequests
+- uid: MonoTorrent.PiecePicking.IRequester
+  commentId: T:MonoTorrent.PiecePicking.IRequester
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.IRequester.html
+  name: IRequester
+  nameWithType: IRequester
+  fullName: MonoTorrent.PiecePicking.IRequester
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Span{MonoTorrent.PiecePicking.PieceSegment}
+  commentId: T:System.Span{MonoTorrent.PiecePicking.PieceSegment}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<PieceSegment>
+  nameWithType: Span<PieceSegment>
+  fullName: System.Span<MonoTorrent.PiecePicking.PieceSegment>
+  nameWithType.vb: Span(Of PieceSegment)
+  fullName.vb: System.Span(Of MonoTorrent.PiecePicking.PieceSegment)
+  name.vb: Span(Of PieceSegment)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.PiecePicking.IPiecePicker.ContinueAnyExistingRequest*
+  commentId: Overload:MonoTorrent.PiecePicking.IPiecePicker.ContinueAnyExistingRequest
+  href: MonoTorrent.PiecePicking.IPiecePicker.html#MonoTorrent_PiecePicking_IPiecePicker_ContinueAnyExistingRequest_MonoTorrent_PiecePicking_IRequester_MonoTorrent_ReadOnlyBitField_System_Int32_System_Int32_System_Int32_MonoTorrent_PiecePicking_PieceSegment__
+  name: ContinueAnyExistingRequest
+  nameWithType: IPiecePicker.ContinueAnyExistingRequest
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.ContinueAnyExistingRequest
+- uid: MonoTorrent.ReadOnlyBitField
+  commentId: T:MonoTorrent.ReadOnlyBitField
+  parent: MonoTorrent
+  href: MonoTorrent.ReadOnlyBitField.html
+  name: ReadOnlyBitField
+  nameWithType: ReadOnlyBitField
+  fullName: MonoTorrent.ReadOnlyBitField
+- uid: MonoTorrent.PiecePicking.PieceSegment
+  commentId: T:MonoTorrent.PiecePicking.PieceSegment
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.PieceSegment.html
+  name: PieceSegment
+  nameWithType: PieceSegment
+  fullName: MonoTorrent.PiecePicking.PieceSegment
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.PiecePicking.IPiecePicker.ContinueExistingRequest*
+  commentId: Overload:MonoTorrent.PiecePicking.IPiecePicker.ContinueExistingRequest
+  href: MonoTorrent.PiecePicking.IPiecePicker.html#MonoTorrent_PiecePicking_IPiecePicker_ContinueExistingRequest_MonoTorrent_PiecePicking_IRequester_System_Int32_System_Int32_MonoTorrent_PiecePicking_PieceSegment__
+  name: ContinueExistingRequest
+  nameWithType: IPiecePicker.ContinueExistingRequest
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.ContinueExistingRequest
+- uid: MonoTorrent.PiecePicking.IPiecePicker.CurrentReceivedCount*
+  commentId: Overload:MonoTorrent.PiecePicking.IPiecePicker.CurrentReceivedCount
+  href: MonoTorrent.PiecePicking.IPiecePicker.html#MonoTorrent_PiecePicking_IPiecePicker_CurrentReceivedCount
+  name: CurrentReceivedCount
+  nameWithType: IPiecePicker.CurrentReceivedCount
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.CurrentReceivedCount
+- uid: MonoTorrent.PiecePicking.IPiecePicker.CurrentRequestCount*
+  commentId: Overload:MonoTorrent.PiecePicking.IPiecePicker.CurrentRequestCount
+  href: MonoTorrent.PiecePicking.IPiecePicker.html#MonoTorrent_PiecePicking_IPiecePicker_CurrentRequestCount
+  name: CurrentRequestCount
+  nameWithType: IPiecePicker.CurrentRequestCount
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.CurrentRequestCount
+- uid: MonoTorrent.PiecePicking.IPiecePicker.ExportActiveRequests*
+  commentId: Overload:MonoTorrent.PiecePicking.IPiecePicker.ExportActiveRequests
+  href: MonoTorrent.PiecePicking.IPiecePicker.html#MonoTorrent_PiecePicking_IPiecePicker_ExportActiveRequests
+  name: ExportActiveRequests
+  nameWithType: IPiecePicker.ExportActiveRequests
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.ExportActiveRequests
+- uid: System.Collections.Generic.IList{MonoTorrent.PiecePicking.ActivePieceRequest}
+  commentId: T:System.Collections.Generic.IList{MonoTorrent.PiecePicking.ActivePieceRequest}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<ActivePieceRequest>
+  nameWithType: IList<ActivePieceRequest>
+  fullName: System.Collections.Generic.IList<MonoTorrent.PiecePicking.ActivePieceRequest>
+  nameWithType.vb: IList(Of ActivePieceRequest)
+  fullName.vb: System.Collections.Generic.IList(Of MonoTorrent.PiecePicking.ActivePieceRequest)
+  name.vb: IList(Of ActivePieceRequest)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: MonoTorrent.PiecePicking.ActivePieceRequest
+    name: ActivePieceRequest
+    href: MonoTorrent.PiecePicking.ActivePieceRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.ActivePieceRequest
+    name: ActivePieceRequest
+    href: MonoTorrent.PiecePicking.ActivePieceRequest.html
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: MonoTorrent.PiecePicking.IPiecePicker.Initialise*
+  commentId: Overload:MonoTorrent.PiecePicking.IPiecePicker.Initialise
+  href: MonoTorrent.PiecePicking.IPiecePicker.html#MonoTorrent_PiecePicking_IPiecePicker_Initialise_MonoTorrent_PiecePicking_IPieceRequesterData_
+  name: Initialise
+  nameWithType: IPiecePicker.Initialise
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.Initialise
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData
+  commentId: T:MonoTorrent.PiecePicking.IPieceRequesterData
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.IPieceRequesterData.html
+  name: IPieceRequesterData
+  nameWithType: IPieceRequesterData
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData
+- uid: MonoTorrent.PiecePicking.IPiecePicker.IsInteresting*
+  commentId: Overload:MonoTorrent.PiecePicking.IPiecePicker.IsInteresting
+  href: MonoTorrent.PiecePicking.IPiecePicker.html#MonoTorrent_PiecePicking_IPiecePicker_IsInteresting_MonoTorrent_PiecePicking_IRequester_MonoTorrent_ReadOnlyBitField_
+  name: IsInteresting
+  nameWithType: IPiecePicker.IsInteresting
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.IsInteresting
+- uid: MonoTorrent.PiecePicking.IPiecePicker.RequestRejected*
+  commentId: Overload:MonoTorrent.PiecePicking.IPiecePicker.RequestRejected
+  href: MonoTorrent.PiecePicking.IPiecePicker.html#MonoTorrent_PiecePicking_IPiecePicker_RequestRejected_MonoTorrent_PiecePicking_IRequester_MonoTorrent_PiecePicking_PieceSegment_
+  name: RequestRejected
+  nameWithType: IPiecePicker.RequestRejected
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.RequestRejected
+- uid: MonoTorrent.PiecePicking.IPiecePicker.PickPiece*
+  commentId: Overload:MonoTorrent.PiecePicking.IPiecePicker.PickPiece
+  href: MonoTorrent.PiecePicking.IPiecePicker.html#MonoTorrent_PiecePicking_IPiecePicker_PickPiece_MonoTorrent_PiecePicking_IRequester_MonoTorrent_ReadOnlyBitField_System_ReadOnlySpan_MonoTorrent_ReadOnlyBitField__System_Int32_System_Int32_System_Span_MonoTorrent_PiecePicking_PieceSegment__
+  name: PickPiece
+  nameWithType: IPiecePicker.PickPiece
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.PickPiece
+- uid: System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField}
+  commentId: T:System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<ReadOnlyBitField>
+  nameWithType: ReadOnlySpan<ReadOnlyBitField>
+  fullName: System.ReadOnlySpan<MonoTorrent.ReadOnlyBitField>
+  nameWithType.vb: ReadOnlySpan(Of ReadOnlyBitField)
+  fullName.vb: System.ReadOnlySpan(Of MonoTorrent.ReadOnlyBitField)
+  name.vb: ReadOnlySpan(Of ReadOnlyBitField)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: MonoTorrent.ReadOnlyBitField
+    name: ReadOnlyBitField
+    href: MonoTorrent.ReadOnlyBitField.html
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.ReadOnlyBitField
+    name: ReadOnlyBitField
+    href: MonoTorrent.ReadOnlyBitField.html
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.PiecePicking.IPiecePicker.ValidatePiece*
+  commentId: Overload:MonoTorrent.PiecePicking.IPiecePicker.ValidatePiece
+  href: MonoTorrent.PiecePicking.IPiecePicker.html#MonoTorrent_PiecePicking_IPiecePicker_ValidatePiece_MonoTorrent_PiecePicking_IRequester_MonoTorrent_PiecePicking_PieceSegment_System_Boolean__System_Collections_Generic_HashSet_MonoTorrent_PiecePicking_IRequester__
+  name: ValidatePiece
+  nameWithType: IPiecePicker.ValidatePiece
+  fullName: MonoTorrent.PiecePicking.IPiecePicker.ValidatePiece
+- uid: System.Collections.Generic.HashSet{MonoTorrent.PiecePicking.IRequester}
+  commentId: T:System.Collections.Generic.HashSet{MonoTorrent.PiecePicking.IRequester}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<IRequester>
+  nameWithType: HashSet<IRequester>
+  fullName: System.Collections.Generic.HashSet<MonoTorrent.PiecePicking.IRequester>
+  nameWithType.vb: HashSet(Of IRequester)
+  fullName.vb: System.Collections.Generic.HashSet(Of MonoTorrent.PiecePicking.IRequester)
+  name.vb: HashSet(Of IRequester)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

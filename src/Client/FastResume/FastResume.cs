@@ -45,7 +45,8 @@ namespace MonoTorrent.Client
 
         internal static readonly BEncodedString BitfieldKey = "bitfield";
         internal static readonly BEncodedString BitfieldLengthKey = "bitfield_length";
-        internal static readonly BEncodedString InfoHashKey = "infohash";
+        internal static readonly BEncodedString InfoHashV1Key = "infohash"; // Keep original key for backwards compat
+        internal static readonly BEncodedString InfoHashV2Key = "infohash_v2";
         internal static readonly BEncodedString UnhashedPiecesKey = "unhashed_pieces";
         internal static readonly BEncodedString VersionKey = "version";
 
@@ -70,16 +71,29 @@ namespace MonoTorrent.Client
         internal FastResume (BEncodedDictionary dict)
         {
             CheckVersion (dict);
-            CheckContent (dict, InfoHashKey);
+            // V1 hash might not be present in V2-only fastresume
+            // V2 hash might not be present in V1-only fastresume
+            // At least one must be present.
+            if (!dict.ContainsKey (InfoHashV1Key) && !dict.ContainsKey (InfoHashV2Key))
+                throw new TorrentException ($"Invalid FastResume data. Neither '{InfoHashV1Key}' nor '{InfoHashV2Key}' were present");
+
             CheckContent (dict, BitfieldKey);
             CheckContent (dict, BitfieldLengthKey);
 
-            // BEP52: Support backwards/forwards compatibility
-            var infoHash = InfoHash.FromMemory (((BEncodedString) dict[InfoHashKey]).AsMemory ());
-            if (infoHash.Span.Length == 20)
-                InfoHashes = InfoHashes.FromV1 (infoHash);
-            else
-                InfoHashes = InfoHashes.FromV2 (infoHash);
+            InfoHash? v1 = null;
+            InfoHash? v2 = null;
+
+            if (dict.TryGetValue (InfoHashV1Key, out BEncodedValue? v1Val) && v1Val is BEncodedString v1String)
+                v1 = InfoHash.FromMemory (v1String.AsMemory ());
+            if (dict.TryGetValue (InfoHashV2Key, out BEncodedValue? v2Val) && v2Val is BEncodedString v2String)
+                v2 = InfoHash.FromMemory (v2String.AsMemory ());
+
+            if (v1 != null && v1.Span.Length != 20)
+                throw new TorrentException ("Invalid FastResume data. V1 infohash was not 20 bytes.");
+            if (v2 != null && v2.Span.Length != 32)
+                throw new TorrentException ("Invalid FastResume data. V2 infohash was not 32 bytes.");
+
+            InfoHashes = new InfoHashes (v1, v2);
 
             var data = ((BEncodedString) dict[BitfieldKey]).Span;
             Bitfield = new ReadOnlyBitField (data, (int) ((BEncodedNumber) dict[BitfieldLengthKey]).Number);
@@ -110,13 +124,18 @@ namespace MonoTorrent.Client
 
         public byte[] Encode ()
         {
-            return new BEncodedDictionary {
+            var dict = new BEncodedDictionary {
                 { VersionKey, FastResumeVersion },
-                { InfoHashKey, BEncodedString.FromMemory (InfoHashes.V1OrV2.AsMemory ()) },
                 { BitfieldKey, new BEncodedString(Bitfield.ToBytes()) },
                 { BitfieldLengthKey, (BEncodedNumber)Bitfield.Length },
                 { UnhashedPiecesKey, new BEncodedString (UnhashedPieces.ToBytes ()) }
-            }.Encode ();
+            };
+            if (InfoHashes.V1 != null)
+                dict.Add (InfoHashV1Key, BEncodedString.FromMemory (InfoHashes.V1.AsMemory ()));
+            if (InfoHashes.V2 != null)
+                dict.Add (InfoHashV2Key, BEncodedString.FromMemory (InfoHashes.V2.AsMemory ()));
+            return dict.Encode ();
+            
         }
 
         public void Encode (Stream s)

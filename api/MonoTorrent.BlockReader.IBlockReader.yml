@@ -1,0 +1,412 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.BlockReader.IBlockReader
+  commentId: T:MonoTorrent.BlockReader.IBlockReader
+  id: IBlockReader
+  parent: MonoTorrent.BlockReader
+  children:
+  - MonoTorrent.BlockReader.IBlockReader.ReadAsync(MonoTorrent.ITorrentManagerInfo,System.Int64,System.Memory{System.Byte})
+  langs:
+  - csharp
+  - vb
+  name: IBlockReader
+  nameWithType: IBlockReader
+  fullName: MonoTorrent.BlockReader.IBlockReader
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/PieceReader/IBlockReader.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IBlockReader
+    path: src/PieceReader/IBlockReader.cs
+    startLine: 6
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BlockReader
+  syntax:
+    content: public interface IBlockReader
+    content.vb: Public Interface IBlockReader
+  extensionMethods:
+  - MonoTorrent.BlockReader.IBlockReader.MonoTorrent.BlockReader.PieceReaderExtensions.ReadAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+- uid: MonoTorrent.BlockReader.IBlockReader.ReadAsync(MonoTorrent.ITorrentManagerInfo,System.Int64,System.Memory{System.Byte})
+  commentId: M:MonoTorrent.BlockReader.IBlockReader.ReadAsync(MonoTorrent.ITorrentManagerInfo,System.Int64,System.Memory{System.Byte})
+  id: ReadAsync(MonoTorrent.ITorrentManagerInfo,System.Int64,System.Memory{System.Byte})
+  parent: MonoTorrent.BlockReader.IBlockReader
+  langs:
+  - csharp
+  - vb
+  name: ReadAsync(ITorrentManagerInfo, long, Memory<byte>)
+  nameWithType: IBlockReader.ReadAsync(ITorrentManagerInfo, long, Memory<byte>)
+  fullName: MonoTorrent.BlockReader.IBlockReader.ReadAsync(MonoTorrent.ITorrentManagerInfo, long, System.Memory<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceReader/IBlockReader.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ReadAsync
+    path: src/PieceReader/IBlockReader.cs
+    startLine: 8
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.BlockReader
+  syntax:
+    content: ReusableTask<int> ReadAsync(ITorrentManagerInfo torrent, long offset, Memory<byte> buffer)
+    parameters:
+    - id: torrent
+      type: MonoTorrent.ITorrentManagerInfo
+    - id: offset
+      type: System.Int64
+    - id: buffer
+      type: System.Memory{System.Byte}
+    return:
+      type: ReusableTasks.ReusableTask{System.Int32}
+    content.vb: Function ReadAsync(torrent As ITorrentManagerInfo, offset As Long, buffer As Memory(Of Byte)) As ReusableTask(Of Integer)
+  overload: MonoTorrent.BlockReader.IBlockReader.ReadAsync*
+  nameWithType.vb: IBlockReader.ReadAsync(ITorrentManagerInfo, Long, Memory(Of Byte))
+  fullName.vb: MonoTorrent.BlockReader.IBlockReader.ReadAsync(MonoTorrent.ITorrentManagerInfo, Long, System.Memory(Of Byte))
+  name.vb: ReadAsync(ITorrentManagerInfo, Long, Memory(Of Byte))
+references:
+- uid: MonoTorrent.BlockReader
+  commentId: N:MonoTorrent.BlockReader
+  href: MonoTorrent.html
+  name: MonoTorrent.BlockReader
+  nameWithType: MonoTorrent.BlockReader
+  fullName: MonoTorrent.BlockReader
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BlockReader
+    name: BlockReader
+    href: MonoTorrent.BlockReader.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BlockReader
+    name: BlockReader
+    href: MonoTorrent.BlockReader.html
+- uid: MonoTorrent.BlockReader.IBlockReader.MonoTorrent.BlockReader.PieceReaderExtensions.ReadAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  commentId: M:MonoTorrent.BlockReader.PieceReaderExtensions.ReadAsync(MonoTorrent.BlockReader.IBlockReader,MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  parent: MonoTorrent.BlockReader.PieceReaderExtensions
+  definition: MonoTorrent.BlockReader.PieceReaderExtensions.ReadAsync(MonoTorrent.BlockReader.IBlockReader,MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  href: MonoTorrent.BlockReader.PieceReaderExtensions.html#MonoTorrent_BlockReader_PieceReaderExtensions_ReadAsync_MonoTorrent_BlockReader_IBlockReader_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__
+  name: ReadAsync(IBlockReader, ITorrentManagerInfo, BlockInfo, Memory<byte>)
+  nameWithType: PieceReaderExtensions.ReadAsync(IBlockReader, ITorrentManagerInfo, BlockInfo, Memory<byte>)
+  fullName: MonoTorrent.BlockReader.PieceReaderExtensions.ReadAsync(MonoTorrent.BlockReader.IBlockReader, MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory<byte>)
+  nameWithType.vb: PieceReaderExtensions.ReadAsync(IBlockReader, ITorrentManagerInfo, BlockInfo, Memory(Of Byte))
+  fullName.vb: MonoTorrent.BlockReader.PieceReaderExtensions.ReadAsync(MonoTorrent.BlockReader.IBlockReader, MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory(Of Byte))
+  name.vb: ReadAsync(IBlockReader, ITorrentManagerInfo, BlockInfo, Memory(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.BlockReader.PieceReaderExtensions.ReadAsync(MonoTorrent.BlockReader.IBlockReader,MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+    name: ReadAsync
+    href: MonoTorrent.BlockReader.PieceReaderExtensions.html#MonoTorrent_BlockReader_PieceReaderExtensions_ReadAsync_MonoTorrent_BlockReader_IBlockReader_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.BlockReader.IBlockReader
+    name: IBlockReader
+    href: MonoTorrent.BlockReader.IBlockReader.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BlockInfo
+    name: BlockInfo
+    href: MonoTorrent.BlockInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BlockReader.PieceReaderExtensions.ReadAsync(MonoTorrent.BlockReader.IBlockReader,MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+    name: ReadAsync
+    href: MonoTorrent.BlockReader.PieceReaderExtensions.html#MonoTorrent_BlockReader_PieceReaderExtensions_ReadAsync_MonoTorrent_BlockReader_IBlockReader_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.BlockReader.IBlockReader
+    name: IBlockReader
+    href: MonoTorrent.BlockReader.IBlockReader.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BlockInfo
+    name: BlockInfo
+    href: MonoTorrent.BlockInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.BlockReader.PieceReaderExtensions.ReadAsync(MonoTorrent.BlockReader.IBlockReader,MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  commentId: M:MonoTorrent.BlockReader.PieceReaderExtensions.ReadAsync(MonoTorrent.BlockReader.IBlockReader,MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  isExternal: true
+  href: MonoTorrent.BlockReader.PieceReaderExtensions.html#MonoTorrent_BlockReader_PieceReaderExtensions_ReadAsync_MonoTorrent_BlockReader_IBlockReader_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__
+  name: ReadAsync(IBlockReader, ITorrentManagerInfo, BlockInfo, Memory<byte>)
+  nameWithType: PieceReaderExtensions.ReadAsync(IBlockReader, ITorrentManagerInfo, BlockInfo, Memory<byte>)
+  fullName: MonoTorrent.BlockReader.PieceReaderExtensions.ReadAsync(MonoTorrent.BlockReader.IBlockReader, MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory<byte>)
+  nameWithType.vb: PieceReaderExtensions.ReadAsync(IBlockReader, ITorrentManagerInfo, BlockInfo, Memory(Of Byte))
+  fullName.vb: MonoTorrent.BlockReader.PieceReaderExtensions.ReadAsync(MonoTorrent.BlockReader.IBlockReader, MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory(Of Byte))
+  name.vb: ReadAsync(IBlockReader, ITorrentManagerInfo, BlockInfo, Memory(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.BlockReader.PieceReaderExtensions.ReadAsync(MonoTorrent.BlockReader.IBlockReader,MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+    name: ReadAsync
+    href: MonoTorrent.BlockReader.PieceReaderExtensions.html#MonoTorrent_BlockReader_PieceReaderExtensions_ReadAsync_MonoTorrent_BlockReader_IBlockReader_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.BlockReader.IBlockReader
+    name: IBlockReader
+    href: MonoTorrent.BlockReader.IBlockReader.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BlockInfo
+    name: BlockInfo
+    href: MonoTorrent.BlockInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.BlockReader.PieceReaderExtensions.ReadAsync(MonoTorrent.BlockReader.IBlockReader,MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+    name: ReadAsync
+    href: MonoTorrent.BlockReader.PieceReaderExtensions.html#MonoTorrent_BlockReader_PieceReaderExtensions_ReadAsync_MonoTorrent_BlockReader_IBlockReader_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.BlockReader.IBlockReader
+    name: IBlockReader
+    href: MonoTorrent.BlockReader.IBlockReader.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BlockInfo
+    name: BlockInfo
+    href: MonoTorrent.BlockInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.BlockReader.PieceReaderExtensions
+  commentId: T:MonoTorrent.BlockReader.PieceReaderExtensions
+  parent: MonoTorrent.BlockReader
+  href: MonoTorrent.BlockReader.PieceReaderExtensions.html
+  name: PieceReaderExtensions
+  nameWithType: PieceReaderExtensions
+  fullName: MonoTorrent.BlockReader.PieceReaderExtensions
+- uid: MonoTorrent.BlockReader.IBlockReader.ReadAsync*
+  commentId: Overload:MonoTorrent.BlockReader.IBlockReader.ReadAsync
+  href: MonoTorrent.BlockReader.IBlockReader.html#MonoTorrent_BlockReader_IBlockReader_ReadAsync_MonoTorrent_ITorrentManagerInfo_System_Int64_System_Memory_System_Byte__
+  name: ReadAsync
+  nameWithType: IBlockReader.ReadAsync
+  fullName: MonoTorrent.BlockReader.IBlockReader.ReadAsync
+- uid: MonoTorrent.ITorrentManagerInfo
+  commentId: T:MonoTorrent.ITorrentManagerInfo
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentManagerInfo.html
+  name: ITorrentManagerInfo
+  nameWithType: ITorrentManagerInfo
+  fullName: MonoTorrent.ITorrentManagerInfo
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: System.Memory{System.Byte}
+  commentId: T:System.Memory{System.Byte}
+  parent: System
+  definition: System.Memory`1
+  href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  name: Memory<byte>
+  nameWithType: Memory<byte>
+  fullName: System.Memory<byte>
+  nameWithType.vb: Memory(Of Byte)
+  fullName.vb: System.Memory(Of Byte)
+  name.vb: Memory(Of Byte)
+  spec.csharp:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: ReusableTasks.ReusableTask{System.Int32}
+  commentId: T:ReusableTasks.ReusableTask{System.Int32}
+  parent: ReusableTasks
+  definition: ReusableTasks.ReusableTask`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: ReusableTask<int>
+  nameWithType: ReusableTask<int>
+  fullName: ReusableTasks.ReusableTask<int>
+  nameWithType.vb: ReusableTask(Of Integer)
+  fullName.vb: ReusableTasks.ReusableTask(Of Integer)
+  name.vb: ReusableTask(Of Integer)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Memory`1
+  commentId: T:System.Memory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  name: Memory<T>
+  nameWithType: Memory<T>
+  fullName: System.Memory<T>
+  nameWithType.vb: Memory(Of T)
+  fullName.vb: System.Memory(Of T)
+  name.vb: Memory(Of T)
+  spec.csharp:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ReusableTasks.ReusableTask`1
+  commentId: T:ReusableTasks.ReusableTask`1
+  isExternal: true
+  name: ReusableTask<T>
+  nameWithType: ReusableTask<T>
+  fullName: ReusableTasks.ReusableTask<T>
+  nameWithType.vb: ReusableTask(Of T)
+  fullName.vb: ReusableTasks.ReusableTask(Of T)
+  name.vb: ReusableTask(Of T)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ReusableTasks
+  commentId: N:ReusableTasks
+  isExternal: true
+  name: ReusableTasks
+  nameWithType: ReusableTasks
+  fullName: ReusableTasks

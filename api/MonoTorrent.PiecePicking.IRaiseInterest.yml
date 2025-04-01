@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PiecePicking.IRaiseInterest
+  commentId: T:MonoTorrent.PiecePicking.IRaiseInterest
+  id: IRaiseInterest
+  parent: MonoTorrent.PiecePicking
+  children:
+  - MonoTorrent.PiecePicking.IRaiseInterest.RaiseInterest
+  langs:
+  - csharp
+  - vb
+  name: IRaiseInterest
+  nameWithType: IRaiseInterest
+  fullName: MonoTorrent.PiecePicking.IRaiseInterest
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IRaiseInterest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IRaiseInterest
+    path: src/PiecePicking/IRaiseInterest.cs
+    startLine: 4
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: public interface IRaiseInterest
+    content.vb: Public Interface IRaiseInterest
+- uid: MonoTorrent.PiecePicking.IRaiseInterest.RaiseInterest
+  commentId: M:MonoTorrent.PiecePicking.IRaiseInterest.RaiseInterest
+  id: RaiseInterest
+  parent: MonoTorrent.PiecePicking.IRaiseInterest
+  langs:
+  - csharp
+  - vb
+  name: RaiseInterest()
+  nameWithType: IRaiseInterest.RaiseInterest()
+  fullName: MonoTorrent.PiecePicking.IRaiseInterest.RaiseInterest()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IRaiseInterest.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RaiseInterest
+    path: src/PiecePicking/IRaiseInterest.cs
+    startLine: 6
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: Task RaiseInterest()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function RaiseInterest() As Task
+  overload: MonoTorrent.PiecePicking.IRaiseInterest.RaiseInterest*
+references:
+- uid: MonoTorrent.PiecePicking
+  commentId: N:MonoTorrent.PiecePicking
+  href: MonoTorrent.html
+  name: MonoTorrent.PiecePicking
+  nameWithType: MonoTorrent.PiecePicking
+  fullName: MonoTorrent.PiecePicking
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+- uid: MonoTorrent.PiecePicking.IRaiseInterest.RaiseInterest*
+  commentId: Overload:MonoTorrent.PiecePicking.IRaiseInterest.RaiseInterest
+  href: MonoTorrent.PiecePicking.IRaiseInterest.html#MonoTorrent_PiecePicking_IRaiseInterest_RaiseInterest
+  name: RaiseInterest
+  nameWithType: IRaiseInterest.RaiseInterest
+  fullName: MonoTorrent.PiecePicking.IRaiseInterest.RaiseInterest
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

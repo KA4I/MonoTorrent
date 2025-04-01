@@ -1,0 +1,929 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection
+  commentId: T:MonoTorrent.Connections.Tracker.UdpTrackerConnection
+  id: UdpTrackerConnection
+  parent: MonoTorrent.Connections.Tracker
+  children:
+  - MonoTorrent.Connections.Tracker.UdpTrackerConnection.#ctor(System.Uri,System.Net.Sockets.AddressFamily)
+  - MonoTorrent.Connections.Tracker.UdpTrackerConnection.AddressFamily
+  - MonoTorrent.Connections.Tracker.UdpTrackerConnection.AnnounceAsync(MonoTorrent.Trackers.AnnounceRequest,System.Threading.CancellationToken)
+  - MonoTorrent.Connections.Tracker.UdpTrackerConnection.CanScrape
+  - MonoTorrent.Connections.Tracker.UdpTrackerConnection.RetryDelay
+  - MonoTorrent.Connections.Tracker.UdpTrackerConnection.ScrapeAsync(MonoTorrent.Trackers.ScrapeRequest,System.Threading.CancellationToken)
+  - MonoTorrent.Connections.Tracker.UdpTrackerConnection.Uri
+  langs:
+  - csharp
+  - vb
+  name: UdpTrackerConnection
+  nameWithType: UdpTrackerConnection
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/UdpTrackerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: UdpTrackerConnection
+    path: src/Connections/Tracker/UdpTrackerConnection.cs
+    startLine: 43
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Tracker
+  syntax:
+    content: 'public class UdpTrackerConnection : ITrackerConnection'
+    content.vb: Public Class UdpTrackerConnection Implements ITrackerConnection
+  inheritance:
+  - System.Object
+  implements:
+  - MonoTorrent.Connections.Tracker.ITrackerConnection
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection.CanScrape
+  commentId: P:MonoTorrent.Connections.Tracker.UdpTrackerConnection.CanScrape
+  id: CanScrape
+  parent: MonoTorrent.Connections.Tracker.UdpTrackerConnection
+  langs:
+  - csharp
+  - vb
+  name: CanScrape
+  nameWithType: UdpTrackerConnection.CanScrape
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection.CanScrape
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/UdpTrackerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CanScrape
+    path: src/Connections/Tracker/UdpTrackerConnection.cs
+    startLine: 46
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Tracker
+  summary: True if the tracker supports Scrape requests.
+  example: []
+  syntax:
+    content: public bool CanScrape { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property CanScrape As Boolean
+  overload: MonoTorrent.Connections.Tracker.UdpTrackerConnection.CanScrape*
+  implements:
+  - MonoTorrent.Connections.Tracker.ITrackerConnection.CanScrape
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection.AddressFamily
+  commentId: P:MonoTorrent.Connections.Tracker.UdpTrackerConnection.AddressFamily
+  id: AddressFamily
+  parent: MonoTorrent.Connections.Tracker.UdpTrackerConnection
+  langs:
+  - csharp
+  - vb
+  name: AddressFamily
+  nameWithType: UdpTrackerConnection.AddressFamily
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection.AddressFamily
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/UdpTrackerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AddressFamily
+    path: src/Connections/Tracker/UdpTrackerConnection.cs
+    startLine: 48
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Tracker
+  syntax:
+    content: public AddressFamily AddressFamily { get; }
+    parameters: []
+    return:
+      type: System.Net.Sockets.AddressFamily
+    content.vb: Public ReadOnly Property AddressFamily As AddressFamily
+  overload: MonoTorrent.Connections.Tracker.UdpTrackerConnection.AddressFamily*
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection.Uri
+  commentId: P:MonoTorrent.Connections.Tracker.UdpTrackerConnection.Uri
+  id: Uri
+  parent: MonoTorrent.Connections.Tracker.UdpTrackerConnection
+  langs:
+  - csharp
+  - vb
+  name: Uri
+  nameWithType: UdpTrackerConnection.Uri
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection.Uri
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/UdpTrackerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Uri
+    path: src/Connections/Tracker/UdpTrackerConnection.cs
+    startLine: 49
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Tracker
+  summary: The uri for the tracker
+  example: []
+  syntax:
+    content: public Uri Uri { get; }
+    parameters: []
+    return:
+      type: System.Uri
+    content.vb: Public ReadOnly Property Uri As Uri
+  overload: MonoTorrent.Connections.Tracker.UdpTrackerConnection.Uri*
+  implements:
+  - MonoTorrent.Connections.Tracker.ITrackerConnection.Uri
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection.RetryDelay
+  commentId: P:MonoTorrent.Connections.Tracker.UdpTrackerConnection.RetryDelay
+  id: RetryDelay
+  parent: MonoTorrent.Connections.Tracker.UdpTrackerConnection
+  langs:
+  - csharp
+  - vb
+  name: RetryDelay
+  nameWithType: UdpTrackerConnection.RetryDelay
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection.RetryDelay
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/UdpTrackerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RetryDelay
+    path: src/Connections/Tracker/UdpTrackerConnection.cs
+    startLine: 54
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Tracker
+  syntax:
+    content: public TimeSpan RetryDelay { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property RetryDelay As TimeSpan
+  overload: MonoTorrent.Connections.Tracker.UdpTrackerConnection.RetryDelay*
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection.#ctor(System.Uri,System.Net.Sockets.AddressFamily)
+  commentId: M:MonoTorrent.Connections.Tracker.UdpTrackerConnection.#ctor(System.Uri,System.Net.Sockets.AddressFamily)
+  id: '#ctor(System.Uri,System.Net.Sockets.AddressFamily)'
+  parent: MonoTorrent.Connections.Tracker.UdpTrackerConnection
+  langs:
+  - csharp
+  - vb
+  name: UdpTrackerConnection(Uri, AddressFamily)
+  nameWithType: UdpTrackerConnection.UdpTrackerConnection(Uri, AddressFamily)
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection.UdpTrackerConnection(System.Uri, System.Net.Sockets.AddressFamily)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/UdpTrackerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Connections/Tracker/UdpTrackerConnection.cs
+    startLine: 57
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Tracker
+  syntax:
+    content: public UdpTrackerConnection(Uri announceUri, AddressFamily addressFamily)
+    parameters:
+    - id: announceUri
+      type: System.Uri
+    - id: addressFamily
+      type: System.Net.Sockets.AddressFamily
+    content.vb: Public Sub New(announceUri As Uri, addressFamily As AddressFamily)
+  overload: MonoTorrent.Connections.Tracker.UdpTrackerConnection.#ctor*
+  nameWithType.vb: UdpTrackerConnection.New(Uri, AddressFamily)
+  fullName.vb: MonoTorrent.Connections.Tracker.UdpTrackerConnection.New(System.Uri, System.Net.Sockets.AddressFamily)
+  name.vb: New(Uri, AddressFamily)
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection.AnnounceAsync(MonoTorrent.Trackers.AnnounceRequest,System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.Connections.Tracker.UdpTrackerConnection.AnnounceAsync(MonoTorrent.Trackers.AnnounceRequest,System.Threading.CancellationToken)
+  id: AnnounceAsync(MonoTorrent.Trackers.AnnounceRequest,System.Threading.CancellationToken)
+  parent: MonoTorrent.Connections.Tracker.UdpTrackerConnection
+  langs:
+  - csharp
+  - vb
+  name: AnnounceAsync(AnnounceRequest, CancellationToken)
+  nameWithType: UdpTrackerConnection.AnnounceAsync(AnnounceRequest, CancellationToken)
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection.AnnounceAsync(MonoTorrent.Trackers.AnnounceRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/UdpTrackerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AnnounceAsync
+    path: src/Connections/Tracker/UdpTrackerConnection.cs
+    startLine: 63
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Tracker
+  summary: Send an announce request to the tracker.
+  example: []
+  syntax:
+    content: public ReusableTask<AnnounceResponse> AnnounceAsync(AnnounceRequest parameters, CancellationToken token)
+    parameters:
+    - id: parameters
+      type: MonoTorrent.Trackers.AnnounceRequest
+    - id: token
+      type: System.Threading.CancellationToken
+      description: The token used to cancel the request.
+    return:
+      type: ReusableTasks.ReusableTask{MonoTorrent.Trackers.AnnounceResponse}
+      description: ''
+    content.vb: Public Function AnnounceAsync(parameters As AnnounceRequest, token As CancellationToken) As ReusableTask(Of AnnounceResponse)
+  overload: MonoTorrent.Connections.Tracker.UdpTrackerConnection.AnnounceAsync*
+  implements:
+  - MonoTorrent.Connections.Tracker.ITrackerConnection.AnnounceAsync(MonoTorrent.Trackers.AnnounceRequest,System.Threading.CancellationToken)
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection.ScrapeAsync(MonoTorrent.Trackers.ScrapeRequest,System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.Connections.Tracker.UdpTrackerConnection.ScrapeAsync(MonoTorrent.Trackers.ScrapeRequest,System.Threading.CancellationToken)
+  id: ScrapeAsync(MonoTorrent.Trackers.ScrapeRequest,System.Threading.CancellationToken)
+  parent: MonoTorrent.Connections.Tracker.UdpTrackerConnection
+  langs:
+  - csharp
+  - vb
+  name: ScrapeAsync(ScrapeRequest, CancellationToken)
+  nameWithType: UdpTrackerConnection.ScrapeAsync(ScrapeRequest, CancellationToken)
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection.ScrapeAsync(MonoTorrent.Trackers.ScrapeRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/UdpTrackerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ScrapeAsync
+    path: src/Connections/Tracker/UdpTrackerConnection.cs
+    startLine: 111
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Tracker
+  summary: Send a scrape request to the tracker.
+  example: []
+  syntax:
+    content: public ReusableTask<ScrapeResponse> ScrapeAsync(ScrapeRequest parameters, CancellationToken token)
+    parameters:
+    - id: parameters
+      type: MonoTorrent.Trackers.ScrapeRequest
+    - id: token
+      type: System.Threading.CancellationToken
+      description: The token used to cancel the request.
+    return:
+      type: ReusableTasks.ReusableTask{MonoTorrent.Trackers.ScrapeResponse}
+      description: ''
+    content.vb: Public Function ScrapeAsync(parameters As ScrapeRequest, token As CancellationToken) As ReusableTask(Of ScrapeResponse)
+  overload: MonoTorrent.Connections.Tracker.UdpTrackerConnection.ScrapeAsync*
+  implements:
+  - MonoTorrent.Connections.Tracker.ITrackerConnection.ScrapeAsync(MonoTorrent.Trackers.ScrapeRequest,System.Threading.CancellationToken)
+references:
+- uid: MonoTorrent.Connections.Tracker
+  commentId: N:MonoTorrent.Connections.Tracker
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.Tracker
+  nameWithType: MonoTorrent.Connections.Tracker
+  fullName: MonoTorrent.Connections.Tracker
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Tracker
+    name: Tracker
+    href: MonoTorrent.Connections.Tracker.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Tracker
+    name: Tracker
+    href: MonoTorrent.Connections.Tracker.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MonoTorrent.Connections.Tracker.ITrackerConnection
+  commentId: T:MonoTorrent.Connections.Tracker.ITrackerConnection
+  parent: MonoTorrent.Connections.Tracker
+  href: MonoTorrent.Connections.Tracker.ITrackerConnection.html
+  name: ITrackerConnection
+  nameWithType: ITrackerConnection
+  fullName: MonoTorrent.Connections.Tracker.ITrackerConnection
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection.CanScrape*
+  commentId: Overload:MonoTorrent.Connections.Tracker.UdpTrackerConnection.CanScrape
+  href: MonoTorrent.Connections.Tracker.UdpTrackerConnection.html#MonoTorrent_Connections_Tracker_UdpTrackerConnection_CanScrape
+  name: CanScrape
+  nameWithType: UdpTrackerConnection.CanScrape
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection.CanScrape
+- uid: MonoTorrent.Connections.Tracker.ITrackerConnection.CanScrape
+  commentId: P:MonoTorrent.Connections.Tracker.ITrackerConnection.CanScrape
+  parent: MonoTorrent.Connections.Tracker.ITrackerConnection
+  href: MonoTorrent.Connections.Tracker.ITrackerConnection.html#MonoTorrent_Connections_Tracker_ITrackerConnection_CanScrape
+  name: CanScrape
+  nameWithType: ITrackerConnection.CanScrape
+  fullName: MonoTorrent.Connections.Tracker.ITrackerConnection.CanScrape
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection.AddressFamily*
+  commentId: Overload:MonoTorrent.Connections.Tracker.UdpTrackerConnection.AddressFamily
+  href: MonoTorrent.Connections.Tracker.UdpTrackerConnection.html#MonoTorrent_Connections_Tracker_UdpTrackerConnection_AddressFamily
+  name: AddressFamily
+  nameWithType: UdpTrackerConnection.AddressFamily
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection.AddressFamily
+- uid: System.Net.Sockets.AddressFamily
+  commentId: T:System.Net.Sockets.AddressFamily
+  parent: System.Net.Sockets
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.sockets.addressfamily
+  name: AddressFamily
+  nameWithType: AddressFamily
+  fullName: System.Net.Sockets.AddressFamily
+- uid: System.Net.Sockets
+  commentId: N:System.Net.Sockets
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Sockets
+  nameWithType: System.Net.Sockets
+  fullName: System.Net.Sockets
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Sockets
+    name: Sockets
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.sockets
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Sockets
+    name: Sockets
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.sockets
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection.Uri*
+  commentId: Overload:MonoTorrent.Connections.Tracker.UdpTrackerConnection.Uri
+  href: MonoTorrent.Connections.Tracker.UdpTrackerConnection.html#MonoTorrent_Connections_Tracker_UdpTrackerConnection_Uri
+  name: Uri
+  nameWithType: UdpTrackerConnection.Uri
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection.Uri
+- uid: MonoTorrent.Connections.Tracker.ITrackerConnection.Uri
+  commentId: P:MonoTorrent.Connections.Tracker.ITrackerConnection.Uri
+  parent: MonoTorrent.Connections.Tracker.ITrackerConnection
+  href: MonoTorrent.Connections.Tracker.ITrackerConnection.html#MonoTorrent_Connections_Tracker_ITrackerConnection_Uri
+  name: Uri
+  nameWithType: ITrackerConnection.Uri
+  fullName: MonoTorrent.Connections.Tracker.ITrackerConnection.Uri
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection.RetryDelay*
+  commentId: Overload:MonoTorrent.Connections.Tracker.UdpTrackerConnection.RetryDelay
+  href: MonoTorrent.Connections.Tracker.UdpTrackerConnection.html#MonoTorrent_Connections_Tracker_UdpTrackerConnection_RetryDelay
+  name: RetryDelay
+  nameWithType: UdpTrackerConnection.RetryDelay
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection.RetryDelay
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection.#ctor*
+  commentId: Overload:MonoTorrent.Connections.Tracker.UdpTrackerConnection.#ctor
+  href: MonoTorrent.Connections.Tracker.UdpTrackerConnection.html#MonoTorrent_Connections_Tracker_UdpTrackerConnection__ctor_System_Uri_System_Net_Sockets_AddressFamily_
+  name: UdpTrackerConnection
+  nameWithType: UdpTrackerConnection.UdpTrackerConnection
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection.UdpTrackerConnection
+  nameWithType.vb: UdpTrackerConnection.New
+  fullName.vb: MonoTorrent.Connections.Tracker.UdpTrackerConnection.New
+  name.vb: New
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection.AnnounceAsync*
+  commentId: Overload:MonoTorrent.Connections.Tracker.UdpTrackerConnection.AnnounceAsync
+  href: MonoTorrent.Connections.Tracker.UdpTrackerConnection.html#MonoTorrent_Connections_Tracker_UdpTrackerConnection_AnnounceAsync_MonoTorrent_Trackers_AnnounceRequest_System_Threading_CancellationToken_
+  name: AnnounceAsync
+  nameWithType: UdpTrackerConnection.AnnounceAsync
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection.AnnounceAsync
+- uid: MonoTorrent.Connections.Tracker.ITrackerConnection.AnnounceAsync(MonoTorrent.Trackers.AnnounceRequest,System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.Connections.Tracker.ITrackerConnection.AnnounceAsync(MonoTorrent.Trackers.AnnounceRequest,System.Threading.CancellationToken)
+  parent: MonoTorrent.Connections.Tracker.ITrackerConnection
+  isExternal: true
+  href: MonoTorrent.Connections.Tracker.ITrackerConnection.html#MonoTorrent_Connections_Tracker_ITrackerConnection_AnnounceAsync_MonoTorrent_Trackers_AnnounceRequest_System_Threading_CancellationToken_
+  name: AnnounceAsync(AnnounceRequest, CancellationToken)
+  nameWithType: ITrackerConnection.AnnounceAsync(AnnounceRequest, CancellationToken)
+  fullName: MonoTorrent.Connections.Tracker.ITrackerConnection.AnnounceAsync(MonoTorrent.Trackers.AnnounceRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: MonoTorrent.Connections.Tracker.ITrackerConnection.AnnounceAsync(MonoTorrent.Trackers.AnnounceRequest,System.Threading.CancellationToken)
+    name: AnnounceAsync
+    href: MonoTorrent.Connections.Tracker.ITrackerConnection.html#MonoTorrent_Connections_Tracker_ITrackerConnection_AnnounceAsync_MonoTorrent_Trackers_AnnounceRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: MonoTorrent.Trackers.AnnounceRequest
+    name: AnnounceRequest
+    href: MonoTorrent.Trackers.AnnounceRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.Tracker.ITrackerConnection.AnnounceAsync(MonoTorrent.Trackers.AnnounceRequest,System.Threading.CancellationToken)
+    name: AnnounceAsync
+    href: MonoTorrent.Connections.Tracker.ITrackerConnection.html#MonoTorrent_Connections_Tracker_ITrackerConnection_AnnounceAsync_MonoTorrent_Trackers_AnnounceRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: MonoTorrent.Trackers.AnnounceRequest
+    name: AnnounceRequest
+    href: MonoTorrent.Trackers.AnnounceRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: MonoTorrent.Trackers.AnnounceRequest
+  commentId: T:MonoTorrent.Trackers.AnnounceRequest
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.AnnounceRequest.html
+  name: AnnounceRequest
+  nameWithType: AnnounceRequest
+  fullName: MonoTorrent.Trackers.AnnounceRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: ReusableTasks.ReusableTask{MonoTorrent.Trackers.AnnounceResponse}
+  commentId: T:ReusableTasks.ReusableTask{MonoTorrent.Trackers.AnnounceResponse}
+  parent: ReusableTasks
+  definition: ReusableTasks.ReusableTask`1
+  href: MonoTorrent.Trackers.AnnounceResponse.html
+  name: ReusableTask<AnnounceResponse>
+  nameWithType: ReusableTask<AnnounceResponse>
+  fullName: ReusableTasks.ReusableTask<MonoTorrent.Trackers.AnnounceResponse>
+  nameWithType.vb: ReusableTask(Of AnnounceResponse)
+  fullName.vb: ReusableTasks.ReusableTask(Of MonoTorrent.Trackers.AnnounceResponse)
+  name.vb: ReusableTask(Of AnnounceResponse)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - uid: MonoTorrent.Trackers.AnnounceResponse
+    name: AnnounceResponse
+    href: MonoTorrent.Trackers.AnnounceResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Trackers.AnnounceResponse
+    name: AnnounceResponse
+    href: MonoTorrent.Trackers.AnnounceResponse.html
+  - name: )
+- uid: MonoTorrent.Trackers
+  commentId: N:MonoTorrent.Trackers
+  href: MonoTorrent.html
+  name: MonoTorrent.Trackers
+  nameWithType: MonoTorrent.Trackers
+  fullName: MonoTorrent.Trackers
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: ReusableTasks.ReusableTask`1
+  commentId: T:ReusableTasks.ReusableTask`1
+  isExternal: true
+  name: ReusableTask<T>
+  nameWithType: ReusableTask<T>
+  fullName: ReusableTasks.ReusableTask<T>
+  nameWithType.vb: ReusableTask(Of T)
+  fullName.vb: ReusableTasks.ReusableTask(Of T)
+  name.vb: ReusableTask(Of T)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ReusableTasks
+  commentId: N:ReusableTasks
+  isExternal: true
+  name: ReusableTasks
+  nameWithType: ReusableTasks
+  fullName: ReusableTasks
+- uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection.ScrapeAsync*
+  commentId: Overload:MonoTorrent.Connections.Tracker.UdpTrackerConnection.ScrapeAsync
+  href: MonoTorrent.Connections.Tracker.UdpTrackerConnection.html#MonoTorrent_Connections_Tracker_UdpTrackerConnection_ScrapeAsync_MonoTorrent_Trackers_ScrapeRequest_System_Threading_CancellationToken_
+  name: ScrapeAsync
+  nameWithType: UdpTrackerConnection.ScrapeAsync
+  fullName: MonoTorrent.Connections.Tracker.UdpTrackerConnection.ScrapeAsync
+- uid: MonoTorrent.Connections.Tracker.ITrackerConnection.ScrapeAsync(MonoTorrent.Trackers.ScrapeRequest,System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.Connections.Tracker.ITrackerConnection.ScrapeAsync(MonoTorrent.Trackers.ScrapeRequest,System.Threading.CancellationToken)
+  parent: MonoTorrent.Connections.Tracker.ITrackerConnection
+  isExternal: true
+  href: MonoTorrent.Connections.Tracker.ITrackerConnection.html#MonoTorrent_Connections_Tracker_ITrackerConnection_ScrapeAsync_MonoTorrent_Trackers_ScrapeRequest_System_Threading_CancellationToken_
+  name: ScrapeAsync(ScrapeRequest, CancellationToken)
+  nameWithType: ITrackerConnection.ScrapeAsync(ScrapeRequest, CancellationToken)
+  fullName: MonoTorrent.Connections.Tracker.ITrackerConnection.ScrapeAsync(MonoTorrent.Trackers.ScrapeRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: MonoTorrent.Connections.Tracker.ITrackerConnection.ScrapeAsync(MonoTorrent.Trackers.ScrapeRequest,System.Threading.CancellationToken)
+    name: ScrapeAsync
+    href: MonoTorrent.Connections.Tracker.ITrackerConnection.html#MonoTorrent_Connections_Tracker_ITrackerConnection_ScrapeAsync_MonoTorrent_Trackers_ScrapeRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: MonoTorrent.Trackers.ScrapeRequest
+    name: ScrapeRequest
+    href: MonoTorrent.Trackers.ScrapeRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.Tracker.ITrackerConnection.ScrapeAsync(MonoTorrent.Trackers.ScrapeRequest,System.Threading.CancellationToken)
+    name: ScrapeAsync
+    href: MonoTorrent.Connections.Tracker.ITrackerConnection.html#MonoTorrent_Connections_Tracker_ITrackerConnection_ScrapeAsync_MonoTorrent_Trackers_ScrapeRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: MonoTorrent.Trackers.ScrapeRequest
+    name: ScrapeRequest
+    href: MonoTorrent.Trackers.ScrapeRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: MonoTorrent.Trackers.ScrapeRequest
+  commentId: T:MonoTorrent.Trackers.ScrapeRequest
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.ScrapeRequest.html
+  name: ScrapeRequest
+  nameWithType: ScrapeRequest
+  fullName: MonoTorrent.Trackers.ScrapeRequest
+- uid: ReusableTasks.ReusableTask{MonoTorrent.Trackers.ScrapeResponse}
+  commentId: T:ReusableTasks.ReusableTask{MonoTorrent.Trackers.ScrapeResponse}
+  parent: ReusableTasks
+  definition: ReusableTasks.ReusableTask`1
+  href: MonoTorrent.Trackers.ScrapeResponse.html
+  name: ReusableTask<ScrapeResponse>
+  nameWithType: ReusableTask<ScrapeResponse>
+  fullName: ReusableTasks.ReusableTask<MonoTorrent.Trackers.ScrapeResponse>
+  nameWithType.vb: ReusableTask(Of ScrapeResponse)
+  fullName.vb: ReusableTasks.ReusableTask(Of MonoTorrent.Trackers.ScrapeResponse)
+  name.vb: ReusableTask(Of ScrapeResponse)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - uid: MonoTorrent.Trackers.ScrapeResponse
+    name: ScrapeResponse
+    href: MonoTorrent.Trackers.ScrapeResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Trackers.ScrapeResponse
+    name: ScrapeResponse
+    href: MonoTorrent.Trackers.ScrapeResponse.html
+  - name: )

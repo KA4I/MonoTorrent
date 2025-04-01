@@ -28,12 +28,14 @@
 
 
 using System;
+using System.Collections.Generic;
 using System.Text;
 
 using MonoTorrent.BEncoding;
 using MonoTorrent.Dht.Messages;
 
 using NUnit.Framework;
+using System.Security.Cryptography; // For SHA1
 
 namespace MonoTorrent.Dht
 {
@@ -43,6 +45,11 @@ namespace MonoTorrent.Dht
         private readonly NodeId id = new NodeId (Encoding.UTF8.GetBytes ("abcdefghij0123456789"));
         private readonly NodeId infohash = new NodeId (Encoding.UTF8.GetBytes ("mnopqrstuvwxyz123456"));
         private readonly BEncodedString token = "aoeusnth";
+        private readonly BEncodedString publicKey = new byte[32];
+        private readonly BEncodedString salt = "mySalt";
+        private readonly BEncodedString signature = new byte[64];
+        private readonly BEncodedNumber sequenceNumber = 123;
+        private readonly BEncodedString value = "myValue";
         private readonly BEncodedString transactionId = "aa";
 
         private QueryMessage message;
@@ -139,6 +146,97 @@ namespace MonoTorrent.Dht
             Compare (m, "d1:rd2:id20:mnopqrstuvwxyz123456e1:t2:aa1:y1:re");
         }
 
+        [Test]
+        public void GetEncode_Immutable()
+        {
+            GetRequest m = new GetRequest(id, infohash);
+            m.TransactionId = transactionId;
+            Compare(m, "d1:ad2:id20:abcdefghij01234567896:target20:mnopqrstuvwxyz123456e1:q3:get1:t2:aa1:y1:qe");
+            message = m;
+        }
+
+        [Test]
+        public void GetEncode_Mutable()
+        {
+            GetRequest m = new GetRequest(id, infohash, sequenceNumber.Number);
+            m.TransactionId = transactionId;
+            Compare(m, "d1:ad2:id20:abcdefghij01234567893:seqi123e6:target20:mnopqrstuvwxyz123456e1:q3:get1:t2:aa1:y1:qe");
+            message = m;
+        }
+
+        [Test]
+        public void GetResponseEncode_Value()
+        {
+            GetResponse m = new GetResponse(id, transactionId);
+            m.Token = token;
+            m.Value = value;
+            Compare(m, "d1:rd2:id20:abcdefghij01234567895:token8:aoeusnth1:v7:myValuee1:t2:aa1:y1:re");
+        }
+
+         [Test]
+        public void GetResponseEncode_Mutable()
+        {
+            GetResponse m = new GetResponse(id, transactionId);
+            m.Token = token;
+            m.Value = value;
+            m.PublicKey = publicKey;
+            m.SequenceNumber = sequenceNumber.Number;
+            m.Signature = signature;
+            Compare(m, "d1:rd2:id20:abcdefghij01234567891:k32:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\03:seqi123e3:sig64:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\05:token8:aoeusnth1:v7:myValuee1:t2:aa1:y1:re");
+        }
+
+        [Test]
+        public void GetResponseEncode_Nodes()
+        {
+            GetResponse m = new GetResponse(id, transactionId);
+            m.Token = token;
+            m.Nodes = "nodes";
+            m.Nodes6 = "nodes6";
+            Compare(m, "d1:rd2:id20:abcdefghij01234567895:nodes5:nodes6:nodes66:nodes65:token8:aoeusnthe1:t2:aa1:y1:re");
+        }
+
+        [Test]
+        public void PutEncode_Immutable()
+        {
+            PutRequest m = new PutRequest(id, token, value);
+            m.TransactionId = transactionId;
+            Compare(m, "d1:ad2:id20:abcdefghij01234567895:token8:aoeusnth1:v7:myValuee1:q3:put1:t2:aa1:y1:qe");
+            message = m;
+        }
+
+        [Test]
+        public void PutEncode_Mutable()
+        {
+            PutRequest m = new PutRequest(id, token, value, publicKey, null, sequenceNumber.Number, signature);
+            m.TransactionId = transactionId;
+            Compare(m, "d1:ad2:id20:abcdefghij01234567891:k32:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\03:seqi123e3:sig64:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\05:token8:aoeusnth1:v7:myValuee1:q3:put1:t2:aa1:y1:qe");
+            message = m;
+        }
+
+         [Test]
+        public void PutEncode_Mutable_WithSalt()
+        {
+            PutRequest m = new PutRequest(id, token, value, publicKey, salt, sequenceNumber.Number, signature);
+            m.TransactionId = transactionId;
+            Compare(m, "d1:ad2:id20:abcdefghij01234567891:k32:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\04:salt6:mySalt3:seqi123e3:sig64:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\05:token8:aoeusnth1:v7:myValuee1:q3:put1:t2:aa1:y1:qe");
+            message = m;
+        }
+
+        [Test]
+        public void PutEncode_Mutable_WithCas()
+        {
+            PutRequest m = new PutRequest(id, token, value, publicKey, null, sequenceNumber.Number, signature, 122);
+            m.TransactionId = transactionId;
+            Compare(m, "d1:ad3:casi122e2:id20:abcdefghij01234567891:k32:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\03:seqi123e3:sig64:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\05:token8:aoeusnth1:v7:myValuee1:q3:put1:t2:aa1:y1:qe");
+            message = m;
+        }
+
+        [Test]
+        public void PutResponseEncode()
+        {
+            PutResponse m = new PutResponse(infohash, transactionId);
+            Compare(m, "d1:rd2:id20:mnopqrstuvwxyz123456e1:t2:aa1:y1:re");
+        }
 
         #endregion
 
@@ -257,6 +355,138 @@ namespace MonoTorrent.Dht
             Assert.AreEqual (infohash, m.Id);
 
             Compare (m, "d1:rd2:id20:mnopqrstuvwxyz123456e1:t2:aa1:y1:re");
+        }
+
+        [Test]
+        public void GetDecode_Immutable()
+        {
+            string text = "d1:ad2:id20:abcdefghij01234567896:target20:mnopqrstuvwxyz123456e1:q3:get1:t2:aa1:y1:qe";
+            GetRequest m = (GetRequest)Decode(text);
+
+            Assert.AreEqual(id, m.Id, "#1");
+            Assert.AreEqual(infohash, m.Target, "#2");
+            Assert.IsNull(m.SequenceNumber, "#3");
+            Assert.AreEqual(transactionId, m.TransactionId, "#4");
+            Compare(m, text);
+        }
+
+        [Test]
+        public void GetDecode_Mutable()
+        {
+            string text = "d1:ad2:id20:abcdefghij01234567893:seqi123e6:target20:mnopqrstuvwxyz123456e1:q3:get1:t2:aa1:y1:qe";
+            GetRequest m = (GetRequest)Decode(text);
+
+            Assert.AreEqual(id, m.Id, "#1");
+            Assert.AreEqual(infohash, m.Target, "#2");
+            Assert.AreEqual(123L, m.SequenceNumber, "#3");
+            Assert.AreEqual(transactionId, m.TransactionId, "#4");
+            Compare(m, text);
+        }
+
+        [Test]
+        public void GetResponseDecode_Value()
+        {
+            GetEncode_Immutable(); // Register the query
+            DhtMessageFactory.RegisterSend(message);
+
+            string text = "d1:rd2:id20:abcdefghij01234567895:token8:aoeusnth1:v7:myValuee1:t2:aa1:y1:re";
+            GetResponse m = (GetResponse)Decode(text);
+
+            Assert.AreEqual(id, m.Id, "#1");
+            Assert.AreEqual(token, m.Token, "#2");
+            Assert.AreEqual(value, m.Value, "#3");
+            Assert.IsNull(m.Nodes, "#4");
+            Assert.IsNull(m.PublicKey, "#5");
+            Assert.IsNull(m.SequenceNumber, "#6");
+            Assert.IsNull(m.Signature, "#7");
+            Compare(m, text);
+        }
+
+        [Test]
+        public void GetResponseDecode_Mutable()
+        {
+            GetEncode_Mutable(); // Register the query
+            DhtMessageFactory.RegisterSend(message);
+
+            string text = "d1:rd2:id20:abcdefghij01234567891:k32:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\03:seqi123e3:sig64:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\05:token8:aoeusnth1:v7:myValuee1:t2:aa1:y1:re";
+            GetResponse m = (GetResponse)Decode(text);
+
+            Assert.AreEqual(id, m.Id, "#1");
+            Assert.AreEqual(token, m.Token, "#2");
+            Assert.AreEqual(value, m.Value, "#3");
+            Assert.AreEqual(publicKey, m.PublicKey, "#4");
+            Assert.AreEqual(sequenceNumber.Number, m.SequenceNumber, "#5");
+            Assert.AreEqual(signature, m.Signature, "#6");
+            Assert.IsNull(m.Nodes, "#7");
+            Compare(m, text);
+        }
+
+        [Test]
+        public void PutDecode_Immutable()
+        {
+            string text = "d1:ad2:id20:abcdefghij01234567895:token8:aoeusnth1:v7:myValuee1:q3:put1:t2:aa1:y1:qe";
+            PutRequest m = (PutRequest)Decode(text);
+
+            Assert.AreEqual(id, m.Id, "#1");
+            Assert.AreEqual(token, m.Token, "#2");
+            Assert.AreEqual(value, m.Value, "#3");
+            Assert.IsNull(m.PublicKey, "#4");
+            Assert.IsNull(m.Salt, "#5");
+            Assert.IsNull(m.SequenceNumber, "#6");
+            Assert.IsNull(m.Signature, "#7");
+            Assert.IsNull(m.Cas, "#8");
+            Assert.AreEqual(transactionId, m.TransactionId, "#9");
+            Compare(m, text);
+        }
+
+        [Test]
+        public void PutDecode_Mutable()
+        {
+            string text = "d1:ad2:id20:abcdefghij01234567891:k32:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\03:seqi123e3:sig64:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\05:token8:aoeusnth1:v7:myValuee1:q3:put1:t2:aa1:y1:qe";
+            PutRequest m = (PutRequest)Decode(text);
+
+            Assert.AreEqual(id, m.Id, "#1");
+            Assert.AreEqual(token, m.Token, "#2");
+            Assert.AreEqual(value, m.Value, "#3");
+            Assert.AreEqual(publicKey, m.PublicKey, "#4");
+            Assert.IsNull(m.Salt, "#5");
+            Assert.AreEqual(sequenceNumber.Number, m.SequenceNumber, "#6");
+            Assert.AreEqual(signature, m.Signature, "#7");
+            Assert.IsNull(m.Cas, "#8");
+            Assert.AreEqual(transactionId, m.TransactionId, "#9");
+            Compare(m, text);
+        }
+
+        [Test]
+        public void PutDecode_Mutable_WithSalt()
+        {
+            string text = "d1:ad2:id20:abcdefghij01234567891:k32:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\04:salt6:mySalt3:seqi123e3:sig64:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\05:token8:aoeusnth1:v7:myValuee1:q3:put1:t2:aa1:y1:qe";
+            PutRequest m = (PutRequest)Decode(text);
+
+            Assert.AreEqual(id, m.Id, "#1");
+            Assert.AreEqual(token, m.Token, "#2");
+            Assert.AreEqual(value, m.Value, "#3");
+            Assert.AreEqual(publicKey, m.PublicKey, "#4");
+            Assert.AreEqual(salt, m.Salt, "#5");
+            Assert.AreEqual(sequenceNumber.Number, m.SequenceNumber, "#6");
+            Assert.AreEqual(signature, m.Signature, "#7");
+            Assert.IsNull(m.Cas, "#8");
+            Assert.AreEqual(transactionId, m.TransactionId, "#9");
+            Compare(m, text);
+        }
+
+        [Test]
+        public void PutResponseDecode()
+        {
+            PutEncode_Immutable(); // Register the query
+            DhtMessageFactory.RegisterSend(message);
+
+            string text = "d1:rd2:id20:mnopqrstuvwxyz123456e1:t2:aa1:y1:re";
+            PutResponse m = (PutResponse)Decode(text);
+
+            Assert.AreEqual(infohash, m.Id, "#1");
+            Assert.AreEqual(transactionId, m.TransactionId, "#2");
+            Compare(m, text);
         }
 
         #endregion

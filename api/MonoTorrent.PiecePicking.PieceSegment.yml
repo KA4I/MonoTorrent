@@ -1,0 +1,919 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PiecePicking.PieceSegment
+  commentId: T:MonoTorrent.PiecePicking.PieceSegment
+  id: PieceSegment
+  parent: MonoTorrent.PiecePicking
+  children:
+  - MonoTorrent.PiecePicking.PieceSegment.#ctor(System.Int32,System.Int32)
+  - MonoTorrent.PiecePicking.PieceSegment.BlockIndex
+  - MonoTorrent.PiecePicking.PieceSegment.Equals(MonoTorrent.PiecePicking.PieceSegment)
+  - MonoTorrent.PiecePicking.PieceSegment.Equals(System.Object)
+  - MonoTorrent.PiecePicking.PieceSegment.GetHashCode
+  - MonoTorrent.PiecePicking.PieceSegment.Invalid
+  - MonoTorrent.PiecePicking.PieceSegment.PieceIndex
+  - MonoTorrent.PiecePicking.PieceSegment.ToString
+  - MonoTorrent.PiecePicking.PieceSegment.op_Equality(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.PieceSegment)
+  - MonoTorrent.PiecePicking.PieceSegment.op_Inequality(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.PieceSegment)
+  langs:
+  - csharp
+  - vb
+  name: PieceSegment
+  nameWithType: PieceSegment
+  fullName: MonoTorrent.PiecePicking.PieceSegment
+  type: Struct
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/PieceSegment.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PieceSegment
+    path: src/PiecePicking/PieceSegment.cs
+    startLine: 32
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: 'public readonly struct PieceSegment : IEquatable<PieceSegment>'
+    content.vb: Public Structure PieceSegment Implements IEquatable(Of PieceSegment)
+  implements:
+  - System.IEquatable{MonoTorrent.PiecePicking.PieceSegment}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  extensionMethods:
+  - MonoTorrent.PiecePicking.PieceSegment.MonoTorrent.PiecePicking.PieceRequesterExtensions.ToBlockInfo(MonoTorrent.PiecePicking.IPieceRequesterData)
+- uid: MonoTorrent.PiecePicking.PieceSegment.Invalid
+  commentId: F:MonoTorrent.PiecePicking.PieceSegment.Invalid
+  id: Invalid
+  parent: MonoTorrent.PiecePicking.PieceSegment
+  langs:
+  - csharp
+  - vb
+  name: Invalid
+  nameWithType: PieceSegment.Invalid
+  fullName: MonoTorrent.PiecePicking.PieceSegment.Invalid
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/PieceSegment.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Invalid
+    path: src/PiecePicking/PieceSegment.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: public static PieceSegment Invalid
+    return:
+      type: MonoTorrent.PiecePicking.PieceSegment
+    content.vb: Public Shared Invalid As PieceSegment
+- uid: MonoTorrent.PiecePicking.PieceSegment.PieceIndex
+  commentId: P:MonoTorrent.PiecePicking.PieceSegment.PieceIndex
+  id: PieceIndex
+  parent: MonoTorrent.PiecePicking.PieceSegment
+  langs:
+  - csharp
+  - vb
+  name: PieceIndex
+  nameWithType: PieceSegment.PieceIndex
+  fullName: MonoTorrent.PiecePicking.PieceSegment.PieceIndex
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/PieceSegment.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PieceIndex
+    path: src/PiecePicking/PieceSegment.cs
+    startLine: 36
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: public int PieceIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property PieceIndex As Integer
+  overload: MonoTorrent.PiecePicking.PieceSegment.PieceIndex*
+- uid: MonoTorrent.PiecePicking.PieceSegment.BlockIndex
+  commentId: P:MonoTorrent.PiecePicking.PieceSegment.BlockIndex
+  id: BlockIndex
+  parent: MonoTorrent.PiecePicking.PieceSegment
+  langs:
+  - csharp
+  - vb
+  name: BlockIndex
+  nameWithType: PieceSegment.BlockIndex
+  fullName: MonoTorrent.PiecePicking.PieceSegment.BlockIndex
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/PieceSegment.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BlockIndex
+    path: src/PiecePicking/PieceSegment.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: public int BlockIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property BlockIndex As Integer
+  overload: MonoTorrent.PiecePicking.PieceSegment.BlockIndex*
+- uid: MonoTorrent.PiecePicking.PieceSegment.#ctor(System.Int32,System.Int32)
+  commentId: M:MonoTorrent.PiecePicking.PieceSegment.#ctor(System.Int32,System.Int32)
+  id: '#ctor(System.Int32,System.Int32)'
+  parent: MonoTorrent.PiecePicking.PieceSegment
+  langs:
+  - csharp
+  - vb
+  name: PieceSegment(int, int)
+  nameWithType: PieceSegment.PieceSegment(int, int)
+  fullName: MonoTorrent.PiecePicking.PieceSegment.PieceSegment(int, int)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/PieceSegment.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/PiecePicking/PieceSegment.cs
+    startLine: 45
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: public PieceSegment(int pieceIndex, int blockIndex)
+    parameters:
+    - id: pieceIndex
+      type: System.Int32
+    - id: blockIndex
+      type: System.Int32
+    content.vb: Public Sub New(pieceIndex As Integer, blockIndex As Integer)
+  overload: MonoTorrent.PiecePicking.PieceSegment.#ctor*
+  nameWithType.vb: PieceSegment.New(Integer, Integer)
+  fullName.vb: MonoTorrent.PiecePicking.PieceSegment.New(Integer, Integer)
+  name.vb: New(Integer, Integer)
+- uid: MonoTorrent.PiecePicking.PieceSegment.Equals(System.Object)
+  commentId: M:MonoTorrent.PiecePicking.PieceSegment.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: MonoTorrent.PiecePicking.PieceSegment
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: PieceSegment.Equals(object?)
+  fullName: MonoTorrent.PiecePicking.PieceSegment.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/PieceSegment.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Equals
+    path: src/PiecePicking/PieceSegment.cs
+    startLine: 55
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: MonoTorrent.PiecePicking.PieceSegment.Equals*
+  nameWithType.vb: PieceSegment.Equals(Object)
+  fullName.vb: MonoTorrent.PiecePicking.PieceSegment.Equals(Object)
+  name.vb: Equals(Object)
+- uid: MonoTorrent.PiecePicking.PieceSegment.Equals(MonoTorrent.PiecePicking.PieceSegment)
+  commentId: M:MonoTorrent.PiecePicking.PieceSegment.Equals(MonoTorrent.PiecePicking.PieceSegment)
+  id: Equals(MonoTorrent.PiecePicking.PieceSegment)
+  parent: MonoTorrent.PiecePicking.PieceSegment
+  langs:
+  - csharp
+  - vb
+  name: Equals(PieceSegment)
+  nameWithType: PieceSegment.Equals(PieceSegment)
+  fullName: MonoTorrent.PiecePicking.PieceSegment.Equals(MonoTorrent.PiecePicking.PieceSegment)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/PieceSegment.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Equals
+    path: src/PiecePicking/PieceSegment.cs
+    startLine: 58
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(PieceSegment other)
+    parameters:
+    - id: other
+      type: MonoTorrent.PiecePicking.PieceSegment
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As PieceSegment) As Boolean
+  overload: MonoTorrent.PiecePicking.PieceSegment.Equals*
+  implements:
+  - System.IEquatable{MonoTorrent.PiecePicking.PieceSegment}.Equals(MonoTorrent.PiecePicking.PieceSegment)
+- uid: MonoTorrent.PiecePicking.PieceSegment.GetHashCode
+  commentId: M:MonoTorrent.PiecePicking.PieceSegment.GetHashCode
+  id: GetHashCode
+  parent: MonoTorrent.PiecePicking.PieceSegment
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PieceSegment.GetHashCode()
+  fullName: MonoTorrent.PiecePicking.PieceSegment.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/PieceSegment.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetHashCode
+    path: src/PiecePicking/PieceSegment.cs
+    startLine: 62
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: MonoTorrent.PiecePicking.PieceSegment.GetHashCode*
+- uid: MonoTorrent.PiecePicking.PieceSegment.op_Equality(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.PieceSegment)
+  commentId: M:MonoTorrent.PiecePicking.PieceSegment.op_Equality(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.PieceSegment)
+  id: op_Equality(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.PieceSegment)
+  parent: MonoTorrent.PiecePicking.PieceSegment
+  langs:
+  - csharp
+  - vb
+  name: operator ==(PieceSegment, PieceSegment)
+  nameWithType: PieceSegment.operator ==(PieceSegment, PieceSegment)
+  fullName: MonoTorrent.PiecePicking.PieceSegment.operator ==(MonoTorrent.PiecePicking.PieceSegment, MonoTorrent.PiecePicking.PieceSegment)
+  type: Operator
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/PieceSegment.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: op_Equality
+    path: src/PiecePicking/PieceSegment.cs
+    startLine: 65
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: public static bool operator ==(PieceSegment left, PieceSegment right)
+    parameters:
+    - id: left
+      type: MonoTorrent.PiecePicking.PieceSegment
+    - id: right
+      type: MonoTorrent.PiecePicking.PieceSegment
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As PieceSegment, right As PieceSegment) As Boolean
+  overload: MonoTorrent.PiecePicking.PieceSegment.op_Equality*
+  nameWithType.vb: PieceSegment.=(PieceSegment, PieceSegment)
+  fullName.vb: MonoTorrent.PiecePicking.PieceSegment.=(MonoTorrent.PiecePicking.PieceSegment, MonoTorrent.PiecePicking.PieceSegment)
+  name.vb: =(PieceSegment, PieceSegment)
+- uid: MonoTorrent.PiecePicking.PieceSegment.op_Inequality(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.PieceSegment)
+  commentId: M:MonoTorrent.PiecePicking.PieceSegment.op_Inequality(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.PieceSegment)
+  id: op_Inequality(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.PieceSegment)
+  parent: MonoTorrent.PiecePicking.PieceSegment
+  langs:
+  - csharp
+  - vb
+  name: operator !=(PieceSegment, PieceSegment)
+  nameWithType: PieceSegment.operator !=(PieceSegment, PieceSegment)
+  fullName: MonoTorrent.PiecePicking.PieceSegment.operator !=(MonoTorrent.PiecePicking.PieceSegment, MonoTorrent.PiecePicking.PieceSegment)
+  type: Operator
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/PieceSegment.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: op_Inequality
+    path: src/PiecePicking/PieceSegment.cs
+    startLine: 68
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: public static bool operator !=(PieceSegment left, PieceSegment right)
+    parameters:
+    - id: left
+      type: MonoTorrent.PiecePicking.PieceSegment
+    - id: right
+      type: MonoTorrent.PiecePicking.PieceSegment
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As PieceSegment, right As PieceSegment) As Boolean
+  overload: MonoTorrent.PiecePicking.PieceSegment.op_Inequality*
+  nameWithType.vb: PieceSegment.<>(PieceSegment, PieceSegment)
+  fullName.vb: MonoTorrent.PiecePicking.PieceSegment.<>(MonoTorrent.PiecePicking.PieceSegment, MonoTorrent.PiecePicking.PieceSegment)
+  name.vb: <>(PieceSegment, PieceSegment)
+- uid: MonoTorrent.PiecePicking.PieceSegment.ToString
+  commentId: M:MonoTorrent.PiecePicking.PieceSegment.ToString
+  id: ToString
+  parent: MonoTorrent.PiecePicking.PieceSegment
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: PieceSegment.ToString()
+  fullName: MonoTorrent.PiecePicking.PieceSegment.ToString()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/PieceSegment.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToString
+    path: src/PiecePicking/PieceSegment.cs
+    startLine: 71
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: MonoTorrent.PiecePicking.PieceSegment.ToString*
+references:
+- uid: MonoTorrent.PiecePicking
+  commentId: N:MonoTorrent.PiecePicking
+  href: MonoTorrent.html
+  name: MonoTorrent.PiecePicking
+  nameWithType: MonoTorrent.PiecePicking
+  fullName: MonoTorrent.PiecePicking
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+- uid: System.IEquatable{MonoTorrent.PiecePicking.PieceSegment}
+  commentId: T:System.IEquatable{MonoTorrent.PiecePicking.PieceSegment}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PieceSegment>
+  nameWithType: IEquatable<PieceSegment>
+  fullName: System.IEquatable<MonoTorrent.PiecePicking.PieceSegment>
+  nameWithType.vb: IEquatable(Of PieceSegment)
+  fullName.vb: System.IEquatable(Of MonoTorrent.PiecePicking.PieceSegment)
+  name.vb: IEquatable(Of PieceSegment)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: MonoTorrent.PiecePicking.PieceSegment.MonoTorrent.PiecePicking.PieceRequesterExtensions.ToBlockInfo(MonoTorrent.PiecePicking.IPieceRequesterData)
+  commentId: M:MonoTorrent.PiecePicking.PieceRequesterExtensions.ToBlockInfo(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.IPieceRequesterData)
+  parent: MonoTorrent.PiecePicking.PieceRequesterExtensions
+  definition: MonoTorrent.PiecePicking.PieceRequesterExtensions.ToBlockInfo(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.IPieceRequesterData)
+  href: MonoTorrent.PiecePicking.PieceRequesterExtensions.html#MonoTorrent_PiecePicking_PieceRequesterExtensions_ToBlockInfo_MonoTorrent_PiecePicking_PieceSegment_MonoTorrent_PiecePicking_IPieceRequesterData_
+  name: ToBlockInfo(PieceSegment, IPieceRequesterData)
+  nameWithType: PieceRequesterExtensions.ToBlockInfo(PieceSegment, IPieceRequesterData)
+  fullName: MonoTorrent.PiecePicking.PieceRequesterExtensions.ToBlockInfo(MonoTorrent.PiecePicking.PieceSegment, MonoTorrent.PiecePicking.IPieceRequesterData)
+  spec.csharp:
+  - uid: MonoTorrent.PiecePicking.PieceRequesterExtensions.ToBlockInfo(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.IPieceRequesterData)
+    name: ToBlockInfo
+    href: MonoTorrent.PiecePicking.PieceRequesterExtensions.html#MonoTorrent_PiecePicking_PieceRequesterExtensions_ToBlockInfo_MonoTorrent_PiecePicking_PieceSegment_MonoTorrent_PiecePicking_IPieceRequesterData_
+  - name: (
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.IPieceRequesterData
+    name: IPieceRequesterData
+    href: MonoTorrent.PiecePicking.IPieceRequesterData.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PiecePicking.PieceRequesterExtensions.ToBlockInfo(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.IPieceRequesterData)
+    name: ToBlockInfo
+    href: MonoTorrent.PiecePicking.PieceRequesterExtensions.html#MonoTorrent_PiecePicking_PieceRequesterExtensions_ToBlockInfo_MonoTorrent_PiecePicking_PieceSegment_MonoTorrent_PiecePicking_IPieceRequesterData_
+  - name: (
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.IPieceRequesterData
+    name: IPieceRequesterData
+    href: MonoTorrent.PiecePicking.IPieceRequesterData.html
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MonoTorrent.PiecePicking.PieceRequesterExtensions.ToBlockInfo(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.IPieceRequesterData)
+  commentId: M:MonoTorrent.PiecePicking.PieceRequesterExtensions.ToBlockInfo(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.IPieceRequesterData)
+  href: MonoTorrent.PiecePicking.PieceRequesterExtensions.html#MonoTorrent_PiecePicking_PieceRequesterExtensions_ToBlockInfo_MonoTorrent_PiecePicking_PieceSegment_MonoTorrent_PiecePicking_IPieceRequesterData_
+  name: ToBlockInfo(PieceSegment, IPieceRequesterData)
+  nameWithType: PieceRequesterExtensions.ToBlockInfo(PieceSegment, IPieceRequesterData)
+  fullName: MonoTorrent.PiecePicking.PieceRequesterExtensions.ToBlockInfo(MonoTorrent.PiecePicking.PieceSegment, MonoTorrent.PiecePicking.IPieceRequesterData)
+  spec.csharp:
+  - uid: MonoTorrent.PiecePicking.PieceRequesterExtensions.ToBlockInfo(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.IPieceRequesterData)
+    name: ToBlockInfo
+    href: MonoTorrent.PiecePicking.PieceRequesterExtensions.html#MonoTorrent_PiecePicking_PieceRequesterExtensions_ToBlockInfo_MonoTorrent_PiecePicking_PieceSegment_MonoTorrent_PiecePicking_IPieceRequesterData_
+  - name: (
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.IPieceRequesterData
+    name: IPieceRequesterData
+    href: MonoTorrent.PiecePicking.IPieceRequesterData.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PiecePicking.PieceRequesterExtensions.ToBlockInfo(MonoTorrent.PiecePicking.PieceSegment,MonoTorrent.PiecePicking.IPieceRequesterData)
+    name: ToBlockInfo
+    href: MonoTorrent.PiecePicking.PieceRequesterExtensions.html#MonoTorrent_PiecePicking_PieceRequesterExtensions_ToBlockInfo_MonoTorrent_PiecePicking_PieceSegment_MonoTorrent_PiecePicking_IPieceRequesterData_
+  - name: (
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.IPieceRequesterData
+    name: IPieceRequesterData
+    href: MonoTorrent.PiecePicking.IPieceRequesterData.html
+  - name: )
+- uid: MonoTorrent.PiecePicking.PieceRequesterExtensions
+  commentId: T:MonoTorrent.PiecePicking.PieceRequesterExtensions
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.PieceRequesterExtensions.html
+  name: PieceRequesterExtensions
+  nameWithType: PieceRequesterExtensions
+  fullName: MonoTorrent.PiecePicking.PieceRequesterExtensions
+- uid: MonoTorrent.PiecePicking.PieceSegment
+  commentId: T:MonoTorrent.PiecePicking.PieceSegment
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.PieceSegment.html
+  name: PieceSegment
+  nameWithType: PieceSegment
+  fullName: MonoTorrent.PiecePicking.PieceSegment
+- uid: MonoTorrent.PiecePicking.PieceSegment.PieceIndex*
+  commentId: Overload:MonoTorrent.PiecePicking.PieceSegment.PieceIndex
+  href: MonoTorrent.PiecePicking.PieceSegment.html#MonoTorrent_PiecePicking_PieceSegment_PieceIndex
+  name: PieceIndex
+  nameWithType: PieceSegment.PieceIndex
+  fullName: MonoTorrent.PiecePicking.PieceSegment.PieceIndex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.PiecePicking.PieceSegment.BlockIndex*
+  commentId: Overload:MonoTorrent.PiecePicking.PieceSegment.BlockIndex
+  href: MonoTorrent.PiecePicking.PieceSegment.html#MonoTorrent_PiecePicking_PieceSegment_BlockIndex
+  name: BlockIndex
+  nameWithType: PieceSegment.BlockIndex
+  fullName: MonoTorrent.PiecePicking.PieceSegment.BlockIndex
+- uid: MonoTorrent.PiecePicking.PieceSegment.#ctor*
+  commentId: Overload:MonoTorrent.PiecePicking.PieceSegment.#ctor
+  href: MonoTorrent.PiecePicking.PieceSegment.html#MonoTorrent_PiecePicking_PieceSegment__ctor_System_Int32_System_Int32_
+  name: PieceSegment
+  nameWithType: PieceSegment.PieceSegment
+  fullName: MonoTorrent.PiecePicking.PieceSegment.PieceSegment
+  nameWithType.vb: PieceSegment.New
+  fullName.vb: MonoTorrent.PiecePicking.PieceSegment.New
+  name.vb: New
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: MonoTorrent.PiecePicking.PieceSegment.Equals*
+  commentId: Overload:MonoTorrent.PiecePicking.PieceSegment.Equals
+  href: MonoTorrent.PiecePicking.PieceSegment.html#MonoTorrent_PiecePicking_PieceSegment_Equals_System_Object_
+  name: Equals
+  nameWithType: PieceSegment.Equals
+  fullName: MonoTorrent.PiecePicking.PieceSegment.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.IEquatable{MonoTorrent.PiecePicking.PieceSegment}.Equals(MonoTorrent.PiecePicking.PieceSegment)
+  commentId: M:System.IEquatable{MonoTorrent.PiecePicking.PieceSegment}.Equals(MonoTorrent.PiecePicking.PieceSegment)
+  parent: System.IEquatable{MonoTorrent.PiecePicking.PieceSegment}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(PieceSegment)
+  nameWithType: IEquatable<PieceSegment>.Equals(PieceSegment)
+  fullName: System.IEquatable<MonoTorrent.PiecePicking.PieceSegment>.Equals(MonoTorrent.PiecePicking.PieceSegment)
+  nameWithType.vb: IEquatable(Of PieceSegment).Equals(PieceSegment)
+  fullName.vb: System.IEquatable(Of MonoTorrent.PiecePicking.PieceSegment).Equals(MonoTorrent.PiecePicking.PieceSegment)
+  spec.csharp:
+  - uid: System.IEquatable{MonoTorrent.PiecePicking.PieceSegment}.Equals(MonoTorrent.PiecePicking.PieceSegment)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{MonoTorrent.PiecePicking.PieceSegment}.Equals(MonoTorrent.PiecePicking.PieceSegment)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: MonoTorrent.PiecePicking.PieceSegment.GetHashCode*
+  commentId: Overload:MonoTorrent.PiecePicking.PieceSegment.GetHashCode
+  href: MonoTorrent.PiecePicking.PieceSegment.html#MonoTorrent_PiecePicking_PieceSegment_GetHashCode
+  name: GetHashCode
+  nameWithType: PieceSegment.GetHashCode
+  fullName: MonoTorrent.PiecePicking.PieceSegment.GetHashCode
+- uid: MonoTorrent.PiecePicking.PieceSegment.op_Equality*
+  commentId: Overload:MonoTorrent.PiecePicking.PieceSegment.op_Equality
+  href: MonoTorrent.PiecePicking.PieceSegment.html#MonoTorrent_PiecePicking_PieceSegment_op_Equality_MonoTorrent_PiecePicking_PieceSegment_MonoTorrent_PiecePicking_PieceSegment_
+  name: operator ==
+  nameWithType: PieceSegment.operator ==
+  fullName: MonoTorrent.PiecePicking.PieceSegment.operator ==
+  nameWithType.vb: PieceSegment.=
+  fullName.vb: MonoTorrent.PiecePicking.PieceSegment.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment.op_Equality*
+    name: ==
+    href: MonoTorrent.PiecePicking.PieceSegment.html#MonoTorrent_PiecePicking_PieceSegment_op_Equality_MonoTorrent_PiecePicking_PieceSegment_MonoTorrent_PiecePicking_PieceSegment_
+- uid: MonoTorrent.PiecePicking.PieceSegment.op_Inequality*
+  commentId: Overload:MonoTorrent.PiecePicking.PieceSegment.op_Inequality
+  href: MonoTorrent.PiecePicking.PieceSegment.html#MonoTorrent_PiecePicking_PieceSegment_op_Inequality_MonoTorrent_PiecePicking_PieceSegment_MonoTorrent_PiecePicking_PieceSegment_
+  name: operator !=
+  nameWithType: PieceSegment.operator !=
+  fullName: MonoTorrent.PiecePicking.PieceSegment.operator !=
+  nameWithType.vb: PieceSegment.<>
+  fullName.vb: MonoTorrent.PiecePicking.PieceSegment.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment.op_Inequality*
+    name: '!='
+    href: MonoTorrent.PiecePicking.PieceSegment.html#MonoTorrent_PiecePicking_PieceSegment_op_Inequality_MonoTorrent_PiecePicking_PieceSegment_MonoTorrent_PiecePicking_PieceSegment_
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: MonoTorrent.PiecePicking.PieceSegment.ToString*
+  commentId: Overload:MonoTorrent.PiecePicking.PieceSegment.ToString
+  href: MonoTorrent.PiecePicking.PieceSegment.html#MonoTorrent_PiecePicking_PieceSegment_ToString
+  name: ToString
+  nameWithType: PieceSegment.ToString
+  fullName: MonoTorrent.PiecePicking.PieceSegment.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

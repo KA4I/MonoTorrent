@@ -309,6 +309,13 @@ namespace MonoTorrent.Client
         /// </summary>
         public int WebSeedSpeedTrigger { get; } = 15 * 1024;
 
+
+        /// <summary>
+        /// The time interval between checking for updates for torrents loaded via a BEP46 magnet link.
+        /// Defaults to 15 minutes.
+        /// </summary>
+        public TimeSpan MutableTorrentUpdateInterval { get; } = TimeSpan.FromMinutes (15);
+
         public EngineSettings ()
         {
 
@@ -325,6 +332,7 @@ namespace MonoTorrent.Client
             int maximumRepeatedHashFails, int maximumTotalHashFails,
             int maximumOpenFiles, int maximumUploadRate, IDictionary<string, IPEndPoint> reportedListenEndPoints, bool usePartialFiles,
             TimeSpan webSeedConnectionTimeout, TimeSpan webSeedDelay, int webSeedSpeedTrigger, TimeSpan staleRequestTimeout,
+             TimeSpan mutableTorrentUpdateInterval,
             string httpStreamingPrefix, IList<TimeSpan> connectionRetryDelays)
         {
             // Make sure this is immutable now
@@ -366,6 +374,8 @@ namespace MonoTorrent.Client
             WebSeedConnectionTimeout = webSeedConnectionTimeout;
             WebSeedDelay = webSeedDelay;
             WebSeedSpeedTrigger = webSeedSpeedTrigger;
+             MutableTorrentUpdateInterval = mutableTorrentUpdateInterval;
+
         }
 
         static IList<IList<EncryptionType>> UpdateEncryptionTiers (IList<EncryptionType> allowedEncryption)
@@ -402,11 +412,22 @@ namespace MonoTorrent.Client
         public string GetFastResumePath (InfoHashes infoHashes)
             => Path.Combine (FastResumeCacheDirectory, $"{infoHashes.V1OrV2.ToHex ()}.fresume");
 
-        internal string GetMetadataPath (InfoHashes infoHashes)
-            => Path.Combine (MetadataCacheDirectory, $"{infoHashes.V1OrV2.ToHex ()}.torrent");
+        internal string GetMetadataPath (InfoHashes? infoHashes) // Allow null explicitly
+        {
+            // If infoHashes is not null AND it has a valid V1 or V2 hash...
+            if (infoHashes?.V1OrV2 != null) {
+                // Use the non-null infohash to generate the path
+                return Path.Combine (MetadataCacheDirectory, $"{infoHashes.V1OrV2.ToHex ()}.torrent");
+            } else {
+                // Handle null infoHashes or cases where V1OrV2 is null (though V1OrV2 should throw first if both V1/V2 are null)
+                return Path.Combine (MetadataCacheDirectory, "unknown.torrent");
+            }
+        }
 
         internal string GetV2HashesPath (InfoHashes infoHashes)
-            => Path.Combine (MetadataCacheDirectory, $"{infoHashes.V2!.ToHex ()}.v2hashes");
+            => infoHashes?.V2 != null 
+                ? Path.Combine (MetadataCacheDirectory, $"{infoHashes.V2.ToHex ()}.v2hashes")
+                : Path.Combine (MetadataCacheDirectory, "unknown.v2hashes");
 
         public override bool Equals (object? obj)
             => Equals (obj as EngineSettings);
@@ -441,6 +462,8 @@ namespace MonoTorrent.Client
                    && WebSeedConnectionTimeout == other.WebSeedConnectionTimeout
                    && WebSeedDelay == other.WebSeedDelay
                    && WebSeedSpeedTrigger == other.WebSeedSpeedTrigger
+                   && MutableTorrentUpdateInterval == other.MutableTorrentUpdateInterval
+
                    ;
         }
 

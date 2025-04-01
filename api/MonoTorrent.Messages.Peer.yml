@@ -1,0 +1,221 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Messages.Peer
+  commentId: N:MonoTorrent.Messages.Peer
+  id: MonoTorrent.Messages.Peer
+  children:
+  - MonoTorrent.Messages.Peer.AllowedFastBundle
+  - MonoTorrent.Messages.Peer.BitfieldMessage
+  - MonoTorrent.Messages.Peer.CancelMessage
+  - MonoTorrent.Messages.Peer.ChokeMessage
+  - MonoTorrent.Messages.Peer.HandshakeMessage
+  - MonoTorrent.Messages.Peer.HashRejectMessage
+  - MonoTorrent.Messages.Peer.HashRequestMessage
+  - MonoTorrent.Messages.Peer.HashesMessage
+  - MonoTorrent.Messages.Peer.HaveBundle
+  - MonoTorrent.Messages.Peer.HaveMessage
+  - MonoTorrent.Messages.Peer.InterestedMessage
+  - MonoTorrent.Messages.Peer.KeepAliveMessage
+  - MonoTorrent.Messages.Peer.MessageBundle
+  - MonoTorrent.Messages.Peer.NotInterestedMessage
+  - MonoTorrent.Messages.Peer.PeerMessage
+  - MonoTorrent.Messages.Peer.PeerMessage.Releaser
+  - MonoTorrent.Messages.Peer.PieceMessage
+  - MonoTorrent.Messages.Peer.PortMessage
+  - MonoTorrent.Messages.Peer.RequestBundle
+  - MonoTorrent.Messages.Peer.RequestMessage
+  - MonoTorrent.Messages.Peer.UnchokeMessage
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.Messages.Peer
+  nameWithType: MonoTorrent.Messages.Peer
+  fullName: MonoTorrent.Messages.Peer
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.Messages.Peer.AllowedFastBundle
+  commentId: T:MonoTorrent.Messages.Peer.AllowedFastBundle
+  href: MonoTorrent.Messages.Peer.AllowedFastBundle.html
+  name: AllowedFastBundle
+  nameWithType: AllowedFastBundle
+  fullName: MonoTorrent.Messages.Peer.AllowedFastBundle
+- uid: MonoTorrent.Messages.Peer.BitfieldMessage
+  commentId: T:MonoTorrent.Messages.Peer.BitfieldMessage
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.BitfieldMessage.html
+  name: BitfieldMessage
+  nameWithType: BitfieldMessage
+  fullName: MonoTorrent.Messages.Peer.BitfieldMessage
+- uid: MonoTorrent.Messages.Peer.CancelMessage
+  commentId: T:MonoTorrent.Messages.Peer.CancelMessage
+  href: MonoTorrent.Messages.Peer.CancelMessage.html
+  name: CancelMessage
+  nameWithType: CancelMessage
+  fullName: MonoTorrent.Messages.Peer.CancelMessage
+- uid: MonoTorrent.Messages.Peer.ChokeMessage
+  commentId: T:MonoTorrent.Messages.Peer.ChokeMessage
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.ChokeMessage.html
+  name: ChokeMessage
+  nameWithType: ChokeMessage
+  fullName: MonoTorrent.Messages.Peer.ChokeMessage
+- uid: MonoTorrent.Messages.Peer.HandshakeMessage
+  commentId: T:MonoTorrent.Messages.Peer.HandshakeMessage
+  href: MonoTorrent.Messages.Peer.HandshakeMessage.html
+  name: HandshakeMessage
+  nameWithType: HandshakeMessage
+  fullName: MonoTorrent.Messages.Peer.HandshakeMessage
+- uid: MonoTorrent.Messages.Peer.HashesMessage
+  commentId: T:MonoTorrent.Messages.Peer.HashesMessage
+  href: MonoTorrent.Messages.Peer.HashesMessage.html
+  name: HashesMessage
+  nameWithType: HashesMessage
+  fullName: MonoTorrent.Messages.Peer.HashesMessage
+- uid: MonoTorrent.Messages.Peer.HashRejectMessage
+  commentId: T:MonoTorrent.Messages.Peer.HashRejectMessage
+  href: MonoTorrent.Messages.Peer.HashRejectMessage.html
+  name: HashRejectMessage
+  nameWithType: HashRejectMessage
+  fullName: MonoTorrent.Messages.Peer.HashRejectMessage
+- uid: MonoTorrent.Messages.Peer.HashRequestMessage
+  commentId: T:MonoTorrent.Messages.Peer.HashRequestMessage
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.HashRequestMessage.html
+  name: HashRequestMessage
+  nameWithType: HashRequestMessage
+  fullName: MonoTorrent.Messages.Peer.HashRequestMessage
+- uid: MonoTorrent.Messages.Peer.HaveBundle
+  commentId: T:MonoTorrent.Messages.Peer.HaveBundle
+  href: MonoTorrent.Messages.Peer.HaveBundle.html
+  name: HaveBundle
+  nameWithType: HaveBundle
+  fullName: MonoTorrent.Messages.Peer.HaveBundle
+- uid: MonoTorrent.Messages.Peer.HaveMessage
+  commentId: T:MonoTorrent.Messages.Peer.HaveMessage
+  href: MonoTorrent.Messages.Peer.HaveMessage.html
+  name: HaveMessage
+  nameWithType: HaveMessage
+  fullName: MonoTorrent.Messages.Peer.HaveMessage
+- uid: MonoTorrent.Messages.Peer.InterestedMessage
+  commentId: T:MonoTorrent.Messages.Peer.InterestedMessage
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.InterestedMessage.html
+  name: InterestedMessage
+  nameWithType: InterestedMessage
+  fullName: MonoTorrent.Messages.Peer.InterestedMessage
+- uid: MonoTorrent.Messages.Peer.KeepAliveMessage
+  commentId: T:MonoTorrent.Messages.Peer.KeepAliveMessage
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.KeepAliveMessage.html
+  name: KeepAliveMessage
+  nameWithType: KeepAliveMessage
+  fullName: MonoTorrent.Messages.Peer.KeepAliveMessage
+- uid: MonoTorrent.Messages.Peer.MessageBundle
+  commentId: T:MonoTorrent.Messages.Peer.MessageBundle
+  href: MonoTorrent.Messages.Peer.MessageBundle.html
+  name: MessageBundle
+  nameWithType: MessageBundle
+  fullName: MonoTorrent.Messages.Peer.MessageBundle
+- uid: MonoTorrent.Messages.Peer.NotInterestedMessage
+  commentId: T:MonoTorrent.Messages.Peer.NotInterestedMessage
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.NotInterestedMessage.html
+  name: NotInterestedMessage
+  nameWithType: NotInterestedMessage
+  fullName: MonoTorrent.Messages.Peer.NotInterestedMessage
+- uid: MonoTorrent.Messages.Peer.PeerMessage
+  commentId: T:MonoTorrent.Messages.Peer.PeerMessage
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.PeerMessage.html
+  name: PeerMessage
+  nameWithType: PeerMessage
+  fullName: MonoTorrent.Messages.Peer.PeerMessage
+- uid: MonoTorrent.Messages.Peer.PeerMessage.Releaser
+  commentId: T:MonoTorrent.Messages.Peer.PeerMessage.Releaser
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.PeerMessage.html
+  name: PeerMessage.Releaser
+  nameWithType: PeerMessage.Releaser
+  fullName: MonoTorrent.Messages.Peer.PeerMessage.Releaser
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Peer.PeerMessage
+    name: PeerMessage
+    href: MonoTorrent.Messages.Peer.PeerMessage.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer.PeerMessage.Releaser
+    name: Releaser
+    href: MonoTorrent.Messages.Peer.PeerMessage.Releaser.html
+  spec.vb:
+  - uid: MonoTorrent.Messages.Peer.PeerMessage
+    name: PeerMessage
+    href: MonoTorrent.Messages.Peer.PeerMessage.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer.PeerMessage.Releaser
+    name: Releaser
+    href: MonoTorrent.Messages.Peer.PeerMessage.Releaser.html
+- uid: MonoTorrent.Messages.Peer.PieceMessage
+  commentId: T:MonoTorrent.Messages.Peer.PieceMessage
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.PieceMessage.html
+  name: PieceMessage
+  nameWithType: PieceMessage
+  fullName: MonoTorrent.Messages.Peer.PieceMessage
+- uid: MonoTorrent.Messages.Peer.PortMessage
+  commentId: T:MonoTorrent.Messages.Peer.PortMessage
+  href: MonoTorrent.Messages.Peer.PortMessage.html
+  name: PortMessage
+  nameWithType: PortMessage
+  fullName: MonoTorrent.Messages.Peer.PortMessage
+- uid: MonoTorrent.Messages.Peer.RequestBundle
+  commentId: T:MonoTorrent.Messages.Peer.RequestBundle
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.RequestBundle.html
+  name: RequestBundle
+  nameWithType: RequestBundle
+  fullName: MonoTorrent.Messages.Peer.RequestBundle
+- uid: MonoTorrent.Messages.Peer.RequestMessage
+  commentId: T:MonoTorrent.Messages.Peer.RequestMessage
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.RequestMessage.html
+  name: RequestMessage
+  nameWithType: RequestMessage
+  fullName: MonoTorrent.Messages.Peer.RequestMessage
+- uid: MonoTorrent.Messages.Peer.UnchokeMessage
+  commentId: T:MonoTorrent.Messages.Peer.UnchokeMessage
+  parent: MonoTorrent.Messages.Peer
+  href: MonoTorrent.Messages.Peer.UnchokeMessage.html
+  name: UnchokeMessage
+  nameWithType: UnchokeMessage
+  fullName: MonoTorrent.Messages.Peer.UnchokeMessage
+- uid: MonoTorrent.Messages.Peer
+  commentId: N:MonoTorrent.Messages.Peer
+  href: MonoTorrent.html
+  name: MonoTorrent.Messages.Peer
+  nameWithType: MonoTorrent.Messages.Peer
+  fullName: MonoTorrent.Messages.Peer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html

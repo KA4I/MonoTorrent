@@ -1,0 +1,956 @@
+### YamlMime:TableOfContent
+items:
+- uid: MonoTorrent
+  name: MonoTorrent
+  type: Namespace
+  items:
+  - uid: MonoTorrent.BitField
+    name: BitField
+    type: Class
+  - uid: MonoTorrent.BitFieldIndices
+    name: BitFieldIndices
+    type: Struct
+  - uid: MonoTorrent.BitFieldScanner
+    name: BitFieldScanner
+    type: Struct
+  - uid: MonoTorrent.BlockInfo
+    name: BlockInfo
+    type: Struct
+  - uid: MonoTorrent.ByteBufferPool
+    name: ByteBufferPool
+    type: Class
+  - uid: MonoTorrent.ByteBufferPool.Releaser
+    name: ByteBufferPool.Releaser
+    type: Struct
+  - uid: MonoTorrent.ClientApp
+    name: ClientApp
+    type: Enum
+  - uid: MonoTorrent.Constants
+    name: Constants
+    type: Class
+  - uid: MonoTorrent.Direction
+    name: Direction
+    type: Enum
+  - uid: MonoTorrent.EditableTorrent
+    name: EditableTorrent
+    type: Class
+  - uid: MonoTorrent.Factories
+    name: Factories
+    type: Class
+  - uid: MonoTorrent.Factories.BlockCacheCreator
+    name: Factories.BlockCacheCreator
+    type: Delegate
+  - uid: MonoTorrent.Factories.DhtCreator
+    name: Factories.DhtCreator
+    type: Delegate
+  - uid: MonoTorrent.Factories.DhtListenerCreator
+    name: Factories.DhtListenerCreator
+    type: Delegate
+  - uid: MonoTorrent.Factories.HttpClientCreator
+    name: Factories.HttpClientCreator
+    type: Delegate
+  - uid: MonoTorrent.Factories.LocalPeerDiscoveryCreator
+    name: Factories.LocalPeerDiscoveryCreator
+    type: Delegate
+  - uid: MonoTorrent.Factories.PeerConnectionCreator
+    name: Factories.PeerConnectionCreator
+    type: Delegate
+  - uid: MonoTorrent.Factories.PeerConnectionGateCreator
+    name: Factories.PeerConnectionGateCreator
+    type: Delegate
+  - uid: MonoTorrent.Factories.PeerConnectionListenerCreator
+    name: Factories.PeerConnectionListenerCreator
+    type: Delegate
+  - uid: MonoTorrent.Factories.PieceRequesterCreator
+    name: Factories.PieceRequesterCreator
+    type: Delegate
+  - uid: MonoTorrent.Factories.PieceWriterCreator
+    name: Factories.PieceWriterCreator
+    type: Delegate
+  - uid: MonoTorrent.Factories.PortForwarderCreator
+    name: Factories.PortForwarderCreator
+    type: Delegate
+  - uid: MonoTorrent.Factories.SocketConnectorCreator
+    name: Factories.SocketConnectorCreator
+    type: Delegate
+  - uid: MonoTorrent.Factories.StreamingPieceRequesterCreator
+    name: Factories.StreamingPieceRequesterCreator
+    type: Delegate
+  - uid: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+    name: Factories.TemporaryLocalPeerIdGenerator
+    type: Delegate
+  - uid: MonoTorrent.Factories.TrackerCreator
+    name: Factories.TrackerCreator
+    type: Delegate
+  - uid: MonoTorrent.FileMapping
+    name: FileMapping
+    type: Struct
+  - uid: MonoTorrent.IPieceHashes
+    name: IPieceHashes
+    type: Interface
+  - uid: MonoTorrent.IPieceHashesProvider
+    name: IPieceHashesProvider
+    type: Interface
+  - uid: MonoTorrent.ITorrentFile
+    name: ITorrentFile
+    type: Interface
+  - uid: MonoTorrent.ITorrentFileInfoExtensions
+    name: ITorrentFileInfoExtensions
+    type: Class
+  - uid: MonoTorrent.ITorrentFileSource
+    name: ITorrentFileSource
+    type: Interface
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    type: Interface
+  - uid: MonoTorrent.ITorrentInfoExtensions
+    name: ITorrentInfoExtensions
+    type: Class
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    type: Interface
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    type: Interface
+  - uid: MonoTorrent.InfoHash
+    name: InfoHash
+    type: Class
+  - uid: MonoTorrent.InfoHashes
+    name: InfoHashes
+    type: Class
+  - uid: MonoTorrent.LatencyMonitor
+    name: LatencyMonitor
+    type: Class
+  - uid: MonoTorrent.MagnetLink
+    name: MagnetLink
+    type: Class
+  - uid: MonoTorrent.MemoryPool
+    name: MemoryPool
+    type: Class
+  - uid: MonoTorrent.MerkleRoot
+    name: MerkleRoot
+    type: Struct
+  - uid: MonoTorrent.MerkleTree
+    name: MerkleTree
+    type: Class
+  - uid: MonoTorrent.PeerInfo
+    name: PeerInfo
+    type: Class
+  - uid: MonoTorrent.PieceHash
+    name: PieceHash
+    type: Struct
+  - uid: MonoTorrent.PieceHashesExtensions
+    name: PieceHashesExtensions
+    type: Class
+  - uid: MonoTorrent.Priority
+    name: Priority
+    type: Enum
+  - uid: MonoTorrent.ReadOnlyBitField
+    name: ReadOnlyBitField
+    type: Class
+  - uid: MonoTorrent.ReadOnlyMerkleTree
+    name: ReadOnlyMerkleTree
+    type: Class
+  - uid: MonoTorrent.ReadOnlyPieceHash
+    name: ReadOnlyPieceHash
+    type: Struct
+  - uid: MonoTorrent.ReadOnlyPieceHashSpan
+    name: ReadOnlyPieceHashSpan
+    type: Struct
+  - uid: MonoTorrent.Software
+    name: Software
+    type: Struct
+  - uid: MonoTorrent.SpeedMonitor
+    name: SpeedMonitor
+    type: Class
+  - uid: MonoTorrent.Torrent
+    name: Torrent
+    type: Class
+  - uid: MonoTorrent.TorrentCreator
+    name: TorrentCreator
+    type: Class
+  - uid: MonoTorrent.TorrentCreatorEventArgs
+    name: TorrentCreatorEventArgs
+    type: Class
+  - uid: MonoTorrent.TorrentEditor
+    name: TorrentEditor
+    type: Class
+  - uid: MonoTorrent.TorrentEvent
+    name: TorrentEvent
+    type: Enum
+  - uid: MonoTorrent.TorrentException
+    name: TorrentException
+    type: Class
+  - uid: MonoTorrent.TorrentFile
+    name: TorrentFile
+    type: Class
+  - uid: MonoTorrent.TorrentFileAttributes
+    name: TorrentFileAttributes
+    type: Enum
+  - uid: MonoTorrent.TorrentFileSource
+    name: TorrentFileSource
+    type: Class
+  - uid: MonoTorrent.TorrentPath
+    name: TorrentPath
+    type: Struct
+  - uid: MonoTorrent.TorrentProtocol
+    name: TorrentProtocol
+    type: Enum
+  - uid: MonoTorrent.TorrentType
+    name: TorrentType
+    type: Enum
+  - uid: MonoTorrent.VersionInfo
+    name: VersionInfo
+    type: Class
+- uid: MonoTorrent.BEncoding
+  name: MonoTorrent.BEncoding
+  type: Namespace
+  items:
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    type: Class
+  - uid: MonoTorrent.BEncoding.BEncodedList
+    name: BEncodedList
+    type: Class
+  - uid: MonoTorrent.BEncoding.BEncodedNumber
+    name: BEncodedNumber
+    type: Class
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    type: Class
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    type: Class
+  - uid: MonoTorrent.BEncoding.BEncodingException
+    name: BEncodingException
+    type: Class
+  - uid: MonoTorrent.BEncoding.RawInfoHashes
+    name: RawInfoHashes
+    type: Struct
+- uid: MonoTorrent.BlockReader
+  name: MonoTorrent.BlockReader
+  type: Namespace
+  items:
+  - uid: MonoTorrent.BlockReader.IBlockReader
+    name: IBlockReader
+    type: Interface
+  - uid: MonoTorrent.BlockReader.PieceReaderExtensions
+    name: PieceReaderExtensions
+    type: Class
+- uid: MonoTorrent.Client
+  name: MonoTorrent.Client
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Client.AddressRange
+    name: AddressRange
+    type: Struct
+  - uid: MonoTorrent.Client.AttemptConnectionEventArgs
+    name: AttemptConnectionEventArgs
+    type: Class
+  - uid: MonoTorrent.Client.AttemptConnectionStage
+    name: AttemptConnectionStage
+    type: Enum
+  - uid: MonoTorrent.Client.BanList
+    name: BanList
+    type: Class
+  - uid: MonoTorrent.Client.BanListParser
+    name: BanListParser
+    type: Class
+  - uid: MonoTorrent.Client.ClientEngine
+    name: ClientEngine
+    type: Class
+  - uid: MonoTorrent.Client.ConnectionAttemptFailedEventArgs
+    name: ConnectionAttemptFailedEventArgs
+    type: Class
+  - uid: MonoTorrent.Client.ConnectionFailureReason
+    name: ConnectionFailureReason
+    type: Enum
+  - uid: MonoTorrent.Client.ConnectionManager
+    name: ConnectionManager
+    type: Class
+  - uid: MonoTorrent.Client.ConnectionMonitor
+    name: ConnectionMonitor
+    type: Class
+  - uid: MonoTorrent.Client.CriticalExceptionEventArgs
+    name: CriticalExceptionEventArgs
+    type: Class
+  - uid: MonoTorrent.Client.DhtPeersAdded
+    name: DhtPeersAdded
+    type: Class
+  - uid: MonoTorrent.Client.DisconnectReason
+    name: DisconnectReason
+    type: Enum
+  - uid: MonoTorrent.Client.DiskManager
+    name: DiskManager
+    type: Class
+  - uid: MonoTorrent.Client.EngineSettings
+    name: EngineSettings
+    type: Class
+  - uid: MonoTorrent.Client.EngineSettingsBuilder
+    name: EngineSettingsBuilder
+    type: Class
+  - uid: MonoTorrent.Client.Error
+    name: Error
+    type: Class
+  - uid: MonoTorrent.Client.FastResume
+    name: FastResume
+    type: Class
+  - uid: MonoTorrent.Client.FastResumeMode
+    name: FastResumeMode
+    type: Enum
+  - uid: MonoTorrent.Client.IDht
+    name: IDht
+    type: Interface
+  - uid: MonoTorrent.Client.LocalPeersAdded
+    name: LocalPeersAdded
+    type: Class
+  - uid: MonoTorrent.Client.NewConnectionEventArgs
+    name: NewConnectionEventArgs
+    type: Class
+  - uid: MonoTorrent.Client.PeerAddedEventArgs
+    name: PeerAddedEventArgs
+    type: Class
+  - uid: MonoTorrent.Client.PeerConnectedEventArgs
+    name: PeerConnectedEventArgs
+    type: Class
+  - uid: MonoTorrent.Client.PeerDisconnectedEventArgs
+    name: PeerDisconnectedEventArgs
+    type: Class
+  - uid: MonoTorrent.Client.PeerExchangePeersAdded
+    name: PeerExchangePeersAdded
+    type: Class
+  - uid: MonoTorrent.Client.PeerId
+    name: PeerId
+    type: Class
+  - uid: MonoTorrent.Client.PeerManager
+    name: PeerManager
+    type: Class
+  - uid: MonoTorrent.Client.PeerMonitor
+    name: PeerMonitor
+    type: Class
+  - uid: MonoTorrent.Client.PeersAddedEventArgs
+    name: PeersAddedEventArgs
+    type: Class
+  - uid: MonoTorrent.Client.PieceHashedEventArgs
+    name: PieceHashedEventArgs
+    type: Class
+  - uid: MonoTorrent.Client.PieceManager
+    name: PieceManager
+    type: Class
+  - uid: MonoTorrent.Client.Reason
+    name: Reason
+    type: Enum
+  - uid: MonoTorrent.Client.RemoveMode
+    name: RemoveMode
+    type: Enum
+  - uid: MonoTorrent.Client.StatsUpdateEventArgs
+    name: StatsUpdateEventArgs
+    type: Class
+  - uid: MonoTorrent.Client.TorrentEventArgs
+    name: TorrentEventArgs
+    type: Class
+  - uid: MonoTorrent.Client.TorrentManager
+    name: TorrentManager
+    type: Class
+  - uid: MonoTorrent.Client.TorrentSettings
+    name: TorrentSettings
+    type: Class
+  - uid: MonoTorrent.Client.TorrentSettingsBuilder
+    name: TorrentSettingsBuilder
+    type: Class
+  - uid: MonoTorrent.Client.TorrentState
+    name: TorrentState
+    type: Enum
+  - uid: MonoTorrent.Client.TorrentStateChangedEventArgs
+    name: TorrentStateChangedEventArgs
+    type: Class
+  - uid: MonoTorrent.Client.TorrentUpdateEventArgs
+    name: TorrentUpdateEventArgs
+    type: Class
+  - uid: MonoTorrent.Client.TrackerPeersAdded
+    name: TrackerPeersAdded
+    type: Class
+- uid: MonoTorrent.Connections
+  name: MonoTorrent.Connections
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Connections.EncryptionType
+    name: EncryptionType
+    type: Enum
+  - uid: MonoTorrent.Connections.IListener
+    name: IListener
+    type: Interface
+  - uid: MonoTorrent.Connections.ISocketConnector
+    name: ISocketConnector
+    type: Interface
+  - uid: MonoTorrent.Connections.ISocketListener
+    name: ISocketListener
+    type: Interface
+  - uid: MonoTorrent.Connections.ISocketMessageListener
+    name: ISocketMessageListener
+    type: Interface
+  - uid: MonoTorrent.Connections.Listener
+    name: Listener
+    type: Class
+  - uid: MonoTorrent.Connections.ListenerStatus
+    name: ListenerStatus
+    type: Enum
+  - uid: MonoTorrent.Connections.SocketConnector
+    name: SocketConnector
+    type: Class
+  - uid: MonoTorrent.Connections.SocketListener
+    name: SocketListener
+    type: Class
+  - uid: MonoTorrent.Connections.UdpListener
+    name: UdpListener
+    type: Class
+  - uid: MonoTorrent.Connections.UriExtensions
+    name: UriExtensions
+    type: Class
+- uid: MonoTorrent.Connections.Dht
+  name: MonoTorrent.Connections.Dht
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Connections.Dht.DhtListener
+    name: DhtListener
+    type: Class
+  - uid: MonoTorrent.Connections.Dht.IDhtListener
+    name: IDhtListener
+    type: Interface
+- uid: MonoTorrent.Connections.Peer
+  name: MonoTorrent.Connections.Peer
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+    name: ILocalPeerDiscovery
+    type: Interface
+  - uid: MonoTorrent.Connections.Peer.IPeerConnection
+    name: IPeerConnection
+    type: Interface
+  - uid: MonoTorrent.Connections.Peer.IPeerConnectionGate
+    name: IPeerConnectionGate
+    type: Interface
+  - uid: MonoTorrent.Connections.Peer.IPeerConnectionListener
+    name: IPeerConnectionListener
+    type: Interface
+  - uid: MonoTorrent.Connections.Peer.IPeerConnectionLocalInfo
+    name: IPeerConnectionLocalInfo
+    type: Interface
+  - uid: MonoTorrent.Connections.Peer.LocalPeerDiscovery
+    name: LocalPeerDiscovery
+    type: Class
+  - uid: MonoTorrent.Connections.Peer.LocalPeerFoundEventArgs
+    name: LocalPeerFoundEventArgs
+    type: Class
+  - uid: MonoTorrent.Connections.Peer.NoGating
+    name: NoGating
+    type: Class
+  - uid: MonoTorrent.Connections.Peer.PeerConnectionEventArgs
+    name: PeerConnectionEventArgs
+    type: Class
+  - uid: MonoTorrent.Connections.Peer.PeerConnectionListener
+    name: PeerConnectionListener
+    type: Class
+  - uid: MonoTorrent.Connections.Peer.SocketPeerConnection
+    name: SocketPeerConnection
+    type: Class
+- uid: MonoTorrent.Connections.Tracker
+  name: MonoTorrent.Connections.Tracker
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters
+    name: HTTPTrackerConnectionParameters
+    type: Class
+  - uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder
+    name: HTTPTrackerConnectionParameters.Builder
+    type: Class
+  - uid: MonoTorrent.Connections.Tracker.HttpTrackerConnection
+    name: HttpTrackerConnection
+    type: Class
+  - uid: MonoTorrent.Connections.Tracker.ITrackerConnection
+    name: ITrackerConnection
+    type: Interface
+  - uid: MonoTorrent.Connections.Tracker.UdpTrackerConnection
+    name: UdpTrackerConnection
+    type: Class
+- uid: MonoTorrent.Connections.TrackerServer
+  name: MonoTorrent.Connections.TrackerServer
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Connections.TrackerServer.HttpTrackerListener
+    name: HttpTrackerListener
+    type: Class
+  - uid: MonoTorrent.Connections.TrackerServer.ITrackerListener
+    name: ITrackerListener
+    type: Interface
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListener
+    name: TrackerListener
+    type: Class
+  - uid: MonoTorrent.Connections.TrackerServer.TrackerListenerFactory
+    name: TrackerListenerFactory
+    type: Class
+  - uid: MonoTorrent.Connections.TrackerServer.UdpTrackerListener
+    name: UdpTrackerListener
+    type: Class
+- uid: MonoTorrent.Dht
+  name: MonoTorrent.Dht
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Dht.DhtEngine
+    name: DhtEngine
+    type: Class
+  - uid: MonoTorrent.Dht.DhtState
+    name: DhtState
+    type: Enum
+  - uid: MonoTorrent.Dht.IDhtEngine
+    name: IDhtEngine
+    type: Interface
+  - uid: MonoTorrent.Dht.ITransferMonitor
+    name: ITransferMonitor
+    type: Interface
+  - uid: MonoTorrent.Dht.NodeId
+    name: NodeId
+    type: Class
+  - uid: MonoTorrent.Dht.PeersFoundEventArgs
+    name: PeersFoundEventArgs
+    type: Class
+- uid: MonoTorrent.Logging
+  name: MonoTorrent.Logging
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Logging.ILogger
+    name: ILogger
+    type: Interface
+  - uid: MonoTorrent.Logging.IRootLogger
+    name: IRootLogger
+    type: Interface
+  - uid: MonoTorrent.Logging.LoggerFactory
+    name: LoggerFactory
+    type: Class
+  - uid: MonoTorrent.Logging.NullLogger
+    name: NullLogger
+    type: Class
+  - uid: MonoTorrent.Logging.TextWriterLogger
+    name: TextWriterLogger
+    type: Class
+- uid: MonoTorrent.Messages
+  name: MonoTorrent.Messages
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Messages.IMessage
+    name: IMessage
+    type: Interface
+  - uid: MonoTorrent.Messages.IRentable
+    name: IRentable
+    type: Interface
+  - uid: MonoTorrent.Messages.Message
+    name: Message
+    type: Class
+  - uid: MonoTorrent.Messages.MessageException
+    name: MessageException
+    type: Class
+- uid: MonoTorrent.Messages.Peer
+  name: MonoTorrent.Messages.Peer
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Messages.Peer.AllowedFastBundle
+    name: AllowedFastBundle
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.BitfieldMessage
+    name: BitfieldMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.CancelMessage
+    name: CancelMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.ChokeMessage
+    name: ChokeMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.HandshakeMessage
+    name: HandshakeMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.HashRejectMessage
+    name: HashRejectMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.HashRequestMessage
+    name: HashRequestMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.HashesMessage
+    name: HashesMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.HaveBundle
+    name: HaveBundle
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.HaveMessage
+    name: HaveMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.InterestedMessage
+    name: InterestedMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.KeepAliveMessage
+    name: KeepAliveMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.MessageBundle
+    name: MessageBundle
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.NotInterestedMessage
+    name: NotInterestedMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.PeerMessage
+    name: PeerMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.PeerMessage.Releaser
+    name: PeerMessage.Releaser
+    type: Struct
+  - uid: MonoTorrent.Messages.Peer.PieceMessage
+    name: PieceMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.PortMessage
+    name: PortMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.RequestBundle
+    name: RequestBundle
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.RequestMessage
+    name: RequestMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.UnchokeMessage
+    name: UnchokeMessage
+    type: Class
+- uid: MonoTorrent.Messages.Peer.FastPeer
+  name: MonoTorrent.Messages.Peer.FastPeer
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Messages.Peer.FastPeer.AllowedFastMessage
+    name: AllowedFastMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.FastPeer.HaveAllMessage
+    name: HaveAllMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.FastPeer.HaveNoneMessage
+    name: HaveNoneMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.FastPeer.IFastPeerMessage
+    name: IFastPeerMessage
+    type: Interface
+  - uid: MonoTorrent.Messages.Peer.FastPeer.RejectRequestMessage
+    name: RejectRequestMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.FastPeer.SuggestPieceMessage
+    name: SuggestPieceMessage
+    type: Class
+- uid: MonoTorrent.Messages.Peer.Libtorrent
+  name: MonoTorrent.Messages.Peer.Libtorrent
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.ExtendedHandshakeMessage
+    name: ExtendedHandshakeMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionMessage
+    name: ExtensionMessage
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupport
+    name: ExtensionSupport
+    type: Struct
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.ExtensionSupports
+    name: ExtensionSupports
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.LTChat
+    name: LTChat
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata
+    name: LTMetadata
+    type: Class
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+    name: LTMetadata.MessageType
+    type: Enum
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.PeerExchangeMessage
+    name: PeerExchangeMessage
+    type: Class
+- uid: MonoTorrent.Messages.UdpTracker
+  name: MonoTorrent.Messages.UdpTracker
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Messages.UdpTracker.AnnounceMessage
+    name: AnnounceMessage
+    type: Class
+  - uid: MonoTorrent.Messages.UdpTracker.AnnounceResponseMessage
+    name: AnnounceResponseMessage
+    type: Class
+  - uid: MonoTorrent.Messages.UdpTracker.AuthenticationMessage
+    name: AuthenticationMessage
+    type: Class
+  - uid: MonoTorrent.Messages.UdpTracker.ConnectMessage
+    name: ConnectMessage
+    type: Class
+  - uid: MonoTorrent.Messages.UdpTracker.ConnectResponseMessage
+    name: ConnectResponseMessage
+    type: Class
+  - uid: MonoTorrent.Messages.UdpTracker.ErrorMessage
+    name: ErrorMessage
+    type: Class
+  - uid: MonoTorrent.Messages.UdpTracker.MessageType
+    name: MessageType
+    type: Enum
+  - uid: MonoTorrent.Messages.UdpTracker.ScrapeDetails
+    name: ScrapeDetails
+    type: Class
+  - uid: MonoTorrent.Messages.UdpTracker.ScrapeMessage
+    name: ScrapeMessage
+    type: Class
+  - uid: MonoTorrent.Messages.UdpTracker.ScrapeResponseMessage
+    name: ScrapeResponseMessage
+    type: Class
+  - uid: MonoTorrent.Messages.UdpTracker.UdpTrackerMessage
+    name: UdpTrackerMessage
+    type: Class
+- uid: MonoTorrent.PiecePicking
+  name: MonoTorrent.PiecePicking
+  type: Namespace
+  items:
+  - uid: MonoTorrent.PiecePicking.ActivePieceRequest
+    name: ActivePieceRequest
+    type: Struct
+  - uid: MonoTorrent.PiecePicking.IHaveLatencyInfo
+    name: IHaveLatencyInfo
+    type: Interface
+  - uid: MonoTorrent.PiecePicking.IMessageEnqueuer
+    name: IMessageEnqueuer
+    type: Interface
+  - uid: MonoTorrent.PiecePicking.IPiecePicker
+    name: IPiecePicker
+    type: Interface
+  - uid: MonoTorrent.PiecePicking.IPieceRequester
+    name: IPieceRequester
+    type: Interface
+  - uid: MonoTorrent.PiecePicking.IPieceRequesterData
+    name: IPieceRequesterData
+    type: Interface
+  - uid: MonoTorrent.PiecePicking.IRaiseInterest
+    name: IRaiseInterest
+    type: Interface
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    type: Interface
+  - uid: MonoTorrent.PiecePicking.IStreamingPieceRequester
+    name: IStreamingPieceRequester
+    type: Interface
+  - uid: MonoTorrent.PiecePicking.IgnoringPicker
+    name: IgnoringPicker
+    type: Class
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter
+    name: PiecePickerFilter
+    type: Class
+  - uid: MonoTorrent.PiecePicking.PieceRequesterExtensions
+    name: PieceRequesterExtensions
+    type: Class
+  - uid: MonoTorrent.PiecePicking.PieceRequesterSettings
+    name: PieceRequesterSettings
+    type: Class
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    type: Struct
+  - uid: MonoTorrent.PiecePicking.PriorityPicker
+    name: PriorityPicker
+    type: Class
+  - uid: MonoTorrent.PiecePicking.RandomisedPicker
+    name: RandomisedPicker
+    type: Class
+  - uid: MonoTorrent.PiecePicking.RarestFirstPicker
+    name: RarestFirstPicker
+    type: Class
+  - uid: MonoTorrent.PiecePicking.StandardPicker
+    name: StandardPicker
+    type: Class
+  - uid: MonoTorrent.PiecePicking.StandardPieceRequester
+    name: StandardPieceRequester
+    type: Class
+  - uid: MonoTorrent.PiecePicking.StreamingPieceRequester
+    name: StreamingPieceRequester
+    type: Class
+- uid: MonoTorrent.PieceWriter
+  name: MonoTorrent.PieceWriter
+  type: Namespace
+  items:
+  - uid: MonoTorrent.PieceWriter.BlockBasedPieceWriter
+    name: BlockBasedPieceWriter
+    type: Class
+  - uid: MonoTorrent.PieceWriter.CachePolicy
+    name: CachePolicy
+    type: Enum
+  - uid: MonoTorrent.PieceWriter.DiskWriter
+    name: DiskWriter
+    type: Class
+  - uid: MonoTorrent.PieceWriter.FileCreationOptions
+    name: FileCreationOptions
+    type: Enum
+  - uid: MonoTorrent.PieceWriter.IBlockCache
+    name: IBlockCache
+    type: Interface
+  - uid: MonoTorrent.PieceWriter.IBlockWriter
+    name: IBlockWriter
+    type: Interface
+  - uid: MonoTorrent.PieceWriter.IPieceHashStatusUpdater
+    name: IPieceHashStatusUpdater
+    type: Interface
+  - uid: MonoTorrent.PieceWriter.IPieceWriter
+    name: IPieceWriter
+    type: Interface
+  - uid: MonoTorrent.PieceWriter.MemoryCache
+    name: MemoryCache
+    type: Class
+  - uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+    name: PaddingAwareIPieceWriterExtensions
+    type: Class
+  - uid: MonoTorrent.PieceWriter.StreamBlockReader
+    name: StreamBlockReader
+    type: Class
+  - uid: MonoTorrent.PieceWriter.StreamBlockWriter
+    name: StreamBlockWriter
+    type: Class
+- uid: MonoTorrent.PortForwarding
+  name: MonoTorrent.PortForwarding
+  type: Namespace
+  items:
+  - uid: MonoTorrent.PortForwarding.IPortForwarder
+    name: IPortForwarder
+    type: Interface
+  - uid: MonoTorrent.PortForwarding.Mapping
+    name: Mapping
+    type: Class
+  - uid: MonoTorrent.PortForwarding.Mappings
+    name: Mappings
+    type: Class
+  - uid: MonoTorrent.PortForwarding.MonoNatPortForwarder
+    name: MonoNatPortForwarder
+    type: Class
+  - uid: MonoTorrent.PortForwarding.Protocol
+    name: Protocol
+    type: Enum
+- uid: MonoTorrent.Streaming
+  name: MonoTorrent.Streaming
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Streaming.IHttpStream
+    name: IHttpStream
+    type: Interface
+  - uid: MonoTorrent.Streaming.StreamProvider
+    name: StreamProvider
+    type: Class
+- uid: MonoTorrent.TorrentWatcher
+  name: MonoTorrent.TorrentWatcher
+  type: Namespace
+  items:
+  - uid: MonoTorrent.TorrentWatcher.ITorrentWatcher
+    name: ITorrentWatcher
+    type: Interface
+  - uid: MonoTorrent.TorrentWatcher.TorrentFolderWatcher
+    name: TorrentFolderWatcher
+    type: Class
+  - uid: MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs
+    name: TorrentWatcherEventArgs
+    type: Class
+  - uid: MonoTorrent.TorrentWatcher.TorrentWatchers
+    name: TorrentWatchers
+    type: Class
+- uid: MonoTorrent.TrackerServer
+  name: MonoTorrent.TrackerServer
+  type: Namespace
+  items:
+  - uid: MonoTorrent.TrackerServer.AnnounceEventArgs
+    name: AnnounceEventArgs
+    type: Class
+  - uid: MonoTorrent.TrackerServer.AnnounceRequest
+    name: AnnounceRequest
+    type: Class
+  - uid: MonoTorrent.TrackerServer.ClientAddressComparer
+    name: ClientAddressComparer
+    type: Class
+  - uid: MonoTorrent.TrackerServer.IPeerComparer
+    name: IPeerComparer
+    type: Interface
+  - uid: MonoTorrent.TrackerServer.ITrackable
+    name: ITrackable
+    type: Interface
+  - uid: MonoTorrent.TrackerServer.ITrackerItem
+    name: ITrackerItem
+    type: Interface
+  - uid: MonoTorrent.TrackerServer.InfoHashTrackable
+    name: InfoHashTrackable
+    type: Class
+  - uid: MonoTorrent.TrackerServer.Peer
+    name: Peer
+    type: Class
+  - uid: MonoTorrent.TrackerServer.PeerEventArgs
+    name: PeerEventArgs
+    type: Class
+  - uid: MonoTorrent.TrackerServer.PeerIdComparer
+    name: PeerIdComparer
+    type: Class
+  - uid: MonoTorrent.TrackerServer.RequestMonitor
+    name: RequestMonitor
+    type: Class
+  - uid: MonoTorrent.TrackerServer.ScrapeEventArgs
+    name: ScrapeEventArgs
+    type: Class
+  - uid: MonoTorrent.TrackerServer.ScrapeRequest
+    name: ScrapeRequest
+    type: Class
+  - uid: MonoTorrent.TrackerServer.TimedOutEventArgs
+    name: TimedOutEventArgs
+    type: Class
+  - uid: MonoTorrent.TrackerServer.TrackerRequest
+    name: TrackerRequest
+    type: Class
+  - uid: MonoTorrent.TrackerServer.TrackerServer
+    name: TrackerServer
+    type: Class
+- uid: MonoTorrent.Trackers
+  name: MonoTorrent.Trackers
+  type: Namespace
+  items:
+  - uid: MonoTorrent.Trackers.AnnounceRequest
+    name: AnnounceRequest
+    type: Class
+  - uid: MonoTorrent.Trackers.AnnounceResponse
+    name: AnnounceResponse
+    type: Class
+  - uid: MonoTorrent.Trackers.AnnounceResponseEventArgs
+    name: AnnounceResponseEventArgs
+    type: Class
+  - uid: MonoTorrent.Trackers.ITracker
+    name: ITracker
+    type: Interface
+  - uid: MonoTorrent.Trackers.ITrackerManager
+    name: ITrackerManager
+    type: Interface
+  - uid: MonoTorrent.Trackers.ScrapeInfo
+    name: ScrapeInfo
+    type: Struct
+  - uid: MonoTorrent.Trackers.ScrapeRequest
+    name: ScrapeRequest
+    type: Class
+  - uid: MonoTorrent.Trackers.ScrapeResponse
+    name: ScrapeResponse
+    type: Class
+  - uid: MonoTorrent.Trackers.ScrapeResponseEventArgs
+    name: ScrapeResponseEventArgs
+    type: Class
+  - uid: MonoTorrent.Trackers.Tracker
+    name: Tracker
+    type: Class
+  - uid: MonoTorrent.Trackers.TrackerException
+    name: TrackerException
+    type: Class
+  - uid: MonoTorrent.Trackers.TrackerResponse
+    name: TrackerResponse
+    type: Class
+  - uid: MonoTorrent.Trackers.TrackerResponseEventArgs
+    name: TrackerResponseEventArgs
+    type: Class
+  - uid: MonoTorrent.Trackers.TrackerState
+    name: TrackerState
+    type: Enum
+  - uid: MonoTorrent.Trackers.TrackerTier
+    name: TrackerTier
+    type: Class
+memberLayout: SamePage

@@ -1,0 +1,993 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Client.TorrentSettings
+  commentId: T:MonoTorrent.Client.TorrentSettings
+  id: TorrentSettings
+  parent: MonoTorrent.Client
+  children:
+  - MonoTorrent.Client.TorrentSettings.#ctor
+  - MonoTorrent.Client.TorrentSettings.AllowDht
+  - MonoTorrent.Client.TorrentSettings.AllowInitialSeeding
+  - MonoTorrent.Client.TorrentSettings.AllowPeerExchange
+  - MonoTorrent.Client.TorrentSettings.CreateContainingDirectory
+  - MonoTorrent.Client.TorrentSettings.Equals(MonoTorrent.Client.TorrentSettings)
+  - MonoTorrent.Client.TorrentSettings.Equals(System.Object)
+  - MonoTorrent.Client.TorrentSettings.GetHashCode
+  - MonoTorrent.Client.TorrentSettings.MaximumConnections
+  - MonoTorrent.Client.TorrentSettings.MaximumDownloadRate
+  - MonoTorrent.Client.TorrentSettings.MaximumUploadRate
+  - MonoTorrent.Client.TorrentSettings.RequirePeerIdToMatch
+  - MonoTorrent.Client.TorrentSettings.UploadSlots
+  langs:
+  - csharp
+  - vb
+  name: TorrentSettings
+  nameWithType: TorrentSettings
+  fullName: MonoTorrent.Client.TorrentSettings
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/TorrentSettings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentSettings
+    path: src/Client/Settings/TorrentSettings.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: 'public sealed class TorrentSettings : IEquatable<TorrentSettings>'
+    content.vb: Public NotInheritable Class TorrentSettings Implements IEquatable(Of TorrentSettings)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{MonoTorrent.Client.TorrentSettings}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.Client.TorrentSettings.AllowDht
+  commentId: P:MonoTorrent.Client.TorrentSettings.AllowDht
+  id: AllowDht
+  parent: MonoTorrent.Client.TorrentSettings
+  langs:
+  - csharp
+  - vb
+  name: AllowDht
+  nameWithType: TorrentSettings.AllowDht
+  fullName: MonoTorrent.Client.TorrentSettings.AllowDht
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/TorrentSettings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AllowDht
+    path: src/Client/Settings/TorrentSettings.cs
+    startLine: 41
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    If set to false then the <xref href="MonoTorrent.Dht.IDhtEngine" data-throw-if-not-resolved="false"></xref> registered with the <xref href="MonoTorrent.Client.ClientEngine" data-throw-if-not-resolved="false"></xref> will
+
+    never be used to locate additional peers. Defaults to true.
+  example: []
+  syntax:
+    content: public bool AllowDht { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property AllowDht As Boolean
+  overload: MonoTorrent.Client.TorrentSettings.AllowDht*
+- uid: MonoTorrent.Client.TorrentSettings.AllowInitialSeeding
+  commentId: P:MonoTorrent.Client.TorrentSettings.AllowInitialSeeding
+  id: AllowInitialSeeding
+  parent: MonoTorrent.Client.TorrentSettings
+  langs:
+  - csharp
+  - vb
+  name: AllowInitialSeeding
+  nameWithType: TorrentSettings.AllowInitialSeeding
+  fullName: MonoTorrent.Client.TorrentSettings.AllowInitialSeeding
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/TorrentSettings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AllowInitialSeeding
+    path: src/Client/Settings/TorrentSettings.cs
+    startLine: 47
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    If set to true, and there are no other seeders for this torrent, then Initial Seeding mode may be used to
+
+    prioritise sharing pieces which are not already available in the swarm.
+  example: []
+  syntax:
+    content: public bool AllowInitialSeeding { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property AllowInitialSeeding As Boolean
+  overload: MonoTorrent.Client.TorrentSettings.AllowInitialSeeding*
+- uid: MonoTorrent.Client.TorrentSettings.AllowPeerExchange
+  commentId: P:MonoTorrent.Client.TorrentSettings.AllowPeerExchange
+  id: AllowPeerExchange
+  parent: MonoTorrent.Client.TorrentSettings
+  langs:
+  - csharp
+  - vb
+  name: AllowPeerExchange
+  nameWithType: TorrentSettings.AllowPeerExchange
+  fullName: MonoTorrent.Client.TorrentSettings.AllowPeerExchange
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/TorrentSettings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AllowPeerExchange
+    path: src/Client/Settings/TorrentSettings.cs
+    startLine: 52
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: If set to false then Peer Exchange messages will never be used to locate additional peers. Defaults to true.
+  example: []
+  syntax:
+    content: public bool AllowPeerExchange { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property AllowPeerExchange As Boolean
+  overload: MonoTorrent.Client.TorrentSettings.AllowPeerExchange*
+- uid: MonoTorrent.Client.TorrentSettings.CreateContainingDirectory
+  commentId: P:MonoTorrent.Client.TorrentSettings.CreateContainingDirectory
+  id: CreateContainingDirectory
+  parent: MonoTorrent.Client.TorrentSettings
+  langs:
+  - csharp
+  - vb
+  name: CreateContainingDirectory
+  nameWithType: TorrentSettings.CreateContainingDirectory
+  fullName: MonoTorrent.Client.TorrentSettings.CreateContainingDirectory
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/TorrentSettings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateContainingDirectory
+    path: src/Client/Settings/TorrentSettings.cs
+    startLine: 59
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    If set to true all files in a multi-file torrent will be placed inside a containing directory.
+
+    The directory name will be derived from <xref href="MonoTorrent.MagnetLink.Name" data-throw-if-not-resolved="false"></xref> or <xref href="MonoTorrent.Torrent.Name" data-throw-if-not-resolved="false"></xref>.
+
+    Defaults to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
+  example: []
+  syntax:
+    content: public bool CreateContainingDirectory { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property CreateContainingDirectory As Boolean
+  overload: MonoTorrent.Client.TorrentSettings.CreateContainingDirectory*
+- uid: MonoTorrent.Client.TorrentSettings.MaximumConnections
+  commentId: P:MonoTorrent.Client.TorrentSettings.MaximumConnections
+  id: MaximumConnections
+  parent: MonoTorrent.Client.TorrentSettings
+  langs:
+  - csharp
+  - vb
+  name: MaximumConnections
+  nameWithType: TorrentSettings.MaximumConnections
+  fullName: MonoTorrent.Client.TorrentSettings.MaximumConnections
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/TorrentSettings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MaximumConnections
+    path: src/Client/Settings/TorrentSettings.cs
+    startLine: 64
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The maximum number of concurrent open connections for this torrent. Defaults to 60.
+  example: []
+  syntax:
+    content: public int MaximumConnections { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaximumConnections As Integer
+  overload: MonoTorrent.Client.TorrentSettings.MaximumConnections*
+- uid: MonoTorrent.Client.TorrentSettings.MaximumDownloadRate
+  commentId: P:MonoTorrent.Client.TorrentSettings.MaximumDownloadRate
+  id: MaximumDownloadRate
+  parent: MonoTorrent.Client.TorrentSettings
+  langs:
+  - csharp
+  - vb
+  name: MaximumDownloadRate
+  nameWithType: TorrentSettings.MaximumDownloadRate
+  fullName: MonoTorrent.Client.TorrentSettings.MaximumDownloadRate
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/TorrentSettings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MaximumDownloadRate
+    path: src/Client/Settings/TorrentSettings.cs
+    startLine: 69
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The maximum download rate, in bytes per second, for this torrent. A value of 0 means unlimited. Defaults to 0.
+  example: []
+  syntax:
+    content: public int MaximumDownloadRate { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaximumDownloadRate As Integer
+  overload: MonoTorrent.Client.TorrentSettings.MaximumDownloadRate*
+- uid: MonoTorrent.Client.TorrentSettings.MaximumUploadRate
+  commentId: P:MonoTorrent.Client.TorrentSettings.MaximumUploadRate
+  id: MaximumUploadRate
+  parent: MonoTorrent.Client.TorrentSettings
+  langs:
+  - csharp
+  - vb
+  name: MaximumUploadRate
+  nameWithType: TorrentSettings.MaximumUploadRate
+  fullName: MonoTorrent.Client.TorrentSettings.MaximumUploadRate
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/TorrentSettings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MaximumUploadRate
+    path: src/Client/Settings/TorrentSettings.cs
+    startLine: 74
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The maximum upload rate, in bytes per second, for this torrent. A value of 0 means unlimited. defaults to 0.
+  example: []
+  syntax:
+    content: public int MaximumUploadRate { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaximumUploadRate As Integer
+  overload: MonoTorrent.Client.TorrentSettings.MaximumUploadRate*
+- uid: MonoTorrent.Client.TorrentSettings.RequirePeerIdToMatch
+  commentId: P:MonoTorrent.Client.TorrentSettings.RequirePeerIdToMatch
+  id: RequirePeerIdToMatch
+  parent: MonoTorrent.Client.TorrentSettings
+  langs:
+  - csharp
+  - vb
+  name: RequirePeerIdToMatch
+  nameWithType: TorrentSettings.RequirePeerIdToMatch
+  fullName: MonoTorrent.Client.TorrentSettings.RequirePeerIdToMatch
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/TorrentSettings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RequirePeerIdToMatch
+    path: src/Client/Settings/TorrentSettings.cs
+    startLine: 83
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    The BitTorrent specification requires that clients which initiate an outgoing connection to
+
+    a remote peer must close that connection if the remote peer reports a different 'peer_id' than
+
+    it previously reported to the tracker. Several prominant BitTorrent clients/libraries, such as
+
+    libtorrent, randomise their peer id. Additionally, if the announce request requests a compact
+
+    response, the peer id will not be known anyway. Defaults to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
+  syntax:
+    content: public bool RequirePeerIdToMatch { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property RequirePeerIdToMatch As Boolean
+  overload: MonoTorrent.Client.TorrentSettings.RequirePeerIdToMatch*
+- uid: MonoTorrent.Client.TorrentSettings.UploadSlots
+  commentId: P:MonoTorrent.Client.TorrentSettings.UploadSlots
+  id: UploadSlots
+  parent: MonoTorrent.Client.TorrentSettings
+  langs:
+  - csharp
+  - vb
+  name: UploadSlots
+  nameWithType: TorrentSettings.UploadSlots
+  fullName: MonoTorrent.Client.TorrentSettings.UploadSlots
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/TorrentSettings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: UploadSlots
+    path: src/Client/Settings/TorrentSettings.cs
+    startLine: 88
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The number of peers which can be uploaded to concurrently for this torrent. A value of 0 means unlimited. defaults to 8.
+  example: []
+  syntax:
+    content: public int UploadSlots { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property UploadSlots As Integer
+  overload: MonoTorrent.Client.TorrentSettings.UploadSlots*
+- uid: MonoTorrent.Client.TorrentSettings.#ctor
+  commentId: M:MonoTorrent.Client.TorrentSettings.#ctor
+  id: '#ctor'
+  parent: MonoTorrent.Client.TorrentSettings
+  langs:
+  - csharp
+  - vb
+  name: TorrentSettings()
+  nameWithType: TorrentSettings.TorrentSettings()
+  fullName: MonoTorrent.Client.TorrentSettings.TorrentSettings()
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/TorrentSettings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Client/Settings/TorrentSettings.cs
+    startLine: 108
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public TorrentSettings()
+    content.vb: Public Sub New()
+  overload: MonoTorrent.Client.TorrentSettings.#ctor*
+  nameWithType.vb: TorrentSettings.New()
+  fullName.vb: MonoTorrent.Client.TorrentSettings.New()
+  name.vb: New()
+- uid: MonoTorrent.Client.TorrentSettings.Equals(System.Object)
+  commentId: M:MonoTorrent.Client.TorrentSettings.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: MonoTorrent.Client.TorrentSettings
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: TorrentSettings.Equals(object?)
+  fullName: MonoTorrent.Client.TorrentSettings.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/TorrentSettings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Equals
+    path: src/Client/Settings/TorrentSettings.cs
+    startLine: 126
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: MonoTorrent.Client.TorrentSettings.Equals*
+  nameWithType.vb: TorrentSettings.Equals(Object)
+  fullName.vb: MonoTorrent.Client.TorrentSettings.Equals(Object)
+  name.vb: Equals(Object)
+- uid: MonoTorrent.Client.TorrentSettings.Equals(MonoTorrent.Client.TorrentSettings)
+  commentId: M:MonoTorrent.Client.TorrentSettings.Equals(MonoTorrent.Client.TorrentSettings)
+  id: Equals(MonoTorrent.Client.TorrentSettings)
+  parent: MonoTorrent.Client.TorrentSettings
+  langs:
+  - csharp
+  - vb
+  name: Equals(TorrentSettings?)
+  nameWithType: TorrentSettings.Equals(TorrentSettings?)
+  fullName: MonoTorrent.Client.TorrentSettings.Equals(MonoTorrent.Client.TorrentSettings?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/TorrentSettings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Equals
+    path: src/Client/Settings/TorrentSettings.cs
+    startLine: 129
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(TorrentSettings? other)
+    parameters:
+    - id: other
+      type: MonoTorrent.Client.TorrentSettings
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As TorrentSettings) As Boolean
+  overload: MonoTorrent.Client.TorrentSettings.Equals*
+  implements:
+  - System.IEquatable{MonoTorrent.Client.TorrentSettings}.Equals(MonoTorrent.Client.TorrentSettings)
+  nameWithType.vb: TorrentSettings.Equals(TorrentSettings)
+  fullName.vb: MonoTorrent.Client.TorrentSettings.Equals(MonoTorrent.Client.TorrentSettings)
+  name.vb: Equals(TorrentSettings)
+- uid: MonoTorrent.Client.TorrentSettings.GetHashCode
+  commentId: M:MonoTorrent.Client.TorrentSettings.GetHashCode
+  id: GetHashCode
+  parent: MonoTorrent.Client.TorrentSettings
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: TorrentSettings.GetHashCode()
+  fullName: MonoTorrent.Client.TorrentSettings.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Settings/TorrentSettings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetHashCode
+    path: src/Client/Settings/TorrentSettings.cs
+    startLine: 143
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: MonoTorrent.Client.TorrentSettings.GetHashCode*
+references:
+- uid: MonoTorrent.Client
+  commentId: N:MonoTorrent.Client
+  href: MonoTorrent.html
+  name: MonoTorrent.Client
+  nameWithType: MonoTorrent.Client
+  fullName: MonoTorrent.Client
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{MonoTorrent.Client.TorrentSettings}
+  commentId: T:System.IEquatable{MonoTorrent.Client.TorrentSettings}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<TorrentSettings>
+  nameWithType: IEquatable<TorrentSettings>
+  fullName: System.IEquatable<MonoTorrent.Client.TorrentSettings>
+  nameWithType.vb: IEquatable(Of TorrentSettings)
+  fullName.vb: System.IEquatable(Of MonoTorrent.Client.TorrentSettings)
+  name.vb: IEquatable(Of TorrentSettings)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: MonoTorrent.Client.TorrentSettings
+    name: TorrentSettings
+    href: MonoTorrent.Client.TorrentSettings.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Client.TorrentSettings
+    name: TorrentSettings
+    href: MonoTorrent.Client.TorrentSettings.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.Dht.IDhtEngine
+  commentId: T:MonoTorrent.Dht.IDhtEngine
+  parent: MonoTorrent.Dht
+  href: MonoTorrent.Dht.IDhtEngine.html
+  name: IDhtEngine
+  nameWithType: IDhtEngine
+  fullName: MonoTorrent.Dht.IDhtEngine
+- uid: MonoTorrent.Client.ClientEngine
+  commentId: T:MonoTorrent.Client.ClientEngine
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.ClientEngine.html
+  name: ClientEngine
+  nameWithType: ClientEngine
+  fullName: MonoTorrent.Client.ClientEngine
+- uid: MonoTorrent.Client.TorrentSettings.AllowDht*
+  commentId: Overload:MonoTorrent.Client.TorrentSettings.AllowDht
+  href: MonoTorrent.Client.TorrentSettings.html#MonoTorrent_Client_TorrentSettings_AllowDht
+  name: AllowDht
+  nameWithType: TorrentSettings.AllowDht
+  fullName: MonoTorrent.Client.TorrentSettings.AllowDht
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.Dht
+  commentId: N:MonoTorrent.Dht
+  href: MonoTorrent.html
+  name: MonoTorrent.Dht
+  nameWithType: MonoTorrent.Dht
+  fullName: MonoTorrent.Dht
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Dht
+    name: Dht
+    href: MonoTorrent.Dht.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Dht
+    name: Dht
+    href: MonoTorrent.Dht.html
+- uid: MonoTorrent.Client.TorrentSettings.AllowInitialSeeding*
+  commentId: Overload:MonoTorrent.Client.TorrentSettings.AllowInitialSeeding
+  href: MonoTorrent.Client.TorrentSettings.html#MonoTorrent_Client_TorrentSettings_AllowInitialSeeding
+  name: AllowInitialSeeding
+  nameWithType: TorrentSettings.AllowInitialSeeding
+  fullName: MonoTorrent.Client.TorrentSettings.AllowInitialSeeding
+- uid: MonoTorrent.Client.TorrentSettings.AllowPeerExchange*
+  commentId: Overload:MonoTorrent.Client.TorrentSettings.AllowPeerExchange
+  href: MonoTorrent.Client.TorrentSettings.html#MonoTorrent_Client_TorrentSettings_AllowPeerExchange
+  name: AllowPeerExchange
+  nameWithType: TorrentSettings.AllowPeerExchange
+  fullName: MonoTorrent.Client.TorrentSettings.AllowPeerExchange
+- uid: MonoTorrent.MagnetLink.Name
+  commentId: P:MonoTorrent.MagnetLink.Name
+  href: MonoTorrent.MagnetLink.html#MonoTorrent_MagnetLink_Name
+  name: Name
+  nameWithType: MagnetLink.Name
+  fullName: MonoTorrent.MagnetLink.Name
+- uid: MonoTorrent.Torrent.Name
+  commentId: P:MonoTorrent.Torrent.Name
+  href: MonoTorrent.Torrent.html#MonoTorrent_Torrent_Name
+  name: Name
+  nameWithType: Torrent.Name
+  fullName: MonoTorrent.Torrent.Name
+- uid: MonoTorrent.Client.TorrentSettings.CreateContainingDirectory*
+  commentId: Overload:MonoTorrent.Client.TorrentSettings.CreateContainingDirectory
+  href: MonoTorrent.Client.TorrentSettings.html#MonoTorrent_Client_TorrentSettings_CreateContainingDirectory
+  name: CreateContainingDirectory
+  nameWithType: TorrentSettings.CreateContainingDirectory
+  fullName: MonoTorrent.Client.TorrentSettings.CreateContainingDirectory
+- uid: MonoTorrent.Client.TorrentSettings.MaximumConnections*
+  commentId: Overload:MonoTorrent.Client.TorrentSettings.MaximumConnections
+  href: MonoTorrent.Client.TorrentSettings.html#MonoTorrent_Client_TorrentSettings_MaximumConnections
+  name: MaximumConnections
+  nameWithType: TorrentSettings.MaximumConnections
+  fullName: MonoTorrent.Client.TorrentSettings.MaximumConnections
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.Client.TorrentSettings.MaximumDownloadRate*
+  commentId: Overload:MonoTorrent.Client.TorrentSettings.MaximumDownloadRate
+  href: MonoTorrent.Client.TorrentSettings.html#MonoTorrent_Client_TorrentSettings_MaximumDownloadRate
+  name: MaximumDownloadRate
+  nameWithType: TorrentSettings.MaximumDownloadRate
+  fullName: MonoTorrent.Client.TorrentSettings.MaximumDownloadRate
+- uid: MonoTorrent.Client.TorrentSettings.MaximumUploadRate*
+  commentId: Overload:MonoTorrent.Client.TorrentSettings.MaximumUploadRate
+  href: MonoTorrent.Client.TorrentSettings.html#MonoTorrent_Client_TorrentSettings_MaximumUploadRate
+  name: MaximumUploadRate
+  nameWithType: TorrentSettings.MaximumUploadRate
+  fullName: MonoTorrent.Client.TorrentSettings.MaximumUploadRate
+- uid: MonoTorrent.Client.TorrentSettings.RequirePeerIdToMatch*
+  commentId: Overload:MonoTorrent.Client.TorrentSettings.RequirePeerIdToMatch
+  href: MonoTorrent.Client.TorrentSettings.html#MonoTorrent_Client_TorrentSettings_RequirePeerIdToMatch
+  name: RequirePeerIdToMatch
+  nameWithType: TorrentSettings.RequirePeerIdToMatch
+  fullName: MonoTorrent.Client.TorrentSettings.RequirePeerIdToMatch
+- uid: MonoTorrent.Client.TorrentSettings.UploadSlots*
+  commentId: Overload:MonoTorrent.Client.TorrentSettings.UploadSlots
+  href: MonoTorrent.Client.TorrentSettings.html#MonoTorrent_Client_TorrentSettings_UploadSlots
+  name: UploadSlots
+  nameWithType: TorrentSettings.UploadSlots
+  fullName: MonoTorrent.Client.TorrentSettings.UploadSlots
+- uid: MonoTorrent.Client.TorrentSettings.#ctor*
+  commentId: Overload:MonoTorrent.Client.TorrentSettings.#ctor
+  href: MonoTorrent.Client.TorrentSettings.html#MonoTorrent_Client_TorrentSettings__ctor
+  name: TorrentSettings
+  nameWithType: TorrentSettings.TorrentSettings
+  fullName: MonoTorrent.Client.TorrentSettings.TorrentSettings
+  nameWithType.vb: TorrentSettings.New
+  fullName.vb: MonoTorrent.Client.TorrentSettings.New
+  name.vb: New
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: MonoTorrent.Client.TorrentSettings.Equals*
+  commentId: Overload:MonoTorrent.Client.TorrentSettings.Equals
+  href: MonoTorrent.Client.TorrentSettings.html#MonoTorrent_Client_TorrentSettings_Equals_System_Object_
+  name: Equals
+  nameWithType: TorrentSettings.Equals
+  fullName: MonoTorrent.Client.TorrentSettings.Equals
+- uid: System.IEquatable{MonoTorrent.Client.TorrentSettings}.Equals(MonoTorrent.Client.TorrentSettings)
+  commentId: M:System.IEquatable{MonoTorrent.Client.TorrentSettings}.Equals(MonoTorrent.Client.TorrentSettings)
+  parent: System.IEquatable{MonoTorrent.Client.TorrentSettings}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(TorrentSettings)
+  nameWithType: IEquatable<TorrentSettings>.Equals(TorrentSettings)
+  fullName: System.IEquatable<MonoTorrent.Client.TorrentSettings>.Equals(MonoTorrent.Client.TorrentSettings)
+  nameWithType.vb: IEquatable(Of TorrentSettings).Equals(TorrentSettings)
+  fullName.vb: System.IEquatable(Of MonoTorrent.Client.TorrentSettings).Equals(MonoTorrent.Client.TorrentSettings)
+  spec.csharp:
+  - uid: System.IEquatable{MonoTorrent.Client.TorrentSettings}.Equals(MonoTorrent.Client.TorrentSettings)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: MonoTorrent.Client.TorrentSettings
+    name: TorrentSettings
+    href: MonoTorrent.Client.TorrentSettings.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{MonoTorrent.Client.TorrentSettings}.Equals(MonoTorrent.Client.TorrentSettings)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: MonoTorrent.Client.TorrentSettings
+    name: TorrentSettings
+    href: MonoTorrent.Client.TorrentSettings.html
+  - name: )
+- uid: MonoTorrent.Client.TorrentSettings
+  commentId: T:MonoTorrent.Client.TorrentSettings
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.TorrentSettings.html
+  name: TorrentSettings
+  nameWithType: TorrentSettings
+  fullName: MonoTorrent.Client.TorrentSettings
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: MonoTorrent.Client.TorrentSettings.GetHashCode*
+  commentId: Overload:MonoTorrent.Client.TorrentSettings.GetHashCode
+  href: MonoTorrent.Client.TorrentSettings.html#MonoTorrent_Client_TorrentSettings_GetHashCode
+  name: GetHashCode
+  nameWithType: TorrentSettings.GetHashCode
+  fullName: MonoTorrent.Client.TorrentSettings.GetHashCode

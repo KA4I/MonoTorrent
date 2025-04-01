@@ -1,0 +1,150 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.TorrentEvent
+  commentId: T:MonoTorrent.TorrentEvent
+  id: TorrentEvent
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.TorrentEvent.Completed
+  - MonoTorrent.TorrentEvent.None
+  - MonoTorrent.TorrentEvent.Started
+  - MonoTorrent.TorrentEvent.Stopped
+  langs:
+  - csharp
+  - vb
+  name: TorrentEvent
+  nameWithType: TorrentEvent
+  fullName: MonoTorrent.TorrentEvent
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentEvent.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentEvent
+    path: src/TorrentEvent.cs
+    startLine: 31
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public enum TorrentEvent
+    content.vb: Public Enum TorrentEvent
+- uid: MonoTorrent.TorrentEvent.None
+  commentId: F:MonoTorrent.TorrentEvent.None
+  id: None
+  parent: MonoTorrent.TorrentEvent
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: TorrentEvent.None
+  fullName: MonoTorrent.TorrentEvent.None
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentEvent.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: None
+    path: src/TorrentEvent.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: None = 0
+    return:
+      type: MonoTorrent.TorrentEvent
+- uid: MonoTorrent.TorrentEvent.Started
+  commentId: F:MonoTorrent.TorrentEvent.Started
+  id: Started
+  parent: MonoTorrent.TorrentEvent
+  langs:
+  - csharp
+  - vb
+  name: Started
+  nameWithType: TorrentEvent.Started
+  fullName: MonoTorrent.TorrentEvent.Started
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentEvent.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Started
+    path: src/TorrentEvent.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Started = 1
+    return:
+      type: MonoTorrent.TorrentEvent
+- uid: MonoTorrent.TorrentEvent.Stopped
+  commentId: F:MonoTorrent.TorrentEvent.Stopped
+  id: Stopped
+  parent: MonoTorrent.TorrentEvent
+  langs:
+  - csharp
+  - vb
+  name: Stopped
+  nameWithType: TorrentEvent.Stopped
+  fullName: MonoTorrent.TorrentEvent.Stopped
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentEvent.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Stopped
+    path: src/TorrentEvent.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Stopped = 2
+    return:
+      type: MonoTorrent.TorrentEvent
+- uid: MonoTorrent.TorrentEvent.Completed
+  commentId: F:MonoTorrent.TorrentEvent.Completed
+  id: Completed
+  parent: MonoTorrent.TorrentEvent
+  langs:
+  - csharp
+  - vb
+  name: Completed
+  nameWithType: TorrentEvent.Completed
+  fullName: MonoTorrent.TorrentEvent.Completed
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentEvent.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Completed
+    path: src/TorrentEvent.cs
+    startLine: 36
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: Completed = 3
+    return:
+      type: MonoTorrent.TorrentEvent
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.TorrentEvent
+  commentId: T:MonoTorrent.TorrentEvent
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentEvent.html
+  name: TorrentEvent
+  nameWithType: TorrentEvent
+  fullName: MonoTorrent.TorrentEvent

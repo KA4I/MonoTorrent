@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PortForwarding
+  commentId: N:MonoTorrent.PortForwarding
+  id: MonoTorrent.PortForwarding
+  children:
+  - MonoTorrent.PortForwarding.IPortForwarder
+  - MonoTorrent.PortForwarding.Mapping
+  - MonoTorrent.PortForwarding.Mappings
+  - MonoTorrent.PortForwarding.MonoNatPortForwarder
+  - MonoTorrent.PortForwarding.Protocol
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.PortForwarding
+  nameWithType: MonoTorrent.PortForwarding
+  fullName: MonoTorrent.PortForwarding
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.PortForwarding.IPortForwarder
+  commentId: T:MonoTorrent.PortForwarding.IPortForwarder
+  parent: MonoTorrent.PortForwarding
+  href: MonoTorrent.PortForwarding.IPortForwarder.html
+  name: IPortForwarder
+  nameWithType: IPortForwarder
+  fullName: MonoTorrent.PortForwarding.IPortForwarder
+- uid: MonoTorrent.PortForwarding.Mapping
+  commentId: T:MonoTorrent.PortForwarding.Mapping
+  parent: MonoTorrent.PortForwarding
+  href: MonoTorrent.PortForwarding.Mapping.html
+  name: Mapping
+  nameWithType: Mapping
+  fullName: MonoTorrent.PortForwarding.Mapping
+- uid: MonoTorrent.PortForwarding.Mappings
+  commentId: T:MonoTorrent.PortForwarding.Mappings
+  parent: MonoTorrent.PortForwarding
+  href: MonoTorrent.PortForwarding.Mappings.html
+  name: Mappings
+  nameWithType: Mappings
+  fullName: MonoTorrent.PortForwarding.Mappings
+- uid: MonoTorrent.PortForwarding.MonoNatPortForwarder
+  commentId: T:MonoTorrent.PortForwarding.MonoNatPortForwarder
+  href: MonoTorrent.PortForwarding.MonoNatPortForwarder.html
+  name: MonoNatPortForwarder
+  nameWithType: MonoNatPortForwarder
+  fullName: MonoTorrent.PortForwarding.MonoNatPortForwarder
+- uid: MonoTorrent.PortForwarding.Protocol
+  commentId: T:MonoTorrent.PortForwarding.Protocol
+  parent: MonoTorrent.PortForwarding
+  href: MonoTorrent.PortForwarding.Protocol.html
+  name: Protocol
+  nameWithType: Protocol
+  fullName: MonoTorrent.PortForwarding.Protocol
+- uid: MonoTorrent.PortForwarding
+  commentId: N:MonoTorrent.PortForwarding
+  href: MonoTorrent.html
+  name: MonoTorrent.PortForwarding
+  nameWithType: MonoTorrent.PortForwarding
+  fullName: MonoTorrent.PortForwarding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PortForwarding
+    name: PortForwarding
+    href: MonoTorrent.PortForwarding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PortForwarding
+    name: PortForwarding
+    href: MonoTorrent.PortForwarding.html

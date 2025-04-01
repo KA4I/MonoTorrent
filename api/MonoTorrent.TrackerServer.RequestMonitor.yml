@@ -1,0 +1,513 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.TrackerServer.RequestMonitor
+  commentId: T:MonoTorrent.TrackerServer.RequestMonitor
+  id: RequestMonitor
+  parent: MonoTorrent.TrackerServer
+  children:
+  - MonoTorrent.TrackerServer.RequestMonitor.#ctor
+  - MonoTorrent.TrackerServer.RequestMonitor.AnnounceRate
+  - MonoTorrent.TrackerServer.RequestMonitor.ScrapeRate
+  - MonoTorrent.TrackerServer.RequestMonitor.TotalAnnounces
+  - MonoTorrent.TrackerServer.RequestMonitor.TotalScrapes
+  langs:
+  - csharp
+  - vb
+  name: RequestMonitor
+  nameWithType: RequestMonitor
+  fullName: MonoTorrent.TrackerServer.RequestMonitor
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/RequestMonitor.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RequestMonitor
+    path: src/TrackerServer/RequestMonitor.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: Tracks the number of Announce and Scrape requests.
+  example: []
+  syntax:
+    content: public class RequestMonitor
+    content.vb: Public Class RequestMonitor
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.TrackerServer.RequestMonitor.AnnounceRate
+  commentId: P:MonoTorrent.TrackerServer.RequestMonitor.AnnounceRate
+  id: AnnounceRate
+  parent: MonoTorrent.TrackerServer.RequestMonitor
+  langs:
+  - csharp
+  - vb
+  name: AnnounceRate
+  nameWithType: RequestMonitor.AnnounceRate
+  fullName: MonoTorrent.TrackerServer.RequestMonitor.AnnounceRate
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/RequestMonitor.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AnnounceRate
+    path: src/TrackerServer/RequestMonitor.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: This is the number of announce requests handled per second.
+  example: []
+  syntax:
+    content: public int AnnounceRate { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property AnnounceRate As Integer
+  overload: MonoTorrent.TrackerServer.RequestMonitor.AnnounceRate*
+- uid: MonoTorrent.TrackerServer.RequestMonitor.ScrapeRate
+  commentId: P:MonoTorrent.TrackerServer.RequestMonitor.ScrapeRate
+  id: ScrapeRate
+  parent: MonoTorrent.TrackerServer.RequestMonitor
+  langs:
+  - csharp
+  - vb
+  name: ScrapeRate
+  nameWithType: RequestMonitor.ScrapeRate
+  fullName: MonoTorrent.TrackerServer.RequestMonitor.ScrapeRate
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/RequestMonitor.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ScrapeRate
+    path: src/TrackerServer/RequestMonitor.cs
+    startLine: 44
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: This is the number of scrape requests handled per second.
+  example: []
+  syntax:
+    content: public int ScrapeRate { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property ScrapeRate As Integer
+  overload: MonoTorrent.TrackerServer.RequestMonitor.ScrapeRate*
+- uid: MonoTorrent.TrackerServer.RequestMonitor.TotalAnnounces
+  commentId: P:MonoTorrent.TrackerServer.RequestMonitor.TotalAnnounces
+  id: TotalAnnounces
+  parent: MonoTorrent.TrackerServer.RequestMonitor
+  langs:
+  - csharp
+  - vb
+  name: TotalAnnounces
+  nameWithType: RequestMonitor.TotalAnnounces
+  fullName: MonoTorrent.TrackerServer.RequestMonitor.TotalAnnounces
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/RequestMonitor.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TotalAnnounces
+    path: src/TrackerServer/RequestMonitor.cs
+    startLine: 49
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The total number of announces handled.
+  example: []
+  syntax:
+    content: public long TotalAnnounces { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property TotalAnnounces As Long
+  overload: MonoTorrent.TrackerServer.RequestMonitor.TotalAnnounces*
+- uid: MonoTorrent.TrackerServer.RequestMonitor.TotalScrapes
+  commentId: P:MonoTorrent.TrackerServer.RequestMonitor.TotalScrapes
+  id: TotalScrapes
+  parent: MonoTorrent.TrackerServer.RequestMonitor
+  langs:
+  - csharp
+  - vb
+  name: TotalScrapes
+  nameWithType: RequestMonitor.TotalScrapes
+  fullName: MonoTorrent.TrackerServer.RequestMonitor.TotalScrapes
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/RequestMonitor.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TotalScrapes
+    path: src/TrackerServer/RequestMonitor.cs
+    startLine: 54
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  summary: The total number of  scrapes handled.
+  example: []
+  syntax:
+    content: public long TotalScrapes { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property TotalScrapes As Long
+  overload: MonoTorrent.TrackerServer.RequestMonitor.TotalScrapes*
+- uid: MonoTorrent.TrackerServer.RequestMonitor.#ctor
+  commentId: M:MonoTorrent.TrackerServer.RequestMonitor.#ctor
+  id: '#ctor'
+  parent: MonoTorrent.TrackerServer.RequestMonitor
+  langs:
+  - csharp
+  - vb
+  name: RequestMonitor()
+  nameWithType: RequestMonitor.RequestMonitor()
+  fullName: MonoTorrent.TrackerServer.RequestMonitor.RequestMonitor()
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/TrackerServer/RequestMonitor.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/TrackerServer/RequestMonitor.cs
+    startLine: 59
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TrackerServer
+  syntax:
+    content: public RequestMonitor()
+    content.vb: Public Sub New()
+  overload: MonoTorrent.TrackerServer.RequestMonitor.#ctor*
+  nameWithType.vb: RequestMonitor.New()
+  fullName.vb: MonoTorrent.TrackerServer.RequestMonitor.New()
+  name.vb: New()
+references:
+- uid: MonoTorrent.TrackerServer
+  commentId: N:MonoTorrent.TrackerServer
+  href: MonoTorrent.html
+  name: MonoTorrent.TrackerServer
+  nameWithType: MonoTorrent.TrackerServer
+  fullName: MonoTorrent.TrackerServer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.TrackerServer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.TrackerServer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.TrackerServer.RequestMonitor.AnnounceRate*
+  commentId: Overload:MonoTorrent.TrackerServer.RequestMonitor.AnnounceRate
+  href: MonoTorrent.TrackerServer.RequestMonitor.html#MonoTorrent_TrackerServer_RequestMonitor_AnnounceRate
+  name: AnnounceRate
+  nameWithType: RequestMonitor.AnnounceRate
+  fullName: MonoTorrent.TrackerServer.RequestMonitor.AnnounceRate
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.TrackerServer.RequestMonitor.ScrapeRate*
+  commentId: Overload:MonoTorrent.TrackerServer.RequestMonitor.ScrapeRate
+  href: MonoTorrent.TrackerServer.RequestMonitor.html#MonoTorrent_TrackerServer_RequestMonitor_ScrapeRate
+  name: ScrapeRate
+  nameWithType: RequestMonitor.ScrapeRate
+  fullName: MonoTorrent.TrackerServer.RequestMonitor.ScrapeRate
+- uid: MonoTorrent.TrackerServer.RequestMonitor.TotalAnnounces*
+  commentId: Overload:MonoTorrent.TrackerServer.RequestMonitor.TotalAnnounces
+  href: MonoTorrent.TrackerServer.RequestMonitor.html#MonoTorrent_TrackerServer_RequestMonitor_TotalAnnounces
+  name: TotalAnnounces
+  nameWithType: RequestMonitor.TotalAnnounces
+  fullName: MonoTorrent.TrackerServer.RequestMonitor.TotalAnnounces
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: MonoTorrent.TrackerServer.RequestMonitor.TotalScrapes*
+  commentId: Overload:MonoTorrent.TrackerServer.RequestMonitor.TotalScrapes
+  href: MonoTorrent.TrackerServer.RequestMonitor.html#MonoTorrent_TrackerServer_RequestMonitor_TotalScrapes
+  name: TotalScrapes
+  nameWithType: RequestMonitor.TotalScrapes
+  fullName: MonoTorrent.TrackerServer.RequestMonitor.TotalScrapes
+- uid: MonoTorrent.TrackerServer.RequestMonitor.#ctor*
+  commentId: Overload:MonoTorrent.TrackerServer.RequestMonitor.#ctor
+  href: MonoTorrent.TrackerServer.RequestMonitor.html#MonoTorrent_TrackerServer_RequestMonitor__ctor
+  name: RequestMonitor
+  nameWithType: RequestMonitor.RequestMonitor
+  fullName: MonoTorrent.TrackerServer.RequestMonitor.RequestMonitor
+  nameWithType.vb: RequestMonitor.New
+  fullName.vb: MonoTorrent.TrackerServer.RequestMonitor.New
+  name.vb: New

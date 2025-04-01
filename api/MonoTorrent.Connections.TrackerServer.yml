@@ -1,0 +1,83 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.TrackerServer
+  commentId: N:MonoTorrent.Connections.TrackerServer
+  id: MonoTorrent.Connections.TrackerServer
+  children:
+  - MonoTorrent.Connections.TrackerServer.HttpTrackerListener
+  - MonoTorrent.Connections.TrackerServer.ITrackerListener
+  - MonoTorrent.Connections.TrackerServer.TrackerListener
+  - MonoTorrent.Connections.TrackerServer.TrackerListenerFactory
+  - MonoTorrent.Connections.TrackerServer.UdpTrackerListener
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.Connections.TrackerServer
+  nameWithType: MonoTorrent.Connections.TrackerServer
+  fullName: MonoTorrent.Connections.TrackerServer
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.Connections.TrackerServer.HttpTrackerListener
+  commentId: T:MonoTorrent.Connections.TrackerServer.HttpTrackerListener
+  href: MonoTorrent.Connections.TrackerServer.HttpTrackerListener.html
+  name: HttpTrackerListener
+  nameWithType: HttpTrackerListener
+  fullName: MonoTorrent.Connections.TrackerServer.HttpTrackerListener
+- uid: MonoTorrent.Connections.TrackerServer.ITrackerListener
+  commentId: T:MonoTorrent.Connections.TrackerServer.ITrackerListener
+  parent: MonoTorrent.Connections.TrackerServer
+  href: MonoTorrent.Connections.TrackerServer.ITrackerListener.html
+  name: ITrackerListener
+  nameWithType: ITrackerListener
+  fullName: MonoTorrent.Connections.TrackerServer.ITrackerListener
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListener
+  commentId: T:MonoTorrent.Connections.TrackerServer.TrackerListener
+  parent: MonoTorrent.Connections.TrackerServer
+  href: MonoTorrent.Connections.TrackerServer.TrackerListener.html
+  name: TrackerListener
+  nameWithType: TrackerListener
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListener
+- uid: MonoTorrent.Connections.TrackerServer.TrackerListenerFactory
+  commentId: T:MonoTorrent.Connections.TrackerServer.TrackerListenerFactory
+  href: MonoTorrent.Connections.TrackerServer.TrackerListenerFactory.html
+  name: TrackerListenerFactory
+  nameWithType: TrackerListenerFactory
+  fullName: MonoTorrent.Connections.TrackerServer.TrackerListenerFactory
+- uid: MonoTorrent.Connections.TrackerServer.UdpTrackerListener
+  commentId: T:MonoTorrent.Connections.TrackerServer.UdpTrackerListener
+  href: MonoTorrent.Connections.TrackerServer.UdpTrackerListener.html
+  name: UdpTrackerListener
+  nameWithType: UdpTrackerListener
+  fullName: MonoTorrent.Connections.TrackerServer.UdpTrackerListener
+- uid: MonoTorrent.Connections.TrackerServer
+  commentId: N:MonoTorrent.Connections.TrackerServer
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.TrackerServer
+  nameWithType: MonoTorrent.Connections.TrackerServer
+  fullName: MonoTorrent.Connections.TrackerServer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.Connections.TrackerServer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.Connections.TrackerServer.html

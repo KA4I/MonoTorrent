@@ -1,0 +1,477 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.ITorrentManagerFile
+  commentId: T:MonoTorrent.ITorrentManagerFile
+  id: ITorrentManagerFile
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.ITorrentManagerFile.BitField
+  - MonoTorrent.ITorrentManagerFile.DownloadCompleteFullPath
+  - MonoTorrent.ITorrentManagerFile.DownloadIncompleteFullPath
+  - MonoTorrent.ITorrentManagerFile.FullPath
+  - MonoTorrent.ITorrentManagerFile.Priority
+  langs:
+  - csharp
+  - vb
+  name: ITorrentManagerFile
+  nameWithType: ITorrentManagerFile
+  fullName: MonoTorrent.ITorrentManagerFile
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFileInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ITorrentManagerFile
+    path: src/ITorrentFileInfo.cs
+    startLine: 31
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: 'public interface ITorrentManagerFile : ITorrentFile'
+    content.vb: Public Interface ITorrentManagerFile Inherits ITorrentFile
+  inheritedMembers:
+  - MonoTorrent.ITorrentFile.Path
+  - MonoTorrent.ITorrentFile.StartPieceIndex
+  - MonoTorrent.ITorrentFile.EndPieceIndex
+  - MonoTorrent.ITorrentFile.PieceCount
+  - MonoTorrent.ITorrentFile.Length
+  - MonoTorrent.ITorrentFile.Padding
+  - MonoTorrent.ITorrentFile.OffsetInTorrent
+  - MonoTorrent.ITorrentFile.PiecesRoot
+  extensionMethods:
+  - MonoTorrent.ITorrentManagerFile.MonoTorrent.ITorrentFileInfoExtensions.BytesDownloaded
+  - MonoTorrent.ITorrentManagerFile.MonoTorrent.ITorrentFileInfoExtensions.Overlaps(MonoTorrent.ITorrentManagerFile)
+- uid: MonoTorrent.ITorrentManagerFile.BitField
+  commentId: P:MonoTorrent.ITorrentManagerFile.BitField
+  id: BitField
+  parent: MonoTorrent.ITorrentManagerFile
+  langs:
+  - csharp
+  - vb
+  name: BitField
+  nameWithType: ITorrentManagerFile.BitField
+  fullName: MonoTorrent.ITorrentManagerFile.BitField
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFileInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BitField
+    path: src/ITorrentFileInfo.cs
+    startLine: 36
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The <xref href="MonoTorrent.ITorrentManagerFile.BitField" data-throw-if-not-resolved="false"></xref> tracking which pieces of this file have been downloaded.
+  example: []
+  syntax:
+    content: ReadOnlyBitField BitField { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.ReadOnlyBitField
+    content.vb: ReadOnly Property BitField As ReadOnlyBitField
+  overload: MonoTorrent.ITorrentManagerFile.BitField*
+- uid: MonoTorrent.ITorrentManagerFile.FullPath
+  commentId: P:MonoTorrent.ITorrentManagerFile.FullPath
+  id: FullPath
+  parent: MonoTorrent.ITorrentManagerFile
+  langs:
+  - csharp
+  - vb
+  name: FullPath
+  nameWithType: ITorrentManagerFile.FullPath
+  fullName: MonoTorrent.ITorrentManagerFile.FullPath
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFileInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FullPath
+    path: src/ITorrentFileInfo.cs
+    startLine: 41
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: If the file is currently being downloaded, this will be the same as <xref href="MonoTorrent.ITorrentManagerFile.DownloadIncompleteFullPath" data-throw-if-not-resolved="false"></xref>. Otherwise it will be <xref href="MonoTorrent.ITorrentManagerFile.DownloadCompleteFullPath" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: string FullPath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property FullPath As String
+  overload: MonoTorrent.ITorrentManagerFile.FullPath*
+- uid: MonoTorrent.ITorrentManagerFile.DownloadCompleteFullPath
+  commentId: P:MonoTorrent.ITorrentManagerFile.DownloadCompleteFullPath
+  id: DownloadCompleteFullPath
+  parent: MonoTorrent.ITorrentManagerFile
+  langs:
+  - csharp
+  - vb
+  name: DownloadCompleteFullPath
+  nameWithType: ITorrentManagerFile.DownloadCompleteFullPath
+  fullName: MonoTorrent.ITorrentManagerFile.DownloadCompleteFullPath
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFileInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DownloadCompleteFullPath
+    path: src/ITorrentFileInfo.cs
+    startLine: 46
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The file will exist at this path after it has been fully downloaded.
+  example: []
+  syntax:
+    content: string DownloadCompleteFullPath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property DownloadCompleteFullPath As String
+  overload: MonoTorrent.ITorrentManagerFile.DownloadCompleteFullPath*
+- uid: MonoTorrent.ITorrentManagerFile.DownloadIncompleteFullPath
+  commentId: P:MonoTorrent.ITorrentManagerFile.DownloadIncompleteFullPath
+  id: DownloadIncompleteFullPath
+  parent: MonoTorrent.ITorrentManagerFile
+  langs:
+  - csharp
+  - vb
+  name: DownloadIncompleteFullPath
+  nameWithType: ITorrentManagerFile.DownloadIncompleteFullPath
+  fullName: MonoTorrent.ITorrentManagerFile.DownloadIncompleteFullPath
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFileInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DownloadIncompleteFullPath
+    path: src/ITorrentFileInfo.cs
+    startLine: 51
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The file will exist at this path when it is partially downloaded. This value may be the same as <xref href="MonoTorrent.ITorrentManagerFile.DownloadCompleteFullPath" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: string DownloadIncompleteFullPath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property DownloadIncompleteFullPath As String
+  overload: MonoTorrent.ITorrentManagerFile.DownloadIncompleteFullPath*
+- uid: MonoTorrent.ITorrentManagerFile.Priority
+  commentId: P:MonoTorrent.ITorrentManagerFile.Priority
+  id: Priority
+  parent: MonoTorrent.ITorrentManagerFile
+  langs:
+  - csharp
+  - vb
+  name: Priority
+  nameWithType: ITorrentManagerFile.Priority
+  fullName: MonoTorrent.ITorrentManagerFile.Priority
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFileInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Priority
+    path: src/ITorrentFileInfo.cs
+    startLine: 56
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The priority of the file when downloading.
+  example: []
+  syntax:
+    content: Priority Priority { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Priority
+    content.vb: ReadOnly Property Priority As Priority
+  overload: MonoTorrent.ITorrentManagerFile.Priority*
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.ITorrentFile.Path
+  commentId: P:MonoTorrent.ITorrentFile.Path
+  parent: MonoTorrent.ITorrentFile
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_Path
+  name: Path
+  nameWithType: ITorrentFile.Path
+  fullName: MonoTorrent.ITorrentFile.Path
+- uid: MonoTorrent.ITorrentFile.StartPieceIndex
+  commentId: P:MonoTorrent.ITorrentFile.StartPieceIndex
+  parent: MonoTorrent.ITorrentFile
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_StartPieceIndex
+  name: StartPieceIndex
+  nameWithType: ITorrentFile.StartPieceIndex
+  fullName: MonoTorrent.ITorrentFile.StartPieceIndex
+- uid: MonoTorrent.ITorrentFile.EndPieceIndex
+  commentId: P:MonoTorrent.ITorrentFile.EndPieceIndex
+  parent: MonoTorrent.ITorrentFile
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_EndPieceIndex
+  name: EndPieceIndex
+  nameWithType: ITorrentFile.EndPieceIndex
+  fullName: MonoTorrent.ITorrentFile.EndPieceIndex
+- uid: MonoTorrent.ITorrentFile.PieceCount
+  commentId: P:MonoTorrent.ITorrentFile.PieceCount
+  parent: MonoTorrent.ITorrentFile
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_PieceCount
+  name: PieceCount
+  nameWithType: ITorrentFile.PieceCount
+  fullName: MonoTorrent.ITorrentFile.PieceCount
+- uid: MonoTorrent.ITorrentFile.Length
+  commentId: P:MonoTorrent.ITorrentFile.Length
+  parent: MonoTorrent.ITorrentFile
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_Length
+  name: Length
+  nameWithType: ITorrentFile.Length
+  fullName: MonoTorrent.ITorrentFile.Length
+- uid: MonoTorrent.ITorrentFile.Padding
+  commentId: P:MonoTorrent.ITorrentFile.Padding
+  parent: MonoTorrent.ITorrentFile
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_Padding
+  name: Padding
+  nameWithType: ITorrentFile.Padding
+  fullName: MonoTorrent.ITorrentFile.Padding
+- uid: MonoTorrent.ITorrentFile.OffsetInTorrent
+  commentId: P:MonoTorrent.ITorrentFile.OffsetInTorrent
+  parent: MonoTorrent.ITorrentFile
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_OffsetInTorrent
+  name: OffsetInTorrent
+  nameWithType: ITorrentFile.OffsetInTorrent
+  fullName: MonoTorrent.ITorrentFile.OffsetInTorrent
+- uid: MonoTorrent.ITorrentFile.PiecesRoot
+  commentId: P:MonoTorrent.ITorrentFile.PiecesRoot
+  parent: MonoTorrent.ITorrentFile
+  href: MonoTorrent.ITorrentFile.html#MonoTorrent_ITorrentFile_PiecesRoot
+  name: PiecesRoot
+  nameWithType: ITorrentFile.PiecesRoot
+  fullName: MonoTorrent.ITorrentFile.PiecesRoot
+- uid: MonoTorrent.ITorrentManagerFile.MonoTorrent.ITorrentFileInfoExtensions.BytesDownloaded
+  commentId: M:MonoTorrent.ITorrentFileInfoExtensions.BytesDownloaded(MonoTorrent.ITorrentManagerFile)
+  parent: MonoTorrent.ITorrentFileInfoExtensions
+  definition: MonoTorrent.ITorrentFileInfoExtensions.BytesDownloaded(MonoTorrent.ITorrentManagerFile)
+  href: MonoTorrent.ITorrentFileInfoExtensions.html#MonoTorrent_ITorrentFileInfoExtensions_BytesDownloaded_MonoTorrent_ITorrentManagerFile_
+  name: BytesDownloaded(ITorrentManagerFile)
+  nameWithType: ITorrentFileInfoExtensions.BytesDownloaded(ITorrentManagerFile)
+  fullName: MonoTorrent.ITorrentFileInfoExtensions.BytesDownloaded(MonoTorrent.ITorrentManagerFile)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentFileInfoExtensions.BytesDownloaded(MonoTorrent.ITorrentManagerFile)
+    name: BytesDownloaded
+    href: MonoTorrent.ITorrentFileInfoExtensions.html#MonoTorrent_ITorrentFileInfoExtensions_BytesDownloaded_MonoTorrent_ITorrentManagerFile_
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentFileInfoExtensions.BytesDownloaded(MonoTorrent.ITorrentManagerFile)
+    name: BytesDownloaded
+    href: MonoTorrent.ITorrentFileInfoExtensions.html#MonoTorrent_ITorrentFileInfoExtensions_BytesDownloaded_MonoTorrent_ITorrentManagerFile_
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: )
+- uid: MonoTorrent.ITorrentManagerFile.MonoTorrent.ITorrentFileInfoExtensions.Overlaps(MonoTorrent.ITorrentManagerFile)
+  commentId: M:MonoTorrent.ITorrentFileInfoExtensions.Overlaps(MonoTorrent.ITorrentManagerFile,MonoTorrent.ITorrentManagerFile)
+  parent: MonoTorrent.ITorrentFileInfoExtensions
+  definition: MonoTorrent.ITorrentFileInfoExtensions.Overlaps(MonoTorrent.ITorrentManagerFile,MonoTorrent.ITorrentManagerFile)
+  href: MonoTorrent.ITorrentFileInfoExtensions.html#MonoTorrent_ITorrentFileInfoExtensions_Overlaps_MonoTorrent_ITorrentManagerFile_MonoTorrent_ITorrentManagerFile_
+  name: Overlaps(ITorrentManagerFile, ITorrentManagerFile)
+  nameWithType: ITorrentFileInfoExtensions.Overlaps(ITorrentManagerFile, ITorrentManagerFile)
+  fullName: MonoTorrent.ITorrentFileInfoExtensions.Overlaps(MonoTorrent.ITorrentManagerFile, MonoTorrent.ITorrentManagerFile)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentFileInfoExtensions.Overlaps(MonoTorrent.ITorrentManagerFile,MonoTorrent.ITorrentManagerFile)
+    name: Overlaps
+    href: MonoTorrent.ITorrentFileInfoExtensions.html#MonoTorrent_ITorrentFileInfoExtensions_Overlaps_MonoTorrent_ITorrentManagerFile_MonoTorrent_ITorrentManagerFile_
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentFileInfoExtensions.Overlaps(MonoTorrent.ITorrentManagerFile,MonoTorrent.ITorrentManagerFile)
+    name: Overlaps
+    href: MonoTorrent.ITorrentFileInfoExtensions.html#MonoTorrent_ITorrentFileInfoExtensions_Overlaps_MonoTorrent_ITorrentManagerFile_MonoTorrent_ITorrentManagerFile_
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: )
+- uid: MonoTorrent.ITorrentFile
+  commentId: T:MonoTorrent.ITorrentFile
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentFile.html
+  name: ITorrentFile
+  nameWithType: ITorrentFile
+  fullName: MonoTorrent.ITorrentFile
+- uid: MonoTorrent.ITorrentFileInfoExtensions.BytesDownloaded(MonoTorrent.ITorrentManagerFile)
+  commentId: M:MonoTorrent.ITorrentFileInfoExtensions.BytesDownloaded(MonoTorrent.ITorrentManagerFile)
+  href: MonoTorrent.ITorrentFileInfoExtensions.html#MonoTorrent_ITorrentFileInfoExtensions_BytesDownloaded_MonoTorrent_ITorrentManagerFile_
+  name: BytesDownloaded(ITorrentManagerFile)
+  nameWithType: ITorrentFileInfoExtensions.BytesDownloaded(ITorrentManagerFile)
+  fullName: MonoTorrent.ITorrentFileInfoExtensions.BytesDownloaded(MonoTorrent.ITorrentManagerFile)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentFileInfoExtensions.BytesDownloaded(MonoTorrent.ITorrentManagerFile)
+    name: BytesDownloaded
+    href: MonoTorrent.ITorrentFileInfoExtensions.html#MonoTorrent_ITorrentFileInfoExtensions_BytesDownloaded_MonoTorrent_ITorrentManagerFile_
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentFileInfoExtensions.BytesDownloaded(MonoTorrent.ITorrentManagerFile)
+    name: BytesDownloaded
+    href: MonoTorrent.ITorrentFileInfoExtensions.html#MonoTorrent_ITorrentFileInfoExtensions_BytesDownloaded_MonoTorrent_ITorrentManagerFile_
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: )
+- uid: MonoTorrent.ITorrentFileInfoExtensions
+  commentId: T:MonoTorrent.ITorrentFileInfoExtensions
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentFileInfoExtensions.html
+  name: ITorrentFileInfoExtensions
+  nameWithType: ITorrentFileInfoExtensions
+  fullName: MonoTorrent.ITorrentFileInfoExtensions
+- uid: MonoTorrent.ITorrentFileInfoExtensions.Overlaps(MonoTorrent.ITorrentManagerFile,MonoTorrent.ITorrentManagerFile)
+  commentId: M:MonoTorrent.ITorrentFileInfoExtensions.Overlaps(MonoTorrent.ITorrentManagerFile,MonoTorrent.ITorrentManagerFile)
+  href: MonoTorrent.ITorrentFileInfoExtensions.html#MonoTorrent_ITorrentFileInfoExtensions_Overlaps_MonoTorrent_ITorrentManagerFile_MonoTorrent_ITorrentManagerFile_
+  name: Overlaps(ITorrentManagerFile, ITorrentManagerFile)
+  nameWithType: ITorrentFileInfoExtensions.Overlaps(ITorrentManagerFile, ITorrentManagerFile)
+  fullName: MonoTorrent.ITorrentFileInfoExtensions.Overlaps(MonoTorrent.ITorrentManagerFile, MonoTorrent.ITorrentManagerFile)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentFileInfoExtensions.Overlaps(MonoTorrent.ITorrentManagerFile,MonoTorrent.ITorrentManagerFile)
+    name: Overlaps
+    href: MonoTorrent.ITorrentFileInfoExtensions.html#MonoTorrent_ITorrentFileInfoExtensions_Overlaps_MonoTorrent_ITorrentManagerFile_MonoTorrent_ITorrentManagerFile_
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentFileInfoExtensions.Overlaps(MonoTorrent.ITorrentManagerFile,MonoTorrent.ITorrentManagerFile)
+    name: Overlaps
+    href: MonoTorrent.ITorrentFileInfoExtensions.html#MonoTorrent_ITorrentFileInfoExtensions_Overlaps_MonoTorrent_ITorrentManagerFile_MonoTorrent_ITorrentManagerFile_
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: )
+- uid: MonoTorrent.ITorrentManagerFile.BitField
+  commentId: P:MonoTorrent.ITorrentManagerFile.BitField
+  href: MonoTorrent.ITorrentManagerFile.html#MonoTorrent_ITorrentManagerFile_BitField
+  name: BitField
+  nameWithType: ITorrentManagerFile.BitField
+  fullName: MonoTorrent.ITorrentManagerFile.BitField
+- uid: MonoTorrent.ITorrentManagerFile.BitField*
+  commentId: Overload:MonoTorrent.ITorrentManagerFile.BitField
+  href: MonoTorrent.ITorrentManagerFile.html#MonoTorrent_ITorrentManagerFile_BitField
+  name: BitField
+  nameWithType: ITorrentManagerFile.BitField
+  fullName: MonoTorrent.ITorrentManagerFile.BitField
+- uid: MonoTorrent.ReadOnlyBitField
+  commentId: T:MonoTorrent.ReadOnlyBitField
+  parent: MonoTorrent
+  href: MonoTorrent.ReadOnlyBitField.html
+  name: ReadOnlyBitField
+  nameWithType: ReadOnlyBitField
+  fullName: MonoTorrent.ReadOnlyBitField
+- uid: MonoTorrent.ITorrentManagerFile.DownloadIncompleteFullPath
+  commentId: P:MonoTorrent.ITorrentManagerFile.DownloadIncompleteFullPath
+  href: MonoTorrent.ITorrentManagerFile.html#MonoTorrent_ITorrentManagerFile_DownloadIncompleteFullPath
+  name: DownloadIncompleteFullPath
+  nameWithType: ITorrentManagerFile.DownloadIncompleteFullPath
+  fullName: MonoTorrent.ITorrentManagerFile.DownloadIncompleteFullPath
+- uid: MonoTorrent.ITorrentManagerFile.DownloadCompleteFullPath
+  commentId: P:MonoTorrent.ITorrentManagerFile.DownloadCompleteFullPath
+  href: MonoTorrent.ITorrentManagerFile.html#MonoTorrent_ITorrentManagerFile_DownloadCompleteFullPath
+  name: DownloadCompleteFullPath
+  nameWithType: ITorrentManagerFile.DownloadCompleteFullPath
+  fullName: MonoTorrent.ITorrentManagerFile.DownloadCompleteFullPath
+- uid: MonoTorrent.ITorrentManagerFile.FullPath*
+  commentId: Overload:MonoTorrent.ITorrentManagerFile.FullPath
+  href: MonoTorrent.ITorrentManagerFile.html#MonoTorrent_ITorrentManagerFile_FullPath
+  name: FullPath
+  nameWithType: ITorrentManagerFile.FullPath
+  fullName: MonoTorrent.ITorrentManagerFile.FullPath
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.ITorrentManagerFile.DownloadCompleteFullPath*
+  commentId: Overload:MonoTorrent.ITorrentManagerFile.DownloadCompleteFullPath
+  href: MonoTorrent.ITorrentManagerFile.html#MonoTorrent_ITorrentManagerFile_DownloadCompleteFullPath
+  name: DownloadCompleteFullPath
+  nameWithType: ITorrentManagerFile.DownloadCompleteFullPath
+  fullName: MonoTorrent.ITorrentManagerFile.DownloadCompleteFullPath
+- uid: MonoTorrent.ITorrentManagerFile.DownloadIncompleteFullPath*
+  commentId: Overload:MonoTorrent.ITorrentManagerFile.DownloadIncompleteFullPath
+  href: MonoTorrent.ITorrentManagerFile.html#MonoTorrent_ITorrentManagerFile_DownloadIncompleteFullPath
+  name: DownloadIncompleteFullPath
+  nameWithType: ITorrentManagerFile.DownloadIncompleteFullPath
+  fullName: MonoTorrent.ITorrentManagerFile.DownloadIncompleteFullPath
+- uid: MonoTorrent.ITorrentManagerFile.Priority*
+  commentId: Overload:MonoTorrent.ITorrentManagerFile.Priority
+  href: MonoTorrent.ITorrentManagerFile.html#MonoTorrent_ITorrentManagerFile_Priority
+  name: Priority
+  nameWithType: ITorrentManagerFile.Priority
+  fullName: MonoTorrent.ITorrentManagerFile.Priority
+- uid: MonoTorrent.Priority
+  commentId: T:MonoTorrent.Priority
+  parent: MonoTorrent
+  href: MonoTorrent.Priority.html
+  name: Priority
+  nameWithType: Priority
+  fullName: MonoTorrent.Priority

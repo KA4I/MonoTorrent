@@ -1,0 +1,311 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.ITorrentManagerInfo
+  commentId: T:MonoTorrent.ITorrentManagerInfo
+  id: ITorrentManagerInfo
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.ITorrentManagerInfo.Files
+  - MonoTorrent.ITorrentManagerInfo.InfoHashes
+  - MonoTorrent.ITorrentManagerInfo.Name
+  - MonoTorrent.ITorrentManagerInfo.TorrentInfo
+  langs:
+  - csharp
+  - vb
+  name: ITorrentManagerInfo
+  nameWithType: ITorrentManagerInfo
+  fullName: MonoTorrent.ITorrentManagerInfo
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentManagerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ITorrentManagerInfo
+    path: src/ITorrentManagerInfo.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public interface ITorrentManagerInfo
+    content.vb: Public Interface ITorrentManagerInfo
+- uid: MonoTorrent.ITorrentManagerInfo.Files
+  commentId: P:MonoTorrent.ITorrentManagerInfo.Files
+  id: Files
+  parent: MonoTorrent.ITorrentManagerInfo
+  langs:
+  - csharp
+  - vb
+  name: Files
+  nameWithType: ITorrentManagerInfo.Files
+  fullName: MonoTorrent.ITorrentManagerInfo.Files
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentManagerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Files
+    path: src/ITorrentManagerInfo.cs
+    startLine: 38
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The files contained within the Torrent
+  example: []
+  syntax:
+    content: IList<ITorrentManagerFile> Files { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{MonoTorrent.ITorrentManagerFile}
+    content.vb: ReadOnly Property Files As IList(Of ITorrentManagerFile)
+  overload: MonoTorrent.ITorrentManagerInfo.Files*
+- uid: MonoTorrent.ITorrentManagerInfo.InfoHashes
+  commentId: P:MonoTorrent.ITorrentManagerInfo.InfoHashes
+  id: InfoHashes
+  parent: MonoTorrent.ITorrentManagerInfo
+  langs:
+  - csharp
+  - vb
+  name: InfoHashes
+  nameWithType: ITorrentManagerInfo.InfoHashes
+  fullName: MonoTorrent.ITorrentManagerInfo.InfoHashes
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentManagerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: InfoHashes
+    path: src/ITorrentManagerInfo.cs
+    startLine: 40
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: InfoHashes InfoHashes { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.InfoHashes
+    content.vb: ReadOnly Property InfoHashes As InfoHashes
+  overload: MonoTorrent.ITorrentManagerInfo.InfoHashes*
+- uid: MonoTorrent.ITorrentManagerInfo.Name
+  commentId: P:MonoTorrent.ITorrentManagerInfo.Name
+  id: Name
+  parent: MonoTorrent.ITorrentManagerInfo
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ITorrentManagerInfo.Name
+  fullName: MonoTorrent.ITorrentManagerInfo.Name
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentManagerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Name
+    path: src/ITorrentManagerInfo.cs
+    startLine: 42
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Name As String
+  overload: MonoTorrent.ITorrentManagerInfo.Name*
+- uid: MonoTorrent.ITorrentManagerInfo.TorrentInfo
+  commentId: P:MonoTorrent.ITorrentManagerInfo.TorrentInfo
+  id: TorrentInfo
+  parent: MonoTorrent.ITorrentManagerInfo
+  langs:
+  - csharp
+  - vb
+  name: TorrentInfo
+  nameWithType: ITorrentManagerInfo.TorrentInfo
+  fullName: MonoTorrent.ITorrentManagerInfo.TorrentInfo
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentManagerInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentInfo
+    path: src/ITorrentManagerInfo.cs
+    startLine: 44
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: ITorrentInfo? TorrentInfo { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.ITorrentInfo
+    content.vb: ReadOnly Property TorrentInfo As ITorrentInfo
+  overload: MonoTorrent.ITorrentManagerInfo.TorrentInfo*
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.ITorrentManagerInfo.Files*
+  commentId: Overload:MonoTorrent.ITorrentManagerInfo.Files
+  href: MonoTorrent.ITorrentManagerInfo.html#MonoTorrent_ITorrentManagerInfo_Files
+  name: Files
+  nameWithType: ITorrentManagerInfo.Files
+  fullName: MonoTorrent.ITorrentManagerInfo.Files
+- uid: System.Collections.Generic.IList{MonoTorrent.ITorrentManagerFile}
+  commentId: T:System.Collections.Generic.IList{MonoTorrent.ITorrentManagerFile}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<ITorrentManagerFile>
+  nameWithType: IList<ITorrentManagerFile>
+  fullName: System.Collections.Generic.IList<MonoTorrent.ITorrentManagerFile>
+  nameWithType.vb: IList(Of ITorrentManagerFile)
+  fullName.vb: System.Collections.Generic.IList(Of MonoTorrent.ITorrentManagerFile)
+  name.vb: IList(Of ITorrentManagerFile)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: MonoTorrent.ITorrentManagerInfo.InfoHashes*
+  commentId: Overload:MonoTorrent.ITorrentManagerInfo.InfoHashes
+  href: MonoTorrent.ITorrentManagerInfo.html#MonoTorrent_ITorrentManagerInfo_InfoHashes
+  name: InfoHashes
+  nameWithType: ITorrentManagerInfo.InfoHashes
+  fullName: MonoTorrent.ITorrentManagerInfo.InfoHashes
+- uid: MonoTorrent.InfoHashes
+  commentId: T:MonoTorrent.InfoHashes
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHashes.html
+  name: InfoHashes
+  nameWithType: InfoHashes
+  fullName: MonoTorrent.InfoHashes
+- uid: MonoTorrent.ITorrentManagerInfo.Name*
+  commentId: Overload:MonoTorrent.ITorrentManagerInfo.Name
+  href: MonoTorrent.ITorrentManagerInfo.html#MonoTorrent_ITorrentManagerInfo_Name
+  name: Name
+  nameWithType: ITorrentManagerInfo.Name
+  fullName: MonoTorrent.ITorrentManagerInfo.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.ITorrentManagerInfo.TorrentInfo*
+  commentId: Overload:MonoTorrent.ITorrentManagerInfo.TorrentInfo
+  href: MonoTorrent.ITorrentManagerInfo.html#MonoTorrent_ITorrentManagerInfo_TorrentInfo
+  name: TorrentInfo
+  nameWithType: ITorrentManagerInfo.TorrentInfo
+  fullName: MonoTorrent.ITorrentManagerInfo.TorrentInfo
+- uid: MonoTorrent.ITorrentInfo
+  commentId: T:MonoTorrent.ITorrentInfo
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentInfo.html
+  name: ITorrentInfo
+  nameWithType: ITorrentInfo
+  fullName: MonoTorrent.ITorrentInfo

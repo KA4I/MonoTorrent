@@ -1,0 +1,4225 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Client.TorrentManager
+  commentId: T:MonoTorrent.Client.TorrentManager
+  id: TorrentManager
+  parent: MonoTorrent.Client
+  children:
+  - MonoTorrent.Client.TorrentManager.AddPeerAsync(MonoTorrent.PeerInfo)
+  - MonoTorrent.Client.TorrentManager.AddPeersAsync(System.Collections.Generic.IEnumerable{MonoTorrent.PeerInfo})
+  - MonoTorrent.Client.TorrentManager.Bitfield
+  - MonoTorrent.Client.TorrentManager.CanUseDht
+  - MonoTorrent.Client.TorrentManager.CanUseLocalPeerDiscovery
+  - MonoTorrent.Client.TorrentManager.ChangePickerAsync(MonoTorrent.PiecePicking.IPieceRequester)
+  - MonoTorrent.Client.TorrentManager.Complete
+  - MonoTorrent.Client.TorrentManager.ConnectionAttemptFailed
+  - MonoTorrent.Client.TorrentManager.ContainingDirectory
+  - MonoTorrent.Client.TorrentManager.DhtAnnounceAsync
+  - MonoTorrent.Client.TorrentManager.Engine
+  - MonoTorrent.Client.TorrentManager.Error
+  - MonoTorrent.Client.TorrentManager.Files
+  - MonoTorrent.Client.TorrentManager.GetPeersAsync
+  - MonoTorrent.Client.TorrentManager.HasMetadata
+  - MonoTorrent.Client.TorrentManager.HashCheckAsync(System.Boolean)
+  - MonoTorrent.Client.TorrentManager.HashChecked
+  - MonoTorrent.Client.TorrentManager.HashFails
+  - MonoTorrent.Client.TorrentManager.InfoHashes
+  - MonoTorrent.Client.TorrentManager.IsInEndGame
+  - MonoTorrent.Client.TorrentManager.IsInitialSeeding
+  - MonoTorrent.Client.TorrentManager.LastDhtAnnounce
+  - MonoTorrent.Client.TorrentManager.LastLocalPeerAnnounce
+  - MonoTorrent.Client.TorrentManager.LoadFastResumeAsync(MonoTorrent.Client.FastResume)
+  - MonoTorrent.Client.TorrentManager.LocalPeerAnnounceAsync
+  - MonoTorrent.Client.TorrentManager.LogName
+  - MonoTorrent.Client.TorrentManager.MagnetLink
+  - MonoTorrent.Client.TorrentManager.MarkHashedAsync
+  - MonoTorrent.Client.TorrentManager.MetadataPath
+  - MonoTorrent.Client.TorrentManager.Monitor
+  - MonoTorrent.Client.TorrentManager.MoveFileAsync(MonoTorrent.ITorrentManagerFile,System.String)
+  - MonoTorrent.Client.TorrentManager.MoveFilesAsync(System.String,System.Boolean)
+  - MonoTorrent.Client.TorrentManager.Name
+  - MonoTorrent.Client.TorrentManager.OpenConnections
+  - MonoTorrent.Client.TorrentManager.PartialProgress
+  - MonoTorrent.Client.TorrentManager.PauseAsync
+  - MonoTorrent.Client.TorrentManager.PeerConnected
+  - MonoTorrent.Client.TorrentManager.PeerDisconnected
+  - MonoTorrent.Client.TorrentManager.Peers
+  - MonoTorrent.Client.TorrentManager.PeersFound
+  - MonoTorrent.Client.TorrentManager.PieceHashed
+  - MonoTorrent.Client.TorrentManager.PieceHashes
+  - MonoTorrent.Client.TorrentManager.PieceManager
+  - MonoTorrent.Client.TorrentManager.Progress
+  - MonoTorrent.Client.TorrentManager.RaiseInterest
+  - MonoTorrent.Client.TorrentManager.SaveFastResumeAsync
+  - MonoTorrent.Client.TorrentManager.SavePath
+  - MonoTorrent.Client.TorrentManager.SetFilePriorityAsync(MonoTorrent.ITorrentManagerFile,MonoTorrent.Priority)
+  - MonoTorrent.Client.TorrentManager.SetNeedsHashCheckAsync
+  - MonoTorrent.Client.TorrentManager.Settings
+  - MonoTorrent.Client.TorrentManager.StartAsync
+  - MonoTorrent.Client.TorrentManager.StartTime
+  - MonoTorrent.Client.TorrentManager.State
+  - MonoTorrent.Client.TorrentManager.StopAsync
+  - MonoTorrent.Client.TorrentManager.StopAsync(System.TimeSpan)
+  - MonoTorrent.Client.TorrentManager.StreamProvider
+  - MonoTorrent.Client.TorrentManager.ToString
+  - MonoTorrent.Client.TorrentManager.Torrent
+  - MonoTorrent.Client.TorrentManager.TorrentStateChanged
+  - MonoTorrent.Client.TorrentManager.TorrentUpdateAvailable
+  - MonoTorrent.Client.TorrentManager.TrackerManager
+  - MonoTorrent.Client.TorrentManager.UpdatePieceHashStatus(System.Int32,System.Boolean,System.Int32,System.Int32)
+  - MonoTorrent.Client.TorrentManager.UpdateSettingsAsync(MonoTorrent.Client.TorrentSettings)
+  - MonoTorrent.Client.TorrentManager.UploadingTo
+  - MonoTorrent.Client.TorrentManager.WaitForMetadataAsync
+  - MonoTorrent.Client.TorrentManager.WaitForMetadataAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: TorrentManager
+  nameWithType: TorrentManager
+  fullName: MonoTorrent.Client.TorrentManager
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentManager
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 56
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: 'public class TorrentManager : ITorrentManagerInfo, IPieceRequesterData, IMessageEnqueuer, IPieceHashStatusUpdater, IPieceHashesProvider, IRaiseInterest'
+    content.vb: Public Class TorrentManager Implements ITorrentManagerInfo, IPieceRequesterData, IMessageEnqueuer, IPieceHashStatusUpdater, IPieceHashesProvider, IRaiseInterest
+  inheritance:
+  - System.Object
+  implements:
+  - MonoTorrent.ITorrentManagerInfo
+  - MonoTorrent.PiecePicking.IPieceRequesterData
+  - MonoTorrent.PiecePicking.IMessageEnqueuer
+  - MonoTorrent.PieceWriter.IPieceHashStatusUpdater
+  - MonoTorrent.IPieceHashesProvider
+  - MonoTorrent.PiecePicking.IRaiseInterest
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: MonoTorrent.Client.TorrentManager.PeerConnected
+  commentId: E:MonoTorrent.Client.TorrentManager.PeerConnected
+  id: PeerConnected
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: PeerConnected
+  nameWithType: TorrentManager.PeerConnected
+  fullName: MonoTorrent.Client.TorrentManager.PeerConnected
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PeerConnected
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 71
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    This asynchronous event is raised whenever a new incoming, or outgoing, connection
+
+    has successfully completed the handshake process and has been fully established.
+
+    <summary>
+
+    Raised when a connection to a peer is successfully established after the handshake.
+
+    </summary>
+  example: []
+  syntax:
+    content: public event EventHandler<PeerConnectedEventArgs>? PeerConnected
+    return:
+      type: System.EventHandler{MonoTorrent.Client.PeerConnectedEventArgs}
+    content.vb: Public Event PeerConnected As EventHandler(Of PeerConnectedEventArgs)
+- uid: MonoTorrent.Client.TorrentManager.PeerDisconnected
+  commentId: E:MonoTorrent.Client.TorrentManager.PeerDisconnected
+  id: PeerDisconnected
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: PeerDisconnected
+  nameWithType: TorrentManager.PeerDisconnected
+  fullName: MonoTorrent.Client.TorrentManager.PeerDisconnected
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PeerDisconnected
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 80
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    This asynchronous event is raised whenever an established connection has been
+
+    closed.
+
+    <summary>
+
+    Raised when a connection to a peer is closed.
+
+    </summary>
+  example: []
+  syntax:
+    content: public event EventHandler<PeerDisconnectedEventArgs>? PeerDisconnected
+    return:
+      type: System.EventHandler{MonoTorrent.Client.PeerDisconnectedEventArgs}
+    content.vb: Public Event PeerDisconnected As EventHandler(Of PeerDisconnectedEventArgs)
+- uid: MonoTorrent.Client.TorrentManager.ConnectionAttemptFailed
+  commentId: E:MonoTorrent.Client.TorrentManager.ConnectionAttemptFailed
+  id: ConnectionAttemptFailed
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: ConnectionAttemptFailed
+  nameWithType: TorrentManager.ConnectionAttemptFailed
+  fullName: MonoTorrent.Client.TorrentManager.ConnectionAttemptFailed
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ConnectionAttemptFailed
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 86
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    This asynchronous event is raised when an outgoing connection to a peer
+
+    could not be established.
+  example: []
+  syntax:
+    content: public event EventHandler<ConnectionAttemptFailedEventArgs>? ConnectionAttemptFailed
+    return:
+      type: System.EventHandler{MonoTorrent.Client.ConnectionAttemptFailedEventArgs}
+    content.vb: Public Event ConnectionAttemptFailed As EventHandler(Of ConnectionAttemptFailedEventArgs)
+- uid: MonoTorrent.Client.TorrentManager.PeersFound
+  commentId: E:MonoTorrent.Client.TorrentManager.PeersFound
+  id: PeersFound
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: PeersFound
+  nameWithType: TorrentManager.PeersFound
+  fullName: MonoTorrent.Client.TorrentManager.PeersFound
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PeersFound
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 104
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    Raised whenever new peers are discovered and added. The object will be of type
+
+    <xref href="MonoTorrent.Client.TrackerPeersAdded" data-throw-if-not-resolved="false"></xref>, <xref href="MonoTorrent.Client.PeerExchangePeersAdded" data-throw-if-not-resolved="false"></xref>, <xref href="MonoTorrent.Client.LocalPeersAdded" data-throw-if-not-resolved="false"></xref>
+
+    or <xref href="MonoTorrent.Client.DhtPeersAdded" data-throw-if-not-resolved="false"></xref> depending on the source of the new peers.
+
+    <summary>
+
+    Raised when peers are discovered via any mechanism (Tracker, DHT, PEX, LSD).
+
+    </summary>
+  example: []
+  syntax:
+    content: public event EventHandler<PeersAddedEventArgs>? PeersFound
+    return:
+      type: System.EventHandler{MonoTorrent.Client.PeersAddedEventArgs}
+    content.vb: Public Event PeersFound As EventHandler(Of PeersAddedEventArgs)
+- uid: MonoTorrent.Client.TorrentManager.SetFilePriorityAsync(MonoTorrent.ITorrentManagerFile,MonoTorrent.Priority)
+  commentId: M:MonoTorrent.Client.TorrentManager.SetFilePriorityAsync(MonoTorrent.ITorrentManagerFile,MonoTorrent.Priority)
+  id: SetFilePriorityAsync(MonoTorrent.ITorrentManagerFile,MonoTorrent.Priority)
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: SetFilePriorityAsync(ITorrentManagerFile, Priority)
+  nameWithType: TorrentManager.SetFilePriorityAsync(ITorrentManagerFile, Priority)
+  fullName: MonoTorrent.Client.TorrentManager.SetFilePriorityAsync(MonoTorrent.ITorrentManagerFile, MonoTorrent.Priority)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SetFilePriorityAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 112
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Sets the download priority for a specific file within the torrent.
+  example: []
+  syntax:
+    content: public Task SetFilePriorityAsync(ITorrentManagerFile file, Priority priority)
+    parameters:
+    - id: file
+      type: MonoTorrent.ITorrentManagerFile
+      description: The file whose priority should be changed.
+    - id: priority
+      type: MonoTorrent.Priority
+      description: The new priority level.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Public Function SetFilePriorityAsync(file As ITorrentManagerFile, priority As Priority) As Task
+  overload: MonoTorrent.Client.TorrentManager.SetFilePriorityAsync*
+- uid: MonoTorrent.Client.TorrentManager.RaiseInterest
+  commentId: M:MonoTorrent.Client.TorrentManager.RaiseInterest
+  id: RaiseInterest
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: RaiseInterest()
+  nameWithType: TorrentManager.RaiseInterest()
+  fullName: MonoTorrent.Client.TorrentManager.RaiseInterest()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RaiseInterest
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 174
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  example: []
+  syntax:
+    content: public Task RaiseInterest()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function RaiseInterest() As Task
+  overload: MonoTorrent.Client.TorrentManager.RaiseInterest*
+  implements:
+  - MonoTorrent.PiecePicking.IRaiseInterest.RaiseInterest
+- uid: MonoTorrent.Client.TorrentManager.PieceHashed
+  commentId: E:MonoTorrent.Client.TorrentManager.PieceHashed
+  id: PieceHashed
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: PieceHashed
+  nameWithType: TorrentManager.PieceHashed
+  fullName: MonoTorrent.Client.TorrentManager.PieceHashed
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PieceHashed
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 192
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    This asynchronous event is raised whenever a piece is hashed, either as part of
+
+    regular downloading, or as part of a <xref href="MonoTorrent.Client.TorrentManager.HashCheckAsync(System.Boolean)" data-throw-if-not-resolved="false"></xref>.
+
+    <summary>
+
+    Raised whenever a piece is successfully hashed and verified against the torrent metadata.
+
+    </summary>
+  example: []
+  syntax:
+    content: public event EventHandler<PieceHashedEventArgs>? PieceHashed
+    return:
+      type: System.EventHandler{MonoTorrent.Client.PieceHashedEventArgs}
+    content.vb: Public Event PieceHashed As EventHandler(Of PieceHashedEventArgs)
+- uid: MonoTorrent.Client.TorrentManager.TorrentStateChanged
+  commentId: E:MonoTorrent.Client.TorrentManager.TorrentStateChanged
+  id: TorrentStateChanged
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: TorrentStateChanged
+  nameWithType: TorrentManager.TorrentStateChanged
+  fullName: MonoTorrent.Client.TorrentManager.TorrentStateChanged
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentStateChanged
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 200
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    This asynchronous event is raised whenever the TorrentManager changes state.
+
+    <summary>
+
+    Raised whenever the state of the TorrentManager changes (e.g., from Downloading to Seeding).
+
+    </summary>
+  example: []
+  syntax:
+    content: public event EventHandler<TorrentStateChangedEventArgs>? TorrentStateChanged
+    return:
+      type: System.EventHandler{MonoTorrent.Client.TorrentStateChangedEventArgs}
+    content.vb: Public Event TorrentStateChanged As EventHandler(Of TorrentStateChangedEventArgs)
+- uid: MonoTorrent.Client.TorrentManager.TorrentUpdateAvailable
+  commentId: E:MonoTorrent.Client.TorrentManager.TorrentUpdateAvailable
+  id: TorrentUpdateAvailable
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: TorrentUpdateAvailable
+  nameWithType: TorrentManager.TorrentUpdateAvailable
+  fullName: MonoTorrent.Client.TorrentManager.TorrentUpdateAvailable
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentUpdateAvailable
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 215
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    Raised when a BEP46 mutable torrent has received an update notification.
+
+    The application should typically stop the current TorrentManager and start
+
+    a new one using the provided InfoHash.
+
+    <summary>
+
+    Raised when an update is found for a BEP46 mutable torrent via DHT 'get' requests.
+
+    The application should typically stop this TorrentManager and start a new one with the provided InfoHash.
+
+    </summary>
+  example: []
+  syntax:
+    content: public event EventHandler<TorrentUpdateEventArgs>? TorrentUpdateAvailable
+    return:
+      type: System.EventHandler{MonoTorrent.Client.TorrentUpdateEventArgs}
+    content.vb: Public Event TorrentUpdateAvailable As EventHandler(Of TorrentUpdateEventArgs)
+- uid: MonoTorrent.Client.TorrentManager.Bitfield
+  commentId: P:MonoTorrent.Client.TorrentManager.Bitfield
+  id: Bitfield
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: Bitfield
+  nameWithType: TorrentManager.Bitfield
+  fullName: MonoTorrent.Client.TorrentManager.Bitfield
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Bitfield
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 236
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public ReadOnlyBitField Bitfield { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.ReadOnlyBitField
+    content.vb: Public ReadOnly Property Bitfield As ReadOnlyBitField
+  overload: MonoTorrent.Client.TorrentManager.Bitfield*
+- uid: MonoTorrent.Client.TorrentManager.CanUseDht
+  commentId: P:MonoTorrent.Client.TorrentManager.CanUseDht
+  id: CanUseDht
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: CanUseDht
+  nameWithType: TorrentManager.CanUseDht
+  fullName: MonoTorrent.Client.TorrentManager.CanUseDht
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CanUseDht
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 240
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public bool CanUseDht { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property CanUseDht As Boolean
+  overload: MonoTorrent.Client.TorrentManager.CanUseDht*
+- uid: MonoTorrent.Client.TorrentManager.CanUseLocalPeerDiscovery
+  commentId: P:MonoTorrent.Client.TorrentManager.CanUseLocalPeerDiscovery
+  id: CanUseLocalPeerDiscovery
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: CanUseLocalPeerDiscovery
+  nameWithType: TorrentManager.CanUseLocalPeerDiscovery
+  fullName: MonoTorrent.Client.TorrentManager.CanUseLocalPeerDiscovery
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CanUseLocalPeerDiscovery
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 242
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public bool CanUseLocalPeerDiscovery { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property CanUseLocalPeerDiscovery As Boolean
+  overload: MonoTorrent.Client.TorrentManager.CanUseLocalPeerDiscovery*
+- uid: MonoTorrent.Client.TorrentManager.Complete
+  commentId: P:MonoTorrent.Client.TorrentManager.Complete
+  id: Complete
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: Complete
+  nameWithType: TorrentManager.Complete
+  fullName: MonoTorrent.Client.TorrentManager.Complete
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Complete
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 252
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Returns true only when all files (excluding those marked DoNotDownload) have been fully downloaded and verified.
+  example: []
+  syntax:
+    content: public bool Complete { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Complete As Boolean
+  overload: MonoTorrent.Client.TorrentManager.Complete*
+- uid: MonoTorrent.Client.TorrentManager.Engine
+  commentId: P:MonoTorrent.Client.TorrentManager.Engine
+  id: Engine
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: Engine
+  nameWithType: TorrentManager.Engine
+  fullName: MonoTorrent.Client.TorrentManager.Engine
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Engine
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 260
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public ClientEngine? Engine { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Client.ClientEngine
+    content.vb: Public ReadOnly Property Engine As ClientEngine
+  overload: MonoTorrent.Client.TorrentManager.Engine*
+- uid: MonoTorrent.Client.TorrentManager.Error
+  commentId: P:MonoTorrent.Client.TorrentManager.Error
+  id: Error
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: TorrentManager.Error
+  fullName: MonoTorrent.Client.TorrentManager.Error
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Error
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 262
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public Error? Error { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Client.Error
+    content.vb: Public Property [Error] As [Error]
+  overload: MonoTorrent.Client.TorrentManager.Error*
+- uid: MonoTorrent.Client.TorrentManager.Files
+  commentId: P:MonoTorrent.Client.TorrentManager.Files
+  id: Files
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: Files
+  nameWithType: TorrentManager.Files
+  fullName: MonoTorrent.Client.TorrentManager.Files
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Files
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 264
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The files contained within the Torrent
+  example: []
+  syntax:
+    content: public IList<ITorrentManagerFile> Files { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{MonoTorrent.ITorrentManagerFile}
+    content.vb: Public Property Files As IList(Of ITorrentManagerFile)
+  overload: MonoTorrent.Client.TorrentManager.Files*
+  implements:
+  - MonoTorrent.ITorrentManagerInfo.Files
+- uid: MonoTorrent.Client.TorrentManager.SetNeedsHashCheckAsync
+  commentId: M:MonoTorrent.Client.TorrentManager.SetNeedsHashCheckAsync
+  id: SetNeedsHashCheckAsync
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: SetNeedsHashCheckAsync()
+  nameWithType: TorrentManager.SetNeedsHashCheckAsync()
+  fullName: MonoTorrent.Client.TorrentManager.SetNeedsHashCheckAsync()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SetNeedsHashCheckAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 291
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    Marks the <xref href="MonoTorrent.Client.TorrentManager" data-throw-if-not-resolved="false"></xref> as needing a full hash check. If <xref href="MonoTorrent.Client.EngineSettings.AutoSaveLoadFastResume" data-throw-if-not-resolved="false"></xref>
+
+    is enabled this method will also delete fast resume data from the location specified by
+
+    <xref href="MonoTorrent.Client.EngineSettings.GetFastResumePath(MonoTorrent.InfoHashes)" data-throw-if-not-resolved="false"></xref>. This can only be invoked when the <xref href="MonoTorrent.Client.TorrentManager.State" data-throw-if-not-resolved="false"></xref> is
+
+    <xref href="MonoTorrent.Client.TorrentState.Stopped" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public Task SetNeedsHashCheckAsync()
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Public Function SetNeedsHashCheckAsync() As Task
+  overload: MonoTorrent.Client.TorrentManager.SetNeedsHashCheckAsync*
+- uid: MonoTorrent.Client.TorrentManager.HashChecked
+  commentId: P:MonoTorrent.Client.TorrentManager.HashChecked
+  id: HashChecked
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: HashChecked
+  nameWithType: TorrentManager.HashChecked
+  fullName: MonoTorrent.Client.TorrentManager.HashChecked
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: HashChecked
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 317
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public bool HashChecked { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property HashChecked As Boolean
+  overload: MonoTorrent.Client.TorrentManager.HashChecked*
+- uid: MonoTorrent.Client.TorrentManager.HashFails
+  commentId: P:MonoTorrent.Client.TorrentManager.HashFails
+  id: HashFails
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: HashFails
+  nameWithType: TorrentManager.HashFails
+  fullName: MonoTorrent.Client.TorrentManager.HashFails
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: HashFails
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 324
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The number of times a piece is downloaded, but is corrupt and fails the hashcheck and must be re-downloaded.
+  example: []
+  syntax:
+    content: public int HashFails { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property HashFails As Integer
+  overload: MonoTorrent.Client.TorrentManager.HashFails*
+- uid: MonoTorrent.Client.TorrentManager.HasMetadata
+  commentId: P:MonoTorrent.Client.TorrentManager.HasMetadata
+  id: HasMetadata
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: HasMetadata
+  nameWithType: TorrentManager.HasMetadata
+  fullName: MonoTorrent.Client.TorrentManager.HasMetadata
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: HasMetadata
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 326
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public bool HasMetadata { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasMetadata As Boolean
+  overload: MonoTorrent.Client.TorrentManager.HasMetadata*
+- uid: MonoTorrent.Client.TorrentManager.InfoHashes
+  commentId: P:MonoTorrent.Client.TorrentManager.InfoHashes
+  id: InfoHashes
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: InfoHashes
+  nameWithType: TorrentManager.InfoHashes
+  fullName: MonoTorrent.Client.TorrentManager.InfoHashes
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: InfoHashes
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 334
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    The infohashes for the torrent managed by this manager.
+
+    If the manager was created with a MagnetLink, this will be the InfoHashes from the link.
+
+    If the manager was created with a Torrent file, this will be the InfoHashes from the torrent.
+
+    If metadata has been retrieved for a MagnetLink, this will be the InfoHashes from the retrieved metadata.
+  example: []
+  syntax:
+    content: public InfoHashes InfoHashes { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.InfoHashes
+    content.vb: Public ReadOnly Property InfoHashes As InfoHashes
+  overload: MonoTorrent.Client.TorrentManager.InfoHashes*
+  implements:
+  - MonoTorrent.ITorrentManagerInfo.InfoHashes
+- uid: MonoTorrent.Client.TorrentManager.MetadataPath
+  commentId: P:MonoTorrent.Client.TorrentManager.MetadataPath
+  id: MetadataPath
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: MetadataPath
+  nameWithType: TorrentManager.MetadataPath
+  fullName: MonoTorrent.Client.TorrentManager.MetadataPath
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MetadataPath
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 339
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The path to the .torrent metadata used to create the TorrentManager. Typically stored within the <xref href="MonoTorrent.Client.EngineSettings.MetadataCacheDirectory" data-throw-if-not-resolved="false"></xref> directory.
+  example: []
+  syntax:
+    content: public string MetadataPath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property MetadataPath As String
+  overload: MonoTorrent.Client.TorrentManager.MetadataPath*
+- uid: MonoTorrent.Client.TorrentManager.IsInEndGame
+  commentId: P:MonoTorrent.Client.TorrentManager.IsInEndGame
+  id: IsInEndGame
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: IsInEndGame
+  nameWithType: TorrentManager.IsInEndGame
+  fullName: MonoTorrent.Client.TorrentManager.IsInEndGame
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IsInEndGame
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 344
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: True if this torrent has activated special processing for the final few pieces
+  example: []
+  syntax:
+    content: public bool IsInEndGame { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInEndGame As Boolean
+  overload: MonoTorrent.Client.TorrentManager.IsInEndGame*
+- uid: MonoTorrent.Client.TorrentManager.Monitor
+  commentId: P:MonoTorrent.Client.TorrentManager.Monitor
+  id: Monitor
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: Monitor
+  nameWithType: TorrentManager.Monitor
+  fullName: MonoTorrent.Client.TorrentManager.Monitor
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Monitor
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 346
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public ConnectionMonitor Monitor { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Client.ConnectionMonitor
+    content.vb: Public ReadOnly Property Monitor As ConnectionMonitor
+  overload: MonoTorrent.Client.TorrentManager.Monitor*
+- uid: MonoTorrent.Client.TorrentManager.OpenConnections
+  commentId: P:MonoTorrent.Client.TorrentManager.OpenConnections
+  id: OpenConnections
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: OpenConnections
+  nameWithType: TorrentManager.OpenConnections
+  fullName: MonoTorrent.Client.TorrentManager.OpenConnections
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: OpenConnections
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 351
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The number of peers that this torrent instance is connected to
+  example: []
+  syntax:
+    content: public int OpenConnections { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property OpenConnections As Integer
+  overload: MonoTorrent.Client.TorrentManager.OpenConnections*
+- uid: MonoTorrent.Client.TorrentManager.LastDhtAnnounce
+  commentId: P:MonoTorrent.Client.TorrentManager.LastDhtAnnounce
+  id: LastDhtAnnounce
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: LastDhtAnnounce
+  nameWithType: TorrentManager.LastDhtAnnounce
+  fullName: MonoTorrent.Client.TorrentManager.LastDhtAnnounce
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LastDhtAnnounce
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 356
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The time the last announce to the DHT occurred
+  example: []
+  syntax:
+    content: public DateTime LastDhtAnnounce { get; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property LastDhtAnnounce As Date
+  overload: MonoTorrent.Client.TorrentManager.LastDhtAnnounce*
+- uid: MonoTorrent.Client.TorrentManager.LastLocalPeerAnnounce
+  commentId: P:MonoTorrent.Client.TorrentManager.LastLocalPeerAnnounce
+  id: LastLocalPeerAnnounce
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: LastLocalPeerAnnounce
+  nameWithType: TorrentManager.LastLocalPeerAnnounce
+  fullName: MonoTorrent.Client.TorrentManager.LastLocalPeerAnnounce
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LastLocalPeerAnnounce
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 366
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The time the last announce using Local Peer Discovery occurred
+  example: []
+  syntax:
+    content: public DateTime LastLocalPeerAnnounce { get; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property LastLocalPeerAnnounce As Date
+  overload: MonoTorrent.Client.TorrentManager.LastLocalPeerAnnounce*
+- uid: MonoTorrent.Client.TorrentManager.MagnetLink
+  commentId: P:MonoTorrent.Client.TorrentManager.MagnetLink
+  id: MagnetLink
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: MagnetLink
+  nameWithType: TorrentManager.MagnetLink
+  fullName: MonoTorrent.Client.TorrentManager.MagnetLink
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MagnetLink
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 373
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public MagnetLink MagnetLink { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.MagnetLink
+    content.vb: Public ReadOnly Property MagnetLink As MagnetLink
+  overload: MonoTorrent.Client.TorrentManager.MagnetLink*
+- uid: MonoTorrent.Client.TorrentManager.Peers
+  commentId: P:MonoTorrent.Client.TorrentManager.Peers
+  id: Peers
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: Peers
+  nameWithType: TorrentManager.Peers
+  fullName: MonoTorrent.Client.TorrentManager.Peers
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Peers
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 380
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: ''
+  example: []
+  syntax:
+    content: public PeerManager Peers { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Client.PeerManager
+    content.vb: Public ReadOnly Property Peers As PeerManager
+  overload: MonoTorrent.Client.TorrentManager.Peers*
+- uid: MonoTorrent.Client.TorrentManager.PieceManager
+  commentId: P:MonoTorrent.Client.TorrentManager.PieceManager
+  id: PieceManager
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: PieceManager
+  nameWithType: TorrentManager.PieceManager
+  fullName: MonoTorrent.Client.TorrentManager.PieceManager
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PieceManager
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 386
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The piecemanager for this TorrentManager
+  example: []
+  syntax:
+    content: public PieceManager PieceManager { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Client.PieceManager
+    content.vb: Public ReadOnly Property PieceManager As PieceManager
+  overload: MonoTorrent.Client.TorrentManager.PieceManager*
+- uid: MonoTorrent.Client.TorrentManager.PartialProgress
+  commentId: P:MonoTorrent.Client.TorrentManager.PartialProgress
+  id: PartialProgress
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: PartialProgress
+  nameWithType: TorrentManager.PartialProgress
+  fullName: MonoTorrent.Client.TorrentManager.PartialProgress
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PartialProgress
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 403
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    The download progress in percent (0 -&gt; 100.0) for the files whose priority
+
+    is not set to <xref href="MonoTorrent.Priority.DoNotDownload" data-throw-if-not-resolved="false"></xref>. If every file is marked
+
+    as <xref href="MonoTorrent.Priority.DoNotDownload" data-throw-if-not-resolved="false"></xref> then this returns 0. If no file is
+
+    marked as 'DoNotDownload' then this returns the same value as <xref href="MonoTorrent.Client.TorrentManager.Progress" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public double PartialProgress { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property PartialProgress As Double
+  overload: MonoTorrent.Client.TorrentManager.PartialProgress*
+- uid: MonoTorrent.Client.TorrentManager.Progress
+  commentId: P:MonoTorrent.Client.TorrentManager.Progress
+  id: Progress
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: Progress
+  nameWithType: TorrentManager.Progress
+  fullName: MonoTorrent.Client.TorrentManager.Progress
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Progress
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 429
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    The download progress in percent (0 -&gt; 100.0). This includes all files, even
+
+    if they are marked as <xref href="MonoTorrent.Priority.DoNotDownload" data-throw-if-not-resolved="false"></xref>. This will return
+
+    '100.0' when all files in the torrent have been downloaded.
+  example: []
+  syntax:
+    content: public double Progress { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Progress As Double
+  overload: MonoTorrent.Client.TorrentManager.Progress*
+- uid: MonoTorrent.Client.TorrentManager.ContainingDirectory
+  commentId: P:MonoTorrent.Client.TorrentManager.ContainingDirectory
+  id: ContainingDirectory
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: ContainingDirectory
+  nameWithType: TorrentManager.ContainingDirectory
+  fullName: MonoTorrent.Client.TorrentManager.ContainingDirectory
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ContainingDirectory
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 441
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The directory where the downloaded files are stored. For multi-file torrents, this is the parent directory of the torrent's root folder (unless CreateContainingDirectory is false).
+  example: []
+  syntax:
+    content: public string ContainingDirectory { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ContainingDirectory As String
+  overload: MonoTorrent.Client.TorrentManager.ContainingDirectory*
+- uid: MonoTorrent.Client.TorrentManager.SavePath
+  commentId: P:MonoTorrent.Client.TorrentManager.SavePath
+  id: SavePath
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: SavePath
+  nameWithType: TorrentManager.SavePath
+  fullName: MonoTorrent.Client.TorrentManager.SavePath
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SavePath
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 459
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    The final directory path where the torrent data is located after download completion. For single-file torrents, this is the same as SavePath. For multi-file torrents, it's typically SavePath/TorrentName.
+
+    This property is only valid after torrent metadata is available.
+  example: []
+  syntax:
+    content: public string SavePath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SavePath As String
+  overload: MonoTorrent.Client.TorrentManager.SavePath*
+- uid: MonoTorrent.Client.TorrentManager.Settings
+  commentId: P:MonoTorrent.Client.TorrentManager.Settings
+  id: Settings
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: Settings
+  nameWithType: TorrentManager.Settings
+  fullName: MonoTorrent.Client.TorrentManager.Settings
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Settings
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 464
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The settings for with this TorrentManager
+  example: []
+  syntax:
+    content: public TorrentSettings Settings { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Client.TorrentSettings
+    content.vb: Public Property Settings As TorrentSettings
+  overload: MonoTorrent.Client.TorrentManager.Settings*
+- uid: MonoTorrent.Client.TorrentManager.State
+  commentId: P:MonoTorrent.Client.TorrentManager.State
+  id: State
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: TorrentManager.State
+  fullName: MonoTorrent.Client.TorrentManager.State
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: State
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 469
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The current state of the TorrentManager (e.g., Stopped, Hashing, Downloading, Seeding).
+  example: []
+  syntax:
+    content: public TorrentState State { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Client.TorrentState
+    content.vb: Public ReadOnly Property State As TorrentState
+  overload: MonoTorrent.Client.TorrentManager.State*
+- uid: MonoTorrent.Client.TorrentManager.StartTime
+  commentId: P:MonoTorrent.Client.TorrentManager.StartTime
+  id: StartTime
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: StartTime
+  nameWithType: TorrentManager.StartTime
+  fullName: MonoTorrent.Client.TorrentManager.StartTime
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StartTime
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 474
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The time the torrent manager was started at
+  example: []
+  syntax:
+    content: public DateTime StartTime { get; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property StartTime As Date
+  overload: MonoTorrent.Client.TorrentManager.StartTime*
+- uid: MonoTorrent.Client.TorrentManager.StreamProvider
+  commentId: P:MonoTorrent.Client.TorrentManager.StreamProvider
+  id: StreamProvider
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: StreamProvider
+  nameWithType: TorrentManager.StreamProvider
+  fullName: MonoTorrent.Client.TorrentManager.StreamProvider
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StreamProvider
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 484
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    When a <xref href="MonoTorrent.Client.TorrentManager.Torrent" data-throw-if-not-resolved="false"></xref> or <xref href="MonoTorrent.Client.TorrentManager.MagnetLink" data-throw-if-not-resolved="false"></xref> has been added using
+
+    the 'AddStreamingAsync' methods on <xref href="MonoTorrent.Client.ClientEngine" data-throw-if-not-resolved="false"></xref> then this property
+
+    will be non-null and streams can be created to access any of the files in the
+
+    torrent while they are downloading. These streams are fully seekable, and if you
+
+    seek to a position which has not been downloaded already the required pieces will
+
+    be prioritised next.
+  example: []
+  syntax:
+    content: public StreamProvider? StreamProvider { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Streaming.StreamProvider
+    content.vb: Public Property StreamProvider As StreamProvider
+  overload: MonoTorrent.Client.TorrentManager.StreamProvider*
+- uid: MonoTorrent.Client.TorrentManager.TrackerManager
+  commentId: P:MonoTorrent.Client.TorrentManager.TrackerManager
+  id: TrackerManager
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: TrackerManager
+  nameWithType: TorrentManager.TrackerManager
+  fullName: MonoTorrent.Client.TorrentManager.TrackerManager
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TrackerManager
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 492
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The loaded Torrent metadata. This will be null if the TorrentManager was created with a MagnetLink and the metadata has not yet been downloaded.
+  example: []
+  syntax:
+    content: public ITrackerManager TrackerManager { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Trackers.ITrackerManager
+    content.vb: Public Property TrackerManager As ITrackerManager
+  overload: MonoTorrent.Client.TorrentManager.TrackerManager*
+- uid: MonoTorrent.Client.TorrentManager.Torrent
+  commentId: P:MonoTorrent.Client.TorrentManager.Torrent
+  id: Torrent
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: Torrent
+  nameWithType: TorrentManager.Torrent
+  fullName: MonoTorrent.Client.TorrentManager.Torrent
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Torrent
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 497
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The Torrent contained within this TorrentManager
+  example: []
+  syntax:
+    content: public Torrent? Torrent { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Torrent
+    content.vb: Public Property Torrent As Torrent
+  overload: MonoTorrent.Client.TorrentManager.Torrent*
+- uid: MonoTorrent.Client.TorrentManager.Name
+  commentId: P:MonoTorrent.Client.TorrentManager.Name
+  id: Name
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: TorrentManager.Name
+  fullName: MonoTorrent.Client.TorrentManager.Name
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Name
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 499
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: MonoTorrent.Client.TorrentManager.Name*
+  implements:
+  - MonoTorrent.ITorrentManagerInfo.Name
+- uid: MonoTorrent.Client.TorrentManager.UploadingTo
+  commentId: P:MonoTorrent.Client.TorrentManager.UploadingTo
+  id: UploadingTo
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: UploadingTo
+  nameWithType: TorrentManager.UploadingTo
+  fullName: MonoTorrent.Client.TorrentManager.UploadingTo
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: UploadingTo
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 514
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The number of peers that we are currently uploading to
+  example: []
+  syntax:
+    content: public int UploadingTo { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property UploadingTo As Integer
+  overload: MonoTorrent.Client.TorrentManager.UploadingTo*
+- uid: MonoTorrent.Client.TorrentManager.IsInitialSeeding
+  commentId: P:MonoTorrent.Client.TorrentManager.IsInitialSeeding
+  id: IsInitialSeeding
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: IsInitialSeeding
+  nameWithType: TorrentManager.IsInitialSeeding
+  fullName: MonoTorrent.Client.TorrentManager.IsInitialSeeding
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IsInitialSeeding
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 520
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public bool IsInitialSeeding { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInitialSeeding As Boolean
+  overload: MonoTorrent.Client.TorrentManager.IsInitialSeeding*
+- uid: MonoTorrent.Client.TorrentManager.PieceHashes
+  commentId: P:MonoTorrent.Client.TorrentManager.PieceHashes
+  id: PieceHashes
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: PieceHashes
+  nameWithType: TorrentManager.PieceHashes
+  fullName: MonoTorrent.Client.TorrentManager.PieceHashes
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PieceHashes
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 523
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  example: []
+  syntax:
+    content: public IPieceHashes PieceHashes { get; set; }
+    parameters: []
+    return:
+      type: MonoTorrent.IPieceHashes
+    content.vb: Public Property PieceHashes As IPieceHashes
+  overload: MonoTorrent.Client.TorrentManager.PieceHashes*
+  implements:
+  - MonoTorrent.IPieceHashesProvider.PieceHashes
+- uid: MonoTorrent.Client.TorrentManager.ChangePickerAsync(MonoTorrent.PiecePicking.IPieceRequester)
+  commentId: M:MonoTorrent.Client.TorrentManager.ChangePickerAsync(MonoTorrent.PiecePicking.IPieceRequester)
+  id: ChangePickerAsync(MonoTorrent.PiecePicking.IPieceRequester)
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: ChangePickerAsync(IPieceRequester)
+  nameWithType: TorrentManager.ChangePickerAsync(IPieceRequester)
+  fullName: MonoTorrent.Client.TorrentManager.ChangePickerAsync(MonoTorrent.PiecePicking.IPieceRequester)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ChangePickerAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 636
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    Changes the active piece picker. This can be called when the manager is running, or when it is stopped.
+
+    <summary>
+
+    Retrieves a list of currently connected peers.
+
+    </summary>
+
+    <returns>A list of PeerId objects representing connected peers.</returns>
+  example: []
+  syntax:
+    content: public Task ChangePickerAsync(IPieceRequester requester)
+    parameters:
+    - id: requester
+      type: MonoTorrent.PiecePicking.IPieceRequester
+      description: The new picker to use.
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Public Function ChangePickerAsync(requester As IPieceRequester) As Task
+  overload: MonoTorrent.Client.TorrentManager.ChangePickerAsync*
+- uid: MonoTorrent.Client.TorrentManager.ToString
+  commentId: M:MonoTorrent.Client.TorrentManager.ToString
+  id: ToString
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: TorrentManager.ToString()
+  fullName: MonoTorrent.Client.TorrentManager.ToString()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToString
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 655
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Overrridden. Returns the name of the torrent.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: MonoTorrent.Client.TorrentManager.ToString*
+- uid: MonoTorrent.Client.TorrentManager.LogName
+  commentId: P:MonoTorrent.Client.TorrentManager.LogName
+  id: LogName
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: LogName
+  nameWithType: TorrentManager.LogName
+  fullName: MonoTorrent.Client.TorrentManager.LogName
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LogName
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 660
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public string LogName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property LogName As String
+  overload: MonoTorrent.Client.TorrentManager.LogName*
+- uid: MonoTorrent.Client.TorrentManager.GetPeersAsync
+  commentId: M:MonoTorrent.Client.TorrentManager.GetPeersAsync
+  id: GetPeersAsync
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: GetPeersAsync()
+  nameWithType: TorrentManager.GetPeersAsync()
+  fullName: MonoTorrent.Client.TorrentManager.GetPeersAsync()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetPeersAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 662
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public Task<List<PeerId>> GetPeersAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{MonoTorrent.Client.PeerId}}
+    content.vb: Public Function GetPeersAsync() As Task(Of List(Of PeerId))
+  overload: MonoTorrent.Client.TorrentManager.GetPeersAsync*
+- uid: MonoTorrent.Client.TorrentManager.HashCheckAsync(System.Boolean)
+  commentId: M:MonoTorrent.Client.TorrentManager.HashCheckAsync(System.Boolean)
+  id: HashCheckAsync(System.Boolean)
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: HashCheckAsync(bool)
+  nameWithType: TorrentManager.HashCheckAsync(bool)
+  fullName: MonoTorrent.Client.TorrentManager.HashCheckAsync(bool)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: HashCheckAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 678
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Performs a full hash check, ignoring any previously loaded Fast Resume data or previous hash checks.
+  example: []
+  syntax:
+    content: public Task HashCheckAsync(bool autoStart)
+    parameters:
+    - id: autoStart
+      type: System.Boolean
+      description: True if a the TorrentManager should be started as soon as the hashcheck completes.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function HashCheckAsync(autoStart As Boolean) As Task
+  overload: MonoTorrent.Client.TorrentManager.HashCheckAsync*
+  nameWithType.vb: TorrentManager.HashCheckAsync(Boolean)
+  fullName.vb: MonoTorrent.Client.TorrentManager.HashCheckAsync(Boolean)
+  name.vb: HashCheckAsync(Boolean)
+- uid: MonoTorrent.Client.TorrentManager.MoveFileAsync(MonoTorrent.ITorrentManagerFile,System.String)
+  commentId: M:MonoTorrent.Client.TorrentManager.MoveFileAsync(MonoTorrent.ITorrentManagerFile,System.String)
+  id: MoveFileAsync(MonoTorrent.ITorrentManagerFile,System.String)
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: MoveFileAsync(ITorrentManagerFile, string)
+  nameWithType: TorrentManager.MoveFileAsync(ITorrentManagerFile, string)
+  fullName: MonoTorrent.Client.TorrentManager.MoveFileAsync(MonoTorrent.ITorrentManagerFile, string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MoveFileAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 734
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public Task MoveFileAsync(ITorrentManagerFile file, string path)
+    parameters:
+    - id: file
+      type: MonoTorrent.ITorrentManagerFile
+    - id: path
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function MoveFileAsync(file As ITorrentManagerFile, path As String) As Task
+  overload: MonoTorrent.Client.TorrentManager.MoveFileAsync*
+  nameWithType.vb: TorrentManager.MoveFileAsync(ITorrentManagerFile, String)
+  fullName.vb: MonoTorrent.Client.TorrentManager.MoveFileAsync(MonoTorrent.ITorrentManagerFile, String)
+  name.vb: MoveFileAsync(ITorrentManagerFile, String)
+- uid: MonoTorrent.Client.TorrentManager.MoveFilesAsync(System.String,System.Boolean)
+  commentId: M:MonoTorrent.Client.TorrentManager.MoveFilesAsync(System.String,System.Boolean)
+  id: MoveFilesAsync(System.String,System.Boolean)
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: MoveFilesAsync(string, bool)
+  nameWithType: TorrentManager.MoveFilesAsync(string, bool)
+  fullName: MonoTorrent.Client.TorrentManager.MoveFilesAsync(string, bool)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MoveFilesAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 757
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public Task MoveFilesAsync(string newRoot, bool overWriteExisting)
+    parameters:
+    - id: newRoot
+      type: System.String
+    - id: overWriteExisting
+      type: System.Boolean
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function MoveFilesAsync(newRoot As String, overWriteExisting As Boolean) As Task
+  overload: MonoTorrent.Client.TorrentManager.MoveFilesAsync*
+  nameWithType.vb: TorrentManager.MoveFilesAsync(String, Boolean)
+  fullName.vb: MonoTorrent.Client.TorrentManager.MoveFilesAsync(String, Boolean)
+  name.vb: MoveFilesAsync(String, Boolean)
+- uid: MonoTorrent.Client.TorrentManager.PauseAsync
+  commentId: M:MonoTorrent.Client.TorrentManager.PauseAsync
+  id: PauseAsync
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: PauseAsync()
+  nameWithType: TorrentManager.PauseAsync()
+  fullName: MonoTorrent.Client.TorrentManager.PauseAsync()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PauseAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 778
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    Pauses the TorrentManager, preventing further data transfer until StartAsync is called.
+
+    If the manager is currently hashing, the hashing process will be paused.
+  example: []
+  syntax:
+    content: public Task PauseAsync()
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous pause operation.
+    content.vb: Public Function PauseAsync() As Task
+  overload: MonoTorrent.Client.TorrentManager.PauseAsync*
+- uid: MonoTorrent.Client.TorrentManager.StartAsync
+  commentId: M:MonoTorrent.Client.TorrentManager.StartAsync
+  id: StartAsync
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: StartAsync()
+  nameWithType: TorrentManager.StartAsync()
+  fullName: MonoTorrent.Client.TorrentManager.StartAsync()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StartAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 857
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    Starts the TorrentManager. If the manager was paused, it resumes.
+
+    If it was stopped, it will initiate a hash check (if needed) and then start downloading/seeding.
+
+    If it was created with a MagnetLink and has no metadata, it will enter MetadataMode to download the metadata.
+  example: []
+  syntax:
+    content: public Task StartAsync()
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous start operation.
+    content.vb: Public Function StartAsync() As Task
+  overload: MonoTorrent.Client.TorrentManager.StartAsync*
+- uid: MonoTorrent.Client.TorrentManager.LocalPeerAnnounceAsync
+  commentId: M:MonoTorrent.Client.TorrentManager.LocalPeerAnnounceAsync
+  id: LocalPeerAnnounceAsync
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: LocalPeerAnnounceAsync()
+  nameWithType: TorrentManager.LocalPeerAnnounceAsync()
+  fullName: MonoTorrent.Client.TorrentManager.LocalPeerAnnounceAsync()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LocalPeerAnnounceAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 896
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public ReusableTask LocalPeerAnnounceAsync()
+    return:
+      type: ReusableTasks.ReusableTask
+    content.vb: Public Function LocalPeerAnnounceAsync() As ReusableTask
+  overload: MonoTorrent.Client.TorrentManager.LocalPeerAnnounceAsync*
+- uid: MonoTorrent.Client.TorrentManager.DhtAnnounceAsync
+  commentId: M:MonoTorrent.Client.TorrentManager.DhtAnnounceAsync
+  id: DhtAnnounceAsync
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: DhtAnnounceAsync()
+  nameWithType: TorrentManager.DhtAnnounceAsync()
+  fullName: MonoTorrent.Client.TorrentManager.DhtAnnounceAsync()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DhtAnnounceAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 926
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    <summary>
+
+    Updates the settings used by this TorrentManager.
+
+    </summary>
+
+    <param name="settings">The new settings to apply.</param>
+
+    <returns>A task representing the asynchronous settings update.</returns>
+
+    Perform an announce using the <xref href="MonoTorrent.Client.ClientEngine.DhtEngine" data-throw-if-not-resolved="false"></xref> to retrieve more peers. The
+
+    returned task completes as soon as the Dht announce begins.
+  example: []
+  syntax:
+    content: public ReusableTask DhtAnnounceAsync()
+    return:
+      type: ReusableTasks.ReusableTask
+      description: ''
+    content.vb: Public Function DhtAnnounceAsync() As ReusableTask
+  overload: MonoTorrent.Client.TorrentManager.DhtAnnounceAsync*
+- uid: MonoTorrent.Client.TorrentManager.StopAsync
+  commentId: M:MonoTorrent.Client.TorrentManager.StopAsync
+  id: StopAsync
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: StopAsync()
+  nameWithType: TorrentManager.StopAsync()
+  fullName: MonoTorrent.Client.TorrentManager.StopAsync()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StopAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 947
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    Stops the TorrentManager. Data transfer will cease, and a 'stopped' announce will be sent to trackers.
+
+    The returned task completes when the manager has fully stopped.
+  example: []
+  syntax:
+    content: public Task StopAsync()
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous stop operation.
+    content.vb: Public Function StopAsync() As Task
+  overload: MonoTorrent.Client.TorrentManager.StopAsync*
+- uid: MonoTorrent.Client.TorrentManager.StopAsync(System.TimeSpan)
+  commentId: M:MonoTorrent.Client.TorrentManager.StopAsync(System.TimeSpan)
+  id: StopAsync(System.TimeSpan)
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: StopAsync(TimeSpan)
+  nameWithType: TorrentManager.StopAsync(TimeSpan)
+  fullName: MonoTorrent.Client.TorrentManager.StopAsync(System.TimeSpan)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StopAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 956
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    Stops the TorrentManager. The returned task completes as soon as the manager has fully stopped. The final
+
+    tracker announce will be limited to the maximum of either 2 seconds or <code class="paramref">timeout</code> seconds.
+  example: []
+  syntax:
+    content: public Task StopAsync(TimeSpan timeout)
+    parameters:
+    - id: timeout
+      type: System.TimeSpan
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function StopAsync(timeout As TimeSpan) As Task
+  overload: MonoTorrent.Client.TorrentManager.StopAsync*
+- uid: MonoTorrent.Client.TorrentManager.UpdateSettingsAsync(MonoTorrent.Client.TorrentSettings)
+  commentId: M:MonoTorrent.Client.TorrentManager.UpdateSettingsAsync(MonoTorrent.Client.TorrentSettings)
+  id: UpdateSettingsAsync(MonoTorrent.Client.TorrentSettings)
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: UpdateSettingsAsync(TorrentSettings)
+  nameWithType: TorrentManager.UpdateSettingsAsync(TorrentSettings)
+  fullName: MonoTorrent.Client.TorrentManager.UpdateSettingsAsync(MonoTorrent.Client.TorrentSettings)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: UpdateSettingsAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 990
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public Task UpdateSettingsAsync(TorrentSettings settings)
+    parameters:
+    - id: settings
+      type: MonoTorrent.Client.TorrentSettings
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function UpdateSettingsAsync(settings As TorrentSettings) As Task
+  overload: MonoTorrent.Client.TorrentManager.UpdateSettingsAsync*
+- uid: MonoTorrent.Client.TorrentManager.WaitForMetadataAsync
+  commentId: M:MonoTorrent.Client.TorrentManager.WaitForMetadataAsync
+  id: WaitForMetadataAsync
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: WaitForMetadataAsync()
+  nameWithType: TorrentManager.WaitForMetadataAsync()
+  fullName: MonoTorrent.Client.TorrentManager.WaitForMetadataAsync()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WaitForMetadataAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 1000
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Waits for the metadata to be available
+  example: []
+  syntax:
+    content: public Task WaitForMetadataAsync()
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Public Function WaitForMetadataAsync() As Task
+  overload: MonoTorrent.Client.TorrentManager.WaitForMetadataAsync*
+- uid: MonoTorrent.Client.TorrentManager.WaitForMetadataAsync(System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.Client.TorrentManager.WaitForMetadataAsync(System.Threading.CancellationToken)
+  id: WaitForMetadataAsync(System.Threading.CancellationToken)
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: WaitForMetadataAsync(CancellationToken)
+  nameWithType: TorrentManager.WaitForMetadataAsync(CancellationToken)
+  fullName: MonoTorrent.Client.TorrentManager.WaitForMetadataAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WaitForMetadataAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 1003
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public Task WaitForMetadataAsync(CancellationToken token)
+    parameters:
+    - id: token
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function WaitForMetadataAsync(token As CancellationToken) As Task
+  overload: MonoTorrent.Client.TorrentManager.WaitForMetadataAsync*
+- uid: MonoTorrent.Client.TorrentManager.AddPeerAsync(MonoTorrent.PeerInfo)
+  commentId: M:MonoTorrent.Client.TorrentManager.AddPeerAsync(MonoTorrent.PeerInfo)
+  id: AddPeerAsync(MonoTorrent.PeerInfo)
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: AddPeerAsync(PeerInfo)
+  nameWithType: TorrentManager.AddPeerAsync(PeerInfo)
+  fullName: MonoTorrent.Client.TorrentManager.AddPeerAsync(MonoTorrent.PeerInfo)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AddPeerAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 1040
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public Task<bool> AddPeerAsync(PeerInfo peer)
+    parameters:
+    - id: peer
+      type: MonoTorrent.PeerInfo
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Function AddPeerAsync(peer As PeerInfo) As Task(Of Boolean)
+  overload: MonoTorrent.Client.TorrentManager.AddPeerAsync*
+- uid: MonoTorrent.Client.TorrentManager.AddPeersAsync(System.Collections.Generic.IEnumerable{MonoTorrent.PeerInfo})
+  commentId: M:MonoTorrent.Client.TorrentManager.AddPeersAsync(System.Collections.Generic.IEnumerable{MonoTorrent.PeerInfo})
+  id: AddPeersAsync(System.Collections.Generic.IEnumerable{MonoTorrent.PeerInfo})
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: AddPeersAsync(IEnumerable<PeerInfo>)
+  nameWithType: TorrentManager.AddPeersAsync(IEnumerable<PeerInfo>)
+  fullName: MonoTorrent.Client.TorrentManager.AddPeersAsync(System.Collections.Generic.IEnumerable<MonoTorrent.PeerInfo>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AddPeersAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 1043
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public Task<int> AddPeersAsync(IEnumerable<PeerInfo> peers)
+    parameters:
+    - id: peers
+      type: System.Collections.Generic.IEnumerable{MonoTorrent.PeerInfo}
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+    content.vb: Public Function AddPeersAsync(peers As IEnumerable(Of PeerInfo)) As Task(Of Integer)
+  overload: MonoTorrent.Client.TorrentManager.AddPeersAsync*
+  nameWithType.vb: TorrentManager.AddPeersAsync(IEnumerable(Of PeerInfo))
+  fullName.vb: MonoTorrent.Client.TorrentManager.AddPeersAsync(System.Collections.Generic.IEnumerable(Of MonoTorrent.PeerInfo))
+  name.vb: AddPeersAsync(IEnumerable(Of PeerInfo))
+- uid: MonoTorrent.Client.TorrentManager.UpdatePieceHashStatus(System.Int32,System.Boolean,System.Int32,System.Int32)
+  commentId: M:MonoTorrent.Client.TorrentManager.UpdatePieceHashStatus(System.Int32,System.Boolean,System.Int32,System.Int32)
+  id: UpdatePieceHashStatus(System.Int32,System.Boolean,System.Int32,System.Int32)
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: UpdatePieceHashStatus(int, bool, int, int)
+  nameWithType: TorrentManager.UpdatePieceHashStatus(int, bool, int, int)
+  fullName: MonoTorrent.Client.TorrentManager.UpdatePieceHashStatus(int, bool, int, int)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: UpdatePieceHashStatus
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 1116
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Updates the hash status of a piece
+  example: []
+  syntax:
+    content: public void UpdatePieceHashStatus(int index, bool hashPassed, int hashed, int totalHashing)
+    parameters:
+    - id: index
+      type: System.Int32
+      description: Piece index
+    - id: hashPassed
+      type: System.Boolean
+      description: <code>true</code> if our local copy of the piece has the expected hash.
+    - id: hashed
+      type: System.Int32
+      description: >-
+        How many pieces we updated hash status for so far, including this one.
+            <p>Set to <code>0</code> to indicate that this piece hash status is unknown.
+            In this case, the value in <code class="paramref">hashPassed</code> will be ignored.
+            </p>
+    - id: totalHashing
+      type: System.Int32
+      description: How many pieces we are planning to hash in total
+    content.vb: Public Sub UpdatePieceHashStatus(index As Integer, hashPassed As Boolean, hashed As Integer, totalHashing As Integer)
+  overload: MonoTorrent.Client.TorrentManager.UpdatePieceHashStatus*
+  implements:
+  - MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus(System.Int32,System.Boolean,System.Int32,System.Int32)
+  nameWithType.vb: TorrentManager.UpdatePieceHashStatus(Integer, Boolean, Integer, Integer)
+  fullName.vb: MonoTorrent.Client.TorrentManager.UpdatePieceHashStatus(Integer, Boolean, Integer, Integer)
+  name.vb: UpdatePieceHashStatus(Integer, Boolean, Integer, Integer)
+- uid: MonoTorrent.Client.TorrentManager.MarkHashedAsync
+  commentId: M:MonoTorrent.Client.TorrentManager.MarkHashedAsync
+  id: MarkHashedAsync
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: MarkHashedAsync()
+  nameWithType: TorrentManager.MarkHashedAsync()
+  fullName: MonoTorrent.Client.TorrentManager.MarkHashedAsync()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MarkHashedAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 1256
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public Task MarkHashedAsync()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function MarkHashedAsync() As Task
+  overload: MonoTorrent.Client.TorrentManager.MarkHashedAsync*
+- uid: MonoTorrent.Client.TorrentManager.LoadFastResumeAsync(MonoTorrent.Client.FastResume)
+  commentId: M:MonoTorrent.Client.TorrentManager.LoadFastResumeAsync(MonoTorrent.Client.FastResume)
+  id: LoadFastResumeAsync(MonoTorrent.Client.FastResume)
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: LoadFastResumeAsync(FastResume)
+  nameWithType: TorrentManager.LoadFastResumeAsync(FastResume)
+  fullName: MonoTorrent.Client.TorrentManager.LoadFastResumeAsync(MonoTorrent.Client.FastResume)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LoadFastResumeAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 1276
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    Attempts to load the provided fastresume data. Several validations are performed during this, such as ensuring
+
+    files which have validated pieces actually exist on disk, and the length of those files is correct. If any validation
+
+    fails, the <xref href="MonoTorrent.Client.TorrentManager.HashChecked" data-throw-if-not-resolved="false"></xref> boolean will not be set to true, and <xref href="MonoTorrent.Client.TorrentManager.HashCheckAsync(System.Boolean)" data-throw-if-not-resolved="false"></xref> will need
+
+    to be run to re-averify the file contents.
+  example: []
+  syntax:
+    content: public Task LoadFastResumeAsync(FastResume data)
+    parameters:
+    - id: data
+      type: MonoTorrent.Client.FastResume
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Public Function LoadFastResumeAsync(data As FastResume) As Task
+  overload: MonoTorrent.Client.TorrentManager.LoadFastResumeAsync*
+- uid: MonoTorrent.Client.TorrentManager.SaveFastResumeAsync
+  commentId: M:MonoTorrent.Client.TorrentManager.SaveFastResumeAsync
+  id: SaveFastResumeAsync
+  parent: MonoTorrent.Client.TorrentManager
+  langs:
+  - csharp
+  - vb
+  name: SaveFastResumeAsync()
+  nameWithType: TorrentManager.SaveFastResumeAsync()
+  fullName: MonoTorrent.Client.TorrentManager.SaveFastResumeAsync()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Managers/TorrentManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SaveFastResumeAsync
+    path: src/Client/Managers/TorrentManager.cs
+    startLine: 1323
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public Task<FastResume> SaveFastResumeAsync()
+    return:
+      type: System.Threading.Tasks.Task{MonoTorrent.Client.FastResume}
+    content.vb: Public Function SaveFastResumeAsync() As Task(Of FastResume)
+  overload: MonoTorrent.Client.TorrentManager.SaveFastResumeAsync*
+references:
+- uid: MonoTorrent.Client
+  commentId: N:MonoTorrent.Client
+  href: MonoTorrent.html
+  name: MonoTorrent.Client
+  nameWithType: MonoTorrent.Client
+  fullName: MonoTorrent.Client
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MonoTorrent.ITorrentManagerInfo
+  commentId: T:MonoTorrent.ITorrentManagerInfo
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentManagerInfo.html
+  name: ITorrentManagerInfo
+  nameWithType: ITorrentManagerInfo
+  fullName: MonoTorrent.ITorrentManagerInfo
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData
+  commentId: T:MonoTorrent.PiecePicking.IPieceRequesterData
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.IPieceRequesterData.html
+  name: IPieceRequesterData
+  nameWithType: IPieceRequesterData
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData
+- uid: MonoTorrent.PiecePicking.IMessageEnqueuer
+  commentId: T:MonoTorrent.PiecePicking.IMessageEnqueuer
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.IMessageEnqueuer.html
+  name: IMessageEnqueuer
+  nameWithType: IMessageEnqueuer
+  fullName: MonoTorrent.PiecePicking.IMessageEnqueuer
+- uid: MonoTorrent.PieceWriter.IPieceHashStatusUpdater
+  commentId: T:MonoTorrent.PieceWriter.IPieceHashStatusUpdater
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.html
+  name: IPieceHashStatusUpdater
+  nameWithType: IPieceHashStatusUpdater
+  fullName: MonoTorrent.PieceWriter.IPieceHashStatusUpdater
+- uid: MonoTorrent.IPieceHashesProvider
+  commentId: T:MonoTorrent.IPieceHashesProvider
+  parent: MonoTorrent
+  href: MonoTorrent.IPieceHashesProvider.html
+  name: IPieceHashesProvider
+  nameWithType: IPieceHashesProvider
+  fullName: MonoTorrent.IPieceHashesProvider
+- uid: MonoTorrent.PiecePicking.IRaiseInterest
+  commentId: T:MonoTorrent.PiecePicking.IRaiseInterest
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.IRaiseInterest.html
+  name: IRaiseInterest
+  nameWithType: IRaiseInterest
+  fullName: MonoTorrent.PiecePicking.IRaiseInterest
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.PiecePicking
+  commentId: N:MonoTorrent.PiecePicking
+  href: MonoTorrent.html
+  name: MonoTorrent.PiecePicking
+  nameWithType: MonoTorrent.PiecePicking
+  fullName: MonoTorrent.PiecePicking
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+- uid: MonoTorrent.PieceWriter
+  commentId: N:MonoTorrent.PieceWriter
+  href: MonoTorrent.html
+  name: MonoTorrent.PieceWriter
+  nameWithType: MonoTorrent.PieceWriter
+  fullName: MonoTorrent.PieceWriter
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+- uid: System.EventHandler{MonoTorrent.Client.PeerConnectedEventArgs}
+  commentId: T:System.EventHandler{MonoTorrent.Client.PeerConnectedEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<PeerConnectedEventArgs>
+  nameWithType: EventHandler<PeerConnectedEventArgs>
+  fullName: System.EventHandler<MonoTorrent.Client.PeerConnectedEventArgs>
+  nameWithType.vb: EventHandler(Of PeerConnectedEventArgs)
+  fullName.vb: System.EventHandler(Of MonoTorrent.Client.PeerConnectedEventArgs)
+  name.vb: EventHandler(Of PeerConnectedEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.Client.PeerConnectedEventArgs
+    name: PeerConnectedEventArgs
+    href: MonoTorrent.Client.PeerConnectedEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Client.PeerConnectedEventArgs
+    name: PeerConnectedEventArgs
+    href: MonoTorrent.Client.PeerConnectedEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: System.EventHandler{MonoTorrent.Client.PeerDisconnectedEventArgs}
+  commentId: T:System.EventHandler{MonoTorrent.Client.PeerDisconnectedEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<PeerDisconnectedEventArgs>
+  nameWithType: EventHandler<PeerDisconnectedEventArgs>
+  fullName: System.EventHandler<MonoTorrent.Client.PeerDisconnectedEventArgs>
+  nameWithType.vb: EventHandler(Of PeerDisconnectedEventArgs)
+  fullName.vb: System.EventHandler(Of MonoTorrent.Client.PeerDisconnectedEventArgs)
+  name.vb: EventHandler(Of PeerDisconnectedEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.Client.PeerDisconnectedEventArgs
+    name: PeerDisconnectedEventArgs
+    href: MonoTorrent.Client.PeerDisconnectedEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Client.PeerDisconnectedEventArgs
+    name: PeerDisconnectedEventArgs
+    href: MonoTorrent.Client.PeerDisconnectedEventArgs.html
+  - name: )
+- uid: System.EventHandler{MonoTorrent.Client.ConnectionAttemptFailedEventArgs}
+  commentId: T:System.EventHandler{MonoTorrent.Client.ConnectionAttemptFailedEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<ConnectionAttemptFailedEventArgs>
+  nameWithType: EventHandler<ConnectionAttemptFailedEventArgs>
+  fullName: System.EventHandler<MonoTorrent.Client.ConnectionAttemptFailedEventArgs>
+  nameWithType.vb: EventHandler(Of ConnectionAttemptFailedEventArgs)
+  fullName.vb: System.EventHandler(Of MonoTorrent.Client.ConnectionAttemptFailedEventArgs)
+  name.vb: EventHandler(Of ConnectionAttemptFailedEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.Client.ConnectionAttemptFailedEventArgs
+    name: ConnectionAttemptFailedEventArgs
+    href: MonoTorrent.Client.ConnectionAttemptFailedEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Client.ConnectionAttemptFailedEventArgs
+    name: ConnectionAttemptFailedEventArgs
+    href: MonoTorrent.Client.ConnectionAttemptFailedEventArgs.html
+  - name: )
+- uid: MonoTorrent.Client.TrackerPeersAdded
+  commentId: T:MonoTorrent.Client.TrackerPeersAdded
+  href: MonoTorrent.Client.TrackerPeersAdded.html
+  name: TrackerPeersAdded
+  nameWithType: TrackerPeersAdded
+  fullName: MonoTorrent.Client.TrackerPeersAdded
+- uid: MonoTorrent.Client.PeerExchangePeersAdded
+  commentId: T:MonoTorrent.Client.PeerExchangePeersAdded
+  href: MonoTorrent.Client.PeerExchangePeersAdded.html
+  name: PeerExchangePeersAdded
+  nameWithType: PeerExchangePeersAdded
+  fullName: MonoTorrent.Client.PeerExchangePeersAdded
+- uid: MonoTorrent.Client.LocalPeersAdded
+  commentId: T:MonoTorrent.Client.LocalPeersAdded
+  href: MonoTorrent.Client.LocalPeersAdded.html
+  name: LocalPeersAdded
+  nameWithType: LocalPeersAdded
+  fullName: MonoTorrent.Client.LocalPeersAdded
+- uid: MonoTorrent.Client.DhtPeersAdded
+  commentId: T:MonoTorrent.Client.DhtPeersAdded
+  href: MonoTorrent.Client.DhtPeersAdded.html
+  name: DhtPeersAdded
+  nameWithType: DhtPeersAdded
+  fullName: MonoTorrent.Client.DhtPeersAdded
+- uid: System.EventHandler{MonoTorrent.Client.PeersAddedEventArgs}
+  commentId: T:System.EventHandler{MonoTorrent.Client.PeersAddedEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<PeersAddedEventArgs>
+  nameWithType: EventHandler<PeersAddedEventArgs>
+  fullName: System.EventHandler<MonoTorrent.Client.PeersAddedEventArgs>
+  nameWithType.vb: EventHandler(Of PeersAddedEventArgs)
+  fullName.vb: System.EventHandler(Of MonoTorrent.Client.PeersAddedEventArgs)
+  name.vb: EventHandler(Of PeersAddedEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.Client.PeersAddedEventArgs
+    name: PeersAddedEventArgs
+    href: MonoTorrent.Client.PeersAddedEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Client.PeersAddedEventArgs
+    name: PeersAddedEventArgs
+    href: MonoTorrent.Client.PeersAddedEventArgs.html
+  - name: )
+- uid: MonoTorrent.Client.TorrentManager.SetFilePriorityAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.SetFilePriorityAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_SetFilePriorityAsync_MonoTorrent_ITorrentManagerFile_MonoTorrent_Priority_
+  name: SetFilePriorityAsync
+  nameWithType: TorrentManager.SetFilePriorityAsync
+  fullName: MonoTorrent.Client.TorrentManager.SetFilePriorityAsync
+- uid: MonoTorrent.ITorrentManagerFile
+  commentId: T:MonoTorrent.ITorrentManagerFile
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentManagerFile.html
+  name: ITorrentManagerFile
+  nameWithType: ITorrentManagerFile
+  fullName: MonoTorrent.ITorrentManagerFile
+- uid: MonoTorrent.Priority
+  commentId: T:MonoTorrent.Priority
+  parent: MonoTorrent
+  href: MonoTorrent.Priority.html
+  name: Priority
+  nameWithType: Priority
+  fullName: MonoTorrent.Priority
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: MonoTorrent.Client.TorrentManager.RaiseInterest*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.RaiseInterest
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_RaiseInterest
+  name: RaiseInterest
+  nameWithType: TorrentManager.RaiseInterest
+  fullName: MonoTorrent.Client.TorrentManager.RaiseInterest
+- uid: MonoTorrent.PiecePicking.IRaiseInterest.RaiseInterest
+  commentId: M:MonoTorrent.PiecePicking.IRaiseInterest.RaiseInterest
+  parent: MonoTorrent.PiecePicking.IRaiseInterest
+  href: MonoTorrent.PiecePicking.IRaiseInterest.html#MonoTorrent_PiecePicking_IRaiseInterest_RaiseInterest
+  name: RaiseInterest()
+  nameWithType: IRaiseInterest.RaiseInterest()
+  fullName: MonoTorrent.PiecePicking.IRaiseInterest.RaiseInterest()
+  spec.csharp:
+  - uid: MonoTorrent.PiecePicking.IRaiseInterest.RaiseInterest
+    name: RaiseInterest
+    href: MonoTorrent.PiecePicking.IRaiseInterest.html#MonoTorrent_PiecePicking_IRaiseInterest_RaiseInterest
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PiecePicking.IRaiseInterest.RaiseInterest
+    name: RaiseInterest
+    href: MonoTorrent.PiecePicking.IRaiseInterest.html#MonoTorrent_PiecePicking_IRaiseInterest_RaiseInterest
+  - name: (
+  - name: )
+- uid: MonoTorrent.Client.TorrentManager.HashCheckAsync(System.Boolean)
+  commentId: M:MonoTorrent.Client.TorrentManager.HashCheckAsync(System.Boolean)
+  isExternal: true
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_HashCheckAsync_System_Boolean_
+  name: HashCheckAsync(bool)
+  nameWithType: TorrentManager.HashCheckAsync(bool)
+  fullName: MonoTorrent.Client.TorrentManager.HashCheckAsync(bool)
+  nameWithType.vb: TorrentManager.HashCheckAsync(Boolean)
+  fullName.vb: MonoTorrent.Client.TorrentManager.HashCheckAsync(Boolean)
+  name.vb: HashCheckAsync(Boolean)
+  spec.csharp:
+  - uid: MonoTorrent.Client.TorrentManager.HashCheckAsync(System.Boolean)
+    name: HashCheckAsync
+    href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_HashCheckAsync_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Client.TorrentManager.HashCheckAsync(System.Boolean)
+    name: HashCheckAsync
+    href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_HashCheckAsync_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.EventHandler{MonoTorrent.Client.PieceHashedEventArgs}
+  commentId: T:System.EventHandler{MonoTorrent.Client.PieceHashedEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<PieceHashedEventArgs>
+  nameWithType: EventHandler<PieceHashedEventArgs>
+  fullName: System.EventHandler<MonoTorrent.Client.PieceHashedEventArgs>
+  nameWithType.vb: EventHandler(Of PieceHashedEventArgs)
+  fullName.vb: System.EventHandler(Of MonoTorrent.Client.PieceHashedEventArgs)
+  name.vb: EventHandler(Of PieceHashedEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.Client.PieceHashedEventArgs
+    name: PieceHashedEventArgs
+    href: MonoTorrent.Client.PieceHashedEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Client.PieceHashedEventArgs
+    name: PieceHashedEventArgs
+    href: MonoTorrent.Client.PieceHashedEventArgs.html
+  - name: )
+- uid: System.EventHandler{MonoTorrent.Client.TorrentStateChangedEventArgs}
+  commentId: T:System.EventHandler{MonoTorrent.Client.TorrentStateChangedEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TorrentStateChangedEventArgs>
+  nameWithType: EventHandler<TorrentStateChangedEventArgs>
+  fullName: System.EventHandler<MonoTorrent.Client.TorrentStateChangedEventArgs>
+  nameWithType.vb: EventHandler(Of TorrentStateChangedEventArgs)
+  fullName.vb: System.EventHandler(Of MonoTorrent.Client.TorrentStateChangedEventArgs)
+  name.vb: EventHandler(Of TorrentStateChangedEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.Client.TorrentStateChangedEventArgs
+    name: TorrentStateChangedEventArgs
+    href: MonoTorrent.Client.TorrentStateChangedEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Client.TorrentStateChangedEventArgs
+    name: TorrentStateChangedEventArgs
+    href: MonoTorrent.Client.TorrentStateChangedEventArgs.html
+  - name: )
+- uid: System.EventHandler{MonoTorrent.Client.TorrentUpdateEventArgs}
+  commentId: T:System.EventHandler{MonoTorrent.Client.TorrentUpdateEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TorrentUpdateEventArgs>
+  nameWithType: EventHandler<TorrentUpdateEventArgs>
+  fullName: System.EventHandler<MonoTorrent.Client.TorrentUpdateEventArgs>
+  nameWithType.vb: EventHandler(Of TorrentUpdateEventArgs)
+  fullName.vb: System.EventHandler(Of MonoTorrent.Client.TorrentUpdateEventArgs)
+  name.vb: EventHandler(Of TorrentUpdateEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.Client.TorrentUpdateEventArgs
+    name: TorrentUpdateEventArgs
+    href: MonoTorrent.Client.TorrentUpdateEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Client.TorrentUpdateEventArgs
+    name: TorrentUpdateEventArgs
+    href: MonoTorrent.Client.TorrentUpdateEventArgs.html
+  - name: )
+- uid: MonoTorrent.Client.TorrentManager.Bitfield*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.Bitfield
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_Bitfield
+  name: Bitfield
+  nameWithType: TorrentManager.Bitfield
+  fullName: MonoTorrent.Client.TorrentManager.Bitfield
+- uid: MonoTorrent.ReadOnlyBitField
+  commentId: T:MonoTorrent.ReadOnlyBitField
+  parent: MonoTorrent
+  href: MonoTorrent.ReadOnlyBitField.html
+  name: ReadOnlyBitField
+  nameWithType: ReadOnlyBitField
+  fullName: MonoTorrent.ReadOnlyBitField
+- uid: MonoTorrent.Client.TorrentManager.CanUseDht*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.CanUseDht
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_CanUseDht
+  name: CanUseDht
+  nameWithType: TorrentManager.CanUseDht
+  fullName: MonoTorrent.Client.TorrentManager.CanUseDht
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.Client.TorrentManager.CanUseLocalPeerDiscovery*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.CanUseLocalPeerDiscovery
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_CanUseLocalPeerDiscovery
+  name: CanUseLocalPeerDiscovery
+  nameWithType: TorrentManager.CanUseLocalPeerDiscovery
+  fullName: MonoTorrent.Client.TorrentManager.CanUseLocalPeerDiscovery
+- uid: MonoTorrent.Client.TorrentManager.Complete*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.Complete
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_Complete
+  name: Complete
+  nameWithType: TorrentManager.Complete
+  fullName: MonoTorrent.Client.TorrentManager.Complete
+- uid: MonoTorrent.Client.TorrentManager.Engine*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.Engine
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_Engine
+  name: Engine
+  nameWithType: TorrentManager.Engine
+  fullName: MonoTorrent.Client.TorrentManager.Engine
+- uid: MonoTorrent.Client.ClientEngine
+  commentId: T:MonoTorrent.Client.ClientEngine
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.ClientEngine.html
+  name: ClientEngine
+  nameWithType: ClientEngine
+  fullName: MonoTorrent.Client.ClientEngine
+- uid: MonoTorrent.Client.TorrentManager.Error*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.Error
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_Error
+  name: Error
+  nameWithType: TorrentManager.Error
+  fullName: MonoTorrent.Client.TorrentManager.Error
+- uid: MonoTorrent.Client.Error
+  commentId: T:MonoTorrent.Client.Error
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.Error.html
+  name: Error
+  nameWithType: Error
+  fullName: MonoTorrent.Client.Error
+- uid: MonoTorrent.Client.TorrentManager.Files*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.Files
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_Files
+  name: Files
+  nameWithType: TorrentManager.Files
+  fullName: MonoTorrent.Client.TorrentManager.Files
+- uid: MonoTorrent.ITorrentManagerInfo.Files
+  commentId: P:MonoTorrent.ITorrentManagerInfo.Files
+  parent: MonoTorrent.ITorrentManagerInfo
+  href: MonoTorrent.ITorrentManagerInfo.html#MonoTorrent_ITorrentManagerInfo_Files
+  name: Files
+  nameWithType: ITorrentManagerInfo.Files
+  fullName: MonoTorrent.ITorrentManagerInfo.Files
+- uid: System.Collections.Generic.IList{MonoTorrent.ITorrentManagerFile}
+  commentId: T:System.Collections.Generic.IList{MonoTorrent.ITorrentManagerFile}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<ITorrentManagerFile>
+  nameWithType: IList<ITorrentManagerFile>
+  fullName: System.Collections.Generic.IList<MonoTorrent.ITorrentManagerFile>
+  nameWithType.vb: IList(Of ITorrentManagerFile)
+  fullName.vb: System.Collections.Generic.IList(Of MonoTorrent.ITorrentManagerFile)
+  name.vb: IList(Of ITorrentManagerFile)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: MonoTorrent.Client.TorrentManager
+  commentId: T:MonoTorrent.Client.TorrentManager
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.TorrentManager.html
+  name: TorrentManager
+  nameWithType: TorrentManager
+  fullName: MonoTorrent.Client.TorrentManager
+- uid: MonoTorrent.Client.EngineSettings.AutoSaveLoadFastResume
+  commentId: P:MonoTorrent.Client.EngineSettings.AutoSaveLoadFastResume
+  href: MonoTorrent.Client.EngineSettings.html#MonoTorrent_Client_EngineSettings_AutoSaveLoadFastResume
+  name: AutoSaveLoadFastResume
+  nameWithType: EngineSettings.AutoSaveLoadFastResume
+  fullName: MonoTorrent.Client.EngineSettings.AutoSaveLoadFastResume
+- uid: MonoTorrent.Client.EngineSettings.GetFastResumePath(MonoTorrent.InfoHashes)
+  commentId: M:MonoTorrent.Client.EngineSettings.GetFastResumePath(MonoTorrent.InfoHashes)
+  href: MonoTorrent.Client.EngineSettings.html#MonoTorrent_Client_EngineSettings_GetFastResumePath_MonoTorrent_InfoHashes_
+  name: GetFastResumePath(InfoHashes)
+  nameWithType: EngineSettings.GetFastResumePath(InfoHashes)
+  fullName: MonoTorrent.Client.EngineSettings.GetFastResumePath(MonoTorrent.InfoHashes)
+  spec.csharp:
+  - uid: MonoTorrent.Client.EngineSettings.GetFastResumePath(MonoTorrent.InfoHashes)
+    name: GetFastResumePath
+    href: MonoTorrent.Client.EngineSettings.html#MonoTorrent_Client_EngineSettings_GetFastResumePath_MonoTorrent_InfoHashes_
+  - name: (
+  - uid: MonoTorrent.InfoHashes
+    name: InfoHashes
+    href: MonoTorrent.InfoHashes.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Client.EngineSettings.GetFastResumePath(MonoTorrent.InfoHashes)
+    name: GetFastResumePath
+    href: MonoTorrent.Client.EngineSettings.html#MonoTorrent_Client_EngineSettings_GetFastResumePath_MonoTorrent_InfoHashes_
+  - name: (
+  - uid: MonoTorrent.InfoHashes
+    name: InfoHashes
+    href: MonoTorrent.InfoHashes.html
+  - name: )
+- uid: MonoTorrent.Client.TorrentManager.State
+  commentId: P:MonoTorrent.Client.TorrentManager.State
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_State
+  name: State
+  nameWithType: TorrentManager.State
+  fullName: MonoTorrent.Client.TorrentManager.State
+- uid: MonoTorrent.Client.TorrentState.Stopped
+  commentId: F:MonoTorrent.Client.TorrentState.Stopped
+  href: MonoTorrent.Client.TorrentState.html#MonoTorrent_Client_TorrentState_Stopped
+  name: Stopped
+  nameWithType: TorrentState.Stopped
+  fullName: MonoTorrent.Client.TorrentState.Stopped
+- uid: MonoTorrent.Client.TorrentManager.SetNeedsHashCheckAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.SetNeedsHashCheckAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_SetNeedsHashCheckAsync
+  name: SetNeedsHashCheckAsync
+  nameWithType: TorrentManager.SetNeedsHashCheckAsync
+  fullName: MonoTorrent.Client.TorrentManager.SetNeedsHashCheckAsync
+- uid: MonoTorrent.Client.TorrentManager.HashChecked*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.HashChecked
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_HashChecked
+  name: HashChecked
+  nameWithType: TorrentManager.HashChecked
+  fullName: MonoTorrent.Client.TorrentManager.HashChecked
+- uid: MonoTorrent.Client.TorrentManager.HashFails*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.HashFails
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_HashFails
+  name: HashFails
+  nameWithType: TorrentManager.HashFails
+  fullName: MonoTorrent.Client.TorrentManager.HashFails
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.Client.TorrentManager.HasMetadata*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.HasMetadata
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_HasMetadata
+  name: HasMetadata
+  nameWithType: TorrentManager.HasMetadata
+  fullName: MonoTorrent.Client.TorrentManager.HasMetadata
+- uid: MonoTorrent.Client.TorrentManager.InfoHashes*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.InfoHashes
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_InfoHashes
+  name: InfoHashes
+  nameWithType: TorrentManager.InfoHashes
+  fullName: MonoTorrent.Client.TorrentManager.InfoHashes
+- uid: MonoTorrent.ITorrentManagerInfo.InfoHashes
+  commentId: P:MonoTorrent.ITorrentManagerInfo.InfoHashes
+  parent: MonoTorrent.ITorrentManagerInfo
+  href: MonoTorrent.ITorrentManagerInfo.html#MonoTorrent_ITorrentManagerInfo_InfoHashes
+  name: InfoHashes
+  nameWithType: ITorrentManagerInfo.InfoHashes
+  fullName: MonoTorrent.ITorrentManagerInfo.InfoHashes
+- uid: MonoTorrent.InfoHashes
+  commentId: T:MonoTorrent.InfoHashes
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHashes.html
+  name: InfoHashes
+  nameWithType: InfoHashes
+  fullName: MonoTorrent.InfoHashes
+- uid: MonoTorrent.Client.EngineSettings.MetadataCacheDirectory
+  commentId: P:MonoTorrent.Client.EngineSettings.MetadataCacheDirectory
+  href: MonoTorrent.Client.EngineSettings.html#MonoTorrent_Client_EngineSettings_MetadataCacheDirectory
+  name: MetadataCacheDirectory
+  nameWithType: EngineSettings.MetadataCacheDirectory
+  fullName: MonoTorrent.Client.EngineSettings.MetadataCacheDirectory
+- uid: MonoTorrent.Client.TorrentManager.MetadataPath*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.MetadataPath
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_MetadataPath
+  name: MetadataPath
+  nameWithType: TorrentManager.MetadataPath
+  fullName: MonoTorrent.Client.TorrentManager.MetadataPath
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MonoTorrent.Client.TorrentManager.IsInEndGame*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.IsInEndGame
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_IsInEndGame
+  name: IsInEndGame
+  nameWithType: TorrentManager.IsInEndGame
+  fullName: MonoTorrent.Client.TorrentManager.IsInEndGame
+- uid: MonoTorrent.Client.TorrentManager.Monitor*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.Monitor
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_Monitor
+  name: Monitor
+  nameWithType: TorrentManager.Monitor
+  fullName: MonoTorrent.Client.TorrentManager.Monitor
+- uid: MonoTorrent.Client.ConnectionMonitor
+  commentId: T:MonoTorrent.Client.ConnectionMonitor
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.ConnectionMonitor.html
+  name: ConnectionMonitor
+  nameWithType: ConnectionMonitor
+  fullName: MonoTorrent.Client.ConnectionMonitor
+- uid: MonoTorrent.Client.TorrentManager.OpenConnections*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.OpenConnections
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_OpenConnections
+  name: OpenConnections
+  nameWithType: TorrentManager.OpenConnections
+  fullName: MonoTorrent.Client.TorrentManager.OpenConnections
+- uid: MonoTorrent.Client.TorrentManager.LastDhtAnnounce*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.LastDhtAnnounce
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_LastDhtAnnounce
+  name: LastDhtAnnounce
+  nameWithType: TorrentManager.LastDhtAnnounce
+  fullName: MonoTorrent.Client.TorrentManager.LastDhtAnnounce
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: MonoTorrent.Client.TorrentManager.LastLocalPeerAnnounce*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.LastLocalPeerAnnounce
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_LastLocalPeerAnnounce
+  name: LastLocalPeerAnnounce
+  nameWithType: TorrentManager.LastLocalPeerAnnounce
+  fullName: MonoTorrent.Client.TorrentManager.LastLocalPeerAnnounce
+- uid: MonoTorrent.Client.TorrentManager.MagnetLink*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.MagnetLink
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_MagnetLink
+  name: MagnetLink
+  nameWithType: TorrentManager.MagnetLink
+  fullName: MonoTorrent.Client.TorrentManager.MagnetLink
+- uid: MonoTorrent.MagnetLink
+  commentId: T:MonoTorrent.MagnetLink
+  parent: MonoTorrent
+  href: MonoTorrent.MagnetLink.html
+  name: MagnetLink
+  nameWithType: MagnetLink
+  fullName: MonoTorrent.MagnetLink
+- uid: MonoTorrent.Client.TorrentManager.Peers*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.Peers
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_Peers
+  name: Peers
+  nameWithType: TorrentManager.Peers
+  fullName: MonoTorrent.Client.TorrentManager.Peers
+- uid: MonoTorrent.Client.PeerManager
+  commentId: T:MonoTorrent.Client.PeerManager
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.PeerManager.html
+  name: PeerManager
+  nameWithType: PeerManager
+  fullName: MonoTorrent.Client.PeerManager
+- uid: MonoTorrent.Client.TorrentManager.PieceManager*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.PieceManager
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_PieceManager
+  name: PieceManager
+  nameWithType: TorrentManager.PieceManager
+  fullName: MonoTorrent.Client.TorrentManager.PieceManager
+- uid: MonoTorrent.Client.PieceManager
+  commentId: T:MonoTorrent.Client.PieceManager
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.PieceManager.html
+  name: PieceManager
+  nameWithType: PieceManager
+  fullName: MonoTorrent.Client.PieceManager
+- uid: MonoTorrent.Priority.DoNotDownload
+  commentId: F:MonoTorrent.Priority.DoNotDownload
+  href: MonoTorrent.Priority.html#MonoTorrent_Priority_DoNotDownload
+  name: DoNotDownload
+  nameWithType: Priority.DoNotDownload
+  fullName: MonoTorrent.Priority.DoNotDownload
+- uid: MonoTorrent.Client.TorrentManager.Progress
+  commentId: P:MonoTorrent.Client.TorrentManager.Progress
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_Progress
+  name: Progress
+  nameWithType: TorrentManager.Progress
+  fullName: MonoTorrent.Client.TorrentManager.Progress
+- uid: MonoTorrent.Client.TorrentManager.PartialProgress*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.PartialProgress
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_PartialProgress
+  name: PartialProgress
+  nameWithType: TorrentManager.PartialProgress
+  fullName: MonoTorrent.Client.TorrentManager.PartialProgress
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: MonoTorrent.Client.TorrentManager.Progress*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.Progress
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_Progress
+  name: Progress
+  nameWithType: TorrentManager.Progress
+  fullName: MonoTorrent.Client.TorrentManager.Progress
+- uid: MonoTorrent.Client.TorrentManager.SavePath
+  commentId: P:MonoTorrent.Client.TorrentManager.SavePath
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_SavePath
+  name: SavePath
+  nameWithType: TorrentManager.SavePath
+  fullName: MonoTorrent.Client.TorrentManager.SavePath
+- uid: MonoTorrent.Torrent.Name
+  commentId: P:MonoTorrent.Torrent.Name
+  href: MonoTorrent.Torrent.html#MonoTorrent_Torrent_Name
+  name: Name
+  nameWithType: Torrent.Name
+  fullName: MonoTorrent.Torrent.Name
+- uid: MonoTorrent.Client.TorrentManager.ContainingDirectory
+  commentId: P:MonoTorrent.Client.TorrentManager.ContainingDirectory
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_ContainingDirectory
+  name: ContainingDirectory
+  nameWithType: TorrentManager.ContainingDirectory
+  fullName: MonoTorrent.Client.TorrentManager.ContainingDirectory
+- uid: MonoTorrent.Client.TorrentManager.HasMetadata
+  commentId: P:MonoTorrent.Client.TorrentManager.HasMetadata
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_HasMetadata
+  name: HasMetadata
+  nameWithType: TorrentManager.HasMetadata
+  fullName: MonoTorrent.Client.TorrentManager.HasMetadata
+- uid: MonoTorrent.Client.TorrentManager.ContainingDirectory*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.ContainingDirectory
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_ContainingDirectory
+  name: ContainingDirectory
+  nameWithType: TorrentManager.ContainingDirectory
+  fullName: MonoTorrent.Client.TorrentManager.ContainingDirectory
+- uid: MonoTorrent.Client.TorrentSettings.CreateContainingDirectory
+  commentId: P:MonoTorrent.Client.TorrentSettings.CreateContainingDirectory
+  href: MonoTorrent.Client.TorrentSettings.html#MonoTorrent_Client_TorrentSettings_CreateContainingDirectory
+  name: CreateContainingDirectory
+  nameWithType: TorrentSettings.CreateContainingDirectory
+  fullName: MonoTorrent.Client.TorrentSettings.CreateContainingDirectory
+- uid: MonoTorrent.Client.TorrentManager.SavePath*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.SavePath
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_SavePath
+  name: SavePath
+  nameWithType: TorrentManager.SavePath
+  fullName: MonoTorrent.Client.TorrentManager.SavePath
+- uid: MonoTorrent.Client.TorrentManager.Settings*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.Settings
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_Settings
+  name: Settings
+  nameWithType: TorrentManager.Settings
+  fullName: MonoTorrent.Client.TorrentManager.Settings
+- uid: MonoTorrent.Client.TorrentSettings
+  commentId: T:MonoTorrent.Client.TorrentSettings
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.TorrentSettings.html
+  name: TorrentSettings
+  nameWithType: TorrentSettings
+  fullName: MonoTorrent.Client.TorrentSettings
+- uid: MonoTorrent.Client.TorrentManager.State*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.State
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_State
+  name: State
+  nameWithType: TorrentManager.State
+  fullName: MonoTorrent.Client.TorrentManager.State
+- uid: MonoTorrent.Client.TorrentState
+  commentId: T:MonoTorrent.Client.TorrentState
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.TorrentState.html
+  name: TorrentState
+  nameWithType: TorrentState
+  fullName: MonoTorrent.Client.TorrentState
+- uid: MonoTorrent.Client.TorrentManager.StartTime*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.StartTime
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_StartTime
+  name: StartTime
+  nameWithType: TorrentManager.StartTime
+  fullName: MonoTorrent.Client.TorrentManager.StartTime
+- uid: MonoTorrent.Client.TorrentManager.Torrent
+  commentId: P:MonoTorrent.Client.TorrentManager.Torrent
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_Torrent
+  name: Torrent
+  nameWithType: TorrentManager.Torrent
+  fullName: MonoTorrent.Client.TorrentManager.Torrent
+- uid: MonoTorrent.Client.TorrentManager.MagnetLink
+  commentId: P:MonoTorrent.Client.TorrentManager.MagnetLink
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_MagnetLink
+  name: MagnetLink
+  nameWithType: TorrentManager.MagnetLink
+  fullName: MonoTorrent.Client.TorrentManager.MagnetLink
+- uid: MonoTorrent.Client.TorrentManager.StreamProvider*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.StreamProvider
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_StreamProvider
+  name: StreamProvider
+  nameWithType: TorrentManager.StreamProvider
+  fullName: MonoTorrent.Client.TorrentManager.StreamProvider
+- uid: MonoTorrent.Streaming.StreamProvider
+  commentId: T:MonoTorrent.Streaming.StreamProvider
+  parent: MonoTorrent.Streaming
+  href: MonoTorrent.Streaming.StreamProvider.html
+  name: StreamProvider
+  nameWithType: StreamProvider
+  fullName: MonoTorrent.Streaming.StreamProvider
+- uid: MonoTorrent.Streaming
+  commentId: N:MonoTorrent.Streaming
+  href: MonoTorrent.html
+  name: MonoTorrent.Streaming
+  nameWithType: MonoTorrent.Streaming
+  fullName: MonoTorrent.Streaming
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Streaming
+    name: Streaming
+    href: MonoTorrent.Streaming.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Streaming
+    name: Streaming
+    href: MonoTorrent.Streaming.html
+- uid: MonoTorrent.Client.TorrentManager.TrackerManager*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.TrackerManager
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_TrackerManager
+  name: TrackerManager
+  nameWithType: TorrentManager.TrackerManager
+  fullName: MonoTorrent.Client.TorrentManager.TrackerManager
+- uid: MonoTorrent.Trackers.ITrackerManager
+  commentId: T:MonoTorrent.Trackers.ITrackerManager
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.ITrackerManager.html
+  name: ITrackerManager
+  nameWithType: ITrackerManager
+  fullName: MonoTorrent.Trackers.ITrackerManager
+- uid: MonoTorrent.Trackers
+  commentId: N:MonoTorrent.Trackers
+  href: MonoTorrent.html
+  name: MonoTorrent.Trackers
+  nameWithType: MonoTorrent.Trackers
+  fullName: MonoTorrent.Trackers
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+- uid: MonoTorrent.Client.TorrentManager.Torrent*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.Torrent
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_Torrent
+  name: Torrent
+  nameWithType: TorrentManager.Torrent
+  fullName: MonoTorrent.Client.TorrentManager.Torrent
+- uid: MonoTorrent.Torrent
+  commentId: T:MonoTorrent.Torrent
+  parent: MonoTorrent
+  href: MonoTorrent.Torrent.html
+  name: Torrent
+  nameWithType: Torrent
+  fullName: MonoTorrent.Torrent
+- uid: MonoTorrent.Client.TorrentManager.Name*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.Name
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_Name
+  name: Name
+  nameWithType: TorrentManager.Name
+  fullName: MonoTorrent.Client.TorrentManager.Name
+- uid: MonoTorrent.ITorrentManagerInfo.Name
+  commentId: P:MonoTorrent.ITorrentManagerInfo.Name
+  parent: MonoTorrent.ITorrentManagerInfo
+  href: MonoTorrent.ITorrentManagerInfo.html#MonoTorrent_ITorrentManagerInfo_Name
+  name: Name
+  nameWithType: ITorrentManagerInfo.Name
+  fullName: MonoTorrent.ITorrentManagerInfo.Name
+- uid: MonoTorrent.Client.TorrentManager.UploadingTo*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.UploadingTo
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_UploadingTo
+  name: UploadingTo
+  nameWithType: TorrentManager.UploadingTo
+  fullName: MonoTorrent.Client.TorrentManager.UploadingTo
+- uid: MonoTorrent.Client.TorrentManager.IsInitialSeeding*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.IsInitialSeeding
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_IsInitialSeeding
+  name: IsInitialSeeding
+  nameWithType: TorrentManager.IsInitialSeeding
+  fullName: MonoTorrent.Client.TorrentManager.IsInitialSeeding
+- uid: MonoTorrent.Client.TorrentManager.PieceHashes*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.PieceHashes
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_PieceHashes
+  name: PieceHashes
+  nameWithType: TorrentManager.PieceHashes
+  fullName: MonoTorrent.Client.TorrentManager.PieceHashes
+- uid: MonoTorrent.IPieceHashesProvider.PieceHashes
+  commentId: P:MonoTorrent.IPieceHashesProvider.PieceHashes
+  parent: MonoTorrent.IPieceHashesProvider
+  href: MonoTorrent.IPieceHashesProvider.html#MonoTorrent_IPieceHashesProvider_PieceHashes
+  name: PieceHashes
+  nameWithType: IPieceHashesProvider.PieceHashes
+  fullName: MonoTorrent.IPieceHashesProvider.PieceHashes
+- uid: MonoTorrent.IPieceHashes
+  commentId: T:MonoTorrent.IPieceHashes
+  parent: MonoTorrent
+  href: MonoTorrent.IPieceHashes.html
+  name: IPieceHashes
+  nameWithType: IPieceHashes
+  fullName: MonoTorrent.IPieceHashes
+- uid: MonoTorrent.Client.TorrentManager.ChangePickerAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.ChangePickerAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_ChangePickerAsync_MonoTorrent_PiecePicking_IPieceRequester_
+  name: ChangePickerAsync
+  nameWithType: TorrentManager.ChangePickerAsync
+  fullName: MonoTorrent.Client.TorrentManager.ChangePickerAsync
+- uid: MonoTorrent.PiecePicking.IPieceRequester
+  commentId: T:MonoTorrent.PiecePicking.IPieceRequester
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.IPieceRequester.html
+  name: IPieceRequester
+  nameWithType: IPieceRequester
+  fullName: MonoTorrent.PiecePicking.IPieceRequester
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: MonoTorrent.Client.TorrentManager.ToString*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.ToString
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_ToString
+  name: ToString
+  nameWithType: TorrentManager.ToString
+  fullName: MonoTorrent.Client.TorrentManager.ToString
+- uid: MonoTorrent.Client.TorrentManager.LogName*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.LogName
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_LogName
+  name: LogName
+  nameWithType: TorrentManager.LogName
+  fullName: MonoTorrent.Client.TorrentManager.LogName
+- uid: MonoTorrent.Client.TorrentManager.GetPeersAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.GetPeersAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_GetPeersAsync
+  name: GetPeersAsync
+  nameWithType: TorrentManager.GetPeersAsync
+  fullName: MonoTorrent.Client.TorrentManager.GetPeersAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{MonoTorrent.Client.PeerId}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{MonoTorrent.Client.PeerId}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<PeerId>>
+  nameWithType: Task<List<PeerId>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<MonoTorrent.Client.PeerId>>
+  nameWithType.vb: Task(Of List(Of PeerId))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of MonoTorrent.Client.PeerId))
+  name.vb: Task(Of List(Of PeerId))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: MonoTorrent.Client.PeerId
+    name: PeerId
+    href: MonoTorrent.Client.PeerId.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Client.PeerId
+    name: PeerId
+    href: MonoTorrent.Client.PeerId.html
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: MonoTorrent.Client.TorrentManager.HashCheckAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.HashCheckAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_HashCheckAsync_System_Boolean_
+  name: HashCheckAsync
+  nameWithType: TorrentManager.HashCheckAsync
+  fullName: MonoTorrent.Client.TorrentManager.HashCheckAsync
+- uid: MonoTorrent.Client.TorrentManager.MoveFileAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.MoveFileAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_MoveFileAsync_MonoTorrent_ITorrentManagerFile_System_String_
+  name: MoveFileAsync
+  nameWithType: TorrentManager.MoveFileAsync
+  fullName: MonoTorrent.Client.TorrentManager.MoveFileAsync
+- uid: MonoTorrent.Client.TorrentManager.MoveFilesAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.MoveFilesAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_MoveFilesAsync_System_String_System_Boolean_
+  name: MoveFilesAsync
+  nameWithType: TorrentManager.MoveFilesAsync
+  fullName: MonoTorrent.Client.TorrentManager.MoveFilesAsync
+- uid: MonoTorrent.Client.TorrentManager.PauseAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.PauseAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_PauseAsync
+  name: PauseAsync
+  nameWithType: TorrentManager.PauseAsync
+  fullName: MonoTorrent.Client.TorrentManager.PauseAsync
+- uid: MonoTorrent.Client.TorrentManager.StartAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.StartAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_StartAsync
+  name: StartAsync
+  nameWithType: TorrentManager.StartAsync
+  fullName: MonoTorrent.Client.TorrentManager.StartAsync
+- uid: MonoTorrent.Client.TorrentManager.LocalPeerAnnounceAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.LocalPeerAnnounceAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_LocalPeerAnnounceAsync
+  name: LocalPeerAnnounceAsync
+  nameWithType: TorrentManager.LocalPeerAnnounceAsync
+  fullName: MonoTorrent.Client.TorrentManager.LocalPeerAnnounceAsync
+- uid: ReusableTasks.ReusableTask
+  commentId: T:ReusableTasks.ReusableTask
+  parent: ReusableTasks
+  isExternal: true
+  name: ReusableTask
+  nameWithType: ReusableTask
+  fullName: ReusableTasks.ReusableTask
+- uid: ReusableTasks
+  commentId: N:ReusableTasks
+  isExternal: true
+  name: ReusableTasks
+  nameWithType: ReusableTasks
+  fullName: ReusableTasks
+- uid: MonoTorrent.Client.ClientEngine.DhtEngine
+  commentId: P:MonoTorrent.Client.ClientEngine.DhtEngine
+  name: DhtEngine
+  nameWithType: ClientEngine.DhtEngine
+  fullName: MonoTorrent.Client.ClientEngine.DhtEngine
+- uid: MonoTorrent.Client.TorrentManager.DhtAnnounceAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.DhtAnnounceAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_DhtAnnounceAsync
+  name: DhtAnnounceAsync
+  nameWithType: TorrentManager.DhtAnnounceAsync
+  fullName: MonoTorrent.Client.TorrentManager.DhtAnnounceAsync
+- uid: MonoTorrent.Client.TorrentManager.StopAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.StopAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_StopAsync
+  name: StopAsync
+  nameWithType: TorrentManager.StopAsync
+  fullName: MonoTorrent.Client.TorrentManager.StopAsync
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: MonoTorrent.Client.TorrentManager.UpdateSettingsAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.UpdateSettingsAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_UpdateSettingsAsync_MonoTorrent_Client_TorrentSettings_
+  name: UpdateSettingsAsync
+  nameWithType: TorrentManager.UpdateSettingsAsync
+  fullName: MonoTorrent.Client.TorrentManager.UpdateSettingsAsync
+- uid: MonoTorrent.Client.TorrentManager.WaitForMetadataAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.WaitForMetadataAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_WaitForMetadataAsync
+  name: WaitForMetadataAsync
+  nameWithType: TorrentManager.WaitForMetadataAsync
+  fullName: MonoTorrent.Client.TorrentManager.WaitForMetadataAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: MonoTorrent.Client.TorrentManager.AddPeerAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.AddPeerAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_AddPeerAsync_MonoTorrent_PeerInfo_
+  name: AddPeerAsync
+  nameWithType: TorrentManager.AddPeerAsync
+  fullName: MonoTorrent.Client.TorrentManager.AddPeerAsync
+- uid: MonoTorrent.PeerInfo
+  commentId: T:MonoTorrent.PeerInfo
+  parent: MonoTorrent
+  href: MonoTorrent.PeerInfo.html
+  name: PeerInfo
+  nameWithType: PeerInfo
+  fullName: MonoTorrent.PeerInfo
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: MonoTorrent.Client.TorrentManager.AddPeersAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.AddPeersAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_AddPeersAsync_System_Collections_Generic_IEnumerable_MonoTorrent_PeerInfo__
+  name: AddPeersAsync
+  nameWithType: TorrentManager.AddPeersAsync
+  fullName: MonoTorrent.Client.TorrentManager.AddPeersAsync
+- uid: System.Collections.Generic.IEnumerable{MonoTorrent.PeerInfo}
+  commentId: T:System.Collections.Generic.IEnumerable{MonoTorrent.PeerInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<PeerInfo>
+  nameWithType: IEnumerable<PeerInfo>
+  fullName: System.Collections.Generic.IEnumerable<MonoTorrent.PeerInfo>
+  nameWithType.vb: IEnumerable(Of PeerInfo)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of MonoTorrent.PeerInfo)
+  name.vb: IEnumerable(Of PeerInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: MonoTorrent.PeerInfo
+    name: PeerInfo
+    href: MonoTorrent.PeerInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.PeerInfo
+    name: PeerInfo
+    href: MonoTorrent.PeerInfo.html
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.Client.TorrentManager.UpdatePieceHashStatus*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.UpdatePieceHashStatus
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_UpdatePieceHashStatus_System_Int32_System_Boolean_System_Int32_System_Int32_
+  name: UpdatePieceHashStatus
+  nameWithType: TorrentManager.UpdatePieceHashStatus
+  fullName: MonoTorrent.Client.TorrentManager.UpdatePieceHashStatus
+- uid: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus(System.Int32,System.Boolean,System.Int32,System.Int32)
+  commentId: M:MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus(System.Int32,System.Boolean,System.Int32,System.Int32)
+  parent: MonoTorrent.PieceWriter.IPieceHashStatusUpdater
+  isExternal: true
+  href: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.html#MonoTorrent_PieceWriter_IPieceHashStatusUpdater_UpdatePieceHashStatus_System_Int32_System_Boolean_System_Int32_System_Int32_
+  name: UpdatePieceHashStatus(int, bool, int, int)
+  nameWithType: IPieceHashStatusUpdater.UpdatePieceHashStatus(int, bool, int, int)
+  fullName: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus(int, bool, int, int)
+  nameWithType.vb: IPieceHashStatusUpdater.UpdatePieceHashStatus(Integer, Boolean, Integer, Integer)
+  fullName.vb: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus(Integer, Boolean, Integer, Integer)
+  name.vb: UpdatePieceHashStatus(Integer, Boolean, Integer, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus(System.Int32,System.Boolean,System.Int32,System.Int32)
+    name: UpdatePieceHashStatus
+    href: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.html#MonoTorrent_PieceWriter_IPieceHashStatusUpdater_UpdatePieceHashStatus_System_Int32_System_Boolean_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus(System.Int32,System.Boolean,System.Int32,System.Int32)
+    name: UpdatePieceHashStatus
+    href: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.html#MonoTorrent_PieceWriter_IPieceHashStatusUpdater_UpdatePieceHashStatus_System_Int32_System_Boolean_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.Client.TorrentManager.MarkHashedAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.MarkHashedAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_MarkHashedAsync
+  name: MarkHashedAsync
+  nameWithType: TorrentManager.MarkHashedAsync
+  fullName: MonoTorrent.Client.TorrentManager.MarkHashedAsync
+- uid: MonoTorrent.Client.TorrentManager.HashChecked
+  commentId: P:MonoTorrent.Client.TorrentManager.HashChecked
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_HashChecked
+  name: HashChecked
+  nameWithType: TorrentManager.HashChecked
+  fullName: MonoTorrent.Client.TorrentManager.HashChecked
+- uid: MonoTorrent.Client.TorrentManager.LoadFastResumeAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.LoadFastResumeAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_LoadFastResumeAsync_MonoTorrent_Client_FastResume_
+  name: LoadFastResumeAsync
+  nameWithType: TorrentManager.LoadFastResumeAsync
+  fullName: MonoTorrent.Client.TorrentManager.LoadFastResumeAsync
+- uid: MonoTorrent.Client.FastResume
+  commentId: T:MonoTorrent.Client.FastResume
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.FastResume.html
+  name: FastResume
+  nameWithType: FastResume
+  fullName: MonoTorrent.Client.FastResume
+- uid: MonoTorrent.Client.TorrentManager.SaveFastResumeAsync*
+  commentId: Overload:MonoTorrent.Client.TorrentManager.SaveFastResumeAsync
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_SaveFastResumeAsync
+  name: SaveFastResumeAsync
+  nameWithType: TorrentManager.SaveFastResumeAsync
+  fullName: MonoTorrent.Client.TorrentManager.SaveFastResumeAsync
+- uid: System.Threading.Tasks.Task{MonoTorrent.Client.FastResume}
+  commentId: T:System.Threading.Tasks.Task{MonoTorrent.Client.FastResume}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<FastResume>
+  nameWithType: Task<FastResume>
+  fullName: System.Threading.Tasks.Task<MonoTorrent.Client.FastResume>
+  nameWithType.vb: Task(Of FastResume)
+  fullName.vb: System.Threading.Tasks.Task(Of MonoTorrent.Client.FastResume)
+  name.vb: Task(Of FastResume)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MonoTorrent.Client.FastResume
+    name: FastResume
+    href: MonoTorrent.Client.FastResume.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Client.FastResume
+    name: FastResume
+    href: MonoTorrent.Client.FastResume.html
+  - name: )

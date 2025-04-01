@@ -1,0 +1,622 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+  commentId: T:MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+  id: PaddingAwareIPieceWriterExtensions
+  parent: MonoTorrent.PieceWriter
+  children:
+  - MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+  - MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+  langs:
+  - csharp
+  - vb
+  name: PaddingAwareIPieceWriterExtensions
+  nameWithType: PaddingAwareIPieceWriterExtensions
+  fullName: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PaddingAwareIPieceWriterExtensions
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 122
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  syntax:
+    content: public static class PaddingAwareIPieceWriterExtensions
+    content.vb: Public Module PaddingAwareIPieceWriterExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+  commentId: M:MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+  id: PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.Memory{System.Byte})
+  isExtensionMethod: true
+  parent: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+  langs:
+  - csharp
+  - vb
+  name: PaddingAwareReadAsync(IPieceWriter, ITorrentManagerFile, long, Memory<byte>)
+  nameWithType: PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(IPieceWriter, ITorrentManagerFile, long, Memory<byte>)
+  fullName: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter, MonoTorrent.ITorrentManagerFile, long, System.Memory<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PaddingAwareReadAsync
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 131
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  syntax:
+    content: public static ReusableTask<int> PaddingAwareReadAsync(this IPieceWriter writer, ITorrentManagerFile file, long offset, Memory<byte> buffer)
+    parameters:
+    - id: writer
+      type: MonoTorrent.PieceWriter.IPieceWriter
+    - id: file
+      type: MonoTorrent.ITorrentManagerFile
+    - id: offset
+      type: System.Int64
+    - id: buffer
+      type: System.Memory{System.Byte}
+    return:
+      type: ReusableTasks.ReusableTask{System.Int32}
+    content.vb: Public Shared Function PaddingAwareReadAsync(writer As IPieceWriter, file As ITorrentManagerFile, offset As Long, buffer As Memory(Of Byte)) As ReusableTask(Of Integer)
+  overload: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync*
+  nameWithType.vb: PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(IPieceWriter, ITorrentManagerFile, Long, Memory(Of Byte))
+  fullName.vb: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync(MonoTorrent.PieceWriter.IPieceWriter, MonoTorrent.ITorrentManagerFile, Long, System.Memory(Of Byte))
+  name.vb: PaddingAwareReadAsync(IPieceWriter, ITorrentManagerFile, Long, Memory(Of Byte))
+- uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+  commentId: M:MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+  id: PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter,MonoTorrent.ITorrentManagerFile,System.Int64,System.ReadOnlyMemory{System.Byte})
+  isExtensionMethod: true
+  parent: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions
+  langs:
+  - csharp
+  - vb
+  name: PaddingAwareWriteAsync(IPieceWriter, ITorrentManagerFile, long, ReadOnlyMemory<byte>)
+  nameWithType: PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(IPieceWriter, ITorrentManagerFile, long, ReadOnlyMemory<byte>)
+  fullName: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter, MonoTorrent.ITorrentManagerFile, long, System.ReadOnlyMemory<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceWriter.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PaddingAwareWriteAsync
+    path: src/PieceWriter/IPieceWriter.cs
+    startLine: 157
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  syntax:
+    content: public static ReusableTask PaddingAwareWriteAsync(this IPieceWriter writer, ITorrentManagerFile file, long offset, ReadOnlyMemory<byte> buffer)
+    parameters:
+    - id: writer
+      type: MonoTorrent.PieceWriter.IPieceWriter
+    - id: file
+      type: MonoTorrent.ITorrentManagerFile
+    - id: offset
+      type: System.Int64
+    - id: buffer
+      type: System.ReadOnlyMemory{System.Byte}
+    return:
+      type: ReusableTasks.ReusableTask
+    content.vb: Public Shared Function PaddingAwareWriteAsync(writer As IPieceWriter, file As ITorrentManagerFile, offset As Long, buffer As ReadOnlyMemory(Of Byte)) As ReusableTask
+  overload: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync*
+  nameWithType.vb: PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(IPieceWriter, ITorrentManagerFile, Long, ReadOnlyMemory(Of Byte))
+  fullName.vb: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync(MonoTorrent.PieceWriter.IPieceWriter, MonoTorrent.ITorrentManagerFile, Long, System.ReadOnlyMemory(Of Byte))
+  name.vb: PaddingAwareWriteAsync(IPieceWriter, ITorrentManagerFile, Long, ReadOnlyMemory(Of Byte))
+references:
+- uid: MonoTorrent.PieceWriter
+  commentId: N:MonoTorrent.PieceWriter
+  href: MonoTorrent.html
+  name: MonoTorrent.PieceWriter
+  nameWithType: MonoTorrent.PieceWriter
+  fullName: MonoTorrent.PieceWriter
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync
+  href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html#MonoTorrent_PieceWriter_PaddingAwareIPieceWriterExtensions_PaddingAwareReadAsync_MonoTorrent_PieceWriter_IPieceWriter_MonoTorrent_ITorrentManagerFile_System_Int64_System_Memory_System_Byte__
+  name: PaddingAwareReadAsync
+  nameWithType: PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync
+  fullName: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareReadAsync
+- uid: MonoTorrent.PieceWriter.IPieceWriter
+  commentId: T:MonoTorrent.PieceWriter.IPieceWriter
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.IPieceWriter.html
+  name: IPieceWriter
+  nameWithType: IPieceWriter
+  fullName: MonoTorrent.PieceWriter.IPieceWriter
+- uid: MonoTorrent.ITorrentManagerFile
+  commentId: T:MonoTorrent.ITorrentManagerFile
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentManagerFile.html
+  name: ITorrentManagerFile
+  nameWithType: ITorrentManagerFile
+  fullName: MonoTorrent.ITorrentManagerFile
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: System.Memory{System.Byte}
+  commentId: T:System.Memory{System.Byte}
+  parent: System
+  definition: System.Memory`1
+  href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  name: Memory<byte>
+  nameWithType: Memory<byte>
+  fullName: System.Memory<byte>
+  nameWithType.vb: Memory(Of Byte)
+  fullName.vb: System.Memory(Of Byte)
+  name.vb: Memory(Of Byte)
+  spec.csharp:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: ReusableTasks.ReusableTask{System.Int32}
+  commentId: T:ReusableTasks.ReusableTask{System.Int32}
+  parent: ReusableTasks
+  definition: ReusableTasks.ReusableTask`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: ReusableTask<int>
+  nameWithType: ReusableTask<int>
+  fullName: ReusableTasks.ReusableTask<int>
+  nameWithType.vb: ReusableTask(Of Integer)
+  fullName.vb: ReusableTasks.ReusableTask(Of Integer)
+  name.vb: ReusableTask(Of Integer)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.Memory`1
+  commentId: T:System.Memory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  name: Memory<T>
+  nameWithType: Memory<T>
+  fullName: System.Memory<T>
+  nameWithType.vb: Memory(Of T)
+  fullName.vb: System.Memory(Of T)
+  name.vb: Memory(Of T)
+  spec.csharp:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ReusableTasks.ReusableTask`1
+  commentId: T:ReusableTasks.ReusableTask`1
+  isExternal: true
+  name: ReusableTask<T>
+  nameWithType: ReusableTask<T>
+  fullName: ReusableTasks.ReusableTask<T>
+  nameWithType.vb: ReusableTask(Of T)
+  fullName.vb: ReusableTasks.ReusableTask(Of T)
+  name.vb: ReusableTask(Of T)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ReusableTasks
+  commentId: N:ReusableTasks
+  isExternal: true
+  name: ReusableTasks
+  nameWithType: ReusableTasks
+  fullName: ReusableTasks
+- uid: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync
+  href: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.html#MonoTorrent_PieceWriter_PaddingAwareIPieceWriterExtensions_PaddingAwareWriteAsync_MonoTorrent_PieceWriter_IPieceWriter_MonoTorrent_ITorrentManagerFile_System_Int64_System_ReadOnlyMemory_System_Byte__
+  name: PaddingAwareWriteAsync
+  nameWithType: PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync
+  fullName: MonoTorrent.PieceWriter.PaddingAwareIPieceWriterExtensions.PaddingAwareWriteAsync
+- uid: System.ReadOnlyMemory{System.Byte}
+  commentId: T:System.ReadOnlyMemory{System.Byte}
+  parent: System
+  definition: System.ReadOnlyMemory`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<byte>
+  nameWithType: ReadOnlyMemory<byte>
+  fullName: System.ReadOnlyMemory<byte>
+  nameWithType.vb: ReadOnlyMemory(Of Byte)
+  fullName.vb: System.ReadOnlyMemory(Of Byte)
+  name.vb: ReadOnlyMemory(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: ReusableTasks.ReusableTask
+  commentId: T:ReusableTasks.ReusableTask
+  parent: ReusableTasks
+  isExternal: true
+  name: ReusableTask
+  nameWithType: ReusableTask
+  fullName: ReusableTasks.ReusableTask
+- uid: System.ReadOnlyMemory`1
+  commentId: T:System.ReadOnlyMemory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<T>
+  nameWithType: ReadOnlyMemory<T>
+  fullName: System.ReadOnlyMemory<T>
+  nameWithType.vb: ReadOnlyMemory(Of T)
+  fullName.vb: System.ReadOnlyMemory(Of T)
+  name.vb: ReadOnlyMemory(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

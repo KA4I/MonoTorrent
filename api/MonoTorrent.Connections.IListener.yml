@@ -1,0 +1,258 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.IListener
+  commentId: T:MonoTorrent.Connections.IListener
+  id: IListener
+  parent: MonoTorrent.Connections
+  children:
+  - MonoTorrent.Connections.IListener.Start
+  - MonoTorrent.Connections.IListener.Status
+  - MonoTorrent.Connections.IListener.StatusChanged
+  - MonoTorrent.Connections.IListener.Stop
+  langs:
+  - csharp
+  - vb
+  name: IListener
+  nameWithType: IListener
+  fullName: MonoTorrent.Connections.IListener
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/IListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IListener
+    path: src/Connections/IListener.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: public interface IListener
+    content.vb: Public Interface IListener
+- uid: MonoTorrent.Connections.IListener.StatusChanged
+  commentId: E:MonoTorrent.Connections.IListener.StatusChanged
+  id: StatusChanged
+  parent: MonoTorrent.Connections.IListener
+  langs:
+  - csharp
+  - vb
+  name: StatusChanged
+  nameWithType: IListener.StatusChanged
+  fullName: MonoTorrent.Connections.IListener.StatusChanged
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/IListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StatusChanged
+    path: src/Connections/IListener.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: event EventHandler<EventArgs> StatusChanged
+    return:
+      type: System.EventHandler{System.EventArgs}
+    content.vb: Event StatusChanged As EventHandler(Of EventArgs)
+- uid: MonoTorrent.Connections.IListener.Status
+  commentId: P:MonoTorrent.Connections.IListener.Status
+  id: Status
+  parent: MonoTorrent.Connections.IListener
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: IListener.Status
+  fullName: MonoTorrent.Connections.IListener.Status
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/IListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Status
+    path: src/Connections/IListener.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: ListenerStatus Status { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Connections.ListenerStatus
+    content.vb: ReadOnly Property Status As ListenerStatus
+  overload: MonoTorrent.Connections.IListener.Status*
+- uid: MonoTorrent.Connections.IListener.Start
+  commentId: M:MonoTorrent.Connections.IListener.Start
+  id: Start
+  parent: MonoTorrent.Connections.IListener
+  langs:
+  - csharp
+  - vb
+  name: Start()
+  nameWithType: IListener.Start()
+  fullName: MonoTorrent.Connections.IListener.Start()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/IListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Start
+    path: src/Connections/IListener.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: void Start()
+    content.vb: Sub Start()
+  overload: MonoTorrent.Connections.IListener.Start*
+- uid: MonoTorrent.Connections.IListener.Stop
+  commentId: M:MonoTorrent.Connections.IListener.Stop
+  id: Stop
+  parent: MonoTorrent.Connections.IListener
+  langs:
+  - csharp
+  - vb
+  name: Stop()
+  nameWithType: IListener.Stop()
+  fullName: MonoTorrent.Connections.IListener.Stop()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/IListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Stop
+    path: src/Connections/IListener.cs
+    startLine: 40
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: void Stop()
+    content.vb: Sub [Stop]()
+  overload: MonoTorrent.Connections.IListener.Stop*
+references:
+- uid: MonoTorrent.Connections
+  commentId: N:MonoTorrent.Connections
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections
+  nameWithType: MonoTorrent.Connections
+  fullName: MonoTorrent.Connections
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+- uid: System.EventHandler{System.EventArgs}
+  commentId: T:System.EventHandler{System.EventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<EventArgs>
+  nameWithType: EventHandler<EventArgs>
+  fullName: System.EventHandler<System.EventArgs>
+  nameWithType.vb: EventHandler(Of EventArgs)
+  fullName.vb: System.EventHandler(Of System.EventArgs)
+  name.vb: EventHandler(Of EventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: System.EventArgs
+    name: EventArgs
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventargs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.EventArgs
+    name: EventArgs
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventargs
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Connections.IListener.Status*
+  commentId: Overload:MonoTorrent.Connections.IListener.Status
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Status
+  name: Status
+  nameWithType: IListener.Status
+  fullName: MonoTorrent.Connections.IListener.Status
+- uid: MonoTorrent.Connections.ListenerStatus
+  commentId: T:MonoTorrent.Connections.ListenerStatus
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.ListenerStatus.html
+  name: ListenerStatus
+  nameWithType: ListenerStatus
+  fullName: MonoTorrent.Connections.ListenerStatus
+- uid: MonoTorrent.Connections.IListener.Start*
+  commentId: Overload:MonoTorrent.Connections.IListener.Start
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  name: Start
+  nameWithType: IListener.Start
+  fullName: MonoTorrent.Connections.IListener.Start
+- uid: MonoTorrent.Connections.IListener.Stop*
+  commentId: Overload:MonoTorrent.Connections.IListener.Stop
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  name: Stop
+  nameWithType: IListener.Stop
+  fullName: MonoTorrent.Connections.IListener.Stop

@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.Dht
+  commentId: N:MonoTorrent.Connections.Dht
+  id: MonoTorrent.Connections.Dht
+  children:
+  - MonoTorrent.Connections.Dht.DhtListener
+  - MonoTorrent.Connections.Dht.IDhtListener
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.Connections.Dht
+  nameWithType: MonoTorrent.Connections.Dht
+  fullName: MonoTorrent.Connections.Dht
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.Connections.Dht.DhtListener
+  commentId: T:MonoTorrent.Connections.Dht.DhtListener
+  href: MonoTorrent.Connections.Dht.DhtListener.html
+  name: DhtListener
+  nameWithType: DhtListener
+  fullName: MonoTorrent.Connections.Dht.DhtListener
+- uid: MonoTorrent.Connections.Dht.IDhtListener
+  commentId: T:MonoTorrent.Connections.Dht.IDhtListener
+  parent: MonoTorrent.Connections.Dht
+  href: MonoTorrent.Connections.Dht.IDhtListener.html
+  name: IDhtListener
+  nameWithType: IDhtListener
+  fullName: MonoTorrent.Connections.Dht.IDhtListener
+- uid: MonoTorrent.Connections.Dht
+  commentId: N:MonoTorrent.Connections.Dht
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.Dht
+  nameWithType: MonoTorrent.Connections.Dht
+  fullName: MonoTorrent.Connections.Dht
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Dht
+    name: Dht
+    href: MonoTorrent.Connections.Dht.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Dht
+    name: Dht
+    href: MonoTorrent.Connections.Dht.html

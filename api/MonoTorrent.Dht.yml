@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Dht
+  commentId: N:MonoTorrent.Dht
+  id: MonoTorrent.Dht
+  children:
+  - MonoTorrent.Dht.DhtEngine
+  - MonoTorrent.Dht.DhtState
+  - MonoTorrent.Dht.IDhtEngine
+  - MonoTorrent.Dht.ITransferMonitor
+  - MonoTorrent.Dht.NodeId
+  - MonoTorrent.Dht.PeersFoundEventArgs
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.Dht
+  nameWithType: MonoTorrent.Dht
+  fullName: MonoTorrent.Dht
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.Dht.DhtEngine
+  commentId: T:MonoTorrent.Dht.DhtEngine
+  href: MonoTorrent.Dht.DhtEngine.html
+  name: DhtEngine
+  nameWithType: DhtEngine
+  fullName: MonoTorrent.Dht.DhtEngine
+- uid: MonoTorrent.Dht.DhtState
+  commentId: T:MonoTorrent.Dht.DhtState
+  parent: MonoTorrent.Dht
+  href: MonoTorrent.Dht.DhtState.html
+  name: DhtState
+  nameWithType: DhtState
+  fullName: MonoTorrent.Dht.DhtState
+- uid: MonoTorrent.Dht.ITransferMonitor
+  commentId: T:MonoTorrent.Dht.ITransferMonitor
+  parent: MonoTorrent.Dht
+  href: MonoTorrent.Dht.ITransferMonitor.html
+  name: ITransferMonitor
+  nameWithType: ITransferMonitor
+  fullName: MonoTorrent.Dht.ITransferMonitor
+- uid: MonoTorrent.Dht.IDhtEngine
+  commentId: T:MonoTorrent.Dht.IDhtEngine
+  parent: MonoTorrent.Dht
+  href: MonoTorrent.Dht.IDhtEngine.html
+  name: IDhtEngine
+  nameWithType: IDhtEngine
+  fullName: MonoTorrent.Dht.IDhtEngine
+- uid: MonoTorrent.Dht.NodeId
+  commentId: T:MonoTorrent.Dht.NodeId
+  parent: MonoTorrent.Dht
+  href: MonoTorrent.Dht.NodeId.html
+  name: NodeId
+  nameWithType: NodeId
+  fullName: MonoTorrent.Dht.NodeId
+- uid: MonoTorrent.Dht.PeersFoundEventArgs
+  commentId: T:MonoTorrent.Dht.PeersFoundEventArgs
+  href: MonoTorrent.Dht.PeersFoundEventArgs.html
+  name: PeersFoundEventArgs
+  nameWithType: PeersFoundEventArgs
+  fullName: MonoTorrent.Dht.PeersFoundEventArgs
+- uid: MonoTorrent.Dht
+  commentId: N:MonoTorrent.Dht
+  href: MonoTorrent.html
+  name: MonoTorrent.Dht
+  nameWithType: MonoTorrent.Dht
+  fullName: MonoTorrent.Dht
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Dht
+    name: Dht
+    href: MonoTorrent.Dht.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Dht
+    name: Dht
+    href: MonoTorrent.Dht.html

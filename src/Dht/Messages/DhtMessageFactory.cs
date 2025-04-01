@@ -53,6 +53,8 @@ namespace MonoTorrent.Dht.Messages
             queryDecoders.Add (new BEncodedString ("find_node"), d => new FindNode (d));
             queryDecoders.Add (new BEncodedString ("get_peers"), d => new GetPeers (d));
             queryDecoders.Add (new BEncodedString ("ping"), d => new Ping (d));
+            queryDecoders.Add (new BEncodedString ("get"), d => new GetRequest (d)); // BEP44
+            queryDecoders.Add (new BEncodedString ("put"), d => new PutRequest (d)); // BEP44
         }
 
         internal bool IsRegistered (BEncodedValue transactionId)

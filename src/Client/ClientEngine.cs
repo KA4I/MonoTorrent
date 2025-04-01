@@ -792,8 +792,7 @@ namespace MonoTorrent.Client
 
         #region Private/Internal methods
 
-        void LogicTick ()
-        {
+        void LogicTick () { 
             tickCount++;
 
             if (tickCount % 2 == 0) {
@@ -808,8 +807,19 @@ namespace MonoTorrent.Client
             for (int i = 0; i < allTorrents.Count; i++)
                 allTorrents[i].Mode.Tick (tickCount);
 
+            // BEP46: Check for mutable torrent updates
+            foreach (var manager in allTorrents)
+            {
+                if (manager.MutablePublicKey != null && manager.LastMutableUpdateCheckTimer.Elapsed > Settings.MutableTorrentUpdateInterval)
+                {
+                    _ = manager.PerformMutableUpdateCheckAsync(); // Don't block the main loop
+                }
+            }
+
+
             RaiseStatsUpdate (new StatsUpdateEventArgs ());
         }
+
 
         internal void RaiseCriticalException (CriticalExceptionEventArgs e)
         {

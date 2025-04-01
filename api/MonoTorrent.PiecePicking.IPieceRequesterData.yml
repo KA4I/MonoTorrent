@@ -1,0 +1,409 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData
+  commentId: T:MonoTorrent.PiecePicking.IPieceRequesterData
+  id: IPieceRequesterData
+  parent: MonoTorrent.PiecePicking
+  children:
+  - MonoTorrent.PiecePicking.IPieceRequesterData.ByteOffsetToPieceIndex(System.Int64)
+  - MonoTorrent.PiecePicking.IPieceRequesterData.BytesPerPiece(System.Int32)
+  - MonoTorrent.PiecePicking.IPieceRequesterData.Files
+  - MonoTorrent.PiecePicking.IPieceRequesterData.PieceCount
+  - MonoTorrent.PiecePicking.IPieceRequesterData.PieceLength
+  - MonoTorrent.PiecePicking.IPieceRequesterData.SegmentsPerPiece(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: IPieceRequesterData
+  nameWithType: IPieceRequesterData
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPieceRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IPieceRequesterData
+    path: src/PiecePicking/IPieceRequester.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: public interface IPieceRequesterData
+    content.vb: Public Interface IPieceRequesterData
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData.Files
+  commentId: P:MonoTorrent.PiecePicking.IPieceRequesterData.Files
+  id: Files
+  parent: MonoTorrent.PiecePicking.IPieceRequesterData
+  langs:
+  - csharp
+  - vb
+  name: Files
+  nameWithType: IPieceRequesterData.Files
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData.Files
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPieceRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Files
+    path: src/PiecePicking/IPieceRequester.cs
+    startLine: 36
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: IList<ITorrentManagerFile> Files { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{MonoTorrent.ITorrentManagerFile}
+    content.vb: ReadOnly Property Files As IList(Of ITorrentManagerFile)
+  overload: MonoTorrent.PiecePicking.IPieceRequesterData.Files*
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData.SegmentsPerPiece(System.Int32)
+  commentId: M:MonoTorrent.PiecePicking.IPieceRequesterData.SegmentsPerPiece(System.Int32)
+  id: SegmentsPerPiece(System.Int32)
+  parent: MonoTorrent.PiecePicking.IPieceRequesterData
+  langs:
+  - csharp
+  - vb
+  name: SegmentsPerPiece(int)
+  nameWithType: IPieceRequesterData.SegmentsPerPiece(int)
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData.SegmentsPerPiece(int)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPieceRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SegmentsPerPiece
+    path: src/PiecePicking/IPieceRequester.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: int SegmentsPerPiece(int piece)
+    parameters:
+    - id: piece
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Function SegmentsPerPiece(piece As Integer) As Integer
+  overload: MonoTorrent.PiecePicking.IPieceRequesterData.SegmentsPerPiece*
+  nameWithType.vb: IPieceRequesterData.SegmentsPerPiece(Integer)
+  fullName.vb: MonoTorrent.PiecePicking.IPieceRequesterData.SegmentsPerPiece(Integer)
+  name.vb: SegmentsPerPiece(Integer)
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData.ByteOffsetToPieceIndex(System.Int64)
+  commentId: M:MonoTorrent.PiecePicking.IPieceRequesterData.ByteOffsetToPieceIndex(System.Int64)
+  id: ByteOffsetToPieceIndex(System.Int64)
+  parent: MonoTorrent.PiecePicking.IPieceRequesterData
+  langs:
+  - csharp
+  - vb
+  name: ByteOffsetToPieceIndex(long)
+  nameWithType: IPieceRequesterData.ByteOffsetToPieceIndex(long)
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData.ByteOffsetToPieceIndex(long)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPieceRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ByteOffsetToPieceIndex
+    path: src/PiecePicking/IPieceRequester.cs
+    startLine: 38
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: int ByteOffsetToPieceIndex(long byteOffset)
+    parameters:
+    - id: byteOffset
+      type: System.Int64
+    return:
+      type: System.Int32
+    content.vb: Function ByteOffsetToPieceIndex(byteOffset As Long) As Integer
+  overload: MonoTorrent.PiecePicking.IPieceRequesterData.ByteOffsetToPieceIndex*
+  nameWithType.vb: IPieceRequesterData.ByteOffsetToPieceIndex(Long)
+  fullName.vb: MonoTorrent.PiecePicking.IPieceRequesterData.ByteOffsetToPieceIndex(Long)
+  name.vb: ByteOffsetToPieceIndex(Long)
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData.BytesPerPiece(System.Int32)
+  commentId: M:MonoTorrent.PiecePicking.IPieceRequesterData.BytesPerPiece(System.Int32)
+  id: BytesPerPiece(System.Int32)
+  parent: MonoTorrent.PiecePicking.IPieceRequesterData
+  langs:
+  - csharp
+  - vb
+  name: BytesPerPiece(int)
+  nameWithType: IPieceRequesterData.BytesPerPiece(int)
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData.BytesPerPiece(int)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPieceRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BytesPerPiece
+    path: src/PiecePicking/IPieceRequester.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: int BytesPerPiece(int piece)
+    parameters:
+    - id: piece
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Function BytesPerPiece(piece As Integer) As Integer
+  overload: MonoTorrent.PiecePicking.IPieceRequesterData.BytesPerPiece*
+  nameWithType.vb: IPieceRequesterData.BytesPerPiece(Integer)
+  fullName.vb: MonoTorrent.PiecePicking.IPieceRequesterData.BytesPerPiece(Integer)
+  name.vb: BytesPerPiece(Integer)
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData.PieceCount
+  commentId: P:MonoTorrent.PiecePicking.IPieceRequesterData.PieceCount
+  id: PieceCount
+  parent: MonoTorrent.PiecePicking.IPieceRequesterData
+  langs:
+  - csharp
+  - vb
+  name: PieceCount
+  nameWithType: IPieceRequesterData.PieceCount
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData.PieceCount
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPieceRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PieceCount
+    path: src/PiecePicking/IPieceRequester.cs
+    startLine: 40
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: int PieceCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property PieceCount As Integer
+  overload: MonoTorrent.PiecePicking.IPieceRequesterData.PieceCount*
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData.PieceLength
+  commentId: P:MonoTorrent.PiecePicking.IPieceRequesterData.PieceLength
+  id: PieceLength
+  parent: MonoTorrent.PiecePicking.IPieceRequesterData
+  langs:
+  - csharp
+  - vb
+  name: PieceLength
+  nameWithType: IPieceRequesterData.PieceLength
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData.PieceLength
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/IPieceRequester.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PieceLength
+    path: src/PiecePicking/IPieceRequester.cs
+    startLine: 41
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: int PieceLength { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property PieceLength As Integer
+  overload: MonoTorrent.PiecePicking.IPieceRequesterData.PieceLength*
+references:
+- uid: MonoTorrent.PiecePicking
+  commentId: N:MonoTorrent.PiecePicking
+  href: MonoTorrent.html
+  name: MonoTorrent.PiecePicking
+  nameWithType: MonoTorrent.PiecePicking
+  fullName: MonoTorrent.PiecePicking
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData.Files*
+  commentId: Overload:MonoTorrent.PiecePicking.IPieceRequesterData.Files
+  href: MonoTorrent.PiecePicking.IPieceRequesterData.html#MonoTorrent_PiecePicking_IPieceRequesterData_Files
+  name: Files
+  nameWithType: IPieceRequesterData.Files
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData.Files
+- uid: System.Collections.Generic.IList{MonoTorrent.ITorrentManagerFile}
+  commentId: T:System.Collections.Generic.IList{MonoTorrent.ITorrentManagerFile}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<ITorrentManagerFile>
+  nameWithType: IList<ITorrentManagerFile>
+  fullName: System.Collections.Generic.IList<MonoTorrent.ITorrentManagerFile>
+  nameWithType.vb: IList(Of ITorrentManagerFile)
+  fullName.vb: System.Collections.Generic.IList(Of MonoTorrent.ITorrentManagerFile)
+  name.vb: IList(Of ITorrentManagerFile)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData.SegmentsPerPiece*
+  commentId: Overload:MonoTorrent.PiecePicking.IPieceRequesterData.SegmentsPerPiece
+  href: MonoTorrent.PiecePicking.IPieceRequesterData.html#MonoTorrent_PiecePicking_IPieceRequesterData_SegmentsPerPiece_System_Int32_
+  name: SegmentsPerPiece
+  nameWithType: IPieceRequesterData.SegmentsPerPiece
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData.SegmentsPerPiece
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData.ByteOffsetToPieceIndex*
+  commentId: Overload:MonoTorrent.PiecePicking.IPieceRequesterData.ByteOffsetToPieceIndex
+  href: MonoTorrent.PiecePicking.IPieceRequesterData.html#MonoTorrent_PiecePicking_IPieceRequesterData_ByteOffsetToPieceIndex_System_Int64_
+  name: ByteOffsetToPieceIndex
+  nameWithType: IPieceRequesterData.ByteOffsetToPieceIndex
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData.ByteOffsetToPieceIndex
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData.BytesPerPiece*
+  commentId: Overload:MonoTorrent.PiecePicking.IPieceRequesterData.BytesPerPiece
+  href: MonoTorrent.PiecePicking.IPieceRequesterData.html#MonoTorrent_PiecePicking_IPieceRequesterData_BytesPerPiece_System_Int32_
+  name: BytesPerPiece
+  nameWithType: IPieceRequesterData.BytesPerPiece
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData.BytesPerPiece
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData.PieceCount*
+  commentId: Overload:MonoTorrent.PiecePicking.IPieceRequesterData.PieceCount
+  href: MonoTorrent.PiecePicking.IPieceRequesterData.html#MonoTorrent_PiecePicking_IPieceRequesterData_PieceCount
+  name: PieceCount
+  nameWithType: IPieceRequesterData.PieceCount
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData.PieceCount
+- uid: MonoTorrent.PiecePicking.IPieceRequesterData.PieceLength*
+  commentId: Overload:MonoTorrent.PiecePicking.IPieceRequesterData.PieceLength
+  href: MonoTorrent.PiecePicking.IPieceRequesterData.html#MonoTorrent_PiecePicking_IPieceRequesterData_PieceLength
+  name: PieceLength
+  nameWithType: IPieceRequesterData.PieceLength
+  fullName: MonoTorrent.PiecePicking.IPieceRequesterData.PieceLength

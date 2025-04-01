@@ -1,0 +1,66 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Factories.StreamingPieceRequesterCreator
+  commentId: T:MonoTorrent.Factories.StreamingPieceRequesterCreator
+  id: Factories.StreamingPieceRequesterCreator
+  parent: MonoTorrent
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: Factories.StreamingPieceRequesterCreator
+  nameWithType: Factories.StreamingPieceRequesterCreator
+  fullName: MonoTorrent.Factories.StreamingPieceRequesterCreator
+  type: Delegate
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StreamingPieceRequesterCreator
+    path: src/Factories.cs
+    startLine: 69
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public delegate IStreamingPieceRequester Factories.StreamingPieceRequesterCreator()
+    return:
+      type: MonoTorrent.PiecePicking.IStreamingPieceRequester
+    content.vb: Public Delegate Function Factories.StreamingPieceRequesterCreator() As IStreamingPieceRequester
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.PiecePicking.IStreamingPieceRequester
+  commentId: T:MonoTorrent.PiecePicking.IStreamingPieceRequester
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.IStreamingPieceRequester.html
+  name: IStreamingPieceRequester
+  nameWithType: IStreamingPieceRequester
+  fullName: MonoTorrent.PiecePicking.IStreamingPieceRequester
+- uid: MonoTorrent.PiecePicking
+  commentId: N:MonoTorrent.PiecePicking
+  href: MonoTorrent.html
+  name: MonoTorrent.PiecePicking
+  nameWithType: MonoTorrent.PiecePicking
+  fullName: MonoTorrent.PiecePicking
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html

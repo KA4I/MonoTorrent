@@ -1,0 +1,1157 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PiecePicking.RandomisedPicker
+  commentId: T:MonoTorrent.PiecePicking.RandomisedPicker
+  id: RandomisedPicker
+  parent: MonoTorrent.PiecePicking
+  children:
+  - MonoTorrent.PiecePicking.RandomisedPicker.#ctor(MonoTorrent.PiecePicking.IPiecePicker)
+  - MonoTorrent.PiecePicking.RandomisedPicker.PickPiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField},System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  langs:
+  - csharp
+  - vb
+  name: RandomisedPicker
+  nameWithType: RandomisedPicker
+  fullName: MonoTorrent.PiecePicking.RandomisedPicker
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/RandomisedPicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RandomisedPicker
+    path: src/PiecePicking/RandomisedPicker.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: 'public class RandomisedPicker : PiecePickerFilter, IPiecePicker'
+    content.vb: Public Class RandomisedPicker Inherits PiecePickerFilter Implements IPiecePicker
+  inheritance:
+  - System.Object
+  - MonoTorrent.PiecePicking.PiecePickerFilter
+  implements:
+  - MonoTorrent.PiecePicking.IPiecePicker
+  inheritedMembers:
+  - MonoTorrent.PiecePicking.PiecePickerFilter.Next
+  - MonoTorrent.PiecePicking.PiecePickerFilter.CancelRequests(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  - MonoTorrent.PiecePicking.PiecePickerFilter.ContinueAnyExistingRequest(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.Int32,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+  - MonoTorrent.PiecePicking.PiecePickerFilter.ContinueExistingRequest(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+  - MonoTorrent.PiecePicking.PiecePickerFilter.CurrentReceivedCount
+  - MonoTorrent.PiecePicking.PiecePickerFilter.CurrentRequestCount
+  - MonoTorrent.PiecePicking.PiecePickerFilter.ExportActiveRequests
+  - MonoTorrent.PiecePicking.PiecePickerFilter.Initialise(MonoTorrent.PiecePicking.IPieceRequesterData)
+  - MonoTorrent.PiecePicking.PiecePickerFilter.IsInteresting(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField)
+  - MonoTorrent.PiecePicking.PiecePickerFilter.RequestRejected(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  - MonoTorrent.PiecePicking.PiecePickerFilter.ValidatePiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment,System.Boolean@,System.Collections.Generic.HashSet{MonoTorrent.PiecePicking.IRequester})
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.PiecePicking.RandomisedPicker.#ctor(MonoTorrent.PiecePicking.IPiecePicker)
+  commentId: M:MonoTorrent.PiecePicking.RandomisedPicker.#ctor(MonoTorrent.PiecePicking.IPiecePicker)
+  id: '#ctor(MonoTorrent.PiecePicking.IPiecePicker)'
+  parent: MonoTorrent.PiecePicking.RandomisedPicker
+  langs:
+  - csharp
+  - vb
+  name: RandomisedPicker(IPiecePicker)
+  nameWithType: RandomisedPicker.RandomisedPicker(IPiecePicker)
+  fullName: MonoTorrent.PiecePicking.RandomisedPicker.RandomisedPicker(MonoTorrent.PiecePicking.IPiecePicker)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/RandomisedPicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/PiecePicking/RandomisedPicker.cs
+    startLine: 38
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  syntax:
+    content: public RandomisedPicker(IPiecePicker picker)
+    parameters:
+    - id: picker
+      type: MonoTorrent.PiecePicking.IPiecePicker
+    content.vb: Public Sub New(picker As IPiecePicker)
+  overload: MonoTorrent.PiecePicking.RandomisedPicker.#ctor*
+  nameWithType.vb: RandomisedPicker.New(IPiecePicker)
+  fullName.vb: MonoTorrent.PiecePicking.RandomisedPicker.New(MonoTorrent.PiecePicking.IPiecePicker)
+  name.vb: New(IPiecePicker)
+- uid: MonoTorrent.PiecePicking.RandomisedPicker.PickPiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField},System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  commentId: M:MonoTorrent.PiecePicking.RandomisedPicker.PickPiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField},System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  id: PickPiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField},System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  parent: MonoTorrent.PiecePicking.RandomisedPicker
+  langs:
+  - csharp
+  - vb
+  name: PickPiece(IRequester, ReadOnlyBitField, ReadOnlySpan<ReadOnlyBitField>, int, int, Span<PieceSegment>)
+  nameWithType: RandomisedPicker.PickPiece(IRequester, ReadOnlyBitField, ReadOnlySpan<ReadOnlyBitField>, int, int, Span<PieceSegment>)
+  fullName: MonoTorrent.PiecePicking.RandomisedPicker.PickPiece(MonoTorrent.PiecePicking.IRequester, MonoTorrent.ReadOnlyBitField, System.ReadOnlySpan<MonoTorrent.ReadOnlyBitField>, int, int, System.Span<MonoTorrent.PiecePicking.PieceSegment>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PiecePicking/RandomisedPicker.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PickPiece
+    path: src/PiecePicking/RandomisedPicker.cs
+    startLine: 44
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PiecePicking
+  summary: ''
+  example: []
+  syntax:
+    content: public override int PickPiece(IRequester peer, ReadOnlyBitField available, ReadOnlySpan<ReadOnlyBitField> otherPeers, int startIndex, int endIndex, Span<PieceSegment> requests)
+    parameters:
+    - id: peer
+      type: MonoTorrent.PiecePicking.IRequester
+      description: ''
+    - id: available
+      type: MonoTorrent.ReadOnlyBitField
+      description: ''
+    - id: otherPeers
+      type: System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField}
+    - id: startIndex
+      type: System.Int32
+      description: ''
+    - id: endIndex
+      type: System.Int32
+      description: ''
+    - id: requests
+      type: System.Span{MonoTorrent.PiecePicking.PieceSegment}
+      description: ''
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Overrides Function PickPiece(peer As IRequester, available As ReadOnlyBitField, otherPeers As ReadOnlySpan(Of ReadOnlyBitField), startIndex As Integer, endIndex As Integer, requests As Span(Of PieceSegment)) As Integer
+  overridden: MonoTorrent.PiecePicking.PiecePickerFilter.PickPiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField},System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  overload: MonoTorrent.PiecePicking.RandomisedPicker.PickPiece*
+  nameWithType.vb: RandomisedPicker.PickPiece(IRequester, ReadOnlyBitField, ReadOnlySpan(Of ReadOnlyBitField), Integer, Integer, Span(Of PieceSegment))
+  fullName.vb: MonoTorrent.PiecePicking.RandomisedPicker.PickPiece(MonoTorrent.PiecePicking.IRequester, MonoTorrent.ReadOnlyBitField, System.ReadOnlySpan(Of MonoTorrent.ReadOnlyBitField), Integer, Integer, System.Span(Of MonoTorrent.PiecePicking.PieceSegment))
+  name.vb: PickPiece(IRequester, ReadOnlyBitField, ReadOnlySpan(Of ReadOnlyBitField), Integer, Integer, Span(Of PieceSegment))
+references:
+- uid: MonoTorrent.PiecePicking
+  commentId: N:MonoTorrent.PiecePicking
+  href: MonoTorrent.html
+  name: MonoTorrent.PiecePicking
+  nameWithType: MonoTorrent.PiecePicking
+  fullName: MonoTorrent.PiecePicking
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MonoTorrent.PiecePicking.PiecePickerFilter
+  commentId: T:MonoTorrent.PiecePicking.PiecePickerFilter
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.PiecePickerFilter.html
+  name: PiecePickerFilter
+  nameWithType: PiecePickerFilter
+  fullName: MonoTorrent.PiecePicking.PiecePickerFilter
+- uid: MonoTorrent.PiecePicking.IPiecePicker
+  commentId: T:MonoTorrent.PiecePicking.IPiecePicker
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.IPiecePicker.html
+  name: IPiecePicker
+  nameWithType: IPiecePicker
+  fullName: MonoTorrent.PiecePicking.IPiecePicker
+- uid: MonoTorrent.PiecePicking.PiecePickerFilter.Next
+  commentId: P:MonoTorrent.PiecePicking.PiecePickerFilter.Next
+  parent: MonoTorrent.PiecePicking.PiecePickerFilter
+  href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_Next
+  name: Next
+  nameWithType: PiecePickerFilter.Next
+  fullName: MonoTorrent.PiecePicking.PiecePickerFilter.Next
+- uid: MonoTorrent.PiecePicking.PiecePickerFilter.CancelRequests(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  commentId: M:MonoTorrent.PiecePicking.PiecePickerFilter.CancelRequests(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  parent: MonoTorrent.PiecePicking.PiecePickerFilter
+  isExternal: true
+  href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_CancelRequests_MonoTorrent_PiecePicking_IRequester_System_Int32_System_Int32_System_Span_MonoTorrent_PiecePicking_PieceSegment__
+  name: CancelRequests(IRequester, int, int, Span<PieceSegment>)
+  nameWithType: PiecePickerFilter.CancelRequests(IRequester, int, int, Span<PieceSegment>)
+  fullName: MonoTorrent.PiecePicking.PiecePickerFilter.CancelRequests(MonoTorrent.PiecePicking.IRequester, int, int, System.Span<MonoTorrent.PiecePicking.PieceSegment>)
+  nameWithType.vb: PiecePickerFilter.CancelRequests(IRequester, Integer, Integer, Span(Of PieceSegment))
+  fullName.vb: MonoTorrent.PiecePicking.PiecePickerFilter.CancelRequests(MonoTorrent.PiecePicking.IRequester, Integer, Integer, System.Span(Of MonoTorrent.PiecePicking.PieceSegment))
+  name.vb: CancelRequests(IRequester, Integer, Integer, Span(Of PieceSegment))
+  spec.csharp:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.CancelRequests(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+    name: CancelRequests
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_CancelRequests_MonoTorrent_PiecePicking_IRequester_System_Int32_System_Int32_System_Span_MonoTorrent_PiecePicking_PieceSegment__
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.CancelRequests(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+    name: CancelRequests
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_CancelRequests_MonoTorrent_PiecePicking_IRequester_System_Int32_System_Int32_System_Span_MonoTorrent_PiecePicking_PieceSegment__
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: )
+  - name: )
+- uid: MonoTorrent.PiecePicking.PiecePickerFilter.ContinueAnyExistingRequest(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.Int32,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+  commentId: M:MonoTorrent.PiecePicking.PiecePickerFilter.ContinueAnyExistingRequest(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.Int32,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+  parent: MonoTorrent.PiecePicking.PiecePickerFilter
+  isExternal: true
+  href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_ContinueAnyExistingRequest_MonoTorrent_PiecePicking_IRequester_MonoTorrent_ReadOnlyBitField_System_Int32_System_Int32_System_Int32_MonoTorrent_PiecePicking_PieceSegment__
+  name: ContinueAnyExistingRequest(IRequester, ReadOnlyBitField, int, int, int, out PieceSegment)
+  nameWithType: PiecePickerFilter.ContinueAnyExistingRequest(IRequester, ReadOnlyBitField, int, int, int, out PieceSegment)
+  fullName: MonoTorrent.PiecePicking.PiecePickerFilter.ContinueAnyExistingRequest(MonoTorrent.PiecePicking.IRequester, MonoTorrent.ReadOnlyBitField, int, int, int, out MonoTorrent.PiecePicking.PieceSegment)
+  nameWithType.vb: PiecePickerFilter.ContinueAnyExistingRequest(IRequester, ReadOnlyBitField, Integer, Integer, Integer, PieceSegment)
+  fullName.vb: MonoTorrent.PiecePicking.PiecePickerFilter.ContinueAnyExistingRequest(MonoTorrent.PiecePicking.IRequester, MonoTorrent.ReadOnlyBitField, Integer, Integer, Integer, MonoTorrent.PiecePicking.PieceSegment)
+  name.vb: ContinueAnyExistingRequest(IRequester, ReadOnlyBitField, Integer, Integer, Integer, PieceSegment)
+  spec.csharp:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.ContinueAnyExistingRequest(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.Int32,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+    name: ContinueAnyExistingRequest
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_ContinueAnyExistingRequest_MonoTorrent_PiecePicking_IRequester_MonoTorrent_ReadOnlyBitField_System_Int32_System_Int32_System_Int32_MonoTorrent_PiecePicking_PieceSegment__
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ReadOnlyBitField
+    name: ReadOnlyBitField
+    href: MonoTorrent.ReadOnlyBitField.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.ContinueAnyExistingRequest(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.Int32,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+    name: ContinueAnyExistingRequest
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_ContinueAnyExistingRequest_MonoTorrent_PiecePicking_IRequester_MonoTorrent_ReadOnlyBitField_System_Int32_System_Int32_System_Int32_MonoTorrent_PiecePicking_PieceSegment__
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ReadOnlyBitField
+    name: ReadOnlyBitField
+    href: MonoTorrent.ReadOnlyBitField.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: )
+- uid: MonoTorrent.PiecePicking.PiecePickerFilter.ContinueExistingRequest(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+  commentId: M:MonoTorrent.PiecePicking.PiecePickerFilter.ContinueExistingRequest(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+  parent: MonoTorrent.PiecePicking.PiecePickerFilter
+  isExternal: true
+  href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_ContinueExistingRequest_MonoTorrent_PiecePicking_IRequester_System_Int32_System_Int32_MonoTorrent_PiecePicking_PieceSegment__
+  name: ContinueExistingRequest(IRequester, int, int, out PieceSegment)
+  nameWithType: PiecePickerFilter.ContinueExistingRequest(IRequester, int, int, out PieceSegment)
+  fullName: MonoTorrent.PiecePicking.PiecePickerFilter.ContinueExistingRequest(MonoTorrent.PiecePicking.IRequester, int, int, out MonoTorrent.PiecePicking.PieceSegment)
+  nameWithType.vb: PiecePickerFilter.ContinueExistingRequest(IRequester, Integer, Integer, PieceSegment)
+  fullName.vb: MonoTorrent.PiecePicking.PiecePickerFilter.ContinueExistingRequest(MonoTorrent.PiecePicking.IRequester, Integer, Integer, MonoTorrent.PiecePicking.PieceSegment)
+  name.vb: ContinueExistingRequest(IRequester, Integer, Integer, PieceSegment)
+  spec.csharp:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.ContinueExistingRequest(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+    name: ContinueExistingRequest
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_ContinueExistingRequest_MonoTorrent_PiecePicking_IRequester_System_Int32_System_Int32_MonoTorrent_PiecePicking_PieceSegment__
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.ContinueExistingRequest(MonoTorrent.PiecePicking.IRequester,System.Int32,System.Int32,MonoTorrent.PiecePicking.PieceSegment@)
+    name: ContinueExistingRequest
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_ContinueExistingRequest_MonoTorrent_PiecePicking_IRequester_System_Int32_System_Int32_MonoTorrent_PiecePicking_PieceSegment__
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: )
+- uid: MonoTorrent.PiecePicking.PiecePickerFilter.CurrentReceivedCount
+  commentId: M:MonoTorrent.PiecePicking.PiecePickerFilter.CurrentReceivedCount
+  parent: MonoTorrent.PiecePicking.PiecePickerFilter
+  href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_CurrentReceivedCount
+  name: CurrentReceivedCount()
+  nameWithType: PiecePickerFilter.CurrentReceivedCount()
+  fullName: MonoTorrent.PiecePicking.PiecePickerFilter.CurrentReceivedCount()
+  spec.csharp:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.CurrentReceivedCount
+    name: CurrentReceivedCount
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_CurrentReceivedCount
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.CurrentReceivedCount
+    name: CurrentReceivedCount
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_CurrentReceivedCount
+  - name: (
+  - name: )
+- uid: MonoTorrent.PiecePicking.PiecePickerFilter.CurrentRequestCount
+  commentId: M:MonoTorrent.PiecePicking.PiecePickerFilter.CurrentRequestCount
+  parent: MonoTorrent.PiecePicking.PiecePickerFilter
+  href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_CurrentRequestCount
+  name: CurrentRequestCount()
+  nameWithType: PiecePickerFilter.CurrentRequestCount()
+  fullName: MonoTorrent.PiecePicking.PiecePickerFilter.CurrentRequestCount()
+  spec.csharp:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.CurrentRequestCount
+    name: CurrentRequestCount
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_CurrentRequestCount
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.CurrentRequestCount
+    name: CurrentRequestCount
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_CurrentRequestCount
+  - name: (
+  - name: )
+- uid: MonoTorrent.PiecePicking.PiecePickerFilter.ExportActiveRequests
+  commentId: M:MonoTorrent.PiecePicking.PiecePickerFilter.ExportActiveRequests
+  parent: MonoTorrent.PiecePicking.PiecePickerFilter
+  href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_ExportActiveRequests
+  name: ExportActiveRequests()
+  nameWithType: PiecePickerFilter.ExportActiveRequests()
+  fullName: MonoTorrent.PiecePicking.PiecePickerFilter.ExportActiveRequests()
+  spec.csharp:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.ExportActiveRequests
+    name: ExportActiveRequests
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_ExportActiveRequests
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.ExportActiveRequests
+    name: ExportActiveRequests
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_ExportActiveRequests
+  - name: (
+  - name: )
+- uid: MonoTorrent.PiecePicking.PiecePickerFilter.Initialise(MonoTorrent.PiecePicking.IPieceRequesterData)
+  commentId: M:MonoTorrent.PiecePicking.PiecePickerFilter.Initialise(MonoTorrent.PiecePicking.IPieceRequesterData)
+  parent: MonoTorrent.PiecePicking.PiecePickerFilter
+  href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_Initialise_MonoTorrent_PiecePicking_IPieceRequesterData_
+  name: Initialise(IPieceRequesterData)
+  nameWithType: PiecePickerFilter.Initialise(IPieceRequesterData)
+  fullName: MonoTorrent.PiecePicking.PiecePickerFilter.Initialise(MonoTorrent.PiecePicking.IPieceRequesterData)
+  spec.csharp:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.Initialise(MonoTorrent.PiecePicking.IPieceRequesterData)
+    name: Initialise
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_Initialise_MonoTorrent_PiecePicking_IPieceRequesterData_
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IPieceRequesterData
+    name: IPieceRequesterData
+    href: MonoTorrent.PiecePicking.IPieceRequesterData.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.Initialise(MonoTorrent.PiecePicking.IPieceRequesterData)
+    name: Initialise
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_Initialise_MonoTorrent_PiecePicking_IPieceRequesterData_
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IPieceRequesterData
+    name: IPieceRequesterData
+    href: MonoTorrent.PiecePicking.IPieceRequesterData.html
+  - name: )
+- uid: MonoTorrent.PiecePicking.PiecePickerFilter.IsInteresting(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField)
+  commentId: M:MonoTorrent.PiecePicking.PiecePickerFilter.IsInteresting(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField)
+  parent: MonoTorrent.PiecePicking.PiecePickerFilter
+  href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_IsInteresting_MonoTorrent_PiecePicking_IRequester_MonoTorrent_ReadOnlyBitField_
+  name: IsInteresting(IRequester, ReadOnlyBitField)
+  nameWithType: PiecePickerFilter.IsInteresting(IRequester, ReadOnlyBitField)
+  fullName: MonoTorrent.PiecePicking.PiecePickerFilter.IsInteresting(MonoTorrent.PiecePicking.IRequester, MonoTorrent.ReadOnlyBitField)
+  spec.csharp:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.IsInteresting(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField)
+    name: IsInteresting
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_IsInteresting_MonoTorrent_PiecePicking_IRequester_MonoTorrent_ReadOnlyBitField_
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ReadOnlyBitField
+    name: ReadOnlyBitField
+    href: MonoTorrent.ReadOnlyBitField.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.IsInteresting(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField)
+    name: IsInteresting
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_IsInteresting_MonoTorrent_PiecePicking_IRequester_MonoTorrent_ReadOnlyBitField_
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ReadOnlyBitField
+    name: ReadOnlyBitField
+    href: MonoTorrent.ReadOnlyBitField.html
+  - name: )
+- uid: MonoTorrent.PiecePicking.PiecePickerFilter.RequestRejected(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  commentId: M:MonoTorrent.PiecePicking.PiecePickerFilter.RequestRejected(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+  parent: MonoTorrent.PiecePicking.PiecePickerFilter
+  href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_RequestRejected_MonoTorrent_PiecePicking_IRequester_MonoTorrent_PiecePicking_PieceSegment_
+  name: RequestRejected(IRequester, PieceSegment)
+  nameWithType: PiecePickerFilter.RequestRejected(IRequester, PieceSegment)
+  fullName: MonoTorrent.PiecePicking.PiecePickerFilter.RequestRejected(MonoTorrent.PiecePicking.IRequester, MonoTorrent.PiecePicking.PieceSegment)
+  spec.csharp:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.RequestRejected(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+    name: RequestRejected
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_RequestRejected_MonoTorrent_PiecePicking_IRequester_MonoTorrent_PiecePicking_PieceSegment_
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.RequestRejected(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment)
+    name: RequestRejected
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_RequestRejected_MonoTorrent_PiecePicking_IRequester_MonoTorrent_PiecePicking_PieceSegment_
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: )
+- uid: MonoTorrent.PiecePicking.PiecePickerFilter.ValidatePiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment,System.Boolean@,System.Collections.Generic.HashSet{MonoTorrent.PiecePicking.IRequester})
+  commentId: M:MonoTorrent.PiecePicking.PiecePickerFilter.ValidatePiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment,System.Boolean@,System.Collections.Generic.HashSet{MonoTorrent.PiecePicking.IRequester})
+  parent: MonoTorrent.PiecePicking.PiecePickerFilter
+  isExternal: true
+  href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_ValidatePiece_MonoTorrent_PiecePicking_IRequester_MonoTorrent_PiecePicking_PieceSegment_System_Boolean__System_Collections_Generic_HashSet_MonoTorrent_PiecePicking_IRequester__
+  name: ValidatePiece(IRequester, PieceSegment, out bool, HashSet<IRequester>)
+  nameWithType: PiecePickerFilter.ValidatePiece(IRequester, PieceSegment, out bool, HashSet<IRequester>)
+  fullName: MonoTorrent.PiecePicking.PiecePickerFilter.ValidatePiece(MonoTorrent.PiecePicking.IRequester, MonoTorrent.PiecePicking.PieceSegment, out bool, System.Collections.Generic.HashSet<MonoTorrent.PiecePicking.IRequester>)
+  nameWithType.vb: PiecePickerFilter.ValidatePiece(IRequester, PieceSegment, Boolean, HashSet(Of IRequester))
+  fullName.vb: MonoTorrent.PiecePicking.PiecePickerFilter.ValidatePiece(MonoTorrent.PiecePicking.IRequester, MonoTorrent.PiecePicking.PieceSegment, Boolean, System.Collections.Generic.HashSet(Of MonoTorrent.PiecePicking.IRequester))
+  name.vb: ValidatePiece(IRequester, PieceSegment, Boolean, HashSet(Of IRequester))
+  spec.csharp:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.ValidatePiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment,System.Boolean@,System.Collections.Generic.HashSet{MonoTorrent.PiecePicking.IRequester})
+    name: ValidatePiece
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_ValidatePiece_MonoTorrent_PiecePicking_IRequester_MonoTorrent_PiecePicking_PieceSegment_System_Boolean__System_Collections_Generic_HashSet_MonoTorrent_PiecePicking_IRequester__
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.ValidatePiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.PiecePicking.PieceSegment,System.Boolean@,System.Collections.Generic.HashSet{MonoTorrent.PiecePicking.IRequester})
+    name: ValidatePiece
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_ValidatePiece_MonoTorrent_PiecePicking_IRequester_MonoTorrent_PiecePicking_PieceSegment_System_Boolean__System_Collections_Generic_HashSet_MonoTorrent_PiecePicking_IRequester__
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: )
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.PiecePicking.RandomisedPicker.#ctor*
+  commentId: Overload:MonoTorrent.PiecePicking.RandomisedPicker.#ctor
+  href: MonoTorrent.PiecePicking.RandomisedPicker.html#MonoTorrent_PiecePicking_RandomisedPicker__ctor_MonoTorrent_PiecePicking_IPiecePicker_
+  name: RandomisedPicker
+  nameWithType: RandomisedPicker.RandomisedPicker
+  fullName: MonoTorrent.PiecePicking.RandomisedPicker.RandomisedPicker
+  nameWithType.vb: RandomisedPicker.New
+  fullName.vb: MonoTorrent.PiecePicking.RandomisedPicker.New
+  name.vb: New
+- uid: MonoTorrent.PiecePicking.PiecePickerFilter.PickPiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField},System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  commentId: M:MonoTorrent.PiecePicking.PiecePickerFilter.PickPiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField},System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+  parent: MonoTorrent.PiecePicking.PiecePickerFilter
+  isExternal: true
+  href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_PickPiece_MonoTorrent_PiecePicking_IRequester_MonoTorrent_ReadOnlyBitField_System_ReadOnlySpan_MonoTorrent_ReadOnlyBitField__System_Int32_System_Int32_System_Span_MonoTorrent_PiecePicking_PieceSegment__
+  name: PickPiece(IRequester, ReadOnlyBitField, ReadOnlySpan<ReadOnlyBitField>, int, int, Span<PieceSegment>)
+  nameWithType: PiecePickerFilter.PickPiece(IRequester, ReadOnlyBitField, ReadOnlySpan<ReadOnlyBitField>, int, int, Span<PieceSegment>)
+  fullName: MonoTorrent.PiecePicking.PiecePickerFilter.PickPiece(MonoTorrent.PiecePicking.IRequester, MonoTorrent.ReadOnlyBitField, System.ReadOnlySpan<MonoTorrent.ReadOnlyBitField>, int, int, System.Span<MonoTorrent.PiecePicking.PieceSegment>)
+  nameWithType.vb: PiecePickerFilter.PickPiece(IRequester, ReadOnlyBitField, ReadOnlySpan(Of ReadOnlyBitField), Integer, Integer, Span(Of PieceSegment))
+  fullName.vb: MonoTorrent.PiecePicking.PiecePickerFilter.PickPiece(MonoTorrent.PiecePicking.IRequester, MonoTorrent.ReadOnlyBitField, System.ReadOnlySpan(Of MonoTorrent.ReadOnlyBitField), Integer, Integer, System.Span(Of MonoTorrent.PiecePicking.PieceSegment))
+  name.vb: PickPiece(IRequester, ReadOnlyBitField, ReadOnlySpan(Of ReadOnlyBitField), Integer, Integer, Span(Of PieceSegment))
+  spec.csharp:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.PickPiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField},System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+    name: PickPiece
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_PickPiece_MonoTorrent_PiecePicking_IRequester_MonoTorrent_ReadOnlyBitField_System_ReadOnlySpan_MonoTorrent_ReadOnlyBitField__System_Int32_System_Int32_System_Span_MonoTorrent_PiecePicking_PieceSegment__
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ReadOnlyBitField
+    name: ReadOnlyBitField
+    href: MonoTorrent.ReadOnlyBitField.html
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: MonoTorrent.ReadOnlyBitField
+    name: ReadOnlyBitField
+    href: MonoTorrent.ReadOnlyBitField.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PiecePicking.PiecePickerFilter.PickPiece(MonoTorrent.PiecePicking.IRequester,MonoTorrent.ReadOnlyBitField,System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField},System.Int32,System.Int32,System.Span{MonoTorrent.PiecePicking.PieceSegment})
+    name: PickPiece
+    href: MonoTorrent.PiecePicking.PiecePickerFilter.html#MonoTorrent_PiecePicking_PiecePickerFilter_PickPiece_MonoTorrent_PiecePicking_IRequester_MonoTorrent_ReadOnlyBitField_System_ReadOnlySpan_MonoTorrent_ReadOnlyBitField__System_Int32_System_Int32_System_Span_MonoTorrent_PiecePicking_PieceSegment__
+  - name: (
+  - uid: MonoTorrent.PiecePicking.IRequester
+    name: IRequester
+    href: MonoTorrent.PiecePicking.IRequester.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.ReadOnlyBitField
+    name: ReadOnlyBitField
+    href: MonoTorrent.ReadOnlyBitField.html
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.ReadOnlyBitField
+    name: ReadOnlyBitField
+    href: MonoTorrent.ReadOnlyBitField.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: )
+  - name: )
+- uid: MonoTorrent.PiecePicking.RandomisedPicker.PickPiece*
+  commentId: Overload:MonoTorrent.PiecePicking.RandomisedPicker.PickPiece
+  href: MonoTorrent.PiecePicking.RandomisedPicker.html#MonoTorrent_PiecePicking_RandomisedPicker_PickPiece_MonoTorrent_PiecePicking_IRequester_MonoTorrent_ReadOnlyBitField_System_ReadOnlySpan_MonoTorrent_ReadOnlyBitField__System_Int32_System_Int32_System_Span_MonoTorrent_PiecePicking_PieceSegment__
+  name: PickPiece
+  nameWithType: RandomisedPicker.PickPiece
+  fullName: MonoTorrent.PiecePicking.RandomisedPicker.PickPiece
+- uid: MonoTorrent.PiecePicking.IRequester
+  commentId: T:MonoTorrent.PiecePicking.IRequester
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.IRequester.html
+  name: IRequester
+  nameWithType: IRequester
+  fullName: MonoTorrent.PiecePicking.IRequester
+- uid: MonoTorrent.ReadOnlyBitField
+  commentId: T:MonoTorrent.ReadOnlyBitField
+  parent: MonoTorrent
+  href: MonoTorrent.ReadOnlyBitField.html
+  name: ReadOnlyBitField
+  nameWithType: ReadOnlyBitField
+  fullName: MonoTorrent.ReadOnlyBitField
+- uid: System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField}
+  commentId: T:System.ReadOnlySpan{MonoTorrent.ReadOnlyBitField}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<ReadOnlyBitField>
+  nameWithType: ReadOnlySpan<ReadOnlyBitField>
+  fullName: System.ReadOnlySpan<MonoTorrent.ReadOnlyBitField>
+  nameWithType.vb: ReadOnlySpan(Of ReadOnlyBitField)
+  fullName.vb: System.ReadOnlySpan(Of MonoTorrent.ReadOnlyBitField)
+  name.vb: ReadOnlySpan(Of ReadOnlyBitField)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: MonoTorrent.ReadOnlyBitField
+    name: ReadOnlyBitField
+    href: MonoTorrent.ReadOnlyBitField.html
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.ReadOnlyBitField
+    name: ReadOnlyBitField
+    href: MonoTorrent.ReadOnlyBitField.html
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Span{MonoTorrent.PiecePicking.PieceSegment}
+  commentId: T:System.Span{MonoTorrent.PiecePicking.PieceSegment}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<PieceSegment>
+  nameWithType: Span<PieceSegment>
+  fullName: System.Span<MonoTorrent.PiecePicking.PieceSegment>
+  nameWithType.vb: Span(Of PieceSegment)
+  fullName.vb: System.Span(Of MonoTorrent.PiecePicking.PieceSegment)
+  name.vb: Span(Of PieceSegment)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.PiecePicking.PieceSegment
+    name: PieceSegment
+    href: MonoTorrent.PiecePicking.PieceSegment.html
+  - name: )
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

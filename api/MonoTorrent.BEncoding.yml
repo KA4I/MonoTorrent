@@ -1,0 +1,93 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.BEncoding
+  commentId: N:MonoTorrent.BEncoding
+  id: MonoTorrent.BEncoding
+  children:
+  - MonoTorrent.BEncoding.BEncodedDictionary
+  - MonoTorrent.BEncoding.BEncodedList
+  - MonoTorrent.BEncoding.BEncodedNumber
+  - MonoTorrent.BEncoding.BEncodedString
+  - MonoTorrent.BEncoding.BEncodedValue
+  - MonoTorrent.BEncoding.BEncodingException
+  - MonoTorrent.BEncoding.RawInfoHashes
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.BEncoding
+  nameWithType: MonoTorrent.BEncoding
+  fullName: MonoTorrent.BEncoding
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.BEncoding.BEncodedDictionary
+  commentId: T:MonoTorrent.BEncoding.BEncodedDictionary
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  name: BEncodedDictionary
+  nameWithType: BEncodedDictionary
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary
+- uid: MonoTorrent.BEncoding.BEncodedList
+  commentId: T:MonoTorrent.BEncoding.BEncodedList
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedList.html
+  name: BEncodedList
+  nameWithType: BEncodedList
+  fullName: MonoTorrent.BEncoding.BEncodedList
+- uid: MonoTorrent.BEncoding.BEncodedNumber
+  commentId: T:MonoTorrent.BEncoding.BEncodedNumber
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedNumber.html
+  name: BEncodedNumber
+  nameWithType: BEncodedNumber
+  fullName: MonoTorrent.BEncoding.BEncodedNumber
+- uid: MonoTorrent.BEncoding.BEncodedString
+  commentId: T:MonoTorrent.BEncoding.BEncodedString
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedString.html
+  name: BEncodedString
+  nameWithType: BEncodedString
+  fullName: MonoTorrent.BEncoding.BEncodedString
+- uid: MonoTorrent.BEncoding.BEncodedValue
+  commentId: T:MonoTorrent.BEncoding.BEncodedValue
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedValue.html
+  name: BEncodedValue
+  nameWithType: BEncodedValue
+  fullName: MonoTorrent.BEncoding.BEncodedValue
+- uid: MonoTorrent.BEncoding.BEncodingException
+  commentId: T:MonoTorrent.BEncoding.BEncodingException
+  href: MonoTorrent.BEncoding.BEncodingException.html
+  name: BEncodingException
+  nameWithType: BEncodingException
+  fullName: MonoTorrent.BEncoding.BEncodingException
+- uid: MonoTorrent.BEncoding.RawInfoHashes
+  commentId: T:MonoTorrent.BEncoding.RawInfoHashes
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.RawInfoHashes.html
+  name: RawInfoHashes
+  nameWithType: RawInfoHashes
+  fullName: MonoTorrent.BEncoding.RawInfoHashes
+- uid: MonoTorrent.BEncoding
+  commentId: N:MonoTorrent.BEncoding
+  href: MonoTorrent.html
+  name: MonoTorrent.BEncoding
+  nameWithType: MonoTorrent.BEncoding
+  fullName: MonoTorrent.BEncoding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html

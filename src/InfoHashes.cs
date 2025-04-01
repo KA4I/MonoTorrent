@@ -38,12 +38,20 @@ using MonoTorrent.BEncoding;
 
 namespace MonoTorrent
 {
+    public enum TorrentProtocol
+    {
+        V1,
+        V2,
+        Hybrid
+    }
+
     public sealed class InfoHashes : IEquatable<InfoHashes>
     {
         public static InfoHashes FromInfoHash (InfoHash infoHash)
         {
             if (infoHash is null)
                 throw new ArgumentNullException (nameof (infoHash));
+
             return infoHash.Span.Length == 20
                 ? InfoHashes.FromV1 (infoHash)
                 : InfoHashes.FromV2 (infoHash);
@@ -55,7 +63,9 @@ namespace MonoTorrent
         public static InfoHashes FromV2 (InfoHash infoHash)
             => new InfoHashes (null, infoHash);
 
-        public bool IsHybrid => !(V1 is null) && !(V2 is null);
+         public bool IsHybrid => !(V1 is null) && !(V2 is null);
+
+        public TorrentProtocol Protocol { get; }
 
         /// <summary>
         /// The SHA1 hash of the torrent's 'info' dictionary. Used by V1 torrents and hybrid v1/v2 torrents.
@@ -81,6 +91,7 @@ namespace MonoTorrent
         {
             V1 = rawInfoHashes.SHA1.IsEmpty ? null : InfoHash.FromMemory (rawInfoHashes.SHA1);
             V2 = rawInfoHashes.SHA256.IsEmpty ? null : InfoHash.FromMemory (rawInfoHashes.SHA256);
+            Protocol = CalculateProtocol (V1, V2);
         }
 
         /// <summary>
@@ -99,6 +110,19 @@ namespace MonoTorrent
 
             V1 = sha1InfoHash;
             V2 = sha256InfoHash;
+            Protocol = CalculateProtocol (V1, V2);
+        }
+
+        static TorrentProtocol CalculateProtocol (InfoHash? v1, InfoHash? v2)
+        {
+            if (v1 != null && v2 != null)
+                return TorrentProtocol.Hybrid;
+            else if (v1 != null)
+                return TorrentProtocol.V1;
+            else if (v2 != null)
+                return TorrentProtocol.V2;
+            else // Should be caught by constructor validation
+                throw new InvalidOperationException ("Cannot calculate protocol with null V1 and V2 hashes.");
         }
 
         public bool Contains (InfoHash infoHash)

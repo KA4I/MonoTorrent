@@ -1,0 +1,2244 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.TorrentCreator
+  commentId: T:MonoTorrent.TorrentCreator
+  id: TorrentCreator
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.TorrentCreator.#ctor
+  - MonoTorrent.TorrentCreator.#ctor(MonoTorrent.Factories)
+  - MonoTorrent.TorrentCreator.#ctor(MonoTorrent.TorrentType)
+  - MonoTorrent.TorrentCreator.#ctor(MonoTorrent.TorrentType,MonoTorrent.Factories)
+  - MonoTorrent.TorrentCreator.Create(MonoTorrent.ITorrentFileSource)
+  - MonoTorrent.TorrentCreator.Create(MonoTorrent.ITorrentFileSource,System.IO.Stream)
+  - MonoTorrent.TorrentCreator.Create(MonoTorrent.ITorrentFileSource,System.String)
+  - MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource)
+  - MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.IO.Stream)
+  - MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.IO.Stream,System.Threading.CancellationToken)
+  - MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.String)
+  - MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.String,System.Threading.CancellationToken)
+  - MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.Threading.CancellationToken)
+  - MonoTorrent.TorrentCreator.GetrightHttpSeeds
+  - MonoTorrent.TorrentCreator.Hashed
+  - MonoTorrent.TorrentCreator.OnHashed(MonoTorrent.TorrentCreatorEventArgs)
+  - MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable{MonoTorrent.FileMapping})
+  - MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable{MonoTorrent.ITorrentManagerFile})
+  - MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable{System.String})
+  - MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Int64)
+  - MonoTorrent.TorrentCreator.StoreMD5
+  - MonoTorrent.TorrentCreator.StoreSHA1
+  - MonoTorrent.TorrentCreator.Type
+  langs:
+  - csharp
+  - vb
+  name: TorrentCreator
+  nameWithType: TorrentCreator
+  fullName: MonoTorrent.TorrentCreator
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentCreator
+    path: src/TorrentCreator.cs
+    startLine: 57
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: 'public class TorrentCreator : EditableTorrent'
+    content.vb: Public Class TorrentCreator Inherits EditableTorrent
+  inheritance:
+  - System.Object
+  - MonoTorrent.EditableTorrent
+  inheritedMembers:
+  - MonoTorrent.EditableTorrent.Announce
+  - MonoTorrent.EditableTorrent.Announces
+  - MonoTorrent.EditableTorrent.CanEditSecureMetadata
+  - MonoTorrent.EditableTorrent.Comment
+  - MonoTorrent.EditableTorrent.CreatedBy
+  - MonoTorrent.EditableTorrent.Encoding
+  - MonoTorrent.EditableTorrent.InfoDict
+  - MonoTorrent.EditableTorrent.Metadata
+  - MonoTorrent.EditableTorrent.Name
+  - MonoTorrent.EditableTorrent.PieceLength
+  - MonoTorrent.EditableTorrent.Private
+  - MonoTorrent.EditableTorrent.Publisher
+  - MonoTorrent.EditableTorrent.PublisherUrl
+  - MonoTorrent.EditableTorrent.CheckCanEditSecure
+  - MonoTorrent.EditableTorrent.GetCustom(MonoTorrent.BEncoding.BEncodedString)
+  - MonoTorrent.EditableTorrent.GetCustomSecure(MonoTorrent.BEncoding.BEncodedString)
+  - MonoTorrent.EditableTorrent.SetCustom(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  - MonoTorrent.EditableTorrent.SetCustomSecure(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  - MonoTorrent.EditableTorrent.RemoveCustom(MonoTorrent.BEncoding.BEncodedString)
+  - MonoTorrent.EditableTorrent.RemoveCustomSecure(MonoTorrent.BEncoding.BEncodedString)
+  - MonoTorrent.EditableTorrent.GetDictionary(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+  - MonoTorrent.EditableTorrent.GetLong(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+  - MonoTorrent.EditableTorrent.GetString(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+  - MonoTorrent.EditableTorrent.SetDictionary(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedDictionary)
+  - MonoTorrent.EditableTorrent.SetLong(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,System.Int64)
+  - MonoTorrent.EditableTorrent.SetString(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,System.String)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Int64)
+  commentId: M:MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Int64)
+  id: RecommendedPieceSize(System.Int64)
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: RecommendedPieceSize(long)
+  nameWithType: TorrentCreator.RecommendedPieceSize(long)
+  fullName: MonoTorrent.TorrentCreator.RecommendedPieceSize(long)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RecommendedPieceSize
+    path: src/TorrentCreator.cs
+    startLine: 94
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static int RecommendedPieceSize(long totalSize)
+    parameters:
+    - id: totalSize
+      type: System.Int64
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RecommendedPieceSize(totalSize As Long) As Integer
+  overload: MonoTorrent.TorrentCreator.RecommendedPieceSize*
+  nameWithType.vb: TorrentCreator.RecommendedPieceSize(Long)
+  fullName.vb: MonoTorrent.TorrentCreator.RecommendedPieceSize(Long)
+  name.vb: RecommendedPieceSize(Long)
+- uid: MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable{System.String})
+  id: RecommendedPieceSize(System.Collections.Generic.IEnumerable{System.String})
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: RecommendedPieceSize(IEnumerable<string>)
+  nameWithType: TorrentCreator.RecommendedPieceSize(IEnumerable<string>)
+  fullName: MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RecommendedPieceSize
+    path: src/TorrentCreator.cs
+    startLine: 110
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static int RecommendedPieceSize(IEnumerable<string> files)
+    parameters:
+    - id: files
+      type: System.Collections.Generic.IEnumerable{System.String}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RecommendedPieceSize(files As IEnumerable(Of String)) As Integer
+  overload: MonoTorrent.TorrentCreator.RecommendedPieceSize*
+  nameWithType.vb: TorrentCreator.RecommendedPieceSize(IEnumerable(Of String))
+  fullName.vb: MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: RecommendedPieceSize(IEnumerable(Of String))
+- uid: MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable{MonoTorrent.ITorrentManagerFile})
+  commentId: M:MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable{MonoTorrent.ITorrentManagerFile})
+  id: RecommendedPieceSize(System.Collections.Generic.IEnumerable{MonoTorrent.ITorrentManagerFile})
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: RecommendedPieceSize(IEnumerable<ITorrentManagerFile>)
+  nameWithType: TorrentCreator.RecommendedPieceSize(IEnumerable<ITorrentManagerFile>)
+  fullName: MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable<MonoTorrent.ITorrentManagerFile>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RecommendedPieceSize
+    path: src/TorrentCreator.cs
+    startLine: 115
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static int RecommendedPieceSize(IEnumerable<ITorrentManagerFile> files)
+    parameters:
+    - id: files
+      type: System.Collections.Generic.IEnumerable{MonoTorrent.ITorrentManagerFile}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RecommendedPieceSize(files As IEnumerable(Of ITorrentManagerFile)) As Integer
+  overload: MonoTorrent.TorrentCreator.RecommendedPieceSize*
+  nameWithType.vb: TorrentCreator.RecommendedPieceSize(IEnumerable(Of ITorrentManagerFile))
+  fullName.vb: MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable(Of MonoTorrent.ITorrentManagerFile))
+  name.vb: RecommendedPieceSize(IEnumerable(Of ITorrentManagerFile))
+- uid: MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable{MonoTorrent.FileMapping})
+  commentId: M:MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable{MonoTorrent.FileMapping})
+  id: RecommendedPieceSize(System.Collections.Generic.IEnumerable{MonoTorrent.FileMapping})
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: RecommendedPieceSize(IEnumerable<FileMapping>)
+  nameWithType: TorrentCreator.RecommendedPieceSize(IEnumerable<FileMapping>)
+  fullName: MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable<MonoTorrent.FileMapping>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RecommendedPieceSize
+    path: src/TorrentCreator.cs
+    startLine: 120
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static int RecommendedPieceSize(IEnumerable<FileMapping> files)
+    parameters:
+    - id: files
+      type: System.Collections.Generic.IEnumerable{MonoTorrent.FileMapping}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RecommendedPieceSize(files As IEnumerable(Of FileMapping)) As Integer
+  overload: MonoTorrent.TorrentCreator.RecommendedPieceSize*
+  nameWithType.vb: TorrentCreator.RecommendedPieceSize(IEnumerable(Of FileMapping))
+  fullName.vb: MonoTorrent.TorrentCreator.RecommendedPieceSize(System.Collections.Generic.IEnumerable(Of MonoTorrent.FileMapping))
+  name.vb: RecommendedPieceSize(IEnumerable(Of FileMapping))
+- uid: MonoTorrent.TorrentCreator.Hashed
+  commentId: E:MonoTorrent.TorrentCreator.Hashed
+  id: Hashed
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: Hashed
+  nameWithType: TorrentCreator.Hashed
+  fullName: MonoTorrent.TorrentCreator.Hashed
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Hashed
+    path: src/TorrentCreator.cs
+    startLine: 125
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public event EventHandler<TorrentCreatorEventArgs>? Hashed
+    return:
+      type: System.EventHandler{MonoTorrent.TorrentCreatorEventArgs}
+    content.vb: Public Event Hashed As EventHandler(Of TorrentCreatorEventArgs)
+- uid: MonoTorrent.TorrentCreator.GetrightHttpSeeds
+  commentId: P:MonoTorrent.TorrentCreator.GetrightHttpSeeds
+  id: GetrightHttpSeeds
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: GetrightHttpSeeds
+  nameWithType: TorrentCreator.GetrightHttpSeeds
+  fullName: MonoTorrent.TorrentCreator.GetrightHttpSeeds
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetrightHttpSeeds
+    path: src/TorrentCreator.cs
+    startLine: 127
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public List<string> GetrightHttpSeeds { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property GetrightHttpSeeds As List(Of String)
+  overload: MonoTorrent.TorrentCreator.GetrightHttpSeeds*
+- uid: MonoTorrent.TorrentCreator.StoreMD5
+  commentId: P:MonoTorrent.TorrentCreator.StoreMD5
+  id: StoreMD5
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: StoreMD5
+  nameWithType: TorrentCreator.StoreMD5
+  fullName: MonoTorrent.TorrentCreator.StoreMD5
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StoreMD5
+    path: src/TorrentCreator.cs
+    startLine: 133
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: >-
+    An MD5 checksum will be generated for each file when this is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+
+    Defaults to false.
+  example: []
+  syntax:
+    content: public bool StoreMD5 { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property StoreMD5 As Boolean
+  overload: MonoTorrent.TorrentCreator.StoreMD5*
+- uid: MonoTorrent.TorrentCreator.StoreSHA1
+  commentId: P:MonoTorrent.TorrentCreator.StoreSHA1
+  id: StoreSHA1
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: StoreSHA1
+  nameWithType: TorrentCreator.StoreSHA1
+  fullName: MonoTorrent.TorrentCreator.StoreSHA1
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StoreSHA1
+    path: src/TorrentCreator.cs
+    startLine: 139
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: >-
+    A SHA1 checksum will be generated for each file when this is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>. This is required for BEP47.
+
+    Defaults to false.
+  example: []
+  syntax:
+    content: public bool StoreSHA1 { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property StoreSHA1 As Boolean
+  overload: MonoTorrent.TorrentCreator.StoreSHA1*
+- uid: MonoTorrent.TorrentCreator.Type
+  commentId: P:MonoTorrent.TorrentCreator.Type
+  id: Type
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: TorrentCreator.Type
+  fullName: MonoTorrent.TorrentCreator.Type
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Type
+    path: src/TorrentCreator.cs
+    startLine: 144
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Determines whether
+  example: []
+  syntax:
+    content: public TorrentType Type { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.TorrentType
+    content.vb: Public ReadOnly Property Type As TorrentType
+  overload: MonoTorrent.TorrentCreator.Type*
+- uid: MonoTorrent.TorrentCreator.#ctor
+  commentId: M:MonoTorrent.TorrentCreator.#ctor
+  id: '#ctor'
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: TorrentCreator()
+  nameWithType: TorrentCreator.TorrentCreator()
+  fullName: MonoTorrent.TorrentCreator.TorrentCreator()
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/TorrentCreator.cs
+    startLine: 160
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public TorrentCreator()
+    content.vb: Public Sub New()
+  overload: MonoTorrent.TorrentCreator.#ctor*
+  nameWithType.vb: TorrentCreator.New()
+  fullName.vb: MonoTorrent.TorrentCreator.New()
+  name.vb: New()
+- uid: MonoTorrent.TorrentCreator.#ctor(MonoTorrent.TorrentType)
+  commentId: M:MonoTorrent.TorrentCreator.#ctor(MonoTorrent.TorrentType)
+  id: '#ctor(MonoTorrent.TorrentType)'
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: TorrentCreator(TorrentType)
+  nameWithType: TorrentCreator.TorrentCreator(TorrentType)
+  fullName: MonoTorrent.TorrentCreator.TorrentCreator(MonoTorrent.TorrentType)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/TorrentCreator.cs
+    startLine: 165
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public TorrentCreator(TorrentType type)
+    parameters:
+    - id: type
+      type: MonoTorrent.TorrentType
+    content.vb: Public Sub New(type As TorrentType)
+  overload: MonoTorrent.TorrentCreator.#ctor*
+  nameWithType.vb: TorrentCreator.New(TorrentType)
+  fullName.vb: MonoTorrent.TorrentCreator.New(MonoTorrent.TorrentType)
+  name.vb: New(TorrentType)
+- uid: MonoTorrent.TorrentCreator.#ctor(MonoTorrent.Factories)
+  commentId: M:MonoTorrent.TorrentCreator.#ctor(MonoTorrent.Factories)
+  id: '#ctor(MonoTorrent.Factories)'
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: TorrentCreator(Factories)
+  nameWithType: TorrentCreator.TorrentCreator(Factories)
+  fullName: MonoTorrent.TorrentCreator.TorrentCreator(MonoTorrent.Factories)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/TorrentCreator.cs
+    startLine: 170
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public TorrentCreator(Factories factories)
+    parameters:
+    - id: factories
+      type: MonoTorrent.Factories
+    content.vb: Public Sub New(factories As Factories)
+  overload: MonoTorrent.TorrentCreator.#ctor*
+  nameWithType.vb: TorrentCreator.New(Factories)
+  fullName.vb: MonoTorrent.TorrentCreator.New(MonoTorrent.Factories)
+  name.vb: New(Factories)
+- uid: MonoTorrent.TorrentCreator.#ctor(MonoTorrent.TorrentType,MonoTorrent.Factories)
+  commentId: M:MonoTorrent.TorrentCreator.#ctor(MonoTorrent.TorrentType,MonoTorrent.Factories)
+  id: '#ctor(MonoTorrent.TorrentType,MonoTorrent.Factories)'
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: TorrentCreator(TorrentType, Factories)
+  nameWithType: TorrentCreator.TorrentCreator(TorrentType, Factories)
+  fullName: MonoTorrent.TorrentCreator.TorrentCreator(MonoTorrent.TorrentType, MonoTorrent.Factories)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/TorrentCreator.cs
+    startLine: 175
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public TorrentCreator(TorrentType type, Factories factories)
+    parameters:
+    - id: type
+      type: MonoTorrent.TorrentType
+    - id: factories
+      type: MonoTorrent.Factories
+    content.vb: Public Sub New(type As TorrentType, factories As Factories)
+  overload: MonoTorrent.TorrentCreator.#ctor*
+  nameWithType.vb: TorrentCreator.New(TorrentType, Factories)
+  fullName.vb: MonoTorrent.TorrentCreator.New(MonoTorrent.TorrentType, MonoTorrent.Factories)
+  name.vb: New(TorrentType, Factories)
+- uid: MonoTorrent.TorrentCreator.Create(MonoTorrent.ITorrentFileSource)
+  commentId: M:MonoTorrent.TorrentCreator.Create(MonoTorrent.ITorrentFileSource)
+  id: Create(MonoTorrent.ITorrentFileSource)
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: Create(ITorrentFileSource)
+  nameWithType: TorrentCreator.Create(ITorrentFileSource)
+  fullName: MonoTorrent.TorrentCreator.Create(MonoTorrent.ITorrentFileSource)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Create
+    path: src/TorrentCreator.cs
+    startLine: 184
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public BEncodedDictionary Create(ITorrentFileSource fileSource)
+    parameters:
+    - id: fileSource
+      type: MonoTorrent.ITorrentFileSource
+    return:
+      type: MonoTorrent.BEncoding.BEncodedDictionary
+    content.vb: Public Function Create(fileSource As ITorrentFileSource) As BEncodedDictionary
+  overload: MonoTorrent.TorrentCreator.Create*
+- uid: MonoTorrent.TorrentCreator.Create(MonoTorrent.ITorrentFileSource,System.IO.Stream)
+  commentId: M:MonoTorrent.TorrentCreator.Create(MonoTorrent.ITorrentFileSource,System.IO.Stream)
+  id: Create(MonoTorrent.ITorrentFileSource,System.IO.Stream)
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: Create(ITorrentFileSource, Stream)
+  nameWithType: TorrentCreator.Create(ITorrentFileSource, Stream)
+  fullName: MonoTorrent.TorrentCreator.Create(MonoTorrent.ITorrentFileSource, System.IO.Stream)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Create
+    path: src/TorrentCreator.cs
+    startLine: 192
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public void Create(ITorrentFileSource fileSource, Stream stream)
+    parameters:
+    - id: fileSource
+      type: MonoTorrent.ITorrentFileSource
+    - id: stream
+      type: System.IO.Stream
+    content.vb: Public Sub Create(fileSource As ITorrentFileSource, stream As Stream)
+  overload: MonoTorrent.TorrentCreator.Create*
+- uid: MonoTorrent.TorrentCreator.Create(MonoTorrent.ITorrentFileSource,System.String)
+  commentId: M:MonoTorrent.TorrentCreator.Create(MonoTorrent.ITorrentFileSource,System.String)
+  id: Create(MonoTorrent.ITorrentFileSource,System.String)
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: Create(ITorrentFileSource, string)
+  nameWithType: TorrentCreator.Create(ITorrentFileSource, string)
+  fullName: MonoTorrent.TorrentCreator.Create(MonoTorrent.ITorrentFileSource, string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Create
+    path: src/TorrentCreator.cs
+    startLine: 197
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public void Create(ITorrentFileSource fileSource, string savePath)
+    parameters:
+    - id: fileSource
+      type: MonoTorrent.ITorrentFileSource
+    - id: savePath
+      type: System.String
+    content.vb: Public Sub Create(fileSource As ITorrentFileSource, savePath As String)
+  overload: MonoTorrent.TorrentCreator.Create*
+  nameWithType.vb: TorrentCreator.Create(ITorrentFileSource, String)
+  fullName.vb: MonoTorrent.TorrentCreator.Create(MonoTorrent.ITorrentFileSource, String)
+  name.vb: Create(ITorrentFileSource, String)
+- uid: MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource)
+  commentId: M:MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource)
+  id: CreateAsync(MonoTorrent.ITorrentFileSource)
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(ITorrentFileSource)
+  nameWithType: TorrentCreator.CreateAsync(ITorrentFileSource)
+  fullName: MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateAsync
+    path: src/TorrentCreator.cs
+    startLine: 202
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Task<BEncodedDictionary> CreateAsync(ITorrentFileSource fileSource)
+    parameters:
+    - id: fileSource
+      type: MonoTorrent.ITorrentFileSource
+    return:
+      type: System.Threading.Tasks.Task{MonoTorrent.BEncoding.BEncodedDictionary}
+    content.vb: Public Function CreateAsync(fileSource As ITorrentFileSource) As Task(Of BEncodedDictionary)
+  overload: MonoTorrent.TorrentCreator.CreateAsync*
+- uid: MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.IO.Stream)
+  commentId: M:MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.IO.Stream)
+  id: CreateAsync(MonoTorrent.ITorrentFileSource,System.IO.Stream)
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(ITorrentFileSource, Stream)
+  nameWithType: TorrentCreator.CreateAsync(ITorrentFileSource, Stream)
+  fullName: MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource, System.IO.Stream)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateAsync
+    path: src/TorrentCreator.cs
+    startLine: 207
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Task CreateAsync(ITorrentFileSource fileSource, Stream stream)
+    parameters:
+    - id: fileSource
+      type: MonoTorrent.ITorrentFileSource
+    - id: stream
+      type: System.IO.Stream
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function CreateAsync(fileSource As ITorrentFileSource, stream As Stream) As Task
+  overload: MonoTorrent.TorrentCreator.CreateAsync*
+- uid: MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.IO.Stream,System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.IO.Stream,System.Threading.CancellationToken)
+  id: CreateAsync(MonoTorrent.ITorrentFileSource,System.IO.Stream,System.Threading.CancellationToken)
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(ITorrentFileSource, Stream, CancellationToken)
+  nameWithType: TorrentCreator.CreateAsync(ITorrentFileSource, Stream, CancellationToken)
+  fullName: MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource, System.IO.Stream, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateAsync
+    path: src/TorrentCreator.cs
+    startLine: 212
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Task CreateAsync(ITorrentFileSource fileSource, Stream stream, CancellationToken token)
+    parameters:
+    - id: fileSource
+      type: MonoTorrent.ITorrentFileSource
+    - id: stream
+      type: System.IO.Stream
+    - id: token
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function CreateAsync(fileSource As ITorrentFileSource, stream As Stream, token As CancellationToken) As Task
+  overload: MonoTorrent.TorrentCreator.CreateAsync*
+- uid: MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.String)
+  commentId: M:MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.String)
+  id: CreateAsync(MonoTorrent.ITorrentFileSource,System.String)
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(ITorrentFileSource, string)
+  nameWithType: TorrentCreator.CreateAsync(ITorrentFileSource, string)
+  fullName: MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource, string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateAsync
+    path: src/TorrentCreator.cs
+    startLine: 221
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Task CreateAsync(ITorrentFileSource fileSource, string savePath)
+    parameters:
+    - id: fileSource
+      type: MonoTorrent.ITorrentFileSource
+    - id: savePath
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function CreateAsync(fileSource As ITorrentFileSource, savePath As String) As Task
+  overload: MonoTorrent.TorrentCreator.CreateAsync*
+  nameWithType.vb: TorrentCreator.CreateAsync(ITorrentFileSource, String)
+  fullName.vb: MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource, String)
+  name.vb: CreateAsync(ITorrentFileSource, String)
+- uid: MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.String,System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.String,System.Threading.CancellationToken)
+  id: CreateAsync(MonoTorrent.ITorrentFileSource,System.String,System.Threading.CancellationToken)
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(ITorrentFileSource, string, CancellationToken)
+  nameWithType: TorrentCreator.CreateAsync(ITorrentFileSource, string, CancellationToken)
+  fullName: MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateAsync
+    path: src/TorrentCreator.cs
+    startLine: 226
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Task CreateAsync(ITorrentFileSource fileSource, string savePath, CancellationToken token)
+    parameters:
+    - id: fileSource
+      type: MonoTorrent.ITorrentFileSource
+    - id: savePath
+      type: System.String
+    - id: token
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function CreateAsync(fileSource As ITorrentFileSource, savePath As String, token As CancellationToken) As Task
+  overload: MonoTorrent.TorrentCreator.CreateAsync*
+  nameWithType.vb: TorrentCreator.CreateAsync(ITorrentFileSource, String, CancellationToken)
+  fullName.vb: MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource, String, System.Threading.CancellationToken)
+  name.vb: CreateAsync(ITorrentFileSource, String, CancellationToken)
+- uid: MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource,System.Threading.CancellationToken)
+  id: CreateAsync(MonoTorrent.ITorrentFileSource,System.Threading.CancellationToken)
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(ITorrentFileSource, CancellationToken)
+  nameWithType: TorrentCreator.CreateAsync(ITorrentFileSource, CancellationToken)
+  fullName: MonoTorrent.TorrentCreator.CreateAsync(MonoTorrent.ITorrentFileSource, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateAsync
+    path: src/TorrentCreator.cs
+    startLine: 234
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Task<BEncodedDictionary> CreateAsync(ITorrentFileSource fileSource, CancellationToken token)
+    parameters:
+    - id: fileSource
+      type: MonoTorrent.ITorrentFileSource
+    - id: token
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{MonoTorrent.BEncoding.BEncodedDictionary}
+    content.vb: Public Function CreateAsync(fileSource As ITorrentFileSource, token As CancellationToken) As Task(Of BEncodedDictionary)
+  overload: MonoTorrent.TorrentCreator.CreateAsync*
+- uid: MonoTorrent.TorrentCreator.OnHashed(MonoTorrent.TorrentCreatorEventArgs)
+  commentId: M:MonoTorrent.TorrentCreator.OnHashed(MonoTorrent.TorrentCreatorEventArgs)
+  id: OnHashed(MonoTorrent.TorrentCreatorEventArgs)
+  parent: MonoTorrent.TorrentCreator
+  langs:
+  - csharp
+  - vb
+  name: OnHashed(TorrentCreatorEventArgs)
+  nameWithType: TorrentCreator.OnHashed(TorrentCreatorEventArgs)
+  fullName: MonoTorrent.TorrentCreator.OnHashed(MonoTorrent.TorrentCreatorEventArgs)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentCreator.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: OnHashed
+    path: src/TorrentCreator.cs
+    startLine: 491
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: protected virtual void OnHashed(TorrentCreatorEventArgs args)
+    parameters:
+    - id: args
+      type: MonoTorrent.TorrentCreatorEventArgs
+    content.vb: Protected Overridable Sub OnHashed(args As TorrentCreatorEventArgs)
+  overload: MonoTorrent.TorrentCreator.OnHashed*
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MonoTorrent.EditableTorrent
+  commentId: T:MonoTorrent.EditableTorrent
+  parent: MonoTorrent
+  href: MonoTorrent.EditableTorrent.html
+  name: EditableTorrent
+  nameWithType: EditableTorrent
+  fullName: MonoTorrent.EditableTorrent
+- uid: MonoTorrent.EditableTorrent.Announce
+  commentId: P:MonoTorrent.EditableTorrent.Announce
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_Announce
+  name: Announce
+  nameWithType: EditableTorrent.Announce
+  fullName: MonoTorrent.EditableTorrent.Announce
+- uid: MonoTorrent.EditableTorrent.Announces
+  commentId: P:MonoTorrent.EditableTorrent.Announces
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_Announces
+  name: Announces
+  nameWithType: EditableTorrent.Announces
+  fullName: MonoTorrent.EditableTorrent.Announces
+- uid: MonoTorrent.EditableTorrent.CanEditSecureMetadata
+  commentId: P:MonoTorrent.EditableTorrent.CanEditSecureMetadata
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_CanEditSecureMetadata
+  name: CanEditSecureMetadata
+  nameWithType: EditableTorrent.CanEditSecureMetadata
+  fullName: MonoTorrent.EditableTorrent.CanEditSecureMetadata
+- uid: MonoTorrent.EditableTorrent.Comment
+  commentId: P:MonoTorrent.EditableTorrent.Comment
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_Comment
+  name: Comment
+  nameWithType: EditableTorrent.Comment
+  fullName: MonoTorrent.EditableTorrent.Comment
+- uid: MonoTorrent.EditableTorrent.CreatedBy
+  commentId: P:MonoTorrent.EditableTorrent.CreatedBy
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_CreatedBy
+  name: CreatedBy
+  nameWithType: EditableTorrent.CreatedBy
+  fullName: MonoTorrent.EditableTorrent.CreatedBy
+- uid: MonoTorrent.EditableTorrent.Encoding
+  commentId: P:MonoTorrent.EditableTorrent.Encoding
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_Encoding
+  name: Encoding
+  nameWithType: EditableTorrent.Encoding
+  fullName: MonoTorrent.EditableTorrent.Encoding
+- uid: MonoTorrent.EditableTorrent.InfoDict
+  commentId: P:MonoTorrent.EditableTorrent.InfoDict
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_InfoDict
+  name: InfoDict
+  nameWithType: EditableTorrent.InfoDict
+  fullName: MonoTorrent.EditableTorrent.InfoDict
+- uid: MonoTorrent.EditableTorrent.Metadata
+  commentId: P:MonoTorrent.EditableTorrent.Metadata
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_Metadata
+  name: Metadata
+  nameWithType: EditableTorrent.Metadata
+  fullName: MonoTorrent.EditableTorrent.Metadata
+- uid: MonoTorrent.EditableTorrent.Name
+  commentId: P:MonoTorrent.EditableTorrent.Name
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_Name
+  name: Name
+  nameWithType: EditableTorrent.Name
+  fullName: MonoTorrent.EditableTorrent.Name
+- uid: MonoTorrent.EditableTorrent.PieceLength
+  commentId: P:MonoTorrent.EditableTorrent.PieceLength
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_PieceLength
+  name: PieceLength
+  nameWithType: EditableTorrent.PieceLength
+  fullName: MonoTorrent.EditableTorrent.PieceLength
+- uid: MonoTorrent.EditableTorrent.Private
+  commentId: P:MonoTorrent.EditableTorrent.Private
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_Private
+  name: Private
+  nameWithType: EditableTorrent.Private
+  fullName: MonoTorrent.EditableTorrent.Private
+- uid: MonoTorrent.EditableTorrent.Publisher
+  commentId: P:MonoTorrent.EditableTorrent.Publisher
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_Publisher
+  name: Publisher
+  nameWithType: EditableTorrent.Publisher
+  fullName: MonoTorrent.EditableTorrent.Publisher
+- uid: MonoTorrent.EditableTorrent.PublisherUrl
+  commentId: P:MonoTorrent.EditableTorrent.PublisherUrl
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_PublisherUrl
+  name: PublisherUrl
+  nameWithType: EditableTorrent.PublisherUrl
+  fullName: MonoTorrent.EditableTorrent.PublisherUrl
+- uid: MonoTorrent.EditableTorrent.CheckCanEditSecure
+  commentId: M:MonoTorrent.EditableTorrent.CheckCanEditSecure
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_CheckCanEditSecure
+  name: CheckCanEditSecure()
+  nameWithType: EditableTorrent.CheckCanEditSecure()
+  fullName: MonoTorrent.EditableTorrent.CheckCanEditSecure()
+  spec.csharp:
+  - uid: MonoTorrent.EditableTorrent.CheckCanEditSecure
+    name: CheckCanEditSecure
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_CheckCanEditSecure
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.EditableTorrent.CheckCanEditSecure
+    name: CheckCanEditSecure
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_CheckCanEditSecure
+  - name: (
+  - name: )
+- uid: MonoTorrent.EditableTorrent.GetCustom(MonoTorrent.BEncoding.BEncodedString)
+  commentId: M:MonoTorrent.EditableTorrent.GetCustom(MonoTorrent.BEncoding.BEncodedString)
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetCustom_MonoTorrent_BEncoding_BEncodedString_
+  name: GetCustom(BEncodedString)
+  nameWithType: EditableTorrent.GetCustom(BEncodedString)
+  fullName: MonoTorrent.EditableTorrent.GetCustom(MonoTorrent.BEncoding.BEncodedString)
+  spec.csharp:
+  - uid: MonoTorrent.EditableTorrent.GetCustom(MonoTorrent.BEncoding.BEncodedString)
+    name: GetCustom
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetCustom_MonoTorrent_BEncoding_BEncodedString_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.EditableTorrent.GetCustom(MonoTorrent.BEncoding.BEncodedString)
+    name: GetCustom
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetCustom_MonoTorrent_BEncoding_BEncodedString_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+- uid: MonoTorrent.EditableTorrent.GetCustomSecure(MonoTorrent.BEncoding.BEncodedString)
+  commentId: M:MonoTorrent.EditableTorrent.GetCustomSecure(MonoTorrent.BEncoding.BEncodedString)
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetCustomSecure_MonoTorrent_BEncoding_BEncodedString_
+  name: GetCustomSecure(BEncodedString)
+  nameWithType: EditableTorrent.GetCustomSecure(BEncodedString)
+  fullName: MonoTorrent.EditableTorrent.GetCustomSecure(MonoTorrent.BEncoding.BEncodedString)
+  spec.csharp:
+  - uid: MonoTorrent.EditableTorrent.GetCustomSecure(MonoTorrent.BEncoding.BEncodedString)
+    name: GetCustomSecure
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetCustomSecure_MonoTorrent_BEncoding_BEncodedString_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.EditableTorrent.GetCustomSecure(MonoTorrent.BEncoding.BEncodedString)
+    name: GetCustomSecure
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetCustomSecure_MonoTorrent_BEncoding_BEncodedString_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+- uid: MonoTorrent.EditableTorrent.SetCustom(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  commentId: M:MonoTorrent.EditableTorrent.SetCustom(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetCustom_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_BEncoding_BEncodedValue_
+  name: SetCustom(BEncodedString, BEncodedValue)
+  nameWithType: EditableTorrent.SetCustom(BEncodedString, BEncodedValue)
+  fullName: MonoTorrent.EditableTorrent.SetCustom(MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)
+  spec.csharp:
+  - uid: MonoTorrent.EditableTorrent.SetCustom(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+    name: SetCustom
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetCustom_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_BEncoding_BEncodedValue_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.EditableTorrent.SetCustom(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+    name: SetCustom
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetCustom_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_BEncoding_BEncodedValue_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+- uid: MonoTorrent.EditableTorrent.SetCustomSecure(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  commentId: M:MonoTorrent.EditableTorrent.SetCustomSecure(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetCustomSecure_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_BEncoding_BEncodedValue_
+  name: SetCustomSecure(BEncodedString, BEncodedValue)
+  nameWithType: EditableTorrent.SetCustomSecure(BEncodedString, BEncodedValue)
+  fullName: MonoTorrent.EditableTorrent.SetCustomSecure(MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedValue)
+  spec.csharp:
+  - uid: MonoTorrent.EditableTorrent.SetCustomSecure(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+    name: SetCustomSecure
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetCustomSecure_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_BEncoding_BEncodedValue_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.EditableTorrent.SetCustomSecure(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedValue)
+    name: SetCustomSecure
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetCustomSecure_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_BEncoding_BEncodedValue_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedValue
+    name: BEncodedValue
+    href: MonoTorrent.BEncoding.BEncodedValue.html
+  - name: )
+- uid: MonoTorrent.EditableTorrent.RemoveCustom(MonoTorrent.BEncoding.BEncodedString)
+  commentId: M:MonoTorrent.EditableTorrent.RemoveCustom(MonoTorrent.BEncoding.BEncodedString)
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_RemoveCustom_MonoTorrent_BEncoding_BEncodedString_
+  name: RemoveCustom(BEncodedString)
+  nameWithType: EditableTorrent.RemoveCustom(BEncodedString)
+  fullName: MonoTorrent.EditableTorrent.RemoveCustom(MonoTorrent.BEncoding.BEncodedString)
+  spec.csharp:
+  - uid: MonoTorrent.EditableTorrent.RemoveCustom(MonoTorrent.BEncoding.BEncodedString)
+    name: RemoveCustom
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_RemoveCustom_MonoTorrent_BEncoding_BEncodedString_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.EditableTorrent.RemoveCustom(MonoTorrent.BEncoding.BEncodedString)
+    name: RemoveCustom
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_RemoveCustom_MonoTorrent_BEncoding_BEncodedString_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+- uid: MonoTorrent.EditableTorrent.RemoveCustomSecure(MonoTorrent.BEncoding.BEncodedString)
+  commentId: M:MonoTorrent.EditableTorrent.RemoveCustomSecure(MonoTorrent.BEncoding.BEncodedString)
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_RemoveCustomSecure_MonoTorrent_BEncoding_BEncodedString_
+  name: RemoveCustomSecure(BEncodedString)
+  nameWithType: EditableTorrent.RemoveCustomSecure(BEncodedString)
+  fullName: MonoTorrent.EditableTorrent.RemoveCustomSecure(MonoTorrent.BEncoding.BEncodedString)
+  spec.csharp:
+  - uid: MonoTorrent.EditableTorrent.RemoveCustomSecure(MonoTorrent.BEncoding.BEncodedString)
+    name: RemoveCustomSecure
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_RemoveCustomSecure_MonoTorrent_BEncoding_BEncodedString_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.EditableTorrent.RemoveCustomSecure(MonoTorrent.BEncoding.BEncodedString)
+    name: RemoveCustomSecure
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_RemoveCustomSecure_MonoTorrent_BEncoding_BEncodedString_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+- uid: MonoTorrent.EditableTorrent.GetDictionary(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+  commentId: M:MonoTorrent.EditableTorrent.GetDictionary(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetDictionary_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_
+  name: GetDictionary(BEncodedDictionary, BEncodedString)
+  nameWithType: EditableTorrent.GetDictionary(BEncodedDictionary, BEncodedString)
+  fullName: MonoTorrent.EditableTorrent.GetDictionary(MonoTorrent.BEncoding.BEncodedDictionary, MonoTorrent.BEncoding.BEncodedString)
+  spec.csharp:
+  - uid: MonoTorrent.EditableTorrent.GetDictionary(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+    name: GetDictionary
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetDictionary_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.EditableTorrent.GetDictionary(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+    name: GetDictionary
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetDictionary_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+- uid: MonoTorrent.EditableTorrent.GetLong(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+  commentId: M:MonoTorrent.EditableTorrent.GetLong(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetLong_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_
+  name: GetLong(BEncodedDictionary, BEncodedString)
+  nameWithType: EditableTorrent.GetLong(BEncodedDictionary, BEncodedString)
+  fullName: MonoTorrent.EditableTorrent.GetLong(MonoTorrent.BEncoding.BEncodedDictionary, MonoTorrent.BEncoding.BEncodedString)
+  spec.csharp:
+  - uid: MonoTorrent.EditableTorrent.GetLong(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+    name: GetLong
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetLong_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.EditableTorrent.GetLong(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+    name: GetLong
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetLong_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+- uid: MonoTorrent.EditableTorrent.GetString(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+  commentId: M:MonoTorrent.EditableTorrent.GetString(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetString_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_
+  name: GetString(BEncodedDictionary, BEncodedString)
+  nameWithType: EditableTorrent.GetString(BEncodedDictionary, BEncodedString)
+  fullName: MonoTorrent.EditableTorrent.GetString(MonoTorrent.BEncoding.BEncodedDictionary, MonoTorrent.BEncoding.BEncodedString)
+  spec.csharp:
+  - uid: MonoTorrent.EditableTorrent.GetString(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+    name: GetString
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetString_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.EditableTorrent.GetString(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString)
+    name: GetString
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_GetString_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+- uid: MonoTorrent.EditableTorrent.SetDictionary(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedDictionary)
+  commentId: M:MonoTorrent.EditableTorrent.SetDictionary(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedDictionary)
+  parent: MonoTorrent.EditableTorrent
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetDictionary_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_BEncoding_BEncodedDictionary_
+  name: SetDictionary(BEncodedDictionary, BEncodedString, BEncodedDictionary)
+  nameWithType: EditableTorrent.SetDictionary(BEncodedDictionary, BEncodedString, BEncodedDictionary)
+  fullName: MonoTorrent.EditableTorrent.SetDictionary(MonoTorrent.BEncoding.BEncodedDictionary, MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedDictionary)
+  spec.csharp:
+  - uid: MonoTorrent.EditableTorrent.SetDictionary(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedDictionary)
+    name: SetDictionary
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetDictionary_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_BEncoding_BEncodedDictionary_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.EditableTorrent.SetDictionary(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedDictionary)
+    name: SetDictionary
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetDictionary_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_BEncoding_BEncodedDictionary_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: )
+- uid: MonoTorrent.EditableTorrent.SetLong(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,System.Int64)
+  commentId: M:MonoTorrent.EditableTorrent.SetLong(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,System.Int64)
+  parent: MonoTorrent.EditableTorrent
+  isExternal: true
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetLong_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_System_Int64_
+  name: SetLong(BEncodedDictionary, BEncodedString, long)
+  nameWithType: EditableTorrent.SetLong(BEncodedDictionary, BEncodedString, long)
+  fullName: MonoTorrent.EditableTorrent.SetLong(MonoTorrent.BEncoding.BEncodedDictionary, MonoTorrent.BEncoding.BEncodedString, long)
+  nameWithType.vb: EditableTorrent.SetLong(BEncodedDictionary, BEncodedString, Long)
+  fullName.vb: MonoTorrent.EditableTorrent.SetLong(MonoTorrent.BEncoding.BEncodedDictionary, MonoTorrent.BEncoding.BEncodedString, Long)
+  name.vb: SetLong(BEncodedDictionary, BEncodedString, Long)
+  spec.csharp:
+  - uid: MonoTorrent.EditableTorrent.SetLong(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,System.Int64)
+    name: SetLong
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetLong_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_System_Int64_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.EditableTorrent.SetLong(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,System.Int64)
+    name: SetLong
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetLong_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_System_Int64_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+- uid: MonoTorrent.EditableTorrent.SetString(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,System.String)
+  commentId: M:MonoTorrent.EditableTorrent.SetString(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,System.String)
+  parent: MonoTorrent.EditableTorrent
+  isExternal: true
+  href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetString_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_System_String_
+  name: SetString(BEncodedDictionary, BEncodedString, string)
+  nameWithType: EditableTorrent.SetString(BEncodedDictionary, BEncodedString, string)
+  fullName: MonoTorrent.EditableTorrent.SetString(MonoTorrent.BEncoding.BEncodedDictionary, MonoTorrent.BEncoding.BEncodedString, string)
+  nameWithType.vb: EditableTorrent.SetString(BEncodedDictionary, BEncodedString, String)
+  fullName.vb: MonoTorrent.EditableTorrent.SetString(MonoTorrent.BEncoding.BEncodedDictionary, MonoTorrent.BEncoding.BEncodedString, String)
+  name.vb: SetString(BEncodedDictionary, BEncodedString, String)
+  spec.csharp:
+  - uid: MonoTorrent.EditableTorrent.SetString(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,System.String)
+    name: SetString
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetString_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_System_String_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.EditableTorrent.SetString(MonoTorrent.BEncoding.BEncodedDictionary,MonoTorrent.BEncoding.BEncodedString,System.String)
+    name: SetString
+    href: MonoTorrent.EditableTorrent.html#MonoTorrent_EditableTorrent_SetString_MonoTorrent_BEncoding_BEncodedDictionary_MonoTorrent_BEncoding_BEncodedString_System_String_
+  - name: (
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.TorrentCreator.RecommendedPieceSize*
+  commentId: Overload:MonoTorrent.TorrentCreator.RecommendedPieceSize
+  href: MonoTorrent.TorrentCreator.html#MonoTorrent_TorrentCreator_RecommendedPieceSize_System_Int64_
+  name: RecommendedPieceSize
+  nameWithType: TorrentCreator.RecommendedPieceSize
+  fullName: MonoTorrent.TorrentCreator.RecommendedPieceSize
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.IEnumerable{MonoTorrent.ITorrentManagerFile}
+  commentId: T:System.Collections.Generic.IEnumerable{MonoTorrent.ITorrentManagerFile}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<ITorrentManagerFile>
+  nameWithType: IEnumerable<ITorrentManagerFile>
+  fullName: System.Collections.Generic.IEnumerable<MonoTorrent.ITorrentManagerFile>
+  nameWithType.vb: IEnumerable(Of ITorrentManagerFile)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of MonoTorrent.ITorrentManagerFile)
+  name.vb: IEnumerable(Of ITorrentManagerFile)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerFile
+    name: ITorrentManagerFile
+    href: MonoTorrent.ITorrentManagerFile.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{MonoTorrent.FileMapping}
+  commentId: T:System.Collections.Generic.IEnumerable{MonoTorrent.FileMapping}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<FileMapping>
+  nameWithType: IEnumerable<FileMapping>
+  fullName: System.Collections.Generic.IEnumerable<MonoTorrent.FileMapping>
+  nameWithType.vb: IEnumerable(Of FileMapping)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of MonoTorrent.FileMapping)
+  name.vb: IEnumerable(Of FileMapping)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: MonoTorrent.FileMapping
+    name: FileMapping
+    href: MonoTorrent.FileMapping.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.FileMapping
+    name: FileMapping
+    href: MonoTorrent.FileMapping.html
+  - name: )
+- uid: System.EventHandler{MonoTorrent.TorrentCreatorEventArgs}
+  commentId: T:System.EventHandler{MonoTorrent.TorrentCreatorEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TorrentCreatorEventArgs>
+  nameWithType: EventHandler<TorrentCreatorEventArgs>
+  fullName: System.EventHandler<MonoTorrent.TorrentCreatorEventArgs>
+  nameWithType.vb: EventHandler(Of TorrentCreatorEventArgs)
+  fullName.vb: System.EventHandler(Of MonoTorrent.TorrentCreatorEventArgs)
+  name.vb: EventHandler(Of TorrentCreatorEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.TorrentCreatorEventArgs
+    name: TorrentCreatorEventArgs
+    href: MonoTorrent.TorrentCreatorEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.TorrentCreatorEventArgs
+    name: TorrentCreatorEventArgs
+    href: MonoTorrent.TorrentCreatorEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: MonoTorrent.TorrentCreator.GetrightHttpSeeds*
+  commentId: Overload:MonoTorrent.TorrentCreator.GetrightHttpSeeds
+  href: MonoTorrent.TorrentCreator.html#MonoTorrent_TorrentCreator_GetrightHttpSeeds
+  name: GetrightHttpSeeds
+  nameWithType: TorrentCreator.GetrightHttpSeeds
+  fullName: MonoTorrent.TorrentCreator.GetrightHttpSeeds
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.TorrentCreator.StoreMD5*
+  commentId: Overload:MonoTorrent.TorrentCreator.StoreMD5
+  href: MonoTorrent.TorrentCreator.html#MonoTorrent_TorrentCreator_StoreMD5
+  name: StoreMD5
+  nameWithType: TorrentCreator.StoreMD5
+  fullName: MonoTorrent.TorrentCreator.StoreMD5
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.TorrentCreator.StoreSHA1*
+  commentId: Overload:MonoTorrent.TorrentCreator.StoreSHA1
+  href: MonoTorrent.TorrentCreator.html#MonoTorrent_TorrentCreator_StoreSHA1
+  name: StoreSHA1
+  nameWithType: TorrentCreator.StoreSHA1
+  fullName: MonoTorrent.TorrentCreator.StoreSHA1
+- uid: MonoTorrent.TorrentCreator.Type*
+  commentId: Overload:MonoTorrent.TorrentCreator.Type
+  href: MonoTorrent.TorrentCreator.html#MonoTorrent_TorrentCreator_Type
+  name: Type
+  nameWithType: TorrentCreator.Type
+  fullName: MonoTorrent.TorrentCreator.Type
+- uid: MonoTorrent.TorrentType
+  commentId: T:MonoTorrent.TorrentType
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentType.html
+  name: TorrentType
+  nameWithType: TorrentType
+  fullName: MonoTorrent.TorrentType
+- uid: MonoTorrent.TorrentCreator.#ctor*
+  commentId: Overload:MonoTorrent.TorrentCreator.#ctor
+  href: MonoTorrent.TorrentCreator.html#MonoTorrent_TorrentCreator__ctor
+  name: TorrentCreator
+  nameWithType: TorrentCreator.TorrentCreator
+  fullName: MonoTorrent.TorrentCreator.TorrentCreator
+  nameWithType.vb: TorrentCreator.New
+  fullName.vb: MonoTorrent.TorrentCreator.New
+  name.vb: New
+- uid: MonoTorrent.Factories
+  commentId: T:MonoTorrent.Factories
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories
+  nameWithType: Factories
+  fullName: MonoTorrent.Factories
+- uid: MonoTorrent.TorrentCreator.Create*
+  commentId: Overload:MonoTorrent.TorrentCreator.Create
+  href: MonoTorrent.TorrentCreator.html#MonoTorrent_TorrentCreator_Create_MonoTorrent_ITorrentFileSource_
+  name: Create
+  nameWithType: TorrentCreator.Create
+  fullName: MonoTorrent.TorrentCreator.Create
+- uid: MonoTorrent.ITorrentFileSource
+  commentId: T:MonoTorrent.ITorrentFileSource
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentFileSource.html
+  name: ITorrentFileSource
+  nameWithType: ITorrentFileSource
+  fullName: MonoTorrent.ITorrentFileSource
+- uid: MonoTorrent.BEncoding.BEncodedDictionary
+  commentId: T:MonoTorrent.BEncoding.BEncodedDictionary
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  name: BEncodedDictionary
+  nameWithType: BEncodedDictionary
+  fullName: MonoTorrent.BEncoding.BEncodedDictionary
+- uid: MonoTorrent.BEncoding
+  commentId: N:MonoTorrent.BEncoding
+  href: MonoTorrent.html
+  name: MonoTorrent.BEncoding
+  nameWithType: MonoTorrent.BEncoding
+  fullName: MonoTorrent.BEncoding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  name: Stream
+  nameWithType: Stream
+  fullName: System.IO.Stream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MonoTorrent.TorrentCreator.CreateAsync*
+  commentId: Overload:MonoTorrent.TorrentCreator.CreateAsync
+  href: MonoTorrent.TorrentCreator.html#MonoTorrent_TorrentCreator_CreateAsync_MonoTorrent_ITorrentFileSource_
+  name: CreateAsync
+  nameWithType: TorrentCreator.CreateAsync
+  fullName: MonoTorrent.TorrentCreator.CreateAsync
+- uid: System.Threading.Tasks.Task{MonoTorrent.BEncoding.BEncodedDictionary}
+  commentId: T:System.Threading.Tasks.Task{MonoTorrent.BEncoding.BEncodedDictionary}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BEncodedDictionary>
+  nameWithType: Task<BEncodedDictionary>
+  fullName: System.Threading.Tasks.Task<MonoTorrent.BEncoding.BEncodedDictionary>
+  nameWithType.vb: Task(Of BEncodedDictionary)
+  fullName.vb: System.Threading.Tasks.Task(Of MonoTorrent.BEncoding.BEncodedDictionary)
+  name.vb: Task(Of BEncodedDictionary)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedDictionary
+    name: BEncodedDictionary
+    href: MonoTorrent.BEncoding.BEncodedDictionary.html
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: MonoTorrent.TorrentCreator.OnHashed*
+  commentId: Overload:MonoTorrent.TorrentCreator.OnHashed
+  href: MonoTorrent.TorrentCreator.html#MonoTorrent_TorrentCreator_OnHashed_MonoTorrent_TorrentCreatorEventArgs_
+  name: OnHashed
+  nameWithType: TorrentCreator.OnHashed
+  fullName: MonoTorrent.TorrentCreator.OnHashed
+- uid: MonoTorrent.TorrentCreatorEventArgs
+  commentId: T:MonoTorrent.TorrentCreatorEventArgs
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentCreatorEventArgs.html
+  name: TorrentCreatorEventArgs
+  nameWithType: TorrentCreatorEventArgs
+  fullName: MonoTorrent.TorrentCreatorEventArgs

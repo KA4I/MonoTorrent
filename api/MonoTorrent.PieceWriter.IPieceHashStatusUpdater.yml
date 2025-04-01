@@ -1,0 +1,135 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PieceWriter.IPieceHashStatusUpdater
+  commentId: T:MonoTorrent.PieceWriter.IPieceHashStatusUpdater
+  id: IPieceHashStatusUpdater
+  parent: MonoTorrent.PieceWriter
+  children:
+  - MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus(System.Int32,System.Boolean,System.Int32,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: IPieceHashStatusUpdater
+  nameWithType: IPieceHashStatusUpdater
+  fullName: MonoTorrent.PieceWriter.IPieceHashStatusUpdater
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceHashStatusUpdater.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IPieceHashStatusUpdater
+    path: src/PieceWriter/IPieceHashStatusUpdater.cs
+    startLine: 2
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  syntax:
+    content: public interface IPieceHashStatusUpdater
+    content.vb: Public Interface IPieceHashStatusUpdater
+- uid: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus(System.Int32,System.Boolean,System.Int32,System.Int32)
+  commentId: M:MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus(System.Int32,System.Boolean,System.Int32,System.Int32)
+  id: UpdatePieceHashStatus(System.Int32,System.Boolean,System.Int32,System.Int32)
+  parent: MonoTorrent.PieceWriter.IPieceHashStatusUpdater
+  langs:
+  - csharp
+  - vb
+  name: UpdatePieceHashStatus(int, bool, int, int)
+  nameWithType: IPieceHashStatusUpdater.UpdatePieceHashStatus(int, bool, int, int)
+  fullName: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus(int, bool, int, int)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/IPieceHashStatusUpdater.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: UpdatePieceHashStatus
+    path: src/PieceWriter/IPieceHashStatusUpdater.cs
+    startLine: 15
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: Updates the hash status of a piece
+  example: []
+  syntax:
+    content: void UpdatePieceHashStatus(int index, bool hashPassed, int hashed, int totalHashing)
+    parameters:
+    - id: index
+      type: System.Int32
+      description: Piece index
+    - id: hashPassed
+      type: System.Boolean
+      description: <code>true</code> if our local copy of the piece has the expected hash.
+    - id: hashed
+      type: System.Int32
+      description: >-
+        How many pieces we updated hash status for so far, including this one.
+            <p>Set to <code>0</code> to indicate that this piece hash status is unknown.
+            In this case, the value in <code class="paramref">hashPassed</code> will be ignored.
+            </p>
+    - id: totalHashing
+      type: System.Int32
+      description: How many pieces we are planning to hash in total
+    content.vb: Sub UpdatePieceHashStatus(index As Integer, hashPassed As Boolean, hashed As Integer, totalHashing As Integer)
+  overload: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus*
+  nameWithType.vb: IPieceHashStatusUpdater.UpdatePieceHashStatus(Integer, Boolean, Integer, Integer)
+  fullName.vb: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus(Integer, Boolean, Integer, Integer)
+  name.vb: UpdatePieceHashStatus(Integer, Boolean, Integer, Integer)
+references:
+- uid: MonoTorrent.PieceWriter
+  commentId: N:MonoTorrent.PieceWriter
+  href: MonoTorrent.html
+  name: MonoTorrent.PieceWriter
+  nameWithType: MonoTorrent.PieceWriter
+  fullName: MonoTorrent.PieceWriter
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+- uid: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus*
+  commentId: Overload:MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus
+  href: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.html#MonoTorrent_PieceWriter_IPieceHashStatusUpdater_UpdatePieceHashStatus_System_Int32_System_Boolean_System_Int32_System_Int32_
+  name: UpdatePieceHashStatus
+  nameWithType: IPieceHashStatusUpdater.UpdatePieceHashStatus
+  fullName: MonoTorrent.PieceWriter.IPieceHashStatusUpdater.UpdatePieceHashStatus
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

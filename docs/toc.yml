@@ -1,0 +1,18 @@
+- name: Introduction
+  href: index.md # Use index.md as the main intro page
+- name: Getting Started
+  href: getting-started.md # Keep placeholder, might be useful later
+- name: Conceptual Overview
+  items:
+  - name: Torrent Handling
+    href: torrent-handling.md
+  - name: Client Engine & Peers
+    href: client-engine.md
+  - name: Utilities & Data Structures
+    href: utilities.md
+  - name: Networking
+    href: networking.md
+  - name: Disk I/O & Caching
+    href: disk-io.md
+- name: API Documentation
+  href: api/toc.html

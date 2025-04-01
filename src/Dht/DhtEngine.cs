@@ -191,6 +191,155 @@ namespace MonoTorrent.Dht
             }
         }
 
+
+        /// <summary>
+        /// Performs a 'get' operation on the DHT to retrieve a value.
+        /// </summary>
+        /// <param name="target">The target ID (infohash for immutable, key hash for mutable).</param>
+        /// <param name="sequenceNumber">Optional sequence number for mutable gets.</param>
+        /// <returns>A tuple containing the value, public key, signature, and sequence number (if available).</returns>
+        public async Task<(BEncodedValue? value, BEncodedString? publicKey, BEncodedString? signature, long? sequenceNumber)> GetAsync (NodeId target, long? sequenceNumber = null)
+        {
+            CheckDisposed ();
+            if (target is null)
+                throw new ArgumentNullException (nameof (target));
+
+            await MainLoop;
+            // First, find the closest nodes using GetPeersTask logic (or similar)
+            var getPeersTask = new GetPeersTask(this, target);
+            await getPeersTask.ExecuteAsync();
+            var nodesToQuery = await getPeersTask.ExecuteAsync(); // Get the nodes found
+
+            // 2. Execute the GetTask using the found nodes
+            var getTask = new GetTask (this, target, nodesToQuery, sequenceNumber);
+            return await getTask.ExecuteAsync ();
+        }
+
+        /// <summary>
+        /// Performs a 'put' operation to store an immutable item on the DHT.
+        /// </summary>
+        /// <param name="value">The value to store.</param>
+        internal async Task PutImmutableAsync (BEncodedValue value)
+        {
+            CheckDisposed ();
+            if (value is null)
+                throw new ArgumentNullException (nameof (value));
+
+            await MainLoop;
+
+            NodeId target;
+            using (var sha1 = SHA1.Create())
+                target = new NodeId(sha1.ComputeHash(value.Encode()));
+
+            // 1. Find closest nodes using GetPeers logic
+            var getPeersTask = new GetPeersTask(this, target);
+            var nodes = await getPeersTask.ExecuteAsync(); // Capture the returned nodes
+
+            // 2. Get write tokens from these nodes (using get_peers)
+            var nodesWithTokens = new Dictionary<Node, BEncodedString> ();
+            var getTokenTasks = new List<Task<SendQueryEventArgs>> ();
+            foreach (var node in nodes)
+            {
+                var getPeers = new GetPeers (LocalId, target);
+                getTokenTasks.Add (SendQueryAsync (getPeers, node));
+            }
+            await Task.WhenAll (getTokenTasks);
+
+            foreach (var task in getTokenTasks)
+            {
+                var args = task.Result;
+                if (!args.TimedOut && args.Response is GetPeersResponse response && response.Token != null)
+                {
+                    // Find the node this response came from (should match the query target node)
+                    var respondingNode = nodes.FirstOrDefault(n => n.Id == response.Id);
+                    if (respondingNode != null)
+                        nodesWithTokens[respondingNode] = (BEncodedString)response.Token;
+                }
+            }
+
+            // 3. Send Put requests with tokens
+            if (nodesWithTokens.Count > 0)
+            {
+                var putTask = new PutTask (this, value, nodesWithTokens);
+                await putTask.ExecuteAsync ();
+            }
+            // Else: Log failure to get any tokens?
+        }
+
+        /// <summary>
+        /// Performs a 'put' operation to store or update a mutable item on the DHT.
+        /// </summary>
+        /// <param name="publicKey">The public key (32 bytes).</param>
+        /// <param name="salt">Optional salt (max 64 bytes).</param>
+        /// <param name="value">The value to store.</param>
+        /// <param name="sequenceNumber">The sequence number.</param>
+        /// <param name="signature">The signature (64 bytes).</param>
+        /// <param name="cas">Optional Compare-And-Swap sequence number.</param>
+        internal async Task PutMutableAsync (BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature, long? cas = null)
+        {
+            CheckDisposed ();
+            if (publicKey is null || publicKey.Span.Length != 32)
+                throw new ArgumentException("Public key must be 32 bytes", nameof(publicKey));
+            if (salt != null && salt.Span.Length > 64)
+                 throw new ArgumentException("Salt cannot be longer than 64 bytes", nameof(salt));
+            if (value is null)
+                throw new ArgumentNullException (nameof (value));
+            if (signature is null || signature.Span.Length != 64)
+                throw new ArgumentException("Signature must be 64 bytes", nameof(signature));
+
+            await MainLoop;
+
+            NodeId target = CalculateMutableTargetId(publicKey, salt);
+
+            // 1. Find closest nodes using GetPeers logic
+            var getPeersTask = new GetPeersTask(this, target);
+            var nodes = await getPeersTask.ExecuteAsync(); // Capture the returned nodes
+
+            // 2. Get write tokens from these nodes (using get_peers or get)
+            // Using get_peers is simpler as it's already implemented for Announce
+            var nodesWithTokens = new Dictionary<Node, BEncodedString> ();
+            var getTokenTasks = new List<Task<SendQueryEventArgs>> ();
+            foreach (var node in nodes)
+            {
+                var getPeers = new GetPeers (LocalId, target); // Could use 'get' as well
+                getTokenTasks.Add (SendQueryAsync (getPeers, node));
+            }
+            await Task.WhenAll (getTokenTasks);
+
+            foreach (var task in getTokenTasks)
+            {
+                var args = task.Result;
+                if (!args.TimedOut && args.Response is GetPeersResponse response && response.Token != null)
+                {
+                    var respondingNode = nodes.FirstOrDefault(n => n.Id == response.Id);
+                    if (respondingNode != null)
+                        nodesWithTokens[respondingNode] = (BEncodedString)response.Token;
+                }
+                 // If we used 'get' we'd check for GetResponse
+            }
+
+            // 3. Send Put requests with tokens
+            if (nodesWithTokens.Count > 0)
+            {
+                var putTask = new PutTask (this, value, publicKey, salt, sequenceNumber, signature, cas, nodesWithTokens);
+                await putTask.ExecuteAsync ();
+            }
+             // Else: Log failure to get any tokens?
+        }
+
+        internal static NodeId CalculateMutableTargetId(BEncodedString publicKey, BEncodedString? salt)
+        {
+            using (var sha1 = SHA1.Create())
+            {
+                sha1.TransformBlock(publicKey.Span.ToArray(), 0, publicKey.Span.Length, null, 0);
+                if (salt != null && salt.Span.Length > 0)
+                    sha1.TransformFinalBlock(salt.Span.ToArray(), 0, salt.Span.Length);
+                else
+                    sha1.TransformFinalBlock(Array.Empty<byte>(), 0, 0); // Finalize without salt
+                return new NodeId(sha1.Hash!);
+            }
+        }
+
         async void InitializeAsync (IEnumerable<Node> nodes, string[] bootstrapRouters)
         {
             await MainLoop;

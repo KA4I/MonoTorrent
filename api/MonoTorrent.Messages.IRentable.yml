@@ -1,0 +1,51 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Messages.IRentable
+  commentId: T:MonoTorrent.Messages.IRentable
+  id: IRentable
+  parent: MonoTorrent.Messages
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IRentable
+  nameWithType: IRentable
+  fullName: MonoTorrent.Messages.IRentable
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/IRentable.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IRentable
+    path: src/Messages/IRentable.cs
+    startLine: 8
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages
+  syntax:
+    content: public interface IRentable
+    content.vb: Public Interface IRentable
+references:
+- uid: MonoTorrent.Messages
+  commentId: N:MonoTorrent.Messages
+  href: MonoTorrent.html
+  name: MonoTorrent.Messages
+  nameWithType: MonoTorrent.Messages
+  fullName: MonoTorrent.Messages
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html

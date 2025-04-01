@@ -1,0 +1,403 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Messages.IMessage
+  commentId: T:MonoTorrent.Messages.IMessage
+  id: IMessage
+  parent: MonoTorrent.Messages
+  children:
+  - MonoTorrent.Messages.IMessage.ByteLength
+  - MonoTorrent.Messages.IMessage.Decode(System.ReadOnlySpan{System.Byte})
+  - MonoTorrent.Messages.IMessage.Encode
+  - MonoTorrent.Messages.IMessage.Encode(System.Span{System.Byte})
+  langs:
+  - csharp
+  - vb
+  name: IMessage
+  nameWithType: IMessage
+  fullName: MonoTorrent.Messages.IMessage
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/IMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IMessage
+    path: src/Messages/IMessage.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages
+  syntax:
+    content: public interface IMessage
+    content.vb: Public Interface IMessage
+- uid: MonoTorrent.Messages.IMessage.ByteLength
+  commentId: P:MonoTorrent.Messages.IMessage.ByteLength
+  id: ByteLength
+  parent: MonoTorrent.Messages.IMessage
+  langs:
+  - csharp
+  - vb
+  name: ByteLength
+  nameWithType: IMessage.ByteLength
+  fullName: MonoTorrent.Messages.IMessage.ByteLength
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/IMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ByteLength
+    path: src/Messages/IMessage.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages
+  syntax:
+    content: int ByteLength { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property ByteLength As Integer
+  overload: MonoTorrent.Messages.IMessage.ByteLength*
+- uid: MonoTorrent.Messages.IMessage.Encode
+  commentId: M:MonoTorrent.Messages.IMessage.Encode
+  id: Encode
+  parent: MonoTorrent.Messages.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Encode()
+  nameWithType: IMessage.Encode()
+  fullName: MonoTorrent.Messages.IMessage.Encode()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/IMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Encode
+    path: src/Messages/IMessage.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages
+  syntax:
+    content: ReadOnlyMemory<byte> Encode()
+    return:
+      type: System.ReadOnlyMemory{System.Byte}
+    content.vb: Function Encode() As ReadOnlyMemory(Of Byte)
+  overload: MonoTorrent.Messages.IMessage.Encode*
+- uid: MonoTorrent.Messages.IMessage.Encode(System.Span{System.Byte})
+  commentId: M:MonoTorrent.Messages.IMessage.Encode(System.Span{System.Byte})
+  id: Encode(System.Span{System.Byte})
+  parent: MonoTorrent.Messages.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Encode(Span<byte>)
+  nameWithType: IMessage.Encode(Span<byte>)
+  fullName: MonoTorrent.Messages.IMessage.Encode(System.Span<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/IMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Encode
+    path: src/Messages/IMessage.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages
+  syntax:
+    content: int Encode(Span<byte> buffer)
+    parameters:
+    - id: buffer
+      type: System.Span{System.Byte}
+    return:
+      type: System.Int32
+    content.vb: Function Encode(buffer As Span(Of Byte)) As Integer
+  overload: MonoTorrent.Messages.IMessage.Encode*
+  nameWithType.vb: IMessage.Encode(Span(Of Byte))
+  fullName.vb: MonoTorrent.Messages.IMessage.Encode(System.Span(Of Byte))
+  name.vb: Encode(Span(Of Byte))
+- uid: MonoTorrent.Messages.IMessage.Decode(System.ReadOnlySpan{System.Byte})
+  commentId: M:MonoTorrent.Messages.IMessage.Decode(System.ReadOnlySpan{System.Byte})
+  id: Decode(System.ReadOnlySpan{System.Byte})
+  parent: MonoTorrent.Messages.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Decode(ReadOnlySpan<byte>)
+  nameWithType: IMessage.Decode(ReadOnlySpan<byte>)
+  fullName: MonoTorrent.Messages.IMessage.Decode(System.ReadOnlySpan<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/IMessage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Decode
+    path: src/Messages/IMessage.cs
+    startLine: 41
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages
+  syntax:
+    content: void Decode(ReadOnlySpan<byte> buffer)
+    parameters:
+    - id: buffer
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Sub Decode(buffer As ReadOnlySpan(Of Byte))
+  overload: MonoTorrent.Messages.IMessage.Decode*
+  nameWithType.vb: IMessage.Decode(ReadOnlySpan(Of Byte))
+  fullName.vb: MonoTorrent.Messages.IMessage.Decode(System.ReadOnlySpan(Of Byte))
+  name.vb: Decode(ReadOnlySpan(Of Byte))
+references:
+- uid: MonoTorrent.Messages
+  commentId: N:MonoTorrent.Messages
+  href: MonoTorrent.html
+  name: MonoTorrent.Messages
+  nameWithType: MonoTorrent.Messages
+  fullName: MonoTorrent.Messages
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+- uid: MonoTorrent.Messages.IMessage.ByteLength*
+  commentId: Overload:MonoTorrent.Messages.IMessage.ByteLength
+  href: MonoTorrent.Messages.IMessage.html#MonoTorrent_Messages_IMessage_ByteLength
+  name: ByteLength
+  nameWithType: IMessage.ByteLength
+  fullName: MonoTorrent.Messages.IMessage.ByteLength
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Messages.IMessage.Encode*
+  commentId: Overload:MonoTorrent.Messages.IMessage.Encode
+  href: MonoTorrent.Messages.IMessage.html#MonoTorrent_Messages_IMessage_Encode
+  name: Encode
+  nameWithType: IMessage.Encode
+  fullName: MonoTorrent.Messages.IMessage.Encode
+- uid: System.ReadOnlyMemory{System.Byte}
+  commentId: T:System.ReadOnlyMemory{System.Byte}
+  parent: System
+  definition: System.ReadOnlyMemory`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<byte>
+  nameWithType: ReadOnlyMemory<byte>
+  fullName: System.ReadOnlyMemory<byte>
+  nameWithType.vb: ReadOnlyMemory(Of Byte)
+  fullName.vb: System.ReadOnlyMemory(Of Byte)
+  name.vb: ReadOnlyMemory(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlyMemory`1
+  commentId: T:System.ReadOnlyMemory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<T>
+  nameWithType: ReadOnlyMemory<T>
+  fullName: System.ReadOnlyMemory<T>
+  nameWithType.vb: ReadOnlyMemory(Of T)
+  fullName.vb: System.ReadOnlyMemory(Of T)
+  name.vb: ReadOnlyMemory(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Span{System.Byte}
+  commentId: T:System.Span{System.Byte}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<byte>
+  nameWithType: Span<byte>
+  fullName: System.Span<byte>
+  nameWithType.vb: Span(Of Byte)
+  fullName.vb: System.Span(Of Byte)
+  name.vb: Span(Of Byte)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.Messages.IMessage.Decode*
+  commentId: Overload:MonoTorrent.Messages.IMessage.Decode
+  href: MonoTorrent.Messages.IMessage.html#MonoTorrent_Messages_IMessage_Decode_System_ReadOnlySpan_System_Byte__
+  name: Decode
+  nameWithType: IMessage.Decode
+  fullName: MonoTorrent.Messages.IMessage.Decode
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

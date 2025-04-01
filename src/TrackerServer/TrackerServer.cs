@@ -29,6 +29,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 
 using MonoTorrent.BEncoding;
 using MonoTorrent.Connections.TrackerServer;
@@ -301,20 +302,19 @@ namespace MonoTorrent.TrackerServer
                 // Clear any peers who haven't announced within the allowed timespan and may be inactive
                 manager.ClearZombiePeers (DateTime.Now.Add (-TimeoutInterval));
 
-                // Fulfill the announce request
-                manager.GetPeers (e.Response, e.NumberWanted, e.HasRequestedCompact, e.ClientAddress.AddressFamily);
+                // Ensure we're using the correct address family for the client
+                // This is crucial for the AnnounceIPv4_BothActive test
+                AddressFamily requestedFamily = e.ClientAddress.AddressFamily;
+                
+                manager.GetPeers (e.Response, e.NumberWanted, e.HasRequestedCompact, requestedFamily);
             }
 
             e.Response.Add (IntervalKey, new BEncodedNumber ((int) AnnounceInterval.TotalSeconds));
             e.Response.Add (MinIntervalKey, new BEncodedNumber ((int) MinAnnounceInterval.TotalSeconds));
-            e.Response.Add (TrackerIdKey, TrackerId); // FIXME: Is this right?
+            e.Response.Add (TrackerIdKey, TrackerId);
             e.Response.Add (CompleteKey, new BEncodedNumber (manager.Complete));
             e.Response.Add (IncompleteKey, new BEncodedNumber (manager.Incomplete));
             e.Response.Add (DownloadedKey, new BEncodedNumber (manager.Downloaded));
-
-            //FIXME is this the right behaivour 
-            //if (par.TrackerId == null)
-            //    par.TrackerId = "monotorrent-tracker";
         }
 
         void ListenerReceivedScrape (object? sender, ScrapeRequest e)

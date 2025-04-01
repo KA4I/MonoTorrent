@@ -1,0 +1,335 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.TrackerServer.ITrackerListener
+  commentId: T:MonoTorrent.Connections.TrackerServer.ITrackerListener
+  id: ITrackerListener
+  parent: MonoTorrent.Connections.TrackerServer
+  children:
+  - MonoTorrent.Connections.TrackerServer.ITrackerListener.AnnounceReceived
+  - MonoTorrent.Connections.TrackerServer.ITrackerListener.ScrapeReceived
+  langs:
+  - csharp
+  - vb
+  name: ITrackerListener
+  nameWithType: ITrackerListener
+  fullName: MonoTorrent.Connections.TrackerServer.ITrackerListener
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/TrackerServer/ITrackerListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ITrackerListener
+    path: src/Connections/TrackerServer/ITrackerListener.cs
+    startLine: 38
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.TrackerServer
+  summary: Listens for incoming Announce or Scrape requests and sends the response back.
+  example: []
+  syntax:
+    content: 'public interface ITrackerListener : IListener, IDisposable'
+    content.vb: Public Interface ITrackerListener Inherits IListener, IDisposable
+  inheritedMembers:
+  - MonoTorrent.Connections.IListener.StatusChanged
+  - MonoTorrent.Connections.IListener.Status
+  - MonoTorrent.Connections.IListener.Start
+  - MonoTorrent.Connections.IListener.Stop
+  - System.IDisposable.Dispose
+- uid: MonoTorrent.Connections.TrackerServer.ITrackerListener.ScrapeReceived
+  commentId: E:MonoTorrent.Connections.TrackerServer.ITrackerListener.ScrapeReceived
+  id: ScrapeReceived
+  parent: MonoTorrent.Connections.TrackerServer.ITrackerListener
+  langs:
+  - csharp
+  - vb
+  name: ScrapeReceived
+  nameWithType: ITrackerListener.ScrapeReceived
+  fullName: MonoTorrent.Connections.TrackerServer.ITrackerListener.ScrapeReceived
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/TrackerServer/ITrackerListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ScrapeReceived
+    path: src/Connections/TrackerServer/ITrackerListener.cs
+    startLine: 40
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.TrackerServer
+  syntax:
+    content: event EventHandler<ScrapeRequest> ScrapeReceived
+    return:
+      type: System.EventHandler{MonoTorrent.TrackerServer.ScrapeRequest}
+    content.vb: Event ScrapeReceived As EventHandler(Of ScrapeRequest)
+- uid: MonoTorrent.Connections.TrackerServer.ITrackerListener.AnnounceReceived
+  commentId: E:MonoTorrent.Connections.TrackerServer.ITrackerListener.AnnounceReceived
+  id: AnnounceReceived
+  parent: MonoTorrent.Connections.TrackerServer.ITrackerListener
+  langs:
+  - csharp
+  - vb
+  name: AnnounceReceived
+  nameWithType: ITrackerListener.AnnounceReceived
+  fullName: MonoTorrent.Connections.TrackerServer.ITrackerListener.AnnounceReceived
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/TrackerServer/ITrackerListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AnnounceReceived
+    path: src/Connections/TrackerServer/ITrackerListener.cs
+    startLine: 41
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.TrackerServer
+  syntax:
+    content: event EventHandler<AnnounceRequest> AnnounceReceived
+    return:
+      type: System.EventHandler{MonoTorrent.TrackerServer.AnnounceRequest}
+    content.vb: Event AnnounceReceived As EventHandler(Of AnnounceRequest)
+references:
+- uid: MonoTorrent.Connections.TrackerServer
+  commentId: N:MonoTorrent.Connections.TrackerServer
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.TrackerServer
+  nameWithType: MonoTorrent.Connections.TrackerServer
+  fullName: MonoTorrent.Connections.TrackerServer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.Connections.TrackerServer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.TrackerServer
+    name: TrackerServer
+    href: MonoTorrent.Connections.TrackerServer.html
+- uid: MonoTorrent.Connections.IListener.StatusChanged
+  commentId: E:MonoTorrent.Connections.IListener.StatusChanged
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_StatusChanged
+  name: StatusChanged
+  nameWithType: IListener.StatusChanged
+  fullName: MonoTorrent.Connections.IListener.StatusChanged
+- uid: MonoTorrent.Connections.IListener.Status
+  commentId: P:MonoTorrent.Connections.IListener.Status
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Status
+  name: Status
+  nameWithType: IListener.Status
+  fullName: MonoTorrent.Connections.IListener.Status
+- uid: MonoTorrent.Connections.IListener.Start
+  commentId: M:MonoTorrent.Connections.IListener.Start
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  name: Start()
+  nameWithType: IListener.Start()
+  fullName: MonoTorrent.Connections.IListener.Start()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.IListener.Start
+    name: Start
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.IListener.Start
+    name: Start
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  - name: (
+  - name: )
+- uid: MonoTorrent.Connections.IListener.Stop
+  commentId: M:MonoTorrent.Connections.IListener.Stop
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  name: Stop()
+  nameWithType: IListener.Stop()
+  fullName: MonoTorrent.Connections.IListener.Stop()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.IListener.Stop
+    name: Stop
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.IListener.Stop
+    name: Stop
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  - name: (
+  - name: )
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: MonoTorrent.Connections.IListener
+  commentId: T:MonoTorrent.Connections.IListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.IListener.html
+  name: IListener
+  nameWithType: IListener
+  fullName: MonoTorrent.Connections.IListener
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: MonoTorrent.Connections
+  commentId: N:MonoTorrent.Connections
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections
+  nameWithType: MonoTorrent.Connections
+  fullName: MonoTorrent.Connections
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.EventHandler{MonoTorrent.TrackerServer.ScrapeRequest}
+  commentId: T:System.EventHandler{MonoTorrent.TrackerServer.ScrapeRequest}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<ScrapeRequest>
+  nameWithType: EventHandler<ScrapeRequest>
+  fullName: System.EventHandler<MonoTorrent.TrackerServer.ScrapeRequest>
+  nameWithType.vb: EventHandler(Of ScrapeRequest)
+  fullName.vb: System.EventHandler(Of MonoTorrent.TrackerServer.ScrapeRequest)
+  name.vb: EventHandler(Of ScrapeRequest)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.TrackerServer.ScrapeRequest
+    name: ScrapeRequest
+    href: MonoTorrent.TrackerServer.ScrapeRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.TrackerServer.ScrapeRequest
+    name: ScrapeRequest
+    href: MonoTorrent.TrackerServer.ScrapeRequest.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: System.EventHandler{MonoTorrent.TrackerServer.AnnounceRequest}
+  commentId: T:System.EventHandler{MonoTorrent.TrackerServer.AnnounceRequest}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<AnnounceRequest>
+  nameWithType: EventHandler<AnnounceRequest>
+  fullName: System.EventHandler<MonoTorrent.TrackerServer.AnnounceRequest>
+  nameWithType.vb: EventHandler(Of AnnounceRequest)
+  fullName.vb: System.EventHandler(Of MonoTorrent.TrackerServer.AnnounceRequest)
+  name.vb: EventHandler(Of AnnounceRequest)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.TrackerServer.AnnounceRequest
+    name: AnnounceRequest
+    href: MonoTorrent.TrackerServer.AnnounceRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.TrackerServer.AnnounceRequest
+    name: AnnounceRequest
+    href: MonoTorrent.TrackerServer.AnnounceRequest.html
+  - name: )

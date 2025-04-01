@@ -1,0 +1,1153 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.MagnetLink
+  commentId: T:MonoTorrent.MagnetLink
+  id: MagnetLink
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.MagnetLink.#ctor(MonoTorrent.InfoHash,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Int64})
+  - MonoTorrent.MagnetLink.#ctor(MonoTorrent.InfoHashes,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Int64})
+  - MonoTorrent.MagnetLink.#ctor(System.String,System.String,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IEnumerable{System.String})
+  - MonoTorrent.MagnetLink.AnnounceUrls
+  - MonoTorrent.MagnetLink.FromUri(System.Uri)
+  - MonoTorrent.MagnetLink.InfoHashes
+  - MonoTorrent.MagnetLink.Name
+  - MonoTorrent.MagnetLink.Parse(System.String)
+  - MonoTorrent.MagnetLink.PublicKeyHex
+  - MonoTorrent.MagnetLink.SaltHex
+  - MonoTorrent.MagnetLink.Size
+  - MonoTorrent.MagnetLink.ToV1String
+  - MonoTorrent.MagnetLink.ToV1Uri
+  - MonoTorrent.MagnetLink.TryParse(System.String,MonoTorrent.MagnetLink@)
+  - MonoTorrent.MagnetLink.Webseeds
+  langs:
+  - csharp
+  - vb
+  name: MagnetLink
+  nameWithType: MagnetLink
+  fullName: MonoTorrent.MagnetLink
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MagnetLink
+    path: src/MagnetLink.cs
+    startLine: 36
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public class MagnetLink
+    content.vb: Public Class MagnetLink
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.MagnetLink.AnnounceUrls
+  commentId: P:MonoTorrent.MagnetLink.AnnounceUrls
+  id: AnnounceUrls
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: AnnounceUrls
+  nameWithType: MagnetLink.AnnounceUrls
+  fullName: MonoTorrent.MagnetLink.AnnounceUrls
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AnnounceUrls
+    path: src/MagnetLink.cs
+    startLine: 41
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The list of tracker Urls.
+  example: []
+  syntax:
+    content: public IList<string> AnnounceUrls { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.String}
+    content.vb: Public ReadOnly Property AnnounceUrls As IList(Of String)
+  overload: MonoTorrent.MagnetLink.AnnounceUrls*
+- uid: MonoTorrent.MagnetLink.InfoHashes
+  commentId: P:MonoTorrent.MagnetLink.InfoHashes
+  id: InfoHashes
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: InfoHashes
+  nameWithType: MagnetLink.InfoHashes
+  fullName: MonoTorrent.MagnetLink.InfoHashes
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: InfoHashes
+    path: src/MagnetLink.cs
+    startLine: 46
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The infohashes for this torrent.
+  example: []
+  syntax:
+    content: public InfoHashes? InfoHashes { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.InfoHashes
+    content.vb: Public Property InfoHashes As InfoHashes
+  overload: MonoTorrent.MagnetLink.InfoHashes*
+- uid: MonoTorrent.MagnetLink.Size
+  commentId: P:MonoTorrent.MagnetLink.Size
+  id: Size
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: MagnetLink.Size
+  fullName: MonoTorrent.MagnetLink.Size
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Size
+    path: src/MagnetLink.cs
+    startLine: 51
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The size in bytes of the data, if available.
+  example: []
+  syntax:
+    content: public long? Size { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int64}
+    content.vb: Public ReadOnly Property Size As Long?
+  overload: MonoTorrent.MagnetLink.Size*
+- uid: MonoTorrent.MagnetLink.Name
+  commentId: P:MonoTorrent.MagnetLink.Name
+  id: Name
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: MagnetLink.Name
+  fullName: MonoTorrent.MagnetLink.Name
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Name
+    path: src/MagnetLink.cs
+    startLine: 58
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The display name of the torrent, if available.
+  example: []
+  syntax:
+    content: public string? Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: MonoTorrent.MagnetLink.Name*
+- uid: MonoTorrent.MagnetLink.Webseeds
+  commentId: P:MonoTorrent.MagnetLink.Webseeds
+  id: Webseeds
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: Webseeds
+  nameWithType: MagnetLink.Webseeds
+  fullName: MonoTorrent.MagnetLink.Webseeds
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Webseeds
+    path: src/MagnetLink.cs
+    startLine: 65
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The list of webseed Urls.
+  example: []
+  syntax:
+    content: public IList<string> Webseeds { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.String}
+    content.vb: Public ReadOnly Property Webseeds As IList(Of String)
+  overload: MonoTorrent.MagnetLink.Webseeds*
+- uid: MonoTorrent.MagnetLink.PublicKeyHex
+  commentId: P:MonoTorrent.MagnetLink.PublicKeyHex
+  id: PublicKeyHex
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: PublicKeyHex
+  nameWithType: MagnetLink.PublicKeyHex
+  fullName: MonoTorrent.MagnetLink.PublicKeyHex
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PublicKeyHex
+    path: src/MagnetLink.cs
+    startLine: 72
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The public key for mutable torrent updates (BEP46). Hex encoded.
+  example: []
+  syntax:
+    content: public string? PublicKeyHex { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property PublicKeyHex As String
+  overload: MonoTorrent.MagnetLink.PublicKeyHex*
+- uid: MonoTorrent.MagnetLink.SaltHex
+  commentId: P:MonoTorrent.MagnetLink.SaltHex
+  id: SaltHex
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: SaltHex
+  nameWithType: MagnetLink.SaltHex
+  fullName: MonoTorrent.MagnetLink.SaltHex
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SaltHex
+    path: src/MagnetLink.cs
+    startLine: 77
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The optional salt for mutable torrent updates (BEP46). Hex encoded.
+  example: []
+  syntax:
+    content: public string? SaltHex { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property SaltHex As String
+  overload: MonoTorrent.MagnetLink.SaltHex*
+- uid: MonoTorrent.MagnetLink.#ctor(MonoTorrent.InfoHash,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Int64})
+  commentId: M:MonoTorrent.MagnetLink.#ctor(MonoTorrent.InfoHash,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Int64})
+  id: '#ctor(MonoTorrent.InfoHash,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Int64})'
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: MagnetLink(InfoHash, string?, IList<string>?, IEnumerable<string>?, long?)
+  nameWithType: MagnetLink.MagnetLink(InfoHash, string?, IList<string>?, IEnumerable<string>?, long?)
+  fullName: MonoTorrent.MagnetLink.MagnetLink(MonoTorrent.InfoHash, string?, System.Collections.Generic.IList<string>?, System.Collections.Generic.IEnumerable<string>?, long?)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/MagnetLink.cs
+    startLine: 79
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public MagnetLink(InfoHash infoHash, string? name = null, IList<string>? announceUrls = null, IEnumerable<string>? webSeeds = null, long? size = null)
+    parameters:
+    - id: infoHash
+      type: MonoTorrent.InfoHash
+    - id: name
+      type: System.String
+    - id: announceUrls
+      type: System.Collections.Generic.IList{System.String}
+    - id: webSeeds
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: size
+      type: System.Nullable{System.Int64}
+    content.vb: Public Sub New(infoHash As InfoHash, name As String = Nothing, announceUrls As IList(Of String) = Nothing, webSeeds As IEnumerable(Of String) = Nothing, size As Long? = Nothing)
+  overload: MonoTorrent.MagnetLink.#ctor*
+  nameWithType.vb: MagnetLink.New(InfoHash, String, IList(Of String), IEnumerable(Of String), Long?)
+  fullName.vb: MonoTorrent.MagnetLink.New(MonoTorrent.InfoHash, String, System.Collections.Generic.IList(Of String), System.Collections.Generic.IEnumerable(Of String), Long?)
+  name.vb: New(InfoHash, String, IList(Of String), IEnumerable(Of String), Long?)
+- uid: MonoTorrent.MagnetLink.#ctor(MonoTorrent.InfoHashes,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Int64})
+  commentId: M:MonoTorrent.MagnetLink.#ctor(MonoTorrent.InfoHashes,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Int64})
+  id: '#ctor(MonoTorrent.InfoHashes,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Int64})'
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: MagnetLink(InfoHashes, string?, IList<string>?, IEnumerable<string>?, long?)
+  nameWithType: MagnetLink.MagnetLink(InfoHashes, string?, IList<string>?, IEnumerable<string>?, long?)
+  fullName: MonoTorrent.MagnetLink.MagnetLink(MonoTorrent.InfoHashes, string?, System.Collections.Generic.IList<string>?, System.Collections.Generic.IEnumerable<string>?, long?)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/MagnetLink.cs
+    startLine: 86
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public MagnetLink(InfoHashes infoHashes, string? name = null, IList<string>? announceUrls = null, IEnumerable<string>? webSeeds = null, long? size = null)
+    parameters:
+    - id: infoHashes
+      type: MonoTorrent.InfoHashes
+    - id: name
+      type: System.String
+    - id: announceUrls
+      type: System.Collections.Generic.IList{System.String}
+    - id: webSeeds
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: size
+      type: System.Nullable{System.Int64}
+    content.vb: Public Sub New(infoHashes As InfoHashes, name As String = Nothing, announceUrls As IList(Of String) = Nothing, webSeeds As IEnumerable(Of String) = Nothing, size As Long? = Nothing)
+  overload: MonoTorrent.MagnetLink.#ctor*
+  nameWithType.vb: MagnetLink.New(InfoHashes, String, IList(Of String), IEnumerable(Of String), Long?)
+  fullName.vb: MonoTorrent.MagnetLink.New(MonoTorrent.InfoHashes, String, System.Collections.Generic.IList(Of String), System.Collections.Generic.IEnumerable(Of String), Long?)
+  name.vb: New(InfoHashes, String, IList(Of String), IEnumerable(Of String), Long?)
+- uid: MonoTorrent.MagnetLink.#ctor(System.String,System.String,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:MonoTorrent.MagnetLink.#ctor(System.String,System.String,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IEnumerable{System.String})
+  id: '#ctor(System.String,System.String,System.String,System.Collections.Generic.IList{System.String},System.Collections.Generic.IEnumerable{System.String})'
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: MagnetLink(string, string?, string?, IList<string>?, IEnumerable<string>?)
+  nameWithType: MagnetLink.MagnetLink(string, string?, string?, IList<string>?, IEnumerable<string>?)
+  fullName: MonoTorrent.MagnetLink.MagnetLink(string, string?, string?, System.Collections.Generic.IList<string>?, System.Collections.Generic.IEnumerable<string>?)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/MagnetLink.cs
+    startLine: 96
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public MagnetLink(string publicKeyHex, string? saltHex = null, string? name = null, IList<string>? announceUrls = null, IEnumerable<string>? webSeeds = null)
+    parameters:
+    - id: publicKeyHex
+      type: System.String
+    - id: saltHex
+      type: System.String
+    - id: name
+      type: System.String
+    - id: announceUrls
+      type: System.Collections.Generic.IList{System.String}
+    - id: webSeeds
+      type: System.Collections.Generic.IEnumerable{System.String}
+    content.vb: Public Sub New(publicKeyHex As String, saltHex As String = Nothing, name As String = Nothing, announceUrls As IList(Of String) = Nothing, webSeeds As IEnumerable(Of String) = Nothing)
+  overload: MonoTorrent.MagnetLink.#ctor*
+  nameWithType.vb: MagnetLink.New(String, String, String, IList(Of String), IEnumerable(Of String))
+  fullName.vb: MonoTorrent.MagnetLink.New(String, String, String, System.Collections.Generic.IList(Of String), System.Collections.Generic.IEnumerable(Of String))
+  name.vb: New(String, String, String, IList(Of String), IEnumerable(Of String))
+- uid: MonoTorrent.MagnetLink.Parse(System.String)
+  commentId: M:MonoTorrent.MagnetLink.Parse(System.String)
+  id: Parse(System.String)
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: Parse(string)
+  nameWithType: MagnetLink.Parse(string)
+  fullName: MonoTorrent.MagnetLink.Parse(string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Parse
+    path: src/MagnetLink.cs
+    startLine: 129
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: 'Parses a magnet link from the given string. The uri should be in the form magnet:?xt=urn:btih:'
+  example: []
+  syntax:
+    content: public static MagnetLink Parse(string uri)
+    parameters:
+    - id: uri
+      type: System.String
+      description: ''
+    return:
+      type: MonoTorrent.MagnetLink
+      description: ''
+    content.vb: Public Shared Function Parse(uri As String) As MagnetLink
+  overload: MonoTorrent.MagnetLink.Parse*
+  nameWithType.vb: MagnetLink.Parse(String)
+  fullName.vb: MonoTorrent.MagnetLink.Parse(String)
+  name.vb: Parse(String)
+- uid: MonoTorrent.MagnetLink.TryParse(System.String,MonoTorrent.MagnetLink@)
+  commentId: M:MonoTorrent.MagnetLink.TryParse(System.String,MonoTorrent.MagnetLink@)
+  id: TryParse(System.String,MonoTorrent.MagnetLink@)
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: TryParse(string, out MagnetLink?)
+  nameWithType: MagnetLink.TryParse(string, out MagnetLink?)
+  fullName: MonoTorrent.MagnetLink.TryParse(string, out MonoTorrent.MagnetLink?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TryParse
+    path: src/MagnetLink.cs
+    startLine: 141
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: >-
+    Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a bitorrent magnet link was successfully parsed from the given string. Otherwise
+
+    return false.
+  example: []
+  syntax:
+    content: public static bool TryParse(string uri, out MagnetLink? magnetLink)
+    parameters:
+    - id: uri
+      type: System.String
+      description: ''
+    - id: magnetLink
+      type: MonoTorrent.MagnetLink
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Function TryParse(uri As String, magnetLink As MagnetLink) As Boolean
+  overload: MonoTorrent.MagnetLink.TryParse*
+  nameWithType.vb: MagnetLink.TryParse(String, MagnetLink)
+  fullName.vb: MonoTorrent.MagnetLink.TryParse(String, MonoTorrent.MagnetLink)
+  name.vb: TryParse(String, MagnetLink)
+- uid: MonoTorrent.MagnetLink.FromUri(System.Uri)
+  commentId: M:MonoTorrent.MagnetLink.FromUri(System.Uri)
+  id: FromUri(System.Uri)
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: FromUri(Uri)
+  nameWithType: MagnetLink.FromUri(Uri)
+  fullName: MonoTorrent.MagnetLink.FromUri(System.Uri)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FromUri
+    path: src/MagnetLink.cs
+    startLine: 156
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: 'Parses a magnet link from the given Uri. The uri should be in the form magnet:?xt=urn:btih:'
+  example: []
+  syntax:
+    content: public static MagnetLink FromUri(Uri uri)
+    parameters:
+    - id: uri
+      type: System.Uri
+      description: ''
+    return:
+      type: MonoTorrent.MagnetLink
+      description: ''
+    content.vb: Public Shared Function FromUri(uri As Uri) As MagnetLink
+  overload: MonoTorrent.MagnetLink.FromUri*
+- uid: MonoTorrent.MagnetLink.ToV1String
+  commentId: M:MonoTorrent.MagnetLink.ToV1String
+  id: ToV1String
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: ToV1String()
+  nameWithType: MagnetLink.ToV1String()
+  fullName: MonoTorrent.MagnetLink.ToV1String()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToV1String
+    path: src/MagnetLink.cs
+    startLine: 277
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public string ToV1String()
+    return:
+      type: System.String
+    content.vb: Public Function ToV1String() As String
+  overload: MonoTorrent.MagnetLink.ToV1String*
+- uid: MonoTorrent.MagnetLink.ToV1Uri
+  commentId: M:MonoTorrent.MagnetLink.ToV1Uri
+  id: ToV1Uri
+  parent: MonoTorrent.MagnetLink
+  langs:
+  - csharp
+  - vb
+  name: ToV1Uri()
+  nameWithType: MagnetLink.ToV1Uri()
+  fullName: MonoTorrent.MagnetLink.ToV1Uri()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/MagnetLink.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToV1Uri
+    path: src/MagnetLink.cs
+    startLine: 282
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Uri ToV1Uri()
+    return:
+      type: System.Uri
+    content.vb: Public Function ToV1Uri() As Uri
+  overload: MonoTorrent.MagnetLink.ToV1Uri*
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.MagnetLink.AnnounceUrls*
+  commentId: Overload:MonoTorrent.MagnetLink.AnnounceUrls
+  href: MonoTorrent.MagnetLink.html#MonoTorrent_MagnetLink_AnnounceUrls
+  name: AnnounceUrls
+  nameWithType: MagnetLink.AnnounceUrls
+  fullName: MonoTorrent.MagnetLink.AnnounceUrls
+- uid: System.Collections.Generic.IList{System.String}
+  commentId: T:System.Collections.Generic.IList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<string>
+  nameWithType: IList<string>
+  fullName: System.Collections.Generic.IList<string>
+  nameWithType.vb: IList(Of String)
+  fullName.vb: System.Collections.Generic.IList(Of String)
+  name.vb: IList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: MonoTorrent.MagnetLink.InfoHashes*
+  commentId: Overload:MonoTorrent.MagnetLink.InfoHashes
+  href: MonoTorrent.MagnetLink.html#MonoTorrent_MagnetLink_InfoHashes
+  name: InfoHashes
+  nameWithType: MagnetLink.InfoHashes
+  fullName: MonoTorrent.MagnetLink.InfoHashes
+- uid: MonoTorrent.InfoHashes
+  commentId: T:MonoTorrent.InfoHashes
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHashes.html
+  name: InfoHashes
+  nameWithType: InfoHashes
+  fullName: MonoTorrent.InfoHashes
+- uid: MonoTorrent.MagnetLink.Size*
+  commentId: Overload:MonoTorrent.MagnetLink.Size
+  href: MonoTorrent.MagnetLink.html#MonoTorrent_MagnetLink_Size
+  name: Size
+  nameWithType: MagnetLink.Size
+  fullName: MonoTorrent.MagnetLink.Size
+- uid: System.Nullable{System.Int64}
+  commentId: T:System.Nullable{System.Int64}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long?
+  nameWithType: long?
+  fullName: long?
+  nameWithType.vb: Long?
+  fullName.vb: Long?
+  name.vb: Long?
+  spec.csharp:
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+  spec.vb:
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.MagnetLink.Name*
+  commentId: Overload:MonoTorrent.MagnetLink.Name
+  href: MonoTorrent.MagnetLink.html#MonoTorrent_MagnetLink_Name
+  name: Name
+  nameWithType: MagnetLink.Name
+  fullName: MonoTorrent.MagnetLink.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MonoTorrent.MagnetLink.Webseeds*
+  commentId: Overload:MonoTorrent.MagnetLink.Webseeds
+  href: MonoTorrent.MagnetLink.html#MonoTorrent_MagnetLink_Webseeds
+  name: Webseeds
+  nameWithType: MagnetLink.Webseeds
+  fullName: MonoTorrent.MagnetLink.Webseeds
+- uid: MonoTorrent.MagnetLink.PublicKeyHex*
+  commentId: Overload:MonoTorrent.MagnetLink.PublicKeyHex
+  href: MonoTorrent.MagnetLink.html#MonoTorrent_MagnetLink_PublicKeyHex
+  name: PublicKeyHex
+  nameWithType: MagnetLink.PublicKeyHex
+  fullName: MonoTorrent.MagnetLink.PublicKeyHex
+- uid: MonoTorrent.MagnetLink.SaltHex*
+  commentId: Overload:MonoTorrent.MagnetLink.SaltHex
+  href: MonoTorrent.MagnetLink.html#MonoTorrent_MagnetLink_SaltHex
+  name: SaltHex
+  nameWithType: MagnetLink.SaltHex
+  fullName: MonoTorrent.MagnetLink.SaltHex
+- uid: MonoTorrent.MagnetLink.#ctor*
+  commentId: Overload:MonoTorrent.MagnetLink.#ctor
+  href: MonoTorrent.MagnetLink.html#MonoTorrent_MagnetLink__ctor_MonoTorrent_InfoHash_System_String_System_Collections_Generic_IList_System_String__System_Collections_Generic_IEnumerable_System_String__System_Nullable_System_Int64__
+  name: MagnetLink
+  nameWithType: MagnetLink.MagnetLink
+  fullName: MonoTorrent.MagnetLink.MagnetLink
+  nameWithType.vb: MagnetLink.New
+  fullName.vb: MonoTorrent.MagnetLink.New
+  name.vb: New
+- uid: MonoTorrent.InfoHash
+  commentId: T:MonoTorrent.InfoHash
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHash.html
+  name: InfoHash
+  nameWithType: InfoHash
+  fullName: MonoTorrent.InfoHash
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.MagnetLink.Parse*
+  commentId: Overload:MonoTorrent.MagnetLink.Parse
+  href: MonoTorrent.MagnetLink.html#MonoTorrent_MagnetLink_Parse_System_String_
+  name: Parse
+  nameWithType: MagnetLink.Parse
+  fullName: MonoTorrent.MagnetLink.Parse
+- uid: MonoTorrent.MagnetLink
+  commentId: T:MonoTorrent.MagnetLink
+  parent: MonoTorrent
+  href: MonoTorrent.MagnetLink.html
+  name: MagnetLink
+  nameWithType: MagnetLink
+  fullName: MonoTorrent.MagnetLink
+- uid: MonoTorrent.MagnetLink.TryParse*
+  commentId: Overload:MonoTorrent.MagnetLink.TryParse
+  href: MonoTorrent.MagnetLink.html#MonoTorrent_MagnetLink_TryParse_System_String_MonoTorrent_MagnetLink__
+  name: TryParse
+  nameWithType: MagnetLink.TryParse
+  fullName: MonoTorrent.MagnetLink.TryParse
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.MagnetLink.FromUri*
+  commentId: Overload:MonoTorrent.MagnetLink.FromUri
+  href: MonoTorrent.MagnetLink.html#MonoTorrent_MagnetLink_FromUri_System_Uri_
+  name: FromUri
+  nameWithType: MagnetLink.FromUri
+  fullName: MonoTorrent.MagnetLink.FromUri
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: MonoTorrent.MagnetLink.ToV1String*
+  commentId: Overload:MonoTorrent.MagnetLink.ToV1String
+  href: MonoTorrent.MagnetLink.html#MonoTorrent_MagnetLink_ToV1String
+  name: ToV1String
+  nameWithType: MagnetLink.ToV1String
+  fullName: MonoTorrent.MagnetLink.ToV1String
+- uid: MonoTorrent.MagnetLink.ToV1Uri*
+  commentId: Overload:MonoTorrent.MagnetLink.ToV1Uri
+  href: MonoTorrent.MagnetLink.html#MonoTorrent_MagnetLink_ToV1Uri
+  name: ToV1Uri
+  nameWithType: MagnetLink.ToV1Uri
+  fullName: MonoTorrent.MagnetLink.ToV1Uri

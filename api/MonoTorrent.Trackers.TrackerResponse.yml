@@ -1,0 +1,640 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Trackers.TrackerResponse
+  commentId: T:MonoTorrent.Trackers.TrackerResponse
+  id: TrackerResponse
+  parent: MonoTorrent.Trackers
+  children:
+  - MonoTorrent.Trackers.TrackerResponse.#ctor(MonoTorrent.Trackers.TrackerState,System.Collections.Generic.Dictionary{MonoTorrent.InfoHash,MonoTorrent.Trackers.ScrapeInfo},System.String,System.String)
+  - MonoTorrent.Trackers.TrackerResponse.FailureMessage
+  - MonoTorrent.Trackers.TrackerResponse.ScrapeInfo
+  - MonoTorrent.Trackers.TrackerResponse.State
+  - MonoTorrent.Trackers.TrackerResponse.WarningMessage
+  langs:
+  - csharp
+  - vb
+  name: TrackerResponse
+  nameWithType: TrackerResponse
+  fullName: MonoTorrent.Trackers.TrackerResponse
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/TrackerResponse.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TrackerResponse
+    path: src/Trackers/TrackerResponse.cs
+    startLine: 32
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public abstract class TrackerResponse
+    content.vb: Public MustInherit Class TrackerResponse
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - MonoTorrent.Trackers.AnnounceResponse
+  - MonoTorrent.Trackers.ScrapeResponse
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.Trackers.TrackerResponse.FailureMessage
+  commentId: P:MonoTorrent.Trackers.TrackerResponse.FailureMessage
+  id: FailureMessage
+  parent: MonoTorrent.Trackers.TrackerResponse
+  langs:
+  - csharp
+  - vb
+  name: FailureMessage
+  nameWithType: TrackerResponse.FailureMessage
+  fullName: MonoTorrent.Trackers.TrackerResponse.FailureMessage
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/TrackerResponse.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: FailureMessage
+    path: src/Trackers/TrackerResponse.cs
+    startLine: 38
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: The failure message returned by the tracker.
+  example: []
+  syntax:
+    content: public string FailureMessage { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property FailureMessage As String
+  overload: MonoTorrent.Trackers.TrackerResponse.FailureMessage*
+- uid: MonoTorrent.Trackers.TrackerResponse.ScrapeInfo
+  commentId: P:MonoTorrent.Trackers.TrackerResponse.ScrapeInfo
+  id: ScrapeInfo
+  parent: MonoTorrent.Trackers.TrackerResponse
+  langs:
+  - csharp
+  - vb
+  name: ScrapeInfo
+  nameWithType: TrackerResponse.ScrapeInfo
+  fullName: MonoTorrent.Trackers.TrackerResponse.ScrapeInfo
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/TrackerResponse.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ScrapeInfo
+    path: src/Trackers/TrackerResponse.cs
+    startLine: 46
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: >-
+    The 'downloaded', 'complete' and 'incomplete' stats for each infohash.
+
+    'downloaded' is the total number of peers which downloaded the torrent.
+
+    'complete' is the current number of active seeders.
+
+    'incomplete' is the current number of active downloaders.
+  example: []
+  syntax:
+    content: public Dictionary<InfoHash, ScrapeInfo> ScrapeInfo { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{MonoTorrent.InfoHash,MonoTorrent.Trackers.ScrapeInfo}
+    content.vb: Public ReadOnly Property ScrapeInfo As Dictionary(Of InfoHash, ScrapeInfo)
+  overload: MonoTorrent.Trackers.TrackerResponse.ScrapeInfo*
+- uid: MonoTorrent.Trackers.TrackerResponse.State
+  commentId: P:MonoTorrent.Trackers.TrackerResponse.State
+  id: State
+  parent: MonoTorrent.Trackers.TrackerResponse
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: TrackerResponse.State
+  fullName: MonoTorrent.Trackers.TrackerResponse.State
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/TrackerResponse.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: State
+    path: src/Trackers/TrackerResponse.cs
+    startLine: 51
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: The status of the tracker after this request.
+  example: []
+  syntax:
+    content: public TrackerState State { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Trackers.TrackerState
+    content.vb: Public ReadOnly Property State As TrackerState
+  overload: MonoTorrent.Trackers.TrackerResponse.State*
+- uid: MonoTorrent.Trackers.TrackerResponse.WarningMessage
+  commentId: P:MonoTorrent.Trackers.TrackerResponse.WarningMessage
+  id: WarningMessage
+  parent: MonoTorrent.Trackers.TrackerResponse
+  langs:
+  - csharp
+  - vb
+  name: WarningMessage
+  nameWithType: TrackerResponse.WarningMessage
+  fullName: MonoTorrent.Trackers.TrackerResponse.WarningMessage
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/TrackerResponse.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WarningMessage
+    path: src/Trackers/TrackerResponse.cs
+    startLine: 56
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: The warning message returned by the tracker.
+  example: []
+  syntax:
+    content: public string WarningMessage { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property WarningMessage As String
+  overload: MonoTorrent.Trackers.TrackerResponse.WarningMessage*
+- uid: MonoTorrent.Trackers.TrackerResponse.#ctor(MonoTorrent.Trackers.TrackerState,System.Collections.Generic.Dictionary{MonoTorrent.InfoHash,MonoTorrent.Trackers.ScrapeInfo},System.String,System.String)
+  commentId: M:MonoTorrent.Trackers.TrackerResponse.#ctor(MonoTorrent.Trackers.TrackerState,System.Collections.Generic.Dictionary{MonoTorrent.InfoHash,MonoTorrent.Trackers.ScrapeInfo},System.String,System.String)
+  id: '#ctor(MonoTorrent.Trackers.TrackerState,System.Collections.Generic.Dictionary{MonoTorrent.InfoHash,MonoTorrent.Trackers.ScrapeInfo},System.String,System.String)'
+  parent: MonoTorrent.Trackers.TrackerResponse
+  langs:
+  - csharp
+  - vb
+  name: TrackerResponse(TrackerState, Dictionary<InfoHash, ScrapeInfo>, string, string)
+  nameWithType: TrackerResponse.TrackerResponse(TrackerState, Dictionary<InfoHash, ScrapeInfo>, string, string)
+  fullName: MonoTorrent.Trackers.TrackerResponse.TrackerResponse(MonoTorrent.Trackers.TrackerState, System.Collections.Generic.Dictionary<MonoTorrent.InfoHash, MonoTorrent.Trackers.ScrapeInfo>, string, string)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/TrackerResponse.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Trackers/TrackerResponse.cs
+    startLine: 58
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: protected TrackerResponse(TrackerState state, Dictionary<InfoHash, ScrapeInfo> scrapeInfo, string warningMessage = "", string failureMessage = "")
+    parameters:
+    - id: state
+      type: MonoTorrent.Trackers.TrackerState
+    - id: scrapeInfo
+      type: System.Collections.Generic.Dictionary{MonoTorrent.InfoHash,MonoTorrent.Trackers.ScrapeInfo}
+    - id: warningMessage
+      type: System.String
+    - id: failureMessage
+      type: System.String
+    content.vb: Protected Sub New(state As TrackerState, scrapeInfo As Dictionary(Of InfoHash, ScrapeInfo), warningMessage As String = "", failureMessage As String = "")
+  overload: MonoTorrent.Trackers.TrackerResponse.#ctor*
+  nameWithType.vb: TrackerResponse.New(TrackerState, Dictionary(Of InfoHash, ScrapeInfo), String, String)
+  fullName.vb: MonoTorrent.Trackers.TrackerResponse.New(MonoTorrent.Trackers.TrackerState, System.Collections.Generic.Dictionary(Of MonoTorrent.InfoHash, MonoTorrent.Trackers.ScrapeInfo), String, String)
+  name.vb: New(TrackerState, Dictionary(Of InfoHash, ScrapeInfo), String, String)
+references:
+- uid: MonoTorrent.Trackers
+  commentId: N:MonoTorrent.Trackers
+  href: MonoTorrent.html
+  name: MonoTorrent.Trackers
+  nameWithType: MonoTorrent.Trackers
+  fullName: MonoTorrent.Trackers
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Trackers.TrackerResponse.FailureMessage*
+  commentId: Overload:MonoTorrent.Trackers.TrackerResponse.FailureMessage
+  href: MonoTorrent.Trackers.TrackerResponse.html#MonoTorrent_Trackers_TrackerResponse_FailureMessage
+  name: FailureMessage
+  nameWithType: TrackerResponse.FailureMessage
+  fullName: MonoTorrent.Trackers.TrackerResponse.FailureMessage
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MonoTorrent.Trackers.TrackerResponse.ScrapeInfo*
+  commentId: Overload:MonoTorrent.Trackers.TrackerResponse.ScrapeInfo
+  href: MonoTorrent.Trackers.TrackerResponse.html#MonoTorrent_Trackers_TrackerResponse_ScrapeInfo
+  name: ScrapeInfo
+  nameWithType: TrackerResponse.ScrapeInfo
+  fullName: MonoTorrent.Trackers.TrackerResponse.ScrapeInfo
+- uid: System.Collections.Generic.Dictionary{MonoTorrent.InfoHash,MonoTorrent.Trackers.ScrapeInfo}
+  commentId: T:System.Collections.Generic.Dictionary{MonoTorrent.InfoHash,MonoTorrent.Trackers.ScrapeInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<InfoHash, ScrapeInfo>
+  nameWithType: Dictionary<InfoHash, ScrapeInfo>
+  fullName: System.Collections.Generic.Dictionary<MonoTorrent.InfoHash, MonoTorrent.Trackers.ScrapeInfo>
+  nameWithType.vb: Dictionary(Of InfoHash, ScrapeInfo)
+  fullName.vb: System.Collections.Generic.Dictionary(Of MonoTorrent.InfoHash, MonoTorrent.Trackers.ScrapeInfo)
+  name.vb: Dictionary(Of InfoHash, ScrapeInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: MonoTorrent.InfoHash
+    name: InfoHash
+    href: MonoTorrent.InfoHash.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.Trackers.ScrapeInfo
+    name: ScrapeInfo
+    href: MonoTorrent.Trackers.ScrapeInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.InfoHash
+    name: InfoHash
+    href: MonoTorrent.InfoHash.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.Trackers.ScrapeInfo
+    name: ScrapeInfo
+    href: MonoTorrent.Trackers.ScrapeInfo.html
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: MonoTorrent.Trackers.TrackerResponse.State*
+  commentId: Overload:MonoTorrent.Trackers.TrackerResponse.State
+  href: MonoTorrent.Trackers.TrackerResponse.html#MonoTorrent_Trackers_TrackerResponse_State
+  name: State
+  nameWithType: TrackerResponse.State
+  fullName: MonoTorrent.Trackers.TrackerResponse.State
+- uid: MonoTorrent.Trackers.TrackerState
+  commentId: T:MonoTorrent.Trackers.TrackerState
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.TrackerState.html
+  name: TrackerState
+  nameWithType: TrackerState
+  fullName: MonoTorrent.Trackers.TrackerState
+- uid: MonoTorrent.Trackers.TrackerResponse.WarningMessage*
+  commentId: Overload:MonoTorrent.Trackers.TrackerResponse.WarningMessage
+  href: MonoTorrent.Trackers.TrackerResponse.html#MonoTorrent_Trackers_TrackerResponse_WarningMessage
+  name: WarningMessage
+  nameWithType: TrackerResponse.WarningMessage
+  fullName: MonoTorrent.Trackers.TrackerResponse.WarningMessage
+- uid: MonoTorrent.Trackers.TrackerResponse.#ctor*
+  commentId: Overload:MonoTorrent.Trackers.TrackerResponse.#ctor
+  href: MonoTorrent.Trackers.TrackerResponse.html#MonoTorrent_Trackers_TrackerResponse__ctor_MonoTorrent_Trackers_TrackerState_System_Collections_Generic_Dictionary_MonoTorrent_InfoHash_MonoTorrent_Trackers_ScrapeInfo__System_String_System_String_
+  name: TrackerResponse
+  nameWithType: TrackerResponse.TrackerResponse
+  fullName: MonoTorrent.Trackers.TrackerResponse.TrackerResponse
+  nameWithType.vb: TrackerResponse.New
+  fullName.vb: MonoTorrent.Trackers.TrackerResponse.New
+  name.vb: New

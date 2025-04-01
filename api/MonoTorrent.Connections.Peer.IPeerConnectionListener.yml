@@ -1,0 +1,369 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionListener
+  commentId: T:MonoTorrent.Connections.Peer.IPeerConnectionListener
+  id: IPeerConnectionListener
+  parent: MonoTorrent.Connections.Peer
+  children:
+  - MonoTorrent.Connections.Peer.IPeerConnectionListener.ConnectionReceived
+  - MonoTorrent.Connections.Peer.IPeerConnectionListener.LocalEndPoint
+  - MonoTorrent.Connections.Peer.IPeerConnectionListener.PreferredLocalEndPoint
+  langs:
+  - csharp
+  - vb
+  name: IPeerConnectionListener
+  nameWithType: IPeerConnectionListener
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionListener
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnectionListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IPeerConnectionListener
+    path: src/Connections/Peer/IPeerConnectionListener.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: 'public interface IPeerConnectionListener : IListener'
+    content.vb: Public Interface IPeerConnectionListener Inherits IListener
+  inheritedMembers:
+  - MonoTorrent.Connections.IListener.StatusChanged
+  - MonoTorrent.Connections.IListener.Status
+  - MonoTorrent.Connections.IListener.Start
+  - MonoTorrent.Connections.IListener.Stop
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionListener.LocalEndPoint
+  commentId: P:MonoTorrent.Connections.Peer.IPeerConnectionListener.LocalEndPoint
+  id: LocalEndPoint
+  parent: MonoTorrent.Connections.Peer.IPeerConnectionListener
+  langs:
+  - csharp
+  - vb
+  name: LocalEndPoint
+  nameWithType: IPeerConnectionListener.LocalEndPoint
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionListener.LocalEndPoint
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnectionListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LocalEndPoint
+    path: src/Connections/Peer/IPeerConnectionListener.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  summary: The EndPoint to which the Listener is bound. This is null when the listener is not in the <xref href="MonoTorrent.Connections.ListenerStatus.Listening" data-throw-if-not-resolved="false"></xref> state.
+  example: []
+  syntax:
+    content: IPEndPoint? LocalEndPoint { get; }
+    parameters: []
+    return:
+      type: System.Net.IPEndPoint
+    content.vb: ReadOnly Property LocalEndPoint As IPEndPoint
+  overload: MonoTorrent.Connections.Peer.IPeerConnectionListener.LocalEndPoint*
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionListener.PreferredLocalEndPoint
+  commentId: P:MonoTorrent.Connections.Peer.IPeerConnectionListener.PreferredLocalEndPoint
+  id: PreferredLocalEndPoint
+  parent: MonoTorrent.Connections.Peer.IPeerConnectionListener
+  langs:
+  - csharp
+  - vb
+  name: PreferredLocalEndPoint
+  nameWithType: IPeerConnectionListener.PreferredLocalEndPoint
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionListener.PreferredLocalEndPoint
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnectionListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PreferredLocalEndPoint
+    path: src/Connections/Peer/IPeerConnectionListener.cs
+    startLine: 46
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  summary: >-
+    The EndPoint to which the Listener will attempt to be bound. If the preferred endpoint has it's port set to 0, then
+
+    the actual port the listener is bound to will be set in the <xref href="MonoTorrent.Connections.Peer.IPeerConnectionListener.LocalEndPoint" data-throw-if-not-resolved="false"></xref> property after <xref href="MonoTorrent.Connections.IListener.Start" data-throw-if-not-resolved="false"></xref>
+
+    has been invoked and the listener enters the <xref href="MonoTorrent.Connections.ListenerStatus.Listening" data-throw-if-not-resolved="false"></xref> state.
+  example: []
+  syntax:
+    content: IPEndPoint PreferredLocalEndPoint { get; }
+    parameters: []
+    return:
+      type: System.Net.IPEndPoint
+    content.vb: ReadOnly Property PreferredLocalEndPoint As IPEndPoint
+  overload: MonoTorrent.Connections.Peer.IPeerConnectionListener.PreferredLocalEndPoint*
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionListener.ConnectionReceived
+  commentId: E:MonoTorrent.Connections.Peer.IPeerConnectionListener.ConnectionReceived
+  id: ConnectionReceived
+  parent: MonoTorrent.Connections.Peer.IPeerConnectionListener
+  langs:
+  - csharp
+  - vb
+  name: ConnectionReceived
+  nameWithType: IPeerConnectionListener.ConnectionReceived
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionListener.ConnectionReceived
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnectionListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ConnectionReceived
+    path: src/Connections/Peer/IPeerConnectionListener.cs
+    startLine: 48
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: event EventHandler<PeerConnectionEventArgs> ConnectionReceived
+    return:
+      type: System.EventHandler{MonoTorrent.Connections.Peer.PeerConnectionEventArgs}
+    content.vb: Event ConnectionReceived As EventHandler(Of PeerConnectionEventArgs)
+references:
+- uid: MonoTorrent.Connections.Peer
+  commentId: N:MonoTorrent.Connections.Peer
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.Peer
+  nameWithType: MonoTorrent.Connections.Peer
+  fullName: MonoTorrent.Connections.Peer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html
+- uid: MonoTorrent.Connections.IListener.StatusChanged
+  commentId: E:MonoTorrent.Connections.IListener.StatusChanged
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_StatusChanged
+  name: StatusChanged
+  nameWithType: IListener.StatusChanged
+  fullName: MonoTorrent.Connections.IListener.StatusChanged
+- uid: MonoTorrent.Connections.IListener.Status
+  commentId: P:MonoTorrent.Connections.IListener.Status
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Status
+  name: Status
+  nameWithType: IListener.Status
+  fullName: MonoTorrent.Connections.IListener.Status
+- uid: MonoTorrent.Connections.IListener.Start
+  commentId: M:MonoTorrent.Connections.IListener.Start
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  name: Start()
+  nameWithType: IListener.Start()
+  fullName: MonoTorrent.Connections.IListener.Start()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.IListener.Start
+    name: Start
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.IListener.Start
+    name: Start
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  - name: (
+  - name: )
+- uid: MonoTorrent.Connections.IListener.Stop
+  commentId: M:MonoTorrent.Connections.IListener.Stop
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  name: Stop()
+  nameWithType: IListener.Stop()
+  fullName: MonoTorrent.Connections.IListener.Stop()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.IListener.Stop
+    name: Stop
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.IListener.Stop
+    name: Stop
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  - name: (
+  - name: )
+- uid: MonoTorrent.Connections.IListener
+  commentId: T:MonoTorrent.Connections.IListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.IListener.html
+  name: IListener
+  nameWithType: IListener
+  fullName: MonoTorrent.Connections.IListener
+- uid: MonoTorrent.Connections
+  commentId: N:MonoTorrent.Connections
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections
+  nameWithType: MonoTorrent.Connections
+  fullName: MonoTorrent.Connections
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+- uid: MonoTorrent.Connections.ListenerStatus.Listening
+  commentId: F:MonoTorrent.Connections.ListenerStatus.Listening
+  href: MonoTorrent.Connections.ListenerStatus.html#MonoTorrent_Connections_ListenerStatus_Listening
+  name: Listening
+  nameWithType: ListenerStatus.Listening
+  fullName: MonoTorrent.Connections.ListenerStatus.Listening
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionListener.LocalEndPoint*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnectionListener.LocalEndPoint
+  href: MonoTorrent.Connections.Peer.IPeerConnectionListener.html#MonoTorrent_Connections_Peer_IPeerConnectionListener_LocalEndPoint
+  name: LocalEndPoint
+  nameWithType: IPeerConnectionListener.LocalEndPoint
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionListener.LocalEndPoint
+- uid: System.Net.IPEndPoint
+  commentId: T:System.Net.IPEndPoint
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  name: IPEndPoint
+  nameWithType: IPEndPoint
+  fullName: System.Net.IPEndPoint
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionListener.LocalEndPoint
+  commentId: P:MonoTorrent.Connections.Peer.IPeerConnectionListener.LocalEndPoint
+  href: MonoTorrent.Connections.Peer.IPeerConnectionListener.html#MonoTorrent_Connections_Peer_IPeerConnectionListener_LocalEndPoint
+  name: LocalEndPoint
+  nameWithType: IPeerConnectionListener.LocalEndPoint
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionListener.LocalEndPoint
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionListener.PreferredLocalEndPoint*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnectionListener.PreferredLocalEndPoint
+  href: MonoTorrent.Connections.Peer.IPeerConnectionListener.html#MonoTorrent_Connections_Peer_IPeerConnectionListener_PreferredLocalEndPoint
+  name: PreferredLocalEndPoint
+  nameWithType: IPeerConnectionListener.PreferredLocalEndPoint
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionListener.PreferredLocalEndPoint
+- uid: System.EventHandler{MonoTorrent.Connections.Peer.PeerConnectionEventArgs}
+  commentId: T:System.EventHandler{MonoTorrent.Connections.Peer.PeerConnectionEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<PeerConnectionEventArgs>
+  nameWithType: EventHandler<PeerConnectionEventArgs>
+  fullName: System.EventHandler<MonoTorrent.Connections.Peer.PeerConnectionEventArgs>
+  nameWithType.vb: EventHandler(Of PeerConnectionEventArgs)
+  fullName.vb: System.EventHandler(Of MonoTorrent.Connections.Peer.PeerConnectionEventArgs)
+  name.vb: EventHandler(Of PeerConnectionEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.Connections.Peer.PeerConnectionEventArgs
+    name: PeerConnectionEventArgs
+    href: MonoTorrent.Connections.Peer.PeerConnectionEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Connections.Peer.PeerConnectionEventArgs
+    name: PeerConnectionEventArgs
+    href: MonoTorrent.Connections.Peer.PeerConnectionEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

@@ -63,17 +63,7 @@ namespace MonoTorrent
 
     public static class ITorrentInfoExtensions
     {
-        static bool IsV1Only (this ITorrentInfo self)
-            => self.InfoHashes.V1 != null && self.InfoHashes.V2 == null;
-
-        static bool IsV2Only (this ITorrentInfo self)
-            => self.InfoHashes.V1 == null && self.InfoHashes.V2 != null;
-
-        static bool IsHybrid (this ITorrentManagerInfo self)
-            => self.InfoHashes.IsHybrid;
-
-        static bool IsHybrid (this ITorrentInfo self)
-            => self.InfoHashes.IsHybrid;
+        // Removed IsV1Only, IsV2Only, IsHybrid as InfoHashes.Protocol should be used directly.
 
         public static int BlocksPerPiece (this ITorrentInfo self, int pieceIndex)
             => (BytesPerPiece (self, pieceIndex) + Constants.BlockSize - 1) / Constants.BlockSize;
@@ -83,7 +73,7 @@ namespace MonoTorrent
 
         public static int BytesPerPiece (this ITorrentInfo self, int pieceIndex)
         {
-            if (self.IsV2Only ()) {
+            if (self.InfoHashes.Protocol == TorrentProtocol.V2) {
                 return BytesPerPieceV2 (self, pieceIndex);
             } else {
                 return BytesPerPieceV1 (self, pieceIndex);
@@ -123,7 +113,7 @@ namespace MonoTorrent
 
         public static int ByteOffsetToPieceIndex (this ITorrentInfo self, long offset)
         {
-            if (self.IsV2Only ()) {
+            if (self.InfoHashes.Protocol == TorrentProtocol.V2) {
                 for (int i = 0; i < self.Files.Count; i++) {
                     var file = self.Files[i];
                     if (offset < file.OffsetInTorrent || offset >= file.OffsetInTorrent + file.Length)
@@ -154,7 +144,7 @@ namespace MonoTorrent
         /// <returns></returns>
         public static int PieceCount (this ITorrentInfo self)
         {
-            if (self.IsV2Only ())
+            if (self.InfoHashes.Protocol == TorrentProtocol.V2)
                 return self.Files[self.Files.Count - 1].EndPieceIndex + 1;
             else
                 return (int) ((self.Size + self.PieceLength - 1) / self.PieceLength);
@@ -162,7 +152,7 @@ namespace MonoTorrent
 
         public static long PieceIndexToByteOffset (this ITorrentInfo self, int pieceIndex)
         {
-            if (self.IsV2Only ()) {
+            if (self.InfoHashes.Protocol == TorrentProtocol.V2) {
                 for (int i = 0; i < self.Files.Count; i++) {
                     var file = self.Files[i];
                     if (pieceIndex < file.StartPieceIndex || pieceIndex > file.EndPieceIndex)

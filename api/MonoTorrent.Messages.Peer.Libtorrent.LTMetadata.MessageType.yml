@@ -1,0 +1,171 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+  commentId: T:MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+  id: LTMetadata.MessageType
+  parent: MonoTorrent.Messages.Peer.Libtorrent
+  children:
+  - MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType.Data
+  - MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType.Reject
+  - MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType.Request
+  langs:
+  - csharp
+  - vb
+  name: LTMetadata.MessageType
+  nameWithType: LTMetadata.MessageType
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/LTMetadata.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MessageType
+    path: src/Messages/Peer/Libtorrent/LTMetadata.cs
+    startLine: 45
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: public enum LTMetadata.MessageType
+    content.vb: Public Enum LTMetadata.MessageType
+- uid: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType.Request
+  commentId: F:MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType.Request
+  id: Request
+  parent: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+  langs:
+  - csharp
+  - vb
+  name: Request
+  nameWithType: LTMetadata.MessageType.Request
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType.Request
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/LTMetadata.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Request
+    path: src/Messages/Peer/Libtorrent/LTMetadata.cs
+    startLine: 47
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: Request = 0
+    return:
+      type: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+- uid: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType.Data
+  commentId: F:MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType.Data
+  id: Data
+  parent: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: LTMetadata.MessageType.Data
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType.Data
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/LTMetadata.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Data
+    path: src/Messages/Peer/Libtorrent/LTMetadata.cs
+    startLine: 48
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: Data = 1
+    return:
+      type: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+- uid: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType.Reject
+  commentId: F:MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType.Reject
+  id: Reject
+  parent: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+  langs:
+  - csharp
+  - vb
+  name: Reject
+  nameWithType: LTMetadata.MessageType.Reject
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType.Reject
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Messages/Peer/Libtorrent/LTMetadata.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Reject
+    path: src/Messages/Peer/Libtorrent/LTMetadata.cs
+    startLine: 49
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Messages.Peer.Libtorrent
+  syntax:
+    content: Reject = 2
+    return:
+      type: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+references:
+- uid: MonoTorrent.Messages.Peer.Libtorrent
+  commentId: N:MonoTorrent.Messages.Peer.Libtorrent
+  href: MonoTorrent.html
+  name: MonoTorrent.Messages.Peer.Libtorrent
+  nameWithType: MonoTorrent.Messages.Peer.Libtorrent
+  fullName: MonoTorrent.Messages.Peer.Libtorrent
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer.Libtorrent
+    name: Libtorrent
+    href: MonoTorrent.Messages.Peer.Libtorrent.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer
+    name: Peer
+    href: MonoTorrent.Messages.Peer.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer.Libtorrent
+    name: Libtorrent
+    href: MonoTorrent.Messages.Peer.Libtorrent.html
+- uid: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+  commentId: T:MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+  parent: MonoTorrent.Messages.Peer.Libtorrent
+  href: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.html
+  name: LTMetadata.MessageType
+  nameWithType: LTMetadata.MessageType
+  fullName: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+  spec.csharp:
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata
+    name: LTMetadata
+    href: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+    name: MessageType
+    href: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType.html
+  spec.vb:
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata
+    name: LTMetadata
+    href: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.html
+  - name: .
+  - uid: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType
+    name: MessageType
+    href: MonoTorrent.Messages.Peer.Libtorrent.LTMetadata.MessageType.html

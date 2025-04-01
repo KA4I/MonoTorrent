@@ -1,0 +1,76 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Logging
+  commentId: N:MonoTorrent.Logging
+  id: MonoTorrent.Logging
+  children:
+  - MonoTorrent.Logging.ILogger
+  - MonoTorrent.Logging.IRootLogger
+  - MonoTorrent.Logging.LoggerFactory
+  - MonoTorrent.Logging.NullLogger
+  - MonoTorrent.Logging.TextWriterLogger
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.Logging
+  nameWithType: MonoTorrent.Logging
+  fullName: MonoTorrent.Logging
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.Logging.ILogger
+  commentId: T:MonoTorrent.Logging.ILogger
+  parent: MonoTorrent.Logging
+  href: MonoTorrent.Logging.ILogger.html
+  name: ILogger
+  nameWithType: ILogger
+  fullName: MonoTorrent.Logging.ILogger
+- uid: MonoTorrent.Logging.IRootLogger
+  commentId: T:MonoTorrent.Logging.IRootLogger
+  parent: MonoTorrent.Logging
+  href: MonoTorrent.Logging.IRootLogger.html
+  name: IRootLogger
+  nameWithType: IRootLogger
+  fullName: MonoTorrent.Logging.IRootLogger
+- uid: MonoTorrent.Logging.LoggerFactory
+  commentId: T:MonoTorrent.Logging.LoggerFactory
+  href: MonoTorrent.Logging.LoggerFactory.html
+  name: LoggerFactory
+  nameWithType: LoggerFactory
+  fullName: MonoTorrent.Logging.LoggerFactory
+- uid: MonoTorrent.Logging.NullLogger
+  commentId: T:MonoTorrent.Logging.NullLogger
+  parent: MonoTorrent.Logging
+  href: MonoTorrent.Logging.NullLogger.html
+  name: NullLogger
+  nameWithType: NullLogger
+  fullName: MonoTorrent.Logging.NullLogger
+- uid: MonoTorrent.Logging.TextWriterLogger
+  commentId: T:MonoTorrent.Logging.TextWriterLogger
+  href: MonoTorrent.Logging.TextWriterLogger.html
+  name: TextWriterLogger
+  nameWithType: TextWriterLogger
+  fullName: MonoTorrent.Logging.TextWriterLogger
+- uid: MonoTorrent.Logging
+  commentId: N:MonoTorrent.Logging
+  href: MonoTorrent.html
+  name: MonoTorrent.Logging
+  nameWithType: MonoTorrent.Logging
+  fullName: MonoTorrent.Logging
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Logging
+    name: Logging
+    href: MonoTorrent.Logging.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Logging
+    name: Logging
+    href: MonoTorrent.Logging.html

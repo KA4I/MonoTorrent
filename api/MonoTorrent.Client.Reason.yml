@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Client.Reason
+  commentId: T:MonoTorrent.Client.Reason
+  id: Reason
+  parent: MonoTorrent.Client
+  children:
+  - MonoTorrent.Client.Reason.ReadFailure
+  - MonoTorrent.Client.Reason.WriteFailure
+  langs:
+  - csharp
+  - vb
+  name: Reason
+  nameWithType: Reason
+  fullName: MonoTorrent.Client.Reason
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Error.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Reason
+    path: src/Client/Error.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public enum Reason
+    content.vb: Public Enum Reason
+- uid: MonoTorrent.Client.Reason.ReadFailure
+  commentId: F:MonoTorrent.Client.Reason.ReadFailure
+  id: ReadFailure
+  parent: MonoTorrent.Client.Reason
+  langs:
+  - csharp
+  - vb
+  name: ReadFailure
+  nameWithType: Reason.ReadFailure
+  fullName: MonoTorrent.Client.Reason.ReadFailure
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Error.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ReadFailure
+    path: src/Client/Error.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: ReadFailure = 0
+    return:
+      type: MonoTorrent.Client.Reason
+- uid: MonoTorrent.Client.Reason.WriteFailure
+  commentId: F:MonoTorrent.Client.Reason.WriteFailure
+  id: WriteFailure
+  parent: MonoTorrent.Client.Reason
+  langs:
+  - csharp
+  - vb
+  name: WriteFailure
+  nameWithType: Reason.WriteFailure
+  fullName: MonoTorrent.Client.Reason.WriteFailure
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/Error.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WriteFailure
+    path: src/Client/Error.cs
+    startLine: 36
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: WriteFailure = 1
+    return:
+      type: MonoTorrent.Client.Reason
+references:
+- uid: MonoTorrent.Client
+  commentId: N:MonoTorrent.Client
+  href: MonoTorrent.html
+  name: MonoTorrent.Client
+  nameWithType: MonoTorrent.Client
+  fullName: MonoTorrent.Client
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+- uid: MonoTorrent.Client.Reason
+  commentId: T:MonoTorrent.Client.Reason
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.Reason.html
+  name: Reason
+  nameWithType: Reason
+  fullName: MonoTorrent.Client.Reason

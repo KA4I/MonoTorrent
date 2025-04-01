@@ -1,0 +1,274 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher
+  commentId: T:MonoTorrent.TorrentWatcher.ITorrentWatcher
+  id: ITorrentWatcher
+  parent: MonoTorrent.TorrentWatcher
+  children:
+  - MonoTorrent.TorrentWatcher.ITorrentWatcher.ForceScan
+  - MonoTorrent.TorrentWatcher.ITorrentWatcher.Start
+  - MonoTorrent.TorrentWatcher.ITorrentWatcher.Stop
+  - MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentFound
+  - MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentLost
+  langs:
+  - csharp
+  - vb
+  name: ITorrentWatcher
+  nameWithType: ITorrentWatcher
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/ITorrentWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ITorrentWatcher
+    path: src/TorrentWatchers/ITorrentWatcher.cs
+    startLine: 31
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  syntax:
+    content: public interface ITorrentWatcher
+    content.vb: Public Interface ITorrentWatcher
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentFound
+  commentId: E:MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentFound
+  id: TorrentFound
+  parent: MonoTorrent.TorrentWatcher.ITorrentWatcher
+  langs:
+  - csharp
+  - vb
+  name: TorrentFound
+  nameWithType: ITorrentWatcher.TorrentFound
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentFound
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/ITorrentWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentFound
+    path: src/TorrentWatchers/ITorrentWatcher.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  syntax:
+    content: event EventHandler<TorrentWatcherEventArgs> TorrentFound
+    return:
+      type: System.EventHandler{MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs}
+    content.vb: Event TorrentFound As EventHandler(Of TorrentWatcherEventArgs)
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentLost
+  commentId: E:MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentLost
+  id: TorrentLost
+  parent: MonoTorrent.TorrentWatcher.ITorrentWatcher
+  langs:
+  - csharp
+  - vb
+  name: TorrentLost
+  nameWithType: ITorrentWatcher.TorrentLost
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher.TorrentLost
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/ITorrentWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentLost
+    path: src/TorrentWatchers/ITorrentWatcher.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  syntax:
+    content: event EventHandler<TorrentWatcherEventArgs> TorrentLost
+    return:
+      type: System.EventHandler{MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs}
+    content.vb: Event TorrentLost As EventHandler(Of TorrentWatcherEventArgs)
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.Start
+  commentId: M:MonoTorrent.TorrentWatcher.ITorrentWatcher.Start
+  id: Start
+  parent: MonoTorrent.TorrentWatcher.ITorrentWatcher
+  langs:
+  - csharp
+  - vb
+  name: Start()
+  nameWithType: ITorrentWatcher.Start()
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher.Start()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/ITorrentWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Start
+    path: src/TorrentWatchers/ITorrentWatcher.cs
+    startLine: 36
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  syntax:
+    content: void Start()
+    content.vb: Sub Start()
+  overload: MonoTorrent.TorrentWatcher.ITorrentWatcher.Start*
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.Stop
+  commentId: M:MonoTorrent.TorrentWatcher.ITorrentWatcher.Stop
+  id: Stop
+  parent: MonoTorrent.TorrentWatcher.ITorrentWatcher
+  langs:
+  - csharp
+  - vb
+  name: Stop()
+  nameWithType: ITorrentWatcher.Stop()
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher.Stop()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/ITorrentWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Stop
+    path: src/TorrentWatchers/ITorrentWatcher.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  syntax:
+    content: void Stop()
+    content.vb: Sub [Stop]()
+  overload: MonoTorrent.TorrentWatcher.ITorrentWatcher.Stop*
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.ForceScan
+  commentId: M:MonoTorrent.TorrentWatcher.ITorrentWatcher.ForceScan
+  id: ForceScan
+  parent: MonoTorrent.TorrentWatcher.ITorrentWatcher
+  langs:
+  - csharp
+  - vb
+  name: ForceScan()
+  nameWithType: ITorrentWatcher.ForceScan()
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher.ForceScan()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentWatchers/ITorrentWatcher.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ForceScan
+    path: src/TorrentWatchers/ITorrentWatcher.cs
+    startLine: 38
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.TorrentWatcher
+  syntax:
+    content: void ForceScan()
+    content.vb: Sub ForceScan()
+  overload: MonoTorrent.TorrentWatcher.ITorrentWatcher.ForceScan*
+references:
+- uid: MonoTorrent.TorrentWatcher
+  commentId: N:MonoTorrent.TorrentWatcher
+  href: MonoTorrent.html
+  name: MonoTorrent.TorrentWatcher
+  nameWithType: MonoTorrent.TorrentWatcher
+  fullName: MonoTorrent.TorrentWatcher
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TorrentWatcher
+    name: TorrentWatcher
+    href: MonoTorrent.TorrentWatcher.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.TorrentWatcher
+    name: TorrentWatcher
+    href: MonoTorrent.TorrentWatcher.html
+- uid: System.EventHandler{MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs}
+  commentId: T:System.EventHandler{MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TorrentWatcherEventArgs>
+  nameWithType: EventHandler<TorrentWatcherEventArgs>
+  fullName: System.EventHandler<MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs>
+  nameWithType.vb: EventHandler(Of TorrentWatcherEventArgs)
+  fullName.vb: System.EventHandler(Of MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs)
+  name.vb: EventHandler(Of TorrentWatcherEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs
+    name: TorrentWatcherEventArgs
+    href: MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs
+    name: TorrentWatcherEventArgs
+    href: MonoTorrent.TorrentWatcher.TorrentWatcherEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.Start*
+  commentId: Overload:MonoTorrent.TorrentWatcher.ITorrentWatcher.Start
+  href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html#MonoTorrent_TorrentWatcher_ITorrentWatcher_Start
+  name: Start
+  nameWithType: ITorrentWatcher.Start
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher.Start
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.Stop*
+  commentId: Overload:MonoTorrent.TorrentWatcher.ITorrentWatcher.Stop
+  href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html#MonoTorrent_TorrentWatcher_ITorrentWatcher_Stop
+  name: Stop
+  nameWithType: ITorrentWatcher.Stop
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher.Stop
+- uid: MonoTorrent.TorrentWatcher.ITorrentWatcher.ForceScan*
+  commentId: Overload:MonoTorrent.TorrentWatcher.ITorrentWatcher.ForceScan
+  href: MonoTorrent.TorrentWatcher.ITorrentWatcher.html#MonoTorrent_TorrentWatcher_ITorrentWatcher_ForceScan
+  name: ForceScan
+  nameWithType: ITorrentWatcher.ForceScan
+  fullName: MonoTorrent.TorrentWatcher.ITorrentWatcher.ForceScan

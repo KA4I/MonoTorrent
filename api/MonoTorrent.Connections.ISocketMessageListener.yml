@@ -1,0 +1,446 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.ISocketMessageListener
+  commentId: T:MonoTorrent.Connections.ISocketMessageListener
+  id: ISocketMessageListener
+  parent: MonoTorrent.Connections
+  children:
+  - MonoTorrent.Connections.ISocketMessageListener.MessageReceived
+  - MonoTorrent.Connections.ISocketMessageListener.SendAsync(System.ReadOnlyMemory{System.Byte},System.Net.IPEndPoint)
+  langs:
+  - csharp
+  - vb
+  name: ISocketMessageListener
+  nameWithType: ISocketMessageListener
+  fullName: MonoTorrent.Connections.ISocketMessageListener
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/ISocketMessageListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ISocketMessageListener
+    path: src/Connections/ISocketMessageListener.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: 'public interface ISocketMessageListener : ISocketListener, IListener'
+    content.vb: Public Interface ISocketMessageListener Inherits ISocketListener, IListener
+  inheritedMembers:
+  - MonoTorrent.Connections.ISocketListener.LocalEndPoint
+  - MonoTorrent.Connections.IListener.StatusChanged
+  - MonoTorrent.Connections.IListener.Status
+  - MonoTorrent.Connections.IListener.Start
+  - MonoTorrent.Connections.IListener.Stop
+- uid: MonoTorrent.Connections.ISocketMessageListener.MessageReceived
+  commentId: E:MonoTorrent.Connections.ISocketMessageListener.MessageReceived
+  id: MessageReceived
+  parent: MonoTorrent.Connections.ISocketMessageListener
+  langs:
+  - csharp
+  - vb
+  name: MessageReceived
+  nameWithType: ISocketMessageListener.MessageReceived
+  fullName: MonoTorrent.Connections.ISocketMessageListener.MessageReceived
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/ISocketMessageListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MessageReceived
+    path: src/Connections/ISocketMessageListener.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: event Action<ReadOnlyMemory<byte>, IPEndPoint> MessageReceived
+    return:
+      type: System.Action{System.ReadOnlyMemory{System.Byte},System.Net.IPEndPoint}
+    content.vb: Event MessageReceived As Action(Of ReadOnlyMemory(Of Byte), IPEndPoint)
+- uid: MonoTorrent.Connections.ISocketMessageListener.SendAsync(System.ReadOnlyMemory{System.Byte},System.Net.IPEndPoint)
+  commentId: M:MonoTorrent.Connections.ISocketMessageListener.SendAsync(System.ReadOnlyMemory{System.Byte},System.Net.IPEndPoint)
+  id: SendAsync(System.ReadOnlyMemory{System.Byte},System.Net.IPEndPoint)
+  parent: MonoTorrent.Connections.ISocketMessageListener
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(ReadOnlyMemory<byte>, IPEndPoint)
+  nameWithType: ISocketMessageListener.SendAsync(ReadOnlyMemory<byte>, IPEndPoint)
+  fullName: MonoTorrent.Connections.ISocketMessageListener.SendAsync(System.ReadOnlyMemory<byte>, System.Net.IPEndPoint)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/ISocketMessageListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SendAsync
+    path: src/Connections/ISocketMessageListener.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: Task SendAsync(ReadOnlyMemory<byte> buffer, IPEndPoint endpoint)
+    parameters:
+    - id: buffer
+      type: System.ReadOnlyMemory{System.Byte}
+    - id: endpoint
+      type: System.Net.IPEndPoint
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function SendAsync(buffer As ReadOnlyMemory(Of Byte), endpoint As IPEndPoint) As Task
+  overload: MonoTorrent.Connections.ISocketMessageListener.SendAsync*
+  nameWithType.vb: ISocketMessageListener.SendAsync(ReadOnlyMemory(Of Byte), IPEndPoint)
+  fullName.vb: MonoTorrent.Connections.ISocketMessageListener.SendAsync(System.ReadOnlyMemory(Of Byte), System.Net.IPEndPoint)
+  name.vb: SendAsync(ReadOnlyMemory(Of Byte), IPEndPoint)
+references:
+- uid: MonoTorrent.Connections
+  commentId: N:MonoTorrent.Connections
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections
+  nameWithType: MonoTorrent.Connections
+  fullName: MonoTorrent.Connections
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+- uid: MonoTorrent.Connections.ISocketListener.LocalEndPoint
+  commentId: P:MonoTorrent.Connections.ISocketListener.LocalEndPoint
+  parent: MonoTorrent.Connections.ISocketListener
+  href: MonoTorrent.Connections.ISocketListener.html#MonoTorrent_Connections_ISocketListener_LocalEndPoint
+  name: LocalEndPoint
+  nameWithType: ISocketListener.LocalEndPoint
+  fullName: MonoTorrent.Connections.ISocketListener.LocalEndPoint
+- uid: MonoTorrent.Connections.IListener.StatusChanged
+  commentId: E:MonoTorrent.Connections.IListener.StatusChanged
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_StatusChanged
+  name: StatusChanged
+  nameWithType: IListener.StatusChanged
+  fullName: MonoTorrent.Connections.IListener.StatusChanged
+- uid: MonoTorrent.Connections.IListener.Status
+  commentId: P:MonoTorrent.Connections.IListener.Status
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Status
+  name: Status
+  nameWithType: IListener.Status
+  fullName: MonoTorrent.Connections.IListener.Status
+- uid: MonoTorrent.Connections.IListener.Start
+  commentId: M:MonoTorrent.Connections.IListener.Start
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  name: Start()
+  nameWithType: IListener.Start()
+  fullName: MonoTorrent.Connections.IListener.Start()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.IListener.Start
+    name: Start
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.IListener.Start
+    name: Start
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  - name: (
+  - name: )
+- uid: MonoTorrent.Connections.IListener.Stop
+  commentId: M:MonoTorrent.Connections.IListener.Stop
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  name: Stop()
+  nameWithType: IListener.Stop()
+  fullName: MonoTorrent.Connections.IListener.Stop()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.IListener.Stop
+    name: Stop
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.IListener.Stop
+    name: Stop
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  - name: (
+  - name: )
+- uid: MonoTorrent.Connections.ISocketListener
+  commentId: T:MonoTorrent.Connections.ISocketListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.ISocketListener.html
+  name: ISocketListener
+  nameWithType: ISocketListener
+  fullName: MonoTorrent.Connections.ISocketListener
+- uid: MonoTorrent.Connections.IListener
+  commentId: T:MonoTorrent.Connections.IListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.IListener.html
+  name: IListener
+  nameWithType: IListener
+  fullName: MonoTorrent.Connections.IListener
+- uid: System.Action{System.ReadOnlyMemory{System.Byte},System.Net.IPEndPoint}
+  commentId: T:System.Action{System.ReadOnlyMemory{System.Byte},System.Net.IPEndPoint}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<ReadOnlyMemory<byte>, IPEndPoint>
+  nameWithType: Action<ReadOnlyMemory<byte>, IPEndPoint>
+  fullName: System.Action<System.ReadOnlyMemory<byte>, System.Net.IPEndPoint>
+  nameWithType.vb: Action(Of ReadOnlyMemory(Of Byte), IPEndPoint)
+  fullName.vb: System.Action(Of System.ReadOnlyMemory(Of Byte), System.Net.IPEndPoint)
+  name.vb: Action(Of ReadOnlyMemory(Of Byte), IPEndPoint)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Connections.ISocketMessageListener.SendAsync*
+  commentId: Overload:MonoTorrent.Connections.ISocketMessageListener.SendAsync
+  href: MonoTorrent.Connections.ISocketMessageListener.html#MonoTorrent_Connections_ISocketMessageListener_SendAsync_System_ReadOnlyMemory_System_Byte__System_Net_IPEndPoint_
+  name: SendAsync
+  nameWithType: ISocketMessageListener.SendAsync
+  fullName: MonoTorrent.Connections.ISocketMessageListener.SendAsync
+- uid: System.ReadOnlyMemory{System.Byte}
+  commentId: T:System.ReadOnlyMemory{System.Byte}
+  parent: System
+  definition: System.ReadOnlyMemory`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<byte>
+  nameWithType: ReadOnlyMemory<byte>
+  fullName: System.ReadOnlyMemory<byte>
+  nameWithType.vb: ReadOnlyMemory(Of Byte)
+  fullName.vb: System.ReadOnlyMemory(Of Byte)
+  name.vb: ReadOnlyMemory(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Net.IPEndPoint
+  commentId: T:System.Net.IPEndPoint
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  name: IPEndPoint
+  nameWithType: IPEndPoint
+  fullName: System.Net.IPEndPoint
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.ReadOnlyMemory`1
+  commentId: T:System.ReadOnlyMemory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<T>
+  nameWithType: ReadOnlyMemory<T>
+  fullName: System.ReadOnlyMemory<T>
+  nameWithType.vb: ReadOnlyMemory(Of T)
+  fullName.vb: System.ReadOnlyMemory(Of T)
+  name.vb: ReadOnlyMemory(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

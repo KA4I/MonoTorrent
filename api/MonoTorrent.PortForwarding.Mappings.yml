@@ -1,0 +1,775 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PortForwarding.Mappings
+  commentId: T:MonoTorrent.PortForwarding.Mappings
+  id: Mappings
+  parent: MonoTorrent.PortForwarding
+  children:
+  - MonoTorrent.PortForwarding.Mappings.#ctor
+  - MonoTorrent.PortForwarding.Mappings.Created
+  - MonoTorrent.PortForwarding.Mappings.Empty
+  - MonoTorrent.PortForwarding.Mappings.Failed
+  - MonoTorrent.PortForwarding.Mappings.Pending
+  - MonoTorrent.PortForwarding.Mappings.Remove(MonoTorrent.PortForwarding.Mapping,System.Boolean@)
+  - MonoTorrent.PortForwarding.Mappings.WithAllPending
+  - MonoTorrent.PortForwarding.Mappings.WithCreated(MonoTorrent.PortForwarding.Mapping)
+  - MonoTorrent.PortForwarding.Mappings.WithFailed(MonoTorrent.PortForwarding.Mapping)
+  - MonoTorrent.PortForwarding.Mappings.WithPending(MonoTorrent.PortForwarding.Mapping)
+  langs:
+  - csharp
+  - vb
+  name: Mappings
+  nameWithType: Mappings
+  fullName: MonoTorrent.PortForwarding.Mappings
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/PortForwarding/Mappings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Mappings
+    path: src/PortForwarding/Mappings.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PortForwarding
+  syntax:
+    content: public sealed class Mappings
+    content.vb: Public NotInheritable Class Mappings
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.PortForwarding.Mappings.Empty
+  commentId: F:MonoTorrent.PortForwarding.Mappings.Empty
+  id: Empty
+  parent: MonoTorrent.PortForwarding.Mappings
+  langs:
+  - csharp
+  - vb
+  name: Empty
+  nameWithType: Mappings.Empty
+  fullName: MonoTorrent.PortForwarding.Mappings.Empty
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PortForwarding/Mappings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Empty
+    path: src/PortForwarding/Mappings.cs
+    startLine: 36
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PortForwarding
+  syntax:
+    content: public static readonly Mappings Empty
+    return:
+      type: MonoTorrent.PortForwarding.Mappings
+    content.vb: Public Shared ReadOnly Empty As Mappings
+- uid: MonoTorrent.PortForwarding.Mappings.Created
+  commentId: P:MonoTorrent.PortForwarding.Mappings.Created
+  id: Created
+  parent: MonoTorrent.PortForwarding.Mappings
+  langs:
+  - csharp
+  - vb
+  name: Created
+  nameWithType: Mappings.Created
+  fullName: MonoTorrent.PortForwarding.Mappings.Created
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PortForwarding/Mappings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Created
+    path: src/PortForwarding/Mappings.cs
+    startLine: 41
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PortForwarding
+  summary: A list of mappings which have been successfully created
+  example: []
+  syntax:
+    content: public IReadOnlyList<Mapping> Created { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{MonoTorrent.PortForwarding.Mapping}
+    content.vb: Public ReadOnly Property Created As IReadOnlyList(Of Mapping)
+  overload: MonoTorrent.PortForwarding.Mappings.Created*
+- uid: MonoTorrent.PortForwarding.Mappings.Pending
+  commentId: P:MonoTorrent.PortForwarding.Mappings.Pending
+  id: Pending
+  parent: MonoTorrent.PortForwarding.Mappings
+  langs:
+  - csharp
+  - vb
+  name: Pending
+  nameWithType: Mappings.Pending
+  fullName: MonoTorrent.PortForwarding.Mappings.Pending
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PortForwarding/Mappings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Pending
+    path: src/PortForwarding/Mappings.cs
+    startLine: 47
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PortForwarding
+  summary: >-
+    A list of mappings which will be created as soon as a compatible uPnP or NAT-PMP router
+
+    is discovered.
+  example: []
+  syntax:
+    content: public IReadOnlyList<Mapping> Pending { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{MonoTorrent.PortForwarding.Mapping}
+    content.vb: Public ReadOnly Property Pending As IReadOnlyList(Of Mapping)
+  overload: MonoTorrent.PortForwarding.Mappings.Pending*
+- uid: MonoTorrent.PortForwarding.Mappings.Failed
+  commentId: P:MonoTorrent.PortForwarding.Mappings.Failed
+  id: Failed
+  parent: MonoTorrent.PortForwarding.Mappings
+  langs:
+  - csharp
+  - vb
+  name: Failed
+  nameWithType: Mappings.Failed
+  fullName: MonoTorrent.PortForwarding.Mappings.Failed
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PortForwarding/Mappings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Failed
+    path: src/PortForwarding/Mappings.cs
+    startLine: 53
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PortForwarding
+  summary: >-
+    A list of mappings which could not be created. This can happen if the public port is already
+
+    in use and is mapped to a different IP address in the local network.
+  example: []
+  syntax:
+    content: public IReadOnlyList<Mapping> Failed { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{MonoTorrent.PortForwarding.Mapping}
+    content.vb: Public ReadOnly Property Failed As IReadOnlyList(Of Mapping)
+  overload: MonoTorrent.PortForwarding.Mappings.Failed*
+- uid: MonoTorrent.PortForwarding.Mappings.#ctor
+  commentId: M:MonoTorrent.PortForwarding.Mappings.#ctor
+  id: '#ctor'
+  parent: MonoTorrent.PortForwarding.Mappings
+  langs:
+  - csharp
+  - vb
+  name: Mappings()
+  nameWithType: Mappings.Mappings()
+  fullName: MonoTorrent.PortForwarding.Mappings.Mappings()
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/PortForwarding/Mappings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/PortForwarding/Mappings.cs
+    startLine: 55
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PortForwarding
+  syntax:
+    content: public Mappings()
+    content.vb: Public Sub New()
+  overload: MonoTorrent.PortForwarding.Mappings.#ctor*
+  nameWithType.vb: Mappings.New()
+  fullName.vb: MonoTorrent.PortForwarding.Mappings.New()
+  name.vb: New()
+- uid: MonoTorrent.PortForwarding.Mappings.Remove(MonoTorrent.PortForwarding.Mapping,System.Boolean@)
+  commentId: M:MonoTorrent.PortForwarding.Mappings.Remove(MonoTorrent.PortForwarding.Mapping,System.Boolean@)
+  id: Remove(MonoTorrent.PortForwarding.Mapping,System.Boolean@)
+  parent: MonoTorrent.PortForwarding.Mappings
+  langs:
+  - csharp
+  - vb
+  name: Remove(Mapping, out bool)
+  nameWithType: Mappings.Remove(Mapping, out bool)
+  fullName: MonoTorrent.PortForwarding.Mappings.Remove(MonoTorrent.PortForwarding.Mapping, out bool)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PortForwarding/Mappings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Remove
+    path: src/PortForwarding/Mappings.cs
+    startLine: 67
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PortForwarding
+  syntax:
+    content: public Mappings Remove(Mapping mapping, out bool wasCreated)
+    parameters:
+    - id: mapping
+      type: MonoTorrent.PortForwarding.Mapping
+    - id: wasCreated
+      type: System.Boolean
+    return:
+      type: MonoTorrent.PortForwarding.Mappings
+    content.vb: Public Function Remove(mapping As Mapping, wasCreated As Boolean) As Mappings
+  overload: MonoTorrent.PortForwarding.Mappings.Remove*
+  nameWithType.vb: Mappings.Remove(Mapping, Boolean)
+  fullName.vb: MonoTorrent.PortForwarding.Mappings.Remove(MonoTorrent.PortForwarding.Mapping, Boolean)
+  name.vb: Remove(Mapping, Boolean)
+- uid: MonoTorrent.PortForwarding.Mappings.WithAllPending
+  commentId: M:MonoTorrent.PortForwarding.Mappings.WithAllPending
+  id: WithAllPending
+  parent: MonoTorrent.PortForwarding.Mappings
+  langs:
+  - csharp
+  - vb
+  name: WithAllPending()
+  nameWithType: Mappings.WithAllPending()
+  fullName: MonoTorrent.PortForwarding.Mappings.WithAllPending()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PortForwarding/Mappings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithAllPending
+    path: src/PortForwarding/Mappings.cs
+    startLine: 77
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PortForwarding
+  syntax:
+    content: public Mappings WithAllPending()
+    return:
+      type: MonoTorrent.PortForwarding.Mappings
+    content.vb: Public Function WithAllPending() As Mappings
+  overload: MonoTorrent.PortForwarding.Mappings.WithAllPending*
+- uid: MonoTorrent.PortForwarding.Mappings.WithCreated(MonoTorrent.PortForwarding.Mapping)
+  commentId: M:MonoTorrent.PortForwarding.Mappings.WithCreated(MonoTorrent.PortForwarding.Mapping)
+  id: WithCreated(MonoTorrent.PortForwarding.Mapping)
+  parent: MonoTorrent.PortForwarding.Mappings
+  langs:
+  - csharp
+  - vb
+  name: WithCreated(Mapping)
+  nameWithType: Mappings.WithCreated(Mapping)
+  fullName: MonoTorrent.PortForwarding.Mappings.WithCreated(MonoTorrent.PortForwarding.Mapping)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PortForwarding/Mappings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithCreated
+    path: src/PortForwarding/Mappings.cs
+    startLine: 82
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PortForwarding
+  syntax:
+    content: public Mappings WithCreated(Mapping mapping)
+    parameters:
+    - id: mapping
+      type: MonoTorrent.PortForwarding.Mapping
+    return:
+      type: MonoTorrent.PortForwarding.Mappings
+    content.vb: Public Function WithCreated(mapping As Mapping) As Mappings
+  overload: MonoTorrent.PortForwarding.Mappings.WithCreated*
+- uid: MonoTorrent.PortForwarding.Mappings.WithFailed(MonoTorrent.PortForwarding.Mapping)
+  commentId: M:MonoTorrent.PortForwarding.Mappings.WithFailed(MonoTorrent.PortForwarding.Mapping)
+  id: WithFailed(MonoTorrent.PortForwarding.Mapping)
+  parent: MonoTorrent.PortForwarding.Mappings
+  langs:
+  - csharp
+  - vb
+  name: WithFailed(Mapping)
+  nameWithType: Mappings.WithFailed(Mapping)
+  fullName: MonoTorrent.PortForwarding.Mappings.WithFailed(MonoTorrent.PortForwarding.Mapping)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PortForwarding/Mappings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithFailed
+    path: src/PortForwarding/Mappings.cs
+    startLine: 91
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PortForwarding
+  syntax:
+    content: public Mappings WithFailed(Mapping mapping)
+    parameters:
+    - id: mapping
+      type: MonoTorrent.PortForwarding.Mapping
+    return:
+      type: MonoTorrent.PortForwarding.Mappings
+    content.vb: Public Function WithFailed(mapping As Mapping) As Mappings
+  overload: MonoTorrent.PortForwarding.Mappings.WithFailed*
+- uid: MonoTorrent.PortForwarding.Mappings.WithPending(MonoTorrent.PortForwarding.Mapping)
+  commentId: M:MonoTorrent.PortForwarding.Mappings.WithPending(MonoTorrent.PortForwarding.Mapping)
+  id: WithPending(MonoTorrent.PortForwarding.Mapping)
+  parent: MonoTorrent.PortForwarding.Mappings
+  langs:
+  - csharp
+  - vb
+  name: WithPending(Mapping)
+  nameWithType: Mappings.WithPending(Mapping)
+  fullName: MonoTorrent.PortForwarding.Mappings.WithPending(MonoTorrent.PortForwarding.Mapping)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PortForwarding/Mappings.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithPending
+    path: src/PortForwarding/Mappings.cs
+    startLine: 100
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PortForwarding
+  syntax:
+    content: public Mappings WithPending(Mapping mapping)
+    parameters:
+    - id: mapping
+      type: MonoTorrent.PortForwarding.Mapping
+    return:
+      type: MonoTorrent.PortForwarding.Mappings
+    content.vb: Public Function WithPending(mapping As Mapping) As Mappings
+  overload: MonoTorrent.PortForwarding.Mappings.WithPending*
+references:
+- uid: MonoTorrent.PortForwarding
+  commentId: N:MonoTorrent.PortForwarding
+  href: MonoTorrent.html
+  name: MonoTorrent.PortForwarding
+  nameWithType: MonoTorrent.PortForwarding
+  fullName: MonoTorrent.PortForwarding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PortForwarding
+    name: PortForwarding
+    href: MonoTorrent.PortForwarding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PortForwarding
+    name: PortForwarding
+    href: MonoTorrent.PortForwarding.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.PortForwarding.Mappings
+  commentId: T:MonoTorrent.PortForwarding.Mappings
+  parent: MonoTorrent.PortForwarding
+  href: MonoTorrent.PortForwarding.Mappings.html
+  name: Mappings
+  nameWithType: Mappings
+  fullName: MonoTorrent.PortForwarding.Mappings
+- uid: MonoTorrent.PortForwarding.Mappings.Created*
+  commentId: Overload:MonoTorrent.PortForwarding.Mappings.Created
+  href: MonoTorrent.PortForwarding.Mappings.html#MonoTorrent_PortForwarding_Mappings_Created
+  name: Created
+  nameWithType: Mappings.Created
+  fullName: MonoTorrent.PortForwarding.Mappings.Created
+- uid: System.Collections.Generic.IReadOnlyList{MonoTorrent.PortForwarding.Mapping}
+  commentId: T:System.Collections.Generic.IReadOnlyList{MonoTorrent.PortForwarding.Mapping}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<Mapping>
+  nameWithType: IReadOnlyList<Mapping>
+  fullName: System.Collections.Generic.IReadOnlyList<MonoTorrent.PortForwarding.Mapping>
+  nameWithType.vb: IReadOnlyList(Of Mapping)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of MonoTorrent.PortForwarding.Mapping)
+  name.vb: IReadOnlyList(Of Mapping)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: MonoTorrent.PortForwarding.Mapping
+    name: Mapping
+    href: MonoTorrent.PortForwarding.Mapping.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.PortForwarding.Mapping
+    name: Mapping
+    href: MonoTorrent.PortForwarding.Mapping.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: MonoTorrent.PortForwarding.Mappings.Pending*
+  commentId: Overload:MonoTorrent.PortForwarding.Mappings.Pending
+  href: MonoTorrent.PortForwarding.Mappings.html#MonoTorrent_PortForwarding_Mappings_Pending
+  name: Pending
+  nameWithType: Mappings.Pending
+  fullName: MonoTorrent.PortForwarding.Mappings.Pending
+- uid: MonoTorrent.PortForwarding.Mappings.Failed*
+  commentId: Overload:MonoTorrent.PortForwarding.Mappings.Failed
+  href: MonoTorrent.PortForwarding.Mappings.html#MonoTorrent_PortForwarding_Mappings_Failed
+  name: Failed
+  nameWithType: Mappings.Failed
+  fullName: MonoTorrent.PortForwarding.Mappings.Failed
+- uid: MonoTorrent.PortForwarding.Mappings.#ctor*
+  commentId: Overload:MonoTorrent.PortForwarding.Mappings.#ctor
+  href: MonoTorrent.PortForwarding.Mappings.html#MonoTorrent_PortForwarding_Mappings__ctor
+  name: Mappings
+  nameWithType: Mappings.Mappings
+  fullName: MonoTorrent.PortForwarding.Mappings.Mappings
+  nameWithType.vb: Mappings.New
+  fullName.vb: MonoTorrent.PortForwarding.Mappings.New
+  name.vb: New
+- uid: MonoTorrent.PortForwarding.Mappings.Remove*
+  commentId: Overload:MonoTorrent.PortForwarding.Mappings.Remove
+  href: MonoTorrent.PortForwarding.Mappings.html#MonoTorrent_PortForwarding_Mappings_Remove_MonoTorrent_PortForwarding_Mapping_System_Boolean__
+  name: Remove
+  nameWithType: Mappings.Remove
+  fullName: MonoTorrent.PortForwarding.Mappings.Remove
+- uid: MonoTorrent.PortForwarding.Mapping
+  commentId: T:MonoTorrent.PortForwarding.Mapping
+  parent: MonoTorrent.PortForwarding
+  href: MonoTorrent.PortForwarding.Mapping.html
+  name: Mapping
+  nameWithType: Mapping
+  fullName: MonoTorrent.PortForwarding.Mapping
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.PortForwarding.Mappings.WithAllPending*
+  commentId: Overload:MonoTorrent.PortForwarding.Mappings.WithAllPending
+  href: MonoTorrent.PortForwarding.Mappings.html#MonoTorrent_PortForwarding_Mappings_WithAllPending
+  name: WithAllPending
+  nameWithType: Mappings.WithAllPending
+  fullName: MonoTorrent.PortForwarding.Mappings.WithAllPending
+- uid: MonoTorrent.PortForwarding.Mappings.WithCreated*
+  commentId: Overload:MonoTorrent.PortForwarding.Mappings.WithCreated
+  href: MonoTorrent.PortForwarding.Mappings.html#MonoTorrent_PortForwarding_Mappings_WithCreated_MonoTorrent_PortForwarding_Mapping_
+  name: WithCreated
+  nameWithType: Mappings.WithCreated
+  fullName: MonoTorrent.PortForwarding.Mappings.WithCreated
+- uid: MonoTorrent.PortForwarding.Mappings.WithFailed*
+  commentId: Overload:MonoTorrent.PortForwarding.Mappings.WithFailed
+  href: MonoTorrent.PortForwarding.Mappings.html#MonoTorrent_PortForwarding_Mappings_WithFailed_MonoTorrent_PortForwarding_Mapping_
+  name: WithFailed
+  nameWithType: Mappings.WithFailed
+  fullName: MonoTorrent.PortForwarding.Mappings.WithFailed
+- uid: MonoTorrent.PortForwarding.Mappings.WithPending*
+  commentId: Overload:MonoTorrent.PortForwarding.Mappings.WithPending
+  href: MonoTorrent.PortForwarding.Mappings.html#MonoTorrent_PortForwarding_Mappings_WithPending_MonoTorrent_PortForwarding_Mapping_
+  name: WithPending
+  nameWithType: Mappings.WithPending
+  fullName: MonoTorrent.PortForwarding.Mappings.WithPending

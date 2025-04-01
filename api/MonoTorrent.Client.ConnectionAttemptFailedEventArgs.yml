@@ -1,0 +1,411 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Client.ConnectionAttemptFailedEventArgs
+  commentId: T:MonoTorrent.Client.ConnectionAttemptFailedEventArgs
+  id: ConnectionAttemptFailedEventArgs
+  parent: MonoTorrent.Client
+  children:
+  - MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Peer
+  - MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Reason
+  langs:
+  - csharp
+  - vb
+  name: ConnectionAttemptFailedEventArgs
+  nameWithType: ConnectionAttemptFailedEventArgs
+  fullName: MonoTorrent.Client.ConnectionAttemptFailedEventArgs
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Client/EventArgs/PeerConnectionFailedEventArgs.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ConnectionAttemptFailedEventArgs
+    path: src/Client/EventArgs/PeerConnectionFailedEventArgs.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Used by the <xref href="MonoTorrent.Client.TorrentManager.ConnectionAttemptFailed" data-throw-if-not-resolved="false"></xref> event
+  example: []
+  syntax:
+    content: 'public sealed class ConnectionAttemptFailedEventArgs : TorrentEventArgs'
+    content.vb: Public NotInheritable Class ConnectionAttemptFailedEventArgs Inherits TorrentEventArgs
+  inheritance:
+  - System.Object
+  - System.EventArgs
+  - MonoTorrent.Client.TorrentEventArgs
+  inheritedMembers:
+  - MonoTorrent.Client.TorrentEventArgs.TorrentManager
+  - System.EventArgs.Empty
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Reason
+  commentId: P:MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Reason
+  id: Reason
+  parent: MonoTorrent.Client.ConnectionAttemptFailedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: Reason
+  nameWithType: ConnectionAttemptFailedEventArgs.Reason
+  fullName: MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Reason
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/EventArgs/PeerConnectionFailedEventArgs.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Reason
+    path: src/Client/EventArgs/PeerConnectionFailedEventArgs.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: This is a guess about why the engine failed to establish an outgoing connection.
+  example: []
+  syntax:
+    content: public ConnectionFailureReason Reason { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Client.ConnectionFailureReason
+    content.vb: Public ReadOnly Property Reason As ConnectionFailureReason
+  overload: MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Reason*
+- uid: MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Peer
+  commentId: P:MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Peer
+  id: Peer
+  parent: MonoTorrent.Client.ConnectionAttemptFailedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: Peer
+  nameWithType: ConnectionAttemptFailedEventArgs.Peer
+  fullName: MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Peer
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/EventArgs/PeerConnectionFailedEventArgs.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Peer
+    path: src/Client/EventArgs/PeerConnectionFailedEventArgs.cs
+    startLine: 44
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: The peer which could not be connected to.
+  example: []
+  syntax:
+    content: public PeerInfo Peer { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.PeerInfo
+    content.vb: Public ReadOnly Property Peer As PeerInfo
+  overload: MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Peer*
+references:
+- uid: MonoTorrent.Client.TorrentManager.ConnectionAttemptFailed
+  commentId: E:MonoTorrent.Client.TorrentManager.ConnectionAttemptFailed
+  href: MonoTorrent.Client.TorrentManager.html#MonoTorrent_Client_TorrentManager_ConnectionAttemptFailed
+  name: ConnectionAttemptFailed
+  nameWithType: TorrentManager.ConnectionAttemptFailed
+  fullName: MonoTorrent.Client.TorrentManager.ConnectionAttemptFailed
+- uid: MonoTorrent.Client
+  commentId: N:MonoTorrent.Client
+  href: MonoTorrent.html
+  name: MonoTorrent.Client
+  nameWithType: MonoTorrent.Client
+  fullName: MonoTorrent.Client
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.EventArgs
+  commentId: T:System.EventArgs
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventargs
+  name: EventArgs
+  nameWithType: EventArgs
+  fullName: System.EventArgs
+- uid: MonoTorrent.Client.TorrentEventArgs
+  commentId: T:MonoTorrent.Client.TorrentEventArgs
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.TorrentEventArgs.html
+  name: TorrentEventArgs
+  nameWithType: TorrentEventArgs
+  fullName: MonoTorrent.Client.TorrentEventArgs
+- uid: MonoTorrent.Client.TorrentEventArgs.TorrentManager
+  commentId: P:MonoTorrent.Client.TorrentEventArgs.TorrentManager
+  parent: MonoTorrent.Client.TorrentEventArgs
+  href: MonoTorrent.Client.TorrentEventArgs.html#MonoTorrent_Client_TorrentEventArgs_TorrentManager
+  name: TorrentManager
+  nameWithType: TorrentEventArgs.TorrentManager
+  fullName: MonoTorrent.Client.TorrentEventArgs.TorrentManager
+- uid: System.EventArgs.Empty
+  commentId: F:System.EventArgs.Empty
+  parent: System.EventArgs
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventargs.empty
+  name: Empty
+  nameWithType: EventArgs.Empty
+  fullName: System.EventArgs.Empty
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Reason*
+  commentId: Overload:MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Reason
+  href: MonoTorrent.Client.ConnectionAttemptFailedEventArgs.html#MonoTorrent_Client_ConnectionAttemptFailedEventArgs_Reason
+  name: Reason
+  nameWithType: ConnectionAttemptFailedEventArgs.Reason
+  fullName: MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Reason
+- uid: MonoTorrent.Client.ConnectionFailureReason
+  commentId: T:MonoTorrent.Client.ConnectionFailureReason
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.ConnectionFailureReason.html
+  name: ConnectionFailureReason
+  nameWithType: ConnectionFailureReason
+  fullName: MonoTorrent.Client.ConnectionFailureReason
+- uid: MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Peer*
+  commentId: Overload:MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Peer
+  href: MonoTorrent.Client.ConnectionAttemptFailedEventArgs.html#MonoTorrent_Client_ConnectionAttemptFailedEventArgs_Peer
+  name: Peer
+  nameWithType: ConnectionAttemptFailedEventArgs.Peer
+  fullName: MonoTorrent.Client.ConnectionAttemptFailedEventArgs.Peer
+- uid: MonoTorrent.PeerInfo
+  commentId: T:MonoTorrent.PeerInfo
+  parent: MonoTorrent
+  href: MonoTorrent.PeerInfo.html
+  name: PeerInfo
+  nameWithType: PeerInfo
+  fullName: MonoTorrent.PeerInfo
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent

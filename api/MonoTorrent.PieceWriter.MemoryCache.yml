@@ -1,0 +1,1700 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PieceWriter.MemoryCache
+  commentId: T:MonoTorrent.PieceWriter.MemoryCache
+  id: MemoryCache
+  parent: MonoTorrent.PieceWriter
+  children:
+  - MonoTorrent.PieceWriter.MemoryCache.#ctor(MonoTorrent.MemoryPool,System.Int64,MonoTorrent.PieceWriter.CachePolicy,MonoTorrent.PieceWriter.IPieceWriter)
+  - MonoTorrent.PieceWriter.MemoryCache.CacheHits
+  - MonoTorrent.PieceWriter.MemoryCache.CacheMisses
+  - MonoTorrent.PieceWriter.MemoryCache.CacheUsed
+  - MonoTorrent.PieceWriter.MemoryCache.Capacity
+  - MonoTorrent.PieceWriter.MemoryCache.Dispose
+  - MonoTorrent.PieceWriter.MemoryCache.Policy
+  - MonoTorrent.PieceWriter.MemoryCache.ReadAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  - MonoTorrent.PieceWriter.MemoryCache.ReadFromCache
+  - MonoTorrent.PieceWriter.MemoryCache.ReadFromCacheAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  - MonoTorrent.PieceWriter.MemoryCache.ReadThroughCache
+  - MonoTorrent.PieceWriter.MemoryCache.SetCapacityAsync(System.Int64)
+  - MonoTorrent.PieceWriter.MemoryCache.SetPolicyAsync(MonoTorrent.PieceWriter.CachePolicy)
+  - MonoTorrent.PieceWriter.MemoryCache.SetWriterAsync(MonoTorrent.PieceWriter.IPieceWriter)
+  - MonoTorrent.PieceWriter.MemoryCache.WriteAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte},System.Boolean)
+  - MonoTorrent.PieceWriter.MemoryCache.Writer
+  - MonoTorrent.PieceWriter.MemoryCache.WrittenThroughCache
+  - MonoTorrent.PieceWriter.MemoryCache.WrittenToCache
+  langs:
+  - csharp
+  - vb
+  name: MemoryCache
+  nameWithType: MemoryCache
+  fullName: MonoTorrent.PieceWriter.MemoryCache
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MemoryCache
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  syntax:
+    content: 'public class MemoryCache : IBlockCache, IDisposable'
+    content.vb: Public Class MemoryCache Implements IBlockCache, IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.PieceWriter.MemoryCache.ReadFromCache
+  commentId: E:MonoTorrent.PieceWriter.MemoryCache.ReadFromCache
+  id: ReadFromCache
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: ReadFromCache
+  nameWithType: MemoryCache.ReadFromCache
+  fullName: MonoTorrent.PieceWriter.MemoryCache.ReadFromCache
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ReadFromCache
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 81
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: This event is raised every time a block is successfully read from the cache
+  example: []
+  syntax:
+    content: public event EventHandler<BlockInfo>? ReadFromCache
+    return:
+      type: System.EventHandler{MonoTorrent.BlockInfo}
+    content.vb: Public Event ReadFromCache As EventHandler(Of BlockInfo)
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.ReadFromCache
+- uid: MonoTorrent.PieceWriter.MemoryCache.ReadThroughCache
+  commentId: E:MonoTorrent.PieceWriter.MemoryCache.ReadThroughCache
+  id: ReadThroughCache
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: ReadThroughCache
+  nameWithType: MemoryCache.ReadThroughCache
+  fullName: MonoTorrent.PieceWriter.MemoryCache.ReadThroughCache
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ReadThroughCache
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 82
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: >-
+    This event is raised every time a block cannot be read from the cache, and is read from
+
+    the underlying <xref href="MonoTorrent.PieceWriter.IPieceWriter" data-throw-if-not-resolved="false"></xref> instead.
+  example: []
+  syntax:
+    content: public event EventHandler<BlockInfo>? ReadThroughCache
+    return:
+      type: System.EventHandler{MonoTorrent.BlockInfo}
+    content.vb: Public Event ReadThroughCache As EventHandler(Of BlockInfo)
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.ReadThroughCache
+- uid: MonoTorrent.PieceWriter.MemoryCache.WrittenToCache
+  commentId: E:MonoTorrent.PieceWriter.MemoryCache.WrittenToCache
+  id: WrittenToCache
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: WrittenToCache
+  nameWithType: MemoryCache.WrittenToCache
+  fullName: MonoTorrent.PieceWriter.MemoryCache.WrittenToCache
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WrittenToCache
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 84
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: This event is raised when a block is written to the cache.
+  example: []
+  syntax:
+    content: public event EventHandler<BlockInfo>? WrittenToCache
+    return:
+      type: System.EventHandler{MonoTorrent.BlockInfo}
+    content.vb: Public Event WrittenToCache As EventHandler(Of BlockInfo)
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.WrittenToCache
+- uid: MonoTorrent.PieceWriter.MemoryCache.WrittenThroughCache
+  commentId: E:MonoTorrent.PieceWriter.MemoryCache.WrittenThroughCache
+  id: WrittenThroughCache
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: WrittenThroughCache
+  nameWithType: MemoryCache.WrittenThroughCache
+  fullName: MonoTorrent.PieceWriter.MemoryCache.WrittenThroughCache
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WrittenThroughCache
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 85
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: >-
+    This event is raised when a new block is written directly by the underlying <xref href="MonoTorrent.PieceWriter.IPieceWriter" data-throw-if-not-resolved="false"></xref>,
+
+    or when a block is removed from the cache and is written by the underlying <xref href="MonoTorrent.PieceWriter.IPieceWriter" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public event EventHandler<BlockInfo>? WrittenThroughCache
+    return:
+      type: System.EventHandler{MonoTorrent.BlockInfo}
+    content.vb: Public Event WrittenThroughCache As EventHandler(Of BlockInfo)
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.WrittenThroughCache
+- uid: MonoTorrent.PieceWriter.MemoryCache.CacheHits
+  commentId: P:MonoTorrent.PieceWriter.MemoryCache.CacheHits
+  id: CacheHits
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: CacheHits
+  nameWithType: MemoryCache.CacheHits
+  fullName: MonoTorrent.PieceWriter.MemoryCache.CacheHits
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CacheHits
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 96
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: The number of bytes which were read from the cache when fulfilling a Read request.
+  example: []
+  syntax:
+    content: public long CacheHits { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property CacheHits As Long
+  overload: MonoTorrent.PieceWriter.MemoryCache.CacheHits*
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.CacheHits
+- uid: MonoTorrent.PieceWriter.MemoryCache.CacheMisses
+  commentId: P:MonoTorrent.PieceWriter.MemoryCache.CacheMisses
+  id: CacheMisses
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: CacheMisses
+  nameWithType: MemoryCache.CacheMisses
+  fullName: MonoTorrent.PieceWriter.MemoryCache.CacheMisses
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CacheMisses
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 101
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: The number of bytes which could not be read from the cache when fulfilling a Read request.
+  example: []
+  syntax:
+    content: public long CacheMisses { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property CacheMisses As Long
+  overload: MonoTorrent.PieceWriter.MemoryCache.CacheMisses*
+- uid: MonoTorrent.PieceWriter.MemoryCache.CacheUsed
+  commentId: P:MonoTorrent.PieceWriter.MemoryCache.CacheUsed
+  id: CacheUsed
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: CacheUsed
+  nameWithType: MemoryCache.CacheUsed
+  fullName: MonoTorrent.PieceWriter.MemoryCache.CacheUsed
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CacheUsed
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 106
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: The number of bytes currently used by the cache.
+  example: []
+  syntax:
+    content: public long CacheUsed { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property CacheUsed As Long
+  overload: MonoTorrent.PieceWriter.MemoryCache.CacheUsed*
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.CacheUsed
+- uid: MonoTorrent.PieceWriter.MemoryCache.Capacity
+  commentId: P:MonoTorrent.PieceWriter.MemoryCache.Capacity
+  id: Capacity
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: Capacity
+  nameWithType: MemoryCache.Capacity
+  fullName: MonoTorrent.PieceWriter.MemoryCache.Capacity
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Capacity
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 116
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: The size of the in memory cache, in bytes.
+  example: []
+  syntax:
+    content: public long Capacity { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property Capacity As Long
+  overload: MonoTorrent.PieceWriter.MemoryCache.Capacity*
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.Capacity
+- uid: MonoTorrent.PieceWriter.MemoryCache.Policy
+  commentId: P:MonoTorrent.PieceWriter.MemoryCache.Policy
+  id: Policy
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: Policy
+  nameWithType: MemoryCache.Policy
+  fullName: MonoTorrent.PieceWriter.MemoryCache.Policy
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Policy
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 118
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  example: []
+  syntax:
+    content: public CachePolicy Policy { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.PieceWriter.CachePolicy
+    content.vb: Public Property Policy As CachePolicy
+  overload: MonoTorrent.PieceWriter.MemoryCache.Policy*
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.Policy
+- uid: MonoTorrent.PieceWriter.MemoryCache.Writer
+  commentId: P:MonoTorrent.PieceWriter.MemoryCache.Writer
+  id: Writer
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: Writer
+  nameWithType: MemoryCache.Writer
+  fullName: MonoTorrent.PieceWriter.MemoryCache.Writer
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Writer
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 120
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: Pieces will be written to this <xref href="MonoTorrent.PieceWriter.IPieceWriter" data-throw-if-not-resolved="false"></xref> when they are evicted from the cache.
+  example: []
+  syntax:
+    content: public IPieceWriter Writer { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.PieceWriter.IPieceWriter
+    content.vb: Public Property Writer As IPieceWriter
+  overload: MonoTorrent.PieceWriter.MemoryCache.Writer*
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.Writer
+- uid: MonoTorrent.PieceWriter.MemoryCache.#ctor(MonoTorrent.MemoryPool,System.Int64,MonoTorrent.PieceWriter.CachePolicy,MonoTorrent.PieceWriter.IPieceWriter)
+  commentId: M:MonoTorrent.PieceWriter.MemoryCache.#ctor(MonoTorrent.MemoryPool,System.Int64,MonoTorrent.PieceWriter.CachePolicy,MonoTorrent.PieceWriter.IPieceWriter)
+  id: '#ctor(MonoTorrent.MemoryPool,System.Int64,MonoTorrent.PieceWriter.CachePolicy,MonoTorrent.PieceWriter.IPieceWriter)'
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: MemoryCache(MemoryPool, long, CachePolicy, IPieceWriter)
+  nameWithType: MemoryCache.MemoryCache(MemoryPool, long, CachePolicy, IPieceWriter)
+  fullName: MonoTorrent.PieceWriter.MemoryCache.MemoryCache(MonoTorrent.MemoryPool, long, MonoTorrent.PieceWriter.CachePolicy, MonoTorrent.PieceWriter.IPieceWriter)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 122
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  syntax:
+    content: public MemoryCache(MemoryPool bufferPool, long capacity, CachePolicy policy, IPieceWriter writer)
+    parameters:
+    - id: bufferPool
+      type: MonoTorrent.MemoryPool
+    - id: capacity
+      type: System.Int64
+    - id: policy
+      type: MonoTorrent.PieceWriter.CachePolicy
+    - id: writer
+      type: MonoTorrent.PieceWriter.IPieceWriter
+    content.vb: Public Sub New(bufferPool As MemoryPool, capacity As Long, policy As CachePolicy, writer As IPieceWriter)
+  overload: MonoTorrent.PieceWriter.MemoryCache.#ctor*
+  nameWithType.vb: MemoryCache.New(MemoryPool, Long, CachePolicy, IPieceWriter)
+  fullName.vb: MonoTorrent.PieceWriter.MemoryCache.New(MonoTorrent.MemoryPool, Long, MonoTorrent.PieceWriter.CachePolicy, MonoTorrent.PieceWriter.IPieceWriter)
+  name.vb: New(MemoryPool, Long, CachePolicy, IPieceWriter)
+- uid: MonoTorrent.PieceWriter.MemoryCache.ReadAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  commentId: M:MonoTorrent.PieceWriter.MemoryCache.ReadAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  id: ReadAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: ReadAsync(ITorrentManagerInfo, BlockInfo, Memory<byte>)
+  nameWithType: MemoryCache.ReadAsync(ITorrentManagerInfo, BlockInfo, Memory<byte>)
+  fullName: MonoTorrent.PieceWriter.MemoryCache.ReadAsync(MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ReadAsync
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 135
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: Reads data from the cache and flushes it to disk, or reads the data from disk if it is not available in the cache.
+  example: []
+  syntax:
+    content: public ReusableTask<bool> ReadAsync(ITorrentManagerInfo torrent, BlockInfo block, Memory<byte> buffer)
+    parameters:
+    - id: torrent
+      type: MonoTorrent.ITorrentManagerInfo
+      description: ''
+    - id: block
+      type: MonoTorrent.BlockInfo
+      description: ''
+    - id: buffer
+      type: System.Memory{System.Byte}
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask{System.Boolean}
+      description: ''
+    content.vb: Public Function ReadAsync(torrent As ITorrentManagerInfo, block As BlockInfo, buffer As Memory(Of Byte)) As ReusableTask(Of Boolean)
+  overload: MonoTorrent.PieceWriter.MemoryCache.ReadAsync*
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.ReadAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  nameWithType.vb: MemoryCache.ReadAsync(ITorrentManagerInfo, BlockInfo, Memory(Of Byte))
+  fullName.vb: MonoTorrent.PieceWriter.MemoryCache.ReadAsync(MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory(Of Byte))
+  name.vb: ReadAsync(ITorrentManagerInfo, BlockInfo, Memory(Of Byte))
+- uid: MonoTorrent.PieceWriter.MemoryCache.ReadFromCacheAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  commentId: M:MonoTorrent.PieceWriter.MemoryCache.ReadFromCacheAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  id: ReadFromCacheAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: ReadFromCacheAsync(ITorrentManagerInfo, BlockInfo, Memory<byte>)
+  nameWithType: MemoryCache.ReadFromCacheAsync(ITorrentManagerInfo, BlockInfo, Memory<byte>)
+  fullName: MonoTorrent.PieceWriter.MemoryCache.ReadFromCacheAsync(MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ReadFromCacheAsync
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 155
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: >-
+    If the block of data is available in the cache, the data is read into the buffer and the method returns true.
+
+    If the block is unavailable, the buffer will not be modified and the method will return false.
+  example: []
+  syntax:
+    content: public ReusableTask<bool> ReadFromCacheAsync(ITorrentManagerInfo torrent, BlockInfo block, Memory<byte> buffer)
+    parameters:
+    - id: torrent
+      type: MonoTorrent.ITorrentManagerInfo
+      description: ''
+    - id: block
+      type: MonoTorrent.BlockInfo
+      description: ''
+    - id: buffer
+      type: System.Memory{System.Byte}
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask{System.Boolean}
+      description: ''
+    content.vb: Public Function ReadFromCacheAsync(torrent As ITorrentManagerInfo, block As BlockInfo, buffer As Memory(Of Byte)) As ReusableTask(Of Boolean)
+  overload: MonoTorrent.PieceWriter.MemoryCache.ReadFromCacheAsync*
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.ReadFromCacheAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  nameWithType.vb: MemoryCache.ReadFromCacheAsync(ITorrentManagerInfo, BlockInfo, Memory(Of Byte))
+  fullName.vb: MonoTorrent.PieceWriter.MemoryCache.ReadFromCacheAsync(MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory(Of Byte))
+  name.vb: ReadFromCacheAsync(ITorrentManagerInfo, BlockInfo, Memory(Of Byte))
+- uid: MonoTorrent.PieceWriter.MemoryCache.SetCapacityAsync(System.Int64)
+  commentId: M:MonoTorrent.PieceWriter.MemoryCache.SetCapacityAsync(System.Int64)
+  id: SetCapacityAsync(System.Int64)
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: SetCapacityAsync(long)
+  nameWithType: MemoryCache.SetCapacityAsync(long)
+  fullName: MonoTorrent.PieceWriter.MemoryCache.SetCapacityAsync(long)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SetCapacityAsync
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 191
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: Set the max capacity, in bytes.
+  example: []
+  syntax:
+    content: public ReusableTask SetCapacityAsync(long capacity)
+    parameters:
+    - id: capacity
+      type: System.Int64
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask
+      description: ''
+    content.vb: Public Function SetCapacityAsync(capacity As Long) As ReusableTask
+  overload: MonoTorrent.PieceWriter.MemoryCache.SetCapacityAsync*
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.SetCapacityAsync(System.Int64)
+  nameWithType.vb: MemoryCache.SetCapacityAsync(Long)
+  fullName.vb: MonoTorrent.PieceWriter.MemoryCache.SetCapacityAsync(Long)
+  name.vb: SetCapacityAsync(Long)
+- uid: MonoTorrent.PieceWriter.MemoryCache.SetPolicyAsync(MonoTorrent.PieceWriter.CachePolicy)
+  commentId: M:MonoTorrent.PieceWriter.MemoryCache.SetPolicyAsync(MonoTorrent.PieceWriter.CachePolicy)
+  id: SetPolicyAsync(MonoTorrent.PieceWriter.CachePolicy)
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: SetPolicyAsync(CachePolicy)
+  nameWithType: MemoryCache.SetPolicyAsync(CachePolicy)
+  fullName: MonoTorrent.PieceWriter.MemoryCache.SetPolicyAsync(MonoTorrent.PieceWriter.CachePolicy)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SetPolicyAsync
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 197
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: Sets the cache policy.
+  example: []
+  syntax:
+    content: public ReusableTask SetPolicyAsync(CachePolicy policy)
+    parameters:
+    - id: policy
+      type: MonoTorrent.PieceWriter.CachePolicy
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask
+      description: ''
+    content.vb: Public Function SetPolicyAsync(policy As CachePolicy) As ReusableTask
+  overload: MonoTorrent.PieceWriter.MemoryCache.SetPolicyAsync*
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.SetPolicyAsync(MonoTorrent.PieceWriter.CachePolicy)
+- uid: MonoTorrent.PieceWriter.MemoryCache.SetWriterAsync(MonoTorrent.PieceWriter.IPieceWriter)
+  commentId: M:MonoTorrent.PieceWriter.MemoryCache.SetWriterAsync(MonoTorrent.PieceWriter.IPieceWriter)
+  id: SetWriterAsync(MonoTorrent.PieceWriter.IPieceWriter)
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: SetWriterAsync(IPieceWriter)
+  nameWithType: MemoryCache.SetWriterAsync(IPieceWriter)
+  fullName: MonoTorrent.PieceWriter.MemoryCache.SetWriterAsync(MonoTorrent.PieceWriter.IPieceWriter)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SetWriterAsync
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 203
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  example: []
+  syntax:
+    content: public ReusableTask SetWriterAsync(IPieceWriter writer)
+    parameters:
+    - id: writer
+      type: MonoTorrent.PieceWriter.IPieceWriter
+    return:
+      type: ReusableTasks.ReusableTask
+    content.vb: Public Function SetWriterAsync(writer As IPieceWriter) As ReusableTask
+  overload: MonoTorrent.PieceWriter.MemoryCache.SetWriterAsync*
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.SetWriterAsync(MonoTorrent.PieceWriter.IPieceWriter)
+- uid: MonoTorrent.PieceWriter.MemoryCache.WriteAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte},System.Boolean)
+  commentId: M:MonoTorrent.PieceWriter.MemoryCache.WriteAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte},System.Boolean)
+  id: WriteAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte},System.Boolean)
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: WriteAsync(ITorrentManagerInfo, BlockInfo, Memory<byte>, bool)
+  nameWithType: MemoryCache.WriteAsync(ITorrentManagerInfo, BlockInfo, Memory<byte>, bool)
+  fullName: MonoTorrent.PieceWriter.MemoryCache.WriteAsync(MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory<byte>, bool)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WriteAsync
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 209
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: ''
+  example: []
+  syntax:
+    content: public ReusableTask WriteAsync(ITorrentManagerInfo torrent, BlockInfo block, Memory<byte> buffer, bool preferSkipCache)
+    parameters:
+    - id: torrent
+      type: MonoTorrent.ITorrentManagerInfo
+      description: ''
+    - id: block
+      type: MonoTorrent.BlockInfo
+      description: ''
+    - id: buffer
+      type: System.Memory{System.Byte}
+      description: ''
+    - id: preferSkipCache
+      type: System.Boolean
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask
+      description: ''
+    content.vb: Public Function WriteAsync(torrent As ITorrentManagerInfo, block As BlockInfo, buffer As Memory(Of Byte), preferSkipCache As Boolean) As ReusableTask
+  overload: MonoTorrent.PieceWriter.MemoryCache.WriteAsync*
+  implements:
+  - MonoTorrent.PieceWriter.IBlockCache.WriteAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte},System.Boolean)
+  nameWithType.vb: MemoryCache.WriteAsync(ITorrentManagerInfo, BlockInfo, Memory(Of Byte), Boolean)
+  fullName.vb: MonoTorrent.PieceWriter.MemoryCache.WriteAsync(MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory(Of Byte), Boolean)
+  name.vb: WriteAsync(ITorrentManagerInfo, BlockInfo, Memory(Of Byte), Boolean)
+- uid: MonoTorrent.PieceWriter.MemoryCache.Dispose
+  commentId: M:MonoTorrent.PieceWriter.MemoryCache.Dispose
+  id: Dispose
+  parent: MonoTorrent.PieceWriter.MemoryCache
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: MemoryCache.Dispose()
+  fullName: MonoTorrent.PieceWriter.MemoryCache.Dispose()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PieceWriter/MemoryCache.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Dispose
+    path: src/PieceWriter/MemoryCache.cs
+    startLine: 272
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PieceWriter
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: MonoTorrent.PieceWriter.MemoryCache.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: MonoTorrent.PieceWriter
+  commentId: N:MonoTorrent.PieceWriter
+  href: MonoTorrent.html
+  name: MonoTorrent.PieceWriter
+  nameWithType: MonoTorrent.PieceWriter
+  fullName: MonoTorrent.PieceWriter
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MonoTorrent.PieceWriter.IBlockCache
+  commentId: T:MonoTorrent.PieceWriter.IBlockCache
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.IBlockCache.html
+  name: IBlockCache
+  nameWithType: IBlockCache
+  fullName: MonoTorrent.PieceWriter.IBlockCache
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.PieceWriter.IBlockCache.ReadFromCache
+  commentId: E:MonoTorrent.PieceWriter.IBlockCache.ReadFromCache
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_ReadFromCache
+  name: ReadFromCache
+  nameWithType: IBlockCache.ReadFromCache
+  fullName: MonoTorrent.PieceWriter.IBlockCache.ReadFromCache
+- uid: System.EventHandler{MonoTorrent.BlockInfo}
+  commentId: T:System.EventHandler{MonoTorrent.BlockInfo}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<BlockInfo>
+  nameWithType: EventHandler<BlockInfo>
+  fullName: System.EventHandler<MonoTorrent.BlockInfo>
+  nameWithType.vb: EventHandler(Of BlockInfo)
+  fullName.vb: System.EventHandler(Of MonoTorrent.BlockInfo)
+  name.vb: EventHandler(Of BlockInfo)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.BlockInfo
+    name: BlockInfo
+    href: MonoTorrent.BlockInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BlockInfo
+    name: BlockInfo
+    href: MonoTorrent.BlockInfo.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: MonoTorrent.PieceWriter.IPieceWriter
+  commentId: T:MonoTorrent.PieceWriter.IPieceWriter
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.IPieceWriter.html
+  name: IPieceWriter
+  nameWithType: IPieceWriter
+  fullName: MonoTorrent.PieceWriter.IPieceWriter
+- uid: MonoTorrent.PieceWriter.IBlockCache.ReadThroughCache
+  commentId: E:MonoTorrent.PieceWriter.IBlockCache.ReadThroughCache
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_ReadThroughCache
+  name: ReadThroughCache
+  nameWithType: IBlockCache.ReadThroughCache
+  fullName: MonoTorrent.PieceWriter.IBlockCache.ReadThroughCache
+- uid: MonoTorrent.PieceWriter.IBlockCache.WrittenToCache
+  commentId: E:MonoTorrent.PieceWriter.IBlockCache.WrittenToCache
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_WrittenToCache
+  name: WrittenToCache
+  nameWithType: IBlockCache.WrittenToCache
+  fullName: MonoTorrent.PieceWriter.IBlockCache.WrittenToCache
+- uid: MonoTorrent.PieceWriter.IBlockCache.WrittenThroughCache
+  commentId: E:MonoTorrent.PieceWriter.IBlockCache.WrittenThroughCache
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_WrittenThroughCache
+  name: WrittenThroughCache
+  nameWithType: IBlockCache.WrittenThroughCache
+  fullName: MonoTorrent.PieceWriter.IBlockCache.WrittenThroughCache
+- uid: MonoTorrent.PieceWriter.MemoryCache.CacheHits*
+  commentId: Overload:MonoTorrent.PieceWriter.MemoryCache.CacheHits
+  href: MonoTorrent.PieceWriter.MemoryCache.html#MonoTorrent_PieceWriter_MemoryCache_CacheHits
+  name: CacheHits
+  nameWithType: MemoryCache.CacheHits
+  fullName: MonoTorrent.PieceWriter.MemoryCache.CacheHits
+- uid: MonoTorrent.PieceWriter.IBlockCache.CacheHits
+  commentId: P:MonoTorrent.PieceWriter.IBlockCache.CacheHits
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_CacheHits
+  name: CacheHits
+  nameWithType: IBlockCache.CacheHits
+  fullName: MonoTorrent.PieceWriter.IBlockCache.CacheHits
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: MonoTorrent.PieceWriter.MemoryCache.CacheMisses*
+  commentId: Overload:MonoTorrent.PieceWriter.MemoryCache.CacheMisses
+  href: MonoTorrent.PieceWriter.MemoryCache.html#MonoTorrent_PieceWriter_MemoryCache_CacheMisses
+  name: CacheMisses
+  nameWithType: MemoryCache.CacheMisses
+  fullName: MonoTorrent.PieceWriter.MemoryCache.CacheMisses
+- uid: MonoTorrent.PieceWriter.MemoryCache.CacheUsed*
+  commentId: Overload:MonoTorrent.PieceWriter.MemoryCache.CacheUsed
+  href: MonoTorrent.PieceWriter.MemoryCache.html#MonoTorrent_PieceWriter_MemoryCache_CacheUsed
+  name: CacheUsed
+  nameWithType: MemoryCache.CacheUsed
+  fullName: MonoTorrent.PieceWriter.MemoryCache.CacheUsed
+- uid: MonoTorrent.PieceWriter.IBlockCache.CacheUsed
+  commentId: P:MonoTorrent.PieceWriter.IBlockCache.CacheUsed
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_CacheUsed
+  name: CacheUsed
+  nameWithType: IBlockCache.CacheUsed
+  fullName: MonoTorrent.PieceWriter.IBlockCache.CacheUsed
+- uid: MonoTorrent.PieceWriter.MemoryCache.Capacity*
+  commentId: Overload:MonoTorrent.PieceWriter.MemoryCache.Capacity
+  href: MonoTorrent.PieceWriter.MemoryCache.html#MonoTorrent_PieceWriter_MemoryCache_Capacity
+  name: Capacity
+  nameWithType: MemoryCache.Capacity
+  fullName: MonoTorrent.PieceWriter.MemoryCache.Capacity
+- uid: MonoTorrent.PieceWriter.IBlockCache.Capacity
+  commentId: P:MonoTorrent.PieceWriter.IBlockCache.Capacity
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_Capacity
+  name: Capacity
+  nameWithType: IBlockCache.Capacity
+  fullName: MonoTorrent.PieceWriter.IBlockCache.Capacity
+- uid: MonoTorrent.PieceWriter.MemoryCache.Policy*
+  commentId: Overload:MonoTorrent.PieceWriter.MemoryCache.Policy
+  href: MonoTorrent.PieceWriter.MemoryCache.html#MonoTorrent_PieceWriter_MemoryCache_Policy
+  name: Policy
+  nameWithType: MemoryCache.Policy
+  fullName: MonoTorrent.PieceWriter.MemoryCache.Policy
+- uid: MonoTorrent.PieceWriter.IBlockCache.Policy
+  commentId: P:MonoTorrent.PieceWriter.IBlockCache.Policy
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_Policy
+  name: Policy
+  nameWithType: IBlockCache.Policy
+  fullName: MonoTorrent.PieceWriter.IBlockCache.Policy
+- uid: MonoTorrent.PieceWriter.CachePolicy
+  commentId: T:MonoTorrent.PieceWriter.CachePolicy
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.CachePolicy.html
+  name: CachePolicy
+  nameWithType: CachePolicy
+  fullName: MonoTorrent.PieceWriter.CachePolicy
+- uid: MonoTorrent.PieceWriter.MemoryCache.Writer*
+  commentId: Overload:MonoTorrent.PieceWriter.MemoryCache.Writer
+  href: MonoTorrent.PieceWriter.MemoryCache.html#MonoTorrent_PieceWriter_MemoryCache_Writer
+  name: Writer
+  nameWithType: MemoryCache.Writer
+  fullName: MonoTorrent.PieceWriter.MemoryCache.Writer
+- uid: MonoTorrent.PieceWriter.IBlockCache.Writer
+  commentId: P:MonoTorrent.PieceWriter.IBlockCache.Writer
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_Writer
+  name: Writer
+  nameWithType: IBlockCache.Writer
+  fullName: MonoTorrent.PieceWriter.IBlockCache.Writer
+- uid: MonoTorrent.PieceWriter.MemoryCache.#ctor*
+  commentId: Overload:MonoTorrent.PieceWriter.MemoryCache.#ctor
+  href: MonoTorrent.PieceWriter.MemoryCache.html#MonoTorrent_PieceWriter_MemoryCache__ctor_MonoTorrent_MemoryPool_System_Int64_MonoTorrent_PieceWriter_CachePolicy_MonoTorrent_PieceWriter_IPieceWriter_
+  name: MemoryCache
+  nameWithType: MemoryCache.MemoryCache
+  fullName: MonoTorrent.PieceWriter.MemoryCache.MemoryCache
+  nameWithType.vb: MemoryCache.New
+  fullName.vb: MonoTorrent.PieceWriter.MemoryCache.New
+  name.vb: New
+- uid: MonoTorrent.MemoryPool
+  commentId: T:MonoTorrent.MemoryPool
+  parent: MonoTorrent
+  href: MonoTorrent.MemoryPool.html
+  name: MemoryPool
+  nameWithType: MemoryPool
+  fullName: MonoTorrent.MemoryPool
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.PieceWriter.MemoryCache.ReadAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.MemoryCache.ReadAsync
+  href: MonoTorrent.PieceWriter.MemoryCache.html#MonoTorrent_PieceWriter_MemoryCache_ReadAsync_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__
+  name: ReadAsync
+  nameWithType: MemoryCache.ReadAsync
+  fullName: MonoTorrent.PieceWriter.MemoryCache.ReadAsync
+- uid: MonoTorrent.PieceWriter.IBlockCache.ReadAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  commentId: M:MonoTorrent.PieceWriter.IBlockCache.ReadAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  isExternal: true
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_ReadAsync_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__
+  name: ReadAsync(ITorrentManagerInfo, BlockInfo, Memory<byte>)
+  nameWithType: IBlockCache.ReadAsync(ITorrentManagerInfo, BlockInfo, Memory<byte>)
+  fullName: MonoTorrent.PieceWriter.IBlockCache.ReadAsync(MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory<byte>)
+  nameWithType.vb: IBlockCache.ReadAsync(ITorrentManagerInfo, BlockInfo, Memory(Of Byte))
+  fullName.vb: MonoTorrent.PieceWriter.IBlockCache.ReadAsync(MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory(Of Byte))
+  name.vb: ReadAsync(ITorrentManagerInfo, BlockInfo, Memory(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.PieceWriter.IBlockCache.ReadAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+    name: ReadAsync
+    href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_ReadAsync_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BlockInfo
+    name: BlockInfo
+    href: MonoTorrent.BlockInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PieceWriter.IBlockCache.ReadAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+    name: ReadAsync
+    href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_ReadAsync_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BlockInfo
+    name: BlockInfo
+    href: MonoTorrent.BlockInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.ITorrentManagerInfo
+  commentId: T:MonoTorrent.ITorrentManagerInfo
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentManagerInfo.html
+  name: ITorrentManagerInfo
+  nameWithType: ITorrentManagerInfo
+  fullName: MonoTorrent.ITorrentManagerInfo
+- uid: MonoTorrent.BlockInfo
+  commentId: T:MonoTorrent.BlockInfo
+  parent: MonoTorrent
+  href: MonoTorrent.BlockInfo.html
+  name: BlockInfo
+  nameWithType: BlockInfo
+  fullName: MonoTorrent.BlockInfo
+- uid: System.Memory{System.Byte}
+  commentId: T:System.Memory{System.Byte}
+  parent: System
+  definition: System.Memory`1
+  href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  name: Memory<byte>
+  nameWithType: Memory<byte>
+  fullName: System.Memory<byte>
+  nameWithType.vb: Memory(Of Byte)
+  fullName.vb: System.Memory(Of Byte)
+  name.vb: Memory(Of Byte)
+  spec.csharp:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: ReusableTasks.ReusableTask{System.Boolean}
+  commentId: T:ReusableTasks.ReusableTask{System.Boolean}
+  parent: ReusableTasks
+  definition: ReusableTasks.ReusableTask`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: ReusableTask<bool>
+  nameWithType: ReusableTask<bool>
+  fullName: ReusableTasks.ReusableTask<bool>
+  nameWithType.vb: ReusableTask(Of Boolean)
+  fullName.vb: ReusableTasks.ReusableTask(Of Boolean)
+  name.vb: ReusableTask(Of Boolean)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Memory`1
+  commentId: T:System.Memory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  name: Memory<T>
+  nameWithType: Memory<T>
+  fullName: System.Memory<T>
+  nameWithType.vb: Memory(Of T)
+  fullName.vb: System.Memory(Of T)
+  name.vb: Memory(Of T)
+  spec.csharp:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ReusableTasks.ReusableTask`1
+  commentId: T:ReusableTasks.ReusableTask`1
+  isExternal: true
+  name: ReusableTask<T>
+  nameWithType: ReusableTask<T>
+  fullName: ReusableTasks.ReusableTask<T>
+  nameWithType.vb: ReusableTask(Of T)
+  fullName.vb: ReusableTasks.ReusableTask(Of T)
+  name.vb: ReusableTask(Of T)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ReusableTasks
+  commentId: N:ReusableTasks
+  isExternal: true
+  name: ReusableTasks
+  nameWithType: ReusableTasks
+  fullName: ReusableTasks
+- uid: MonoTorrent.PieceWriter.MemoryCache.ReadFromCacheAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.MemoryCache.ReadFromCacheAsync
+  href: MonoTorrent.PieceWriter.MemoryCache.html#MonoTorrent_PieceWriter_MemoryCache_ReadFromCacheAsync_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__
+  name: ReadFromCacheAsync
+  nameWithType: MemoryCache.ReadFromCacheAsync
+  fullName: MonoTorrent.PieceWriter.MemoryCache.ReadFromCacheAsync
+- uid: MonoTorrent.PieceWriter.IBlockCache.ReadFromCacheAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  commentId: M:MonoTorrent.PieceWriter.IBlockCache.ReadFromCacheAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  isExternal: true
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_ReadFromCacheAsync_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__
+  name: ReadFromCacheAsync(ITorrentManagerInfo, BlockInfo, Memory<byte>)
+  nameWithType: IBlockCache.ReadFromCacheAsync(ITorrentManagerInfo, BlockInfo, Memory<byte>)
+  fullName: MonoTorrent.PieceWriter.IBlockCache.ReadFromCacheAsync(MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory<byte>)
+  nameWithType.vb: IBlockCache.ReadFromCacheAsync(ITorrentManagerInfo, BlockInfo, Memory(Of Byte))
+  fullName.vb: MonoTorrent.PieceWriter.IBlockCache.ReadFromCacheAsync(MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory(Of Byte))
+  name.vb: ReadFromCacheAsync(ITorrentManagerInfo, BlockInfo, Memory(Of Byte))
+  spec.csharp:
+  - uid: MonoTorrent.PieceWriter.IBlockCache.ReadFromCacheAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+    name: ReadFromCacheAsync
+    href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_ReadFromCacheAsync_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BlockInfo
+    name: BlockInfo
+    href: MonoTorrent.BlockInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PieceWriter.IBlockCache.ReadFromCacheAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte})
+    name: ReadFromCacheAsync
+    href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_ReadFromCacheAsync_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BlockInfo
+    name: BlockInfo
+    href: MonoTorrent.BlockInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: MonoTorrent.PieceWriter.MemoryCache.SetCapacityAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.MemoryCache.SetCapacityAsync
+  href: MonoTorrent.PieceWriter.MemoryCache.html#MonoTorrent_PieceWriter_MemoryCache_SetCapacityAsync_System_Int64_
+  name: SetCapacityAsync
+  nameWithType: MemoryCache.SetCapacityAsync
+  fullName: MonoTorrent.PieceWriter.MemoryCache.SetCapacityAsync
+- uid: MonoTorrent.PieceWriter.IBlockCache.SetCapacityAsync(System.Int64)
+  commentId: M:MonoTorrent.PieceWriter.IBlockCache.SetCapacityAsync(System.Int64)
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  isExternal: true
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_SetCapacityAsync_System_Int64_
+  name: SetCapacityAsync(long)
+  nameWithType: IBlockCache.SetCapacityAsync(long)
+  fullName: MonoTorrent.PieceWriter.IBlockCache.SetCapacityAsync(long)
+  nameWithType.vb: IBlockCache.SetCapacityAsync(Long)
+  fullName.vb: MonoTorrent.PieceWriter.IBlockCache.SetCapacityAsync(Long)
+  name.vb: SetCapacityAsync(Long)
+  spec.csharp:
+  - uid: MonoTorrent.PieceWriter.IBlockCache.SetCapacityAsync(System.Int64)
+    name: SetCapacityAsync
+    href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_SetCapacityAsync_System_Int64_
+  - name: (
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PieceWriter.IBlockCache.SetCapacityAsync(System.Int64)
+    name: SetCapacityAsync
+    href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_SetCapacityAsync_System_Int64_
+  - name: (
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+- uid: ReusableTasks.ReusableTask
+  commentId: T:ReusableTasks.ReusableTask
+  parent: ReusableTasks
+  isExternal: true
+  name: ReusableTask
+  nameWithType: ReusableTask
+  fullName: ReusableTasks.ReusableTask
+- uid: MonoTorrent.PieceWriter.MemoryCache.SetPolicyAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.MemoryCache.SetPolicyAsync
+  href: MonoTorrent.PieceWriter.MemoryCache.html#MonoTorrent_PieceWriter_MemoryCache_SetPolicyAsync_MonoTorrent_PieceWriter_CachePolicy_
+  name: SetPolicyAsync
+  nameWithType: MemoryCache.SetPolicyAsync
+  fullName: MonoTorrent.PieceWriter.MemoryCache.SetPolicyAsync
+- uid: MonoTorrent.PieceWriter.IBlockCache.SetPolicyAsync(MonoTorrent.PieceWriter.CachePolicy)
+  commentId: M:MonoTorrent.PieceWriter.IBlockCache.SetPolicyAsync(MonoTorrent.PieceWriter.CachePolicy)
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_SetPolicyAsync_MonoTorrent_PieceWriter_CachePolicy_
+  name: SetPolicyAsync(CachePolicy)
+  nameWithType: IBlockCache.SetPolicyAsync(CachePolicy)
+  fullName: MonoTorrent.PieceWriter.IBlockCache.SetPolicyAsync(MonoTorrent.PieceWriter.CachePolicy)
+  spec.csharp:
+  - uid: MonoTorrent.PieceWriter.IBlockCache.SetPolicyAsync(MonoTorrent.PieceWriter.CachePolicy)
+    name: SetPolicyAsync
+    href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_SetPolicyAsync_MonoTorrent_PieceWriter_CachePolicy_
+  - name: (
+  - uid: MonoTorrent.PieceWriter.CachePolicy
+    name: CachePolicy
+    href: MonoTorrent.PieceWriter.CachePolicy.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PieceWriter.IBlockCache.SetPolicyAsync(MonoTorrent.PieceWriter.CachePolicy)
+    name: SetPolicyAsync
+    href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_SetPolicyAsync_MonoTorrent_PieceWriter_CachePolicy_
+  - name: (
+  - uid: MonoTorrent.PieceWriter.CachePolicy
+    name: CachePolicy
+    href: MonoTorrent.PieceWriter.CachePolicy.html
+  - name: )
+- uid: MonoTorrent.PieceWriter.MemoryCache.SetWriterAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.MemoryCache.SetWriterAsync
+  href: MonoTorrent.PieceWriter.MemoryCache.html#MonoTorrent_PieceWriter_MemoryCache_SetWriterAsync_MonoTorrent_PieceWriter_IPieceWriter_
+  name: SetWriterAsync
+  nameWithType: MemoryCache.SetWriterAsync
+  fullName: MonoTorrent.PieceWriter.MemoryCache.SetWriterAsync
+- uid: MonoTorrent.PieceWriter.IBlockCache.SetWriterAsync(MonoTorrent.PieceWriter.IPieceWriter)
+  commentId: M:MonoTorrent.PieceWriter.IBlockCache.SetWriterAsync(MonoTorrent.PieceWriter.IPieceWriter)
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_SetWriterAsync_MonoTorrent_PieceWriter_IPieceWriter_
+  name: SetWriterAsync(IPieceWriter)
+  nameWithType: IBlockCache.SetWriterAsync(IPieceWriter)
+  fullName: MonoTorrent.PieceWriter.IBlockCache.SetWriterAsync(MonoTorrent.PieceWriter.IPieceWriter)
+  spec.csharp:
+  - uid: MonoTorrent.PieceWriter.IBlockCache.SetWriterAsync(MonoTorrent.PieceWriter.IPieceWriter)
+    name: SetWriterAsync
+    href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_SetWriterAsync_MonoTorrent_PieceWriter_IPieceWriter_
+  - name: (
+  - uid: MonoTorrent.PieceWriter.IPieceWriter
+    name: IPieceWriter
+    href: MonoTorrent.PieceWriter.IPieceWriter.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PieceWriter.IBlockCache.SetWriterAsync(MonoTorrent.PieceWriter.IPieceWriter)
+    name: SetWriterAsync
+    href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_SetWriterAsync_MonoTorrent_PieceWriter_IPieceWriter_
+  - name: (
+  - uid: MonoTorrent.PieceWriter.IPieceWriter
+    name: IPieceWriter
+    href: MonoTorrent.PieceWriter.IPieceWriter.html
+  - name: )
+- uid: MonoTorrent.PieceWriter.MemoryCache.WriteAsync*
+  commentId: Overload:MonoTorrent.PieceWriter.MemoryCache.WriteAsync
+  href: MonoTorrent.PieceWriter.MemoryCache.html#MonoTorrent_PieceWriter_MemoryCache_WriteAsync_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__System_Boolean_
+  name: WriteAsync
+  nameWithType: MemoryCache.WriteAsync
+  fullName: MonoTorrent.PieceWriter.MemoryCache.WriteAsync
+- uid: MonoTorrent.PieceWriter.IBlockCache.WriteAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte},System.Boolean)
+  commentId: M:MonoTorrent.PieceWriter.IBlockCache.WriteAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte},System.Boolean)
+  parent: MonoTorrent.PieceWriter.IBlockCache
+  isExternal: true
+  href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_WriteAsync_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__System_Boolean_
+  name: WriteAsync(ITorrentManagerInfo, BlockInfo, Memory<byte>, bool)
+  nameWithType: IBlockCache.WriteAsync(ITorrentManagerInfo, BlockInfo, Memory<byte>, bool)
+  fullName: MonoTorrent.PieceWriter.IBlockCache.WriteAsync(MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory<byte>, bool)
+  nameWithType.vb: IBlockCache.WriteAsync(ITorrentManagerInfo, BlockInfo, Memory(Of Byte), Boolean)
+  fullName.vb: MonoTorrent.PieceWriter.IBlockCache.WriteAsync(MonoTorrent.ITorrentManagerInfo, MonoTorrent.BlockInfo, System.Memory(Of Byte), Boolean)
+  name.vb: WriteAsync(ITorrentManagerInfo, BlockInfo, Memory(Of Byte), Boolean)
+  spec.csharp:
+  - uid: MonoTorrent.PieceWriter.IBlockCache.WriteAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte},System.Boolean)
+    name: WriteAsync
+    href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_WriteAsync_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__System_Boolean_
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BlockInfo
+    name: BlockInfo
+    href: MonoTorrent.BlockInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.PieceWriter.IBlockCache.WriteAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BlockInfo,System.Memory{System.Byte},System.Boolean)
+    name: WriteAsync
+    href: MonoTorrent.PieceWriter.IBlockCache.html#MonoTorrent_PieceWriter_IBlockCache_WriteAsync_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BlockInfo_System_Memory_System_Byte__System_Boolean_
+  - name: (
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BlockInfo
+    name: BlockInfo
+    href: MonoTorrent.BlockInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.PieceWriter.MemoryCache.Dispose*
+  commentId: Overload:MonoTorrent.PieceWriter.MemoryCache.Dispose
+  href: MonoTorrent.PieceWriter.MemoryCache.html#MonoTorrent_PieceWriter_MemoryCache_Dispose
+  name: Dispose
+  nameWithType: MemoryCache.Dispose
+  fullName: MonoTorrent.PieceWriter.MemoryCache.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

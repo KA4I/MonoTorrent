@@ -1,0 +1,440 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Trackers.ScrapeInfo
+  commentId: T:MonoTorrent.Trackers.ScrapeInfo
+  id: ScrapeInfo
+  parent: MonoTorrent.Trackers
+  children:
+  - MonoTorrent.Trackers.ScrapeInfo.#ctor(System.Int32,System.Int32,System.Int32)
+  - MonoTorrent.Trackers.ScrapeInfo.Complete
+  - MonoTorrent.Trackers.ScrapeInfo.Downloaded
+  - MonoTorrent.Trackers.ScrapeInfo.Incomplete
+  langs:
+  - csharp
+  - vb
+  name: ScrapeInfo
+  nameWithType: ScrapeInfo
+  fullName: MonoTorrent.Trackers.ScrapeInfo
+  type: Struct
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/ScrapeInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ScrapeInfo
+    path: src/Trackers/ScrapeInfo.cs
+    startLine: 6
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public readonly struct ScrapeInfo
+    content.vb: Public Structure ScrapeInfo
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: MonoTorrent.Trackers.ScrapeInfo.Complete
+  commentId: P:MonoTorrent.Trackers.ScrapeInfo.Complete
+  id: Complete
+  parent: MonoTorrent.Trackers.ScrapeInfo
+  langs:
+  - csharp
+  - vb
+  name: Complete
+  nameWithType: ScrapeInfo.Complete
+  fullName: MonoTorrent.Trackers.ScrapeInfo.Complete
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/ScrapeInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Complete
+    path: src/Trackers/ScrapeInfo.cs
+    startLine: 8
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public int Complete { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Complete As Integer
+  overload: MonoTorrent.Trackers.ScrapeInfo.Complete*
+- uid: MonoTorrent.Trackers.ScrapeInfo.Downloaded
+  commentId: P:MonoTorrent.Trackers.ScrapeInfo.Downloaded
+  id: Downloaded
+  parent: MonoTorrent.Trackers.ScrapeInfo
+  langs:
+  - csharp
+  - vb
+  name: Downloaded
+  nameWithType: ScrapeInfo.Downloaded
+  fullName: MonoTorrent.Trackers.ScrapeInfo.Downloaded
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/ScrapeInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Downloaded
+    path: src/Trackers/ScrapeInfo.cs
+    startLine: 9
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public int Downloaded { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Downloaded As Integer
+  overload: MonoTorrent.Trackers.ScrapeInfo.Downloaded*
+- uid: MonoTorrent.Trackers.ScrapeInfo.Incomplete
+  commentId: P:MonoTorrent.Trackers.ScrapeInfo.Incomplete
+  id: Incomplete
+  parent: MonoTorrent.Trackers.ScrapeInfo
+  langs:
+  - csharp
+  - vb
+  name: Incomplete
+  nameWithType: ScrapeInfo.Incomplete
+  fullName: MonoTorrent.Trackers.ScrapeInfo.Incomplete
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/ScrapeInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Incomplete
+    path: src/Trackers/ScrapeInfo.cs
+    startLine: 10
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public int Incomplete { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Incomplete As Integer
+  overload: MonoTorrent.Trackers.ScrapeInfo.Incomplete*
+- uid: MonoTorrent.Trackers.ScrapeInfo.#ctor(System.Int32,System.Int32,System.Int32)
+  commentId: M:MonoTorrent.Trackers.ScrapeInfo.#ctor(System.Int32,System.Int32,System.Int32)
+  id: '#ctor(System.Int32,System.Int32,System.Int32)'
+  parent: MonoTorrent.Trackers.ScrapeInfo
+  langs:
+  - csharp
+  - vb
+  name: ScrapeInfo(int, int, int)
+  nameWithType: ScrapeInfo.ScrapeInfo(int, int, int)
+  fullName: MonoTorrent.Trackers.ScrapeInfo.ScrapeInfo(int, int, int)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/ScrapeInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Trackers/ScrapeInfo.cs
+    startLine: 12
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public ScrapeInfo(int complete, int downloaded, int incomplete)
+    parameters:
+    - id: complete
+      type: System.Int32
+    - id: downloaded
+      type: System.Int32
+    - id: incomplete
+      type: System.Int32
+    content.vb: Public Sub New(complete As Integer, downloaded As Integer, incomplete As Integer)
+  overload: MonoTorrent.Trackers.ScrapeInfo.#ctor*
+  nameWithType.vb: ScrapeInfo.New(Integer, Integer, Integer)
+  fullName.vb: MonoTorrent.Trackers.ScrapeInfo.New(Integer, Integer, Integer)
+  name.vb: New(Integer, Integer, Integer)
+references:
+- uid: MonoTorrent.Trackers
+  commentId: N:MonoTorrent.Trackers
+  href: MonoTorrent.html
+  name: MonoTorrent.Trackers
+  nameWithType: MonoTorrent.Trackers
+  fullName: MonoTorrent.Trackers
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Trackers.ScrapeInfo.Complete*
+  commentId: Overload:MonoTorrent.Trackers.ScrapeInfo.Complete
+  href: MonoTorrent.Trackers.ScrapeInfo.html#MonoTorrent_Trackers_ScrapeInfo_Complete
+  name: Complete
+  nameWithType: ScrapeInfo.Complete
+  fullName: MonoTorrent.Trackers.ScrapeInfo.Complete
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.Trackers.ScrapeInfo.Downloaded*
+  commentId: Overload:MonoTorrent.Trackers.ScrapeInfo.Downloaded
+  href: MonoTorrent.Trackers.ScrapeInfo.html#MonoTorrent_Trackers_ScrapeInfo_Downloaded
+  name: Downloaded
+  nameWithType: ScrapeInfo.Downloaded
+  fullName: MonoTorrent.Trackers.ScrapeInfo.Downloaded
+- uid: MonoTorrent.Trackers.ScrapeInfo.Incomplete*
+  commentId: Overload:MonoTorrent.Trackers.ScrapeInfo.Incomplete
+  href: MonoTorrent.Trackers.ScrapeInfo.html#MonoTorrent_Trackers_ScrapeInfo_Incomplete
+  name: Incomplete
+  nameWithType: ScrapeInfo.Incomplete
+  fullName: MonoTorrent.Trackers.ScrapeInfo.Incomplete
+- uid: MonoTorrent.Trackers.ScrapeInfo.#ctor*
+  commentId: Overload:MonoTorrent.Trackers.ScrapeInfo.#ctor
+  href: MonoTorrent.Trackers.ScrapeInfo.html#MonoTorrent_Trackers_ScrapeInfo__ctor_System_Int32_System_Int32_System_Int32_
+  name: ScrapeInfo
+  nameWithType: ScrapeInfo.ScrapeInfo
+  fullName: MonoTorrent.Trackers.ScrapeInfo.ScrapeInfo
+  nameWithType.vb: ScrapeInfo.New
+  fullName.vb: MonoTorrent.Trackers.ScrapeInfo.New
+  name.vb: New

@@ -1,0 +1,1000 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Trackers.ITrackerManager
+  commentId: T:MonoTorrent.Trackers.ITrackerManager
+  id: ITrackerManager
+  parent: MonoTorrent.Trackers
+  children:
+  - MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(MonoTorrent.Trackers.ITracker)
+  - MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(System.Uri)
+  - MonoTorrent.Trackers.ITrackerManager.AnnounceAsync(MonoTorrent.TorrentEvent,System.Threading.CancellationToken)
+  - MonoTorrent.Trackers.ITrackerManager.AnnounceAsync(MonoTorrent.Trackers.ITracker,System.Threading.CancellationToken)
+  - MonoTorrent.Trackers.ITrackerManager.AnnounceAsync(System.Threading.CancellationToken)
+  - MonoTorrent.Trackers.ITrackerManager.AnnounceComplete
+  - MonoTorrent.Trackers.ITrackerManager.Private
+  - MonoTorrent.Trackers.ITrackerManager.RemoveTrackerAsync(MonoTorrent.Trackers.ITracker)
+  - MonoTorrent.Trackers.ITrackerManager.ScrapeAsync(MonoTorrent.Trackers.ITracker,System.Threading.CancellationToken)
+  - MonoTorrent.Trackers.ITrackerManager.ScrapeAsync(System.Threading.CancellationToken)
+  - MonoTorrent.Trackers.ITrackerManager.ScrapeComplete
+  - MonoTorrent.Trackers.ITrackerManager.Tiers
+  langs:
+  - csharp
+  - vb
+  name: ITrackerManager
+  nameWithType: ITrackerManager
+  fullName: MonoTorrent.Trackers.ITrackerManager
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ITrackerManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ITrackerManager
+    path: src/Client/ITrackerManager.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public interface ITrackerManager
+    content.vb: Public Interface ITrackerManager
+- uid: MonoTorrent.Trackers.ITrackerManager.AnnounceComplete
+  commentId: E:MonoTorrent.Trackers.ITrackerManager.AnnounceComplete
+  id: AnnounceComplete
+  parent: MonoTorrent.Trackers.ITrackerManager
+  langs:
+  - csharp
+  - vb
+  name: AnnounceComplete
+  nameWithType: ITrackerManager.AnnounceComplete
+  fullName: MonoTorrent.Trackers.ITrackerManager.AnnounceComplete
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ITrackerManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AnnounceComplete
+    path: src/Client/ITrackerManager.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: event EventHandler<AnnounceResponseEventArgs> AnnounceComplete
+    return:
+      type: System.EventHandler{MonoTorrent.Trackers.AnnounceResponseEventArgs}
+    content.vb: Event AnnounceComplete As EventHandler(Of AnnounceResponseEventArgs)
+- uid: MonoTorrent.Trackers.ITrackerManager.ScrapeComplete
+  commentId: E:MonoTorrent.Trackers.ITrackerManager.ScrapeComplete
+  id: ScrapeComplete
+  parent: MonoTorrent.Trackers.ITrackerManager
+  langs:
+  - csharp
+  - vb
+  name: ScrapeComplete
+  nameWithType: ITrackerManager.ScrapeComplete
+  fullName: MonoTorrent.Trackers.ITrackerManager.ScrapeComplete
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ITrackerManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ScrapeComplete
+    path: src/Client/ITrackerManager.cs
+    startLine: 40
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: event EventHandler<ScrapeResponseEventArgs> ScrapeComplete
+    return:
+      type: System.EventHandler{MonoTorrent.Trackers.ScrapeResponseEventArgs}
+    content.vb: Event ScrapeComplete As EventHandler(Of ScrapeResponseEventArgs)
+- uid: MonoTorrent.Trackers.ITrackerManager.Private
+  commentId: P:MonoTorrent.Trackers.ITrackerManager.Private
+  id: Private
+  parent: MonoTorrent.Trackers.ITrackerManager
+  langs:
+  - csharp
+  - vb
+  name: Private
+  nameWithType: ITrackerManager.Private
+  fullName: MonoTorrent.Trackers.ITrackerManager.Private
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ITrackerManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Private
+    path: src/Client/ITrackerManager.cs
+    startLine: 47
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: >-
+    If this is set to 'true' then <xref href="MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(MonoTorrent.Trackers.ITracker)" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(System.Uri)" data-throw-if-not-resolved="false"></xref> and <xref href="MonoTorrent.Trackers.ITrackerManager.RemoveTrackerAsync(MonoTorrent.Trackers.ITracker)" data-throw-if-not-resolved="false"></xref> will throw an
+
+    <xref href="System.InvalidOperationException" data-throw-if-not-resolved="false"></xref> when they are invoked.
+  example: []
+  syntax:
+    content: bool Private { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property [Private] As Boolean
+  overload: MonoTorrent.Trackers.ITrackerManager.Private*
+- uid: MonoTorrent.Trackers.ITrackerManager.Tiers
+  commentId: P:MonoTorrent.Trackers.ITrackerManager.Tiers
+  id: Tiers
+  parent: MonoTorrent.Trackers.ITrackerManager
+  langs:
+  - csharp
+  - vb
+  name: Tiers
+  nameWithType: ITrackerManager.Tiers
+  fullName: MonoTorrent.Trackers.ITrackerManager.Tiers
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ITrackerManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Tiers
+    path: src/Client/ITrackerManager.cs
+    startLine: 52
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: The list of TrackerTiers
+  example: []
+  syntax:
+    content: IList<TrackerTier> Tiers { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{MonoTorrent.Trackers.TrackerTier}
+    content.vb: ReadOnly Property Tiers As IList(Of TrackerTier)
+  overload: MonoTorrent.Trackers.ITrackerManager.Tiers*
+- uid: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(MonoTorrent.Trackers.ITracker)
+  commentId: M:MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(MonoTorrent.Trackers.ITracker)
+  id: AddTrackerAsync(MonoTorrent.Trackers.ITracker)
+  parent: MonoTorrent.Trackers.ITrackerManager
+  langs:
+  - csharp
+  - vb
+  name: AddTrackerAsync(ITracker)
+  nameWithType: ITrackerManager.AddTrackerAsync(ITracker)
+  fullName: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(MonoTorrent.Trackers.ITracker)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ITrackerManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AddTrackerAsync
+    path: src/Client/ITrackerManager.cs
+    startLine: 58
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: Adds the tracker to a new TrackerTier.
+  example: []
+  syntax:
+    content: ReusableTask AddTrackerAsync(ITracker tracker)
+    parameters:
+    - id: tracker
+      type: MonoTorrent.Trackers.ITracker
+      description: The tracker to add
+    return:
+      type: ReusableTasks.ReusableTask
+    content.vb: Function AddTrackerAsync(tracker As ITracker) As ReusableTask
+  overload: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync*
+- uid: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(System.Uri)
+  commentId: M:MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(System.Uri)
+  id: AddTrackerAsync(System.Uri)
+  parent: MonoTorrent.Trackers.ITrackerManager
+  langs:
+  - csharp
+  - vb
+  name: AddTrackerAsync(Uri)
+  nameWithType: ITrackerManager.AddTrackerAsync(Uri)
+  fullName: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(System.Uri)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ITrackerManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AddTrackerAsync
+    path: src/Client/ITrackerManager.cs
+    startLine: 65
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: >-
+    Creates an ITracker instance for the given url and adds it to a
+
+    new TrackerTier.
+  example: []
+  syntax:
+    content: ReusableTask AddTrackerAsync(Uri trackerUri)
+    parameters:
+    - id: trackerUri
+      type: System.Uri
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask
+    content.vb: Function AddTrackerAsync(trackerUri As Uri) As ReusableTask
+  overload: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync*
+- uid: MonoTorrent.Trackers.ITrackerManager.RemoveTrackerAsync(MonoTorrent.Trackers.ITracker)
+  commentId: M:MonoTorrent.Trackers.ITrackerManager.RemoveTrackerAsync(MonoTorrent.Trackers.ITracker)
+  id: RemoveTrackerAsync(MonoTorrent.Trackers.ITracker)
+  parent: MonoTorrent.Trackers.ITrackerManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveTrackerAsync(ITracker)
+  nameWithType: ITrackerManager.RemoveTrackerAsync(ITracker)
+  fullName: MonoTorrent.Trackers.ITrackerManager.RemoveTrackerAsync(MonoTorrent.Trackers.ITracker)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ITrackerManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: RemoveTrackerAsync
+    path: src/Client/ITrackerManager.cs
+    startLine: 73
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: >-
+    Removes the <xref href="MonoTorrent.Trackers.ITracker" data-throw-if-not-resolved="false"></xref> from the manager. If the <xref href="MonoTorrent.Trackers.TrackerTier" data-throw-if-not-resolved="false"></xref> it was part of is now empty
+
+    it will also be removed.
+  example: []
+  syntax:
+    content: ReusableTask<bool> RemoveTrackerAsync(ITracker tracker)
+    parameters:
+    - id: tracker
+      type: MonoTorrent.Trackers.ITracker
+      description: ''
+    return:
+      type: ReusableTasks.ReusableTask{System.Boolean}
+      description: ''
+    content.vb: Function RemoveTrackerAsync(tracker As ITracker) As ReusableTask(Of Boolean)
+  overload: MonoTorrent.Trackers.ITrackerManager.RemoveTrackerAsync*
+- uid: MonoTorrent.Trackers.ITrackerManager.AnnounceAsync(System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.Trackers.ITrackerManager.AnnounceAsync(System.Threading.CancellationToken)
+  id: AnnounceAsync(System.Threading.CancellationToken)
+  parent: MonoTorrent.Trackers.ITrackerManager
+  langs:
+  - csharp
+  - vb
+  name: AnnounceAsync(CancellationToken)
+  nameWithType: ITrackerManager.AnnounceAsync(CancellationToken)
+  fullName: MonoTorrent.Trackers.ITrackerManager.AnnounceAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ITrackerManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AnnounceAsync
+    path: src/Client/ITrackerManager.cs
+    startLine: 82
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: >-
+    Sends an Announce to each tier in <xref href="MonoTorrent.Trackers.ITrackerManager.Tiers" data-throw-if-not-resolved="false"></xref> to fetch additional peers.
+
+    This will respect the Tracker's <xref href="MonoTorrent.Trackers.ITracker.MinUpdateInterval" data-throw-if-not-resolved="false"></xref> and
+
+    <xref href="MonoTorrent.Trackers.ITracker.UpdateInterval" data-throw-if-not-resolved="false"></xref> to avoid announcing too frequently.
+  example: []
+  syntax:
+    content: ReusableTask AnnounceAsync(CancellationToken token)
+    parameters:
+    - id: token
+      type: System.Threading.CancellationToken
+      description: The token used to cancel the request
+    return:
+      type: ReusableTasks.ReusableTask
+      description: ''
+    content.vb: Function AnnounceAsync(token As CancellationToken) As ReusableTask
+  overload: MonoTorrent.Trackers.ITrackerManager.AnnounceAsync*
+- uid: MonoTorrent.Trackers.ITrackerManager.AnnounceAsync(MonoTorrent.Trackers.ITracker,System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.Trackers.ITrackerManager.AnnounceAsync(MonoTorrent.Trackers.ITracker,System.Threading.CancellationToken)
+  id: AnnounceAsync(MonoTorrent.Trackers.ITracker,System.Threading.CancellationToken)
+  parent: MonoTorrent.Trackers.ITrackerManager
+  langs:
+  - csharp
+  - vb
+  name: AnnounceAsync(ITracker, CancellationToken)
+  nameWithType: ITrackerManager.AnnounceAsync(ITracker, CancellationToken)
+  fullName: MonoTorrent.Trackers.ITrackerManager.AnnounceAsync(MonoTorrent.Trackers.ITracker, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ITrackerManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AnnounceAsync
+    path: src/Client/ITrackerManager.cs
+    startLine: 93
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: >-
+    Sends an Announce to the specified tracker using <xref href="MonoTorrent.TorrentEvent.None" data-throw-if-not-resolved="false"></xref>
+
+    in order to fetch more peers. This will respect the Tracker's
+
+    <xref href="MonoTorrent.Trackers.ITracker.MinUpdateInterval" data-throw-if-not-resolved="false"></xref> and <xref href="MonoTorrent.Trackers.ITracker.UpdateInterval" data-throw-if-not-resolved="false"></xref>
+
+    to avoid announcing to frequently.
+  example: []
+  syntax:
+    content: ReusableTask AnnounceAsync(ITracker tracker, CancellationToken token)
+    parameters:
+    - id: tracker
+      type: MonoTorrent.Trackers.ITracker
+      description: The tracker to send the Announce to.
+    - id: token
+      type: System.Threading.CancellationToken
+      description: The token used to cancel the request
+    return:
+      type: ReusableTasks.ReusableTask
+      description: ''
+    content.vb: Function AnnounceAsync(tracker As ITracker, token As CancellationToken) As ReusableTask
+  overload: MonoTorrent.Trackers.ITrackerManager.AnnounceAsync*
+- uid: MonoTorrent.Trackers.ITrackerManager.AnnounceAsync(MonoTorrent.TorrentEvent,System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.Trackers.ITrackerManager.AnnounceAsync(MonoTorrent.TorrentEvent,System.Threading.CancellationToken)
+  id: AnnounceAsync(MonoTorrent.TorrentEvent,System.Threading.CancellationToken)
+  parent: MonoTorrent.Trackers.ITrackerManager
+  langs:
+  - csharp
+  - vb
+  name: AnnounceAsync(TorrentEvent, CancellationToken)
+  nameWithType: ITrackerManager.AnnounceAsync(TorrentEvent, CancellationToken)
+  fullName: MonoTorrent.Trackers.ITrackerManager.AnnounceAsync(MonoTorrent.TorrentEvent, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ITrackerManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AnnounceAsync
+    path: src/Client/ITrackerManager.cs
+    startLine: 106
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: >-
+    Sends an announce with the specified event to each tier in <xref href="MonoTorrent.Trackers.ITrackerManager.Tiers" data-throw-if-not-resolved="false"></xref>.
+
+    If <xref href="MonoTorrent.TorrentEvent.None" data-throw-if-not-resolved="false"></xref> is specified then the Tracker's
+
+    <xref href="MonoTorrent.Trackers.ITracker.MinUpdateInterval" data-throw-if-not-resolved="false"></xref> and <xref href="MonoTorrent.Trackers.ITracker.UpdateInterval" data-throw-if-not-resolved="false"></xref>
+
+    will be respected to avoid announcing too frequently. Otherwise this
+
+    is a special announce which will be sent regardless of the
+
+    usual update interval.
+  example: []
+  syntax:
+    content: ReusableTask AnnounceAsync(TorrentEvent clientEvent, CancellationToken token)
+    parameters:
+    - id: clientEvent
+      type: MonoTorrent.TorrentEvent
+      description: The event to send with the announce.
+    - id: token
+      type: System.Threading.CancellationToken
+      description: The token used to cancel the request.
+    return:
+      type: ReusableTasks.ReusableTask
+      description: ''
+    content.vb: Function AnnounceAsync(clientEvent As TorrentEvent, token As CancellationToken) As ReusableTask
+  overload: MonoTorrent.Trackers.ITrackerManager.AnnounceAsync*
+- uid: MonoTorrent.Trackers.ITrackerManager.ScrapeAsync(System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.Trackers.ITrackerManager.ScrapeAsync(System.Threading.CancellationToken)
+  id: ScrapeAsync(System.Threading.CancellationToken)
+  parent: MonoTorrent.Trackers.ITrackerManager
+  langs:
+  - csharp
+  - vb
+  name: ScrapeAsync(CancellationToken)
+  nameWithType: ITrackerManager.ScrapeAsync(CancellationToken)
+  fullName: MonoTorrent.Trackers.ITrackerManager.ScrapeAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ITrackerManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ScrapeAsync
+    path: src/Client/ITrackerManager.cs
+    startLine: 114
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: >-
+    Sends a Scrape to each TrackerTier. This will respect the <xref href="MonoTorrent.Trackers.ITracker.MinUpdateInterval" data-throw-if-not-resolved="false"></xref>
+
+    for the Tracker to avoid scraping too frequently
+  example: []
+  syntax:
+    content: ReusableTask ScrapeAsync(CancellationToken token)
+    parameters:
+    - id: token
+      type: System.Threading.CancellationToken
+      description: The token used to cancel the request
+    return:
+      type: ReusableTasks.ReusableTask
+      description: ''
+    content.vb: Function ScrapeAsync(token As CancellationToken) As ReusableTask
+  overload: MonoTorrent.Trackers.ITrackerManager.ScrapeAsync*
+- uid: MonoTorrent.Trackers.ITrackerManager.ScrapeAsync(MonoTorrent.Trackers.ITracker,System.Threading.CancellationToken)
+  commentId: M:MonoTorrent.Trackers.ITrackerManager.ScrapeAsync(MonoTorrent.Trackers.ITracker,System.Threading.CancellationToken)
+  id: ScrapeAsync(MonoTorrent.Trackers.ITracker,System.Threading.CancellationToken)
+  parent: MonoTorrent.Trackers.ITrackerManager
+  langs:
+  - csharp
+  - vb
+  name: ScrapeAsync(ITracker, CancellationToken)
+  nameWithType: ITrackerManager.ScrapeAsync(ITracker, CancellationToken)
+  fullName: MonoTorrent.Trackers.ITrackerManager.ScrapeAsync(MonoTorrent.Trackers.ITracker, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Client/ITrackerManager.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ScrapeAsync
+    path: src/Client/ITrackerManager.cs
+    startLine: 123
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: >-
+    Sends a Scrape to each TrackerTier. This will respect the <xref href="MonoTorrent.Trackers.ITracker.MinUpdateInterval" data-throw-if-not-resolved="false"></xref>
+
+    for the Tracker to avoid scraping too frequently.
+  example: []
+  syntax:
+    content: ReusableTask ScrapeAsync(ITracker tracker, CancellationToken token)
+    parameters:
+    - id: tracker
+      type: MonoTorrent.Trackers.ITracker
+      description: Tje tracker to send the Scrape to.
+    - id: token
+      type: System.Threading.CancellationToken
+      description: The token used to cancel the request
+    return:
+      type: ReusableTasks.ReusableTask
+      description: ''
+    content.vb: Function ScrapeAsync(tracker As ITracker, token As CancellationToken) As ReusableTask
+  overload: MonoTorrent.Trackers.ITrackerManager.ScrapeAsync*
+references:
+- uid: MonoTorrent.Trackers
+  commentId: N:MonoTorrent.Trackers
+  href: MonoTorrent.html
+  name: MonoTorrent.Trackers
+  nameWithType: MonoTorrent.Trackers
+  fullName: MonoTorrent.Trackers
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+- uid: System.EventHandler{MonoTorrent.Trackers.AnnounceResponseEventArgs}
+  commentId: T:System.EventHandler{MonoTorrent.Trackers.AnnounceResponseEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<AnnounceResponseEventArgs>
+  nameWithType: EventHandler<AnnounceResponseEventArgs>
+  fullName: System.EventHandler<MonoTorrent.Trackers.AnnounceResponseEventArgs>
+  nameWithType.vb: EventHandler(Of AnnounceResponseEventArgs)
+  fullName.vb: System.EventHandler(Of MonoTorrent.Trackers.AnnounceResponseEventArgs)
+  name.vb: EventHandler(Of AnnounceResponseEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.Trackers.AnnounceResponseEventArgs
+    name: AnnounceResponseEventArgs
+    href: MonoTorrent.Trackers.AnnounceResponseEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Trackers.AnnounceResponseEventArgs
+    name: AnnounceResponseEventArgs
+    href: MonoTorrent.Trackers.AnnounceResponseEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.EventHandler{MonoTorrent.Trackers.ScrapeResponseEventArgs}
+  commentId: T:System.EventHandler{MonoTorrent.Trackers.ScrapeResponseEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<ScrapeResponseEventArgs>
+  nameWithType: EventHandler<ScrapeResponseEventArgs>
+  fullName: System.EventHandler<MonoTorrent.Trackers.ScrapeResponseEventArgs>
+  nameWithType.vb: EventHandler(Of ScrapeResponseEventArgs)
+  fullName.vb: System.EventHandler(Of MonoTorrent.Trackers.ScrapeResponseEventArgs)
+  name.vb: EventHandler(Of ScrapeResponseEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: MonoTorrent.Trackers.ScrapeResponseEventArgs
+    name: ScrapeResponseEventArgs
+    href: MonoTorrent.Trackers.ScrapeResponseEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Trackers.ScrapeResponseEventArgs
+    name: ScrapeResponseEventArgs
+    href: MonoTorrent.Trackers.ScrapeResponseEventArgs.html
+  - name: )
+- uid: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(MonoTorrent.Trackers.ITracker)
+  commentId: M:MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(MonoTorrent.Trackers.ITracker)
+  href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_AddTrackerAsync_MonoTorrent_Trackers_ITracker_
+  name: AddTrackerAsync(ITracker)
+  nameWithType: ITrackerManager.AddTrackerAsync(ITracker)
+  fullName: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(MonoTorrent.Trackers.ITracker)
+  spec.csharp:
+  - uid: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(MonoTorrent.Trackers.ITracker)
+    name: AddTrackerAsync
+    href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_AddTrackerAsync_MonoTorrent_Trackers_ITracker_
+  - name: (
+  - uid: MonoTorrent.Trackers.ITracker
+    name: ITracker
+    href: MonoTorrent.Trackers.ITracker.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(MonoTorrent.Trackers.ITracker)
+    name: AddTrackerAsync
+    href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_AddTrackerAsync_MonoTorrent_Trackers_ITracker_
+  - name: (
+  - uid: MonoTorrent.Trackers.ITracker
+    name: ITracker
+    href: MonoTorrent.Trackers.ITracker.html
+  - name: )
+- uid: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(System.Uri)
+  commentId: M:MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(System.Uri)
+  isExternal: true
+  href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_AddTrackerAsync_System_Uri_
+  name: AddTrackerAsync(Uri)
+  nameWithType: ITrackerManager.AddTrackerAsync(Uri)
+  fullName: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(System.Uri)
+  spec.csharp:
+  - uid: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(System.Uri)
+    name: AddTrackerAsync
+    href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_AddTrackerAsync_System_Uri_
+  - name: (
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync(System.Uri)
+    name: AddTrackerAsync
+    href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_AddTrackerAsync_System_Uri_
+  - name: (
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: )
+- uid: MonoTorrent.Trackers.ITrackerManager.RemoveTrackerAsync(MonoTorrent.Trackers.ITracker)
+  commentId: M:MonoTorrent.Trackers.ITrackerManager.RemoveTrackerAsync(MonoTorrent.Trackers.ITracker)
+  href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_RemoveTrackerAsync_MonoTorrent_Trackers_ITracker_
+  name: RemoveTrackerAsync(ITracker)
+  nameWithType: ITrackerManager.RemoveTrackerAsync(ITracker)
+  fullName: MonoTorrent.Trackers.ITrackerManager.RemoveTrackerAsync(MonoTorrent.Trackers.ITracker)
+  spec.csharp:
+  - uid: MonoTorrent.Trackers.ITrackerManager.RemoveTrackerAsync(MonoTorrent.Trackers.ITracker)
+    name: RemoveTrackerAsync
+    href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_RemoveTrackerAsync_MonoTorrent_Trackers_ITracker_
+  - name: (
+  - uid: MonoTorrent.Trackers.ITracker
+    name: ITracker
+    href: MonoTorrent.Trackers.ITracker.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Trackers.ITrackerManager.RemoveTrackerAsync(MonoTorrent.Trackers.ITracker)
+    name: RemoveTrackerAsync
+    href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_RemoveTrackerAsync_MonoTorrent_Trackers_ITracker_
+  - name: (
+  - uid: MonoTorrent.Trackers.ITracker
+    name: ITracker
+    href: MonoTorrent.Trackers.ITracker.html
+  - name: )
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: MonoTorrent.Trackers.ITrackerManager.Private*
+  commentId: Overload:MonoTorrent.Trackers.ITrackerManager.Private
+  href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_Private
+  name: Private
+  nameWithType: ITrackerManager.Private
+  fullName: MonoTorrent.Trackers.ITrackerManager.Private
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.Trackers.ITrackerManager.Tiers*
+  commentId: Overload:MonoTorrent.Trackers.ITrackerManager.Tiers
+  href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_Tiers
+  name: Tiers
+  nameWithType: ITrackerManager.Tiers
+  fullName: MonoTorrent.Trackers.ITrackerManager.Tiers
+- uid: System.Collections.Generic.IList{MonoTorrent.Trackers.TrackerTier}
+  commentId: T:System.Collections.Generic.IList{MonoTorrent.Trackers.TrackerTier}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<TrackerTier>
+  nameWithType: IList<TrackerTier>
+  fullName: System.Collections.Generic.IList<MonoTorrent.Trackers.TrackerTier>
+  nameWithType.vb: IList(Of TrackerTier)
+  fullName.vb: System.Collections.Generic.IList(Of MonoTorrent.Trackers.TrackerTier)
+  name.vb: IList(Of TrackerTier)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: MonoTorrent.Trackers.TrackerTier
+    name: TrackerTier
+    href: MonoTorrent.Trackers.TrackerTier.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.Trackers.TrackerTier
+    name: TrackerTier
+    href: MonoTorrent.Trackers.TrackerTier.html
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync*
+  commentId: Overload:MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync
+  href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_AddTrackerAsync_MonoTorrent_Trackers_ITracker_
+  name: AddTrackerAsync
+  nameWithType: ITrackerManager.AddTrackerAsync
+  fullName: MonoTorrent.Trackers.ITrackerManager.AddTrackerAsync
+- uid: MonoTorrent.Trackers.ITracker
+  commentId: T:MonoTorrent.Trackers.ITracker
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.ITracker.html
+  name: ITracker
+  nameWithType: ITracker
+  fullName: MonoTorrent.Trackers.ITracker
+- uid: ReusableTasks.ReusableTask
+  commentId: T:ReusableTasks.ReusableTask
+  parent: ReusableTasks
+  isExternal: true
+  name: ReusableTask
+  nameWithType: ReusableTask
+  fullName: ReusableTasks.ReusableTask
+- uid: ReusableTasks
+  commentId: N:ReusableTasks
+  isExternal: true
+  name: ReusableTasks
+  nameWithType: ReusableTasks
+  fullName: ReusableTasks
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: MonoTorrent.Trackers.TrackerTier
+  commentId: T:MonoTorrent.Trackers.TrackerTier
+  href: MonoTorrent.Trackers.TrackerTier.html
+  name: TrackerTier
+  nameWithType: TrackerTier
+  fullName: MonoTorrent.Trackers.TrackerTier
+- uid: MonoTorrent.Trackers.ITrackerManager.RemoveTrackerAsync*
+  commentId: Overload:MonoTorrent.Trackers.ITrackerManager.RemoveTrackerAsync
+  href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_RemoveTrackerAsync_MonoTorrent_Trackers_ITracker_
+  name: RemoveTrackerAsync
+  nameWithType: ITrackerManager.RemoveTrackerAsync
+  fullName: MonoTorrent.Trackers.ITrackerManager.RemoveTrackerAsync
+- uid: ReusableTasks.ReusableTask{System.Boolean}
+  commentId: T:ReusableTasks.ReusableTask{System.Boolean}
+  parent: ReusableTasks
+  definition: ReusableTasks.ReusableTask`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: ReusableTask<bool>
+  nameWithType: ReusableTask<bool>
+  fullName: ReusableTasks.ReusableTask<bool>
+  nameWithType.vb: ReusableTask(Of Boolean)
+  fullName.vb: ReusableTasks.ReusableTask(Of Boolean)
+  name.vb: ReusableTask(Of Boolean)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: ReusableTasks.ReusableTask`1
+  commentId: T:ReusableTasks.ReusableTask`1
+  isExternal: true
+  name: ReusableTask<T>
+  nameWithType: ReusableTask<T>
+  fullName: ReusableTasks.ReusableTask<T>
+  nameWithType.vb: ReusableTask(Of T)
+  fullName.vb: ReusableTasks.ReusableTask(Of T)
+  name.vb: ReusableTask(Of T)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.Trackers.ITrackerManager.Tiers
+  commentId: P:MonoTorrent.Trackers.ITrackerManager.Tiers
+  href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_Tiers
+  name: Tiers
+  nameWithType: ITrackerManager.Tiers
+  fullName: MonoTorrent.Trackers.ITrackerManager.Tiers
+- uid: MonoTorrent.Trackers.ITracker.MinUpdateInterval
+  commentId: P:MonoTorrent.Trackers.ITracker.MinUpdateInterval
+  parent: MonoTorrent.Trackers.ITracker
+  href: MonoTorrent.Trackers.ITracker.html#MonoTorrent_Trackers_ITracker_MinUpdateInterval
+  name: MinUpdateInterval
+  nameWithType: ITracker.MinUpdateInterval
+  fullName: MonoTorrent.Trackers.ITracker.MinUpdateInterval
+- uid: MonoTorrent.Trackers.ITracker.UpdateInterval
+  commentId: P:MonoTorrent.Trackers.ITracker.UpdateInterval
+  parent: MonoTorrent.Trackers.ITracker
+  href: MonoTorrent.Trackers.ITracker.html#MonoTorrent_Trackers_ITracker_UpdateInterval
+  name: UpdateInterval
+  nameWithType: ITracker.UpdateInterval
+  fullName: MonoTorrent.Trackers.ITracker.UpdateInterval
+- uid: MonoTorrent.Trackers.ITrackerManager.AnnounceAsync*
+  commentId: Overload:MonoTorrent.Trackers.ITrackerManager.AnnounceAsync
+  href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_AnnounceAsync_System_Threading_CancellationToken_
+  name: AnnounceAsync
+  nameWithType: ITrackerManager.AnnounceAsync
+  fullName: MonoTorrent.Trackers.ITrackerManager.AnnounceAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: MonoTorrent.TorrentEvent.None
+  commentId: F:MonoTorrent.TorrentEvent.None
+  href: MonoTorrent.TorrentEvent.html#MonoTorrent_TorrentEvent_None
+  name: None
+  nameWithType: TorrentEvent.None
+  fullName: MonoTorrent.TorrentEvent.None
+- uid: MonoTorrent.TorrentEvent
+  commentId: T:MonoTorrent.TorrentEvent
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentEvent.html
+  name: TorrentEvent
+  nameWithType: TorrentEvent
+  fullName: MonoTorrent.TorrentEvent
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.Trackers.ITrackerManager.ScrapeAsync*
+  commentId: Overload:MonoTorrent.Trackers.ITrackerManager.ScrapeAsync
+  href: MonoTorrent.Trackers.ITrackerManager.html#MonoTorrent_Trackers_ITrackerManager_ScrapeAsync_System_Threading_CancellationToken_
+  name: ScrapeAsync
+  nameWithType: ITrackerManager.ScrapeAsync
+  fullName: MonoTorrent.Trackers.ITrackerManager.ScrapeAsync

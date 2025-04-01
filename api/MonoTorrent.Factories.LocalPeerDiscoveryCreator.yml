@@ -1,0 +1,74 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Factories.LocalPeerDiscoveryCreator
+  commentId: T:MonoTorrent.Factories.LocalPeerDiscoveryCreator
+  id: Factories.LocalPeerDiscoveryCreator
+  parent: MonoTorrent
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: Factories.LocalPeerDiscoveryCreator
+  nameWithType: Factories.LocalPeerDiscoveryCreator
+  fullName: MonoTorrent.Factories.LocalPeerDiscoveryCreator
+  type: Delegate
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LocalPeerDiscoveryCreator
+    path: src/Factories.cs
+    startLine: 62
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public delegate ILocalPeerDiscovery Factories.LocalPeerDiscoveryCreator()
+    return:
+      type: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+    content.vb: Public Delegate Function Factories.LocalPeerDiscoveryCreator() As ILocalPeerDiscovery
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+  commentId: T:MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+  parent: MonoTorrent.Connections.Peer
+  href: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.html
+  name: ILocalPeerDiscovery
+  nameWithType: ILocalPeerDiscovery
+  fullName: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+- uid: MonoTorrent.Connections.Peer
+  commentId: N:MonoTorrent.Connections.Peer
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.Peer
+  nameWithType: MonoTorrent.Connections.Peer
+  fullName: MonoTorrent.Connections.Peer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html

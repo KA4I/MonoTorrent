@@ -1,0 +1,395 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Software
+  commentId: T:MonoTorrent.Software
+  id: Software
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.Software.Client
+  - MonoTorrent.Software.ShortId
+  - MonoTorrent.Software.ToString
+  langs:
+  - csharp
+  - vb
+  name: Software
+  nameWithType: Software
+  fullName: MonoTorrent.Software
+  type: Struct
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Software
+    path: src/PeerID.cs
+    startLine: 110
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Class representing the various and sundry BitTorrent Clients lurking about on the web
+  example: []
+  syntax:
+    content: public struct Software
+    content.vb: Public Structure Software
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: MonoTorrent.Software.Client
+  commentId: P:MonoTorrent.Software.Client
+  id: Client
+  parent: MonoTorrent.Software
+  langs:
+  - csharp
+  - vb
+  name: Client
+  nameWithType: Software.Client
+  fullName: MonoTorrent.Software.Client
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Client
+    path: src/PeerID.cs
+    startLine: 130
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The name of the torrent software being used
+  example: []
+  syntax:
+    content: public readonly ClientApp Client { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.ClientApp
+      description: The client.
+    content.vb: Public ReadOnly Property Client As ClientApp
+  overload: MonoTorrent.Software.Client*
+- uid: MonoTorrent.Software.ShortId
+  commentId: P:MonoTorrent.Software.ShortId
+  id: ShortId
+  parent: MonoTorrent.Software
+  langs:
+  - csharp
+  - vb
+  name: ShortId
+  nameWithType: Software.ShortId
+  fullName: MonoTorrent.Software.ShortId
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ShortId
+    path: src/PeerID.cs
+    startLine: 142
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: A shortened version of the peers ID
+  example: []
+  syntax:
+    content: public readonly string ShortId { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: The short id.
+    content.vb: Public ReadOnly Property ShortId As String
+  overload: MonoTorrent.Software.ShortId*
+- uid: MonoTorrent.Software.ToString
+  commentId: M:MonoTorrent.Software.ToString
+  id: ToString
+  parent: MonoTorrent.Software
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Software.ToString()
+  fullName: MonoTorrent.Software.ToString()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/PeerID.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ToString
+    path: src/PeerID.cs
+    startLine: 408
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: MonoTorrent.Software.ToString*
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Software.Client*
+  commentId: Overload:MonoTorrent.Software.Client
+  href: MonoTorrent.Software.html#MonoTorrent_Software_Client
+  name: Client
+  nameWithType: Software.Client
+  fullName: MonoTorrent.Software.Client
+- uid: MonoTorrent.ClientApp
+  commentId: T:MonoTorrent.ClientApp
+  parent: MonoTorrent
+  href: MonoTorrent.ClientApp.html
+  name: ClientApp
+  nameWithType: ClientApp
+  fullName: MonoTorrent.ClientApp
+- uid: MonoTorrent.Software.ShortId*
+  commentId: Overload:MonoTorrent.Software.ShortId
+  href: MonoTorrent.Software.html#MonoTorrent_Software_ShortId
+  name: ShortId
+  nameWithType: Software.ShortId
+  fullName: MonoTorrent.Software.ShortId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: MonoTorrent.Software.ToString*
+  commentId: Overload:MonoTorrent.Software.ToString
+  href: MonoTorrent.Software.html#MonoTorrent_Software_ToString
+  name: ToString
+  nameWithType: Software.ToString
+  fullName: MonoTorrent.Software.ToString

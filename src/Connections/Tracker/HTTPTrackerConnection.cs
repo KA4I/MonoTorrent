@@ -187,9 +187,12 @@ namespace MonoTorrent.Connections.Tracker
 
             var b = new UriQueryBuilder (Uri);
             b.Add ("info_hash", infoHash.Truncate ().UrlEncode ())
-             .Add ("peer_id", UriQueryBuilder.UrlEncodeQuery (parameters.PeerId.Span))
-             .Add ("port", port)
-             .Add ("uploaded", parameters.BytesUploaded)
+             .Add ("peer_id", UriQueryBuilder.UrlEncodeQuery (parameters.PeerId.Span));
+            // Only include the port parameter in the announce URL if it's valid (greater than 0).
+            // Trackers can often deduce the port from the source IP if it's missing.
+            if (port > 0)
+                 b.Add ("port", port);
+            b.Add ("uploaded", parameters.BytesUploaded)
              .Add ("downloaded", parameters.BytesDownloaded)
              .Add ("left", parameters.BytesLeft)
              .Add ("compact", Parameters.Compact ? 1 : 0);

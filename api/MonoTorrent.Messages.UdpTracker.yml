@@ -1,0 +1,129 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Messages.UdpTracker
+  commentId: N:MonoTorrent.Messages.UdpTracker
+  id: MonoTorrent.Messages.UdpTracker
+  children:
+  - MonoTorrent.Messages.UdpTracker.AnnounceMessage
+  - MonoTorrent.Messages.UdpTracker.AnnounceResponseMessage
+  - MonoTorrent.Messages.UdpTracker.AuthenticationMessage
+  - MonoTorrent.Messages.UdpTracker.ConnectMessage
+  - MonoTorrent.Messages.UdpTracker.ConnectResponseMessage
+  - MonoTorrent.Messages.UdpTracker.ErrorMessage
+  - MonoTorrent.Messages.UdpTracker.MessageType
+  - MonoTorrent.Messages.UdpTracker.ScrapeDetails
+  - MonoTorrent.Messages.UdpTracker.ScrapeMessage
+  - MonoTorrent.Messages.UdpTracker.ScrapeResponseMessage
+  - MonoTorrent.Messages.UdpTracker.UdpTrackerMessage
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.Messages.UdpTracker
+  nameWithType: MonoTorrent.Messages.UdpTracker
+  fullName: MonoTorrent.Messages.UdpTracker
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.Messages.UdpTracker.AnnounceMessage
+  commentId: T:MonoTorrent.Messages.UdpTracker.AnnounceMessage
+  parent: MonoTorrent.Messages.UdpTracker
+  href: MonoTorrent.Messages.UdpTracker.AnnounceMessage.html
+  name: AnnounceMessage
+  nameWithType: AnnounceMessage
+  fullName: MonoTorrent.Messages.UdpTracker.AnnounceMessage
+- uid: MonoTorrent.Messages.UdpTracker.AnnounceResponseMessage
+  commentId: T:MonoTorrent.Messages.UdpTracker.AnnounceResponseMessage
+  href: MonoTorrent.Messages.UdpTracker.AnnounceResponseMessage.html
+  name: AnnounceResponseMessage
+  nameWithType: AnnounceResponseMessage
+  fullName: MonoTorrent.Messages.UdpTracker.AnnounceResponseMessage
+- uid: MonoTorrent.Messages.UdpTracker.AuthenticationMessage
+  commentId: T:MonoTorrent.Messages.UdpTracker.AuthenticationMessage
+  href: MonoTorrent.Messages.UdpTracker.AuthenticationMessage.html
+  name: AuthenticationMessage
+  nameWithType: AuthenticationMessage
+  fullName: MonoTorrent.Messages.UdpTracker.AuthenticationMessage
+- uid: MonoTorrent.Messages.UdpTracker.ConnectMessage
+  commentId: T:MonoTorrent.Messages.UdpTracker.ConnectMessage
+  parent: MonoTorrent.Messages.UdpTracker
+  href: MonoTorrent.Messages.UdpTracker.ConnectMessage.html
+  name: ConnectMessage
+  nameWithType: ConnectMessage
+  fullName: MonoTorrent.Messages.UdpTracker.ConnectMessage
+- uid: MonoTorrent.Messages.UdpTracker.ConnectResponseMessage
+  commentId: T:MonoTorrent.Messages.UdpTracker.ConnectResponseMessage
+  href: MonoTorrent.Messages.UdpTracker.ConnectResponseMessage.html
+  name: ConnectResponseMessage
+  nameWithType: ConnectResponseMessage
+  fullName: MonoTorrent.Messages.UdpTracker.ConnectResponseMessage
+- uid: MonoTorrent.Messages.UdpTracker.ErrorMessage
+  commentId: T:MonoTorrent.Messages.UdpTracker.ErrorMessage
+  parent: MonoTorrent.Messages.UdpTracker
+  href: MonoTorrent.Messages.UdpTracker.ErrorMessage.html
+  name: ErrorMessage
+  nameWithType: ErrorMessage
+  fullName: MonoTorrent.Messages.UdpTracker.ErrorMessage
+- uid: MonoTorrent.Messages.UdpTracker.MessageType
+  commentId: T:MonoTorrent.Messages.UdpTracker.MessageType
+  parent: MonoTorrent.Messages.UdpTracker
+  href: MonoTorrent.Messages.UdpTracker.MessageType.html
+  name: MessageType
+  nameWithType: MessageType
+  fullName: MonoTorrent.Messages.UdpTracker.MessageType
+- uid: MonoTorrent.Messages.UdpTracker.ScrapeDetails
+  commentId: T:MonoTorrent.Messages.UdpTracker.ScrapeDetails
+  href: MonoTorrent.Messages.UdpTracker.ScrapeDetails.html
+  name: ScrapeDetails
+  nameWithType: ScrapeDetails
+  fullName: MonoTorrent.Messages.UdpTracker.ScrapeDetails
+- uid: MonoTorrent.Messages.UdpTracker.ScrapeMessage
+  commentId: T:MonoTorrent.Messages.UdpTracker.ScrapeMessage
+  parent: MonoTorrent.Messages.UdpTracker
+  href: MonoTorrent.Messages.UdpTracker.ScrapeMessage.html
+  name: ScrapeMessage
+  nameWithType: ScrapeMessage
+  fullName: MonoTorrent.Messages.UdpTracker.ScrapeMessage
+- uid: MonoTorrent.Messages.UdpTracker.ScrapeResponseMessage
+  commentId: T:MonoTorrent.Messages.UdpTracker.ScrapeResponseMessage
+  href: MonoTorrent.Messages.UdpTracker.ScrapeResponseMessage.html
+  name: ScrapeResponseMessage
+  nameWithType: ScrapeResponseMessage
+  fullName: MonoTorrent.Messages.UdpTracker.ScrapeResponseMessage
+- uid: MonoTorrent.Messages.UdpTracker.UdpTrackerMessage
+  commentId: T:MonoTorrent.Messages.UdpTracker.UdpTrackerMessage
+  parent: MonoTorrent.Messages.UdpTracker
+  href: MonoTorrent.Messages.UdpTracker.UdpTrackerMessage.html
+  name: UdpTrackerMessage
+  nameWithType: UdpTrackerMessage
+  fullName: MonoTorrent.Messages.UdpTracker.UdpTrackerMessage
+- uid: MonoTorrent.Messages.UdpTracker
+  commentId: N:MonoTorrent.Messages.UdpTracker
+  href: MonoTorrent.html
+  name: MonoTorrent.Messages.UdpTracker
+  nameWithType: MonoTorrent.Messages.UdpTracker
+  fullName: MonoTorrent.Messages.UdpTracker
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.UdpTracker
+    name: UdpTracker
+    href: MonoTorrent.Messages.UdpTracker.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Messages
+    name: Messages
+    href: MonoTorrent.Messages.html
+  - name: .
+  - uid: MonoTorrent.Messages.UdpTracker
+    name: UdpTracker
+    href: MonoTorrent.Messages.UdpTracker.html

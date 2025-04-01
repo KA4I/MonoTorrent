@@ -1,0 +1,140 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Client.AttemptConnectionStage
+  commentId: T:MonoTorrent.Client.AttemptConnectionStage
+  id: AttemptConnectionStage
+  parent: MonoTorrent.Client
+  children:
+  - MonoTorrent.Client.AttemptConnectionStage.BeforeConnectionEstablished
+  - MonoTorrent.Client.AttemptConnectionStage.HandshakeComplete
+  langs:
+  - csharp
+  - vb
+  name: AttemptConnectionStage
+  nameWithType: AttemptConnectionStage
+  fullName: MonoTorrent.Client.AttemptConnectionStage
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/Client/EventArgs/AttemptConnectionStage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AttemptConnectionStage
+    path: src/Client/EventArgs/AttemptConnectionStage.cs
+    startLine: 11
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: Peers can be banned at two points, when the connection has been opened, or after the handshakes have been transferred.
+  example: []
+  syntax:
+    content: public enum AttemptConnectionStage
+    content.vb: Public Enum AttemptConnectionStage
+- uid: MonoTorrent.Client.AttemptConnectionStage.BeforeConnectionEstablished
+  commentId: F:MonoTorrent.Client.AttemptConnectionStage.BeforeConnectionEstablished
+  id: BeforeConnectionEstablished
+  parent: MonoTorrent.Client.AttemptConnectionStage
+  langs:
+  - csharp
+  - vb
+  name: BeforeConnectionEstablished
+  nameWithType: AttemptConnectionStage.BeforeConnectionEstablished
+  fullName: MonoTorrent.Client.AttemptConnectionStage.BeforeConnectionEstablished
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/EventArgs/AttemptConnectionStage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BeforeConnectionEstablished
+    path: src/Client/EventArgs/AttemptConnectionStage.cs
+    startLine: 19
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    This is invoked before an outgoing connection attempt is made so peers can be discarded at the earliest point in time.
+
+    For incoming connections, this is invoked before any data is sent or received through the connection.
+
+    At this stage the only information available is the peers <xref href="MonoTorrent.PeerInfo.ConnectionUri" data-throw-if-not-resolved="false"></xref>, which contains the
+
+    IP address and port of the remote peer.
+  example: []
+  syntax:
+    content: BeforeConnectionEstablished = 0
+    return:
+      type: MonoTorrent.Client.AttemptConnectionStage
+- uid: MonoTorrent.Client.AttemptConnectionStage.HandshakeComplete
+  commentId: F:MonoTorrent.Client.AttemptConnectionStage.HandshakeComplete
+  id: HandshakeComplete
+  parent: MonoTorrent.Client.AttemptConnectionStage
+  langs:
+  - csharp
+  - vb
+  name: HandshakeComplete
+  nameWithType: AttemptConnectionStage.HandshakeComplete
+  fullName: MonoTorrent.Client.AttemptConnectionStage.HandshakeComplete
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Client/EventArgs/AttemptConnectionStage.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: HandshakeComplete
+    path: src/Client/EventArgs/AttemptConnectionStage.cs
+    startLine: 25
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  summary: >-
+    At this stage both <xref href="MonoTorrent.PeerInfo.ConnectionUri" data-throw-if-not-resolved="false"></xref> and <xref href="MonoTorrent.PeerInfo.PeerId" data-throw-if-not-resolved="false"></xref> are known as the BitTorrent
+
+    handshakes have been exchanged.
+  example: []
+  syntax:
+    content: HandshakeComplete = 1
+    return:
+      type: MonoTorrent.Client.AttemptConnectionStage
+references:
+- uid: MonoTorrent.Client
+  commentId: N:MonoTorrent.Client
+  href: MonoTorrent.html
+  name: MonoTorrent.Client
+  nameWithType: MonoTorrent.Client
+  fullName: MonoTorrent.Client
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+- uid: MonoTorrent.PeerInfo.ConnectionUri
+  commentId: P:MonoTorrent.PeerInfo.ConnectionUri
+  href: MonoTorrent.PeerInfo.html#MonoTorrent_PeerInfo_ConnectionUri
+  name: ConnectionUri
+  nameWithType: PeerInfo.ConnectionUri
+  fullName: MonoTorrent.PeerInfo.ConnectionUri
+- uid: MonoTorrent.Client.AttemptConnectionStage
+  commentId: T:MonoTorrent.Client.AttemptConnectionStage
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.AttemptConnectionStage.html
+  name: AttemptConnectionStage
+  nameWithType: AttemptConnectionStage
+  fullName: MonoTorrent.Client.AttemptConnectionStage
+- uid: MonoTorrent.PeerInfo.PeerId
+  commentId: P:MonoTorrent.PeerInfo.PeerId
+  href: MonoTorrent.PeerInfo.html#MonoTorrent_PeerInfo_PeerId
+  name: PeerId
+  nameWithType: PeerInfo.PeerId
+  fullName: MonoTorrent.PeerInfo.PeerId

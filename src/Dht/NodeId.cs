@@ -2,10 +2,10 @@
 // NodeId.cs
 //
 // Authors:
-//   Jérémie Laval <jeremie.laval@gmail.com>
+//   Jï¿½rï¿½mie Laval <jeremie.laval@gmail.com>
 //   Alan McGovern <alan.mcgovern@gmail.com>
 //
-// Copyright (C) 2008 Jérémie Laval, Alan McGovern
+// Copyright (C) 2008 Jï¿½rï¿½mie Laval, Alan McGovern
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -30,13 +30,15 @@
 
 using System;
 using System.Linq;
+using System.Text;
+
 using System.Runtime.InteropServices;
 
 using MonoTorrent.BEncoding;
 
 namespace MonoTorrent.Dht
 {
-    class NodeId : IEquatable<NodeId>, IComparable<NodeId>, IComparable
+    public class NodeId : IEquatable<NodeId>, IComparable<NodeId>, IComparable
     {
         internal static readonly NodeId Minimum = NodeId.FromMemory (new byte[20]);
         internal static readonly NodeId Maximum = NodeId.FromMemory (Enumerable.Repeat ((byte) 255, 20).ToArray ());
@@ -110,6 +112,18 @@ namespace MonoTorrent.Dht
 
         public override string ToString ()
             => BitConverter.ToString (Span.ToArray ());
+
+
+        public string ToHex()
+        {
+            var sb = new StringBuilder(40);
+            var span = Span;
+            for (int i = 0; i < span.Length; i++)
+            {
+                sb.Append(span[i].ToString("x2")); // Ensure lowercase 'x'
+            }
+            return sb.ToString();
+        }
 
         internal static NodeId Median (NodeId min, NodeId max)
             => new NodeId ((new BigEndianBigInteger (min.Span) + new BigEndianBigInteger (max.Span)) / 2);

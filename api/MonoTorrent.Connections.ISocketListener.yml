@@ -1,0 +1,186 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.ISocketListener
+  commentId: T:MonoTorrent.Connections.ISocketListener
+  id: ISocketListener
+  parent: MonoTorrent.Connections
+  children:
+  - MonoTorrent.Connections.ISocketListener.LocalEndPoint
+  langs:
+  - csharp
+  - vb
+  name: ISocketListener
+  nameWithType: ISocketListener
+  fullName: MonoTorrent.Connections.ISocketListener
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/ISocketListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ISocketListener
+    path: src/Connections/ISocketListener.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: 'public interface ISocketListener : IListener'
+    content.vb: Public Interface ISocketListener Inherits IListener
+  inheritedMembers:
+  - MonoTorrent.Connections.IListener.StatusChanged
+  - MonoTorrent.Connections.IListener.Status
+  - MonoTorrent.Connections.IListener.Start
+  - MonoTorrent.Connections.IListener.Stop
+- uid: MonoTorrent.Connections.ISocketListener.LocalEndPoint
+  commentId: P:MonoTorrent.Connections.ISocketListener.LocalEndPoint
+  id: LocalEndPoint
+  parent: MonoTorrent.Connections.ISocketListener
+  langs:
+  - csharp
+  - vb
+  name: LocalEndPoint
+  nameWithType: ISocketListener.LocalEndPoint
+  fullName: MonoTorrent.Connections.ISocketListener.LocalEndPoint
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/ISocketListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: LocalEndPoint
+    path: src/Connections/ISocketListener.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections
+  syntax:
+    content: IPEndPoint? LocalEndPoint { get; }
+    parameters: []
+    return:
+      type: System.Net.IPEndPoint
+    content.vb: ReadOnly Property LocalEndPoint As IPEndPoint
+  overload: MonoTorrent.Connections.ISocketListener.LocalEndPoint*
+references:
+- uid: MonoTorrent.Connections
+  commentId: N:MonoTorrent.Connections
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections
+  nameWithType: MonoTorrent.Connections
+  fullName: MonoTorrent.Connections
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+- uid: MonoTorrent.Connections.IListener.StatusChanged
+  commentId: E:MonoTorrent.Connections.IListener.StatusChanged
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_StatusChanged
+  name: StatusChanged
+  nameWithType: IListener.StatusChanged
+  fullName: MonoTorrent.Connections.IListener.StatusChanged
+- uid: MonoTorrent.Connections.IListener.Status
+  commentId: P:MonoTorrent.Connections.IListener.Status
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Status
+  name: Status
+  nameWithType: IListener.Status
+  fullName: MonoTorrent.Connections.IListener.Status
+- uid: MonoTorrent.Connections.IListener.Start
+  commentId: M:MonoTorrent.Connections.IListener.Start
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  name: Start()
+  nameWithType: IListener.Start()
+  fullName: MonoTorrent.Connections.IListener.Start()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.IListener.Start
+    name: Start
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.IListener.Start
+    name: Start
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  - name: (
+  - name: )
+- uid: MonoTorrent.Connections.IListener.Stop
+  commentId: M:MonoTorrent.Connections.IListener.Stop
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  name: Stop()
+  nameWithType: IListener.Stop()
+  fullName: MonoTorrent.Connections.IListener.Stop()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.IListener.Stop
+    name: Stop
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.IListener.Stop
+    name: Stop
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  - name: (
+  - name: )
+- uid: MonoTorrent.Connections.IListener
+  commentId: T:MonoTorrent.Connections.IListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.IListener.html
+  name: IListener
+  nameWithType: IListener
+  fullName: MonoTorrent.Connections.IListener
+- uid: MonoTorrent.Connections.ISocketListener.LocalEndPoint*
+  commentId: Overload:MonoTorrent.Connections.ISocketListener.LocalEndPoint
+  href: MonoTorrent.Connections.ISocketListener.html#MonoTorrent_Connections_ISocketListener_LocalEndPoint
+  name: LocalEndPoint
+  nameWithType: ISocketListener.LocalEndPoint
+  fullName: MonoTorrent.Connections.ISocketListener.LocalEndPoint
+- uid: System.Net.IPEndPoint
+  commentId: T:System.Net.IPEndPoint
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  name: IPEndPoint
+  nameWithType: IPEndPoint
+  fullName: System.Net.IPEndPoint
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net

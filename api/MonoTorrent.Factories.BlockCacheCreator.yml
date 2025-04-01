@@ -1,0 +1,114 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Factories.BlockCacheCreator
+  commentId: T:MonoTorrent.Factories.BlockCacheCreator
+  id: Factories.BlockCacheCreator
+  parent: MonoTorrent
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: Factories.BlockCacheCreator
+  nameWithType: Factories.BlockCacheCreator
+  fullName: MonoTorrent.Factories.BlockCacheCreator
+  type: Delegate
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BlockCacheCreator
+    path: src/Factories.cs
+    startLine: 57
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public delegate IBlockCache Factories.BlockCacheCreator(IPieceWriter writer, long capacity, CachePolicy policy, MemoryPool buffer)
+    parameters:
+    - id: writer
+      type: MonoTorrent.PieceWriter.IPieceWriter
+    - id: capacity
+      type: System.Int64
+    - id: policy
+      type: MonoTorrent.PieceWriter.CachePolicy
+    - id: buffer
+      type: MonoTorrent.MemoryPool
+    return:
+      type: MonoTorrent.PieceWriter.IBlockCache
+    content.vb: Public Delegate Function Factories.BlockCacheCreator(writer As IPieceWriter, capacity As Long, policy As CachePolicy, buffer As MemoryPool) As IBlockCache
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.PieceWriter.IPieceWriter
+  commentId: T:MonoTorrent.PieceWriter.IPieceWriter
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.IPieceWriter.html
+  name: IPieceWriter
+  nameWithType: IPieceWriter
+  fullName: MonoTorrent.PieceWriter.IPieceWriter
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: MonoTorrent.PieceWriter.CachePolicy
+  commentId: T:MonoTorrent.PieceWriter.CachePolicy
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.CachePolicy.html
+  name: CachePolicy
+  nameWithType: CachePolicy
+  fullName: MonoTorrent.PieceWriter.CachePolicy
+- uid: MonoTorrent.MemoryPool
+  commentId: T:MonoTorrent.MemoryPool
+  parent: MonoTorrent
+  href: MonoTorrent.MemoryPool.html
+  name: MemoryPool
+  nameWithType: MemoryPool
+  fullName: MonoTorrent.MemoryPool
+- uid: MonoTorrent.PieceWriter.IBlockCache
+  commentId: T:MonoTorrent.PieceWriter.IBlockCache
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.IBlockCache.html
+  name: IBlockCache
+  nameWithType: IBlockCache
+  fullName: MonoTorrent.PieceWriter.IBlockCache
+- uid: MonoTorrent.PieceWriter
+  commentId: N:MonoTorrent.PieceWriter
+  href: MonoTorrent.html
+  name: MonoTorrent.PieceWriter
+  nameWithType: MonoTorrent.PieceWriter
+  fullName: MonoTorrent.PieceWriter
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

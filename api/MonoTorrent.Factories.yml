@@ -1,0 +1,2899 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Factories
+  commentId: T:MonoTorrent.Factories
+  id: Factories
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.Factories.#ctor
+  - MonoTorrent.Factories.CreateBlockCache(MonoTorrent.PieceWriter.IPieceWriter,System.Int64,MonoTorrent.PieceWriter.CachePolicy,MonoTorrent.MemoryPool)
+  - MonoTorrent.Factories.CreateDht
+  - MonoTorrent.Factories.CreateDhtListener(System.Net.IPEndPoint)
+  - MonoTorrent.Factories.CreateHttpClient
+  - MonoTorrent.Factories.CreateHttpClient(System.Net.Sockets.AddressFamily)
+  - MonoTorrent.Factories.CreateLocalPeerDiscovery
+  - MonoTorrent.Factories.CreatePeerConnection(System.Uri)
+  - MonoTorrent.Factories.CreatePeerConnectionGate
+  - MonoTorrent.Factories.CreatePeerConnectionListener(System.Net.IPEndPoint)
+  - MonoTorrent.Factories.CreatePieceReader(MonoTorrent.BlockReader.IBlockReader)
+  - MonoTorrent.Factories.CreatePieceRequester
+  - MonoTorrent.Factories.CreatePieceRequester(MonoTorrent.PiecePicking.PieceRequesterSettings)
+  - MonoTorrent.Factories.CreatePieceWriter(System.Int32)
+  - MonoTorrent.Factories.CreatePortForwarder
+  - MonoTorrent.Factories.CreateSocketConnector
+  - MonoTorrent.Factories.CreateStreamingPieceRequester
+  - MonoTorrent.Factories.CreateTemporaryLocalPeerIdAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedString,MonoTorrent.InfoHash,System.Uri)
+  - MonoTorrent.Factories.CreateTracker(System.Uri)
+  - MonoTorrent.Factories.Default
+  - MonoTorrent.Factories.GetHashAsync
+  - MonoTorrent.Factories.WithBlockCacheCreator(MonoTorrent.Factories.BlockCacheCreator)
+  - MonoTorrent.Factories.WithDhtCreator(MonoTorrent.Factories.DhtCreator)
+  - MonoTorrent.Factories.WithDhtListenerCreator(MonoTorrent.Factories.DhtListenerCreator)
+  - MonoTorrent.Factories.WithGetHashAsync(System.Func{MonoTorrent.ITorrentManagerInfo,System.Int32,System.Memory{System.Byte},System.Threading.Tasks.Task{System.Boolean}})
+  - MonoTorrent.Factories.WithHttpClientCreator(MonoTorrent.Factories.HttpClientCreator)
+  - MonoTorrent.Factories.WithLocalPeerDiscoveryCreator(MonoTorrent.Factories.LocalPeerDiscoveryCreator)
+  - MonoTorrent.Factories.WithPeerConnectionCreator(System.String,MonoTorrent.Factories.PeerConnectionCreator)
+  - MonoTorrent.Factories.WithPeerConnectionGateCreator(MonoTorrent.Factories.PeerConnectionGateCreator)
+  - MonoTorrent.Factories.WithPeerConnectionListenerCreator(MonoTorrent.Factories.PeerConnectionListenerCreator)
+  - MonoTorrent.Factories.WithPieceReaderCreator(System.Func{MonoTorrent.BlockReader.IBlockReader,MonoTorrent.BlockReader.IBlockReader})
+  - MonoTorrent.Factories.WithPieceRequesterCreator(MonoTorrent.Factories.PieceRequesterCreator)
+  - MonoTorrent.Factories.WithPieceWriterCreator(MonoTorrent.Factories.PieceWriterCreator)
+  - MonoTorrent.Factories.WithPortForwarderCreator(MonoTorrent.Factories.PortForwarderCreator)
+  - MonoTorrent.Factories.WithSocketConnectorCreator(MonoTorrent.Factories.SocketConnectorCreator)
+  - MonoTorrent.Factories.WithStreamingPieceRequesterCreator(MonoTorrent.Factories.StreamingPieceRequesterCreator)
+  - MonoTorrent.Factories.WithTemporaryLocalPeerIdGenerator(MonoTorrent.Factories.TemporaryLocalPeerIdGenerator)
+  - MonoTorrent.Factories.WithTrackerCreator(System.String,MonoTorrent.Factories.TrackerCreator)
+  langs:
+  - csharp
+  - vb
+  name: Factories
+  nameWithType: Factories
+  fullName: MonoTorrent.Factories
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Factories
+    path: src/Factories.cs
+    startLine: 74
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public class Factories
+    content.vb: Public Class Factories
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.Factories.Default
+  commentId: P:MonoTorrent.Factories.Default
+  id: Default
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: Factories.Default
+  fullName: MonoTorrent.Factories.Default
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Default
+    path: src/Factories.cs
+    startLine: 76
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static Factories Default { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Shared ReadOnly Property [Default] As Factories
+  overload: MonoTorrent.Factories.Default*
+- uid: MonoTorrent.Factories.GetHashAsync
+  commentId: P:MonoTorrent.Factories.GetHashAsync
+  id: GetHashAsync
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: GetHashAsync
+  nameWithType: Factories.GetHashAsync
+  fullName: MonoTorrent.Factories.GetHashAsync
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: GetHashAsync
+    path: src/Factories.cs
+    startLine: 79
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Func<ITorrentManagerInfo, int, Memory<byte>, Task<bool>>? GetHashAsync { get; set; }
+    parameters: []
+    return:
+      type: System.Func{MonoTorrent.ITorrentManagerInfo,System.Int32,System.Memory{System.Byte},System.Threading.Tasks.Task{System.Boolean}}
+    content.vb: Public Property GetHashAsync As Func(Of ITorrentManagerInfo, Integer, Memory(Of Byte), Task(Of Boolean))
+  overload: MonoTorrent.Factories.GetHashAsync*
+- uid: MonoTorrent.Factories.#ctor
+  commentId: M:MonoTorrent.Factories.#ctor
+  id: '#ctor'
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: Factories()
+  nameWithType: Factories.Factories()
+  fullName: MonoTorrent.Factories.Factories()
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Factories.cs
+    startLine: 97
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories()
+    content.vb: Public Sub New()
+  overload: MonoTorrent.Factories.#ctor*
+  nameWithType.vb: Factories.New()
+  fullName.vb: MonoTorrent.Factories.New()
+  name.vb: New()
+- uid: MonoTorrent.Factories.CreateBlockCache(MonoTorrent.PieceWriter.IPieceWriter,System.Int64,MonoTorrent.PieceWriter.CachePolicy,MonoTorrent.MemoryPool)
+  commentId: M:MonoTorrent.Factories.CreateBlockCache(MonoTorrent.PieceWriter.IPieceWriter,System.Int64,MonoTorrent.PieceWriter.CachePolicy,MonoTorrent.MemoryPool)
+  id: CreateBlockCache(MonoTorrent.PieceWriter.IPieceWriter,System.Int64,MonoTorrent.PieceWriter.CachePolicy,MonoTorrent.MemoryPool)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreateBlockCache(IPieceWriter, long, CachePolicy, MemoryPool)
+  nameWithType: Factories.CreateBlockCache(IPieceWriter, long, CachePolicy, MemoryPool)
+  fullName: MonoTorrent.Factories.CreateBlockCache(MonoTorrent.PieceWriter.IPieceWriter, long, MonoTorrent.PieceWriter.CachePolicy, MonoTorrent.MemoryPool)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateBlockCache
+    path: src/Factories.cs
+    startLine: 133
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public IBlockCache CreateBlockCache(IPieceWriter writer, long capacity, CachePolicy policy, MemoryPool buffer)
+    parameters:
+    - id: writer
+      type: MonoTorrent.PieceWriter.IPieceWriter
+    - id: capacity
+      type: System.Int64
+    - id: policy
+      type: MonoTorrent.PieceWriter.CachePolicy
+    - id: buffer
+      type: MonoTorrent.MemoryPool
+    return:
+      type: MonoTorrent.PieceWriter.IBlockCache
+    content.vb: Public Function CreateBlockCache(writer As IPieceWriter, capacity As Long, policy As CachePolicy, buffer As MemoryPool) As IBlockCache
+  overload: MonoTorrent.Factories.CreateBlockCache*
+  nameWithType.vb: Factories.CreateBlockCache(IPieceWriter, Long, CachePolicy, MemoryPool)
+  fullName.vb: MonoTorrent.Factories.CreateBlockCache(MonoTorrent.PieceWriter.IPieceWriter, Long, MonoTorrent.PieceWriter.CachePolicy, MonoTorrent.MemoryPool)
+  name.vb: CreateBlockCache(IPieceWriter, Long, CachePolicy, MemoryPool)
+- uid: MonoTorrent.Factories.WithBlockCacheCreator(MonoTorrent.Factories.BlockCacheCreator)
+  commentId: M:MonoTorrent.Factories.WithBlockCacheCreator(MonoTorrent.Factories.BlockCacheCreator)
+  id: WithBlockCacheCreator(MonoTorrent.Factories.BlockCacheCreator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithBlockCacheCreator(BlockCacheCreator)
+  nameWithType: Factories.WithBlockCacheCreator(Factories.BlockCacheCreator)
+  fullName: MonoTorrent.Factories.WithBlockCacheCreator(MonoTorrent.Factories.BlockCacheCreator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithBlockCacheCreator
+    path: src/Factories.cs
+    startLine: 135
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithBlockCacheCreator(Factories.BlockCacheCreator creator)
+    parameters:
+    - id: creator
+      type: MonoTorrent.Factories.BlockCacheCreator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithBlockCacheCreator(creator As Factories.BlockCacheCreator) As Factories
+  overload: MonoTorrent.Factories.WithBlockCacheCreator*
+- uid: MonoTorrent.Factories.WithGetHashAsync(System.Func{MonoTorrent.ITorrentManagerInfo,System.Int32,System.Memory{System.Byte},System.Threading.Tasks.Task{System.Boolean}})
+  commentId: M:MonoTorrent.Factories.WithGetHashAsync(System.Func{MonoTorrent.ITorrentManagerInfo,System.Int32,System.Memory{System.Byte},System.Threading.Tasks.Task{System.Boolean}})
+  id: WithGetHashAsync(System.Func{MonoTorrent.ITorrentManagerInfo,System.Int32,System.Memory{System.Byte},System.Threading.Tasks.Task{System.Boolean}})
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithGetHashAsync(Func<ITorrentManagerInfo, int, Memory<byte>, Task<bool>>?)
+  nameWithType: Factories.WithGetHashAsync(Func<ITorrentManagerInfo, int, Memory<byte>, Task<bool>>?)
+  fullName: MonoTorrent.Factories.WithGetHashAsync(System.Func<MonoTorrent.ITorrentManagerInfo, int, System.Memory<byte>, System.Threading.Tasks.Task<bool>>?)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithGetHashAsync
+    path: src/Factories.cs
+    startLine: 142
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithGetHashAsync(Func<ITorrentManagerInfo, int, Memory<byte>, Task<bool>>? creator)
+    parameters:
+    - id: creator
+      type: System.Func{MonoTorrent.ITorrentManagerInfo,System.Int32,System.Memory{System.Byte},System.Threading.Tasks.Task{System.Boolean}}
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithGetHashAsync(creator As Func(Of ITorrentManagerInfo, Integer, Memory(Of Byte), Task(Of Boolean))) As Factories
+  overload: MonoTorrent.Factories.WithGetHashAsync*
+  nameWithType.vb: Factories.WithGetHashAsync(Func(Of ITorrentManagerInfo, Integer, Memory(Of Byte), Task(Of Boolean)))
+  fullName.vb: MonoTorrent.Factories.WithGetHashAsync(System.Func(Of MonoTorrent.ITorrentManagerInfo, Integer, System.Memory(Of Byte), System.Threading.Tasks.Task(Of Boolean)))
+  name.vb: WithGetHashAsync(Func(Of ITorrentManagerInfo, Integer, Memory(Of Byte), Task(Of Boolean)))
+- uid: MonoTorrent.Factories.CreateDht
+  commentId: M:MonoTorrent.Factories.CreateDht
+  id: CreateDht
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreateDht()
+  nameWithType: Factories.CreateDht()
+  fullName: MonoTorrent.Factories.CreateDht()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateDht
+    path: src/Factories.cs
+    startLine: 149
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public IDhtEngine CreateDht()
+    return:
+      type: MonoTorrent.Dht.IDhtEngine
+    content.vb: Public Function CreateDht() As IDhtEngine
+  overload: MonoTorrent.Factories.CreateDht*
+- uid: MonoTorrent.Factories.WithDhtCreator(MonoTorrent.Factories.DhtCreator)
+  commentId: M:MonoTorrent.Factories.WithDhtCreator(MonoTorrent.Factories.DhtCreator)
+  id: WithDhtCreator(MonoTorrent.Factories.DhtCreator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithDhtCreator(DhtCreator)
+  nameWithType: Factories.WithDhtCreator(Factories.DhtCreator)
+  fullName: MonoTorrent.Factories.WithDhtCreator(MonoTorrent.Factories.DhtCreator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithDhtCreator
+    path: src/Factories.cs
+    startLine: 151
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithDhtCreator(Factories.DhtCreator creator)
+    parameters:
+    - id: creator
+      type: MonoTorrent.Factories.DhtCreator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithDhtCreator(creator As Factories.DhtCreator) As Factories
+  overload: MonoTorrent.Factories.WithDhtCreator*
+- uid: MonoTorrent.Factories.CreateDhtListener(System.Net.IPEndPoint)
+  commentId: M:MonoTorrent.Factories.CreateDhtListener(System.Net.IPEndPoint)
+  id: CreateDhtListener(System.Net.IPEndPoint)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreateDhtListener(IPEndPoint)
+  nameWithType: Factories.CreateDhtListener(IPEndPoint)
+  fullName: MonoTorrent.Factories.CreateDhtListener(System.Net.IPEndPoint)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateDhtListener
+    path: src/Factories.cs
+    startLine: 158
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public IDhtListener CreateDhtListener(IPEndPoint endPoint)
+    parameters:
+    - id: endPoint
+      type: System.Net.IPEndPoint
+    return:
+      type: MonoTorrent.Connections.Dht.IDhtListener
+    content.vb: Public Function CreateDhtListener(endPoint As IPEndPoint) As IDhtListener
+  overload: MonoTorrent.Factories.CreateDhtListener*
+- uid: MonoTorrent.Factories.WithDhtListenerCreator(MonoTorrent.Factories.DhtListenerCreator)
+  commentId: M:MonoTorrent.Factories.WithDhtListenerCreator(MonoTorrent.Factories.DhtListenerCreator)
+  id: WithDhtListenerCreator(MonoTorrent.Factories.DhtListenerCreator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithDhtListenerCreator(DhtListenerCreator)
+  nameWithType: Factories.WithDhtListenerCreator(Factories.DhtListenerCreator)
+  fullName: MonoTorrent.Factories.WithDhtListenerCreator(MonoTorrent.Factories.DhtListenerCreator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithDhtListenerCreator
+    path: src/Factories.cs
+    startLine: 160
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithDhtListenerCreator(Factories.DhtListenerCreator creator)
+    parameters:
+    - id: creator
+      type: MonoTorrent.Factories.DhtListenerCreator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithDhtListenerCreator(creator As Factories.DhtListenerCreator) As Factories
+  overload: MonoTorrent.Factories.WithDhtListenerCreator*
+- uid: MonoTorrent.Factories.CreateHttpClient
+  commentId: M:MonoTorrent.Factories.CreateHttpClient
+  id: CreateHttpClient
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreateHttpClient()
+  nameWithType: Factories.CreateHttpClient()
+  fullName: MonoTorrent.Factories.CreateHttpClient()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateHttpClient
+    path: src/Factories.cs
+    startLine: 167
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public HttpClient CreateHttpClient()
+    return:
+      type: System.Net.Http.HttpClient
+    content.vb: Public Function CreateHttpClient() As HttpClient
+  overload: MonoTorrent.Factories.CreateHttpClient*
+- uid: MonoTorrent.Factories.CreateHttpClient(System.Net.Sockets.AddressFamily)
+  commentId: M:MonoTorrent.Factories.CreateHttpClient(System.Net.Sockets.AddressFamily)
+  id: CreateHttpClient(System.Net.Sockets.AddressFamily)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreateHttpClient(AddressFamily)
+  nameWithType: Factories.CreateHttpClient(AddressFamily)
+  fullName: MonoTorrent.Factories.CreateHttpClient(System.Net.Sockets.AddressFamily)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateHttpClient
+    path: src/Factories.cs
+    startLine: 169
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public HttpClient CreateHttpClient(AddressFamily addressFamily)
+    parameters:
+    - id: addressFamily
+      type: System.Net.Sockets.AddressFamily
+    return:
+      type: System.Net.Http.HttpClient
+    content.vb: Public Function CreateHttpClient(addressFamily As AddressFamily) As HttpClient
+  overload: MonoTorrent.Factories.CreateHttpClient*
+- uid: MonoTorrent.Factories.WithHttpClientCreator(MonoTorrent.Factories.HttpClientCreator)
+  commentId: M:MonoTorrent.Factories.WithHttpClientCreator(MonoTorrent.Factories.HttpClientCreator)
+  id: WithHttpClientCreator(MonoTorrent.Factories.HttpClientCreator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithHttpClientCreator(HttpClientCreator)
+  nameWithType: Factories.WithHttpClientCreator(Factories.HttpClientCreator)
+  fullName: MonoTorrent.Factories.WithHttpClientCreator(MonoTorrent.Factories.HttpClientCreator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithHttpClientCreator
+    path: src/Factories.cs
+    startLine: 171
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithHttpClientCreator(Factories.HttpClientCreator creator)
+    parameters:
+    - id: creator
+      type: MonoTorrent.Factories.HttpClientCreator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithHttpClientCreator(creator As Factories.HttpClientCreator) As Factories
+  overload: MonoTorrent.Factories.WithHttpClientCreator*
+- uid: MonoTorrent.Factories.CreateLocalPeerDiscovery
+  commentId: M:MonoTorrent.Factories.CreateLocalPeerDiscovery
+  id: CreateLocalPeerDiscovery
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreateLocalPeerDiscovery()
+  nameWithType: Factories.CreateLocalPeerDiscovery()
+  fullName: MonoTorrent.Factories.CreateLocalPeerDiscovery()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateLocalPeerDiscovery
+    path: src/Factories.cs
+    startLine: 178
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public ILocalPeerDiscovery CreateLocalPeerDiscovery()
+    return:
+      type: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+    content.vb: Public Function CreateLocalPeerDiscovery() As ILocalPeerDiscovery
+  overload: MonoTorrent.Factories.CreateLocalPeerDiscovery*
+- uid: MonoTorrent.Factories.WithLocalPeerDiscoveryCreator(MonoTorrent.Factories.LocalPeerDiscoveryCreator)
+  commentId: M:MonoTorrent.Factories.WithLocalPeerDiscoveryCreator(MonoTorrent.Factories.LocalPeerDiscoveryCreator)
+  id: WithLocalPeerDiscoveryCreator(MonoTorrent.Factories.LocalPeerDiscoveryCreator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithLocalPeerDiscoveryCreator(LocalPeerDiscoveryCreator)
+  nameWithType: Factories.WithLocalPeerDiscoveryCreator(Factories.LocalPeerDiscoveryCreator)
+  fullName: MonoTorrent.Factories.WithLocalPeerDiscoveryCreator(MonoTorrent.Factories.LocalPeerDiscoveryCreator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithLocalPeerDiscoveryCreator
+    path: src/Factories.cs
+    startLine: 180
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithLocalPeerDiscoveryCreator(Factories.LocalPeerDiscoveryCreator creator)
+    parameters:
+    - id: creator
+      type: MonoTorrent.Factories.LocalPeerDiscoveryCreator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithLocalPeerDiscoveryCreator(creator As Factories.LocalPeerDiscoveryCreator) As Factories
+  overload: MonoTorrent.Factories.WithLocalPeerDiscoveryCreator*
+- uid: MonoTorrent.Factories.CreateTemporaryLocalPeerIdAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedString,MonoTorrent.InfoHash,System.Uri)
+  commentId: M:MonoTorrent.Factories.CreateTemporaryLocalPeerIdAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedString,MonoTorrent.InfoHash,System.Uri)
+  id: CreateTemporaryLocalPeerIdAsync(MonoTorrent.ITorrentManagerInfo,MonoTorrent.BEncoding.BEncodedString,MonoTorrent.BEncoding.BEncodedString,MonoTorrent.InfoHash,System.Uri)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreateTemporaryLocalPeerIdAsync(ITorrentManagerInfo, BEncodedString, BEncodedString, InfoHash, Uri)
+  nameWithType: Factories.CreateTemporaryLocalPeerIdAsync(ITorrentManagerInfo, BEncodedString, BEncodedString, InfoHash, Uri)
+  fullName: MonoTorrent.Factories.CreateTemporaryLocalPeerIdAsync(MonoTorrent.ITorrentManagerInfo, MonoTorrent.BEncoding.BEncodedString, MonoTorrent.BEncoding.BEncodedString, MonoTorrent.InfoHash, System.Uri)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateTemporaryLocalPeerIdAsync
+    path: src/Factories.cs
+    startLine: 187
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public ReusableTask<BEncodedString> CreateTemporaryLocalPeerIdAsync(ITorrentManagerInfo torrent, BEncodedString permanentLocalPeerId, BEncodedString peerId, InfoHash infoHash, Uri peerUri)
+    parameters:
+    - id: torrent
+      type: MonoTorrent.ITorrentManagerInfo
+    - id: permanentLocalPeerId
+      type: MonoTorrent.BEncoding.BEncodedString
+    - id: peerId
+      type: MonoTorrent.BEncoding.BEncodedString
+    - id: infoHash
+      type: MonoTorrent.InfoHash
+    - id: peerUri
+      type: System.Uri
+    return:
+      type: ReusableTasks.ReusableTask{MonoTorrent.BEncoding.BEncodedString}
+    content.vb: Public Function CreateTemporaryLocalPeerIdAsync(torrent As ITorrentManagerInfo, permanentLocalPeerId As BEncodedString, peerId As BEncodedString, infoHash As InfoHash, peerUri As Uri) As ReusableTask(Of BEncodedString)
+  overload: MonoTorrent.Factories.CreateTemporaryLocalPeerIdAsync*
+- uid: MonoTorrent.Factories.WithTemporaryLocalPeerIdGenerator(MonoTorrent.Factories.TemporaryLocalPeerIdGenerator)
+  commentId: M:MonoTorrent.Factories.WithTemporaryLocalPeerIdGenerator(MonoTorrent.Factories.TemporaryLocalPeerIdGenerator)
+  id: WithTemporaryLocalPeerIdGenerator(MonoTorrent.Factories.TemporaryLocalPeerIdGenerator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithTemporaryLocalPeerIdGenerator(TemporaryLocalPeerIdGenerator)
+  nameWithType: Factories.WithTemporaryLocalPeerIdGenerator(Factories.TemporaryLocalPeerIdGenerator)
+  fullName: MonoTorrent.Factories.WithTemporaryLocalPeerIdGenerator(MonoTorrent.Factories.TemporaryLocalPeerIdGenerator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithTemporaryLocalPeerIdGenerator
+    path: src/Factories.cs
+    startLine: 192
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithTemporaryLocalPeerIdGenerator(Factories.TemporaryLocalPeerIdGenerator generator)
+    parameters:
+    - id: generator
+      type: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithTemporaryLocalPeerIdGenerator(generator As Factories.TemporaryLocalPeerIdGenerator) As Factories
+  overload: MonoTorrent.Factories.WithTemporaryLocalPeerIdGenerator*
+- uid: MonoTorrent.Factories.CreatePeerConnection(System.Uri)
+  commentId: M:MonoTorrent.Factories.CreatePeerConnection(System.Uri)
+  id: CreatePeerConnection(System.Uri)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreatePeerConnection(Uri)
+  nameWithType: Factories.CreatePeerConnection(Uri)
+  fullName: MonoTorrent.Factories.CreatePeerConnection(System.Uri)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreatePeerConnection
+    path: src/Factories.cs
+    startLine: 199
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public IPeerConnection? CreatePeerConnection(Uri uri)
+    parameters:
+    - id: uri
+      type: System.Uri
+    return:
+      type: MonoTorrent.Connections.Peer.IPeerConnection
+    content.vb: Public Function CreatePeerConnection(uri As Uri) As IPeerConnection
+  overload: MonoTorrent.Factories.CreatePeerConnection*
+- uid: MonoTorrent.Factories.WithPeerConnectionCreator(System.String,MonoTorrent.Factories.PeerConnectionCreator)
+  commentId: M:MonoTorrent.Factories.WithPeerConnectionCreator(System.String,MonoTorrent.Factories.PeerConnectionCreator)
+  id: WithPeerConnectionCreator(System.String,MonoTorrent.Factories.PeerConnectionCreator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithPeerConnectionCreator(string, PeerConnectionCreator)
+  nameWithType: Factories.WithPeerConnectionCreator(string, Factories.PeerConnectionCreator)
+  fullName: MonoTorrent.Factories.WithPeerConnectionCreator(string, MonoTorrent.Factories.PeerConnectionCreator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithPeerConnectionCreator
+    path: src/Factories.cs
+    startLine: 209
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithPeerConnectionCreator(string scheme, Factories.PeerConnectionCreator creator)
+    parameters:
+    - id: scheme
+      type: System.String
+    - id: creator
+      type: MonoTorrent.Factories.PeerConnectionCreator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithPeerConnectionCreator(scheme As String, creator As Factories.PeerConnectionCreator) As Factories
+  overload: MonoTorrent.Factories.WithPeerConnectionCreator*
+  nameWithType.vb: Factories.WithPeerConnectionCreator(String, Factories.PeerConnectionCreator)
+  fullName.vb: MonoTorrent.Factories.WithPeerConnectionCreator(String, MonoTorrent.Factories.PeerConnectionCreator)
+  name.vb: WithPeerConnectionCreator(String, PeerConnectionCreator)
+- uid: MonoTorrent.Factories.CreatePeerConnectionListener(System.Net.IPEndPoint)
+  commentId: M:MonoTorrent.Factories.CreatePeerConnectionListener(System.Net.IPEndPoint)
+  id: CreatePeerConnectionListener(System.Net.IPEndPoint)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreatePeerConnectionListener(IPEndPoint)
+  nameWithType: Factories.CreatePeerConnectionListener(IPEndPoint)
+  fullName: MonoTorrent.Factories.CreatePeerConnectionListener(System.Net.IPEndPoint)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreatePeerConnectionListener
+    path: src/Factories.cs
+    startLine: 225
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public IPeerConnectionListener CreatePeerConnectionListener(IPEndPoint endPoint)
+    parameters:
+    - id: endPoint
+      type: System.Net.IPEndPoint
+    return:
+      type: MonoTorrent.Connections.Peer.IPeerConnectionListener
+    content.vb: Public Function CreatePeerConnectionListener(endPoint As IPEndPoint) As IPeerConnectionListener
+  overload: MonoTorrent.Factories.CreatePeerConnectionListener*
+- uid: MonoTorrent.Factories.WithPeerConnectionListenerCreator(MonoTorrent.Factories.PeerConnectionListenerCreator)
+  commentId: M:MonoTorrent.Factories.WithPeerConnectionListenerCreator(MonoTorrent.Factories.PeerConnectionListenerCreator)
+  id: WithPeerConnectionListenerCreator(MonoTorrent.Factories.PeerConnectionListenerCreator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithPeerConnectionListenerCreator(PeerConnectionListenerCreator)
+  nameWithType: Factories.WithPeerConnectionListenerCreator(Factories.PeerConnectionListenerCreator)
+  fullName: MonoTorrent.Factories.WithPeerConnectionListenerCreator(MonoTorrent.Factories.PeerConnectionListenerCreator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithPeerConnectionListenerCreator
+    path: src/Factories.cs
+    startLine: 227
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithPeerConnectionListenerCreator(Factories.PeerConnectionListenerCreator creator)
+    parameters:
+    - id: creator
+      type: MonoTorrent.Factories.PeerConnectionListenerCreator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithPeerConnectionListenerCreator(creator As Factories.PeerConnectionListenerCreator) As Factories
+  overload: MonoTorrent.Factories.WithPeerConnectionListenerCreator*
+- uid: MonoTorrent.Factories.CreatePeerConnectionGate
+  commentId: M:MonoTorrent.Factories.CreatePeerConnectionGate
+  id: CreatePeerConnectionGate
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreatePeerConnectionGate()
+  nameWithType: Factories.CreatePeerConnectionGate()
+  fullName: MonoTorrent.Factories.CreatePeerConnectionGate()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreatePeerConnectionGate
+    path: src/Factories.cs
+    startLine: 234
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public IPeerConnectionGate CreatePeerConnectionGate()
+    return:
+      type: MonoTorrent.Connections.Peer.IPeerConnectionGate
+    content.vb: Public Function CreatePeerConnectionGate() As IPeerConnectionGate
+  overload: MonoTorrent.Factories.CreatePeerConnectionGate*
+- uid: MonoTorrent.Factories.WithPeerConnectionGateCreator(MonoTorrent.Factories.PeerConnectionGateCreator)
+  commentId: M:MonoTorrent.Factories.WithPeerConnectionGateCreator(MonoTorrent.Factories.PeerConnectionGateCreator)
+  id: WithPeerConnectionGateCreator(MonoTorrent.Factories.PeerConnectionGateCreator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithPeerConnectionGateCreator(PeerConnectionGateCreator)
+  nameWithType: Factories.WithPeerConnectionGateCreator(Factories.PeerConnectionGateCreator)
+  fullName: MonoTorrent.Factories.WithPeerConnectionGateCreator(MonoTorrent.Factories.PeerConnectionGateCreator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithPeerConnectionGateCreator
+    path: src/Factories.cs
+    startLine: 235
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithPeerConnectionGateCreator(Factories.PeerConnectionGateCreator creator)
+    parameters:
+    - id: creator
+      type: MonoTorrent.Factories.PeerConnectionGateCreator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithPeerConnectionGateCreator(creator As Factories.PeerConnectionGateCreator) As Factories
+  overload: MonoTorrent.Factories.WithPeerConnectionGateCreator*
+- uid: MonoTorrent.Factories.CreatePieceRequester
+  commentId: M:MonoTorrent.Factories.CreatePieceRequester
+  id: CreatePieceRequester
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreatePieceRequester()
+  nameWithType: Factories.CreatePieceRequester()
+  fullName: MonoTorrent.Factories.CreatePieceRequester()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreatePieceRequester
+    path: src/Factories.cs
+    startLine: 242
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public IPieceRequester CreatePieceRequester()
+    return:
+      type: MonoTorrent.PiecePicking.IPieceRequester
+    content.vb: Public Function CreatePieceRequester() As IPieceRequester
+  overload: MonoTorrent.Factories.CreatePieceRequester*
+- uid: MonoTorrent.Factories.CreatePieceRequester(MonoTorrent.PiecePicking.PieceRequesterSettings)
+  commentId: M:MonoTorrent.Factories.CreatePieceRequester(MonoTorrent.PiecePicking.PieceRequesterSettings)
+  id: CreatePieceRequester(MonoTorrent.PiecePicking.PieceRequesterSettings)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreatePieceRequester(PieceRequesterSettings)
+  nameWithType: Factories.CreatePieceRequester(PieceRequesterSettings)
+  fullName: MonoTorrent.Factories.CreatePieceRequester(MonoTorrent.PiecePicking.PieceRequesterSettings)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreatePieceRequester
+    path: src/Factories.cs
+    startLine: 244
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public IPieceRequester CreatePieceRequester(PieceRequesterSettings settings)
+    parameters:
+    - id: settings
+      type: MonoTorrent.PiecePicking.PieceRequesterSettings
+    return:
+      type: MonoTorrent.PiecePicking.IPieceRequester
+    content.vb: Public Function CreatePieceRequester(settings As PieceRequesterSettings) As IPieceRequester
+  overload: MonoTorrent.Factories.CreatePieceRequester*
+- uid: MonoTorrent.Factories.WithPieceRequesterCreator(MonoTorrent.Factories.PieceRequesterCreator)
+  commentId: M:MonoTorrent.Factories.WithPieceRequesterCreator(MonoTorrent.Factories.PieceRequesterCreator)
+  id: WithPieceRequesterCreator(MonoTorrent.Factories.PieceRequesterCreator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithPieceRequesterCreator(PieceRequesterCreator)
+  nameWithType: Factories.WithPieceRequesterCreator(Factories.PieceRequesterCreator)
+  fullName: MonoTorrent.Factories.WithPieceRequesterCreator(MonoTorrent.Factories.PieceRequesterCreator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithPieceRequesterCreator
+    path: src/Factories.cs
+    startLine: 246
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithPieceRequesterCreator(Factories.PieceRequesterCreator creator)
+    parameters:
+    - id: creator
+      type: MonoTorrent.Factories.PieceRequesterCreator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithPieceRequesterCreator(creator As Factories.PieceRequesterCreator) As Factories
+  overload: MonoTorrent.Factories.WithPieceRequesterCreator*
+- uid: MonoTorrent.Factories.CreatePieceWriter(System.Int32)
+  commentId: M:MonoTorrent.Factories.CreatePieceWriter(System.Int32)
+  id: CreatePieceWriter(System.Int32)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreatePieceWriter(int)
+  nameWithType: Factories.CreatePieceWriter(int)
+  fullName: MonoTorrent.Factories.CreatePieceWriter(int)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreatePieceWriter
+    path: src/Factories.cs
+    startLine: 253
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public IPieceWriter CreatePieceWriter(int maxOpenFiles)
+    parameters:
+    - id: maxOpenFiles
+      type: System.Int32
+    return:
+      type: MonoTorrent.PieceWriter.IPieceWriter
+    content.vb: Public Function CreatePieceWriter(maxOpenFiles As Integer) As IPieceWriter
+  overload: MonoTorrent.Factories.CreatePieceWriter*
+  nameWithType.vb: Factories.CreatePieceWriter(Integer)
+  fullName.vb: MonoTorrent.Factories.CreatePieceWriter(Integer)
+  name.vb: CreatePieceWriter(Integer)
+- uid: MonoTorrent.Factories.WithPieceWriterCreator(MonoTorrent.Factories.PieceWriterCreator)
+  commentId: M:MonoTorrent.Factories.WithPieceWriterCreator(MonoTorrent.Factories.PieceWriterCreator)
+  id: WithPieceWriterCreator(MonoTorrent.Factories.PieceWriterCreator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithPieceWriterCreator(PieceWriterCreator)
+  nameWithType: Factories.WithPieceWriterCreator(Factories.PieceWriterCreator)
+  fullName: MonoTorrent.Factories.WithPieceWriterCreator(MonoTorrent.Factories.PieceWriterCreator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithPieceWriterCreator
+    path: src/Factories.cs
+    startLine: 255
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithPieceWriterCreator(Factories.PieceWriterCreator creator)
+    parameters:
+    - id: creator
+      type: MonoTorrent.Factories.PieceWriterCreator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithPieceWriterCreator(creator As Factories.PieceWriterCreator) As Factories
+  overload: MonoTorrent.Factories.WithPieceWriterCreator*
+- uid: MonoTorrent.Factories.CreatePieceReader(MonoTorrent.BlockReader.IBlockReader)
+  commentId: M:MonoTorrent.Factories.CreatePieceReader(MonoTorrent.BlockReader.IBlockReader)
+  id: CreatePieceReader(MonoTorrent.BlockReader.IBlockReader)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreatePieceReader(IBlockReader)
+  nameWithType: Factories.CreatePieceReader(IBlockReader)
+  fullName: MonoTorrent.Factories.CreatePieceReader(MonoTorrent.BlockReader.IBlockReader)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreatePieceReader
+    path: src/Factories.cs
+    startLine: 262
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public IBlockReader CreatePieceReader(IBlockReader defaultReader)
+    parameters:
+    - id: defaultReader
+      type: MonoTorrent.BlockReader.IBlockReader
+    return:
+      type: MonoTorrent.BlockReader.IBlockReader
+    content.vb: Public Function CreatePieceReader(defaultReader As IBlockReader) As IBlockReader
+  overload: MonoTorrent.Factories.CreatePieceReader*
+- uid: MonoTorrent.Factories.WithPieceReaderCreator(System.Func{MonoTorrent.BlockReader.IBlockReader,MonoTorrent.BlockReader.IBlockReader})
+  commentId: M:MonoTorrent.Factories.WithPieceReaderCreator(System.Func{MonoTorrent.BlockReader.IBlockReader,MonoTorrent.BlockReader.IBlockReader})
+  id: WithPieceReaderCreator(System.Func{MonoTorrent.BlockReader.IBlockReader,MonoTorrent.BlockReader.IBlockReader})
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithPieceReaderCreator(Func<IBlockReader, IBlockReader>)
+  nameWithType: Factories.WithPieceReaderCreator(Func<IBlockReader, IBlockReader>)
+  fullName: MonoTorrent.Factories.WithPieceReaderCreator(System.Func<MonoTorrent.BlockReader.IBlockReader, MonoTorrent.BlockReader.IBlockReader>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithPieceReaderCreator
+    path: src/Factories.cs
+    startLine: 264
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithPieceReaderCreator(Func<IBlockReader, IBlockReader> creator)
+    parameters:
+    - id: creator
+      type: System.Func{MonoTorrent.BlockReader.IBlockReader,MonoTorrent.BlockReader.IBlockReader}
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithPieceReaderCreator(creator As Func(Of IBlockReader, IBlockReader)) As Factories
+  overload: MonoTorrent.Factories.WithPieceReaderCreator*
+  nameWithType.vb: Factories.WithPieceReaderCreator(Func(Of IBlockReader, IBlockReader))
+  fullName.vb: MonoTorrent.Factories.WithPieceReaderCreator(System.Func(Of MonoTorrent.BlockReader.IBlockReader, MonoTorrent.BlockReader.IBlockReader))
+  name.vb: WithPieceReaderCreator(Func(Of IBlockReader, IBlockReader))
+- uid: MonoTorrent.Factories.CreatePortForwarder
+  commentId: M:MonoTorrent.Factories.CreatePortForwarder
+  id: CreatePortForwarder
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreatePortForwarder()
+  nameWithType: Factories.CreatePortForwarder()
+  fullName: MonoTorrent.Factories.CreatePortForwarder()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreatePortForwarder
+    path: src/Factories.cs
+    startLine: 271
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public IPortForwarder CreatePortForwarder()
+    return:
+      type: MonoTorrent.PortForwarding.IPortForwarder
+    content.vb: Public Function CreatePortForwarder() As IPortForwarder
+  overload: MonoTorrent.Factories.CreatePortForwarder*
+- uid: MonoTorrent.Factories.WithPortForwarderCreator(MonoTorrent.Factories.PortForwarderCreator)
+  commentId: M:MonoTorrent.Factories.WithPortForwarderCreator(MonoTorrent.Factories.PortForwarderCreator)
+  id: WithPortForwarderCreator(MonoTorrent.Factories.PortForwarderCreator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithPortForwarderCreator(PortForwarderCreator)
+  nameWithType: Factories.WithPortForwarderCreator(Factories.PortForwarderCreator)
+  fullName: MonoTorrent.Factories.WithPortForwarderCreator(MonoTorrent.Factories.PortForwarderCreator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithPortForwarderCreator
+    path: src/Factories.cs
+    startLine: 273
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithPortForwarderCreator(Factories.PortForwarderCreator creator)
+    parameters:
+    - id: creator
+      type: MonoTorrent.Factories.PortForwarderCreator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithPortForwarderCreator(creator As Factories.PortForwarderCreator) As Factories
+  overload: MonoTorrent.Factories.WithPortForwarderCreator*
+- uid: MonoTorrent.Factories.CreateSocketConnector
+  commentId: M:MonoTorrent.Factories.CreateSocketConnector
+  id: CreateSocketConnector
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreateSocketConnector()
+  nameWithType: Factories.CreateSocketConnector()
+  fullName: MonoTorrent.Factories.CreateSocketConnector()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateSocketConnector
+    path: src/Factories.cs
+    startLine: 280
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public ISocketConnector CreateSocketConnector()
+    return:
+      type: MonoTorrent.Connections.ISocketConnector
+    content.vb: Public Function CreateSocketConnector() As ISocketConnector
+  overload: MonoTorrent.Factories.CreateSocketConnector*
+- uid: MonoTorrent.Factories.WithSocketConnectorCreator(MonoTorrent.Factories.SocketConnectorCreator)
+  commentId: M:MonoTorrent.Factories.WithSocketConnectorCreator(MonoTorrent.Factories.SocketConnectorCreator)
+  id: WithSocketConnectorCreator(MonoTorrent.Factories.SocketConnectorCreator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithSocketConnectorCreator(SocketConnectorCreator)
+  nameWithType: Factories.WithSocketConnectorCreator(Factories.SocketConnectorCreator)
+  fullName: MonoTorrent.Factories.WithSocketConnectorCreator(MonoTorrent.Factories.SocketConnectorCreator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithSocketConnectorCreator
+    path: src/Factories.cs
+    startLine: 282
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithSocketConnectorCreator(Factories.SocketConnectorCreator creator)
+    parameters:
+    - id: creator
+      type: MonoTorrent.Factories.SocketConnectorCreator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithSocketConnectorCreator(creator As Factories.SocketConnectorCreator) As Factories
+  overload: MonoTorrent.Factories.WithSocketConnectorCreator*
+- uid: MonoTorrent.Factories.CreateStreamingPieceRequester
+  commentId: M:MonoTorrent.Factories.CreateStreamingPieceRequester
+  id: CreateStreamingPieceRequester
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreateStreamingPieceRequester()
+  nameWithType: Factories.CreateStreamingPieceRequester()
+  fullName: MonoTorrent.Factories.CreateStreamingPieceRequester()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateStreamingPieceRequester
+    path: src/Factories.cs
+    startLine: 289
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public IStreamingPieceRequester CreateStreamingPieceRequester()
+    return:
+      type: MonoTorrent.PiecePicking.IStreamingPieceRequester
+    content.vb: Public Function CreateStreamingPieceRequester() As IStreamingPieceRequester
+  overload: MonoTorrent.Factories.CreateStreamingPieceRequester*
+- uid: MonoTorrent.Factories.WithStreamingPieceRequesterCreator(MonoTorrent.Factories.StreamingPieceRequesterCreator)
+  commentId: M:MonoTorrent.Factories.WithStreamingPieceRequesterCreator(MonoTorrent.Factories.StreamingPieceRequesterCreator)
+  id: WithStreamingPieceRequesterCreator(MonoTorrent.Factories.StreamingPieceRequesterCreator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithStreamingPieceRequesterCreator(StreamingPieceRequesterCreator)
+  nameWithType: Factories.WithStreamingPieceRequesterCreator(Factories.StreamingPieceRequesterCreator)
+  fullName: MonoTorrent.Factories.WithStreamingPieceRequesterCreator(MonoTorrent.Factories.StreamingPieceRequesterCreator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithStreamingPieceRequesterCreator
+    path: src/Factories.cs
+    startLine: 291
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithStreamingPieceRequesterCreator(Factories.StreamingPieceRequesterCreator creator)
+    parameters:
+    - id: creator
+      type: MonoTorrent.Factories.StreamingPieceRequesterCreator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithStreamingPieceRequesterCreator(creator As Factories.StreamingPieceRequesterCreator) As Factories
+  overload: MonoTorrent.Factories.WithStreamingPieceRequesterCreator*
+- uid: MonoTorrent.Factories.CreateTracker(System.Uri)
+  commentId: M:MonoTorrent.Factories.CreateTracker(System.Uri)
+  id: CreateTracker(System.Uri)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: CreateTracker(Uri)
+  nameWithType: Factories.CreateTracker(Uri)
+  fullName: MonoTorrent.Factories.CreateTracker(System.Uri)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CreateTracker
+    path: src/Factories.cs
+    startLine: 298
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public ITracker? CreateTracker(Uri uri)
+    parameters:
+    - id: uri
+      type: System.Uri
+    return:
+      type: MonoTorrent.Trackers.ITracker
+    content.vb: Public Function CreateTracker(uri As Uri) As ITracker
+  overload: MonoTorrent.Factories.CreateTracker*
+- uid: MonoTorrent.Factories.WithTrackerCreator(System.String,MonoTorrent.Factories.TrackerCreator)
+  commentId: M:MonoTorrent.Factories.WithTrackerCreator(System.String,MonoTorrent.Factories.TrackerCreator)
+  id: WithTrackerCreator(System.String,MonoTorrent.Factories.TrackerCreator)
+  parent: MonoTorrent.Factories
+  langs:
+  - csharp
+  - vb
+  name: WithTrackerCreator(string, TrackerCreator)
+  nameWithType: Factories.WithTrackerCreator(string, Factories.TrackerCreator)
+  fullName: MonoTorrent.Factories.WithTrackerCreator(string, MonoTorrent.Factories.TrackerCreator)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: WithTrackerCreator
+    path: src/Factories.cs
+    startLine: 308
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Factories WithTrackerCreator(string scheme, Factories.TrackerCreator creator)
+    parameters:
+    - id: scheme
+      type: System.String
+    - id: creator
+      type: MonoTorrent.Factories.TrackerCreator
+    return:
+      type: MonoTorrent.Factories
+    content.vb: Public Function WithTrackerCreator(scheme As String, creator As Factories.TrackerCreator) As Factories
+  overload: MonoTorrent.Factories.WithTrackerCreator*
+  nameWithType.vb: Factories.WithTrackerCreator(String, Factories.TrackerCreator)
+  fullName.vb: MonoTorrent.Factories.WithTrackerCreator(String, MonoTorrent.Factories.TrackerCreator)
+  name.vb: WithTrackerCreator(String, TrackerCreator)
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Factories.Default*
+  commentId: Overload:MonoTorrent.Factories.Default
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_Default
+  name: Default
+  nameWithType: Factories.Default
+  fullName: MonoTorrent.Factories.Default
+- uid: MonoTorrent.Factories
+  commentId: T:MonoTorrent.Factories
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories
+  nameWithType: Factories
+  fullName: MonoTorrent.Factories
+- uid: MonoTorrent.Factories.GetHashAsync*
+  commentId: Overload:MonoTorrent.Factories.GetHashAsync
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_GetHashAsync
+  name: GetHashAsync
+  nameWithType: Factories.GetHashAsync
+  fullName: MonoTorrent.Factories.GetHashAsync
+- uid: System.Func{MonoTorrent.ITorrentManagerInfo,System.Int32,System.Memory{System.Byte},System.Threading.Tasks.Task{System.Boolean}}
+  commentId: T:System.Func{MonoTorrent.ITorrentManagerInfo,System.Int32,System.Memory{System.Byte},System.Threading.Tasks.Task{System.Boolean}}
+  parent: System
+  definition: System.Func`4
+  href: https://learn.microsoft.com/dotnet/api/system.func-4
+  name: Func<ITorrentManagerInfo, int, Memory<byte>, Task<bool>>
+  nameWithType: Func<ITorrentManagerInfo, int, Memory<byte>, Task<bool>>
+  fullName: System.Func<MonoTorrent.ITorrentManagerInfo, int, System.Memory<byte>, System.Threading.Tasks.Task<bool>>
+  nameWithType.vb: Func(Of ITorrentManagerInfo, Integer, Memory(Of Byte), Task(Of Boolean))
+  fullName.vb: System.Func(Of MonoTorrent.ITorrentManagerInfo, Integer, System.Memory(Of Byte), System.Threading.Tasks.Task(Of Boolean))
+  name.vb: Func(Of ITorrentManagerInfo, Integer, Memory(Of Byte), Task(Of Boolean))
+  spec.csharp:
+  - uid: System.Func`4
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-4
+  - name: <
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`4
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-4
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.ITorrentManagerInfo
+    name: ITorrentManagerInfo
+    href: MonoTorrent.ITorrentManagerInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: System.Func`4
+  commentId: T:System.Func`4
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-4
+  name: Func<T1, T2, T3, TResult>
+  nameWithType: Func<T1, T2, T3, TResult>
+  fullName: System.Func<T1, T2, T3, TResult>
+  nameWithType.vb: Func(Of T1, T2, T3, TResult)
+  fullName.vb: System.Func(Of T1, T2, T3, TResult)
+  name.vb: Func(Of T1, T2, T3, TResult)
+  spec.csharp:
+  - uid: System.Func`4
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-4
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`4
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-4
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: MonoTorrent.Factories.#ctor*
+  commentId: Overload:MonoTorrent.Factories.#ctor
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories__ctor
+  name: Factories
+  nameWithType: Factories.Factories
+  fullName: MonoTorrent.Factories.Factories
+  nameWithType.vb: Factories.New
+  fullName.vb: MonoTorrent.Factories.New
+  name.vb: New
+- uid: MonoTorrent.Factories.CreateBlockCache*
+  commentId: Overload:MonoTorrent.Factories.CreateBlockCache
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreateBlockCache_MonoTorrent_PieceWriter_IPieceWriter_System_Int64_MonoTorrent_PieceWriter_CachePolicy_MonoTorrent_MemoryPool_
+  name: CreateBlockCache
+  nameWithType: Factories.CreateBlockCache
+  fullName: MonoTorrent.Factories.CreateBlockCache
+- uid: MonoTorrent.PieceWriter.IPieceWriter
+  commentId: T:MonoTorrent.PieceWriter.IPieceWriter
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.IPieceWriter.html
+  name: IPieceWriter
+  nameWithType: IPieceWriter
+  fullName: MonoTorrent.PieceWriter.IPieceWriter
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: MonoTorrent.PieceWriter.CachePolicy
+  commentId: T:MonoTorrent.PieceWriter.CachePolicy
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.CachePolicy.html
+  name: CachePolicy
+  nameWithType: CachePolicy
+  fullName: MonoTorrent.PieceWriter.CachePolicy
+- uid: MonoTorrent.MemoryPool
+  commentId: T:MonoTorrent.MemoryPool
+  parent: MonoTorrent
+  href: MonoTorrent.MemoryPool.html
+  name: MemoryPool
+  nameWithType: MemoryPool
+  fullName: MonoTorrent.MemoryPool
+- uid: MonoTorrent.PieceWriter.IBlockCache
+  commentId: T:MonoTorrent.PieceWriter.IBlockCache
+  parent: MonoTorrent.PieceWriter
+  href: MonoTorrent.PieceWriter.IBlockCache.html
+  name: IBlockCache
+  nameWithType: IBlockCache
+  fullName: MonoTorrent.PieceWriter.IBlockCache
+- uid: MonoTorrent.PieceWriter
+  commentId: N:MonoTorrent.PieceWriter
+  href: MonoTorrent.html
+  name: MonoTorrent.PieceWriter
+  nameWithType: MonoTorrent.PieceWriter
+  fullName: MonoTorrent.PieceWriter
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PieceWriter
+    name: PieceWriter
+    href: MonoTorrent.PieceWriter.html
+- uid: MonoTorrent.Factories.WithBlockCacheCreator*
+  commentId: Overload:MonoTorrent.Factories.WithBlockCacheCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithBlockCacheCreator_MonoTorrent_Factories_BlockCacheCreator_
+  name: WithBlockCacheCreator
+  nameWithType: Factories.WithBlockCacheCreator
+  fullName: MonoTorrent.Factories.WithBlockCacheCreator
+- uid: MonoTorrent.Factories.BlockCacheCreator
+  commentId: T:MonoTorrent.Factories.BlockCacheCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.BlockCacheCreator
+  nameWithType: Factories.BlockCacheCreator
+  fullName: MonoTorrent.Factories.BlockCacheCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.BlockCacheCreator
+    name: BlockCacheCreator
+    href: MonoTorrent.Factories.BlockCacheCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.BlockCacheCreator
+    name: BlockCacheCreator
+    href: MonoTorrent.Factories.BlockCacheCreator.html
+- uid: MonoTorrent.Factories.WithGetHashAsync*
+  commentId: Overload:MonoTorrent.Factories.WithGetHashAsync
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithGetHashAsync_System_Func_MonoTorrent_ITorrentManagerInfo_System_Int32_System_Memory_System_Byte__System_Threading_Tasks_Task_System_Boolean___
+  name: WithGetHashAsync
+  nameWithType: Factories.WithGetHashAsync
+  fullName: MonoTorrent.Factories.WithGetHashAsync
+- uid: MonoTorrent.Factories.CreateDht*
+  commentId: Overload:MonoTorrent.Factories.CreateDht
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreateDht
+  name: CreateDht
+  nameWithType: Factories.CreateDht
+  fullName: MonoTorrent.Factories.CreateDht
+- uid: MonoTorrent.Dht.IDhtEngine
+  commentId: T:MonoTorrent.Dht.IDhtEngine
+  parent: MonoTorrent.Dht
+  href: MonoTorrent.Dht.IDhtEngine.html
+  name: IDhtEngine
+  nameWithType: IDhtEngine
+  fullName: MonoTorrent.Dht.IDhtEngine
+- uid: MonoTorrent.Dht
+  commentId: N:MonoTorrent.Dht
+  href: MonoTorrent.html
+  name: MonoTorrent.Dht
+  nameWithType: MonoTorrent.Dht
+  fullName: MonoTorrent.Dht
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Dht
+    name: Dht
+    href: MonoTorrent.Dht.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Dht
+    name: Dht
+    href: MonoTorrent.Dht.html
+- uid: MonoTorrent.Factories.WithDhtCreator*
+  commentId: Overload:MonoTorrent.Factories.WithDhtCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithDhtCreator_MonoTorrent_Factories_DhtCreator_
+  name: WithDhtCreator
+  nameWithType: Factories.WithDhtCreator
+  fullName: MonoTorrent.Factories.WithDhtCreator
+- uid: MonoTorrent.Factories.DhtCreator
+  commentId: T:MonoTorrent.Factories.DhtCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.DhtCreator
+  nameWithType: Factories.DhtCreator
+  fullName: MonoTorrent.Factories.DhtCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.DhtCreator
+    name: DhtCreator
+    href: MonoTorrent.Factories.DhtCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.DhtCreator
+    name: DhtCreator
+    href: MonoTorrent.Factories.DhtCreator.html
+- uid: MonoTorrent.Factories.CreateDhtListener*
+  commentId: Overload:MonoTorrent.Factories.CreateDhtListener
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreateDhtListener_System_Net_IPEndPoint_
+  name: CreateDhtListener
+  nameWithType: Factories.CreateDhtListener
+  fullName: MonoTorrent.Factories.CreateDhtListener
+- uid: System.Net.IPEndPoint
+  commentId: T:System.Net.IPEndPoint
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  name: IPEndPoint
+  nameWithType: IPEndPoint
+  fullName: System.Net.IPEndPoint
+- uid: MonoTorrent.Connections.Dht.IDhtListener
+  commentId: T:MonoTorrent.Connections.Dht.IDhtListener
+  parent: MonoTorrent.Connections.Dht
+  href: MonoTorrent.Connections.Dht.IDhtListener.html
+  name: IDhtListener
+  nameWithType: IDhtListener
+  fullName: MonoTorrent.Connections.Dht.IDhtListener
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+- uid: MonoTorrent.Connections.Dht
+  commentId: N:MonoTorrent.Connections.Dht
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.Dht
+  nameWithType: MonoTorrent.Connections.Dht
+  fullName: MonoTorrent.Connections.Dht
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Dht
+    name: Dht
+    href: MonoTorrent.Connections.Dht.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Dht
+    name: Dht
+    href: MonoTorrent.Connections.Dht.html
+- uid: MonoTorrent.Factories.WithDhtListenerCreator*
+  commentId: Overload:MonoTorrent.Factories.WithDhtListenerCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithDhtListenerCreator_MonoTorrent_Factories_DhtListenerCreator_
+  name: WithDhtListenerCreator
+  nameWithType: Factories.WithDhtListenerCreator
+  fullName: MonoTorrent.Factories.WithDhtListenerCreator
+- uid: MonoTorrent.Factories.DhtListenerCreator
+  commentId: T:MonoTorrent.Factories.DhtListenerCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.DhtListenerCreator
+  nameWithType: Factories.DhtListenerCreator
+  fullName: MonoTorrent.Factories.DhtListenerCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.DhtListenerCreator
+    name: DhtListenerCreator
+    href: MonoTorrent.Factories.DhtListenerCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.DhtListenerCreator
+    name: DhtListenerCreator
+    href: MonoTorrent.Factories.DhtListenerCreator.html
+- uid: MonoTorrent.Factories.CreateHttpClient*
+  commentId: Overload:MonoTorrent.Factories.CreateHttpClient
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreateHttpClient
+  name: CreateHttpClient
+  nameWithType: Factories.CreateHttpClient
+  fullName: MonoTorrent.Factories.CreateHttpClient
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: System.Net.Sockets.AddressFamily
+  commentId: T:System.Net.Sockets.AddressFamily
+  parent: System.Net.Sockets
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.sockets.addressfamily
+  name: AddressFamily
+  nameWithType: AddressFamily
+  fullName: System.Net.Sockets.AddressFamily
+- uid: System.Net.Sockets
+  commentId: N:System.Net.Sockets
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Sockets
+  nameWithType: System.Net.Sockets
+  fullName: System.Net.Sockets
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Sockets
+    name: Sockets
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.sockets
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Sockets
+    name: Sockets
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.sockets
+- uid: MonoTorrent.Factories.WithHttpClientCreator*
+  commentId: Overload:MonoTorrent.Factories.WithHttpClientCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithHttpClientCreator_MonoTorrent_Factories_HttpClientCreator_
+  name: WithHttpClientCreator
+  nameWithType: Factories.WithHttpClientCreator
+  fullName: MonoTorrent.Factories.WithHttpClientCreator
+- uid: MonoTorrent.Factories.HttpClientCreator
+  commentId: T:MonoTorrent.Factories.HttpClientCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.HttpClientCreator
+  nameWithType: Factories.HttpClientCreator
+  fullName: MonoTorrent.Factories.HttpClientCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.HttpClientCreator
+    name: HttpClientCreator
+    href: MonoTorrent.Factories.HttpClientCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.HttpClientCreator
+    name: HttpClientCreator
+    href: MonoTorrent.Factories.HttpClientCreator.html
+- uid: MonoTorrent.Factories.CreateLocalPeerDiscovery*
+  commentId: Overload:MonoTorrent.Factories.CreateLocalPeerDiscovery
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreateLocalPeerDiscovery
+  name: CreateLocalPeerDiscovery
+  nameWithType: Factories.CreateLocalPeerDiscovery
+  fullName: MonoTorrent.Factories.CreateLocalPeerDiscovery
+- uid: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+  commentId: T:MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+  parent: MonoTorrent.Connections.Peer
+  href: MonoTorrent.Connections.Peer.ILocalPeerDiscovery.html
+  name: ILocalPeerDiscovery
+  nameWithType: ILocalPeerDiscovery
+  fullName: MonoTorrent.Connections.Peer.ILocalPeerDiscovery
+- uid: MonoTorrent.Connections.Peer
+  commentId: N:MonoTorrent.Connections.Peer
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.Peer
+  nameWithType: MonoTorrent.Connections.Peer
+  fullName: MonoTorrent.Connections.Peer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html
+- uid: MonoTorrent.Factories.WithLocalPeerDiscoveryCreator*
+  commentId: Overload:MonoTorrent.Factories.WithLocalPeerDiscoveryCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithLocalPeerDiscoveryCreator_MonoTorrent_Factories_LocalPeerDiscoveryCreator_
+  name: WithLocalPeerDiscoveryCreator
+  nameWithType: Factories.WithLocalPeerDiscoveryCreator
+  fullName: MonoTorrent.Factories.WithLocalPeerDiscoveryCreator
+- uid: MonoTorrent.Factories.LocalPeerDiscoveryCreator
+  commentId: T:MonoTorrent.Factories.LocalPeerDiscoveryCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.LocalPeerDiscoveryCreator
+  nameWithType: Factories.LocalPeerDiscoveryCreator
+  fullName: MonoTorrent.Factories.LocalPeerDiscoveryCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.LocalPeerDiscoveryCreator
+    name: LocalPeerDiscoveryCreator
+    href: MonoTorrent.Factories.LocalPeerDiscoveryCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.LocalPeerDiscoveryCreator
+    name: LocalPeerDiscoveryCreator
+    href: MonoTorrent.Factories.LocalPeerDiscoveryCreator.html
+- uid: MonoTorrent.Factories.CreateTemporaryLocalPeerIdAsync*
+  commentId: Overload:MonoTorrent.Factories.CreateTemporaryLocalPeerIdAsync
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreateTemporaryLocalPeerIdAsync_MonoTorrent_ITorrentManagerInfo_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_InfoHash_System_Uri_
+  name: CreateTemporaryLocalPeerIdAsync
+  nameWithType: Factories.CreateTemporaryLocalPeerIdAsync
+  fullName: MonoTorrent.Factories.CreateTemporaryLocalPeerIdAsync
+- uid: MonoTorrent.ITorrentManagerInfo
+  commentId: T:MonoTorrent.ITorrentManagerInfo
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentManagerInfo.html
+  name: ITorrentManagerInfo
+  nameWithType: ITorrentManagerInfo
+  fullName: MonoTorrent.ITorrentManagerInfo
+- uid: MonoTorrent.BEncoding.BEncodedString
+  commentId: T:MonoTorrent.BEncoding.BEncodedString
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedString.html
+  name: BEncodedString
+  nameWithType: BEncodedString
+  fullName: MonoTorrent.BEncoding.BEncodedString
+- uid: MonoTorrent.InfoHash
+  commentId: T:MonoTorrent.InfoHash
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHash.html
+  name: InfoHash
+  nameWithType: InfoHash
+  fullName: MonoTorrent.InfoHash
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: ReusableTasks.ReusableTask{MonoTorrent.BEncoding.BEncodedString}
+  commentId: T:ReusableTasks.ReusableTask{MonoTorrent.BEncoding.BEncodedString}
+  parent: ReusableTasks
+  definition: ReusableTasks.ReusableTask`1
+  href: MonoTorrent.BEncoding.BEncodedString.html
+  name: ReusableTask<BEncodedString>
+  nameWithType: ReusableTask<BEncodedString>
+  fullName: ReusableTasks.ReusableTask<MonoTorrent.BEncoding.BEncodedString>
+  nameWithType.vb: ReusableTask(Of BEncodedString)
+  fullName.vb: ReusableTasks.ReusableTask(Of MonoTorrent.BEncoding.BEncodedString)
+  name.vb: ReusableTask(Of BEncodedString)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BEncoding.BEncodedString
+    name: BEncodedString
+    href: MonoTorrent.BEncoding.BEncodedString.html
+  - name: )
+- uid: MonoTorrent.BEncoding
+  commentId: N:MonoTorrent.BEncoding
+  href: MonoTorrent.html
+  name: MonoTorrent.BEncoding
+  nameWithType: MonoTorrent.BEncoding
+  fullName: MonoTorrent.BEncoding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+- uid: ReusableTasks.ReusableTask`1
+  commentId: T:ReusableTasks.ReusableTask`1
+  isExternal: true
+  name: ReusableTask<T>
+  nameWithType: ReusableTask<T>
+  fullName: ReusableTasks.ReusableTask<T>
+  nameWithType.vb: ReusableTask(Of T)
+  fullName.vb: ReusableTasks.ReusableTask(Of T)
+  name.vb: ReusableTask(Of T)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ReusableTasks
+  commentId: N:ReusableTasks
+  isExternal: true
+  name: ReusableTasks
+  nameWithType: ReusableTasks
+  fullName: ReusableTasks
+- uid: MonoTorrent.Factories.WithTemporaryLocalPeerIdGenerator*
+  commentId: Overload:MonoTorrent.Factories.WithTemporaryLocalPeerIdGenerator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithTemporaryLocalPeerIdGenerator_MonoTorrent_Factories_TemporaryLocalPeerIdGenerator_
+  name: WithTemporaryLocalPeerIdGenerator
+  nameWithType: Factories.WithTemporaryLocalPeerIdGenerator
+  fullName: MonoTorrent.Factories.WithTemporaryLocalPeerIdGenerator
+- uid: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+  commentId: T:MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.TemporaryLocalPeerIdGenerator
+  nameWithType: Factories.TemporaryLocalPeerIdGenerator
+  fullName: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+    name: TemporaryLocalPeerIdGenerator
+    href: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator
+    name: TemporaryLocalPeerIdGenerator
+    href: MonoTorrent.Factories.TemporaryLocalPeerIdGenerator.html
+- uid: MonoTorrent.Factories.CreatePeerConnection*
+  commentId: Overload:MonoTorrent.Factories.CreatePeerConnection
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreatePeerConnection_System_Uri_
+  name: CreatePeerConnection
+  nameWithType: Factories.CreatePeerConnection
+  fullName: MonoTorrent.Factories.CreatePeerConnection
+- uid: MonoTorrent.Connections.Peer.IPeerConnection
+  commentId: T:MonoTorrent.Connections.Peer.IPeerConnection
+  parent: MonoTorrent.Connections.Peer
+  href: MonoTorrent.Connections.Peer.IPeerConnection.html
+  name: IPeerConnection
+  nameWithType: IPeerConnection
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection
+- uid: MonoTorrent.Factories.WithPeerConnectionCreator*
+  commentId: Overload:MonoTorrent.Factories.WithPeerConnectionCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithPeerConnectionCreator_System_String_MonoTorrent_Factories_PeerConnectionCreator_
+  name: WithPeerConnectionCreator
+  nameWithType: Factories.WithPeerConnectionCreator
+  fullName: MonoTorrent.Factories.WithPeerConnectionCreator
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: MonoTorrent.Factories.PeerConnectionCreator
+  commentId: T:MonoTorrent.Factories.PeerConnectionCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.PeerConnectionCreator
+  nameWithType: Factories.PeerConnectionCreator
+  fullName: MonoTorrent.Factories.PeerConnectionCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PeerConnectionCreator
+    name: PeerConnectionCreator
+    href: MonoTorrent.Factories.PeerConnectionCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PeerConnectionCreator
+    name: PeerConnectionCreator
+    href: MonoTorrent.Factories.PeerConnectionCreator.html
+- uid: MonoTorrent.Factories.CreatePeerConnectionListener*
+  commentId: Overload:MonoTorrent.Factories.CreatePeerConnectionListener
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreatePeerConnectionListener_System_Net_IPEndPoint_
+  name: CreatePeerConnectionListener
+  nameWithType: Factories.CreatePeerConnectionListener
+  fullName: MonoTorrent.Factories.CreatePeerConnectionListener
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionListener
+  commentId: T:MonoTorrent.Connections.Peer.IPeerConnectionListener
+  parent: MonoTorrent.Connections.Peer
+  href: MonoTorrent.Connections.Peer.IPeerConnectionListener.html
+  name: IPeerConnectionListener
+  nameWithType: IPeerConnectionListener
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionListener
+- uid: MonoTorrent.Factories.WithPeerConnectionListenerCreator*
+  commentId: Overload:MonoTorrent.Factories.WithPeerConnectionListenerCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithPeerConnectionListenerCreator_MonoTorrent_Factories_PeerConnectionListenerCreator_
+  name: WithPeerConnectionListenerCreator
+  nameWithType: Factories.WithPeerConnectionListenerCreator
+  fullName: MonoTorrent.Factories.WithPeerConnectionListenerCreator
+- uid: MonoTorrent.Factories.PeerConnectionListenerCreator
+  commentId: T:MonoTorrent.Factories.PeerConnectionListenerCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.PeerConnectionListenerCreator
+  nameWithType: Factories.PeerConnectionListenerCreator
+  fullName: MonoTorrent.Factories.PeerConnectionListenerCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PeerConnectionListenerCreator
+    name: PeerConnectionListenerCreator
+    href: MonoTorrent.Factories.PeerConnectionListenerCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PeerConnectionListenerCreator
+    name: PeerConnectionListenerCreator
+    href: MonoTorrent.Factories.PeerConnectionListenerCreator.html
+- uid: MonoTorrent.Factories.CreatePeerConnectionGate*
+  commentId: Overload:MonoTorrent.Factories.CreatePeerConnectionGate
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreatePeerConnectionGate
+  name: CreatePeerConnectionGate
+  nameWithType: Factories.CreatePeerConnectionGate
+  fullName: MonoTorrent.Factories.CreatePeerConnectionGate
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionGate
+  commentId: T:MonoTorrent.Connections.Peer.IPeerConnectionGate
+  parent: MonoTorrent.Connections.Peer
+  href: MonoTorrent.Connections.Peer.IPeerConnectionGate.html
+  name: IPeerConnectionGate
+  nameWithType: IPeerConnectionGate
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionGate
+- uid: MonoTorrent.Factories.WithPeerConnectionGateCreator*
+  commentId: Overload:MonoTorrent.Factories.WithPeerConnectionGateCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithPeerConnectionGateCreator_MonoTorrent_Factories_PeerConnectionGateCreator_
+  name: WithPeerConnectionGateCreator
+  nameWithType: Factories.WithPeerConnectionGateCreator
+  fullName: MonoTorrent.Factories.WithPeerConnectionGateCreator
+- uid: MonoTorrent.Factories.PeerConnectionGateCreator
+  commentId: T:MonoTorrent.Factories.PeerConnectionGateCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.PeerConnectionGateCreator
+  nameWithType: Factories.PeerConnectionGateCreator
+  fullName: MonoTorrent.Factories.PeerConnectionGateCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PeerConnectionGateCreator
+    name: PeerConnectionGateCreator
+    href: MonoTorrent.Factories.PeerConnectionGateCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PeerConnectionGateCreator
+    name: PeerConnectionGateCreator
+    href: MonoTorrent.Factories.PeerConnectionGateCreator.html
+- uid: MonoTorrent.Factories.CreatePieceRequester*
+  commentId: Overload:MonoTorrent.Factories.CreatePieceRequester
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreatePieceRequester
+  name: CreatePieceRequester
+  nameWithType: Factories.CreatePieceRequester
+  fullName: MonoTorrent.Factories.CreatePieceRequester
+- uid: MonoTorrent.PiecePicking.IPieceRequester
+  commentId: T:MonoTorrent.PiecePicking.IPieceRequester
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.IPieceRequester.html
+  name: IPieceRequester
+  nameWithType: IPieceRequester
+  fullName: MonoTorrent.PiecePicking.IPieceRequester
+- uid: MonoTorrent.PiecePicking
+  commentId: N:MonoTorrent.PiecePicking
+  href: MonoTorrent.html
+  name: MonoTorrent.PiecePicking
+  nameWithType: MonoTorrent.PiecePicking
+  fullName: MonoTorrent.PiecePicking
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PiecePicking
+    name: PiecePicking
+    href: MonoTorrent.PiecePicking.html
+- uid: MonoTorrent.PiecePicking.PieceRequesterSettings
+  commentId: T:MonoTorrent.PiecePicking.PieceRequesterSettings
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.PieceRequesterSettings.html
+  name: PieceRequesterSettings
+  nameWithType: PieceRequesterSettings
+  fullName: MonoTorrent.PiecePicking.PieceRequesterSettings
+- uid: MonoTorrent.Factories.WithPieceRequesterCreator*
+  commentId: Overload:MonoTorrent.Factories.WithPieceRequesterCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithPieceRequesterCreator_MonoTorrent_Factories_PieceRequesterCreator_
+  name: WithPieceRequesterCreator
+  nameWithType: Factories.WithPieceRequesterCreator
+  fullName: MonoTorrent.Factories.WithPieceRequesterCreator
+- uid: MonoTorrent.Factories.PieceRequesterCreator
+  commentId: T:MonoTorrent.Factories.PieceRequesterCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.PieceRequesterCreator
+  nameWithType: Factories.PieceRequesterCreator
+  fullName: MonoTorrent.Factories.PieceRequesterCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PieceRequesterCreator
+    name: PieceRequesterCreator
+    href: MonoTorrent.Factories.PieceRequesterCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PieceRequesterCreator
+    name: PieceRequesterCreator
+    href: MonoTorrent.Factories.PieceRequesterCreator.html
+- uid: MonoTorrent.Factories.CreatePieceWriter*
+  commentId: Overload:MonoTorrent.Factories.CreatePieceWriter
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreatePieceWriter_System_Int32_
+  name: CreatePieceWriter
+  nameWithType: Factories.CreatePieceWriter
+  fullName: MonoTorrent.Factories.CreatePieceWriter
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.Factories.WithPieceWriterCreator*
+  commentId: Overload:MonoTorrent.Factories.WithPieceWriterCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithPieceWriterCreator_MonoTorrent_Factories_PieceWriterCreator_
+  name: WithPieceWriterCreator
+  nameWithType: Factories.WithPieceWriterCreator
+  fullName: MonoTorrent.Factories.WithPieceWriterCreator
+- uid: MonoTorrent.Factories.PieceWriterCreator
+  commentId: T:MonoTorrent.Factories.PieceWriterCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.PieceWriterCreator
+  nameWithType: Factories.PieceWriterCreator
+  fullName: MonoTorrent.Factories.PieceWriterCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PieceWriterCreator
+    name: PieceWriterCreator
+    href: MonoTorrent.Factories.PieceWriterCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PieceWriterCreator
+    name: PieceWriterCreator
+    href: MonoTorrent.Factories.PieceWriterCreator.html
+- uid: MonoTorrent.Factories.CreatePieceReader*
+  commentId: Overload:MonoTorrent.Factories.CreatePieceReader
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreatePieceReader_MonoTorrent_BlockReader_IBlockReader_
+  name: CreatePieceReader
+  nameWithType: Factories.CreatePieceReader
+  fullName: MonoTorrent.Factories.CreatePieceReader
+- uid: MonoTorrent.BlockReader.IBlockReader
+  commentId: T:MonoTorrent.BlockReader.IBlockReader
+  parent: MonoTorrent.BlockReader
+  href: MonoTorrent.BlockReader.IBlockReader.html
+  name: IBlockReader
+  nameWithType: IBlockReader
+  fullName: MonoTorrent.BlockReader.IBlockReader
+- uid: MonoTorrent.BlockReader
+  commentId: N:MonoTorrent.BlockReader
+  href: MonoTorrent.html
+  name: MonoTorrent.BlockReader
+  nameWithType: MonoTorrent.BlockReader
+  fullName: MonoTorrent.BlockReader
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BlockReader
+    name: BlockReader
+    href: MonoTorrent.BlockReader.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BlockReader
+    name: BlockReader
+    href: MonoTorrent.BlockReader.html
+- uid: MonoTorrent.Factories.WithPieceReaderCreator*
+  commentId: Overload:MonoTorrent.Factories.WithPieceReaderCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithPieceReaderCreator_System_Func_MonoTorrent_BlockReader_IBlockReader_MonoTorrent_BlockReader_IBlockReader__
+  name: WithPieceReaderCreator
+  nameWithType: Factories.WithPieceReaderCreator
+  fullName: MonoTorrent.Factories.WithPieceReaderCreator
+- uid: System.Func{MonoTorrent.BlockReader.IBlockReader,MonoTorrent.BlockReader.IBlockReader}
+  commentId: T:System.Func{MonoTorrent.BlockReader.IBlockReader,MonoTorrent.BlockReader.IBlockReader}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<IBlockReader, IBlockReader>
+  nameWithType: Func<IBlockReader, IBlockReader>
+  fullName: System.Func<MonoTorrent.BlockReader.IBlockReader, MonoTorrent.BlockReader.IBlockReader>
+  nameWithType.vb: Func(Of IBlockReader, IBlockReader)
+  fullName.vb: System.Func(Of MonoTorrent.BlockReader.IBlockReader, MonoTorrent.BlockReader.IBlockReader)
+  name.vb: Func(Of IBlockReader, IBlockReader)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: MonoTorrent.BlockReader.IBlockReader
+    name: IBlockReader
+    href: MonoTorrent.BlockReader.IBlockReader.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BlockReader.IBlockReader
+    name: IBlockReader
+    href: MonoTorrent.BlockReader.IBlockReader.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.BlockReader.IBlockReader
+    name: IBlockReader
+    href: MonoTorrent.BlockReader.IBlockReader.html
+  - name: ','
+  - name: " "
+  - uid: MonoTorrent.BlockReader.IBlockReader
+    name: IBlockReader
+    href: MonoTorrent.BlockReader.IBlockReader.html
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: MonoTorrent.Factories.CreatePortForwarder*
+  commentId: Overload:MonoTorrent.Factories.CreatePortForwarder
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreatePortForwarder
+  name: CreatePortForwarder
+  nameWithType: Factories.CreatePortForwarder
+  fullName: MonoTorrent.Factories.CreatePortForwarder
+- uid: MonoTorrent.PortForwarding.IPortForwarder
+  commentId: T:MonoTorrent.PortForwarding.IPortForwarder
+  parent: MonoTorrent.PortForwarding
+  href: MonoTorrent.PortForwarding.IPortForwarder.html
+  name: IPortForwarder
+  nameWithType: IPortForwarder
+  fullName: MonoTorrent.PortForwarding.IPortForwarder
+- uid: MonoTorrent.PortForwarding
+  commentId: N:MonoTorrent.PortForwarding
+  href: MonoTorrent.html
+  name: MonoTorrent.PortForwarding
+  nameWithType: MonoTorrent.PortForwarding
+  fullName: MonoTorrent.PortForwarding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PortForwarding
+    name: PortForwarding
+    href: MonoTorrent.PortForwarding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PortForwarding
+    name: PortForwarding
+    href: MonoTorrent.PortForwarding.html
+- uid: MonoTorrent.Factories.WithPortForwarderCreator*
+  commentId: Overload:MonoTorrent.Factories.WithPortForwarderCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithPortForwarderCreator_MonoTorrent_Factories_PortForwarderCreator_
+  name: WithPortForwarderCreator
+  nameWithType: Factories.WithPortForwarderCreator
+  fullName: MonoTorrent.Factories.WithPortForwarderCreator
+- uid: MonoTorrent.Factories.PortForwarderCreator
+  commentId: T:MonoTorrent.Factories.PortForwarderCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.PortForwarderCreator
+  nameWithType: Factories.PortForwarderCreator
+  fullName: MonoTorrent.Factories.PortForwarderCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PortForwarderCreator
+    name: PortForwarderCreator
+    href: MonoTorrent.Factories.PortForwarderCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.PortForwarderCreator
+    name: PortForwarderCreator
+    href: MonoTorrent.Factories.PortForwarderCreator.html
+- uid: MonoTorrent.Factories.CreateSocketConnector*
+  commentId: Overload:MonoTorrent.Factories.CreateSocketConnector
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreateSocketConnector
+  name: CreateSocketConnector
+  nameWithType: Factories.CreateSocketConnector
+  fullName: MonoTorrent.Factories.CreateSocketConnector
+- uid: MonoTorrent.Connections.ISocketConnector
+  commentId: T:MonoTorrent.Connections.ISocketConnector
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.ISocketConnector.html
+  name: ISocketConnector
+  nameWithType: ISocketConnector
+  fullName: MonoTorrent.Connections.ISocketConnector
+- uid: MonoTorrent.Connections
+  commentId: N:MonoTorrent.Connections
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections
+  nameWithType: MonoTorrent.Connections
+  fullName: MonoTorrent.Connections
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+- uid: MonoTorrent.Factories.WithSocketConnectorCreator*
+  commentId: Overload:MonoTorrent.Factories.WithSocketConnectorCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithSocketConnectorCreator_MonoTorrent_Factories_SocketConnectorCreator_
+  name: WithSocketConnectorCreator
+  nameWithType: Factories.WithSocketConnectorCreator
+  fullName: MonoTorrent.Factories.WithSocketConnectorCreator
+- uid: MonoTorrent.Factories.SocketConnectorCreator
+  commentId: T:MonoTorrent.Factories.SocketConnectorCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.SocketConnectorCreator
+  nameWithType: Factories.SocketConnectorCreator
+  fullName: MonoTorrent.Factories.SocketConnectorCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.SocketConnectorCreator
+    name: SocketConnectorCreator
+    href: MonoTorrent.Factories.SocketConnectorCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.SocketConnectorCreator
+    name: SocketConnectorCreator
+    href: MonoTorrent.Factories.SocketConnectorCreator.html
+- uid: MonoTorrent.Factories.CreateStreamingPieceRequester*
+  commentId: Overload:MonoTorrent.Factories.CreateStreamingPieceRequester
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreateStreamingPieceRequester
+  name: CreateStreamingPieceRequester
+  nameWithType: Factories.CreateStreamingPieceRequester
+  fullName: MonoTorrent.Factories.CreateStreamingPieceRequester
+- uid: MonoTorrent.PiecePicking.IStreamingPieceRequester
+  commentId: T:MonoTorrent.PiecePicking.IStreamingPieceRequester
+  parent: MonoTorrent.PiecePicking
+  href: MonoTorrent.PiecePicking.IStreamingPieceRequester.html
+  name: IStreamingPieceRequester
+  nameWithType: IStreamingPieceRequester
+  fullName: MonoTorrent.PiecePicking.IStreamingPieceRequester
+- uid: MonoTorrent.Factories.WithStreamingPieceRequesterCreator*
+  commentId: Overload:MonoTorrent.Factories.WithStreamingPieceRequesterCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithStreamingPieceRequesterCreator_MonoTorrent_Factories_StreamingPieceRequesterCreator_
+  name: WithStreamingPieceRequesterCreator
+  nameWithType: Factories.WithStreamingPieceRequesterCreator
+  fullName: MonoTorrent.Factories.WithStreamingPieceRequesterCreator
+- uid: MonoTorrent.Factories.StreamingPieceRequesterCreator
+  commentId: T:MonoTorrent.Factories.StreamingPieceRequesterCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.StreamingPieceRequesterCreator
+  nameWithType: Factories.StreamingPieceRequesterCreator
+  fullName: MonoTorrent.Factories.StreamingPieceRequesterCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.StreamingPieceRequesterCreator
+    name: StreamingPieceRequesterCreator
+    href: MonoTorrent.Factories.StreamingPieceRequesterCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.StreamingPieceRequesterCreator
+    name: StreamingPieceRequesterCreator
+    href: MonoTorrent.Factories.StreamingPieceRequesterCreator.html
+- uid: MonoTorrent.Factories.CreateTracker*
+  commentId: Overload:MonoTorrent.Factories.CreateTracker
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_CreateTracker_System_Uri_
+  name: CreateTracker
+  nameWithType: Factories.CreateTracker
+  fullName: MonoTorrent.Factories.CreateTracker
+- uid: MonoTorrent.Trackers.ITracker
+  commentId: T:MonoTorrent.Trackers.ITracker
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.ITracker.html
+  name: ITracker
+  nameWithType: ITracker
+  fullName: MonoTorrent.Trackers.ITracker
+- uid: MonoTorrent.Trackers
+  commentId: N:MonoTorrent.Trackers
+  href: MonoTorrent.html
+  name: MonoTorrent.Trackers
+  nameWithType: MonoTorrent.Trackers
+  fullName: MonoTorrent.Trackers
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+- uid: MonoTorrent.Factories.WithTrackerCreator*
+  commentId: Overload:MonoTorrent.Factories.WithTrackerCreator
+  href: MonoTorrent.Factories.html#MonoTorrent_Factories_WithTrackerCreator_System_String_MonoTorrent_Factories_TrackerCreator_
+  name: WithTrackerCreator
+  nameWithType: Factories.WithTrackerCreator
+  fullName: MonoTorrent.Factories.WithTrackerCreator
+- uid: MonoTorrent.Factories.TrackerCreator
+  commentId: T:MonoTorrent.Factories.TrackerCreator
+  parent: MonoTorrent
+  href: MonoTorrent.Factories.html
+  name: Factories.TrackerCreator
+  nameWithType: Factories.TrackerCreator
+  fullName: MonoTorrent.Factories.TrackerCreator
+  spec.csharp:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.TrackerCreator
+    name: TrackerCreator
+    href: MonoTorrent.Factories.TrackerCreator.html
+  spec.vb:
+  - uid: MonoTorrent.Factories
+    name: Factories
+    href: MonoTorrent.Factories.html
+  - name: .
+  - uid: MonoTorrent.Factories.TrackerCreator
+    name: TrackerCreator
+    href: MonoTorrent.Factories.TrackerCreator.html

@@ -1,0 +1,684 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.Peer.IPeerConnection
+  commentId: T:MonoTorrent.Connections.Peer.IPeerConnection
+  id: IPeerConnection
+  parent: MonoTorrent.Connections.Peer
+  children:
+  - MonoTorrent.Connections.Peer.IPeerConnection.AddressBytes
+  - MonoTorrent.Connections.Peer.IPeerConnection.CanReconnect
+  - MonoTorrent.Connections.Peer.IPeerConnection.ConnectAsync
+  - MonoTorrent.Connections.Peer.IPeerConnection.Disposed
+  - MonoTorrent.Connections.Peer.IPeerConnection.EndPoint
+  - MonoTorrent.Connections.Peer.IPeerConnection.IsIncoming
+  - MonoTorrent.Connections.Peer.IPeerConnection.ReceiveAsync(System.Memory{System.Byte})
+  - MonoTorrent.Connections.Peer.IPeerConnection.SendAsync(System.Memory{System.Byte})
+  - MonoTorrent.Connections.Peer.IPeerConnection.Uri
+  langs:
+  - csharp
+  - vb
+  name: IPeerConnection
+  nameWithType: IPeerConnection
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IPeerConnection
+    path: src/Connections/Peer/IPeerConnection.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: 'public interface IPeerConnection : IDisposable'
+    content.vb: Public Interface IPeerConnection Inherits IDisposable
+  inheritedMembers:
+  - System.IDisposable.Dispose
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.AddressBytes
+  commentId: P:MonoTorrent.Connections.Peer.IPeerConnection.AddressBytes
+  id: AddressBytes
+  parent: MonoTorrent.Connections.Peer.IPeerConnection
+  langs:
+  - csharp
+  - vb
+  name: AddressBytes
+  nameWithType: IPeerConnection.AddressBytes
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.AddressBytes
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AddressBytes
+    path: src/Connections/Peer/IPeerConnection.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: ReadOnlyMemory<byte> AddressBytes { get; }
+    parameters: []
+    return:
+      type: System.ReadOnlyMemory{System.Byte}
+    content.vb: ReadOnly Property AddressBytes As ReadOnlyMemory(Of Byte)
+  overload: MonoTorrent.Connections.Peer.IPeerConnection.AddressBytes*
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.CanReconnect
+  commentId: P:MonoTorrent.Connections.Peer.IPeerConnection.CanReconnect
+  id: CanReconnect
+  parent: MonoTorrent.Connections.Peer.IPeerConnection
+  langs:
+  - csharp
+  - vb
+  name: CanReconnect
+  nameWithType: IPeerConnection.CanReconnect
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.CanReconnect
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CanReconnect
+    path: src/Connections/Peer/IPeerConnection.cs
+    startLine: 41
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: bool CanReconnect { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property CanReconnect As Boolean
+  overload: MonoTorrent.Connections.Peer.IPeerConnection.CanReconnect*
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.Disposed
+  commentId: P:MonoTorrent.Connections.Peer.IPeerConnection.Disposed
+  id: Disposed
+  parent: MonoTorrent.Connections.Peer.IPeerConnection
+  langs:
+  - csharp
+  - vb
+  name: Disposed
+  nameWithType: IPeerConnection.Disposed
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.Disposed
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Disposed
+    path: src/Connections/Peer/IPeerConnection.cs
+    startLine: 43
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: bool Disposed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property Disposed As Boolean
+  overload: MonoTorrent.Connections.Peer.IPeerConnection.Disposed*
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.EndPoint
+  commentId: P:MonoTorrent.Connections.Peer.IPeerConnection.EndPoint
+  id: EndPoint
+  parent: MonoTorrent.Connections.Peer.IPeerConnection
+  langs:
+  - csharp
+  - vb
+  name: EndPoint
+  nameWithType: IPeerConnection.EndPoint
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.EndPoint
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: EndPoint
+    path: src/Connections/Peer/IPeerConnection.cs
+    startLine: 48
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  summary: The endpoint of the remote peer. Will be null for web seeds or http seeds.
+  example: []
+  syntax:
+    content: IPEndPoint? EndPoint { get; }
+    parameters: []
+    return:
+      type: System.Net.IPEndPoint
+    content.vb: ReadOnly Property EndPoint As IPEndPoint
+  overload: MonoTorrent.Connections.Peer.IPeerConnection.EndPoint*
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.IsIncoming
+  commentId: P:MonoTorrent.Connections.Peer.IPeerConnection.IsIncoming
+  id: IsIncoming
+  parent: MonoTorrent.Connections.Peer.IPeerConnection
+  langs:
+  - csharp
+  - vb
+  name: IsIncoming
+  nameWithType: IPeerConnection.IsIncoming
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.IsIncoming
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IsIncoming
+    path: src/Connections/Peer/IPeerConnection.cs
+    startLine: 50
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: bool IsIncoming { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsIncoming As Boolean
+  overload: MonoTorrent.Connections.Peer.IPeerConnection.IsIncoming*
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.ConnectAsync
+  commentId: M:MonoTorrent.Connections.Peer.IPeerConnection.ConnectAsync
+  id: ConnectAsync
+  parent: MonoTorrent.Connections.Peer.IPeerConnection
+  langs:
+  - csharp
+  - vb
+  name: ConnectAsync()
+  nameWithType: IPeerConnection.ConnectAsync()
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.ConnectAsync()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ConnectAsync
+    path: src/Connections/Peer/IPeerConnection.cs
+    startLine: 52
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: ReusableTask ConnectAsync()
+    return:
+      type: ReusableTasks.ReusableTask
+    content.vb: Function ConnectAsync() As ReusableTask
+  overload: MonoTorrent.Connections.Peer.IPeerConnection.ConnectAsync*
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.ReceiveAsync(System.Memory{System.Byte})
+  commentId: M:MonoTorrent.Connections.Peer.IPeerConnection.ReceiveAsync(System.Memory{System.Byte})
+  id: ReceiveAsync(System.Memory{System.Byte})
+  parent: MonoTorrent.Connections.Peer.IPeerConnection
+  langs:
+  - csharp
+  - vb
+  name: ReceiveAsync(Memory<byte>)
+  nameWithType: IPeerConnection.ReceiveAsync(Memory<byte>)
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.ReceiveAsync(System.Memory<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ReceiveAsync
+    path: src/Connections/Peer/IPeerConnection.cs
+    startLine: 54
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: ReusableTask<int> ReceiveAsync(Memory<byte> buffer)
+    parameters:
+    - id: buffer
+      type: System.Memory{System.Byte}
+    return:
+      type: ReusableTasks.ReusableTask{System.Int32}
+    content.vb: Function ReceiveAsync(buffer As Memory(Of Byte)) As ReusableTask(Of Integer)
+  overload: MonoTorrent.Connections.Peer.IPeerConnection.ReceiveAsync*
+  nameWithType.vb: IPeerConnection.ReceiveAsync(Memory(Of Byte))
+  fullName.vb: MonoTorrent.Connections.Peer.IPeerConnection.ReceiveAsync(System.Memory(Of Byte))
+  name.vb: ReceiveAsync(Memory(Of Byte))
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.SendAsync(System.Memory{System.Byte})
+  commentId: M:MonoTorrent.Connections.Peer.IPeerConnection.SendAsync(System.Memory{System.Byte})
+  id: SendAsync(System.Memory{System.Byte})
+  parent: MonoTorrent.Connections.Peer.IPeerConnection
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(Memory<byte>)
+  nameWithType: IPeerConnection.SendAsync(Memory<byte>)
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.SendAsync(System.Memory<byte>)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SendAsync
+    path: src/Connections/Peer/IPeerConnection.cs
+    startLine: 56
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: ReusableTask<int> SendAsync(Memory<byte> buffer)
+    parameters:
+    - id: buffer
+      type: System.Memory{System.Byte}
+    return:
+      type: ReusableTasks.ReusableTask{System.Int32}
+    content.vb: Function SendAsync(buffer As Memory(Of Byte)) As ReusableTask(Of Integer)
+  overload: MonoTorrent.Connections.Peer.IPeerConnection.SendAsync*
+  nameWithType.vb: IPeerConnection.SendAsync(Memory(Of Byte))
+  fullName.vb: MonoTorrent.Connections.Peer.IPeerConnection.SendAsync(System.Memory(Of Byte))
+  name.vb: SendAsync(Memory(Of Byte))
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.Uri
+  commentId: P:MonoTorrent.Connections.Peer.IPeerConnection.Uri
+  id: Uri
+  parent: MonoTorrent.Connections.Peer.IPeerConnection
+  langs:
+  - csharp
+  - vb
+  name: Uri
+  nameWithType: IPeerConnection.Uri
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.Uri
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnection.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Uri
+    path: src/Connections/Peer/IPeerConnection.cs
+    startLine: 58
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: Uri Uri { get; }
+    parameters: []
+    return:
+      type: System.Uri
+    content.vb: ReadOnly Property Uri As Uri
+  overload: MonoTorrent.Connections.Peer.IPeerConnection.Uri*
+references:
+- uid: MonoTorrent.Connections.Peer
+  commentId: N:MonoTorrent.Connections.Peer
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.Peer
+  nameWithType: MonoTorrent.Connections.Peer
+  fullName: MonoTorrent.Connections.Peer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.AddressBytes*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnection.AddressBytes
+  href: MonoTorrent.Connections.Peer.IPeerConnection.html#MonoTorrent_Connections_Peer_IPeerConnection_AddressBytes
+  name: AddressBytes
+  nameWithType: IPeerConnection.AddressBytes
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.AddressBytes
+- uid: System.ReadOnlyMemory{System.Byte}
+  commentId: T:System.ReadOnlyMemory{System.Byte}
+  parent: System
+  definition: System.ReadOnlyMemory`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<byte>
+  nameWithType: ReadOnlyMemory<byte>
+  fullName: System.ReadOnlyMemory<byte>
+  nameWithType.vb: ReadOnlyMemory(Of Byte)
+  fullName.vb: System.ReadOnlyMemory(Of Byte)
+  name.vb: ReadOnlyMemory(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlyMemory`1
+  commentId: T:System.ReadOnlyMemory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  name: ReadOnlyMemory<T>
+  nameWithType: ReadOnlyMemory<T>
+  fullName: System.ReadOnlyMemory<T>
+  nameWithType.vb: ReadOnlyMemory(Of T)
+  fullName.vb: System.ReadOnlyMemory(Of T)
+  name.vb: ReadOnlyMemory(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.CanReconnect*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnection.CanReconnect
+  href: MonoTorrent.Connections.Peer.IPeerConnection.html#MonoTorrent_Connections_Peer_IPeerConnection_CanReconnect
+  name: CanReconnect
+  nameWithType: IPeerConnection.CanReconnect
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.CanReconnect
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.Disposed*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnection.Disposed
+  href: MonoTorrent.Connections.Peer.IPeerConnection.html#MonoTorrent_Connections_Peer_IPeerConnection_Disposed
+  name: Disposed
+  nameWithType: IPeerConnection.Disposed
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.Disposed
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.EndPoint*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnection.EndPoint
+  href: MonoTorrent.Connections.Peer.IPeerConnection.html#MonoTorrent_Connections_Peer_IPeerConnection_EndPoint
+  name: EndPoint
+  nameWithType: IPeerConnection.EndPoint
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.EndPoint
+- uid: System.Net.IPEndPoint
+  commentId: T:System.Net.IPEndPoint
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  name: IPEndPoint
+  nameWithType: IPEndPoint
+  fullName: System.Net.IPEndPoint
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.IsIncoming*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnection.IsIncoming
+  href: MonoTorrent.Connections.Peer.IPeerConnection.html#MonoTorrent_Connections_Peer_IPeerConnection_IsIncoming
+  name: IsIncoming
+  nameWithType: IPeerConnection.IsIncoming
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.IsIncoming
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.ConnectAsync*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnection.ConnectAsync
+  href: MonoTorrent.Connections.Peer.IPeerConnection.html#MonoTorrent_Connections_Peer_IPeerConnection_ConnectAsync
+  name: ConnectAsync
+  nameWithType: IPeerConnection.ConnectAsync
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.ConnectAsync
+- uid: ReusableTasks.ReusableTask
+  commentId: T:ReusableTasks.ReusableTask
+  parent: ReusableTasks
+  isExternal: true
+  name: ReusableTask
+  nameWithType: ReusableTask
+  fullName: ReusableTasks.ReusableTask
+- uid: ReusableTasks
+  commentId: N:ReusableTasks
+  isExternal: true
+  name: ReusableTasks
+  nameWithType: ReusableTasks
+  fullName: ReusableTasks
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.ReceiveAsync*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnection.ReceiveAsync
+  href: MonoTorrent.Connections.Peer.IPeerConnection.html#MonoTorrent_Connections_Peer_IPeerConnection_ReceiveAsync_System_Memory_System_Byte__
+  name: ReceiveAsync
+  nameWithType: IPeerConnection.ReceiveAsync
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.ReceiveAsync
+- uid: System.Memory{System.Byte}
+  commentId: T:System.Memory{System.Byte}
+  parent: System
+  definition: System.Memory`1
+  href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  name: Memory<byte>
+  nameWithType: Memory<byte>
+  fullName: System.Memory<byte>
+  nameWithType.vb: Memory(Of Byte)
+  fullName.vb: System.Memory(Of Byte)
+  name.vb: Memory(Of Byte)
+  spec.csharp:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: ReusableTasks.ReusableTask{System.Int32}
+  commentId: T:ReusableTasks.ReusableTask{System.Int32}
+  parent: ReusableTasks
+  definition: ReusableTasks.ReusableTask`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: ReusableTask<int>
+  nameWithType: ReusableTask<int>
+  fullName: ReusableTasks.ReusableTask<int>
+  nameWithType.vb: ReusableTask(Of Integer)
+  fullName.vb: ReusableTasks.ReusableTask(Of Integer)
+  name.vb: ReusableTask(Of Integer)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Memory`1
+  commentId: T:System.Memory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  name: Memory<T>
+  nameWithType: Memory<T>
+  fullName: System.Memory<T>
+  nameWithType.vb: Memory(Of T)
+  fullName.vb: System.Memory(Of T)
+  name.vb: Memory(Of T)
+  spec.csharp:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ReusableTasks.ReusableTask`1
+  commentId: T:ReusableTasks.ReusableTask`1
+  isExternal: true
+  name: ReusableTask<T>
+  nameWithType: ReusableTask<T>
+  fullName: ReusableTasks.ReusableTask<T>
+  nameWithType.vb: ReusableTask(Of T)
+  fullName.vb: ReusableTasks.ReusableTask(Of T)
+  name.vb: ReusableTask(Of T)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.SendAsync*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnection.SendAsync
+  href: MonoTorrent.Connections.Peer.IPeerConnection.html#MonoTorrent_Connections_Peer_IPeerConnection_SendAsync_System_Memory_System_Byte__
+  name: SendAsync
+  nameWithType: IPeerConnection.SendAsync
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.SendAsync
+- uid: MonoTorrent.Connections.Peer.IPeerConnection.Uri*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnection.Uri
+  href: MonoTorrent.Connections.Peer.IPeerConnection.html#MonoTorrent_Connections_Peer_IPeerConnection_Uri
+  name: Uri
+  nameWithType: IPeerConnection.Uri
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection.Uri
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri

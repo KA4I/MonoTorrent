@@ -1,0 +1,329 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Client.IDht
+  commentId: T:MonoTorrent.Client.IDht
+  id: IDht
+  parent: MonoTorrent.Client
+  children:
+  - MonoTorrent.Client.IDht.AnnounceInterval
+  - MonoTorrent.Client.IDht.MinimumAnnounceInterval
+  - MonoTorrent.Client.IDht.Monitor
+  - MonoTorrent.Client.IDht.NodeCount
+  - MonoTorrent.Client.IDht.State
+  - MonoTorrent.Client.IDht.StateChanged
+  langs:
+  - csharp
+  - vb
+  name: IDht
+  nameWithType: IDht
+  fullName: MonoTorrent.Client.IDht
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Dht/IDht.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IDht
+    path: src/Dht/IDht.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public interface IDht
+    content.vb: Public Interface IDht
+- uid: MonoTorrent.Client.IDht.StateChanged
+  commentId: E:MonoTorrent.Client.IDht.StateChanged
+  id: StateChanged
+  parent: MonoTorrent.Client.IDht
+  langs:
+  - csharp
+  - vb
+  name: StateChanged
+  nameWithType: IDht.StateChanged
+  fullName: MonoTorrent.Client.IDht.StateChanged
+  type: Event
+  source:
+    remote:
+      path: MonoTorrent/src/Dht/IDht.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: StateChanged
+    path: src/Dht/IDht.cs
+    startLine: 37
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: event EventHandler StateChanged
+    return:
+      type: System.EventHandler
+    content.vb: Event StateChanged As EventHandler
+- uid: MonoTorrent.Client.IDht.Monitor
+  commentId: P:MonoTorrent.Client.IDht.Monitor
+  id: Monitor
+  parent: MonoTorrent.Client.IDht
+  langs:
+  - csharp
+  - vb
+  name: Monitor
+  nameWithType: IDht.Monitor
+  fullName: MonoTorrent.Client.IDht.Monitor
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Dht/IDht.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Monitor
+    path: src/Dht/IDht.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: ITransferMonitor Monitor { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Dht.ITransferMonitor
+    content.vb: ReadOnly Property Monitor As ITransferMonitor
+  overload: MonoTorrent.Client.IDht.Monitor*
+- uid: MonoTorrent.Client.IDht.NodeCount
+  commentId: P:MonoTorrent.Client.IDht.NodeCount
+  id: NodeCount
+  parent: MonoTorrent.Client.IDht
+  langs:
+  - csharp
+  - vb
+  name: NodeCount
+  nameWithType: IDht.NodeCount
+  fullName: MonoTorrent.Client.IDht.NodeCount
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Dht/IDht.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: NodeCount
+    path: src/Dht/IDht.cs
+    startLine: 41
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: int NodeCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property NodeCount As Integer
+  overload: MonoTorrent.Client.IDht.NodeCount*
+- uid: MonoTorrent.Client.IDht.State
+  commentId: P:MonoTorrent.Client.IDht.State
+  id: State
+  parent: MonoTorrent.Client.IDht
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: IDht.State
+  fullName: MonoTorrent.Client.IDht.State
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Dht/IDht.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: State
+    path: src/Dht/IDht.cs
+    startLine: 43
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: DhtState State { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Dht.DhtState
+    content.vb: ReadOnly Property State As DhtState
+  overload: MonoTorrent.Client.IDht.State*
+- uid: MonoTorrent.Client.IDht.AnnounceInterval
+  commentId: P:MonoTorrent.Client.IDht.AnnounceInterval
+  id: AnnounceInterval
+  parent: MonoTorrent.Client.IDht
+  langs:
+  - csharp
+  - vb
+  name: AnnounceInterval
+  nameWithType: IDht.AnnounceInterval
+  fullName: MonoTorrent.Client.IDht.AnnounceInterval
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Dht/IDht.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: AnnounceInterval
+    path: src/Dht/IDht.cs
+    startLine: 45
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: TimeSpan AnnounceInterval { get; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: ReadOnly Property AnnounceInterval As TimeSpan
+  overload: MonoTorrent.Client.IDht.AnnounceInterval*
+- uid: MonoTorrent.Client.IDht.MinimumAnnounceInterval
+  commentId: P:MonoTorrent.Client.IDht.MinimumAnnounceInterval
+  id: MinimumAnnounceInterval
+  parent: MonoTorrent.Client.IDht
+  langs:
+  - csharp
+  - vb
+  name: MinimumAnnounceInterval
+  nameWithType: IDht.MinimumAnnounceInterval
+  fullName: MonoTorrent.Client.IDht.MinimumAnnounceInterval
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Dht/IDht.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: MinimumAnnounceInterval
+    path: src/Dht/IDht.cs
+    startLine: 47
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: TimeSpan MinimumAnnounceInterval { get; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: ReadOnly Property MinimumAnnounceInterval As TimeSpan
+  overload: MonoTorrent.Client.IDht.MinimumAnnounceInterval*
+references:
+- uid: MonoTorrent.Client
+  commentId: N:MonoTorrent.Client
+  href: MonoTorrent.html
+  name: MonoTorrent.Client
+  nameWithType: MonoTorrent.Client
+  fullName: MonoTorrent.Client
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+- uid: System.EventHandler
+  commentId: T:System.EventHandler
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler
+  name: EventHandler
+  nameWithType: EventHandler
+  fullName: System.EventHandler
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Client.IDht.Monitor*
+  commentId: Overload:MonoTorrent.Client.IDht.Monitor
+  href: MonoTorrent.Client.IDht.html#MonoTorrent_Client_IDht_Monitor
+  name: Monitor
+  nameWithType: IDht.Monitor
+  fullName: MonoTorrent.Client.IDht.Monitor
+- uid: MonoTorrent.Dht.ITransferMonitor
+  commentId: T:MonoTorrent.Dht.ITransferMonitor
+  parent: MonoTorrent.Dht
+  href: MonoTorrent.Dht.ITransferMonitor.html
+  name: ITransferMonitor
+  nameWithType: ITransferMonitor
+  fullName: MonoTorrent.Dht.ITransferMonitor
+- uid: MonoTorrent.Dht
+  commentId: N:MonoTorrent.Dht
+  href: MonoTorrent.html
+  name: MonoTorrent.Dht
+  nameWithType: MonoTorrent.Dht
+  fullName: MonoTorrent.Dht
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Dht
+    name: Dht
+    href: MonoTorrent.Dht.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Dht
+    name: Dht
+    href: MonoTorrent.Dht.html
+- uid: MonoTorrent.Client.IDht.NodeCount*
+  commentId: Overload:MonoTorrent.Client.IDht.NodeCount
+  href: MonoTorrent.Client.IDht.html#MonoTorrent_Client_IDht_NodeCount
+  name: NodeCount
+  nameWithType: IDht.NodeCount
+  fullName: MonoTorrent.Client.IDht.NodeCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.Client.IDht.State*
+  commentId: Overload:MonoTorrent.Client.IDht.State
+  href: MonoTorrent.Client.IDht.html#MonoTorrent_Client_IDht_State
+  name: State
+  nameWithType: IDht.State
+  fullName: MonoTorrent.Client.IDht.State
+- uid: MonoTorrent.Dht.DhtState
+  commentId: T:MonoTorrent.Dht.DhtState
+  parent: MonoTorrent.Dht
+  href: MonoTorrent.Dht.DhtState.html
+  name: DhtState
+  nameWithType: DhtState
+  fullName: MonoTorrent.Dht.DhtState
+- uid: MonoTorrent.Client.IDht.AnnounceInterval*
+  commentId: Overload:MonoTorrent.Client.IDht.AnnounceInterval
+  href: MonoTorrent.Client.IDht.html#MonoTorrent_Client_IDht_AnnounceInterval
+  name: AnnounceInterval
+  nameWithType: IDht.AnnounceInterval
+  fullName: MonoTorrent.Client.IDht.AnnounceInterval
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: MonoTorrent.Client.IDht.MinimumAnnounceInterval*
+  commentId: Overload:MonoTorrent.Client.IDht.MinimumAnnounceInterval
+  href: MonoTorrent.Client.IDht.html#MonoTorrent_Client_IDht_MinimumAnnounceInterval
+  name: MinimumAnnounceInterval
+  nameWithType: IDht.MinimumAnnounceInterval
+  fullName: MonoTorrent.Client.IDht.MinimumAnnounceInterval

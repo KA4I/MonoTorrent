@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PortForwarding.Protocol
+  commentId: T:MonoTorrent.PortForwarding.Protocol
+  id: Protocol
+  parent: MonoTorrent.PortForwarding
+  children:
+  - MonoTorrent.PortForwarding.Protocol.Tcp
+  - MonoTorrent.PortForwarding.Protocol.Udp
+  langs:
+  - csharp
+  - vb
+  name: Protocol
+  nameWithType: Protocol
+  fullName: MonoTorrent.PortForwarding.Protocol
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/PortForwarding/Protocol.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Protocol
+    path: src/PortForwarding/Protocol.cs
+    startLine: 30
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PortForwarding
+  syntax:
+    content: public enum Protocol
+    content.vb: Public Enum Protocol
+- uid: MonoTorrent.PortForwarding.Protocol.Tcp
+  commentId: F:MonoTorrent.PortForwarding.Protocol.Tcp
+  id: Tcp
+  parent: MonoTorrent.PortForwarding.Protocol
+  langs:
+  - csharp
+  - vb
+  name: Tcp
+  nameWithType: Protocol.Tcp
+  fullName: MonoTorrent.PortForwarding.Protocol.Tcp
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PortForwarding/Protocol.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Tcp
+    path: src/PortForwarding/Protocol.cs
+    startLine: 32
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PortForwarding
+  syntax:
+    content: Tcp = 0
+    return:
+      type: MonoTorrent.PortForwarding.Protocol
+- uid: MonoTorrent.PortForwarding.Protocol.Udp
+  commentId: F:MonoTorrent.PortForwarding.Protocol.Udp
+  id: Udp
+  parent: MonoTorrent.PortForwarding.Protocol
+  langs:
+  - csharp
+  - vb
+  name: Udp
+  nameWithType: Protocol.Udp
+  fullName: MonoTorrent.PortForwarding.Protocol.Udp
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/PortForwarding/Protocol.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Udp
+    path: src/PortForwarding/Protocol.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.PortForwarding
+  syntax:
+    content: Udp = 1
+    return:
+      type: MonoTorrent.PortForwarding.Protocol
+references:
+- uid: MonoTorrent.PortForwarding
+  commentId: N:MonoTorrent.PortForwarding
+  href: MonoTorrent.html
+  name: MonoTorrent.PortForwarding
+  nameWithType: MonoTorrent.PortForwarding
+  fullName: MonoTorrent.PortForwarding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PortForwarding
+    name: PortForwarding
+    href: MonoTorrent.PortForwarding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.PortForwarding
+    name: PortForwarding
+    href: MonoTorrent.PortForwarding.html
+- uid: MonoTorrent.PortForwarding.Protocol
+  commentId: T:MonoTorrent.PortForwarding.Protocol
+  parent: MonoTorrent.PortForwarding
+  href: MonoTorrent.PortForwarding.Protocol.html
+  name: Protocol
+  nameWithType: Protocol
+  fullName: MonoTorrent.PortForwarding.Protocol

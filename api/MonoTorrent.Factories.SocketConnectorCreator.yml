@@ -1,0 +1,66 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Factories.SocketConnectorCreator
+  commentId: T:MonoTorrent.Factories.SocketConnectorCreator
+  id: Factories.SocketConnectorCreator
+  parent: MonoTorrent
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: Factories.SocketConnectorCreator
+  nameWithType: Factories.SocketConnectorCreator
+  fullName: MonoTorrent.Factories.SocketConnectorCreator
+  type: Delegate
+  source:
+    remote:
+      path: MonoTorrent/src/Factories.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: SocketConnectorCreator
+    path: src/Factories.cs
+    startLine: 68
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public delegate ISocketConnector Factories.SocketConnectorCreator()
+    return:
+      type: MonoTorrent.Connections.ISocketConnector
+    content.vb: Public Delegate Function Factories.SocketConnectorCreator() As ISocketConnector
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.Connections.ISocketConnector
+  commentId: T:MonoTorrent.Connections.ISocketConnector
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.ISocketConnector.html
+  name: ISocketConnector
+  nameWithType: ISocketConnector
+  fullName: MonoTorrent.Connections.ISocketConnector
+- uid: MonoTorrent.Connections
+  commentId: N:MonoTorrent.Connections
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections
+  nameWithType: MonoTorrent.Connections
+  fullName: MonoTorrent.Connections
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html

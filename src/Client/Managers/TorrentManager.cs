@@ -27,6 +27,8 @@
 //
 
 
+using System.Buffers;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,12 +39,16 @@ using System.Threading.Tasks;
 using MonoTorrent.BEncoding;
 using MonoTorrent.Client.Modes;
 using MonoTorrent.Client.RateLimiters;
+using MonoTorrent.Dht; // Added for NodeId
 using MonoTorrent.Logging;
 using MonoTorrent.Messages.Peer;
 using MonoTorrent.PiecePicking;
 using MonoTorrent.PieceWriter;
 using MonoTorrent.Streaming;
 using MonoTorrent.Trackers;
+using Org.BouncyCastle.Crypto.Parameters; // Replacement for NSec Ed25519
+using Org.BouncyCastle.Crypto.Signers;   // Replacement for NSec Ed25519
+using System.Security.Cryptography; // Added for SHA1
 
 using ReusableTasks;
 
@@ -59,12 +65,18 @@ namespace MonoTorrent.Client
         /// <summary>
         /// This asynchronous event is raised whenever a new incoming, or outgoing, connection
         /// has successfully completed the handshake process and has been fully established.
+        /// <summary>
+        /// Raised when a connection to a peer is successfully established after the handshake.
+        /// </summary>
         /// </summary>
         public event EventHandler<PeerConnectedEventArgs>? PeerConnected;
 
         /// <summary>
         /// This asynchronous event is raised whenever an established connection has been
         /// closed.
+        /// <summary>
+        /// Raised when a connection to a peer is closed.
+        /// </summary>
         /// </summary>
         public event EventHandler<PeerDisconnectedEventArgs>? PeerDisconnected;
 
@@ -73,6 +85,9 @@ namespace MonoTorrent.Client
         /// could not be established.
         /// </summary>
         public event EventHandler<ConnectionAttemptFailedEventArgs>? ConnectionAttemptFailed;
+        /// <summary>
+        /// Raised when an attempt to connect to a peer fails.
+        /// </summary>
 
         /// <summary>
         /// This event is raised synchronously and is only used supposed to be used by tests.
@@ -83,8 +98,17 @@ namespace MonoTorrent.Client
         /// Raised whenever new peers are discovered and added. The object will be of type
         /// <see cref="TrackerPeersAdded"/>, <see cref="PeerExchangePeersAdded"/>, <see cref="LocalPeersAdded"/>
         /// or <see cref="DhtPeersAdded"/> depending on the source of the new peers.
+        /// <summary>
+        /// Raised when peers are discovered via any mechanism (Tracker, DHT, PEX, LSD).
+        /// </summary>
         /// </summary>
         public event EventHandler<PeersAddedEventArgs>? PeersFound;
+        /// <summary>
+        /// Sets the download priority for a specific file within the torrent.
+        /// </summary>
+        /// <param name="file">The file whose priority should be changed.</param>
+        /// <param name="priority">The new priority level.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
 
         public async Task SetFilePriorityAsync (ITorrentManagerFile file, Priority priority)
         {
@@ -162,17 +186,35 @@ namespace MonoTorrent.Client
         /// <summary>
         /// This asynchronous event is raised whenever a piece is hashed, either as part of
         /// regular downloading, or as part of a <see cref="HashCheckAsync(bool)"/>.
+        /// <summary>
+        /// Raised whenever a piece is successfully hashed and verified against the torrent metadata.
+        /// </summary>
         /// </summary>
         public event EventHandler<PieceHashedEventArgs>? PieceHashed;
 
         /// <summary>
         /// This asynchronous event is raised whenever the TorrentManager changes state.
+        /// <summary>
+        /// Raised whenever the state of the TorrentManager changes (e.g., from Downloading to Seeding).
+        /// </summary>
         /// </summary>
         public event EventHandler<TorrentStateChangedEventArgs>? TorrentStateChanged;
 
         internal event EventHandler<PeerAddedEventArgs>? OnPeerFound;
 
         #endregion
+
+        /// <summary>
+        /// Raised when a BEP46 mutable torrent has received an update notification.
+        /// The application should typically stop the current TorrentManager and start
+        /// a new one using the provided InfoHash.
+        /// <summary>
+        /// Raised when an update is found for a BEP46 mutable torrent via DHT 'get' requests.
+        /// The application should typically stop this TorrentManager and start a new one with the provided InfoHash.
+        /// </summary>
+        /// </summary>
+        public event EventHandler<TorrentUpdateEventArgs>? TorrentUpdateAvailable;
+
 
 
         #region Member Variables
@@ -181,6 +223,12 @@ namespace MonoTorrent.Client
         IMode mode;
         internal DateTime lastCalledInactivePeerManager = DateTime.Now;
         TaskCompletionSource<Torrent> MetadataTask { get; }
+
+        internal BEncodedString? MutablePublicKey { get; private set; }
+        internal BEncodedString? MutableSalt { get; private set; }
+        internal long? LastKnownSequenceNumber { get; private set; }
+        internal ValueStopwatch LastMutableUpdateCheckTimer;
+
         #endregion Member Variables
 
 
@@ -193,6 +241,9 @@ namespace MonoTorrent.Client
         public bool CanUseDht => Settings.AllowDht && (Torrent == null || !Torrent.IsPrivate);
 
         public bool CanUseLocalPeerDiscovery => ClientEngine.SupportsLocalPeerDiscovery && (Torrent == null || !Torrent.IsPrivate) && Engine != null;
+        /// <summary>
+        /// Returns true only when all files (excluding those marked DoNotDownload) have been fully downloaded and verified.
+        /// </summary>
 
         /// <summary>
         /// Returns true only when all files have been fully downloaded, all zero-length files exist, and
@@ -275,6 +326,12 @@ namespace MonoTorrent.Client
 
         public bool HasMetadata => Torrent != null;
 
+        /// <summary>
+        /// The infohashes for the torrent managed by this manager.
+        /// If the manager was created with a MagnetLink, this will be the InfoHashes from the link.
+        /// If the manager was created with a Torrent file, this will be the InfoHashes from the torrent.
+        /// If metadata has been retrieved for a MagnetLink, this will be the InfoHashes from the retrieved metadata.
+        /// </summary>
         public InfoHashes InfoHashes => Torrent?.InfoHashes ?? MagnetLink.InfoHashes;
 
         /// <summary>
@@ -333,6 +390,9 @@ namespace MonoTorrent.Client
         /// <summary>
         /// The inactive peer manager for this TorrentManager
         /// </summary>
+        /// <summary>
+        /// The download progress (0-100.0) considering only files with priority higher than DoNotDownload.
+        /// </summary>
         internal InactivePeerManager InactivePeerManager { get; }
 
         /// <summary>
@@ -356,6 +416,9 @@ namespace MonoTorrent.Client
 
                 int totalTrue = Bitfield.CountTrue (PartialProgressSelector);
                 return (totalTrue * 100.0) / PartialProgressSelector.TrueCount;
+        /// <summary>
+        /// The overall download progress (0-100.0) considering all files in the torrent.
+        /// </summary>
             }
         }
 
@@ -366,6 +429,9 @@ namespace MonoTorrent.Client
         /// </summary>
         public double Progress => Bitfield.PercentComplete;
 
+        /// <summary>
+        /// The directory where the downloaded files are stored. For multi-file torrents, this is the parent directory of the torrent's root folder (unless CreateContainingDirectory is false).
+        /// </summary>
         /// <summary>
         /// The top level directory where files can be located. If the torrent contains one file, this is the directory where
         /// that file is stored. If the torrent contains two or more files, this value is generated by concatenating <see cref="SavePath"/>
@@ -378,9 +444,16 @@ namespace MonoTorrent.Client
         }
 
         /// <summary>
+        /// The final directory path where the torrent data is located after download completion. For single-file torrents, this is the same as SavePath. For multi-file torrents, it's typically SavePath/TorrentName.
+        /// This property is only valid after torrent metadata is available.
+        /// </summary>
+        /// <summary>
         /// If this is a single file torrent, the file will be saved directly inside this directory and <see cref="ContainingDirectory"/> will
         /// be the same as <see cref="SavePath"/>. If this is a multi-file torrent and <see cref="TorrentSettings.CreateContainingDirectory"/>
         /// is set to <see langword="true"/>, all files will be stored in a sub-directory of <see cref="SavePath"/>. The subdirectory name will
+        /// <summary>
+        /// The settings specific to this torrent, which can override global engine settings.
+        /// </summary>
         /// be based on <see cref="Torrent.Name"/>, except invalid characters will be replaced. In this scenario all files will be found within
         /// the directory specified by <see cref="ContainingDirectory"/>.
         /// </summary>
@@ -392,7 +465,7 @@ namespace MonoTorrent.Client
         public TorrentSettings Settings { get; private set; }
 
         /// <summary>
-        /// The current state of the TorrentManager
+        /// The current state of the TorrentManager (e.g., Stopped, Hashing, Downloading, Seeding).
         /// </summary>
         public TorrentState State => mode.State;
 
@@ -410,6 +483,9 @@ namespace MonoTorrent.Client
         /// be prioritised next.
         /// </summary>
         public StreamProvider? StreamProvider { get; internal set; }
+        /// <summary>
+        /// The loaded Torrent metadata. This will be null if the TorrentManager was created with a MagnetLink and the metadata has not yet been downloaded.
+        /// </summary>
 
         /// <summary>
         /// The tracker connection associated with this TorrentManager
@@ -466,6 +542,25 @@ namespace MonoTorrent.Client
         {
             Engine = engine;
             Files = Array.Empty<ITorrentManagerFile> ();
+
+            if (magnetLink?.PublicKeyHex != null)
+            {
+                // BEP46 Mutable Torrent
+                MutablePublicKey = (BEncodedString)HexDecode(magnetLink.PublicKeyHex);
+                if (magnetLink.SaltHex != null)
+                    MutableSalt = new BEncodedString(HexDecode(magnetLink.SaltHex)); // Correctly create BEncodedString
+                // Initial sequence number is unknown, will be set on first successful Get
+                LastKnownSequenceNumber = null;
+                // InfoHashes remains null for BEP46 until first update. It's read-only anyway.
+                // InfoHashes remains null for BEP46 until first update
+                // Torrent object will also be null initially
+                Torrent = null;
+                LastMutableUpdateCheckTimer.Restart(); // Start the timer here
+            } else {
+                 // Traditional torrent/magnet link
+                 // InfoHashes property getter handles null Torrent. No assignment needed here.
+            }
+
             MagnetLink = magnetLink ?? new MagnetLink (torrent!.InfoHashes, torrent.Name, torrent.AnnounceUrls.SelectMany (t => t).ToArray (), null, torrent.Size);
             PieceHashes = new PieceHashes (null, null);
             Settings = settings;
@@ -474,7 +569,8 @@ namespace MonoTorrent.Client
             ContainingDirectory = "";
 
             MetadataTask = new TaskCompletionSource<Torrent> ();
-            MetadataPath = engine.Settings.GetMetadataPath (InfoHashes);
+            // For BEP46 links, InfoHashes is null initially. MetadataPath isn't relevant until metadata is fetched.
+            MetadataPath = InfoHashes is null ? "" : engine.Settings.GetMetadataPath (InfoHashes);
 
             var announces = Torrent?.AnnounceUrls;
             if (announces == null) {
@@ -510,6 +606,8 @@ namespace MonoTorrent.Client
             };
         }
 
+
+
         #endregion
 
 
@@ -529,6 +627,10 @@ namespace MonoTorrent.Client
 
         /// <summary>
         /// Changes the active piece picker. This can be called when the manager is running, or when it is stopped.
+        /// <summary>
+        /// Retrieves a list of currently connected peers.
+        /// </summary>
+        /// <returns>A list of PeerId objects representing connected peers.</returns>
         /// </summary>
         /// <param name="requester">The new picker to use.</param>
         /// <returns></returns>
@@ -556,10 +658,16 @@ namespace MonoTorrent.Client
             return Torrent == null ? "<Metadata Mode>" : Torrent.Name;
         }
 
-        public string LogName => Torrent == null ? InfoHashes.ToString() : $"{Torrent.Name} ({InfoHashes})";
+        public string LogName => Torrent == null ? (InfoHashes?.ToString () ?? MutablePublicKey?.ToHex () ?? "<No ID>") : $"{Torrent.Name} ({InfoHashes})";
 
         public async Task<List<PeerId>> GetPeersAsync ()
         {
+        /// <summary>
+        /// Performs a full hash check of the torrent data, verifying the integrity of downloaded pieces against the torrent metadata.
+        /// This ignores any existing fast resume data.
+        /// </summary>
+        /// <param name="autoStart">If true, the torrent will automatically start downloading/seeding after the hash check completes successfully.</param>
+        /// <returns>A task representing the asynchronous hash check operation.</returns>
             await ClientEngine.MainLoop;
             return new List<PeerId> (Peers.ConnectedPeers);
         }
@@ -610,6 +718,13 @@ namespace MonoTorrent.Client
 
             if (autoStart) {
                 await StartAsync ();
+        /// <summary>
+        /// Moves a single file from its current location to a new path within the same filesystem.
+        /// This operation can only be performed when the torrent is stopped.
+        /// </summary>
+        /// <param name="file">The torrent file to move.</param>
+        /// <param name="path">The full path to the new location, including the filename.</param>
+        /// <returns>A task representing the asynchronous move operation.</returns>
             } else if (setStoppedModeWhenDone) {
                 await MaybeWriteFastResumeAsync ();
 
@@ -626,6 +741,13 @@ namespace MonoTorrent.Client
 
             try {
                 var paths = TorrentFileInfo.GetNewPaths (Path.GetFullPath (path), Engine!.Settings.UsePartialFiles, file.FullPath == file.DownloadCompleteFullPath);
+        /// <summary>
+        /// Moves all files in the torrent to a new save location.
+        /// This operation can only be performed when the torrent is stopped.
+        /// </summary>
+        /// <param name="newRoot">The new root directory where the torrent data should be moved. The torrent's containing directory structure will be preserved under this root.</param>
+        /// <param name="overWriteExisting">If true, existing files or directories at the destination will be overwritten.</param>
+        /// <returns>A task representing the asynchronous move operation.</returns>
                 await Engine!.DiskManager.MoveFileAsync (file, paths);
             } catch (Exception ex) {
                 TrySetError (Reason.WriteFailure, ex);
@@ -650,8 +772,10 @@ namespace MonoTorrent.Client
         }
 
         /// <summary>
-        /// Pauses the TorrentManager
+        /// Pauses the TorrentManager, preventing further data transfer until StartAsync is called.
+        /// If the manager is currently hashing, the hashing process will be paused.
         /// </summary>
+        /// <returns>A task representing the asynchronous pause operation.</returns>
         public async Task PauseAsync ()
         {
             await ClientEngine.MainLoop;
@@ -706,6 +830,11 @@ namespace MonoTorrent.Client
                 var torrentFileInfo = new TorrentFileInfo (file, currentPath);
                 torrentFileInfo.UpdatePaths ((currentPath, downloadCompleteFullPath, downloadIncompleteFullPath));
                 return torrentFileInfo;
+        /// <summary>
+        /// Performs a Local Peer Discovery announce to find peers on the local network.
+        /// This is typically called periodically by the engine but can be invoked manually.
+        /// </summary>
+        /// <returns>A task representing the asynchronous announce operation.</returns>
             }).Cast<ITorrentManagerFile> ().ToList ().AsReadOnly ();
 
             PieceHashes = Torrent.CreatePieceHashes ();
@@ -721,13 +850,21 @@ namespace MonoTorrent.Client
         }
 
         /// <summary>
-        /// Starts the TorrentManager
+        /// Starts the TorrentManager. If the manager was paused, it resumes.
+        /// If it was stopped, it will initiate a hash check (if needed) and then start downloading/seeding.
+        /// If it was created with a MagnetLink and has no metadata, it will enter MetadataMode to download the metadata.
         /// </summary>
+        /// <returns>A task representing the asynchronous start operation.</returns>
         public async Task StartAsync ()
             => await StartAsync (false);
 
         internal async Task StartAsync (bool metadataOnly)
         {
+        /// <summary>
+        /// Performs a DHT announce and requests peers for the torrent.
+        /// This is typically called periodically by the engine but can be invoked manually.
+        /// </summary>
+        /// <returns>A task representing the asynchronous announce operation.</returns>
             await ClientEngine.MainLoop;
 
             if (Mode is StoppingMode)
@@ -767,15 +904,22 @@ namespace MonoTorrent.Client
 
                 var endPoints = Engine.PeerListeners.Select (t => t.LocalEndPoint!).Where (t => t != null);
                 foreach (var endpoint in endPoints) {
-                    if (InfoHashes.V1 != null)
+                   // Announce V1 hash if available, as LPD is primarily V1.
+                   // Otherwise, announce truncated V2 hash for V2-only torrents.
+                   if (InfoHashes.V1 != null)
                         await Engine.LocalPeerDiscovery.Announce (InfoHashes.V1, endpoint);
-                    if (InfoHashes.V2 != null)
-                        await Engine.LocalPeerDiscovery.Announce (InfoHashes.V2.Truncate (), endpoint);
+                   else if (InfoHashes.V2 != null) // Only announce V2 if V1 is not present
+                        await Engine.LocalPeerDiscovery.Announce (InfoHashes.V2.Truncate(), endpoint);
                 }
             }
         }
 
         /// <summary>
+        /// <summary>
+        /// Updates the settings used by this TorrentManager.
+        /// </summary>
+        /// <param name="settings">The new settings to apply.</param>
+        /// <returns>A task representing the asynchronous settings update.</returns>
         /// Perform an announce using the <see cref="ClientEngine.DhtEngine"/> to retrieve more peers. The
         /// returned task completes as soon as the Dht announce begins.
         /// </summary>
@@ -787,16 +931,20 @@ namespace MonoTorrent.Client
             if (CanUseDht && Engine != null && (!LastDhtAnnounceTimer.IsRunning || LastDhtAnnounceTimer.Elapsed > Engine.DhtEngine.MinimumAnnounceInterval)) {
                 LastDhtAnnounce = DateTime.UtcNow;
                 LastDhtAnnounceTimer.Restart ();
-                if (InfoHashes.V2 != null)
-                    Engine.DhtEngine.GetPeers (InfoHashes.V2.Truncate ());
-                if (InfoHashes.V1 != null)
-                    Engine.DhtEngine.GetPeers (InfoHashes.V1);
+                // Announce based on the torrent protocol
+                if (InfoHashes.Protocol == TorrentProtocol.V2 || InfoHashes.Protocol == TorrentProtocol.Hybrid)
+                    Engine.DhtEngine.GetPeers (InfoHashes.V2!.Truncate ()); // V2 must be non-null here
+                if (InfoHashes.Protocol == TorrentProtocol.V1 || InfoHashes.Protocol == TorrentProtocol.Hybrid)
+                    Engine.DhtEngine.GetPeers (InfoHashes.V1!); // V1 must be non-null here
             }
         }
 
+
         /// <summary>
-        /// Stops the TorrentManager. The returned task completes as soon as the manager has fully stopped.
+        /// Stops the TorrentManager. Data transfer will cease, and a 'stopped' announce will be sent to trackers.
+        /// The returned task completes when the manager has fully stopped.
         /// </summary>
+        /// <returns>A task representing the asynchronous stop operation.</returns>
         public Task StopAsync ()
         {
             return StopAsync (Timeout.InfiniteTimeSpan);
@@ -821,12 +969,23 @@ namespace MonoTorrent.Client
                 var stoppingMode = new StoppingMode (this, Engine!.DiskManager, Engine.ConnectionManager);
                 Mode = stoppingMode;
                 await stoppingMode.WaitForStoppingToComplete (timeout);
+        /// <summary>
+        /// Returns a task that completes when the torrent metadata is available. If the metadata is already available, the task completes immediately.
+        /// This is useful when the TorrentManager is created from a MagnetLink.
+        /// </summary>
+        /// <returns>A task that completes when the metadata is downloaded.</returns>
 
                 stoppingMode.Token.ThrowIfCancellationRequested ();
                 Mode = new StoppedMode ();
                 await MaybeWriteFastResumeAsync ();
                 await Engine.StopAsync ();
             }
+        /// <summary>
+        /// Returns a task that completes when the torrent metadata is available or when the cancellation token is triggered.
+        /// If the metadata is already available, the task completes immediately.
+        /// </summary>
+        /// <param name="token">The cancellation token.</param>
+        /// <returns>A task that completes when the metadata is downloaded or cancellation is requested.</returns>
         }
 
         public async Task UpdateSettingsAsync (TorrentSettings settings)
@@ -854,9 +1013,19 @@ namespace MonoTorrent.Client
             // Wait for the token to be cancelled *or* the metadata is received.
             // Await the returned task so the OperationCancelled exception propagates as
             // expected if the token was cancelled. The try/catch is so that we
+        /// <summary>
+        /// Adds a single peer to the list of available peers for this torrent.
+        /// </summary>
+        /// <param name="peer">The peer to add.</param>
+        /// <returns>True if the peer was added, false if the peer was already known or invalid.</returns>
             // will always throw an OperationCancelled instead of, sometimes, propagating
             // a TaskCancelledException.
             try {
+        /// <summary>
+        /// Adds multiple peers to the list of available peers for this torrent.
+        /// </summary>
+        /// <param name="peers">The collection of peers to add.</param>
+        /// <returns>The number of peers that were successfully added.</returns>
                 await (await Task.WhenAny (MetadataTask.Task, tcs.Task));
             } catch {
                 token.ThrowIfCancellationRequested ();
@@ -1203,6 +1372,141 @@ namespace MonoTorrent.Client
             var parentDirectory = Path.GetDirectoryName (fastResumePath)!;
             Directory.CreateDirectory (parentDirectory);
             File.WriteAllBytes (fastResumePath, fastResumeData);
+        } // End of MaybeWriteFastResumeAsync
+
+
+        #region BEP46 Update Check
+
+        internal async ReusableTask PerformMutableUpdateCheckAsync ()
+        {
+            //Console.WriteLine($"MANAGER {this.LogName}: Starting PerformMutableUpdateCheckAsync. LastKnownSeq: {LastKnownSequenceNumber?.ToString() ?? "null"}");
+            if (Engine == null || MutablePublicKey == null || State == TorrentState.Stopped || State == TorrentState.Stopping || State == TorrentState.Error)
+                return; // Only check if running and it's a mutable torrent
+
+            // Reset the timer regardless of success/failure of the Get operation
+            LastMutableUpdateCheckTimer.Restart ();
+
+            try {
+                NodeId targetId = MonoTorrent.Dht.DhtEngine.CalculateMutableTargetId(MutablePublicKey, MutableSalt); // Use full namespace
+                //Console.WriteLine($"MANAGER {this.LogName}: Calling DHT GetAsync with target {targetId} and seq {LastKnownSequenceNumber?.ToString() ?? "null"}"); // Add log before call
+                (BEncodedValue? value, BEncodedString? publicKey, BEncodedString? signature, long? sequenceNumber) = await Engine!.DhtEngine.GetAsync(targetId, LastKnownSequenceNumber); // Pass the last known sequence number
+                //Console.WriteLine($"MANAGER {this.LogName}: DHT GetAsync returned: Value={value}, PK={publicKey?.ToHex()}, Sig={signature?.ToHex()}, Seq={sequenceNumber}");
+
+                if (value != null && publicKey != null && signature != null && sequenceNumber.HasValue)
+                {
+                    // We already filtered by sequence number in the GetAsync request (by passing LastKnownSequenceNumber),
+                    // but we double-check here in case of race conditions or DHT inconsistencies.
+                    if (!LastKnownSequenceNumber.HasValue || sequenceNumber.Value > LastKnownSequenceNumber.Value)
+                    {
+                        //Console.WriteLine($"MANAGER {this.LogName}: Sequence number is newer ({sequenceNumber.Value} > {LastKnownSequenceNumber?.ToString() ?? "null"}). Verifying signature...");
+                        bool signatureValid = VerifyMutableSignature(publicKey, MutableSalt, sequenceNumber.Value, value, signature);
+
+                        if (signatureValid)
+                        {
+                            //Console.WriteLine($"MANAGER {this.LogName}: Signature valid.");
+                            if (value is BEncodedDictionary dict && dict.TryGetValue("ih", out BEncodedValue? ihValue) && ihValue is BEncodedString infoHashString && infoHashString.Span.Length == 20)
+                            {
+                                var newInfoHash = InfoHash.FromMemory(infoHashString.AsMemory());
+                                //Console.WriteLine($"MANAGER {this.LogName}: Updating LastKnownSequenceNumber from {LastKnownSequenceNumber?.ToString() ?? "null"} to {sequenceNumber.Value}"); // Add log before update
+                                LastKnownSequenceNumber = sequenceNumber.Value;
+                                logger.InfoFormatted("BEP46 update found for {0}. New InfoHash: {1}", this.LogName, newInfoHash.ToHex());
+                                //Console.WriteLine($"MANAGER {this.LogName}: Invoking TorrentUpdateAvailable event with hash {newInfoHash.ToHex()}");
+                                TorrentUpdateAvailable?.InvokeAsync(this, new TorrentUpdateEventArgs(this, newInfoHash));
+                            }
+                            else
+                            {
+                                //Console.WriteLine($"MANAGER {this.LogName}: Invalid data format received.");
+                                logger.ErrorFormatted("BEP46 for {0}: Received mutable item with invalid 'v' dictionary format.", this.LogName);
+                            }
+                        }
+                        else
+                        {
+                            //Console.WriteLine($"MANAGER {this.LogName}: Signature invalid.");
+                            logger.ErrorFormatted("BEP46 for {0}: Received mutable item with invalid signature.", this.LogName);
+                        }
+                    }
+                    //else
+                    //{
+                    //    Console.WriteLine($"MANAGER {this.LogName}: Received sequence number {sequenceNumber.Value} is not newer than {LastKnownSequenceNumber?.ToString() ?? "null"}. Ignoring.");
+                    //}
+                }
+                //else
+                //{
+                //    Console.WriteLine($"MANAGER {this.LogName}: No update found or invalid data from DHT GetAsync.");
+                //}
+                // else: No update found or immutable item received (which shouldn't happen for xs= links)
+
+            } catch (Exception ex) {
+                //Console.WriteLine($"MANAGER {this.LogName}: Exception during PerformMutableUpdateCheckAsync: {ex.Message}");
+                // Log the error appropriately
+                logger.ErrorFormatted("BEP46 for {0}: Error during mutable update check: {1}", this.LogName, ex.Message);
+            }
+        }
+
+        // Verifies the Ed25519 signature for a mutable torrent update (BEP44/BEP46)
+        bool VerifyMutableSignature(BEncodedString publicKey, BEncodedString? salt, long sequenceNumber, BEncodedValue value, BEncodedString signature)
+        {
+             // Original logic restored
+            try
+            {
+                // Construct the data to verify according to BEP44: "salt" + salt + "seq" + seq + "v" + value
+                // Calculate the total length needed first
+                int saltKeyLength = new BEncodedString("salt").LengthInBytes();
+                int seqKeyLength = new BEncodedString("seq").LengthInBytes();
+                int vKeyLength = new BEncodedString("v").LengthInBytes();
+
+                int saltLength = (salt == null || salt.Span.Length == 0) ? 0 : (saltKeyLength + salt.LengthInBytes());
+                int seqLength = seqKeyLength + new BEncodedNumber(sequenceNumber).LengthInBytes();
+                int valueLength = vKeyLength + value.LengthInBytes();
+                int totalLength = saltLength + seqLength + valueLength;
+
+                // Rent a buffer
+                using var rented = System.Buffers.MemoryPool<byte>.Shared.Rent(totalLength);
+                Span<byte> dataToVerify = rented.Memory.Span.Slice(0, totalLength);
+
+                // Encode the parts into the buffer
+                int offset = 0;
+                if (saltLength > 0)
+                {
+                    offset += new BEncodedString("salt").Encode(dataToVerify.Slice(offset));
+                    offset += salt!.Encode(dataToVerify.Slice(offset)); // salt is checked for null by saltLength > 0
+                }
+                offset += new BEncodedString("seq").Encode(dataToVerify.Slice(offset));
+                offset += new BEncodedNumber(sequenceNumber).Encode(dataToVerify.Slice(offset));
+                offset += new BEncodedString("v").Encode(dataToVerify.Slice(offset));
+                offset += value.Encode(dataToVerify.Slice(offset));
+
+                // Verify the signature using BouncyCastle
+                var verifier = new Ed25519Signer();
+                var publicKeyParams = new Ed25519PublicKeyParameters(publicKey.Span.ToArray());
+                verifier.Init(false, publicKeyParams); // false for verification
+                verifier.BlockUpdate(dataToVerify.ToArray(), 0, dataToVerify.Length); // Use the byte array overload
+
+                bool isValid = verifier.VerifySignature(signature.Span.ToArray());
+
+                if (!isValid)
+                {
+                    logger.ErrorFormatted("BEP46 for {0}: Signature verification failed.", this.LogName);
+                }
+                return isValid;
+            }
+            catch (Exception ex)
+            {
+                logger.Exception(ex, $"BEP46 for {this.LogName}: Exception during signature verification.");
+                return false;
+            }
+        }
+        #endregion
+
+        // Helper needed in constructor
+        private static byte[] HexDecode(string hex)
+        {
+            if (hex.Length % 2 != 0)
+                throw new ArgumentException("Hex string must have an even number of characters");
+            byte[] bytes = new byte[hex.Length / 2];
+            for (int i = 0; i < bytes.Length; i++)
+                bytes[i] = Convert.ToByte(hex.Substring(i * 2, 2), 16);
+            return bytes;
         }
 
         internal void SetTrackerManager (ITrackerManager manager)

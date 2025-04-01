@@ -1,0 +1,221 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Dht.ITransferMonitor
+  commentId: T:MonoTorrent.Dht.ITransferMonitor
+  id: ITransferMonitor
+  parent: MonoTorrent.Dht
+  children:
+  - MonoTorrent.Dht.ITransferMonitor.BytesReceived
+  - MonoTorrent.Dht.ITransferMonitor.BytesSent
+  - MonoTorrent.Dht.ITransferMonitor.DownloadRate
+  - MonoTorrent.Dht.ITransferMonitor.UploadRate
+  langs:
+  - csharp
+  - vb
+  name: ITransferMonitor
+  nameWithType: ITransferMonitor
+  fullName: MonoTorrent.Dht.ITransferMonitor
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Dht/IDhtEngine.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ITransferMonitor
+    path: src/Dht/IDhtEngine.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Dht
+  syntax:
+    content: public interface ITransferMonitor
+    content.vb: Public Interface ITransferMonitor
+- uid: MonoTorrent.Dht.ITransferMonitor.BytesSent
+  commentId: P:MonoTorrent.Dht.ITransferMonitor.BytesSent
+  id: BytesSent
+  parent: MonoTorrent.Dht.ITransferMonitor
+  langs:
+  - csharp
+  - vb
+  name: BytesSent
+  nameWithType: ITransferMonitor.BytesSent
+  fullName: MonoTorrent.Dht.ITransferMonitor.BytesSent
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Dht/IDhtEngine.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BytesSent
+    path: src/Dht/IDhtEngine.cs
+    startLine: 44
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Dht
+  summary: Total bytes sent since the start of the session.
+  example: []
+  syntax:
+    content: long BytesSent { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: ReadOnly Property BytesSent As Long
+  overload: MonoTorrent.Dht.ITransferMonitor.BytesSent*
+- uid: MonoTorrent.Dht.ITransferMonitor.BytesReceived
+  commentId: P:MonoTorrent.Dht.ITransferMonitor.BytesReceived
+  id: BytesReceived
+  parent: MonoTorrent.Dht.ITransferMonitor
+  langs:
+  - csharp
+  - vb
+  name: BytesReceived
+  nameWithType: ITransferMonitor.BytesReceived
+  fullName: MonoTorrent.Dht.ITransferMonitor.BytesReceived
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Dht/IDhtEngine.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: BytesReceived
+    path: src/Dht/IDhtEngine.cs
+    startLine: 49
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Dht
+  summary: Total bytes received since the start of the session.
+  example: []
+  syntax:
+    content: long BytesReceived { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: ReadOnly Property BytesReceived As Long
+  overload: MonoTorrent.Dht.ITransferMonitor.BytesReceived*
+- uid: MonoTorrent.Dht.ITransferMonitor.DownloadRate
+  commentId: P:MonoTorrent.Dht.ITransferMonitor.DownloadRate
+  id: DownloadRate
+  parent: MonoTorrent.Dht.ITransferMonitor
+  langs:
+  - csharp
+  - vb
+  name: DownloadRate
+  nameWithType: ITransferMonitor.DownloadRate
+  fullName: MonoTorrent.Dht.ITransferMonitor.DownloadRate
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Dht/IDhtEngine.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: DownloadRate
+    path: src/Dht/IDhtEngine.cs
+    startLine: 54
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Dht
+  summary: Estimate of the amount of data received every second, in bytes/second.
+  example: []
+  syntax:
+    content: long DownloadRate { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: ReadOnly Property DownloadRate As Long
+  overload: MonoTorrent.Dht.ITransferMonitor.DownloadRate*
+- uid: MonoTorrent.Dht.ITransferMonitor.UploadRate
+  commentId: P:MonoTorrent.Dht.ITransferMonitor.UploadRate
+  id: UploadRate
+  parent: MonoTorrent.Dht.ITransferMonitor
+  langs:
+  - csharp
+  - vb
+  name: UploadRate
+  nameWithType: ITransferMonitor.UploadRate
+  fullName: MonoTorrent.Dht.ITransferMonitor.UploadRate
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Dht/IDhtEngine.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: UploadRate
+    path: src/Dht/IDhtEngine.cs
+    startLine: 59
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Dht
+  summary: Estimate of the amount of data sent every second, in bytes/second.
+  example: []
+  syntax:
+    content: long UploadRate { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: ReadOnly Property UploadRate As Long
+  overload: MonoTorrent.Dht.ITransferMonitor.UploadRate*
+references:
+- uid: MonoTorrent.Dht
+  commentId: N:MonoTorrent.Dht
+  href: MonoTorrent.html
+  name: MonoTorrent.Dht
+  nameWithType: MonoTorrent.Dht
+  fullName: MonoTorrent.Dht
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Dht
+    name: Dht
+    href: MonoTorrent.Dht.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Dht
+    name: Dht
+    href: MonoTorrent.Dht.html
+- uid: MonoTorrent.Dht.ITransferMonitor.BytesSent*
+  commentId: Overload:MonoTorrent.Dht.ITransferMonitor.BytesSent
+  href: MonoTorrent.Dht.ITransferMonitor.html#MonoTorrent_Dht_ITransferMonitor_BytesSent
+  name: BytesSent
+  nameWithType: ITransferMonitor.BytesSent
+  fullName: MonoTorrent.Dht.ITransferMonitor.BytesSent
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Dht.ITransferMonitor.BytesReceived*
+  commentId: Overload:MonoTorrent.Dht.ITransferMonitor.BytesReceived
+  href: MonoTorrent.Dht.ITransferMonitor.html#MonoTorrent_Dht_ITransferMonitor_BytesReceived
+  name: BytesReceived
+  nameWithType: ITransferMonitor.BytesReceived
+  fullName: MonoTorrent.Dht.ITransferMonitor.BytesReceived
+- uid: MonoTorrent.Dht.ITransferMonitor.DownloadRate*
+  commentId: Overload:MonoTorrent.Dht.ITransferMonitor.DownloadRate
+  href: MonoTorrent.Dht.ITransferMonitor.html#MonoTorrent_Dht_ITransferMonitor_DownloadRate
+  name: DownloadRate
+  nameWithType: ITransferMonitor.DownloadRate
+  fullName: MonoTorrent.Dht.ITransferMonitor.DownloadRate
+- uid: MonoTorrent.Dht.ITransferMonitor.UploadRate*
+  commentId: Overload:MonoTorrent.Dht.ITransferMonitor.UploadRate
+  href: MonoTorrent.Dht.ITransferMonitor.html#MonoTorrent_Dht_ITransferMonitor_UploadRate
+  name: UploadRate
+  nameWithType: ITransferMonitor.UploadRate
+  fullName: MonoTorrent.Dht.ITransferMonitor.UploadRate

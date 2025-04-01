@@ -1,0 +1,1133 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.ITorrentInfo
+  commentId: T:MonoTorrent.ITorrentInfo
+  id: ITorrentInfo
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.ITorrentInfo.Files
+  - MonoTorrent.ITorrentInfo.InfoHashes
+  - MonoTorrent.ITorrentInfo.Name
+  - MonoTorrent.ITorrentInfo.PieceLength
+  - MonoTorrent.ITorrentInfo.Size
+  langs:
+  - csharp
+  - vb
+  name: ITorrentInfo
+  nameWithType: ITorrentInfo
+  fullName: MonoTorrent.ITorrentInfo
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ITorrentInfo
+    path: src/ITorrentInfo.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public interface ITorrentInfo
+    content.vb: Public Interface ITorrentInfo
+  extensionMethods:
+  - MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.BlocksPerPiece(System.Int32)
+  - MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.ByteOffsetToBlockInfo(System.Int64,System.Int32)
+  - MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.ByteOffsetToPieceIndex(System.Int64)
+  - MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.BytesPerBlock(System.Int32,System.Int32)
+  - MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.BytesPerPiece(System.Int32)
+  - MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV1(System.Int32)
+  - MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV2(System.Int32)
+  - MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.PieceCount
+  - MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.PieceIndexToByteOffset(System.Int32)
+- uid: MonoTorrent.ITorrentInfo.Files
+  commentId: P:MonoTorrent.ITorrentInfo.Files
+  id: Files
+  parent: MonoTorrent.ITorrentInfo
+  langs:
+  - csharp
+  - vb
+  name: Files
+  nameWithType: ITorrentInfo.Files
+  fullName: MonoTorrent.ITorrentInfo.Files
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Files
+    path: src/ITorrentInfo.cs
+    startLine: 40
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The files contained within the Torrent
+  example: []
+  syntax:
+    content: IList<ITorrentFile> Files { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{MonoTorrent.ITorrentFile}
+    content.vb: ReadOnly Property Files As IList(Of ITorrentFile)
+  overload: MonoTorrent.ITorrentInfo.Files*
+- uid: MonoTorrent.ITorrentInfo.InfoHashes
+  commentId: P:MonoTorrent.ITorrentInfo.InfoHashes
+  id: InfoHashes
+  parent: MonoTorrent.ITorrentInfo
+  langs:
+  - csharp
+  - vb
+  name: InfoHashes
+  nameWithType: ITorrentInfo.InfoHashes
+  fullName: MonoTorrent.ITorrentInfo.InfoHashes
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: InfoHashes
+    path: src/ITorrentInfo.cs
+    startLine: 45
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The infohashes for this torrent.
+  example: []
+  syntax:
+    content: InfoHashes InfoHashes { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.InfoHashes
+    content.vb: ReadOnly Property InfoHashes As InfoHashes
+  overload: MonoTorrent.ITorrentInfo.InfoHashes*
+- uid: MonoTorrent.ITorrentInfo.Name
+  commentId: P:MonoTorrent.ITorrentInfo.Name
+  id: Name
+  parent: MonoTorrent.ITorrentInfo
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ITorrentInfo.Name
+  fullName: MonoTorrent.ITorrentInfo.Name
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Name
+    path: src/ITorrentInfo.cs
+    startLine: 50
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The name of the Torrent.
+  example: []
+  syntax:
+    content: string? Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Name As String
+  overload: MonoTorrent.ITorrentInfo.Name*
+- uid: MonoTorrent.ITorrentInfo.PieceLength
+  commentId: P:MonoTorrent.ITorrentInfo.PieceLength
+  id: PieceLength
+  parent: MonoTorrent.ITorrentInfo
+  langs:
+  - csharp
+  - vb
+  name: PieceLength
+  nameWithType: ITorrentInfo.PieceLength
+  fullName: MonoTorrent.ITorrentInfo.PieceLength
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PieceLength
+    path: src/ITorrentInfo.cs
+    startLine: 55
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The size, in bytes, of each piece. The final piece may be smaller.
+  example: []
+  syntax:
+    content: int PieceLength { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property PieceLength As Integer
+  overload: MonoTorrent.ITorrentInfo.PieceLength*
+- uid: MonoTorrent.ITorrentInfo.Size
+  commentId: P:MonoTorrent.ITorrentInfo.Size
+  id: Size
+  parent: MonoTorrent.ITorrentInfo
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: ITorrentInfo.Size
+  fullName: MonoTorrent.ITorrentInfo.Size
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentInfo.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Size
+    path: src/ITorrentInfo.cs
+    startLine: 60
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: The size, in bytes, of the torrent.
+  example: []
+  syntax:
+    content: long Size { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: ReadOnly Property Size As Long
+  overload: MonoTorrent.ITorrentInfo.Size*
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.BlocksPerPiece(System.Int32)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.BlocksPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+  parent: MonoTorrent.ITorrentInfoExtensions
+  definition: MonoTorrent.ITorrentInfoExtensions.BlocksPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BlocksPerPiece_MonoTorrent_ITorrentInfo_System_Int32_
+  name: BlocksPerPiece(ITorrentInfo, int)
+  nameWithType: ITorrentInfoExtensions.BlocksPerPiece(ITorrentInfo, int)
+  fullName: MonoTorrent.ITorrentInfoExtensions.BlocksPerPiece(MonoTorrent.ITorrentInfo, int)
+  nameWithType.vb: ITorrentInfoExtensions.BlocksPerPiece(ITorrentInfo, Integer)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.BlocksPerPiece(MonoTorrent.ITorrentInfo, Integer)
+  name.vb: BlocksPerPiece(ITorrentInfo, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BlocksPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BlocksPerPiece
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BlocksPerPiece_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BlocksPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BlocksPerPiece
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BlocksPerPiece_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.ByteOffsetToBlockInfo(System.Int64,System.Int32)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.ByteOffsetToBlockInfo(MonoTorrent.ITorrentInfo,System.Int64,System.Int32)
+  parent: MonoTorrent.ITorrentInfoExtensions
+  definition: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToBlockInfo(MonoTorrent.ITorrentInfo,System.Int64,System.Int32)
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_ByteOffsetToBlockInfo_MonoTorrent_ITorrentInfo_System_Int64_System_Int32_
+  name: ByteOffsetToBlockInfo(ITorrentInfo, long, int)
+  nameWithType: ITorrentInfoExtensions.ByteOffsetToBlockInfo(ITorrentInfo, long, int)
+  fullName: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToBlockInfo(MonoTorrent.ITorrentInfo, long, int)
+  nameWithType.vb: ITorrentInfoExtensions.ByteOffsetToBlockInfo(ITorrentInfo, Long, Integer)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToBlockInfo(MonoTorrent.ITorrentInfo, Long, Integer)
+  name.vb: ByteOffsetToBlockInfo(ITorrentInfo, Long, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToBlockInfo(MonoTorrent.ITorrentInfo,System.Int64,System.Int32)
+    name: ByteOffsetToBlockInfo
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_ByteOffsetToBlockInfo_MonoTorrent_ITorrentInfo_System_Int64_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToBlockInfo(MonoTorrent.ITorrentInfo,System.Int64,System.Int32)
+    name: ByteOffsetToBlockInfo
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_ByteOffsetToBlockInfo_MonoTorrent_ITorrentInfo_System_Int64_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.ByteOffsetToPieceIndex(System.Int64)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.ByteOffsetToPieceIndex(MonoTorrent.ITorrentInfo,System.Int64)
+  parent: MonoTorrent.ITorrentInfoExtensions
+  definition: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToPieceIndex(MonoTorrent.ITorrentInfo,System.Int64)
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_ByteOffsetToPieceIndex_MonoTorrent_ITorrentInfo_System_Int64_
+  name: ByteOffsetToPieceIndex(ITorrentInfo, long)
+  nameWithType: ITorrentInfoExtensions.ByteOffsetToPieceIndex(ITorrentInfo, long)
+  fullName: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToPieceIndex(MonoTorrent.ITorrentInfo, long)
+  nameWithType.vb: ITorrentInfoExtensions.ByteOffsetToPieceIndex(ITorrentInfo, Long)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToPieceIndex(MonoTorrent.ITorrentInfo, Long)
+  name.vb: ByteOffsetToPieceIndex(ITorrentInfo, Long)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToPieceIndex(MonoTorrent.ITorrentInfo,System.Int64)
+    name: ByteOffsetToPieceIndex
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_ByteOffsetToPieceIndex_MonoTorrent_ITorrentInfo_System_Int64_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToPieceIndex(MonoTorrent.ITorrentInfo,System.Int64)
+    name: ByteOffsetToPieceIndex
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_ByteOffsetToPieceIndex_MonoTorrent_ITorrentInfo_System_Int64_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+- uid: MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.BytesPerBlock(System.Int32,System.Int32)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.BytesPerBlock(MonoTorrent.ITorrentInfo,System.Int32,System.Int32)
+  parent: MonoTorrent.ITorrentInfoExtensions
+  definition: MonoTorrent.ITorrentInfoExtensions.BytesPerBlock(MonoTorrent.ITorrentInfo,System.Int32,System.Int32)
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerBlock_MonoTorrent_ITorrentInfo_System_Int32_System_Int32_
+  name: BytesPerBlock(ITorrentInfo, int, int)
+  nameWithType: ITorrentInfoExtensions.BytesPerBlock(ITorrentInfo, int, int)
+  fullName: MonoTorrent.ITorrentInfoExtensions.BytesPerBlock(MonoTorrent.ITorrentInfo, int, int)
+  nameWithType.vb: ITorrentInfoExtensions.BytesPerBlock(ITorrentInfo, Integer, Integer)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.BytesPerBlock(MonoTorrent.ITorrentInfo, Integer, Integer)
+  name.vb: BytesPerBlock(ITorrentInfo, Integer, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerBlock(MonoTorrent.ITorrentInfo,System.Int32,System.Int32)
+    name: BytesPerBlock
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerBlock_MonoTorrent_ITorrentInfo_System_Int32_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerBlock(MonoTorrent.ITorrentInfo,System.Int32,System.Int32)
+    name: BytesPerBlock
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerBlock_MonoTorrent_ITorrentInfo_System_Int32_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.BytesPerPiece(System.Int32)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.BytesPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+  parent: MonoTorrent.ITorrentInfoExtensions
+  definition: MonoTorrent.ITorrentInfoExtensions.BytesPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPiece_MonoTorrent_ITorrentInfo_System_Int32_
+  name: BytesPerPiece(ITorrentInfo, int)
+  nameWithType: ITorrentInfoExtensions.BytesPerPiece(ITorrentInfo, int)
+  fullName: MonoTorrent.ITorrentInfoExtensions.BytesPerPiece(MonoTorrent.ITorrentInfo, int)
+  nameWithType.vb: ITorrentInfoExtensions.BytesPerPiece(ITorrentInfo, Integer)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.BytesPerPiece(MonoTorrent.ITorrentInfo, Integer)
+  name.vb: BytesPerPiece(ITorrentInfo, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BytesPerPiece
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPiece_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BytesPerPiece
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPiece_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV1(System.Int32)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV1(MonoTorrent.ITorrentInfo,System.Int32)
+  parent: MonoTorrent.ITorrentInfoExtensions
+  definition: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV1(MonoTorrent.ITorrentInfo,System.Int32)
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPieceV1_MonoTorrent_ITorrentInfo_System_Int32_
+  name: BytesPerPieceV1(ITorrentInfo, int)
+  nameWithType: ITorrentInfoExtensions.BytesPerPieceV1(ITorrentInfo, int)
+  fullName: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV1(MonoTorrent.ITorrentInfo, int)
+  nameWithType.vb: ITorrentInfoExtensions.BytesPerPieceV1(ITorrentInfo, Integer)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV1(MonoTorrent.ITorrentInfo, Integer)
+  name.vb: BytesPerPieceV1(ITorrentInfo, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV1(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BytesPerPieceV1
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPieceV1_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV1(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BytesPerPieceV1
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPieceV1_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV2(System.Int32)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV2(MonoTorrent.ITorrentInfo,System.Int32)
+  parent: MonoTorrent.ITorrentInfoExtensions
+  definition: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV2(MonoTorrent.ITorrentInfo,System.Int32)
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPieceV2_MonoTorrent_ITorrentInfo_System_Int32_
+  name: BytesPerPieceV2(ITorrentInfo, int)
+  nameWithType: ITorrentInfoExtensions.BytesPerPieceV2(ITorrentInfo, int)
+  fullName: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV2(MonoTorrent.ITorrentInfo, int)
+  nameWithType.vb: ITorrentInfoExtensions.BytesPerPieceV2(ITorrentInfo, Integer)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV2(MonoTorrent.ITorrentInfo, Integer)
+  name.vb: BytesPerPieceV2(ITorrentInfo, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV2(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BytesPerPieceV2
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPieceV2_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV2(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BytesPerPieceV2
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPieceV2_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.PieceCount
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.PieceCount(MonoTorrent.ITorrentInfo)
+  parent: MonoTorrent.ITorrentInfoExtensions
+  definition: MonoTorrent.ITorrentInfoExtensions.PieceCount(MonoTorrent.ITorrentInfo)
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_PieceCount_MonoTorrent_ITorrentInfo_
+  name: PieceCount(ITorrentInfo)
+  nameWithType: ITorrentInfoExtensions.PieceCount(ITorrentInfo)
+  fullName: MonoTorrent.ITorrentInfoExtensions.PieceCount(MonoTorrent.ITorrentInfo)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.PieceCount(MonoTorrent.ITorrentInfo)
+    name: PieceCount
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_PieceCount_MonoTorrent_ITorrentInfo_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.PieceCount(MonoTorrent.ITorrentInfo)
+    name: PieceCount
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_PieceCount_MonoTorrent_ITorrentInfo_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: )
+- uid: MonoTorrent.ITorrentInfo.MonoTorrent.ITorrentInfoExtensions.PieceIndexToByteOffset(System.Int32)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.PieceIndexToByteOffset(MonoTorrent.ITorrentInfo,System.Int32)
+  parent: MonoTorrent.ITorrentInfoExtensions
+  definition: MonoTorrent.ITorrentInfoExtensions.PieceIndexToByteOffset(MonoTorrent.ITorrentInfo,System.Int32)
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_PieceIndexToByteOffset_MonoTorrent_ITorrentInfo_System_Int32_
+  name: PieceIndexToByteOffset(ITorrentInfo, int)
+  nameWithType: ITorrentInfoExtensions.PieceIndexToByteOffset(ITorrentInfo, int)
+  fullName: MonoTorrent.ITorrentInfoExtensions.PieceIndexToByteOffset(MonoTorrent.ITorrentInfo, int)
+  nameWithType.vb: ITorrentInfoExtensions.PieceIndexToByteOffset(ITorrentInfo, Integer)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.PieceIndexToByteOffset(MonoTorrent.ITorrentInfo, Integer)
+  name.vb: PieceIndexToByteOffset(ITorrentInfo, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.PieceIndexToByteOffset(MonoTorrent.ITorrentInfo,System.Int32)
+    name: PieceIndexToByteOffset
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_PieceIndexToByteOffset_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.PieceIndexToByteOffset(MonoTorrent.ITorrentInfo,System.Int32)
+    name: PieceIndexToByteOffset
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_PieceIndexToByteOffset_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.ITorrentInfoExtensions.BlocksPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.BlocksPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+  isExternal: true
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BlocksPerPiece_MonoTorrent_ITorrentInfo_System_Int32_
+  name: BlocksPerPiece(ITorrentInfo, int)
+  nameWithType: ITorrentInfoExtensions.BlocksPerPiece(ITorrentInfo, int)
+  fullName: MonoTorrent.ITorrentInfoExtensions.BlocksPerPiece(MonoTorrent.ITorrentInfo, int)
+  nameWithType.vb: ITorrentInfoExtensions.BlocksPerPiece(ITorrentInfo, Integer)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.BlocksPerPiece(MonoTorrent.ITorrentInfo, Integer)
+  name.vb: BlocksPerPiece(ITorrentInfo, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BlocksPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BlocksPerPiece
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BlocksPerPiece_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BlocksPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BlocksPerPiece
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BlocksPerPiece_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.ITorrentInfoExtensions
+  commentId: T:MonoTorrent.ITorrentInfoExtensions
+  parent: MonoTorrent
+  href: MonoTorrent.ITorrentInfoExtensions.html
+  name: ITorrentInfoExtensions
+  nameWithType: ITorrentInfoExtensions
+  fullName: MonoTorrent.ITorrentInfoExtensions
+- uid: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToBlockInfo(MonoTorrent.ITorrentInfo,System.Int64,System.Int32)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.ByteOffsetToBlockInfo(MonoTorrent.ITorrentInfo,System.Int64,System.Int32)
+  isExternal: true
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_ByteOffsetToBlockInfo_MonoTorrent_ITorrentInfo_System_Int64_System_Int32_
+  name: ByteOffsetToBlockInfo(ITorrentInfo, long, int)
+  nameWithType: ITorrentInfoExtensions.ByteOffsetToBlockInfo(ITorrentInfo, long, int)
+  fullName: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToBlockInfo(MonoTorrent.ITorrentInfo, long, int)
+  nameWithType.vb: ITorrentInfoExtensions.ByteOffsetToBlockInfo(ITorrentInfo, Long, Integer)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToBlockInfo(MonoTorrent.ITorrentInfo, Long, Integer)
+  name.vb: ByteOffsetToBlockInfo(ITorrentInfo, Long, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToBlockInfo(MonoTorrent.ITorrentInfo,System.Int64,System.Int32)
+    name: ByteOffsetToBlockInfo
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_ByteOffsetToBlockInfo_MonoTorrent_ITorrentInfo_System_Int64_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToBlockInfo(MonoTorrent.ITorrentInfo,System.Int64,System.Int32)
+    name: ByteOffsetToBlockInfo
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_ByteOffsetToBlockInfo_MonoTorrent_ITorrentInfo_System_Int64_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToPieceIndex(MonoTorrent.ITorrentInfo,System.Int64)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.ByteOffsetToPieceIndex(MonoTorrent.ITorrentInfo,System.Int64)
+  isExternal: true
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_ByteOffsetToPieceIndex_MonoTorrent_ITorrentInfo_System_Int64_
+  name: ByteOffsetToPieceIndex(ITorrentInfo, long)
+  nameWithType: ITorrentInfoExtensions.ByteOffsetToPieceIndex(ITorrentInfo, long)
+  fullName: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToPieceIndex(MonoTorrent.ITorrentInfo, long)
+  nameWithType.vb: ITorrentInfoExtensions.ByteOffsetToPieceIndex(ITorrentInfo, Long)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToPieceIndex(MonoTorrent.ITorrentInfo, Long)
+  name.vb: ByteOffsetToPieceIndex(ITorrentInfo, Long)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToPieceIndex(MonoTorrent.ITorrentInfo,System.Int64)
+    name: ByteOffsetToPieceIndex
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_ByteOffsetToPieceIndex_MonoTorrent_ITorrentInfo_System_Int64_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.ByteOffsetToPieceIndex(MonoTorrent.ITorrentInfo,System.Int64)
+    name: ByteOffsetToPieceIndex
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_ByteOffsetToPieceIndex_MonoTorrent_ITorrentInfo_System_Int64_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+- uid: MonoTorrent.ITorrentInfoExtensions.BytesPerBlock(MonoTorrent.ITorrentInfo,System.Int32,System.Int32)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.BytesPerBlock(MonoTorrent.ITorrentInfo,System.Int32,System.Int32)
+  isExternal: true
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerBlock_MonoTorrent_ITorrentInfo_System_Int32_System_Int32_
+  name: BytesPerBlock(ITorrentInfo, int, int)
+  nameWithType: ITorrentInfoExtensions.BytesPerBlock(ITorrentInfo, int, int)
+  fullName: MonoTorrent.ITorrentInfoExtensions.BytesPerBlock(MonoTorrent.ITorrentInfo, int, int)
+  nameWithType.vb: ITorrentInfoExtensions.BytesPerBlock(ITorrentInfo, Integer, Integer)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.BytesPerBlock(MonoTorrent.ITorrentInfo, Integer, Integer)
+  name.vb: BytesPerBlock(ITorrentInfo, Integer, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerBlock(MonoTorrent.ITorrentInfo,System.Int32,System.Int32)
+    name: BytesPerBlock
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerBlock_MonoTorrent_ITorrentInfo_System_Int32_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerBlock(MonoTorrent.ITorrentInfo,System.Int32,System.Int32)
+    name: BytesPerBlock
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerBlock_MonoTorrent_ITorrentInfo_System_Int32_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.BytesPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+  isExternal: true
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPiece_MonoTorrent_ITorrentInfo_System_Int32_
+  name: BytesPerPiece(ITorrentInfo, int)
+  nameWithType: ITorrentInfoExtensions.BytesPerPiece(ITorrentInfo, int)
+  fullName: MonoTorrent.ITorrentInfoExtensions.BytesPerPiece(MonoTorrent.ITorrentInfo, int)
+  nameWithType.vb: ITorrentInfoExtensions.BytesPerPiece(ITorrentInfo, Integer)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.BytesPerPiece(MonoTorrent.ITorrentInfo, Integer)
+  name.vb: BytesPerPiece(ITorrentInfo, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BytesPerPiece
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPiece_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPiece(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BytesPerPiece
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPiece_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV1(MonoTorrent.ITorrentInfo,System.Int32)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV1(MonoTorrent.ITorrentInfo,System.Int32)
+  isExternal: true
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPieceV1_MonoTorrent_ITorrentInfo_System_Int32_
+  name: BytesPerPieceV1(ITorrentInfo, int)
+  nameWithType: ITorrentInfoExtensions.BytesPerPieceV1(ITorrentInfo, int)
+  fullName: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV1(MonoTorrent.ITorrentInfo, int)
+  nameWithType.vb: ITorrentInfoExtensions.BytesPerPieceV1(ITorrentInfo, Integer)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV1(MonoTorrent.ITorrentInfo, Integer)
+  name.vb: BytesPerPieceV1(ITorrentInfo, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV1(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BytesPerPieceV1
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPieceV1_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV1(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BytesPerPieceV1
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPieceV1_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV2(MonoTorrent.ITorrentInfo,System.Int32)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV2(MonoTorrent.ITorrentInfo,System.Int32)
+  isExternal: true
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPieceV2_MonoTorrent_ITorrentInfo_System_Int32_
+  name: BytesPerPieceV2(ITorrentInfo, int)
+  nameWithType: ITorrentInfoExtensions.BytesPerPieceV2(ITorrentInfo, int)
+  fullName: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV2(MonoTorrent.ITorrentInfo, int)
+  nameWithType.vb: ITorrentInfoExtensions.BytesPerPieceV2(ITorrentInfo, Integer)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV2(MonoTorrent.ITorrentInfo, Integer)
+  name.vb: BytesPerPieceV2(ITorrentInfo, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV2(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BytesPerPieceV2
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPieceV2_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.BytesPerPieceV2(MonoTorrent.ITorrentInfo,System.Int32)
+    name: BytesPerPieceV2
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_BytesPerPieceV2_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.ITorrentInfoExtensions.PieceCount(MonoTorrent.ITorrentInfo)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.PieceCount(MonoTorrent.ITorrentInfo)
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_PieceCount_MonoTorrent_ITorrentInfo_
+  name: PieceCount(ITorrentInfo)
+  nameWithType: ITorrentInfoExtensions.PieceCount(ITorrentInfo)
+  fullName: MonoTorrent.ITorrentInfoExtensions.PieceCount(MonoTorrent.ITorrentInfo)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.PieceCount(MonoTorrent.ITorrentInfo)
+    name: PieceCount
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_PieceCount_MonoTorrent_ITorrentInfo_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.PieceCount(MonoTorrent.ITorrentInfo)
+    name: PieceCount
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_PieceCount_MonoTorrent_ITorrentInfo_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: )
+- uid: MonoTorrent.ITorrentInfoExtensions.PieceIndexToByteOffset(MonoTorrent.ITorrentInfo,System.Int32)
+  commentId: M:MonoTorrent.ITorrentInfoExtensions.PieceIndexToByteOffset(MonoTorrent.ITorrentInfo,System.Int32)
+  isExternal: true
+  href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_PieceIndexToByteOffset_MonoTorrent_ITorrentInfo_System_Int32_
+  name: PieceIndexToByteOffset(ITorrentInfo, int)
+  nameWithType: ITorrentInfoExtensions.PieceIndexToByteOffset(ITorrentInfo, int)
+  fullName: MonoTorrent.ITorrentInfoExtensions.PieceIndexToByteOffset(MonoTorrent.ITorrentInfo, int)
+  nameWithType.vb: ITorrentInfoExtensions.PieceIndexToByteOffset(ITorrentInfo, Integer)
+  fullName.vb: MonoTorrent.ITorrentInfoExtensions.PieceIndexToByteOffset(MonoTorrent.ITorrentInfo, Integer)
+  name.vb: PieceIndexToByteOffset(ITorrentInfo, Integer)
+  spec.csharp:
+  - uid: MonoTorrent.ITorrentInfoExtensions.PieceIndexToByteOffset(MonoTorrent.ITorrentInfo,System.Int32)
+    name: PieceIndexToByteOffset
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_PieceIndexToByteOffset_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.ITorrentInfoExtensions.PieceIndexToByteOffset(MonoTorrent.ITorrentInfo,System.Int32)
+    name: PieceIndexToByteOffset
+    href: MonoTorrent.ITorrentInfoExtensions.html#MonoTorrent_ITorrentInfoExtensions_PieceIndexToByteOffset_MonoTorrent_ITorrentInfo_System_Int32_
+  - name: (
+  - uid: MonoTorrent.ITorrentInfo
+    name: ITorrentInfo
+    href: MonoTorrent.ITorrentInfo.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: MonoTorrent.ITorrentInfo.Files*
+  commentId: Overload:MonoTorrent.ITorrentInfo.Files
+  href: MonoTorrent.ITorrentInfo.html#MonoTorrent_ITorrentInfo_Files
+  name: Files
+  nameWithType: ITorrentInfo.Files
+  fullName: MonoTorrent.ITorrentInfo.Files
+- uid: System.Collections.Generic.IList{MonoTorrent.ITorrentFile}
+  commentId: T:System.Collections.Generic.IList{MonoTorrent.ITorrentFile}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<ITorrentFile>
+  nameWithType: IList<ITorrentFile>
+  fullName: System.Collections.Generic.IList<MonoTorrent.ITorrentFile>
+  nameWithType.vb: IList(Of ITorrentFile)
+  fullName.vb: System.Collections.Generic.IList(Of MonoTorrent.ITorrentFile)
+  name.vb: IList(Of ITorrentFile)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: MonoTorrent.ITorrentFile
+    name: ITorrentFile
+    href: MonoTorrent.ITorrentFile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.ITorrentFile
+    name: ITorrentFile
+    href: MonoTorrent.ITorrentFile.html
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: MonoTorrent.ITorrentInfo.InfoHashes*
+  commentId: Overload:MonoTorrent.ITorrentInfo.InfoHashes
+  href: MonoTorrent.ITorrentInfo.html#MonoTorrent_ITorrentInfo_InfoHashes
+  name: InfoHashes
+  nameWithType: ITorrentInfo.InfoHashes
+  fullName: MonoTorrent.ITorrentInfo.InfoHashes
+- uid: MonoTorrent.InfoHashes
+  commentId: T:MonoTorrent.InfoHashes
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHashes.html
+  name: InfoHashes
+  nameWithType: InfoHashes
+  fullName: MonoTorrent.InfoHashes
+- uid: MonoTorrent.ITorrentInfo.Name*
+  commentId: Overload:MonoTorrent.ITorrentInfo.Name
+  href: MonoTorrent.ITorrentInfo.html#MonoTorrent_ITorrentInfo_Name
+  name: Name
+  nameWithType: ITorrentInfo.Name
+  fullName: MonoTorrent.ITorrentInfo.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.ITorrentInfo.PieceLength*
+  commentId: Overload:MonoTorrent.ITorrentInfo.PieceLength
+  href: MonoTorrent.ITorrentInfo.html#MonoTorrent_ITorrentInfo_PieceLength
+  name: PieceLength
+  nameWithType: ITorrentInfo.PieceLength
+  fullName: MonoTorrent.ITorrentInfo.PieceLength
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: MonoTorrent.ITorrentInfo.Size*
+  commentId: Overload:MonoTorrent.ITorrentInfo.Size
+  href: MonoTorrent.ITorrentInfo.html#MonoTorrent_ITorrentInfo_Size
+  name: Size
+  nameWithType: ITorrentInfo.Size
+  fullName: MonoTorrent.ITorrentInfo.Size
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long

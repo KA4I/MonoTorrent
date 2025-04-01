@@ -1,0 +1,158 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.TorrentType
+  commentId: T:MonoTorrent.TorrentType
+  id: TorrentType
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.TorrentType.V1Only
+  - MonoTorrent.TorrentType.V1OnlyWithPaddingFiles
+  - MonoTorrent.TorrentType.V1V2Hybrid
+  - MonoTorrent.TorrentType.V2Only
+  langs:
+  - csharp
+  - vb
+  name: TorrentType
+  nameWithType: TorrentType
+  fullName: MonoTorrent.TorrentType
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentType.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentType
+    path: src/TorrentType.cs
+    startLine: 31
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public enum TorrentType
+    content.vb: Public Enum TorrentType
+- uid: MonoTorrent.TorrentType.V1Only
+  commentId: F:MonoTorrent.TorrentType.V1Only
+  id: V1Only
+  parent: MonoTorrent.TorrentType
+  langs:
+  - csharp
+  - vb
+  name: V1Only
+  nameWithType: TorrentType.V1Only
+  fullName: MonoTorrent.TorrentType.V1Only
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentType.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: V1Only
+    path: src/TorrentType.cs
+    startLine: 36
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: Generates a V1 compatible torrent.
+  example: []
+  syntax:
+    content: V1Only = 0
+    return:
+      type: MonoTorrent.TorrentType
+- uid: MonoTorrent.TorrentType.V1OnlyWithPaddingFiles
+  commentId: F:MonoTorrent.TorrentType.V1OnlyWithPaddingFiles
+  id: V1OnlyWithPaddingFiles
+  parent: MonoTorrent.TorrentType
+  langs:
+  - csharp
+  - vb
+  name: V1OnlyWithPaddingFiles
+  nameWithType: TorrentType.V1OnlyWithPaddingFiles
+  fullName: MonoTorrent.TorrentType.V1OnlyWithPaddingFiles
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentType.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: V1OnlyWithPaddingFiles
+    path: src/TorrentType.cs
+    startLine: 40
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: A torrent file with BitTorrent V1 metadata. All files are padded so they align to piece boundaries.
+  example: []
+  syntax:
+    content: V1OnlyWithPaddingFiles = 1
+    return:
+      type: MonoTorrent.TorrentType
+- uid: MonoTorrent.TorrentType.V1V2Hybrid
+  commentId: F:MonoTorrent.TorrentType.V1V2Hybrid
+  id: V1V2Hybrid
+  parent: MonoTorrent.TorrentType
+  langs:
+  - csharp
+  - vb
+  name: V1V2Hybrid
+  nameWithType: TorrentType.V1V2Hybrid
+  fullName: MonoTorrent.TorrentType.V1V2Hybrid
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentType.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: V1V2Hybrid
+    path: src/TorrentType.cs
+    startLine: 44
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: A torrent file with BitTorrent V1 and BitTorrent V2 metadata
+  example: []
+  syntax:
+    content: V1V2Hybrid = 2
+    return:
+      type: MonoTorrent.TorrentType
+- uid: MonoTorrent.TorrentType.V2Only
+  commentId: F:MonoTorrent.TorrentType.V2Only
+  id: V2Only
+  parent: MonoTorrent.TorrentType
+  langs:
+  - csharp
+  - vb
+  name: V2Only
+  nameWithType: TorrentType.V2Only
+  fullName: MonoTorrent.TorrentType.V2Only
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/TorrentType.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: V2Only
+    path: src/TorrentType.cs
+    startLine: 48
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  summary: A torrent file with BitTorrent V2 metadata
+  example: []
+  syntax:
+    content: V2Only = 3
+    return:
+      type: MonoTorrent.TorrentType
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.TorrentType
+  commentId: T:MonoTorrent.TorrentType
+  parent: MonoTorrent
+  href: MonoTorrent.TorrentType.html
+  name: TorrentType
+  nameWithType: TorrentType
+  fullName: MonoTorrent.TorrentType

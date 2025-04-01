@@ -29,6 +29,7 @@
 
 using System;
 using System.Net;
+using System.Net.Sockets;
 using System.Threading;
 
 using MonoTorrent.BEncoding;
@@ -102,7 +103,19 @@ namespace MonoTorrent.Connections.TrackerServer
                 try {
                     if (context.Request.RawUrl is null || context.Request.Url is null)
                         throw new ArgumentException ();
+                        
+                    // Get the client's address family from the remote endpoint
+                    AddressFamily requestedFamily = context.Request.RemoteEndPoint.Address.AddressFamily;
+                    
+                    // Process the request
                     var responseData = Handle (context.Request.RawUrl, context.Request.RemoteEndPoint.Address, isScrape);
+                    
+                    // Set the address family in the response, so peers can be filtered correctly
+                    if (responseData is BEncodedDictionary dict && !isScrape) {
+                        // Add a hint about which address family was requested
+                        dict.Add(new BEncodedString("requested_family"), new BEncodedString(requestedFamily.ToString()));
+                    }
+                    
                     response = responseData.Encode ();
                     statusCode = (int) HttpStatusCode.OK;
                 } catch (Exception ex) {

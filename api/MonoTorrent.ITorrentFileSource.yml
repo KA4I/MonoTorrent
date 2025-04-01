@@ -1,0 +1,223 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.ITorrentFileSource
+  commentId: T:MonoTorrent.ITorrentFileSource
+  id: ITorrentFileSource
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.ITorrentFileSource.Files
+  - MonoTorrent.ITorrentFileSource.TorrentName
+  langs:
+  - csharp
+  - vb
+  name: ITorrentFileSource
+  nameWithType: ITorrentFileSource
+  fullName: MonoTorrent.ITorrentFileSource
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFileSource.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ITorrentFileSource
+    path: src/ITorrentFileSource.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public interface ITorrentFileSource
+    content.vb: Public Interface ITorrentFileSource
+- uid: MonoTorrent.ITorrentFileSource.Files
+  commentId: P:MonoTorrent.ITorrentFileSource.Files
+  id: Files
+  parent: MonoTorrent.ITorrentFileSource
+  langs:
+  - csharp
+  - vb
+  name: Files
+  nameWithType: ITorrentFileSource.Files
+  fullName: MonoTorrent.ITorrentFileSource.Files
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFileSource.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Files
+    path: src/ITorrentFileSource.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: IEnumerable<FileMapping> Files { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{MonoTorrent.FileMapping}
+    content.vb: ReadOnly Property Files As IEnumerable(Of FileMapping)
+  overload: MonoTorrent.ITorrentFileSource.Files*
+- uid: MonoTorrent.ITorrentFileSource.TorrentName
+  commentId: P:MonoTorrent.ITorrentFileSource.TorrentName
+  id: TorrentName
+  parent: MonoTorrent.ITorrentFileSource
+  langs:
+  - csharp
+  - vb
+  name: TorrentName
+  nameWithType: ITorrentFileSource.TorrentName
+  fullName: MonoTorrent.ITorrentFileSource.TorrentName
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/ITorrentFileSource.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TorrentName
+    path: src/ITorrentFileSource.cs
+    startLine: 36
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: string TorrentName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property TorrentName As String
+  overload: MonoTorrent.ITorrentFileSource.TorrentName*
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: MonoTorrent.ITorrentFileSource.Files*
+  commentId: Overload:MonoTorrent.ITorrentFileSource.Files
+  href: MonoTorrent.ITorrentFileSource.html#MonoTorrent_ITorrentFileSource_Files
+  name: Files
+  nameWithType: ITorrentFileSource.Files
+  fullName: MonoTorrent.ITorrentFileSource.Files
+- uid: System.Collections.Generic.IEnumerable{MonoTorrent.FileMapping}
+  commentId: T:System.Collections.Generic.IEnumerable{MonoTorrent.FileMapping}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<FileMapping>
+  nameWithType: IEnumerable<FileMapping>
+  fullName: System.Collections.Generic.IEnumerable<MonoTorrent.FileMapping>
+  nameWithType.vb: IEnumerable(Of FileMapping)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of MonoTorrent.FileMapping)
+  name.vb: IEnumerable(Of FileMapping)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: MonoTorrent.FileMapping
+    name: FileMapping
+    href: MonoTorrent.FileMapping.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MonoTorrent.FileMapping
+    name: FileMapping
+    href: MonoTorrent.FileMapping.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: MonoTorrent.ITorrentFileSource.TorrentName*
+  commentId: Overload:MonoTorrent.ITorrentFileSource.TorrentName
+  href: MonoTorrent.ITorrentFileSource.html#MonoTorrent_ITorrentFileSource_TorrentName
+  name: TorrentName
+  nameWithType: ITorrentFileSource.TorrentName
+  fullName: MonoTorrent.ITorrentFileSource.TorrentName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

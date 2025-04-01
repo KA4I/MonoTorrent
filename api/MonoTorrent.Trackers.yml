@@ -1,0 +1,150 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Trackers
+  commentId: N:MonoTorrent.Trackers
+  id: MonoTorrent.Trackers
+  children:
+  - MonoTorrent.Trackers.AnnounceRequest
+  - MonoTorrent.Trackers.AnnounceResponse
+  - MonoTorrent.Trackers.AnnounceResponseEventArgs
+  - MonoTorrent.Trackers.ITracker
+  - MonoTorrent.Trackers.ITrackerManager
+  - MonoTorrent.Trackers.ScrapeInfo
+  - MonoTorrent.Trackers.ScrapeRequest
+  - MonoTorrent.Trackers.ScrapeResponse
+  - MonoTorrent.Trackers.ScrapeResponseEventArgs
+  - MonoTorrent.Trackers.Tracker
+  - MonoTorrent.Trackers.TrackerException
+  - MonoTorrent.Trackers.TrackerResponse
+  - MonoTorrent.Trackers.TrackerResponseEventArgs
+  - MonoTorrent.Trackers.TrackerState
+  - MonoTorrent.Trackers.TrackerTier
+  langs:
+  - csharp
+  - vb
+  name: MonoTorrent.Trackers
+  nameWithType: MonoTorrent.Trackers
+  fullName: MonoTorrent.Trackers
+  type: Namespace
+  assemblies:
+  - MonoTorrent
+references:
+- uid: MonoTorrent.Trackers.AnnounceResponseEventArgs
+  commentId: T:MonoTorrent.Trackers.AnnounceResponseEventArgs
+  href: MonoTorrent.Trackers.AnnounceResponseEventArgs.html
+  name: AnnounceResponseEventArgs
+  nameWithType: AnnounceResponseEventArgs
+  fullName: MonoTorrent.Trackers.AnnounceResponseEventArgs
+- uid: MonoTorrent.Trackers.ScrapeResponseEventArgs
+  commentId: T:MonoTorrent.Trackers.ScrapeResponseEventArgs
+  href: MonoTorrent.Trackers.ScrapeResponseEventArgs.html
+  name: ScrapeResponseEventArgs
+  nameWithType: ScrapeResponseEventArgs
+  fullName: MonoTorrent.Trackers.ScrapeResponseEventArgs
+- uid: MonoTorrent.Trackers.TrackerResponseEventArgs
+  commentId: T:MonoTorrent.Trackers.TrackerResponseEventArgs
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.TrackerResponseEventArgs.html
+  name: TrackerResponseEventArgs
+  nameWithType: TrackerResponseEventArgs
+  fullName: MonoTorrent.Trackers.TrackerResponseEventArgs
+- uid: MonoTorrent.Trackers.ITrackerManager
+  commentId: T:MonoTorrent.Trackers.ITrackerManager
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.ITrackerManager.html
+  name: ITrackerManager
+  nameWithType: ITrackerManager
+  fullName: MonoTorrent.Trackers.ITrackerManager
+- uid: MonoTorrent.Trackers.TrackerTier
+  commentId: T:MonoTorrent.Trackers.TrackerTier
+  href: MonoTorrent.Trackers.TrackerTier.html
+  name: TrackerTier
+  nameWithType: TrackerTier
+  fullName: MonoTorrent.Trackers.TrackerTier
+- uid: MonoTorrent.Trackers.Tracker
+  commentId: T:MonoTorrent.Trackers.Tracker
+  href: MonoTorrent.Trackers.Tracker.html
+  name: Tracker
+  nameWithType: Tracker
+  fullName: MonoTorrent.Trackers.Tracker
+- uid: MonoTorrent.Trackers.TrackerException
+  commentId: T:MonoTorrent.Trackers.TrackerException
+  href: MonoTorrent.Trackers.TrackerException.html
+  name: TrackerException
+  nameWithType: TrackerException
+  fullName: MonoTorrent.Trackers.TrackerException
+- uid: MonoTorrent.Trackers.AnnounceRequest
+  commentId: T:MonoTorrent.Trackers.AnnounceRequest
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.AnnounceRequest.html
+  name: AnnounceRequest
+  nameWithType: AnnounceRequest
+  fullName: MonoTorrent.Trackers.AnnounceRequest
+- uid: MonoTorrent.Trackers.AnnounceResponse
+  commentId: T:MonoTorrent.Trackers.AnnounceResponse
+  href: MonoTorrent.Trackers.AnnounceResponse.html
+  name: AnnounceResponse
+  nameWithType: AnnounceResponse
+  fullName: MonoTorrent.Trackers.AnnounceResponse
+- uid: MonoTorrent.Trackers.ITracker
+  commentId: T:MonoTorrent.Trackers.ITracker
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.ITracker.html
+  name: ITracker
+  nameWithType: ITracker
+  fullName: MonoTorrent.Trackers.ITracker
+- uid: MonoTorrent.Trackers.ScrapeInfo
+  commentId: T:MonoTorrent.Trackers.ScrapeInfo
+  href: MonoTorrent.Trackers.ScrapeInfo.html
+  name: ScrapeInfo
+  nameWithType: ScrapeInfo
+  fullName: MonoTorrent.Trackers.ScrapeInfo
+- uid: MonoTorrent.Trackers.ScrapeRequest
+  commentId: T:MonoTorrent.Trackers.ScrapeRequest
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.ScrapeRequest.html
+  name: ScrapeRequest
+  nameWithType: ScrapeRequest
+  fullName: MonoTorrent.Trackers.ScrapeRequest
+- uid: MonoTorrent.Trackers.ScrapeResponse
+  commentId: T:MonoTorrent.Trackers.ScrapeResponse
+  href: MonoTorrent.Trackers.ScrapeResponse.html
+  name: ScrapeResponse
+  nameWithType: ScrapeResponse
+  fullName: MonoTorrent.Trackers.ScrapeResponse
+- uid: MonoTorrent.Trackers.TrackerResponse
+  commentId: T:MonoTorrent.Trackers.TrackerResponse
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.TrackerResponse.html
+  name: TrackerResponse
+  nameWithType: TrackerResponse
+  fullName: MonoTorrent.Trackers.TrackerResponse
+- uid: MonoTorrent.Trackers.TrackerState
+  commentId: T:MonoTorrent.Trackers.TrackerState
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.TrackerState.html
+  name: TrackerState
+  nameWithType: TrackerState
+  fullName: MonoTorrent.Trackers.TrackerState
+- uid: MonoTorrent.Trackers
+  commentId: N:MonoTorrent.Trackers
+  href: MonoTorrent.html
+  name: MonoTorrent.Trackers
+  nameWithType: MonoTorrent.Trackers
+  fullName: MonoTorrent.Trackers
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html

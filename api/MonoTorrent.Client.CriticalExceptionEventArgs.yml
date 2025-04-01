@@ -1,0 +1,447 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Client.CriticalExceptionEventArgs
+  commentId: T:MonoTorrent.Client.CriticalExceptionEventArgs
+  id: CriticalExceptionEventArgs
+  parent: MonoTorrent.Client
+  children:
+  - MonoTorrent.Client.CriticalExceptionEventArgs.#ctor(System.Exception,MonoTorrent.Client.ClientEngine)
+  - MonoTorrent.Client.CriticalExceptionEventArgs.Engine
+  - MonoTorrent.Client.CriticalExceptionEventArgs.Exception
+  langs:
+  - csharp
+  - vb
+  name: CriticalExceptionEventArgs
+  nameWithType: CriticalExceptionEventArgs
+  fullName: MonoTorrent.Client.CriticalExceptionEventArgs
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Client/EventArgs/CriticalExceptionEventArgs.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: CriticalExceptionEventArgs
+    path: src/Client/EventArgs/CriticalExceptionEventArgs.cs
+    startLine: 4
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: 'public class CriticalExceptionEventArgs : EventArgs'
+    content.vb: Public Class CriticalExceptionEventArgs Inherits EventArgs
+  inheritance:
+  - System.Object
+  - System.EventArgs
+  inheritedMembers:
+  - System.EventArgs.Empty
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.Client.CriticalExceptionEventArgs.Engine
+  commentId: P:MonoTorrent.Client.CriticalExceptionEventArgs.Engine
+  id: Engine
+  parent: MonoTorrent.Client.CriticalExceptionEventArgs
+  langs:
+  - csharp
+  - vb
+  name: Engine
+  nameWithType: CriticalExceptionEventArgs.Engine
+  fullName: MonoTorrent.Client.CriticalExceptionEventArgs.Engine
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/EventArgs/CriticalExceptionEventArgs.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Engine
+    path: src/Client/EventArgs/CriticalExceptionEventArgs.cs
+    startLine: 6
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public ClientEngine Engine { get; }
+    parameters: []
+    return:
+      type: MonoTorrent.Client.ClientEngine
+    content.vb: Public ReadOnly Property Engine As ClientEngine
+  overload: MonoTorrent.Client.CriticalExceptionEventArgs.Engine*
+- uid: MonoTorrent.Client.CriticalExceptionEventArgs.Exception
+  commentId: P:MonoTorrent.Client.CriticalExceptionEventArgs.Exception
+  id: Exception
+  parent: MonoTorrent.Client.CriticalExceptionEventArgs
+  langs:
+  - csharp
+  - vb
+  name: Exception
+  nameWithType: CriticalExceptionEventArgs.Exception
+  fullName: MonoTorrent.Client.CriticalExceptionEventArgs.Exception
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Client/EventArgs/CriticalExceptionEventArgs.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Exception
+    path: src/Client/EventArgs/CriticalExceptionEventArgs.cs
+    startLine: 8
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public Exception Exception { get; }
+    parameters: []
+    return:
+      type: System.Exception
+    content.vb: Public ReadOnly Property Exception As Exception
+  overload: MonoTorrent.Client.CriticalExceptionEventArgs.Exception*
+- uid: MonoTorrent.Client.CriticalExceptionEventArgs.#ctor(System.Exception,MonoTorrent.Client.ClientEngine)
+  commentId: M:MonoTorrent.Client.CriticalExceptionEventArgs.#ctor(System.Exception,MonoTorrent.Client.ClientEngine)
+  id: '#ctor(System.Exception,MonoTorrent.Client.ClientEngine)'
+  parent: MonoTorrent.Client.CriticalExceptionEventArgs
+  langs:
+  - csharp
+  - vb
+  name: CriticalExceptionEventArgs(Exception, ClientEngine)
+  nameWithType: CriticalExceptionEventArgs.CriticalExceptionEventArgs(Exception, ClientEngine)
+  fullName: MonoTorrent.Client.CriticalExceptionEventArgs.CriticalExceptionEventArgs(System.Exception, MonoTorrent.Client.ClientEngine)
+  type: Constructor
+  source:
+    remote:
+      path: MonoTorrent/src/Client/EventArgs/CriticalExceptionEventArgs.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: .ctor
+    path: src/Client/EventArgs/CriticalExceptionEventArgs.cs
+    startLine: 11
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Client
+  syntax:
+    content: public CriticalExceptionEventArgs(Exception ex, ClientEngine engine)
+    parameters:
+    - id: ex
+      type: System.Exception
+    - id: engine
+      type: MonoTorrent.Client.ClientEngine
+    content.vb: Public Sub New(ex As Exception, engine As ClientEngine)
+  overload: MonoTorrent.Client.CriticalExceptionEventArgs.#ctor*
+  nameWithType.vb: CriticalExceptionEventArgs.New(Exception, ClientEngine)
+  fullName.vb: MonoTorrent.Client.CriticalExceptionEventArgs.New(System.Exception, MonoTorrent.Client.ClientEngine)
+  name.vb: New(Exception, ClientEngine)
+references:
+- uid: MonoTorrent.Client
+  commentId: N:MonoTorrent.Client
+  href: MonoTorrent.html
+  name: MonoTorrent.Client
+  nameWithType: MonoTorrent.Client
+  fullName: MonoTorrent.Client
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Client
+    name: Client
+    href: MonoTorrent.Client.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.EventArgs
+  commentId: T:System.EventArgs
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventargs
+  name: EventArgs
+  nameWithType: EventArgs
+  fullName: System.EventArgs
+- uid: System.EventArgs.Empty
+  commentId: F:System.EventArgs.Empty
+  parent: System.EventArgs
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventargs.empty
+  name: Empty
+  nameWithType: EventArgs.Empty
+  fullName: System.EventArgs.Empty
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Client.CriticalExceptionEventArgs.Engine*
+  commentId: Overload:MonoTorrent.Client.CriticalExceptionEventArgs.Engine
+  href: MonoTorrent.Client.CriticalExceptionEventArgs.html#MonoTorrent_Client_CriticalExceptionEventArgs_Engine
+  name: Engine
+  nameWithType: CriticalExceptionEventArgs.Engine
+  fullName: MonoTorrent.Client.CriticalExceptionEventArgs.Engine
+- uid: MonoTorrent.Client.ClientEngine
+  commentId: T:MonoTorrent.Client.ClientEngine
+  parent: MonoTorrent.Client
+  href: MonoTorrent.Client.ClientEngine.html
+  name: ClientEngine
+  nameWithType: ClientEngine
+  fullName: MonoTorrent.Client.ClientEngine
+- uid: MonoTorrent.Client.CriticalExceptionEventArgs.Exception*
+  commentId: Overload:MonoTorrent.Client.CriticalExceptionEventArgs.Exception
+  href: MonoTorrent.Client.CriticalExceptionEventArgs.html#MonoTorrent_Client_CriticalExceptionEventArgs_Exception
+  name: Exception
+  nameWithType: CriticalExceptionEventArgs.Exception
+  fullName: MonoTorrent.Client.CriticalExceptionEventArgs.Exception
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: MonoTorrent.Client.CriticalExceptionEventArgs.#ctor*
+  commentId: Overload:MonoTorrent.Client.CriticalExceptionEventArgs.#ctor
+  href: MonoTorrent.Client.CriticalExceptionEventArgs.html#MonoTorrent_Client_CriticalExceptionEventArgs__ctor_System_Exception_MonoTorrent_Client_ClientEngine_
+  name: CriticalExceptionEventArgs
+  nameWithType: CriticalExceptionEventArgs.CriticalExceptionEventArgs
+  fullName: MonoTorrent.Client.CriticalExceptionEventArgs.CriticalExceptionEventArgs
+  nameWithType.vb: CriticalExceptionEventArgs.New
+  fullName.vb: MonoTorrent.Client.CriticalExceptionEventArgs.New
+  name.vb: New

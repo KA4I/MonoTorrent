@@ -1,0 +1,455 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.PieceHash
+  commentId: T:MonoTorrent.PieceHash
+  id: PieceHash
+  parent: MonoTorrent
+  children:
+  - MonoTorrent.PieceHash.V1Hash
+  - MonoTorrent.PieceHash.V2Hash
+  - MonoTorrent.PieceHash.op_Implicit(MonoTorrent.PieceHash)~MonoTorrent.ReadOnlyPieceHash
+  langs:
+  - csharp
+  - vb
+  name: PieceHash
+  nameWithType: PieceHash
+  fullName: MonoTorrent.PieceHash
+  type: Struct
+  source:
+    remote:
+      path: MonoTorrent/src/PieceHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: PieceHash
+    path: src/PieceHash.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public readonly struct PieceHash
+    content.vb: Public Structure PieceHash
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: MonoTorrent.PieceHash.V1Hash
+  commentId: P:MonoTorrent.PieceHash.V1Hash
+  id: V1Hash
+  parent: MonoTorrent.PieceHash
+  langs:
+  - csharp
+  - vb
+  name: V1Hash
+  nameWithType: PieceHash.V1Hash
+  fullName: MonoTorrent.PieceHash.V1Hash
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PieceHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: V1Hash
+    path: src/PieceHash.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Memory<byte> V1Hash { get; }
+    parameters: []
+    return:
+      type: System.Memory{System.Byte}
+    content.vb: Public ReadOnly Property V1Hash As Memory(Of Byte)
+  overload: MonoTorrent.PieceHash.V1Hash*
+- uid: MonoTorrent.PieceHash.V2Hash
+  commentId: P:MonoTorrent.PieceHash.V2Hash
+  id: V2Hash
+  parent: MonoTorrent.PieceHash
+  langs:
+  - csharp
+  - vb
+  name: V2Hash
+  nameWithType: PieceHash.V2Hash
+  fullName: MonoTorrent.PieceHash.V2Hash
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/PieceHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: V2Hash
+    path: src/PieceHash.cs
+    startLine: 36
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public Memory<byte> V2Hash { get; }
+    parameters: []
+    return:
+      type: System.Memory{System.Byte}
+    content.vb: Public ReadOnly Property V2Hash As Memory(Of Byte)
+  overload: MonoTorrent.PieceHash.V2Hash*
+- uid: MonoTorrent.PieceHash.op_Implicit(MonoTorrent.PieceHash)~MonoTorrent.ReadOnlyPieceHash
+  commentId: M:MonoTorrent.PieceHash.op_Implicit(MonoTorrent.PieceHash)~MonoTorrent.ReadOnlyPieceHash
+  id: op_Implicit(MonoTorrent.PieceHash)~MonoTorrent.ReadOnlyPieceHash
+  parent: MonoTorrent.PieceHash
+  langs:
+  - csharp
+  - vb
+  name: implicit operator ReadOnlyPieceHash(PieceHash)
+  nameWithType: PieceHash.implicit operator ReadOnlyPieceHash(PieceHash)
+  fullName: MonoTorrent.PieceHash.implicit operator MonoTorrent.ReadOnlyPieceHash(MonoTorrent.PieceHash)
+  type: Operator
+  source:
+    remote:
+      path: MonoTorrent/src/PieceHash.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: op_Implicit
+    path: src/PieceHash.cs
+    startLine: 55
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent
+  syntax:
+    content: public static implicit operator ReadOnlyPieceHash(PieceHash hashes)
+    parameters:
+    - id: hashes
+      type: MonoTorrent.PieceHash
+    return:
+      type: MonoTorrent.ReadOnlyPieceHash
+    content.vb: Public Shared Widening Operator CType(hashes As PieceHash) As ReadOnlyPieceHash
+  overload: MonoTorrent.PieceHash.op_Implicit*
+  nameWithType.vb: PieceHash.CType(PieceHash)
+  fullName.vb: MonoTorrent.PieceHash.CType(MonoTorrent.PieceHash)
+  name.vb: CType(PieceHash)
+references:
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.PieceHash.V1Hash*
+  commentId: Overload:MonoTorrent.PieceHash.V1Hash
+  href: MonoTorrent.PieceHash.html#MonoTorrent_PieceHash_V1Hash
+  name: V1Hash
+  nameWithType: PieceHash.V1Hash
+  fullName: MonoTorrent.PieceHash.V1Hash
+- uid: System.Memory{System.Byte}
+  commentId: T:System.Memory{System.Byte}
+  parent: System
+  definition: System.Memory`1
+  href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  name: Memory<byte>
+  nameWithType: Memory<byte>
+  fullName: System.Memory<byte>
+  nameWithType.vb: Memory(Of Byte)
+  fullName.vb: System.Memory(Of Byte)
+  name.vb: Memory(Of Byte)
+  spec.csharp:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Memory`1
+  commentId: T:System.Memory`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  name: Memory<T>
+  nameWithType: Memory<T>
+  fullName: System.Memory<T>
+  nameWithType.vb: Memory(Of T)
+  fullName.vb: System.Memory(Of T)
+  name.vb: Memory(Of T)
+  spec.csharp:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Memory`1
+    name: Memory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.memory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.PieceHash.V2Hash*
+  commentId: Overload:MonoTorrent.PieceHash.V2Hash
+  href: MonoTorrent.PieceHash.html#MonoTorrent_PieceHash_V2Hash
+  name: V2Hash
+  nameWithType: PieceHash.V2Hash
+  fullName: MonoTorrent.PieceHash.V2Hash
+- uid: MonoTorrent.PieceHash.op_Implicit*
+  commentId: Overload:MonoTorrent.PieceHash.op_Implicit
+  name: implicit operator
+  nameWithType: PieceHash.implicit operator
+  fullName: MonoTorrent.PieceHash.implicit operator
+  nameWithType.vb: PieceHash.CType
+  fullName.vb: MonoTorrent.PieceHash.CType
+  name.vb: CType
+  spec.csharp:
+  - name: implicit
+  - name: " "
+  - name: operator
+- uid: MonoTorrent.PieceHash
+  commentId: T:MonoTorrent.PieceHash
+  parent: MonoTorrent
+  href: MonoTorrent.PieceHash.html
+  name: PieceHash
+  nameWithType: PieceHash
+  fullName: MonoTorrent.PieceHash
+- uid: MonoTorrent.ReadOnlyPieceHash
+  commentId: T:MonoTorrent.ReadOnlyPieceHash
+  parent: MonoTorrent
+  href: MonoTorrent.ReadOnlyPieceHash.html
+  name: ReadOnlyPieceHash
+  nameWithType: ReadOnlyPieceHash
+  fullName: MonoTorrent.ReadOnlyPieceHash

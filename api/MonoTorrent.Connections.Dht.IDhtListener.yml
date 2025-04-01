@@ -1,0 +1,233 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.Dht.IDhtListener
+  commentId: T:MonoTorrent.Connections.Dht.IDhtListener
+  id: IDhtListener
+  parent: MonoTorrent.Connections.Dht
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IDhtListener
+  nameWithType: IDhtListener
+  fullName: MonoTorrent.Connections.Dht.IDhtListener
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Dht/IDhtListener.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IDhtListener
+    path: src/Connections/Dht/IDhtListener.cs
+    startLine: 31
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Dht
+  syntax:
+    content: 'public interface IDhtListener : ISocketMessageListener, ISocketListener, IListener'
+    content.vb: Public Interface IDhtListener Inherits ISocketMessageListener, ISocketListener, IListener
+  inheritedMembers:
+  - MonoTorrent.Connections.ISocketMessageListener.MessageReceived
+  - MonoTorrent.Connections.ISocketMessageListener.SendAsync(System.ReadOnlyMemory{System.Byte},System.Net.IPEndPoint)
+  - MonoTorrent.Connections.ISocketListener.LocalEndPoint
+  - MonoTorrent.Connections.IListener.StatusChanged
+  - MonoTorrent.Connections.IListener.Status
+  - MonoTorrent.Connections.IListener.Start
+  - MonoTorrent.Connections.IListener.Stop
+references:
+- uid: MonoTorrent.Connections.Dht
+  commentId: N:MonoTorrent.Connections.Dht
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.Dht
+  nameWithType: MonoTorrent.Connections.Dht
+  fullName: MonoTorrent.Connections.Dht
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Dht
+    name: Dht
+    href: MonoTorrent.Connections.Dht.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Dht
+    name: Dht
+    href: MonoTorrent.Connections.Dht.html
+- uid: MonoTorrent.Connections.ISocketMessageListener.MessageReceived
+  commentId: E:MonoTorrent.Connections.ISocketMessageListener.MessageReceived
+  parent: MonoTorrent.Connections.ISocketMessageListener
+  href: MonoTorrent.Connections.ISocketMessageListener.html#MonoTorrent_Connections_ISocketMessageListener_MessageReceived
+  name: MessageReceived
+  nameWithType: ISocketMessageListener.MessageReceived
+  fullName: MonoTorrent.Connections.ISocketMessageListener.MessageReceived
+- uid: MonoTorrent.Connections.ISocketMessageListener.SendAsync(System.ReadOnlyMemory{System.Byte},System.Net.IPEndPoint)
+  commentId: M:MonoTorrent.Connections.ISocketMessageListener.SendAsync(System.ReadOnlyMemory{System.Byte},System.Net.IPEndPoint)
+  parent: MonoTorrent.Connections.ISocketMessageListener
+  isExternal: true
+  href: MonoTorrent.Connections.ISocketMessageListener.html#MonoTorrent_Connections_ISocketMessageListener_SendAsync_System_ReadOnlyMemory_System_Byte__System_Net_IPEndPoint_
+  name: SendAsync(ReadOnlyMemory<byte>, IPEndPoint)
+  nameWithType: ISocketMessageListener.SendAsync(ReadOnlyMemory<byte>, IPEndPoint)
+  fullName: MonoTorrent.Connections.ISocketMessageListener.SendAsync(System.ReadOnlyMemory<byte>, System.Net.IPEndPoint)
+  nameWithType.vb: ISocketMessageListener.SendAsync(ReadOnlyMemory(Of Byte), IPEndPoint)
+  fullName.vb: MonoTorrent.Connections.ISocketMessageListener.SendAsync(System.ReadOnlyMemory(Of Byte), System.Net.IPEndPoint)
+  name.vb: SendAsync(ReadOnlyMemory(Of Byte), IPEndPoint)
+  spec.csharp:
+  - uid: MonoTorrent.Connections.ISocketMessageListener.SendAsync(System.ReadOnlyMemory{System.Byte},System.Net.IPEndPoint)
+    name: SendAsync
+    href: MonoTorrent.Connections.ISocketMessageListener.html#MonoTorrent_Connections_ISocketMessageListener_SendAsync_System_ReadOnlyMemory_System_Byte__System_Net_IPEndPoint_
+  - name: (
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.ISocketMessageListener.SendAsync(System.ReadOnlyMemory{System.Byte},System.Net.IPEndPoint)
+    name: SendAsync
+    href: MonoTorrent.Connections.ISocketMessageListener.html#MonoTorrent_Connections_ISocketMessageListener_SendAsync_System_ReadOnlyMemory_System_Byte__System_Net_IPEndPoint_
+  - name: (
+  - uid: System.ReadOnlyMemory`1
+    name: ReadOnlyMemory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlymemory-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  - name: )
+- uid: MonoTorrent.Connections.ISocketListener.LocalEndPoint
+  commentId: P:MonoTorrent.Connections.ISocketListener.LocalEndPoint
+  parent: MonoTorrent.Connections.ISocketListener
+  href: MonoTorrent.Connections.ISocketListener.html#MonoTorrent_Connections_ISocketListener_LocalEndPoint
+  name: LocalEndPoint
+  nameWithType: ISocketListener.LocalEndPoint
+  fullName: MonoTorrent.Connections.ISocketListener.LocalEndPoint
+- uid: MonoTorrent.Connections.IListener.StatusChanged
+  commentId: E:MonoTorrent.Connections.IListener.StatusChanged
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_StatusChanged
+  name: StatusChanged
+  nameWithType: IListener.StatusChanged
+  fullName: MonoTorrent.Connections.IListener.StatusChanged
+- uid: MonoTorrent.Connections.IListener.Status
+  commentId: P:MonoTorrent.Connections.IListener.Status
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Status
+  name: Status
+  nameWithType: IListener.Status
+  fullName: MonoTorrent.Connections.IListener.Status
+- uid: MonoTorrent.Connections.IListener.Start
+  commentId: M:MonoTorrent.Connections.IListener.Start
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  name: Start()
+  nameWithType: IListener.Start()
+  fullName: MonoTorrent.Connections.IListener.Start()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.IListener.Start
+    name: Start
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.IListener.Start
+    name: Start
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Start
+  - name: (
+  - name: )
+- uid: MonoTorrent.Connections.IListener.Stop
+  commentId: M:MonoTorrent.Connections.IListener.Stop
+  parent: MonoTorrent.Connections.IListener
+  href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  name: Stop()
+  nameWithType: IListener.Stop()
+  fullName: MonoTorrent.Connections.IListener.Stop()
+  spec.csharp:
+  - uid: MonoTorrent.Connections.IListener.Stop
+    name: Stop
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: MonoTorrent.Connections.IListener.Stop
+    name: Stop
+    href: MonoTorrent.Connections.IListener.html#MonoTorrent_Connections_IListener_Stop
+  - name: (
+  - name: )
+- uid: MonoTorrent.Connections.ISocketMessageListener
+  commentId: T:MonoTorrent.Connections.ISocketMessageListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.ISocketMessageListener.html
+  name: ISocketMessageListener
+  nameWithType: ISocketMessageListener
+  fullName: MonoTorrent.Connections.ISocketMessageListener
+- uid: MonoTorrent.Connections.ISocketListener
+  commentId: T:MonoTorrent.Connections.ISocketListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.ISocketListener.html
+  name: ISocketListener
+  nameWithType: ISocketListener
+  fullName: MonoTorrent.Connections.ISocketListener
+- uid: MonoTorrent.Connections.IListener
+  commentId: T:MonoTorrent.Connections.IListener
+  parent: MonoTorrent.Connections
+  href: MonoTorrent.Connections.IListener.html
+  name: IListener
+  nameWithType: IListener
+  fullName: MonoTorrent.Connections.IListener
+- uid: MonoTorrent.Connections
+  commentId: N:MonoTorrent.Connections
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections
+  nameWithType: MonoTorrent.Connections
+  fullName: MonoTorrent.Connections
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html

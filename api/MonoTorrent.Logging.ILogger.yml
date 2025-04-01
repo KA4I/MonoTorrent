@@ -1,0 +1,186 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Logging.ILogger
+  commentId: T:MonoTorrent.Logging.ILogger
+  id: ILogger
+  parent: MonoTorrent.Logging
+  children:
+  - MonoTorrent.Logging.ILogger.Debug(System.String)
+  - MonoTorrent.Logging.ILogger.Error(System.String)
+  - MonoTorrent.Logging.ILogger.Info(System.String)
+  langs:
+  - csharp
+  - vb
+  name: ILogger
+  nameWithType: ILogger
+  fullName: MonoTorrent.Logging.ILogger
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Logging/ILogger.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: ILogger
+    path: src/Logging/ILogger.cs
+    startLine: 31
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Logging
+  syntax:
+    content: public interface ILogger
+    content.vb: Public Interface ILogger
+- uid: MonoTorrent.Logging.ILogger.Info(System.String)
+  commentId: M:MonoTorrent.Logging.ILogger.Info(System.String)
+  id: Info(System.String)
+  parent: MonoTorrent.Logging.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Info(string)
+  nameWithType: ILogger.Info(string)
+  fullName: MonoTorrent.Logging.ILogger.Info(string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Logging/ILogger.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Info
+    path: src/Logging/ILogger.cs
+    startLine: 33
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Logging
+  syntax:
+    content: void Info(string message)
+    parameters:
+    - id: message
+      type: System.String
+    content.vb: Sub Info(message As String)
+  overload: MonoTorrent.Logging.ILogger.Info*
+  nameWithType.vb: ILogger.Info(String)
+  fullName.vb: MonoTorrent.Logging.ILogger.Info(String)
+  name.vb: Info(String)
+- uid: MonoTorrent.Logging.ILogger.Debug(System.String)
+  commentId: M:MonoTorrent.Logging.ILogger.Debug(System.String)
+  id: Debug(System.String)
+  parent: MonoTorrent.Logging.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Debug(string)
+  nameWithType: ILogger.Debug(string)
+  fullName: MonoTorrent.Logging.ILogger.Debug(string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Logging/ILogger.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Debug
+    path: src/Logging/ILogger.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Logging
+  syntax:
+    content: void Debug(string message)
+    parameters:
+    - id: message
+      type: System.String
+    content.vb: Sub Debug(message As String)
+  overload: MonoTorrent.Logging.ILogger.Debug*
+  nameWithType.vb: ILogger.Debug(String)
+  fullName.vb: MonoTorrent.Logging.ILogger.Debug(String)
+  name.vb: Debug(String)
+- uid: MonoTorrent.Logging.ILogger.Error(System.String)
+  commentId: M:MonoTorrent.Logging.ILogger.Error(System.String)
+  id: Error(System.String)
+  parent: MonoTorrent.Logging.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Error(string)
+  nameWithType: ILogger.Error(string)
+  fullName: MonoTorrent.Logging.ILogger.Error(string)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Logging/ILogger.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Error
+    path: src/Logging/ILogger.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Logging
+  syntax:
+    content: void Error(string message)
+    parameters:
+    - id: message
+      type: System.String
+    content.vb: Sub [Error](message As String)
+  overload: MonoTorrent.Logging.ILogger.Error*
+  nameWithType.vb: ILogger.Error(String)
+  fullName.vb: MonoTorrent.Logging.ILogger.Error(String)
+  name.vb: Error(String)
+references:
+- uid: MonoTorrent.Logging
+  commentId: N:MonoTorrent.Logging
+  href: MonoTorrent.html
+  name: MonoTorrent.Logging
+  nameWithType: MonoTorrent.Logging
+  fullName: MonoTorrent.Logging
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Logging
+    name: Logging
+    href: MonoTorrent.Logging.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Logging
+    name: Logging
+    href: MonoTorrent.Logging.html
+- uid: MonoTorrent.Logging.ILogger.Info*
+  commentId: Overload:MonoTorrent.Logging.ILogger.Info
+  href: MonoTorrent.Logging.ILogger.html#MonoTorrent_Logging_ILogger_Info_System_String_
+  name: Info
+  nameWithType: ILogger.Info
+  fullName: MonoTorrent.Logging.ILogger.Info
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Logging.ILogger.Debug*
+  commentId: Overload:MonoTorrent.Logging.ILogger.Debug
+  href: MonoTorrent.Logging.ILogger.html#MonoTorrent_Logging_ILogger_Debug_System_String_
+  name: Debug
+  nameWithType: ILogger.Debug
+  fullName: MonoTorrent.Logging.ILogger.Debug
+- uid: MonoTorrent.Logging.ILogger.Error*
+  commentId: Overload:MonoTorrent.Logging.ILogger.Error
+  href: MonoTorrent.Logging.ILogger.html#MonoTorrent_Logging_ILogger_Error_System_String_
+  name: Error
+  nameWithType: ILogger.Error
+  fullName: MonoTorrent.Logging.ILogger.Error

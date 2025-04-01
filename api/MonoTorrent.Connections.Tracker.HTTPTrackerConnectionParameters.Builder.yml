@@ -1,0 +1,486 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder
+  commentId: T:MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder
+  id: HTTPTrackerConnectionParameters.Builder
+  parent: MonoTorrent.Connections.Tracker
+  children:
+  - MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Build
+  - MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Compact
+  - MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.NumWant
+  langs:
+  - csharp
+  - vb
+  name: HTTPTrackerConnectionParameters.Builder
+  nameWithType: HTTPTrackerConnectionParameters.Builder
+  fullName: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder
+  type: Class
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/HTTPTrackerConnectionParameters.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Builder
+    path: src/Connections/Tracker/HTTPTrackerConnectionParameters.cs
+    startLine: 22
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Tracker
+  syntax:
+    content: public class HTTPTrackerConnectionParameters.Builder
+    content.vb: Public Class HTTPTrackerConnectionParameters.Builder
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Compact
+  commentId: P:MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Compact
+  id: Compact
+  parent: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder
+  langs:
+  - csharp
+  - vb
+  name: Compact
+  nameWithType: HTTPTrackerConnectionParameters.Builder.Compact
+  fullName: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Compact
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/HTTPTrackerConnectionParameters.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Compact
+    path: src/Connections/Tracker/HTTPTrackerConnectionParameters.cs
+    startLine: 27
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Tracker
+  summary: Setting this to 1 indicates that the client accepts a compact response.
+  example: []
+  syntax:
+    content: public bool Compact { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Compact As Boolean
+  overload: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Compact*
+- uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.NumWant
+  commentId: P:MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.NumWant
+  id: NumWant
+  parent: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder
+  langs:
+  - csharp
+  - vb
+  name: NumWant
+  nameWithType: HTTPTrackerConnectionParameters.Builder.NumWant
+  fullName: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.NumWant
+  type: Property
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/HTTPTrackerConnectionParameters.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: NumWant
+    path: src/Connections/Tracker/HTTPTrackerConnectionParameters.cs
+    startLine: 32
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Tracker
+  summary: Number of peers that the client would like to receive from the tracker.
+  example: []
+  syntax:
+    content: public int? NumWant { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property NumWant As Integer?
+  overload: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.NumWant*
+- uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Build
+  commentId: M:MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Build
+  id: Build
+  parent: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder
+  langs:
+  - csharp
+  - vb
+  name: Build()
+  nameWithType: HTTPTrackerConnectionParameters.Builder.Build()
+  fullName: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Build()
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Tracker/HTTPTrackerConnectionParameters.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Build
+    path: src/Connections/Tracker/HTTPTrackerConnectionParameters.cs
+    startLine: 34
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Tracker
+  syntax:
+    content: public HTTPTrackerConnectionParameters Build()
+    return:
+      type: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters
+    content.vb: Public Function Build() As HTTPTrackerConnectionParameters
+  overload: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Build*
+references:
+- uid: MonoTorrent.Connections.Tracker
+  commentId: N:MonoTorrent.Connections.Tracker
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.Tracker
+  nameWithType: MonoTorrent.Connections.Tracker
+  fullName: MonoTorrent.Connections.Tracker
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Tracker
+    name: Tracker
+    href: MonoTorrent.Connections.Tracker.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Tracker
+    name: Tracker
+    href: MonoTorrent.Connections.Tracker.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Compact*
+  commentId: Overload:MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Compact
+  href: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.html#MonoTorrent_Connections_Tracker_HTTPTrackerConnectionParameters_Builder_Compact
+  name: Compact
+  nameWithType: HTTPTrackerConnectionParameters.Builder.Compact
+  fullName: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Compact
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.NumWant*
+  commentId: Overload:MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.NumWant
+  href: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.html#MonoTorrent_Connections_Tracker_HTTPTrackerConnectionParameters_Builder_NumWant
+  name: NumWant
+  nameWithType: HTTPTrackerConnectionParameters.Builder.NumWant
+  fullName: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.NumWant
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Build*
+  commentId: Overload:MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Build
+  href: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.html#MonoTorrent_Connections_Tracker_HTTPTrackerConnectionParameters_Builder_Build
+  name: Build
+  nameWithType: HTTPTrackerConnectionParameters.Builder.Build
+  fullName: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.Builder.Build
+- uid: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters
+  commentId: T:MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters
+  parent: MonoTorrent.Connections.Tracker
+  href: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters.html
+  name: HTTPTrackerConnectionParameters
+  nameWithType: HTTPTrackerConnectionParameters
+  fullName: MonoTorrent.Connections.Tracker.HTTPTrackerConnectionParameters

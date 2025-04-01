@@ -1,0 +1,203 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Trackers.TrackerState
+  commentId: T:MonoTorrent.Trackers.TrackerState
+  id: TrackerState
+  parent: MonoTorrent.Trackers
+  children:
+  - MonoTorrent.Trackers.TrackerState.Connecting
+  - MonoTorrent.Trackers.TrackerState.InvalidResponse
+  - MonoTorrent.Trackers.TrackerState.Offline
+  - MonoTorrent.Trackers.TrackerState.Ok
+  - MonoTorrent.Trackers.TrackerState.Unknown
+  langs:
+  - csharp
+  - vb
+  name: TrackerState
+  nameWithType: TrackerState
+  fullName: MonoTorrent.Trackers.TrackerState
+  type: Enum
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/TrackerState.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TrackerState
+    path: src/Trackers/TrackerState.cs
+    startLine: 30
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  syntax:
+    content: public enum TrackerState
+    content.vb: Public Enum TrackerState
+- uid: MonoTorrent.Trackers.TrackerState.Unknown
+  commentId: F:MonoTorrent.Trackers.TrackerState.Unknown
+  id: Unknown
+  parent: MonoTorrent.Trackers.TrackerState
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: TrackerState.Unknown
+  fullName: MonoTorrent.Trackers.TrackerState.Unknown
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/TrackerState.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Unknown
+    path: src/Trackers/TrackerState.cs
+    startLine: 35
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: A request has not been sent yet.
+  example: []
+  syntax:
+    content: Unknown = 0
+    return:
+      type: MonoTorrent.Trackers.TrackerState
+- uid: MonoTorrent.Trackers.TrackerState.Connecting
+  commentId: F:MonoTorrent.Trackers.TrackerState.Connecting
+  id: Connecting
+  parent: MonoTorrent.Trackers.TrackerState
+  langs:
+  - csharp
+  - vb
+  name: Connecting
+  nameWithType: TrackerState.Connecting
+  fullName: MonoTorrent.Trackers.TrackerState.Connecting
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/TrackerState.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Connecting
+    path: src/Trackers/TrackerState.cs
+    startLine: 39
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: Currently sending a request.
+  example: []
+  syntax:
+    content: Connecting = 1
+    return:
+      type: MonoTorrent.Trackers.TrackerState
+- uid: MonoTorrent.Trackers.TrackerState.Ok
+  commentId: F:MonoTorrent.Trackers.TrackerState.Ok
+  id: Ok
+  parent: MonoTorrent.Trackers.TrackerState
+  langs:
+  - csharp
+  - vb
+  name: Ok
+  nameWithType: TrackerState.Ok
+  fullName: MonoTorrent.Trackers.TrackerState.Ok
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/TrackerState.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Ok
+    path: src/Trackers/TrackerState.cs
+    startLine: 43
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: The most recent request completed successfully.
+  example: []
+  syntax:
+    content: Ok = 2
+    return:
+      type: MonoTorrent.Trackers.TrackerState
+- uid: MonoTorrent.Trackers.TrackerState.Offline
+  commentId: F:MonoTorrent.Trackers.TrackerState.Offline
+  id: Offline
+  parent: MonoTorrent.Trackers.TrackerState
+  langs:
+  - csharp
+  - vb
+  name: Offline
+  nameWithType: TrackerState.Offline
+  fullName: MonoTorrent.Trackers.TrackerState.Offline
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/TrackerState.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: Offline
+    path: src/Trackers/TrackerState.cs
+    startLine: 47
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: The tracker was unreachable/offline.
+  example: []
+  syntax:
+    content: Offline = 3
+    return:
+      type: MonoTorrent.Trackers.TrackerState
+- uid: MonoTorrent.Trackers.TrackerState.InvalidResponse
+  commentId: F:MonoTorrent.Trackers.TrackerState.InvalidResponse
+  id: InvalidResponse
+  parent: MonoTorrent.Trackers.TrackerState
+  langs:
+  - csharp
+  - vb
+  name: InvalidResponse
+  nameWithType: TrackerState.InvalidResponse
+  fullName: MonoTorrent.Trackers.TrackerState.InvalidResponse
+  type: Field
+  source:
+    remote:
+      path: MonoTorrent/src/Trackers/TrackerState.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: InvalidResponse
+    path: src/Trackers/TrackerState.cs
+    startLine: 51
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Trackers
+  summary: The tracker was reachable but the response it sent was invalid.
+  example: []
+  syntax:
+    content: InvalidResponse = 4
+    return:
+      type: MonoTorrent.Trackers.TrackerState
+references:
+- uid: MonoTorrent.Trackers
+  commentId: N:MonoTorrent.Trackers
+  href: MonoTorrent.html
+  name: MonoTorrent.Trackers
+  nameWithType: MonoTorrent.Trackers
+  fullName: MonoTorrent.Trackers
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Trackers
+    name: Trackers
+    href: MonoTorrent.Trackers.html
+- uid: MonoTorrent.Trackers.TrackerState
+  commentId: T:MonoTorrent.Trackers.TrackerState
+  parent: MonoTorrent.Trackers
+  href: MonoTorrent.Trackers.TrackerState.html
+  name: TrackerState
+  nameWithType: TrackerState
+  fullName: MonoTorrent.Trackers.TrackerState

@@ -1,0 +1,223 @@
+### YamlMime:ManagedReference
+items:
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionGate
+  commentId: T:MonoTorrent.Connections.Peer.IPeerConnectionGate
+  id: IPeerConnectionGate
+  parent: MonoTorrent.Connections.Peer
+  children:
+  - MonoTorrent.Connections.Peer.IPeerConnectionGate.TryAcceptHandshakeAsync(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.PeerInfo,MonoTorrent.Connections.Peer.IPeerConnection,MonoTorrent.InfoHash)
+  langs:
+  - csharp
+  - vb
+  name: IPeerConnectionGate
+  nameWithType: IPeerConnectionGate
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionGate
+  type: Interface
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnectionGate.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: IPeerConnectionGate
+    path: src/Connections/Peer/IPeerConnectionGate.cs
+    startLine: 6
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: public interface IPeerConnectionGate
+    content.vb: Public Interface IPeerConnectionGate
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionGate.TryAcceptHandshakeAsync(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.PeerInfo,MonoTorrent.Connections.Peer.IPeerConnection,MonoTorrent.InfoHash)
+  commentId: M:MonoTorrent.Connections.Peer.IPeerConnectionGate.TryAcceptHandshakeAsync(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.PeerInfo,MonoTorrent.Connections.Peer.IPeerConnection,MonoTorrent.InfoHash)
+  id: TryAcceptHandshakeAsync(MonoTorrent.BEncoding.BEncodedString,MonoTorrent.PeerInfo,MonoTorrent.Connections.Peer.IPeerConnection,MonoTorrent.InfoHash)
+  parent: MonoTorrent.Connections.Peer.IPeerConnectionGate
+  langs:
+  - csharp
+  - vb
+  name: TryAcceptHandshakeAsync(BEncodedString, PeerInfo, IPeerConnection, InfoHash)
+  nameWithType: IPeerConnectionGate.TryAcceptHandshakeAsync(BEncodedString, PeerInfo, IPeerConnection, InfoHash)
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionGate.TryAcceptHandshakeAsync(MonoTorrent.BEncoding.BEncodedString, MonoTorrent.PeerInfo, MonoTorrent.Connections.Peer.IPeerConnection, MonoTorrent.InfoHash)
+  type: Method
+  source:
+    remote:
+      path: MonoTorrent/src/Connections/Peer/IPeerConnectionGate.cs
+      branch: dev
+      repo: https://github.com/KA4I/TorrentCycle.git
+    id: TryAcceptHandshakeAsync
+    path: src/Connections/Peer/IPeerConnectionGate.cs
+    startLine: 8
+  assemblies:
+  - MonoTorrent
+  namespace: MonoTorrent.Connections.Peer
+  syntax:
+    content: ReusableTask<bool> TryAcceptHandshakeAsync(BEncodedString localPeerId, PeerInfo remotePeer, IPeerConnection connection, InfoHash infoHash)
+    parameters:
+    - id: localPeerId
+      type: MonoTorrent.BEncoding.BEncodedString
+    - id: remotePeer
+      type: MonoTorrent.PeerInfo
+    - id: connection
+      type: MonoTorrent.Connections.Peer.IPeerConnection
+    - id: infoHash
+      type: MonoTorrent.InfoHash
+    return:
+      type: ReusableTasks.ReusableTask{System.Boolean}
+    content.vb: Function TryAcceptHandshakeAsync(localPeerId As BEncodedString, remotePeer As PeerInfo, connection As IPeerConnection, infoHash As InfoHash) As ReusableTask(Of Boolean)
+  overload: MonoTorrent.Connections.Peer.IPeerConnectionGate.TryAcceptHandshakeAsync*
+references:
+- uid: MonoTorrent.Connections.Peer
+  commentId: N:MonoTorrent.Connections.Peer
+  href: MonoTorrent.html
+  name: MonoTorrent.Connections.Peer
+  nameWithType: MonoTorrent.Connections.Peer
+  fullName: MonoTorrent.Connections.Peer
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.Connections
+    name: Connections
+    href: MonoTorrent.Connections.html
+  - name: .
+  - uid: MonoTorrent.Connections.Peer
+    name: Peer
+    href: MonoTorrent.Connections.Peer.html
+- uid: MonoTorrent.Connections.Peer.IPeerConnectionGate.TryAcceptHandshakeAsync*
+  commentId: Overload:MonoTorrent.Connections.Peer.IPeerConnectionGate.TryAcceptHandshakeAsync
+  href: MonoTorrent.Connections.Peer.IPeerConnectionGate.html#MonoTorrent_Connections_Peer_IPeerConnectionGate_TryAcceptHandshakeAsync_MonoTorrent_BEncoding_BEncodedString_MonoTorrent_PeerInfo_MonoTorrent_Connections_Peer_IPeerConnection_MonoTorrent_InfoHash_
+  name: TryAcceptHandshakeAsync
+  nameWithType: IPeerConnectionGate.TryAcceptHandshakeAsync
+  fullName: MonoTorrent.Connections.Peer.IPeerConnectionGate.TryAcceptHandshakeAsync
+- uid: MonoTorrent.BEncoding.BEncodedString
+  commentId: T:MonoTorrent.BEncoding.BEncodedString
+  parent: MonoTorrent.BEncoding
+  href: MonoTorrent.BEncoding.BEncodedString.html
+  name: BEncodedString
+  nameWithType: BEncodedString
+  fullName: MonoTorrent.BEncoding.BEncodedString
+- uid: MonoTorrent.PeerInfo
+  commentId: T:MonoTorrent.PeerInfo
+  parent: MonoTorrent
+  href: MonoTorrent.PeerInfo.html
+  name: PeerInfo
+  nameWithType: PeerInfo
+  fullName: MonoTorrent.PeerInfo
+- uid: MonoTorrent.Connections.Peer.IPeerConnection
+  commentId: T:MonoTorrent.Connections.Peer.IPeerConnection
+  parent: MonoTorrent.Connections.Peer
+  href: MonoTorrent.Connections.Peer.IPeerConnection.html
+  name: IPeerConnection
+  nameWithType: IPeerConnection
+  fullName: MonoTorrent.Connections.Peer.IPeerConnection
+- uid: MonoTorrent.InfoHash
+  commentId: T:MonoTorrent.InfoHash
+  parent: MonoTorrent
+  href: MonoTorrent.InfoHash.html
+  name: InfoHash
+  nameWithType: InfoHash
+  fullName: MonoTorrent.InfoHash
+- uid: ReusableTasks.ReusableTask{System.Boolean}
+  commentId: T:ReusableTasks.ReusableTask{System.Boolean}
+  parent: ReusableTasks
+  definition: ReusableTasks.ReusableTask`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: ReusableTask<bool>
+  nameWithType: ReusableTask<bool>
+  fullName: ReusableTasks.ReusableTask<bool>
+  nameWithType.vb: ReusableTask(Of Boolean)
+  fullName.vb: ReusableTasks.ReusableTask(Of Boolean)
+  name.vb: ReusableTask(Of Boolean)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: MonoTorrent.BEncoding
+  commentId: N:MonoTorrent.BEncoding
+  href: MonoTorrent.html
+  name: MonoTorrent.BEncoding
+  nameWithType: MonoTorrent.BEncoding
+  fullName: MonoTorrent.BEncoding
+  spec.csharp:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+  spec.vb:
+  - uid: MonoTorrent
+    name: MonoTorrent
+    href: MonoTorrent.html
+  - name: .
+  - uid: MonoTorrent.BEncoding
+    name: BEncoding
+    href: MonoTorrent.BEncoding.html
+- uid: MonoTorrent
+  commentId: N:MonoTorrent
+  href: MonoTorrent.html
+  name: MonoTorrent
+  nameWithType: MonoTorrent
+  fullName: MonoTorrent
+- uid: ReusableTasks.ReusableTask`1
+  commentId: T:ReusableTasks.ReusableTask`1
+  isExternal: true
+  name: ReusableTask<T>
+  nameWithType: ReusableTask<T>
+  fullName: ReusableTasks.ReusableTask<T>
+  nameWithType.vb: ReusableTask(Of T)
+  fullName.vb: ReusableTasks.ReusableTask(Of T)
+  name.vb: ReusableTask(Of T)
+  spec.csharp:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ReusableTasks.ReusableTask`1
+    name: ReusableTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ReusableTasks
+  commentId: N:ReusableTasks
+  isExternal: true
+  name: ReusableTasks
+  nameWithType: ReusableTasks
+  fullName: ReusableTasks
