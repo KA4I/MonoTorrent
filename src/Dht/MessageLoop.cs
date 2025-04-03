@@ -160,13 +160,20 @@ namespace MonoTorrent.Dht
             // FIXME: This should throw an exception if the message doesn't exist, we need to handle this
             // and return an error message (if that's what the spec allows)
             try {
-                if (DhtMessageFactory.TryDecodeMessage ((BEncodedDictionary) BEncodedValue.Decode (buffer.Span, false), out DhtMessage? message)) {
+                Console.WriteLine($"[MessageLoop] Received {buffer.Length} bytes from {endpoint}"); // Log received data
+                BEncodedValue decodedValue = BEncodedValue.Decode(buffer.Span, false);
+                if (DhtMessageFactory.TryDecodeMessage ((BEncodedDictionary) decodedValue, out DhtMessage? message)) {
+                    Console.WriteLine($"[MessageLoop] Successfully decoded message from {endpoint}: {message.GetType().Name}"); // Log successful decode
                     Monitor.ReceiveMonitor.AddDelta (buffer.Length);
                     ReceiveQueue.Enqueue (new KeyValuePair<IPEndPoint, DhtMessage> (endpoint, message!));
+                } else {
+                     Console.WriteLine($"[MessageLoop] Failed to decode message from {endpoint}. Decoded value: {decodedValue}"); // Log decode failure
                 }
-            } catch (MessageException) {
+            } catch (MessageException ex) {
+                 Console.WriteLine($"[MessageLoop] MessageException decoding message from {endpoint}: {ex.Message}"); // Log MessageException
                 // Caused by bad transaction id usually - ignore
-            } catch (Exception) {
+            } catch (Exception ex) {
+                 Console.WriteLine($"[MessageLoop] Exception decoding message from {endpoint}: {ex.Message}"); // Log other exceptions
                 //throw new Exception("IP:" + endpoint.Address.ToString() + "bad transaction:" + e.Message);
             }
         }
@@ -292,16 +299,16 @@ namespace MonoTorrent.Dht
                 }
 
                 node.Seen ();
-                if (rawResponse is ResponseMessage response) {
+                if (rawResponse is ResponseMessage responseMessage) { // Renamed 'response' to 'responseMessage'
                     QueryMessage? queryMessage = query.Message as QueryMessage;
                     if (queryMessage is null) {
                         Logger.Error ("Received a dht response but the corresponding query message was missing");
                         return;
                     }
 
-                    response.Handle (Engine, node);
-                    query.CompletionSource?.TrySetResult (new SendQueryEventArgs (node, node.EndPoint, queryMessage, response));
-                    RaiseMessageSent (node, node.EndPoint, queryMessage, response);
+                    responseMessage.Handle (Engine, node); // Use renamed variable
+                    query.CompletionSource?.TrySetResult (new SendQueryEventArgs (node, node.EndPoint, queryMessage, responseMessage)); // Use renamed variable
+                    RaiseMessageSent (node, node.EndPoint, queryMessage, responseMessage); // Use renamed variable
                 } else if (rawResponse is ErrorMessage error) {
                     QueryMessage? queryMessage = query.Message as QueryMessage;
                     if (queryMessage is null) {
@@ -311,19 +318,34 @@ namespace MonoTorrent.Dht
 
                     query.CompletionSource?.TrySetResult (new SendQueryEventArgs (node, node.EndPoint, queryMessage, error));
                     RaiseMessageSent (node, node.EndPoint, queryMessage, error);
+                } else if (rawResponse is QueryMessage queryMessage) {
+                    // Handle incoming queries
+                    Console.WriteLine($"[MessageLoop] Received Query: {queryMessage.GetType().Name} from {source}"); // Log incoming query
+                    // Call Handle, assuming it sends the response internally.
+                    queryMessage.Handle(Engine, node);
+                    // Removed the check for a returned response and the EnqueueSend call.
+                } else {
+                     // Log unexpected message types
+                     Console.WriteLine ($"[MessageLoop] Error: Unknown message type received: {rawResponse.GetType().Name}");
                 }
-            } catch (MessageException) {
-                // FIXME: Is this the right thing to do?
-                // Can/should we attempt to send a response if an error occurs here? Do we have valid data for the node?
-                var error = new ErrorMessage (responseTransactionId, ErrorCode.GenericError, "Unexpected error responding to the message");
-                query.CompletionSource?.TrySetResult (new SendQueryEventArgs (query.Node!, query.Destination!, (QueryMessage) query.Message!, error));
-                EnqueueSend (error, null, source);
-            } catch (Exception) {
-                // FIXME: Is this the right thing to do?
-                // Can/should we attempt to send a response if an error occurs here? Do we have valid data for the node?
-                var error = new ErrorMessage (responseTransactionId, ErrorCode.GenericError, "Unexpected exception responding to the message");
-                query.CompletionSource?.TrySetResult (new SendQueryEventArgs (query.Node!, query.Destination!, (QueryMessage) query.Message!, error));
-                EnqueueSend (error, null, source);
+            } catch (MessageException ex) {
+                // Log message exceptions
+                Console.WriteLine ($"[MessageLoop] Error: MessageException handling message from {source}: {ex.Message}");
+                // Attempt to send a generic error response if we can identify the original query
+                if (query.Message != null && query.Message is QueryMessage originalQuery) { // Ensure query.Message is QueryMessage
+                     var error = new ErrorMessage (responseTransactionId, ErrorCode.GenericError, "Unexpected error processing message");
+                     query.CompletionSource?.TrySetResult (new SendQueryEventArgs (query.Node!, query.Destination!, originalQuery, error));
+                     EnqueueSend (error, null, source);
+                }
+            } catch (Exception ex) {
+                 // Log other exceptions
+                 Console.WriteLine ($"[MessageLoop] Error: Exception handling message from {source}: {ex.Message}");
+                 // Attempt to send a generic error response if we can identify the original query
+                 if (query.Message != null && query.Message is QueryMessage originalQuery) { // Ensure query.Message is QueryMessage
+                     var error = new ErrorMessage (responseTransactionId, ErrorCode.GenericError, "Unexpected exception processing message");
+                     query.CompletionSource?.TrySetResult (new SendQueryEventArgs (query.Node!, query.Destination!, originalQuery, error));
+                     EnqueueSend (error, null, source);
+                 }
             }
         }
 

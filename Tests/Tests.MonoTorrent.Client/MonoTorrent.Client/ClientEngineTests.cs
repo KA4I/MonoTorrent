@@ -1,4 +1,4 @@
-﻿﻿﻿﻿//
+﻿﻿//
 // ClientEngineTests.cs
 //
 // Authors:
@@ -834,39 +834,83 @@ namespace MonoTorrent.Client
             var publicKeyParams = (Ed25519PublicKeyParameters)keyPair.Public;
             var publicKeyABytes = new BEncodedString(publicKeyParams.GetEncoded());
             string publicKeyHexA = BitConverter.ToString(publicKeyParams.GetEncoded()).Replace("-", "").ToLowerInvariant(); // Convert raw bytes to hex
-            // We will generate signatures dynamically now, so remove the static dummy signatureA
-            var infohash1 = InfoHash.FromMemory(Enumerable.Repeat((byte)1, 20).ToArray());
-            var infohash2 = InfoHash.FromMemory(Enumerable.Repeat((byte)2, 20).ToArray());
-            var infohash3 = InfoHash.FromMemory(Enumerable.Repeat((byte)3, 20).ToArray());
+            // We will generate signatures dynamically now.
 
-            var value1 = new BEncodedDictionary { { "ih", new BEncodedString(infohash1.AsMemory().ToArray()) } };
-            var value2 = new BEncodedDictionary { { "ih", new BEncodedString(infohash2.AsMemory().ToArray()) } };
-            var value3 = new BEncodedDictionary { { "ih", new BEncodedString(infohash3.AsMemory().ToArray()) } };
+            // Define minimal realistic 'info' dictionaries for the updates
+            var infoDict1 = new BEncodedDictionary {
+                { "name", new BEncodedString("test1") },
+                { "piece length", new BEncodedNumber(16384) },
+                { "pieces", new BEncodedString(new byte[20]) } // Placeholder pieces hash
+            };
+            var infoDict2 = new BEncodedDictionary {
+                { "name", new BEncodedString("test2") },
+                { "piece length", new BEncodedNumber(16384) },
+                { "pieces", new BEncodedString(Enumerable.Repeat((byte)2, 20).ToArray()) }
+            };
+            var infoDict3 = new BEncodedDictionary {
+                { "name", new BEncodedString("test3") },
+                { "piece length", new BEncodedNumber(16384) },
+                { "pieces", new BEncodedString(Enumerable.Repeat((byte)3, 20).ToArray()) }
+            };
 
-            long currentSequence = 0; // Start at 0
-            BEncodedValue? currentValue = value1; // Initial value
-            BEncodedString? currentSalt = null; // Assuming no salt for this test
-            BEncodedString? currentSignature = SignMutableData(privateKeyParams, currentSalt, currentSequence, currentValue); // Sign initial value
-            BEncodedString? currentPublicKey = publicKeyABytes; // The real public key
+            // Calculate the *actual* InfoHashes corresponding to these dictionaries
+            InfoHash actualInfoHash1, actualInfoHash2, actualInfoHash3;
+            using (var sha1 = System.Security.Cryptography.SHA1.Create()) {
+                actualInfoHash1 = new InfoHash(sha1.ComputeHash(infoDict1.Encode()));
+                actualInfoHash2 = new InfoHash(sha1.ComputeHash(infoDict2.Encode()));
+                actualInfoHash3 = new InfoHash(sha1.ComputeHash(infoDict3.Encode()));
+            }
+            Console.WriteLine($"TEST: Calculated actualInfoHash1: {actualInfoHash1.ToHex()}");
+            Console.WriteLine($"TEST: Calculated actualInfoHash2: {actualInfoHash2.ToHex()}");
+            Console.WriteLine($"TEST: Calculated actualInfoHash3: {actualInfoHash3.ToHex()}");
+
+
+            // Use these full dictionaries as the 'v' values stored in the mock DHT
+            var value1 = infoDict1;
+            var value2 = infoDict2;
+            var value3 = infoDict3;
+
+
+            // Initialize mock state
+            sharedDht.CurrentSequenceNumber = 0;
+            sharedDht.CurrentMutableValue = value1;
+            sharedDht.CurrentSalt = null; // Assuming no salt for this test
+            sharedDht.CurrentPublicKey = publicKeyABytes;
+            sharedDht.CurrentSignature = SignMutableData(privateKeyParams, sharedDht.CurrentSalt, sharedDht.CurrentSequenceNumber, sharedDht.CurrentMutableValue);
 
             // Mock DHT Get: Returns the current state
             sharedDht.GetCallback = (target, requestedSeq) => {
-                //Console.WriteLine($"TEST: DHT Mock GetCallback invoked. Target: {target}, Requested Seq: {requestedSeq?.ToString() ?? "null"}");
-                // Simulate DHT filtering based on sequence number
-                if (requestedSeq.HasValue && currentSequence <= requestedSeq.Value)
-                {
-                    return Task.FromResult<(BEncodedValue?, BEncodedString?, BEncodedString?, long?)>((null, null, null, null));
+                try {
+                    Console.WriteLine($"TEST: DHT Mock GetCallback invoked. Target: {target}, Requested Seq: {requestedSeq?.ToString() ?? "null"}, Current Mock Seq: {sharedDht.CurrentSequenceNumber}");
+                    Console.WriteLine($"TEST: DHT Mock GetCallback invoked. Target: {target}, Requested Seq: {requestedSeq?.ToString() ?? "null"}, Current Mock Seq: {sharedDht.CurrentSequenceNumber}");
+                    // Simulate DHT filtering based on sequence number
+                    if (requestedSeq.HasValue && sharedDht.CurrentSequenceNumber <= requestedSeq.Value)
+                    {
+                        // BEP44: If requestedSeq >= storedSeq, return *only* the stored sequence number.
+                        (BEncodedValue?, BEncodedString?, BEncodedString?, long?) resultTuple = (null, null, null, (long?)sharedDht.CurrentSequenceNumber);
+                        Console.WriteLine($"TEST: DHT Mock returning only seq: {resultTuple.Item4}");
+                        Console.WriteLine($"TEST: DHT Mock returning only seq: {resultTuple.Item4}");
+                        return Task.FromResult<(BEncodedValue?, BEncodedString?, BEncodedString?, long?)>(resultTuple);
+                    }
+                    var fullResultTuple = (sharedDht.CurrentMutableValue, sharedDht.CurrentPublicKey, sharedDht.CurrentSignature, (long?)sharedDht.CurrentSequenceNumber);
+                    Console.WriteLine($"TEST: DHT Mock returning full data: Seq={fullResultTuple.Item4}, ValuePresent={fullResultTuple.Item1!=null}, PKPresent={fullResultTuple.Item2!=null}, SigPresent={fullResultTuple.Item3!=null}");
+                    Console.WriteLine($"TEST: DHT Mock returning full data: Seq={fullResultTuple.Item4}");
+                    return Task.FromResult<(BEncodedValue?, BEncodedString?, BEncodedString?, long?)>(fullResultTuple);
+                } catch (Exception ex) {
+                    Console.WriteLine($"!!!!!!!!!!!! EXCEPTION IN GetCallback: {ex.Message} !!!!!!!!!!!!");
+                    Console.WriteLine($"!!!!!!!!!!!! EXCEPTION IN GetCallback: {ex.Message} !!!!!!!!!!!!");
+                    return Task.FromResult<(BEncodedValue?, BEncodedString?, BEncodedString?, long?)>((null, null, null, null)); // Return null on error
                 }
-                //Console.WriteLine($"TEST: DHT Mock returning: Value={currentValue}, PK={currentPublicKey?.ToHex()}, Sig={currentSignature?.ToHex()}, Seq={currentSequence}");
-                return Task.FromResult<(BEncodedValue?, BEncodedString?, BEncodedString?, long?)>((currentValue, currentPublicKey, currentSignature, currentSequence));
             };
 
             // --- Client B subscribes ---
             //Console.WriteLine("TEST: Client B subscribing...");
+            Console.WriteLine("TEST: Client B subscribing...");
             var link = new MagnetLink(publicKeyHexA, null);
             var managerB = await engineB.AddAsync(link, "savepathB");
             await managerB.StartAsync();
             // Trigger an initial check to process sequence 0 if necessary and wait for it
+            Console.WriteLine("TEST: Triggering initial LogicTick for B...");
             //Console.WriteLine("TEST: Triggering initial LogicTick for B...");
             var logicTickMethodB = typeof(ClientEngine).GetMethod("LogicTick", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
             Assert.IsNotNull(logicTickMethodB, "Could not find LogicTick method via reflection");
@@ -881,81 +925,109 @@ namespace MonoTorrent.Client
             });
             var initialTickTask = initialTickTcs.Task; // Get the Task to await
             await initialTickTask.WithTimeout(TimeSpan.FromSeconds(1)); // Ensure the tick runs
+            Console.WriteLine("TEST: Initial LogicTick for B completed.");
             //Console.WriteLine("TEST: Initial LogicTick for B completed.");
             await Task.Delay(50); // Allow subsequent async actions from the tick to settle
 
 
             // --- Client A publishes update 1 (seq 1) ---
+            Console.WriteLine($"TEST: Client A publishing update 1 (seq 1). Mock DHT State: Seq={sharedDht.CurrentSequenceNumber}, Value={sharedDht.CurrentMutableValue?.ToString() ?? "null"}");
             //Console.WriteLine("TEST: Client A publishing update 1 (seq 1)");
-            currentSequence = 1;
-            currentValue = value2;
-            currentSignature = SignMutableData(privateKeyParams, currentSalt, currentSequence, currentValue); // Recalculate signature
+            ClientEngine.MainLoop.QueueWait (() => {
+                sharedDht.CurrentSequenceNumber = 1;
+                sharedDht.CurrentMutableValue = value2;
+                sharedDht.CurrentSignature = SignMutableData(privateKeyParams, sharedDht.CurrentSalt, sharedDht.CurrentSequenceNumber, sharedDht.CurrentMutableValue); // Recalculate signature
+            });
 
             // --- Client B receives update 1 ---
             InfoHash? receivedInfoHash1 = null;
             long? receivedSeq1 = null;
             var update1Tcs = new TaskCompletionSource<bool>();
+            Console.WriteLine("TEST: Setting up handler for update 1");
             //Console.WriteLine("TEST: Setting up handler for update 1");
             managerB.TorrentUpdateAvailable += (s, e) => {
+                Console.WriteLine($"TEST: TorrentUpdateAvailable handler (1) invoked for manager {e.Manager.GetHashCode()} with hash {e.NewInfoHash}, CurrentKnownSeq={managerB.LastKnownSequenceNumber}");
                 //Console.WriteLine($"TEST: TorrentUpdateAvailable handler (1) invoked for manager {e.Manager.GetHashCode()} with hash {e.NewInfoHash}");
-                if (e.Manager == managerB && e.NewInfoHash == infohash2)
+                // Check against the *actual* calculated InfoHash for the second dictionary
+                if (e.Manager == managerB && e.NewInfoHash == actualInfoHash2)
                 {
                     receivedInfoHash1 = e.NewInfoHash;
                     receivedSeq1 = managerB.LastKnownSequenceNumber; // Check internal state after update
+                    Console.WriteLine($"TEST: Update 1 MATCH. TCS SetResult. Seq: {managerB.LastKnownSequenceNumber}");
                     //Console.WriteLine($"TEST: Update 1 TCS SetResult. Seq: {managerB.LastKnownSequenceNumber}");
                     update1Tcs.TrySetResult(true);
                 }
             };
 
-            // Trigger check on B
-            //Console.WriteLine("TEST: Triggering LogicTick for B (check 1)");
-            await Task.Delay(50);
-            ClientEngine.MainLoop.QueueWait(() => logicTickMethodB.Invoke(engineB, null));
+            // Trigger check on B directly
+            Console.WriteLine("TEST: Triggering PerformMutableUpdateCheckAsync for update 1 on B...");
+            var checkMethod = managerB.GetType().GetMethod("PerformMutableUpdateCheckAsync", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            Assert.IsNotNull(checkMethod, "Could not find PerformMutableUpdateCheckAsync method via reflection");
+            ClientEngine.MainLoop.QueueWait (() => {
+                // We need to invoke the method and await the ReusableTask it returns,
+                // but QueueWait is synchronous. We'll fire-and-forget the task within the loop.
+                 _ = checkMethod.Invoke(managerB, null);
+            });
 
             // Wait for B to receive the update
+            Console.WriteLine($"TEST: Awaiting update 1 TCS ({update1Tcs.Task.Status})...");
             //Console.WriteLine($"TEST: Awaiting update 1 TCS ({update1Tcs.Task.Status})...");
             bool receivedUpdate1 = await update1Tcs.Task.WithTimeout(TimeSpan.FromSeconds(5));
+            Console.WriteLine($"TEST: Update 1 received: {receivedUpdate1}");
             //Console.WriteLine($"TEST: Update 1 received: {receivedUpdate1}");
 
             Assert.IsTrue(receivedUpdate1, "Client B should have received update 1");
-            Assert.AreEqual(infohash2, receivedInfoHash1, "Client B received wrong infohash for update 1");
+            Assert.AreEqual(actualInfoHash2, receivedInfoHash1, "Client B received wrong infohash for update 1");
             Assert.AreEqual(1, receivedSeq1, "Client B has wrong sequence number after update 1");
 
             // --- Client A publishes update 2 (seq 2) ---
+            Console.WriteLine($"TEST: Client A publishing update 2 (seq 2). Mock DHT State: Seq={sharedDht.CurrentSequenceNumber}, Value={sharedDht.CurrentMutableValue?.ToString() ?? "null"}");
             //Console.WriteLine("TEST: Client A publishing update 2 (seq 2)");
-            currentSequence = 2;
-            currentValue = value3;
-            currentSignature = SignMutableData(privateKeyParams, currentSalt, currentSequence, currentValue); // Recalculate signature
+             ClientEngine.MainLoop.QueueWait (() => {
+                sharedDht.CurrentSequenceNumber = 2;
+                sharedDht.CurrentMutableValue = value3;
+                sharedDht.CurrentSignature = SignMutableData(privateKeyParams, sharedDht.CurrentSalt, sharedDht.CurrentSequenceNumber, sharedDht.CurrentMutableValue); // Recalculate signature
+            });
 
             // --- Client B receives update 2 ---
             InfoHash? receivedInfoHash2 = null;
             long? receivedSeq2 = null;
             var update2Tcs = new TaskCompletionSource<bool>();
+            Console.WriteLine("TEST: Setting up handler for update 2");
             //Console.WriteLine("TEST: Setting up handler for update 2");
             managerB.TorrentUpdateAvailable += (s, e) => { // Re-hook or use a flag
+                 Console.WriteLine($"TEST: TorrentUpdateAvailable handler (2) invoked for manager {e.Manager.GetHashCode()} with hash {e.NewInfoHash}, CurrentKnownSeq={managerB.LastKnownSequenceNumber}");
                  //Console.WriteLine($"TEST: TorrentUpdateAvailable handler (2) invoked for manager {e.Manager.GetHashCode()} with hash {e.NewInfoHash}");
-                 if (e.Manager == managerB && e.NewInfoHash == infohash3)
+                 // Check against the *actual* calculated InfoHash for the third dictionary
+                 if (e.Manager == managerB && e.NewInfoHash == actualInfoHash3)
                  {
                     receivedInfoHash2 = e.NewInfoHash;
                     receivedSeq2 = managerB.LastKnownSequenceNumber;
+                    Console.WriteLine($"TEST: Update 2 MATCH. TCS SetResult. Seq: {managerB.LastKnownSequenceNumber}");
                     //Console.WriteLine($"TEST: Update 2 TCS SetResult. Seq: {managerB.LastKnownSequenceNumber}");
                     update2Tcs.TrySetResult(true);
                  }
             };
 
-            // Trigger check on B again
-            //Console.WriteLine("TEST: Triggering LogicTick for B (check 2)");
-            await Task.Delay(50);
-            ClientEngine.MainLoop.QueueWait(() => logicTickMethodB.Invoke(engineB, null));
+            // Trigger check on B directly again
+            Console.WriteLine("TEST: Triggering PerformMutableUpdateCheckAsync for update 2 on B...");
+            ClientEngine.MainLoop.QueueWait (() => {
+                 _ = checkMethod.Invoke(managerB, null);
+            });
+            // Add a small delay to allow the queued actions and the resulting event to propagate
+            await Task.Delay(100);
 
             // Wait for B to receive the second update
+            Console.WriteLine($"TEST: Awaiting update 2 TCS ({update2Tcs.Task.Status})...");
             //Console.WriteLine($"TEST: Awaiting update 2 TCS ({update2Tcs.Task.Status})...");
             bool receivedUpdate2 = await update2Tcs.Task.WithTimeout(TimeSpan.FromSeconds(5)); // This is the line that timed out (previously 907, now adjusted)
+            Console.WriteLine($"TEST: Update 2 received: {receivedUpdate2}");
             //Console.WriteLine($"TEST: Update 2 received: {receivedUpdate2}");
 
             Assert.IsTrue(receivedUpdate2, "Client B should have received update 2");
-            Assert.AreEqual(infohash3, receivedInfoHash2, "Client B received wrong infohash for update 2");
+            Assert.AreEqual(actualInfoHash3, receivedInfoHash2, "Client B received wrong infohash for update 2");
             Assert.AreEqual(2, receivedSeq2, "Client B has wrong sequence number after update 2");
+            Console.WriteLine("TEST: Finished BEP46_TwoClient_UpdatePropagation");
             //Console.WriteLine("TEST: Finished BEP46_TwoClient_UpdatePropagation");
         }
 

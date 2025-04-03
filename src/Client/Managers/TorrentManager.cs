@@ -906,6 +906,10 @@ namespace MonoTorrent.Client
                 foreach (var endpoint in endPoints) {
                    // Announce V1 hash if available, as LPD is primarily V1.
                    // Otherwise, announce truncated V2 hash for V2-only torrents.
+                   if (InfoHashes == null) {
+                       Console.WriteLine($"[Warning] {LogName} - Cannot perform Local Peer Announce as InfoHashes is null.");
+                       return;
+                   }
                    if (InfoHashes.V1 != null)
                         await Engine.LocalPeerDiscovery.Announce (InfoHashes.V1, endpoint);
                    else if (InfoHashes.V2 != null) // Only announce V2 if V1 is not present
@@ -932,11 +936,38 @@ namespace MonoTorrent.Client
                 LastDhtAnnounce = DateTime.UtcNow;
                 LastDhtAnnounceTimer.Restart ();
                 // Announce based on the torrent protocol
+                // Null check InfoHashes first, although CanUseDht should imply it's available if Torrent is not null.
+                if (InfoHashes == null) {
+                    Console.WriteLine($"[Warning] {LogName} - Cannot perform DHT announce as InfoHashes is null.");
+                    return;
+                }
+
+                if (InfoHashes.Protocol == TorrentProtocol.V2 || InfoHashes.Protocol == TorrentProtocol.Hybrid)
+                    Engine.DhtEngine.GetPeers (InfoHashes.V2!.Truncate ()); // V2 must be non-null here
+                if (InfoHashes.Protocol == TorrentProtocol.V1 || InfoHashes.Protocol == TorrentProtocol.Hybrid)
+                    Engine.DhtEngine.GetPeers (InfoHashes.V1!); // V1 must be non-null here
+                    Engine.DhtEngine.GetPeers (InfoHashes.V1!); // V1 must be non-null here
                 if (InfoHashes.Protocol == TorrentProtocol.V2 || InfoHashes.Protocol == TorrentProtocol.Hybrid)
                     Engine.DhtEngine.GetPeers (InfoHashes.V2!.Truncate ()); // V2 must be non-null here
                 if (InfoHashes.Protocol == TorrentProtocol.V1 || InfoHashes.Protocol == TorrentProtocol.Hybrid)
                     Engine.DhtEngine.GetPeers (InfoHashes.V1!); // V1 must be non-null here
             }
+        }
+
+        /// <summary>
+        /// Forces an immediate check for updates to a mutable torrent (BEP46) via DHT.
+        /// This bypasses the regular timed check interval.
+        /// </summary>
+        /// <returns>A task representing the asynchronous update check operation.</returns>
+        public async Task ForceMutableUpdateCheckAsync()
+        {
+            await ClientEngine.MainLoop;
+            CheckRegisteredAndDisposed();
+            if (MutablePublicKey == null)
+                throw new InvalidOperationException("This is not a mutable torrent.");
+
+            logger.InfoFormatted("BEP46 for {0}: Forcing mutable update check.", this.LogName);
+            await PerformMutableUpdateCheckAsync();
         }
 
 
@@ -1379,67 +1410,100 @@ namespace MonoTorrent.Client
 
         internal async ReusableTask PerformMutableUpdateCheckAsync ()
         {
-            //Console.WriteLine($"MANAGER {this.LogName}: Starting PerformMutableUpdateCheckAsync. LastKnownSeq: {LastKnownSequenceNumber?.ToString() ?? "null"}");
+            Console.WriteLine($"[TorrentManager {LogName}] Starting PerformMutableUpdateCheckAsync. LastKnownSeq: {LastKnownSequenceNumber?.ToString() ?? "null"}");
+            Console.WriteLine($"[TorrentManager {LogName}] Starting PerformMutableUpdateCheckAsync. LastKnownSeq: {LastKnownSequenceNumber?.ToString() ?? "null"}");
             if (Engine == null || MutablePublicKey == null || State == TorrentState.Stopped || State == TorrentState.Stopping || State == TorrentState.Error)
+            {
+                 Console.WriteLine($"[TorrentManager {LogName}] Skipping update check. EngineNull: {Engine == null}, MutablePKNull: {MutablePublicKey == null}, State: {State}");
+                 Console.WriteLine($"[TorrentManager {LogName}] Skipping update check. EngineNull: {Engine == null}, MutablePKNull: {MutablePublicKey == null}, State: {State}");
                 return; // Only check if running and it's a mutable torrent
-
-            // Reset the timer regardless of success/failure of the Get operation
-            LastMutableUpdateCheckTimer.Restart ();
+            }
 
             try {
+                // Reset the timer *after* the check completes to ensure the interval is respected.
                 NodeId targetId = MonoTorrent.Dht.DhtEngine.CalculateMutableTargetId(MutablePublicKey, MutableSalt); // Use full namespace
-                //Console.WriteLine($"MANAGER {this.LogName}: Calling DHT GetAsync with target {targetId} and seq {LastKnownSequenceNumber?.ToString() ?? "null"}"); // Add log before call
+                Console.WriteLine($"[TorrentManager {LogName}] Calling DHT GetAsync with target {targetId} and seq {LastKnownSequenceNumber?.ToString() ?? "null"}");
+                Console.WriteLine($"[TorrentManager {LogName}] Calling DHT GetAsync with target {targetId} and seq {LastKnownSequenceNumber?.ToString() ?? "null"}");
                 (BEncodedValue? value, BEncodedString? publicKey, BEncodedString? signature, long? sequenceNumber) = await Engine!.DhtEngine.GetAsync(targetId, LastKnownSequenceNumber); // Pass the last known sequence number
-                //Console.WriteLine($"MANAGER {this.LogName}: DHT GetAsync returned: Value={value}, PK={publicKey?.ToHex()}, Sig={signature?.ToHex()}, Seq={sequenceNumber}");
+                Console.WriteLine($"[TorrentManager {LogName}] DHT GetAsync returned: ValuePresent={value!=null}, PKPresent={publicKey!=null}, SigPresent={signature!=null}, Seq={sequenceNumber?.ToString() ?? "null"}");
+                Console.WriteLine($"[TorrentManager {LogName}] DHT GetAsync returned: ValuePresent={value!=null}, PKPresent={publicKey!=null}, SigPresent={signature!=null}, Seq={sequenceNumber?.ToString() ?? "null"}");
 
                 if (value != null && publicKey != null && signature != null && sequenceNumber.HasValue)
                 {
+                    Console.WriteLine($"[TorrentManager {LogName}] Received potential update. Current Known Seq: {LastKnownSequenceNumber?.ToString() ?? "null"}, Received Seq: {sequenceNumber.Value}");
+                    Console.WriteLine($"[TorrentManager {LogName}] Received potential update. Current Known Seq: {LastKnownSequenceNumber?.ToString() ?? "null"}, Received Seq: {sequenceNumber.Value}");
                     // We already filtered by sequence number in the GetAsync request (by passing LastKnownSequenceNumber),
                     // but we double-check here in case of race conditions or DHT inconsistencies.
-                    if (!LastKnownSequenceNumber.HasValue || sequenceNumber.Value > LastKnownSequenceNumber.Value)
+                    bool isNewer = !LastKnownSequenceNumber.HasValue || sequenceNumber.Value > LastKnownSequenceNumber.Value;
+                    Console.WriteLine($"[TorrentManager {LogName}] Sequence number check (Received > Known): {isNewer}");
+                    Console.WriteLine($"[TorrentManager {LogName}] Sequence number check (Received > Known): {isNewer}");
+
+                    if (isNewer)
                     {
-                        //Console.WriteLine($"MANAGER {this.LogName}: Sequence number is newer ({sequenceNumber.Value} > {LastKnownSequenceNumber?.ToString() ?? "null"}). Verifying signature...");
+                        Console.WriteLine($"[TorrentManager {LogName}] Sequence number is newer. Verifying signature...");
+                        Console.WriteLine($"[TorrentManager {LogName}] Sequence number is newer. Verifying signature...");
                         bool signatureValid = VerifyMutableSignature(publicKey, MutableSalt, sequenceNumber.Value, value, signature);
+                        Console.WriteLine($"[TorrentManager {LogName}] Signature verification result: {signatureValid}");
+                        Console.WriteLine($"[TorrentManager {LogName}] Signature verification result: {signatureValid}");
 
                         if (signatureValid)
                         {
-                            //Console.WriteLine($"MANAGER {this.LogName}: Signature valid.");
-                            if (value is BEncodedDictionary dict && dict.TryGetValue("ih", out BEncodedValue? ihValue) && ihValue is BEncodedString infoHashString && infoHashString.Span.Length == 20)
-                            {
-                                var newInfoHash = InfoHash.FromMemory(infoHashString.AsMemory());
-                                //Console.WriteLine($"MANAGER {this.LogName}: Updating LastKnownSequenceNumber from {LastKnownSequenceNumber?.ToString() ?? "null"} to {sequenceNumber.Value}"); // Add log before update
-                                LastKnownSequenceNumber = sequenceNumber.Value;
-                                logger.InfoFormatted("BEP46 update found for {0}. New InfoHash: {1}", this.LogName, newInfoHash.ToHex());
-                                //Console.WriteLine($"MANAGER {this.LogName}: Invoking TorrentUpdateAvailable event with hash {newInfoHash.ToHex()}");
-                                TorrentUpdateAvailable?.InvokeAsync(this, new TorrentUpdateEventArgs(this, newInfoHash));
-                            }
-                            else
-                            {
-                                //Console.WriteLine($"MANAGER {this.LogName}: Invalid data format received.");
-                                logger.ErrorFormatted("BEP46 for {0}: Received mutable item with invalid 'v' dictionary format.", this.LogName);
+                            Console.WriteLine($"[TorrentManager {LogName}] Signature valid. Processing update...");
+                            Console.WriteLine($"[TorrentManager {LogName}] Signature valid. Processing update...");
+
+                            // Ensure 'value' is a dictionary before proceeding (though BEP46 implies it should be)
+                            if (value is BEncodedDictionary vDict) {
+                                try {
+                                    // Always calculate the InfoHash from the entire bencoded 'v' dictionary.
+                                    // This assumes the 'v' dictionary *is* the new 'info' dictionary or
+                                    // contains the necessary fields for the SHA1 hash calculation to yield
+                                    // the intended new InfoHash.
+                                    byte[] encodedInfo = vDict.Encode();
+                                    InfoHash calculatedNewInfoHash;
+                                    using (var sha1 = System.Security.Cryptography.SHA1.Create()) {
+                                        calculatedNewInfoHash = new InfoHash(sha1.ComputeHash(encodedInfo));
+                                    }
+                                    Console.WriteLine($"[TorrentManager {LogName}] Calculated new InfoHash from 'v': {calculatedNewInfoHash.ToHex()}");
+
+                                    // Update local state and raise event
+                                    Console.WriteLine($"[TorrentManager {LogName}] Updating LastKnownSequenceNumber from {LastKnownSequenceNumber?.ToString() ?? "null"} to {sequenceNumber.Value}");
+                                    LastKnownSequenceNumber = sequenceNumber.Value;
+                                    Console.WriteLine($"[Info] BEP46 update found for {this.LogName}. Calculated New InfoHash: {calculatedNewInfoHash.ToHex()}");
+                                    Console.WriteLine($"[TorrentManager {LogName}] Invoking TorrentUpdateAvailable event with hash {calculatedNewInfoHash.ToHex()}");
+                                    TorrentUpdateAvailable?.Invoke(this, new TorrentUpdateEventArgs(this, calculatedNewInfoHash));
+
+                                } catch (Exception calcEx) {
+                                    // Log error during calculation
+                                    Console.WriteLine($"[Error] BEP46 for {this.LogName}: Error calculating new InfoHash or processing update: {calcEx.Message}");
+                                    // Do not update sequence number or raise event if processing failed
+                                }
+                            } else {
+                                // This case should ideally not happen if the DHT stores valid BEP46 data.
+                                Console.WriteLine($"[Error] BEP46 for {this.LogName}: Received mutable item value 'v' was not a BEncodedDictionary.");
                             }
                         }
                         else
                         {
-                            //Console.WriteLine($"MANAGER {this.LogName}: Signature invalid.");
-                            logger.ErrorFormatted("BEP46 for {0}: Received mutable item with invalid signature.", this.LogName);
+                            Console.WriteLine($"[TorrentManager {LogName}] Signature invalid. Discarding update.");
+                            Console.WriteLine($"[Error] BEP46 for {this.LogName}: Received mutable item with invalid signature.");
                         }
                     }
-                    //else
-                    //{
-                    //    Console.WriteLine($"MANAGER {this.LogName}: Received sequence number {sequenceNumber.Value} is not newer than {LastKnownSequenceNumber?.ToString() ?? "null"}. Ignoring.");
-                    //}
+                    else
+                    {
+                        Console.WriteLine($"[TorrentManager {LogName}] Received sequence number {sequenceNumber.Value} is not newer than {LastKnownSequenceNumber?.ToString() ?? "null"}. Ignoring.");
+                    }
                 }
-                //else
-                //{
-                //    Console.WriteLine($"MANAGER {this.LogName}: No update found or invalid data from DHT GetAsync.");
-                //}
+                else
+                {
+                    Console.WriteLine($"[TorrentManager {LogName}] No update found or invalid data from DHT GetAsync (missing value/pk/sig/seq).");
+                LastMutableUpdateCheckTimer.Restart ();
+                }
                 // else: No update found or immutable item received (which shouldn't happen for xs= links)
 
             } catch (Exception ex) {
-                //Console.WriteLine($"MANAGER {this.LogName}: Exception during PerformMutableUpdateCheckAsync: {ex.Message}");
+                Console.WriteLine($"[TorrentManager {LogName}] Exception during PerformMutableUpdateCheckAsync: {ex.Message}");
                 // Log the error appropriately
-                logger.ErrorFormatted("BEP46 for {0}: Error during mutable update check: {1}", this.LogName, ex.Message);
+                Console.WriteLine($"[Error] BEP46 for {this.LogName}: Error during mutable update check: {ex.Message}");
             }
         }
 
@@ -1448,7 +1512,9 @@ namespace MonoTorrent.Client
         {
              // Original logic restored
             try
+            // Construct the data to verify according to BEP44: "salt" + salt + "seq" + seq + "v" + value
             {
+            Console.WriteLine($"[TorrentManager {LogName}] VerifyMutableSignature: PK={publicKey.ToHex()}, Salt={salt?.ToHex() ?? "null"}, Seq={sequenceNumber}, Value={value.ToString()}, Sig={signature.ToHex()}");
                 // Construct the data to verify according to BEP44: "salt" + salt + "seq" + seq + "v" + value
                 // Calculate the total length needed first
                 int saltKeyLength = new BEncodedString("salt").LengthInBytes();
@@ -1486,12 +1552,14 @@ namespace MonoTorrent.Client
 
                 if (!isValid)
                 {
+                    logger.ErrorFormatted("BEP46 for {0}: Signature verification failed. DataToVerify (hex): {1}", this.LogName, BitConverter.ToString(dataToVerify.ToArray()).Replace("-",""));
                     logger.ErrorFormatted("BEP46 for {0}: Signature verification failed.", this.LogName);
                 }
                 return isValid;
             }
             catch (Exception ex)
             {
+                logger.Exception(ex, $"BEP46 for {this.LogName}: Exception during signature verification.");
                 logger.Exception(ex, $"BEP46 for {this.LogName}: Exception during signature verification.");
                 return false;
             }
@@ -1582,9 +1650,10 @@ namespace MonoTorrent.Client
             var blockInfo = segment.ToBlockInfo (this);
             msg.Initialize (blockInfo.PieceIndex, blockInfo.StartOffset, blockInfo.RequestLength);
             ((PeerId) peer).MessageQueue.Enqueue (msg, releaser);
-        }
+ 
+           }
 
-        void IMessageEnqueuer.EnqueueCancellations (IRequester peer, Span<PieceSegment> segments)
+      void IMessageEnqueuer.EnqueueCancellations (IRequester peer, Span<PieceSegment> segments)
         {
             for (int i = 0; i < segments.Length; i++)
                 ((IMessageEnqueuer) this).EnqueueCancellation (peer, segments[i]);

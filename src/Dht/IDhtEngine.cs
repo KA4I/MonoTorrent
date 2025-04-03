@@ -79,6 +79,9 @@ namespace MonoTorrent.Dht
 
         Task<ReadOnlyMemory<byte>> SaveNodesAsync ();
         Task SetListenerAsync (IDhtListener listener);
+
+        Task PutMutableAsync (BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature, long? cas = null);
+
         Task StartAsync ();
         Task StartAsync (ReadOnlyMemory<byte> initialNodes);
         Task StopAsync ();

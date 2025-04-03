@@ -29,6 +29,10 @@
 //
 
 
+using System;
+using System.Collections.Generic; // Added for List<>
+
+
 using MonoTorrent.BEncoding;
 
 namespace MonoTorrent.Dht.Messages
@@ -39,13 +43,13 @@ namespace MonoTorrent.Dht.Messages
     /// </summary>
     internal class PutRequest : QueryMessage
     {
-        static readonly BEncodedString TokenKey = new BEncodedString ("token");
-        static readonly BEncodedString ValueKey = new BEncodedString ("v");
-        static readonly BEncodedString PublicKeyKey = new BEncodedString ("k");
-        static readonly BEncodedString SaltKey = new BEncodedString ("salt");
-        static readonly BEncodedString SeqKey = new BEncodedString ("seq");
-        static readonly BEncodedString SignatureKey = new BEncodedString ("sig");
-        static readonly BEncodedString CasKey = new BEncodedString ("cas");
+        internal static readonly BEncodedString TokenKey = new BEncodedString ("token"); // Made internal
+        internal static readonly BEncodedString ValueKey = new BEncodedString ("v"); // Made internal
+        internal static readonly BEncodedString PublicKeyKey = new BEncodedString ("k"); // Made internal
+        internal static readonly BEncodedString SaltKey = new BEncodedString ("salt"); // Made internal
+        internal static readonly BEncodedString SeqKey = new BEncodedString ("seq"); // Made internal
+        internal static readonly BEncodedString SignatureKey = new BEncodedString ("sig"); // Made internal
+        internal static readonly BEncodedString CasKey = new BEncodedString ("cas"); // Made internal
         static readonly BEncodedString QueryName = new BEncodedString ("put");
 
         public BEncodedString Token => (BEncodedString) Parameters[TokenKey];
@@ -132,6 +136,62 @@ namespace MonoTorrent.Dht.Messages
         {
             // We need to create PutResponse.cs next
             return new PutResponse (parameters);
+        }
+
+        public override void Handle(DhtEngine engine, Node node)
+        {
+            base.Handle(engine, node);
+
+            // Verify the token
+            if (!engine.TokenManager.VerifyToken(node, Token))
+            {
+                Console.WriteLine($"[PutRequest.Handle] Invalid token received from {node.EndPoint}. Discarding PutRequest.");
+                // Send ErrorMessage for bad token (ErrorCode 203)
+                var error = new ErrorMessage(TransactionId!, ErrorCode.ProtocolError, "Invalid token provided.");
+                engine.MessageLoop.EnqueueSend(error, node, node.EndPoint);
+                return;
+            }
+
+            // Determine Target ID
+            NodeId targetId;
+            bool isMutable = PublicKey != null;
+            if (isMutable)
+            {
+                targetId = DhtEngine.CalculateMutableTargetId(PublicKey!, Salt); // PublicKey is checked by isMutable
+                Console.WriteLine($"[PutRequest.Handle] Received mutable PutRequest for {targetId} from {node.EndPoint}. Seq: {SequenceNumber}");
+
+                // TODO: Verify signature (requires Ed25519 library) before storing.
+                //       If signature is invalid, send an ErrorMessage (e.g., ProtocolError 203).
+
+                // Create StoredDhtItem for mutable data
+                // Ensure SequenceNumber is not null for mutable items (should be validated by constructor or earlier)
+                if (SequenceNumber.HasValue && Signature != null) // Signature also checked
+                {
+                    var itemToStore = new StoredDhtItem(Value, PublicKey!, Salt, SequenceNumber.Value, Signature /*, Cas */);
+                    // Store the item using the engine's storage mechanism
+                    engine.StoreItem(targetId, itemToStore);
+                } else {
+                     Console.WriteLine($"[PutRequest.Handle] Error: Missing SequenceNumber or Signature for mutable PutRequest for {targetId}.");
+                     // Optionally send an error response back
+                     var error = new ErrorMessage(TransactionId!, ErrorCode.ProtocolError, "Missing sequence number or signature for mutable put.");
+                     engine.MessageLoop.EnqueueSend(error, node, node.EndPoint);
+                     return; // Do not proceed to send PutResponse
+                }
+            }
+            else
+            {
+                // Immutable item - calculate target from value hash
+                using (var sha1 = System.Security.Cryptography.SHA1.Create())
+                    targetId = new NodeId(sha1.ComputeHash(Value.Encode()));
+                Console.WriteLine($"[PutRequest.Handle] Received immutable PutRequest for {targetId} from {node.EndPoint}.");
+                // Create and store StoredDhtItem for immutable data
+                var itemToStore = new StoredDhtItem(Value);
+                engine.StoreItem(targetId, itemToStore);
+            }
+
+            // Send PutResponse
+            var response = new PutResponse(engine.RoutingTable.LocalNodeId, TransactionId!);
+            engine.MessageLoop.EnqueueSend(response, node, node.EndPoint);
         }
     }
 }

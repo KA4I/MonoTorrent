@@ -69,6 +69,14 @@ namespace MonoTorrent.Client
         }
 
 
+
+        // --- State for BEP46 Testing ---
+        public BEncodedValue? CurrentMutableValue { get; set; }
+        public BEncodedString? CurrentPublicKey { get; set; }
+        public BEncodedString? CurrentSignature { get; set; }
+        public BEncodedString? CurrentSalt { get; set; }
+        public long CurrentSequenceNumber { get; set; }
+
         // BEP44/BEP46 functionality for testing
         internal Func<NodeId, long?, Task<(BEncodedValue? value, BEncodedString? publicKey, BEncodedString? signature, long? sequenceNumber)>>? GetCallback { get; set; }
 
@@ -76,6 +84,16 @@ namespace MonoTorrent.Client
         {
             return GetCallback?.Invoke(target, sequenceNumber) 
                 ?? Task.FromResult<(BEncodedValue?, BEncodedString?, BEncodedString?, long?)>((null, null, null, null));
+        }
+
+
+        // BEP44/BEP46 Put functionality for testing
+        internal Func<BEncodedString, BEncodedString?, BEncodedValue, long, BEncodedString, long?, Task>? PutCallback { get; set; }
+
+        public Task PutMutableAsync(BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature, long? cas = null)
+        {
+            return PutCallback?.Invoke(publicKey, salt, value, sequenceNumber, signature, cas) 
+                ?? Task.CompletedTask;
         }
 
         public void RaisePeersFound (InfoHash infoHash, IList<PeerInfo> peers)
