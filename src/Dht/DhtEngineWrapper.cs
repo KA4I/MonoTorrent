@@ -27,6 +27,9 @@
 //
 
 using System;
+using System.Threading.Tasks;
+using MonoTorrent.BEncoding;
+
 
 using MonoTorrent.Dht;
 
@@ -41,6 +44,7 @@ namespace MonoTorrent.Client
         public ITransferMonitor Monitor => Engine.Monitor;
         public int NodeCount => Engine.NodeCount;
         public DhtState State => Engine.State;
+
         public TimeSpan AnnounceInterval => Engine.AnnounceInterval;
         public TimeSpan MinimumAnnounceInterval => Engine.MinimumAnnounceInterval;
 
@@ -49,5 +53,22 @@ namespace MonoTorrent.Client
             Engine = engine;
             Engine.StateChanged += (o, e) => StateChanged?.Invoke (this, EventArgs.Empty);
         }
+
+        public Task PutMutableAsync(BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature, long? cas = null)
+        {
+            return Engine.PutMutableAsync(publicKey, salt, value, sequenceNumber, signature, cas);
+        }
+
+        public Task<(BEncodedValue? value, BEncodedString? publicKey, BEncodedString? signature, long? sequenceNumber)> GetAsync(NodeId target, long? sequenceNumber = null)
+        {
+            return Engine.GetAsync(target, sequenceNumber);
+        }
+
+        public void Add(System.Collections.Generic.IEnumerable<System.ReadOnlyMemory<byte>> nodes)
+        {
+            Engine.Add(nodes);
+        }
+
+
     }
 }

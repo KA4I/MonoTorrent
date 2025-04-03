@@ -29,6 +29,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+using System.Threading.Tasks;
+using MonoTorrent.BEncoding;
+
 using MonoTorrent.Dht;
 
 namespace MonoTorrent.Client
@@ -43,8 +46,38 @@ namespace MonoTorrent.Client
 
         DhtState State { get; }
 
+
         TimeSpan AnnounceInterval { get; }
 
         TimeSpan MinimumAnnounceInterval { get; }
+
+
+        /// <summary>
+        /// Adds DHT nodes to the routing table. This is often used to bootstrap the DHT engine.
+        /// </summary>
+        /// <param name="nodes">An enumeration of nodes in compact (NodeId+IP+Port) format.</param>
+        void Add (IEnumerable<ReadOnlyMemory<byte>> nodes);
+
+        /// <summary>
+        /// Puts a mutable item into the DHT.
+        /// </summary>
+        /// <param name="publicKey">The public key (32 bytes).</param>
+        /// <param name="salt">Optional salt.</param>
+        /// <param name="value">The value to store.</param>
+        /// <param name="sequenceNumber">The sequence number.</param>
+        /// <param name="signature">The signature (64 bytes).</param>
+
+        /// <summary>
+        /// Gets an item from the DHT.
+        /// </summary>
+        /// <param name="target">The target ID (infohash for immutable, key hash for mutable).</param>
+        /// <param name="sequenceNumber">Optional sequence number for mutable gets.</param>
+        /// <returns>A tuple containing the value, public key, signature, and sequence number (if available).</returns>
+        Task<(BEncodedValue? value, BEncodedString? publicKey, BEncodedString? signature, long? sequenceNumber)> GetAsync(NodeId target, long? sequenceNumber = null);
+
+        /// <param name="cas">Optional Compare-And-Swap sequence number.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task PutMutableAsync (BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature, long? cas = null);
+
     }
 }

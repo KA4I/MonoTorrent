@@ -209,7 +209,11 @@ namespace MonoTorrent.Client
             Assert.IsTrue(eventTcs.Task.Wait(TimeSpan.FromSeconds(5)), "#1 Event should be raised within timeout");
             var receivedArgs = eventTcs.Task.Result;
             Assert.AreEqual(manager, receivedArgs.Manager, "#2 Manager should match");
-            Assert.AreEqual(updatedInfoHash, receivedArgs.NewInfoHash, "#3 InfoHash should match");
+            // The updated logic calculates the hash from the provided vDict.
+            // In this test, vDict only contains {"ih": ...}, so we hash that.
+            var expectedInfoDict = new BEncodedDictionary { { "ih", (BEncodedString)updatedInfoHash.Span.ToArray() } };
+            var expectedCalculatedInfoHash = InfoHash.FromMemory(SHA1.Create().ComputeHash(expectedInfoDict.Encode()));
+            Assert.AreEqual(expectedCalculatedInfoHash, receivedArgs.NewInfoHash, "#3 InfoHash should match");
             Assert.AreEqual(newSeq, manager.LastKnownSequenceNumber, "#4 Sequence number should be updated");
             await manager.StopAsync (); // Stop for cleanup
         }
@@ -248,7 +252,11 @@ namespace MonoTorrent.Client
             Assert.IsTrue(eventTcs.Task.Wait(TimeSpan.FromSeconds(5)), "#1 Event should be raised within timeout");
             var receivedArgs = eventTcs.Task.Result;
             Assert.AreEqual(manager, receivedArgs.Manager, "#2 Manager should match");
-            Assert.AreEqual(updatedInfoHash, receivedArgs.NewInfoHash, "#3 InfoHash should match");
+            // The updated logic calculates the hash from the provided vDict.
+            // In this test, vDict only contains {"ih": ...}, so we hash that.
+            var expectedInfoDict = new BEncodedDictionary { { "ih", (BEncodedString)updatedInfoHash.Span.ToArray() } };
+            var expectedCalculatedInfoHash = InfoHash.FromMemory(SHA1.Create().ComputeHash(expectedInfoDict.Encode()));
+            Assert.AreEqual(expectedCalculatedInfoHash, receivedArgs.NewInfoHash, "#3 InfoHash should match");
             Assert.AreEqual(newSeq, manager.LastKnownSequenceNumber, "#4 Sequence number should be updated");
             await manager.StopAsync (); // Stop for cleanup
         }

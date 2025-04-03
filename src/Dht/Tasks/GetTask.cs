@@ -36,7 +36,6 @@ using System.Threading.Tasks;
 using MonoTorrent.BEncoding;
 using MonoTorrent.Dht.Messages;
 using System.Security.Cryptography; // Added for SHA1
-using System.Security.Cryptography; // Added for SHA1
 
 namespace MonoTorrent.Dht.Tasks
 {
@@ -49,6 +48,7 @@ namespace MonoTorrent.Dht.Tasks
         readonly Dictionary<Node, BEncodedString> ActiveTokens = new Dictionary<Node, BEncodedString> ();
         BEncodedValue? ReceivedValue;
         long? HighestSeenSequenceNumber;
+        long? HighestSeenSequenceNumberFromResponseOnly; // Track seq num even without value
         BEncodedString? ReceivedPublicKey;
         BEncodedString? ReceivedSignature;
 
@@ -63,30 +63,60 @@ namespace MonoTorrent.Dht.Tasks
 
         public async Task<(BEncodedValue? value, BEncodedString? publicKey, BEncodedString? signature, long? sequenceNumber)> ExecuteAsync ()
         {
+            Console.WriteLine($"[GetTask {Target}] ExecuteAsync started. Querying {NodesToQuery.Count()} nodes. Requested Seq: {SequenceNumber?.ToString() ?? "null"}"); // Log entry
             // Node discovery is now handled by the caller (DhtEngine)
 
             // Send 'get' requests to the closest nodes
             var tasks = new List<Task<SendQueryEventArgs>> ();
+            int queryIndex = 0;
             foreach (Node node in NodesToQuery) {
+                Console.WriteLine($"[GetTask {Target}] Sending GetRequest to Node {queryIndex++}: {node.Id} ({node.EndPoint})"); // Log node being queried
                 var request = new GetRequest (Engine.LocalId, Target, SequenceNumber);
                 tasks.Add (Engine.SendQueryAsync (request, node));
             }
 
+            Console.WriteLine($"[GetTask {Target}] Waiting for {tasks.Count} queries to complete...");
             await Task.WhenAll (tasks);
+            Console.WriteLine($"[GetTask {Target}] All queries completed.");
 
+            int responseCount = 0;
+            int timeoutCount = 0;
             foreach (var task in tasks) {
                 var args = task.Result;
-                if (args.Response is GetResponse response && !args.TimedOut) {
+                if (args.TimedOut) {
+                    timeoutCount++;
+                    Console.WriteLine($"[GetTask {Target}] Query to Node {args.Node.Id} timed out.");
+                } else if (args.Response is GetResponse response) {
+                    responseCount++;
+                    Console.WriteLine($"[GetTask {Target}] Received GetResponse from Node {response.Id}.");
                     HandleGetResponse (response);
+                } else {
+                     Console.WriteLine($"[GetTask {Target}] Received unexpected response type from Node {args.Node.Id}: {args.Response?.GetType().Name ?? "null"}");
                 }
             }
+            Console.WriteLine($"[GetTask {Target}] Processed results: {responseCount} responses, {timeoutCount} timeouts.");
 
             // If we received a value, return it along with mutable data if present
-            return (ReceivedValue, ReceivedPublicKey, ReceivedSignature, HighestSeenSequenceNumber);
+            // Prioritize returning the actual value if found.
+            if (ReceivedValue != null) {
+                 Console.WriteLine ($"[GetTask {Target}] ExecuteAsync finished. Returning: ValuePresent=True, PKPresent={ReceivedPublicKey != null}, SigPresent={ReceivedSignature != null}, HighestSeq={HighestSeenSequenceNumber}");
+                 // Ensure HighestSeenSequenceNumber reflects the sequence associated with ReceivedValue
+                 return (ReceivedValue, ReceivedPublicKey, ReceivedSignature, HighestSeenSequenceNumber);
+            } else if (HighestSeenSequenceNumberFromResponseOnly.HasValue) {
+                 // If no value was found, but we did see a sequence number in a response, return that sequence number.
+                 Console.WriteLine ($"[GetTask {Target}] ExecuteAsync finished. No value found, but returning highest seen sequence number: ValuePresent=False, PKPresent=False, SigPresent=False, HighestSeq={HighestSeenSequenceNumberFromResponseOnly}");
+                 return (null, null, null, HighestSeenSequenceNumberFromResponseOnly);
+            } else {
+                 // If neither value nor sequence number was found in any response.
+                 Console.WriteLine ($"[GetTask {Target}] ExecuteAsync finished. Returning: ValuePresent=False, PKPresent=False, SigPresent=False, HighestSeq=null");
+                 return (null, null, null, null);
+            }
         }
 
         void HandleGetResponse (GetResponse response)
         {
+            Console.WriteLine($"[GetTask {Target}] Handling response from Node {response.Id}"); // Log entry
+
             // Process nodes response
             if (response.Nodes != null) {
                 foreach (Node node in Node.FromCompactNode (response.Nodes))
@@ -107,36 +137,65 @@ namespace MonoTorrent.Dht.Tasks
 
             // Handle the received value ('v' field)
             if (response.Value != null) {
+                 Console.WriteLine($"[GetTask {Target}] Response from {response.Id} contains value.");
                 // For mutable items, check sequence number and signature
                 if (response.PublicKey != null && response.Signature != null && response.SequenceNumber.HasValue) {
-                    // TODO: Implement signature verification using response.PublicKey
-                    //       and the sequence number + value.
-                    //       Need an Ed25519 library for this.
+                    long receivedSeq = response.SequenceNumber.Value;
+                    long requestedMinSeq = SequenceNumber ?? -1;
+                    long? currentHighestSeq = HighestSeenSequenceNumber;
+                    Console.WriteLine($"[GetTask {Target}] Mutable item from {response.Id}. Received Seq: {receivedSeq}, Requested Min: {requestedMinSeq}, Current Highest: {currentHighestSeq?.ToString() ?? "null"}");
 
-                    // Only accept the value if the sequence number is higher than what we've seen
-                    if (!HighestSeenSequenceNumber.HasValue || response.SequenceNumber.Value > HighestSeenSequenceNumber.Value) {
-                        // TODO: Verify signature here before accepting the value
-                        // Note: Verification without salt is incomplete here.
-                        // Proper verification happens in TorrentManager where salt is known.
-                        HighestSeenSequenceNumber = response.SequenceNumber.Value;
+                    // Check if the response sequence number is greater than the minimum requested *and* greater than the highest seen so far in this task.
+                    bool seqCheckPassed = receivedSeq > requestedMinSeq &&
+                                          (!currentHighestSeq.HasValue || receivedSeq > currentHighestSeq.Value);
+
+                    Console.WriteLine($"[GetTask {Target}] Sequence check result for {response.Id}: {seqCheckPassed}");
+
+                    if (seqCheckPassed) {
+                        // Signature verification happens in TorrentManager where salt is known.
+                        Console.WriteLine($"[GetTask {Target}] Accepting value from {response.Id}. Updating HighestSeenSequenceNumber to {receivedSeq}.");
+                        HighestSeenSequenceNumber = receivedSeq;
                         ReceivedValue = response.Value;
                         ReceivedPublicKey = response.PublicKey; // Store associated PK and Sig
                         ReceivedSignature = response.Signature;
+                    } else {
+                         if (receivedSeq <= requestedMinSeq) {
+                             Console.WriteLine($"[GetTask {Target}] Discarding value from {response.Id}: Received Seq ({receivedSeq}) <= Requested Min ({requestedMinSeq}).");
+                         } else if (currentHighestSeq.HasValue && receivedSeq <= currentHighestSeq.Value) {
+                             Console.WriteLine($"[GetTask {Target}] Discarding value from {response.Id}: Received Seq ({receivedSeq}) <= Current Highest ({currentHighestSeq.Value}).");
+                         }
                     }
                 } else {
+                    Console.WriteLine($"[GetTask {Target}] Immutable item from {response.Id}.");
                     // Immutable item - just store the first value we get? Or should we verify the hash?
                     // BEP44 says: "A node making a lookup SHOULD verify the data it receives from the network,
                     // to verify that its hash matches the target that was looked up."
                     if (ReceivedValue == null) // Store the first immutable value received if hash matches
                     {
-                        if (VerifyImmutableHash(response.Value, Target)) {
+                        bool hashValid = VerifyImmutableHash(response.Value, Target);
+                        Console.WriteLine($"[GetTask {Target}] Immutable hash verification result for {response.Id}: {hashValid}");
+                        if (hashValid) {
+                            Console.WriteLine($"[GetTask {Target}] Accepting immutable value from {response.Id}.");
                             ReceivedValue = response.Value;
                         } else {
+                            Console.WriteLine($"[GetTask {Target}] Discarding immutable value from {response.Id}: Hash mismatch.");
                             // Log hash mismatch? Maybe raise an event?
                             // For now, we just won't store the value if the hash is wrong.
                         }
+                    } else {
+                         Console.WriteLine($"[GetTask {Target}] Discarding immutable value from {response.Id}: Already have a value.");
                     }
                 }
+            } else { // response.Value == null
+                 Console.WriteLine($"[GetTask {Target}] Response from {response.Id} does not contain value.");
+                 if (response.SequenceNumber.HasValue) {
+                     // BEP44: Handle case where only sequence number is returned (seq_req >= seq_stored)
+                     HighestSeenSequenceNumberFromResponseOnly = Math.Max(HighestSeenSequenceNumberFromResponseOnly ?? -1, response.SequenceNumber.Value);
+                     Console.WriteLine ($"[GetTask {Target}] Received sequence number {response.SequenceNumber.Value} without value from {response.Id}. Updating HighestSeenSequenceNumberFromResponseOnly to {HighestSeenSequenceNumberFromResponseOnly}.");
+                 }
+                 // If we didn't get a value, process the nodes included in the response (if any).
+                 // This covers cases where only nodes were returned, or where only seq+nodes were returned.
+                 AddClosestNodes (response.Nodes);
             }
         }
 
@@ -162,6 +221,17 @@ namespace MonoTorrent.Dht.Tasks
                     return target.Span.SequenceEqual(hash);
                 }
             }
+        } // End of VerifyImmutableHash
+    
+        void AddClosestNodes (BEncodedString? nodes)
+        {
+            if (nodes == null)
+                return;
+
+            var node = Node.FromCompactNode (nodes);
+            foreach (var n in node)
+                Engine.RoutingTable.Add (n);
         }
-    }
+    } // End of GetTask class
+        // Removed duplicate AddClosestNodes method and extra brace
 }

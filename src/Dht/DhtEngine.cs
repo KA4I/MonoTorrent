@@ -102,6 +102,9 @@ namespace MonoTorrent.Dht
         internal RoutingTable RoutingTable { get; }
         internal TokenManager TokenManager { get; }
         internal Dictionary<NodeId, List<Node>> Torrents { get; }
+        // Proper storage for Get/Put requests (BEP44)
+        internal Dictionary<NodeId, StoredDhtItem> LocalStorage { get; }
+
 
         public DhtEngine ()
         {
@@ -114,6 +117,8 @@ namespace MonoTorrent.Dht
             State = DhtState.NotReady;
             TokenManager = new TokenManager ();
             Torrents = new Dictionary<NodeId, List<Node>> ();
+
+            LocalStorage = new Dictionary<NodeId, StoredDhtItem>();
 
             MainLoop.QueueTimeout (TimeSpan.FromMinutes (5), () => {
                 if (!Disposed)
@@ -205,14 +210,19 @@ namespace MonoTorrent.Dht
                 throw new ArgumentNullException (nameof (target));
 
             await MainLoop;
+            Console.WriteLine($"[DhtEngine {LocalId}] GetAsync started for Target: {target}, Seq: {sequenceNumber?.ToString() ?? "null"}"); // Log Entry
             // First, find the closest nodes using GetPeersTask logic (or similar)
-            var getPeersTask = new GetPeersTask(this, target);
-            await getPeersTask.ExecuteAsync();
-            var nodesToQuery = await getPeersTask.ExecuteAsync(); // Get the nodes found
+            var getPeersTask = new GetPeersTask(this, target); // Create the task
+            // Execute the task ONCE and get the nodes.
+            var nodesToQuery = await getPeersTask.ExecuteAsync();
+            Console.WriteLine($"[DhtEngine {LocalId}] GetPeersTask completed for {target}. Found {nodesToQuery.Count()} nodes to query."); // Log nodes found
 
             // 2. Execute the GetTask using the found nodes
             var getTask = new GetTask (this, target, nodesToQuery, sequenceNumber);
-            return await getTask.ExecuteAsync ();
+            Console.WriteLine($"[DhtEngine {LocalId}] Executing GetTask for {target} with {nodesToQuery.Count()} nodes."); // Log before calling GetTask
+            var result = await getTask.ExecuteAsync ();
+            Console.WriteLine($"[DhtEngine {LocalId}] GetTask completed for {target}. Result: ValuePresent={result.value!=null}, PKPresent={result.publicKey!=null}, SigPresent={result.signature!=null}, Seq={result.sequenceNumber?.ToString() ?? "null"}"); // Log final result
+            return result;
         }
 
         /// <summary>
@@ -275,7 +285,7 @@ namespace MonoTorrent.Dht
         /// <param name="sequenceNumber">The sequence number.</param>
         /// <param name="signature">The signature (64 bytes).</param>
         /// <param name="cas">Optional Compare-And-Swap sequence number.</param>
-        internal async Task PutMutableAsync (BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature, long? cas = null)
+        public async Task PutMutableAsync (BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature, long? cas = null)
         {
             CheckDisposed ();
             if (publicKey is null || publicKey.Span.Length != 32)
@@ -484,10 +494,89 @@ namespace MonoTorrent.Dht
             await tcs.Task;
         }
 
+
+        // --- BEP44 Storage Methods ---
+
+        internal bool TryGetStoredItem (NodeId target, out StoredDhtItem? item)
+        {
+            // TODO: Implement expiration logic based on Timestamp?
+            return LocalStorage.TryGetValue (target, out item);
+        }
+
+        internal void StoreItem (NodeId target, StoredDhtItem item)
+        {
+            // Basic store/replace. BEP44 specifies more complex logic:
+            // - Check sequence numbers for mutable items (only store if newer or equal with valid CAS).
+            // - Potentially limit storage size.
+            // - Handle CAS (Compare-And-Swap) logic.
+
+            if (item.IsMutable)
+            {
+                if (LocalStorage.TryGetValue(target, out var existing) && existing.IsMutable)
+                {
+                    // Implement sequence number check (BEP44 section 3.2.1)
+                    if (item.SequenceNumber <= existing.SequenceNumber)
+                    {
+                        Console.WriteLine($"[DhtEngine.StoreItem] Discarding store for {target}. Incoming Seq ({item.SequenceNumber}) <= Stored Seq ({existing.SequenceNumber}).");
+                        // Optionally, send back an error message (e.g., sequence number too low)?
+                        // For now, just silently discard.
+                        return;
+                    }
+                    // TODO: Implement CAS check if item.Cas.HasValue
+                }
+                Console.WriteLine($"[DhtEngine.StoreItem] Storing mutable item for {target}. Seq: {item.SequenceNumber}");
+            }
+            else
+            {
+                Console.WriteLine($"[DhtEngine.StoreItem] Storing immutable item for {target}.");
+                // Immutable items just overwrite if they exist
+            }
+            LocalStorage[target] = item;
+        }
+
         public async Task SetListenerAsync (IDhtListener listener)
         {
             await MainLoop;
             await MessageLoop.SetListener (listener);
         }
-    }
-}
+
+    } // End of DhtEngine class
+
+    // Class to hold stored DHT items (Moved outside DhtEngine class)
+    internal class StoredDhtItem
+    {
+        public BEncodedValue Value { get; }
+        public BEncodedString? PublicKey { get; } // Null for immutable
+        public BEncodedString? Signature { get; } // Null for immutable
+        public long? SequenceNumber { get; }    // Null for immutable
+        public BEncodedString? Salt { get; }      // Null for immutable or no salt
+        public DateTime Timestamp { get; }      // When it was stored
+        // public long? Cas { get; } // Optional CAS value from PutRequest
+
+        public bool IsMutable => PublicKey != null;
+
+        // Constructor for mutable
+        public StoredDhtItem(BEncodedValue value, BEncodedString pk, BEncodedString? salt, long seq, BEncodedString sig /*, long? cas = null*/)
+        {
+            Value = value ?? throw new ArgumentNullException(nameof(value));
+            PublicKey = pk ?? throw new ArgumentNullException(nameof(pk));
+            Salt = salt;
+            SequenceNumber = seq;
+            Signature = sig ?? throw new ArgumentNullException(nameof(sig));
+            // Cas = cas;
+            Timestamp = DateTime.UtcNow;
+        }
+
+        // Constructor for immutable
+        public StoredDhtItem(BEncodedValue value)
+        {
+            Value = value ?? throw new ArgumentNullException(nameof(value));
+            Timestamp = DateTime.UtcNow;
+        }
+    } // End of StoredDhtItem class
+
+    // Moved SetListenerAsync outside DhtEngine class - wait, this doesn't make sense. It needs to be part of DhtEngine.
+    // Reverting the move of SetListenerAsync. The syntax errors must be related to the StoredDhtItem placement only.
+    // Let's ensure the closing brace for DhtEngine is before StoredDhtItem.
+
+} // End of namespace

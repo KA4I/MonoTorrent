@@ -29,6 +29,8 @@
 //
 
 
+using System;
+using System.Linq; // Needed for .Where()
 using MonoTorrent.BEncoding;
 
 namespace MonoTorrent.Dht.Messages
@@ -74,7 +76,64 @@ namespace MonoTorrent.Dht.Messages
         public override ResponseMessage CreateResponse (BEncodedDictionary parameters)
         {
             // We need to create GetResponse.cs next
+            // Note: This method seems unused if Handle sends the response directly.
+            // Consider removing or revising its purpose. For now, return a base response.
             return new GetResponse (parameters);
+        }
+
+        public override void Handle(DhtEngine engine, Node node)
+        {
+            base.Handle(engine, node);
+
+            var response = new GetResponse(engine.RoutingTable.LocalNodeId, TransactionId!);
+            response.Token = engine.TokenManager.GenerateToken(node);
+
+            // Attempt to retrieve the item from the engine's actual local storage
+            if (engine.TryGetStoredItem(Target, out StoredDhtItem? item))
+            {
+                // Item found locally
+                if (item!.IsMutable) // Item null check handled by TryGetStoredItem
+                {
+                    // Mutable item found, check sequence number based on BEP44 rules
+                    // Return value if stored seq >= requested seq, or if no seq was requested.
+                    // BEP44: Respond with value+sig+seq if stored_seq > requested_seq, or if requested_seq is omitted.
+                    if (!SequenceNumber.HasValue || item.SequenceNumber > SequenceNumber.Value)
+                    {
+                        Console.WriteLine($"[GetRequest.Handle] Found newer mutable item for {Target}. Stored Seq: {item.SequenceNumber}, Requested Seq: {SequenceNumber?.ToString() ?? "null"}. Populating response with value.");
+                        response.Value = item.Value;
+                        response.PublicKey = item.PublicKey; // Already checked IsMutable
+                        response.Signature = item.Signature; // Already checked IsMutable
+                        response.SequenceNumber = item.SequenceNumber; // Already checked IsMutable
+                        // Note: BEP44 says nodes should not be included if value is present.
+                    }
+                    // BEP44: Respond with only seq if stored_seq <= requested_seq.
+                    else // Covers item.SequenceNumber <= SequenceNumber.Value
+                    {
+                         Console.WriteLine($"[GetRequest.Handle] Found mutable item for {Target} but Stored Seq ({item.SequenceNumber}) <= Requested Seq ({SequenceNumber.Value}). Populating response with sequence number only.");
+                         response.SequenceNumber = item.SequenceNumber;
+                         // Do not include nodes or value/signature here, only the sequence number.
+                    }
+                }
+                else
+                {
+                    // Immutable item found
+                    // Note: Proper implementation should verify hash(item.Value) == Target
+                    Console.WriteLine($"[GetRequest.Handle] Found stored immutable item for {Target}. Populating response.");
+                    response.Value = item.Value;
+                    // Note: BEP44 says nodes should not be included if value is present.
+                }
+            }
+            else
+            {
+                // Item not found locally, return closer nodes
+                Console.WriteLine($"[GetRequest.Handle] Item not found locally for {Target}. Finding and returning closest nodes.");
+                var closestNodes = engine.RoutingTable.GetClosest(Target);
+                response.Nodes = Node.CompactNode(closestNodes.Where(n => n.EndPoint.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork).ToList());
+                response.Nodes6 = Node.CompactNode(closestNodes.Where(n => n.EndPoint.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6).ToList());
+            }
+
+            // Send the populated response
+            engine.MessageLoop.EnqueueSend(response, node, node.EndPoint);
         }
     }
 }

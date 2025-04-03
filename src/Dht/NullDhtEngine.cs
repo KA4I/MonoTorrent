@@ -31,7 +31,7 @@ using MonoTorrent.BEncoding;
 
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Threading.Tasks; // Ensure Task is available
 
 using MonoTorrent.Connections.Dht;
 using MonoTorrent.Dht;
@@ -66,6 +66,8 @@ namespace MonoTorrent.Client
         public int NodeCount => 0;
         public ITransferMonitor Monitor { get; } = new NullTransferMonitor ();
 
+        public NodeId LocalId => default; // Null engine doesn't have a real ID
+
         public DhtState State => DhtState.NotReady;
 
         public void Add (IEnumerable<ReadOnlyMemory<byte>> nodes)
@@ -99,7 +101,14 @@ namespace MonoTorrent.Client
             return Task.FromResult (ReadOnlyMemory<byte>.Empty);
         }
 
+        // Corrected SetListenerAsync
         public Task SetListenerAsync (IDhtListener listener)
+        {
+             return Task.CompletedTask;
+        }
+
+        // Correctly placed PutMutableAsync
+        public Task PutMutableAsync(BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature, long? cas = null)
         {
             return Task.CompletedTask;
         }

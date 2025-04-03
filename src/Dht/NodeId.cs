@@ -89,6 +89,15 @@ namespace MonoTorrent.Dht
             Bytes = value.AsMemory ();
         }
 
+
+        public static NodeId FromInfoHash (InfoHash infoHash)
+        {
+            if (infoHash is null)
+                throw new ArgumentNullException (nameof (infoHash));
+            // Use the existing internal constructor which takes InfoHash
+            return new NodeId (infoHash);
+        }
+
         NodeId (ReadOnlyMemory<byte> memory)
             => (Bytes) = memory;
 
