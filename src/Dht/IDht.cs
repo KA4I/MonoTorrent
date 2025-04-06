@@ -79,5 +79,10 @@ namespace MonoTorrent.Client
         /// <returns>A task representing the asynchronous operation.</returns>
         Task PutMutableAsync (BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature, long? cas = null);
 
+        /// <summary>
+        /// Explicitly store a mutable item in local DHT storage (for tests or manual replication).
+        /// </summary>
+        void StoreMutableLocally(BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature);
+
     }
 }

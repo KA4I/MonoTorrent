@@ -69,6 +69,13 @@ namespace MonoTorrent.Client
             Engine.Add(nodes);
         }
 
-
+        public void StoreMutableLocally(BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature)
+        {
+            // Cast the underlying engine to the concrete type to call the method.
+            if (Engine is DhtEngine dhtEngine)
+                dhtEngine.StoreMutableLocally(publicKey, salt, value, sequenceNumber, signature);
+            // else: Log or handle the case where the underlying engine is not DhtEngine?
+            // For now, it will do nothing if the engine doesn't have the method.
+        }
     }
 }

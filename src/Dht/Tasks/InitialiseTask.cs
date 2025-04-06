@@ -27,6 +27,7 @@
 //
 
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -73,14 +74,18 @@ namespace MonoTorrent.Dht.Tasks
 
         async void BeginAsyncInit ()
         {
+            System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] BeginAsyncInit started.");
             // If we were given a list of nodes to load at the start, use them
             try {
                 if (initialNodes.Count > 0) {
+                    System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] Using {initialNodes.Count} provided initial nodes.");
                     await SendFindNode (initialNodes);
                 } else {
+                    System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] No initial nodes provided. Attempting DNS resolution for bootstrap routers.");
                     try {
                         if (BootstrapNodes is null)
                             BootstrapNodes = await GenerateBootstrapNodes ();
+                        System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] DNS resolution complete. Found {BootstrapNodes?.Length ?? 0} bootstrap nodes. Sending FindNode requests.");
                         await SendFindNode (BootstrapNodes);
                     } catch {
                         initializationComplete.TrySetResult (null);
@@ -94,6 +99,7 @@ namespace MonoTorrent.Dht.Tasks
 
         async Task<Node[]> GenerateBootstrapNodes ()
         {
+            System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] GenerateBootstrapNodes started for {BootstrapRouters.Length} routers.");
             // Handle when one, or more, of the bootstrap nodes are offline
             var results = new List<Node> ();
 
@@ -106,8 +112,9 @@ namespace MonoTorrent.Dht.Tasks
                     var addresses = await completed;
                     foreach (var v in addresses)
                         results.Add (new Node (NodeId.Create (), new IPEndPoint (v, 6881)));
-                } catch {
-
+                        System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] Resolved router to {string.Join(", ", addresses.Select(a => a.ToString()))}");
+                } catch (Exception ex) {
+                     System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] DNS resolution failed for a router: {ex.Message}");
                 }
             }
 
@@ -116,36 +123,55 @@ namespace MonoTorrent.Dht.Tasks
 
         async Task SendFindNode (IEnumerable<Node> newNodes)
         {
+            System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] SendFindNode started with {newNodes.Count()} initial nodes.");
             var activeRequests = new List<Task<SendQueryEventArgs>> ();
             var nodes = new ClosestNodesCollection (engine.LocalId);
 
             foreach (Node node in newNodes) {
                 var request = new FindNode (engine.LocalId, engine.LocalId);
+                System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] Sending initial FindNode to {node.EndPoint}");
                 activeRequests.Add (engine.SendQueryAsync (request, node));
                 nodes.Add (node);
             }
 
+            System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] Entering FindNode loop. Active requests: {activeRequests.Count}");
             while (activeRequests.Count > 0) {
                 var completed = await Task.WhenAny (activeRequests);
+                System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] Query completed.");
                 activeRequests.Remove (completed);
 
                 SendQueryEventArgs args = await completed;
-                if (args.Response != null) {
+                if (args.TimedOut) {
+                     System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] Query timed out for {args.EndPoint}.");
+                }
+                else if (args.Response != null) {
+                    System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] Received FindNode response from: {args.EndPoint}");
                     if (engine.RoutingTable.CountNodes () >= MinHealthyNodes)
                         initializationComplete.TrySetResult (null);
 
                     var response = (FindNodeResponse) args.Response;
+                    int newFound = 0;
                     foreach (Node node in Node.FromCompactNode (response.Nodes)) {
                         if (nodes.Add (node)) {
+                            newFound++;
                             var request = new FindNode (engine.LocalId, engine.LocalId);
+                            System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] Adding new FindNode query for {node.EndPoint}");
                             activeRequests.Add (engine.SendQueryAsync (request, node));
                         }
                     }
+                    System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] Processed response. Found {newFound} new nodes. Active requests: {activeRequests.Count}");
                 }
-            }
+                else {
+                     System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] Query failed or returned null response for {args.EndPoint}.");
+                }
+                
+                }
+            System.Diagnostics.Debug.WriteLine ($"[DHT InitialiseTask {engine.LocalId}] FindNode loop finished. Routing table node count: {engine.RoutingTable.CountNodes ()}");
 
-            if (initialNodes.Count > 0 && engine.RoutingTable.NeedsBootstrap && BootstrapRouters.Length > 0)
+            if (initialNodes.Count > 0 && engine.RoutingTable.NeedsBootstrap && BootstrapRouters.Length > 0) {
+                System.Diagnostics.Debug.WriteLine ($"[DHT InitialiseTask {engine.LocalId}] Initial nodes processed, but table still needs bootstrap. Recursively calling InitialiseTask with default routers.");
                 await new InitialiseTask (engine).ExecuteAsync ();
+            }
         }
     }
 }

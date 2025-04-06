@@ -316,6 +316,12 @@ namespace MonoTorrent.Client
         /// </summary>
         public TimeSpan MutableTorrentUpdateInterval { get; } = TimeSpan.FromMinutes (15);
 
+        /// <summary>
+        /// Overrides the default DHT bootstrap nodes. Defaults to the standard routers used by other clients.
+        /// An empty list will disable bootstrapping using the default nodes.
+        /// </summary>
+        public IList<string> BootstrapNodes { get; } = Array.AsReadOnly (DhtEngine.DefaultBootstrapRouters.ToArray ());
+
         public EngineSettings ()
         {
 
@@ -333,7 +339,7 @@ namespace MonoTorrent.Client
             int maximumOpenFiles, int maximumUploadRate, IDictionary<string, IPEndPoint> reportedListenEndPoints, bool usePartialFiles,
             TimeSpan webSeedConnectionTimeout, TimeSpan webSeedDelay, int webSeedSpeedTrigger, TimeSpan staleRequestTimeout,
              TimeSpan mutableTorrentUpdateInterval,
-            string httpStreamingPrefix, IList<TimeSpan> connectionRetryDelays)
+            string httpStreamingPrefix, IList<TimeSpan> connectionRetryDelays, IList<string> bootstrapNodes)
         {
             // Make sure this is immutable now
             AllowedEncryption = EncryptionTypes.MakeReadOnly (allowedEncryption.ToArray ());
@@ -348,6 +354,7 @@ namespace MonoTorrent.Client
             AutoSaveLoadDhtCache = autoSaveLoadDhtCache;
             AutoSaveLoadFastResume = autoSaveLoadFastResume;
             AutoSaveLoadMagnetLinkMetadata = autoSaveLoadMagnetLinkMetadata;
+            BootstrapNodes = Array.AsReadOnly (bootstrapNodes.ToArray ());
             DhtEndPoint = dhtEndPoint;
             DiskCacheBytes = diskCacheBytes;
             DiskCachePolicy = diskCachePolicy;
@@ -463,7 +470,7 @@ namespace MonoTorrent.Client
                    && WebSeedDelay == other.WebSeedDelay
                    && WebSeedSpeedTrigger == other.WebSeedSpeedTrigger
                    && MutableTorrentUpdateInterval == other.MutableTorrentUpdateInterval
-
+                   && BootstrapNodes.SequenceEqual (other.BootstrapNodes)
                    ;
         }
 

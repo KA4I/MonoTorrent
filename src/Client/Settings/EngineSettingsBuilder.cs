@@ -59,6 +59,7 @@ namespace MonoTorrent.Client
         TimeSpan webSeedDelay;
         int webSeedSpeedTrigger;
         TimeSpan mutableTorrentUpdateInterval;
+        List<string> bootstrapNodes;
 
 
 
@@ -376,6 +377,15 @@ namespace MonoTorrent.Client
             set => mutableTorrentUpdateInterval = CheckZeroOrPositive(value);
         }
 
+        /// <summary>
+        /// Overrides the default DHT bootstrap nodes. Defaults to the standard routers used by other clients.
+        /// An empty list will disable bootstrapping using the default nodes.
+        /// </summary>
+        public List<string> BootstrapNodes {
+            get => bootstrapNodes;
+            set => bootstrapNodes = value ?? throw new ArgumentNullException (nameof (value));
+        }
+
 
         public EngineSettingsBuilder ()
             : this (new EngineSettings ())
@@ -396,6 +406,7 @@ namespace MonoTorrent.Client
             AutoSaveLoadDhtCache = settings.AutoSaveLoadDhtCache;
             AutoSaveLoadFastResume = settings.AutoSaveLoadFastResume;
             AutoSaveLoadMagnetLinkMetadata = settings.AutoSaveLoadMagnetLinkMetadata;
+            bootstrapNodes = new List<string>(settings.BootstrapNodes); // Add this
             CacheDirectory = settings.CacheDirectory;
             ChokeReviewInterval = settings.ChokeReviewInterval;
             ConnectionRetryDelays = new List<TimeSpan> (settings.ConnectionRetryDelays);
@@ -438,45 +449,45 @@ namespace MonoTorrent.Client
                 throw new ArgumentNullException (nameof (ConnectionRetryDelays));
             if (ConnectionRetryDelays.Any (t => t < TimeSpan.Zero))
                 throw new ArgumentException ("ConnectionRetryDelays cannot be less than zero");
-
-            return new EngineSettings (
-                allowedEncryption: AllowedEncryption,
-                allowHaveSuppression: AllowHaveSuppression,
-                allowLocalPeerDiscovery: AllowLocalPeerDiscovery,
-                allowMultipleTorrentInstances: AllowMultipleTorrentInstances,
-                allowPortForwarding: AllowPortForwarding,
-                allowOutgoingConnections: AllowOutgoingConnections,
-                allowUploadingOnOutgoingConnections: AllowUploadingOnOutgoingConnections,
-                autoSaveLoadDhtCache: AutoSaveLoadDhtCache,
-                autoSaveLoadFastResume: AutoSaveLoadFastResume,
-                autoSaveLoadMagnetLinkMetadata: AutoSaveLoadMagnetLinkMetadata,
-                cacheDirectory: string.IsNullOrEmpty (CacheDirectory) ? Environment.CurrentDirectory : Path.GetFullPath (CacheDirectory),
-                chokeReviewInterval: ChokeReviewInterval,
-                connectionRetryDelays: ConnectionRetryDelays,
-                connectionTimeout: ConnectionTimeout,
-                dhtEndPoint: DhtEndPoint,
-                diskCacheBytes: DiskCacheBytes,
-                diskCachePolicy: DiskCachePolicy,
-                fastResumeMode: FastResumeMode,
-                fileCreationMode: FileCreationMode,
-                httpStreamingPrefix: HttpStreamingPrefix,
-                listenEndPoints: ListenEndPoints,
-                maximumConnections: MaximumConnections,
-                maximumDiskReadRate: MaximumDiskReadRate,
-                maximumDiskWriteRate: MaximumDiskWriteRate,
-                maximumRepeatedHashFails: MaximumRepeatedHashFails,
-                maximumTotalHashFails: MaximumTotalHashFails,
-                maximumDownloadRate: MaximumDownloadRate,
-                maximumHalfOpenConnections: MaximumHalfOpenConnections,
-                maximumOpenFiles: MaximumOpenFiles,
-                maximumUploadRate: MaximumUploadRate,
-                reportedListenEndPoints: ReportedListenEndPoints,
-                staleRequestTimeout: StaleRequestTimeout,
-                usePartialFiles: UsePartialFiles,
-                webSeedConnectionTimeout: WebSeedConnectionTimeout,
-                webSeedDelay: WebSeedDelay,
-                webSeedSpeedTrigger: webSeedSpeedTrigger,
-                mutableTorrentUpdateInterval: MutableTorrentUpdateInterval
+return new EngineSettings (
+    allowedEncryption: AllowedEncryption,
+    allowHaveSuppression: AllowHaveSuppression,
+    allowLocalPeerDiscovery: AllowLocalPeerDiscovery,
+    allowMultipleTorrentInstances: AllowMultipleTorrentInstances,
+    allowPortForwarding: AllowPortForwarding,
+    allowOutgoingConnections: AllowOutgoingConnections,
+    allowUploadingOnOutgoingConnections: AllowUploadingOnOutgoingConnections,
+    autoSaveLoadDhtCache: AutoSaveLoadDhtCache,
+    autoSaveLoadFastResume: AutoSaveLoadFastResume,
+    autoSaveLoadMagnetLinkMetadata: AutoSaveLoadMagnetLinkMetadata,
+    bootstrapNodes: BootstrapNodes, // Add this
+    cacheDirectory: string.IsNullOrEmpty (CacheDirectory) ? Environment.CurrentDirectory : Path.GetFullPath (CacheDirectory),
+    chokeReviewInterval: ChokeReviewInterval,
+    connectionRetryDelays: ConnectionRetryDelays,
+    connectionTimeout: ConnectionTimeout,
+    dhtEndPoint: DhtEndPoint,
+    diskCacheBytes: DiskCacheBytes,
+    diskCachePolicy: DiskCachePolicy,
+    fastResumeMode: FastResumeMode,
+    fileCreationMode: FileCreationMode,
+    httpStreamingPrefix: HttpStreamingPrefix,
+    listenEndPoints: ListenEndPoints,
+    maximumConnections: MaximumConnections,
+    maximumDiskReadRate: MaximumDiskReadRate,
+    maximumDiskWriteRate: MaximumDiskWriteRate,
+    maximumRepeatedHashFails: MaximumRepeatedHashFails,
+    maximumTotalHashFails: MaximumTotalHashFails,
+    maximumDownloadRate: MaximumDownloadRate,
+    maximumHalfOpenConnections: MaximumHalfOpenConnections,
+    maximumOpenFiles: MaximumOpenFiles,
+    maximumUploadRate: MaximumUploadRate,
+    reportedListenEndPoints: ReportedListenEndPoints,
+    staleRequestTimeout: StaleRequestTimeout,
+    usePartialFiles: UsePartialFiles,
+    webSeedConnectionTimeout: WebSeedConnectionTimeout,
+    webSeedDelay: WebSeedDelay,
+    webSeedSpeedTrigger: webSeedSpeedTrigger,
+    mutableTorrentUpdateInterval: MutableTorrentUpdateInterval
 
             );
         }

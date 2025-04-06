@@ -561,7 +561,20 @@ namespace MonoTorrent.Client
                  // InfoHashes property getter handles null Torrent. No assignment needed here.
             }
 
-            MagnetLink = magnetLink ?? new MagnetLink (torrent!.InfoHashes, torrent.Name, torrent.AnnounceUrls.SelectMany (t => t).ToArray (), null, torrent.Size);
+            // Ensure MagnetLink always has InfoHashes if Torrent is null, especially for mutable torrents
+            if (torrent is null && magnetLink?.PublicKeyHex != null) {
+                 // Calculate the initial identifier (SHA1 of public key) for mutable torrents
+                 byte[] publicKeyBytes = HexDecode(magnetLink.PublicKeyHex);
+                 InfoHash initialIdentifier;
+                 using (var sha1 = SHA1.Create()) {
+                     initialIdentifier = new InfoHash(sha1.ComputeHash(publicKeyBytes));
+                 }
+                 // Create a MagnetLink with the calculated InfoHash (as V1 for compatibility/placeholder)
+                 MagnetLink = new MagnetLink(InfoHashes.FromV1(initialIdentifier), magnetLink.Name, magnetLink.AnnounceUrls, magnetLink.Webseeds, magnetLink.Size);
+            } else {
+                 // Original logic for standard torrents or magnet links with existing infohashes
+                 MagnetLink = magnetLink ?? new MagnetLink (torrent!.InfoHashes, torrent.Name, torrent.AnnounceUrls.SelectMany (t => t).ToArray (), null, torrent.Size);
+            }
             PieceHashes = new PieceHashes (null, null);
             Settings = settings;
             Torrent = torrent;

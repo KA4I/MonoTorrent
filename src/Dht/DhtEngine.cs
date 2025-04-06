@@ -31,9 +31,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
-using System.Security.Cryptography;
+using System.Security.Cryptography; // Keep this
 using System.Threading.Tasks;
-
 using MonoTorrent.BEncoding;
 using MonoTorrent.Client;
 using MonoTorrent.Connections.Dht;
@@ -104,6 +103,7 @@ namespace MonoTorrent.Dht
         internal Dictionary<NodeId, List<Node>> Torrents { get; }
         // Proper storage for Get/Put requests (BEP44)
         internal Dictionary<NodeId, StoredDhtItem> LocalStorage { get; }
+        public Dictionary<NodeId, StoredDhtItem> LocalStorageProperty => LocalStorage;
 
 
         public DhtEngine ()
@@ -209,6 +209,13 @@ namespace MonoTorrent.Dht
             if (target is null)
                 throw new ArgumentNullException (nameof (target));
 
+            // First, check local storage
+            if (LocalStorage.TryGetValue(target, out var stored))
+            {
+                Console.WriteLine($"[DhtEngine] LocalStorage hit for {target}");
+                return (stored.Value, stored.PublicKey, stored.Signature, stored.SequenceNumber);
+            }
+
             await MainLoop;
             Console.WriteLine($"[DhtEngine {LocalId}] GetAsync started for Target: {target}, Seq: {sequenceNumber?.ToString() ?? "null"}"); // Log Entry
             // First, find the closest nodes using GetPeersTask logic (or similar)
@@ -301,6 +308,9 @@ namespace MonoTorrent.Dht
 
             NodeId target = CalculateMutableTargetId(publicKey, salt);
 
+            // Store locally immediately
+            StoreItem(target, new StoredDhtItem(value, publicKey, salt, sequenceNumber, signature));
+
             // 1. Find closest nodes using GetPeers logic
             var getPeersTask = new GetPeersTask(this, target);
             var nodes = await getPeersTask.ExecuteAsync(); // Capture the returned nodes
@@ -337,29 +347,77 @@ namespace MonoTorrent.Dht
              // Else: Log failure to get any tokens?
         }
 
-        internal static NodeId CalculateMutableTargetId(BEncodedString publicKey, BEncodedString? salt)
+        /// <summary>
+        /// Explicitly store a mutable item in local DHT storage (for tests or manual replication).
+        /// </summary>
+        public void StoreMutableLocally(BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature)
+        {
+            var target = CalculateMutableTargetId(publicKey, salt);
+            StoreItem(target, new StoredDhtItem(value, publicKey, salt, sequenceNumber, signature));
+        }
+
+        public static NodeId CalculateMutableTargetId(BEncodedString publicKey, BEncodedString? salt)
         {
             using (var sha1 = SHA1.Create())
             {
-                sha1.TransformBlock(publicKey.Span.ToArray(), 0, publicKey.Span.Length, null, 0);
-                if (salt != null && salt.Span.Length > 0)
-                    sha1.TransformFinalBlock(salt.Span.ToArray(), 0, salt.Span.Length);
+                if (salt == null || salt.Span.Length == 0)
+                {
+                    // Target = SHA1(PublicKey)
+                    // Need ToArray for ComputeHash on older frameworks
+                    #if NETSTANDARD2_0 || NET472
+                    return new NodeId(sha1.ComputeHash(publicKey.Span.ToArray()));
+                    #else
+                    byte[] hashResult = new byte[20];
+                    if (sha1.TryComputeHash(publicKey.Span, hashResult, out int bytesWritten) && bytesWritten == 20)
+                        return new NodeId(hashResult);
+                    else
+                        throw new CryptographicException("Failed to compute SHA1 hash."); // Or handle error appropriately
+                    #endif
+                }
                 else
-                    sha1.TransformFinalBlock(Array.Empty<byte>(), 0, 0); // Finalize without salt
-                return new NodeId(sha1.Hash!);
+                {
+                    // Target = SHA1(PublicKey + Salt)
+                    byte[] combined = new byte[publicKey.Span.Length + salt.Span.Length];
+                    publicKey.Span.CopyTo(combined);
+                    salt.Span.CopyTo(combined.AsSpan(publicKey.Span.Length));
+                    #if NETSTANDARD2_0 || NET472
+                    return new NodeId(sha1.ComputeHash(combined));
+                    #else
+                    byte[] hashResult = new byte[20];
+                    if (sha1.TryComputeHash(combined, hashResult, out int bytesWritten) && bytesWritten == 20)
+                        return new NodeId(hashResult);
+                    else
+                        throw new CryptographicException("Failed to compute SHA1 hash."); // Or handle error appropriately
+                    #endif
+                }
             }
         }
 
-        async void InitializeAsync (IEnumerable<Node> nodes, string[] bootstrapRouters)
+        async Task InitializeAsync (IEnumerable<Node> nodes, string[] bootstrapRouters) // Changed to async Task
         {
             await MainLoop;
-
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitializeAsync started."); // Log start
+ 
             var initTask = new InitialiseTask (this, nodes, bootstrapRouters);
-            await initTask.ExecuteAsync ();
-            if (RoutingTable.NeedsBootstrap)
+            try
+            {
+                await initTask.ExecuteAsync ();
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitialiseTask completed successfully."); // Log success
+            }
+            catch (Exception ex)
+            {
+                 System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitialiseTask FAILED: {ex.Message}\nStackTrace: {ex.StackTrace}"); // Log failure with stack trace
+                 // Rethrow or handle as appropriate? For now, just log and let state be set below.
+                 // Consider if we should force NotReady state here?
+            }
+ 
+            bool needsBootstrap = RoutingTable.NeedsBootstrap; // Check after task execution
+ 
+            if (needsBootstrap) {
                 RaiseStateChanged (DhtState.NotReady);
-            else
+            } else {
                 RaiseStateChanged (DhtState.Ready);
+            }
         }
 
         internal void RaisePeersFound (NodeId infoHash, IList<PeerInfo> peers)
@@ -447,17 +505,25 @@ namespace MonoTorrent.Dht
 
         async Task StartAsync (IEnumerable<Node> nodes, string[] bootstrapRouters)
         {
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] StartAsync entered."); // Log entry point
             CheckDisposed ();
-
+ 
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Awaiting MainLoop..."); // Log before await
             await MainLoop;
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] MainLoop awaited."); // Log after await
             MessageLoop.Start ();
-            if (RoutingTable.NeedsBootstrap) {
+            bool needsBootstrapCheck = RoutingTable.NeedsBootstrap; // Check before the if
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] StartAsync: RoutingTable.NeedsBootstrap = {needsBootstrapCheck}, Node Count = {RoutingTable.CountNodes()}"); // Log bootstrap status and node count before if
+            // Force initialization if the routing table is empty OR NeedsBootstrap is true
+            if (needsBootstrapCheck || RoutingTable.CountNodes() == 0) {
                 RaiseStateChanged (DhtState.Initialising);
-                InitializeAsync (nodes, bootstrapRouters);
-            } else {
+                await InitializeAsync (nodes, bootstrapRouters); // Await the task now
+            }
+            else {
+                 System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] StartAsync: Skipping InitializeAsync as NeedsBootstrap is false and Node Count > 0 ({RoutingTable.CountNodes()})."); // Log skip with node count
                 RaiseStateChanged (DhtState.Ready);
             }
-
+ 
             MainLoop.QueueTimeout (TimeSpan.FromSeconds (30), delegate {
                 if (!Disposed) {
                     _ = RefreshBuckets ();
@@ -543,7 +609,7 @@ namespace MonoTorrent.Dht
     } // End of DhtEngine class
 
     // Class to hold stored DHT items (Moved outside DhtEngine class)
-    internal class StoredDhtItem
+    public class StoredDhtItem
     {
         public BEncodedValue Value { get; }
         public BEncodedString? PublicKey { get; } // Null for immutable

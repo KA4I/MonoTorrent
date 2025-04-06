@@ -76,7 +76,7 @@ namespace MonoTorrent.Client
         void Loop()
         {
             var currentQueue = new Queue<QueuedTask>();
-
+ 
             SetSynchronizationContext(this);
 #if ALLOW_EXECUTION_CONTEXT_SUPPRESSION
             using (ExecutionContext.SuppressFlow ())
@@ -88,7 +88,6 @@ namespace MonoTorrent.Client
                 {
                     if (actions.Count == 0)
                         Monitor.Wait(actionsLock);
-
                     var swap = actions;
                     actions = currentQueue;
                     currentQueue = swap;
