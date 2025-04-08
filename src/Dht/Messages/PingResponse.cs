@@ -28,14 +28,21 @@
 
 
 using MonoTorrent.BEncoding;
-
+using System.Net; // Added for IPEndPoint
+ 
 namespace MonoTorrent.Dht.Messages
 {
     sealed class PingResponse : ResponseMessage
     {
-        public PingResponse (NodeId id, BEncodedValue transactionId)
+        /// <summary>
+        /// The external endpoint of the sender, if known via NAT traversal.
+        /// </summary>
+        public IPEndPoint? ExternalEndPoint { get; }
+ 
+        public PingResponse (NodeId id, BEncodedValue transactionId, IPEndPoint? externalEndPoint = null)
             : base (id, transactionId)
         {
+            ExternalEndPoint = externalEndPoint;
         }
 
         public PingResponse (BEncodedDictionary d)

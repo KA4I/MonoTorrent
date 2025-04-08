@@ -29,7 +29,9 @@
 
 using MonoTorrent.BEncoding;
 using MonoTorrent.Logging;
-
+using System.Collections.Generic; // Added for List<Node>
+using System.Linq; // Added for Linq
+ 
 namespace MonoTorrent.Dht.Messages
 {
     sealed class GetPeers : QueryMessage
@@ -68,16 +70,40 @@ namespace MonoTorrent.Dht.Messages
             }
 
             BEncodedString token = engine.TokenManager.GenerateToken (node);
-            var response = new GetPeersResponse (engine.RoutingTable.LocalNodeId, TransactionId, token);
+            // Pass the engine's ExternalEndPoint (if available) to the response constructor
+            var response = new GetPeersResponse (engine.RoutingTable.LocalNodeId, TransactionId, token, engine.ExternalEndPoint);
+ 
             if (engine.Torrents.ContainsKey (InfoHash)) {
+                // This part sends compact peer info (IP/Port), not full node info.
+                // It's unlikely the local node is in this list. If it were, we'd need
+                // to ensure its ExternalEndPoint is used here too, but that seems unnecessary.
                 var list = new BEncodedList ();
                 foreach (Node n in engine.Torrents[InfoHash])
                     list.Add (n.CompactPort ());
                 response.Values = list;
+                // TODO: Add IPv6 values if available/needed (response.Values6)
             } else {
-                response.Nodes = Node.CompactNode (engine.RoutingTable.GetClosest (InfoHash));
+                // This part sends compact node info (ID/IP/Port).
+                // We need to substitute the local node if it's present and ExternalEndPoint is known.
+                var closestNodes = engine.RoutingTable.GetClosest (InfoHash);
+                var responseNodes = new List<Node>(closestNodes.Count);
+                foreach (var n in closestNodes)
+                {
+                    if (n.Id == engine.LocalId && engine.ExternalEndPoint != null)
+                    {
+                        // Substitute local node with one using the external endpoint
+                        responseNodes.Add(new Node(engine.LocalId, engine.ExternalEndPoint));
+                    }
+                    else
+                    {
+                        responseNodes.Add(n);
+                    }
+                }
+                // Compact the potentially modified list of nodes for IPv4 and IPv6 separately
+                response.Nodes = Node.CompactNode (responseNodes.Where(n => n.EndPoint.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork).ToList());
+                response.Nodes6 = Node.CompactNode (responseNodes.Where(n => n.EndPoint.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6).ToList());
             }
-
+ 
             engine.MessageLoop.EnqueueSend (response, node, node.EndPoint);
         }
     }

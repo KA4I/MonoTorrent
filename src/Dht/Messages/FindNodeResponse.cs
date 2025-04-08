@@ -28,21 +28,29 @@
 
 
 using MonoTorrent.BEncoding;
-
+using System.Net; // Added for IPEndPoint
+ 
 namespace MonoTorrent.Dht.Messages
 {
     sealed class FindNodeResponse : ResponseMessage
     {
         static readonly BEncodedString NodesKey = new BEncodedString ("nodes");
-
+ 
+        /// <summary>
+        /// The external endpoint of the sender, if known via NAT traversal.
+        /// This isn't directly encoded but might be used by the handler creating this response.
+        /// </summary>
+        public IPEndPoint? ExternalEndPoint { get; }
+ 
         public BEncodedString Nodes {
             get => (BEncodedString?) Parameters.GetValueOrDefault (NodesKey) ?? BEncodedString.Empty;
             set => Parameters[NodesKey] = value;
         }
-
-        public FindNodeResponse (NodeId id, BEncodedValue transactionId)
+ 
+        public FindNodeResponse (NodeId id, BEncodedValue transactionId, IPEndPoint? externalEndPoint = null)
             : base (id, transactionId)
         {
+            ExternalEndPoint = externalEndPoint; // Store it, though not directly used in encoding here
             Parameters.Add (NodesKey, BEncodedString.Empty);
         }
 

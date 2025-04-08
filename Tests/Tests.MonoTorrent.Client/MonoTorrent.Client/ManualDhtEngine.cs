@@ -113,8 +113,33 @@ namespace MonoTorrent.Client
             return Task.CompletedTask;
         }
 
+        // Add missing IDhtEngine interface members
+        public Task StartAsync (NatsNatTraversalService? natsService = null)
+        {
+             RaiseStateChanged (DhtState.Ready);
+             return Task.CompletedTask;
+        }
+
+        public Task StartAsync (ReadOnlyMemory<byte> initialNodes, NatsNatTraversalService? natsService = null)
+        {
+             RaiseStateChanged (DhtState.Ready);
+             return Task.CompletedTask;
+        }
+
+        public Task StartAsync (ReadOnlyMemory<byte> initialNodes, string[] bootstrapRouters, NatsNatTraversalService? natsService = null)
+        {
+             RaiseStateChanged (DhtState.Ready);
+             return Task.CompletedTask;
+         }
+ 
+         public Task InitializeNatAsync (NatsNatTraversalService natsService)
+         {
+             // Manual engine does nothing by default, could be overridden in tests if needed
+             return Task.CompletedTask;
+        }
+
         public Task StartAsync ()
-            => StartAsync (null);
+            => StartAsync (ReadOnlyMemory<byte>.Empty); // Explicitly call the overload with no initial nodes
 
         public Task StartAsync (ReadOnlyMemory<byte> initialNodes)
         {

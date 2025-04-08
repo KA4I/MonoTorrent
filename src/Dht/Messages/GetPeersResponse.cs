@@ -28,7 +28,8 @@
 
 
 using System;
-
+using System.Net; // Added for IPEndPoint
+ 
 using MonoTorrent.BEncoding;
 
 namespace MonoTorrent.Dht.Messages
@@ -36,9 +37,17 @@ namespace MonoTorrent.Dht.Messages
     sealed class GetPeersResponse : ResponseMessage
     {
         static readonly BEncodedString NodesKey = new BEncodedString ("nodes");
+        static readonly BEncodedString Nodes6Key = new BEncodedString ("nodes6"); // Added for IPv6
         static readonly BEncodedString TokenKey = new BEncodedString ("token");
         static readonly BEncodedString ValuesKey = new BEncodedString ("values");
-
+        static readonly BEncodedString Values6Key = new BEncodedString ("values6"); // Added for IPv6
+ 
+        /// <summary>
+        /// The external endpoint of the sender, if known via NAT traversal.
+        /// This isn't directly encoded but might be used by the handler creating this response.
+        /// </summary>
+        public IPEndPoint? ExternalEndPoint { get; }
+ 
         public BEncodedValue Token {
             get => Parameters.GetValueOrDefault (TokenKey) ?? throw new InvalidOperationException ("The required parameter 'token' was not set.");
             set => Parameters[TokenKey] = value;
@@ -55,22 +64,49 @@ namespace MonoTorrent.Dht.Messages
                     Parameters[NodesKey] = value;
             }
         }
-
+ 
+        // Optional IPv6 nodes
+        public BEncodedString? Nodes6 {
+            get => (BEncodedString?) Parameters.GetValueOrDefault (Nodes6Key);
+            set {
+                 if (Parameters.ContainsKey (ValuesKey) || Parameters.ContainsKey (Values6Key))
+                    throw new InvalidOperationException ("Cannot contain Nodes6 and Values/Values6 keys");
+                if (value is null)
+                    Parameters.Remove (Nodes6Key);
+                else
+                    Parameters[Nodes6Key] = value;
+            }
+        }
+ 
         public BEncodedList? Values {
             get => (BEncodedList?) Parameters.GetValueOrDefault (ValuesKey);
             set {
-                if (Parameters.ContainsKey (NodesKey))
-                    throw new InvalidOperationException ("Already contains the nodes key");
+                if (Parameters.ContainsKey (NodesKey) || Parameters.ContainsKey (Nodes6Key))
+                    throw new InvalidOperationException ("Already contains the nodes/nodes6 key");
                 if (value is null)
                     Parameters.Remove (ValuesKey);
                 else
                     Parameters[ValuesKey] = value;
             }
         }
-
-        public GetPeersResponse (NodeId id, BEncodedValue transactionId, BEncodedString token)
+ 
+        // Optional IPv6 values
+        public BEncodedList? Values6 {
+            get => (BEncodedList?) Parameters.GetValueOrDefault (Values6Key);
+            set {
+                 if (Parameters.ContainsKey (NodesKey) || Parameters.ContainsKey (Nodes6Key))
+                    throw new InvalidOperationException ("Already contains the nodes/nodes6 key");
+                if (value is null)
+                    Parameters.Remove (Values6Key);
+                else
+                    Parameters[Values6Key] = value;
+            }
+        }
+ 
+        public GetPeersResponse (NodeId id, BEncodedValue transactionId, BEncodedString token, IPEndPoint? externalEndPoint = null)
             : base (id, transactionId)
         {
+            ExternalEndPoint = externalEndPoint; // Store it
             Parameters.Add (TokenKey, token);
         }
 

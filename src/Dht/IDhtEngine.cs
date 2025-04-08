@@ -82,8 +82,15 @@ namespace MonoTorrent.Dht
 
         Task PutMutableAsync (BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature, long? cas = null);
 
-        Task StartAsync ();
-        Task StartAsync (ReadOnlyMemory<byte> initialNodes);
+        Task StartAsync (NatsNatTraversalService? natsService = null);
+        Task StartAsync (ReadOnlyMemory<byte> initialNodes, NatsNatTraversalService? natsService = null);
+        Task StartAsync (ReadOnlyMemory<byte> initialNodes, string[] bootstrapRouters, NatsNatTraversalService? natsService = null);
+
+        /// <summary>
+        /// Initializes the NAT traversal service associated with this DHT engine.
+        /// </summary>
+        /// <param name="natsService">The NATS NAT traversal service instance.</param>
+        Task InitializeNatAsync (NatsNatTraversalService natsService);
         Task StopAsync ();
     }
 }

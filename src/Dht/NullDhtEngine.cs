@@ -113,13 +113,30 @@ namespace MonoTorrent.Client
             return Task.CompletedTask;
         }
 
-        public Task StartAsync ()
+        // Updated StartAsync to match IDhtEngine interface
+        public Task StartAsync (NatsNatTraversalService? natsService = null)
         {
+            // Null engine does nothing on start
             return Task.CompletedTask;
         }
 
-        public Task StartAsync (ReadOnlyMemory<byte> initialNodes)
+        public Task InitializeNatAsync (NatsNatTraversalService natsService)
         {
+            // Null engine does nothing
+            return Task.CompletedTask;
+        }
+ 
+        // Updated StartAsync to match IDhtEngine interface
+        public Task StartAsync (ReadOnlyMemory<byte> initialNodes, NatsNatTraversalService? natsService = null)
+        {
+            // Null engine does nothing on start
+            return Task.CompletedTask;
+        }
+ 
+        // Added overload to match IDhtEngine interface
+        public Task StartAsync (ReadOnlyMemory<byte> initialNodes, string[] bootstrapRouters, NatsNatTraversalService? natsService = null)
+        {
+            // Null engine does nothing on start
             return Task.CompletedTask;
         }
 
