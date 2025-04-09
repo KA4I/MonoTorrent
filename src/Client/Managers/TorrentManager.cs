@@ -1424,12 +1424,15 @@ namespace MonoTorrent.Client
         internal async ReusableTask PerformMutableUpdateCheckAsync ()
         {
             Console.WriteLine($"[TorrentManager {LogName}] Starting PerformMutableUpdateCheckAsync. LastKnownSeq: {LastKnownSequenceNumber?.ToString() ?? "null"}");
-            Console.WriteLine($"[TorrentManager {LogName}] Starting PerformMutableUpdateCheckAsync. LastKnownSeq: {LastKnownSequenceNumber?.ToString() ?? "null"}");
-            if (Engine == null || MutablePublicKey == null || State == TorrentState.Stopped || State == TorrentState.Stopping || State == TorrentState.Error)
+            
+            // Modified condition to allow mutable torrent updates even when Stopped
+            // This is needed for cases when an external system wants to check for updates without starting the torrent
+            if (Engine == null || MutablePublicKey == null || 
+                (State == TorrentState.Error) || 
+                (State == TorrentState.Stopping))  // Removed the TorrentState.Stopped check
             {
                  Console.WriteLine($"[TorrentManager {LogName}] Skipping update check. EngineNull: {Engine == null}, MutablePKNull: {MutablePublicKey == null}, State: {State}");
-                 Console.WriteLine($"[TorrentManager {LogName}] Skipping update check. EngineNull: {Engine == null}, MutablePKNull: {MutablePublicKey == null}, State: {State}");
-                return; // Only check if running and it's a mutable torrent
+                return; // Only check if it's a mutable torrent and not in error/stopping state
             }
 
             try {

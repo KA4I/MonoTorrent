@@ -189,8 +189,8 @@ namespace MonoTorrent.Dht.Messages
                 engine.StoreItem(targetId, itemToStore);
             }
 
-            // Send PutResponse
-            var response = new PutResponse(engine.RoutingTable.LocalNodeId, TransactionId!);
+            // Send PutResponse, passing the external endpoint if available
+            var response = new PutResponse(engine.RoutingTable.LocalNodeId, TransactionId!, engine.ExternalEndPoint);
             engine.MessageLoop.EnqueueSend(response, node, node.EndPoint);
         }
     }

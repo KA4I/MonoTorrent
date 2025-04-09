@@ -168,9 +168,15 @@ namespace MonoTorrent.Dht.Tasks
                 }
             System.Diagnostics.Debug.WriteLine ($"[DHT InitialiseTask {engine.LocalId}] FindNode loop finished. Routing table node count: {engine.RoutingTable.CountNodes ()}");
 
-            if (initialNodes.Count > 0 && engine.RoutingTable.NeedsBootstrap && BootstrapRouters.Length > 0) {
-                System.Diagnostics.Debug.WriteLine ($"[DHT InitialiseTask {engine.LocalId}] Initial nodes processed, but table still needs bootstrap. Recursively calling InitialiseTask with default routers.");
-                await new InitialiseTask (engine).ExecuteAsync ();
+            // If we started with specific initial nodes but the table still needs bootstrapping,
+            // AND if the *original* call intended to use bootstrap routers (BootstrapRouters was not empty),
+            // then fall back to using the routers. Otherwise, do not fall back.
+            if (initialNodes.Count > 0 && engine.RoutingTable.NeedsBootstrap && this.BootstrapRouters.Length > 0) {
+                System.Diagnostics.Debug.WriteLine ($"[DHT InitialiseTask {engine.LocalId}] Initial nodes processed, but table still needs bootstrap. Recursively calling InitialiseTask with configured routers ({this.BootstrapRouters.Length} routers).");
+                // Pass the *same* bootstrap routers, not the defaults.
+                await new InitialiseTask (engine, Array.Empty<Node>(), this.BootstrapRouters).ExecuteAsync ();
+            } else if (initialNodes.Count > 0 && engine.RoutingTable.NeedsBootstrap) {
+                 System.Diagnostics.Debug.WriteLine ($"[DHT InitialiseTask {engine.LocalId}] Initial nodes processed, but table still needs bootstrap. *Not* falling back to routers as none were provided initially.");
             }
         }
     }

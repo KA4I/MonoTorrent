@@ -30,11 +30,13 @@
 using MonoTorrent.BEncoding;
 
 using System;
+using System.Net; // Added for IPEndPoint
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using MonoTorrent.Connections.Dht;
 using MonoTorrent.Dht;
+using MonoTorrent.PortForwarding; // Added for IPortForwarder
 
 namespace MonoTorrent.Client
 {
@@ -46,6 +48,8 @@ namespace MonoTorrent.Client
         public ITransferMonitor Monitor { get; }
         public int NodeCount => 0;
         public DhtState State { get; private set; }
+        public IPEndPoint? ExternalEndPoint { get; set; } // Added property
+        public NodeId LocalId { get; set; } // Added property
 
         public event EventHandler<PeersFoundEventArgs> PeersFound;
         public event EventHandler StateChanged;
@@ -113,14 +117,42 @@ namespace MonoTorrent.Client
             return Task.CompletedTask;
         }
 
-        public Task StartAsync ()
-            => StartAsync (null);
-
-        public Task StartAsync (ReadOnlyMemory<byte> initialNodes)
+        // Updated StartAsync overload
+        public Task StartAsync (NatsNatTraversalService? natsService = null, IPortForwarder? portForwarder = null)
         {
-            RaiseStateChanged (DhtState.Ready);
-            return Task.CompletedTask;
+             RaiseStateChanged (DhtState.Ready);
+             return Task.CompletedTask;
         }
+
+        // Updated StartAsync overload
+        public Task StartAsync (ReadOnlyMemory<byte> initialNodes, NatsNatTraversalService? natsService = null, IPortForwarder? portForwarder = null)
+        {
+             RaiseStateChanged (DhtState.Ready);
+             return Task.CompletedTask;
+        }
+
+        // Updated StartAsync overload
+        public Task StartAsync (ReadOnlyMemory<byte> initialNodes, string[] bootstrapRouters, NatsNatTraversalService? natsService = null, IPortForwarder? portForwarder = null)
+        {
+             RaiseStateChanged (DhtState.Ready);
+             return Task.CompletedTask;
+         }
+ 
+         // Updated InitializeNatAsync signature
+         public Task InitializeNatAsync (NatsNatTraversalService natsService, IPortForwarder? portForwarder)
+         {
+             // Manual engine does nothing by default, could be overridden in tests if needed
+             return Task.CompletedTask;
+        }
+
+        // This overload is not part of IDhtEngine, but might be used by tests. Keep it, but delegate appropriately.
+        public Task StartAsync ()
+            => StartAsync (ReadOnlyMemory<byte>.Empty, null, null);
+
+        // This specific overload (only initialNodes) is not part of IDhtEngine.
+        // Keep it for compatibility if tests use it, but delegate to the interface-matching one.
+        public Task StartAsync (ReadOnlyMemory<byte> initialNodes)
+            => StartAsync(initialNodes, null, null);
 
         public Task StopAsync ()
         {

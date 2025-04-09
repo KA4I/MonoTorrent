@@ -76,7 +76,7 @@ namespace MonoTorrent.Dht
         /// <summary>
         /// The listener instance which is used to send/receive messages.
         /// </summary>
-        IDhtListener Listener { get; set; }
+        internal IDhtListener Listener { get; set; } // Made internal
 
         TransferMonitor Monitor { get; }
 

@@ -28,6 +28,7 @@
 
 
 using System;
+using System.Net; // Added for IPEndPoint
 using MonoTorrent.BEncoding;
 
 using System.Collections.Generic;
@@ -69,8 +70,10 @@ namespace MonoTorrent.Dht
         bool Disposed { get; }
         ITransferMonitor Monitor { get; }
         TimeSpan MinimumAnnounceInterval { get; }
+        IPEndPoint? ExternalEndPoint { get; set; } // Added property
         int NodeCount { get; }
         DhtState State { get; }
+        NodeId LocalId { get; } // Added property
 
         void Add (IEnumerable<ReadOnlyMemory<byte>> nodes);
         void Announce (InfoHash infoHash, int port);
@@ -82,8 +85,15 @@ namespace MonoTorrent.Dht
 
         Task PutMutableAsync (BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature, long? cas = null);
 
-        Task StartAsync ();
-        Task StartAsync (ReadOnlyMemory<byte> initialNodes);
+        Task StartAsync (NatsNatTraversalService? natsService = null, MonoTorrent.PortForwarding.IPortForwarder? portForwarder = null); // Added portForwarder
+        Task StartAsync (ReadOnlyMemory<byte> initialNodes, NatsNatTraversalService? natsService = null, MonoTorrent.PortForwarding.IPortForwarder? portForwarder = null); // Added portForwarder
+        Task StartAsync (ReadOnlyMemory<byte> initialNodes, string[] bootstrapRouters, NatsNatTraversalService? natsService = null, MonoTorrent.PortForwarding.IPortForwarder? portForwarder = null); // Added portForwarder
+
+        /// <summary>
+        /// Initializes the NAT traversal service associated with this DHT engine.
+        /// </summary>
+        /// <param name="natsService">The NATS NAT traversal service instance.</param>
+        Task InitializeNatAsync (NatsNatTraversalService natsService, MonoTorrent.PortForwarding.IPortForwarder? portForwarder); // Added portForwarder parameter
         Task StopAsync ();
     }
 }
