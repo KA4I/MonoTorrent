@@ -32,7 +32,6 @@
     <PackageReference Include="Mono.Nat" Version="3.0" />
 
     <PackageReference Include="NATS.Net" Version="2.5.12" />
-<PackageReference Include="ReusableTasks" Version="4.0.0" />
     <PackageReference Include="ReusableTasks" Version="4.0.0" />
     <PackageReference Include="StandardSocketsHttpHandler" Version="2.2.0.8" Condition="$(TargetFramework) == 'netstandard2.0'" />
     <PackageReference Include="System.Memory" Version="4.6.3" Condition="$(TargetFramework) == 'netstandard2.0'" />
