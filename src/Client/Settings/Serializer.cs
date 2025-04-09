@@ -97,6 +97,11 @@ namespace MonoTorrent.Client
                     property.SetValue (builder, ToIPAddressDictionary ((BEncodedDictionary) value));
                 } else if (property.PropertyType == typeof (List<TimeSpan>)) {
                     property.SetValue (builder, ToTimeSpanList ((BEncodedList) value));
+                } else if (property.PropertyType == typeof (List<string>)) {
+                    var list = (IList<string>) property.GetValue (builder)!;
+                    list.Clear ();
+                    foreach (BEncodedString str in (BEncodedList) value)
+                        list.Add (str.Text);
                 } else
                     throw new NotSupportedException ($"{property.Name} => type: ${property.PropertyType}");
             }
@@ -112,6 +117,7 @@ namespace MonoTorrent.Client
                     bool value => convertedValue = new BEncodedString (value.ToString ()),
                     IList<EncryptionType> value => convertedValue = new BEncodedList (value.Select (v => (BEncodedString) v.ToString ())),
                     IList<TimeSpan> value => convertedValue = new BEncodedList (value.Select (v => (BEncodedNumber) v.Ticks)),
+                    IList<string> value => convertedValue = new BEncodedList (value.Select (v => (BEncodedString) v)),
                     string value => new BEncodedString (value),
                     TimeSpan value => new BEncodedNumber (value.Ticks),
                     IPAddress value => new BEncodedString (value.ToString ()),
