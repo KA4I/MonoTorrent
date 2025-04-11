@@ -89,15 +89,9 @@ namespace MonoTorrent.Dht
         public bool Disposed { get; private set; }
 
         public ITransferMonitor Monitor { get; }
- 
+
         public TimeSpan MinimumAnnounceInterval => DefaultMinimumAnnounceInterval;
- 
-        /// <summary>
-        /// The external IP address and port which should be advertised to other peers.
-        /// This is discovered via the NatsNatTraversalService.
-        /// </summary>
-        public System.Net.IPEndPoint? ExternalEndPoint { get; set; }
- 
+
         public DhtState State { get; private set; }
 
         internal TimeSpan BucketRefreshTimeout { get; set; }
@@ -400,54 +394,30 @@ namespace MonoTorrent.Dht
             }
         }
 
-        async Task InitializeAsync (IEnumerable<Node> nodes, string[] bootstrapRouters)
+        async Task InitializeAsync (IEnumerable<Node> nodes, string[] bootstrapRouters) // Changed to async Task
         {
             await MainLoop;
-            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitializeAsync started.");
-            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Bootstrap routers: {string.Join(", ", bootstrapRouters)}");
-            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Initial pending nodes count: {nodes.Count()}");
-
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitializeAsync started."); // Log start
+ 
             var initTask = new InitialiseTask (this, nodes, bootstrapRouters);
             try
             {
-                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Starting InitialiseTask.ExecuteAsync()");
                 await initTask.ExecuteAsync ();
-                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitialiseTask completed successfully.");
-                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] RoutingTable after InitialiseTask: NodeCount={RoutingTable.CountNodes()}");
-                foreach (var bucket in RoutingTable.Buckets)
-                {
-                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Bucket: {bucket}");
-                    foreach (var node in bucket.Nodes)
-                    {
-                        System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Node: {node.EndPoint} ID: {node.Id}");
-                    }
-                }
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitialiseTask completed successfully."); // Log success
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitialiseTask FAILED: {ex.Message}\nStackTrace: {ex.StackTrace}");
+                 System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitialiseTask FAILED: {ex.Message}\nStackTrace: {ex.StackTrace}"); // Log failure with stack trace
+                 // Rethrow or handle as appropriate? For now, just log and let state be set below.
+                 // Consider if we should force NotReady state here?
             }
-
-            int nodeCount = RoutingTable.CountNodes();
-            bool needsBootstrap = RoutingTable.NeedsBootstrap;
-            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] After InitialiseTask: RoutingTable NodeCount={nodeCount}, NeedsBootstrap={needsBootstrap}");
-
-            if (needsBootstrap)
-            {
-                // If bootstrap is incomplete, check if NAT traversal succeeded.
-                // If NAT worked, we might still be able to function via NATS peers.
-                if (this.ExternalEndPoint != null) {
-                     System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Bootstrap incomplete but NAT succeeded. Setting state to Ready.");
-                     RaiseStateChanged(DhtState.Ready); // Force Ready state if NAT worked
-                } else {
-                     System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Bootstrap incomplete and no NAT/failed NAT. Setting state to NotReady");
-                     RaiseStateChanged(DhtState.NotReady);
-                }
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Bootstrap complete. Setting state to Ready");
-                RaiseStateChanged(DhtState.Ready);
+ 
+            bool needsBootstrap = RoutingTable.NeedsBootstrap; // Check after task execution
+ 
+            if (needsBootstrap) {
+                RaiseStateChanged (DhtState.NotReady);
+            } else {
+                RaiseStateChanged (DhtState.Ready);
             }
         }
 
@@ -522,6 +492,14 @@ namespace MonoTorrent.Dht
             return e;
         }
 
+        public Task StartAsync ()
+            => StartAsync (ReadOnlyMemory<byte>.Empty);
+
+        public Task StartAsync (ReadOnlyMemory<byte> initialNodes)
+            => StartAsync (Node.FromCompactNode (BEncodedString.FromMemory (initialNodes)).Concat (PendingNodes), DefaultBootstrapRouters.ToArray ());
+
+        public Task StartAsync (params string[] bootstrapRouters)
+            => StartAsync (Array.Empty<Node> (), bootstrapRouters);
         // Matches IDhtEngine
         public Task StartAsync (NatsNatTraversalService? natsService = null, IPortForwarder? portForwarder = null)
             => StartAsync (ReadOnlyMemory<byte>.Empty, Array.Empty<string>(), natsService, portForwarder); // Delegate to the most specific internal overload
@@ -542,13 +520,10 @@ namespace MonoTorrent.Dht
         // This internal StartAsync now needs the PortForwarder if NATS is used
         async Task StartAsync (IEnumerable<Node> nodes, string[] bootstrapRouters, NatsNatTraversalService? natsService = null, IPortForwarder? portForwarder = null)
         {
-            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] StartAsync entered.");
-            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Bootstrap routers: {string.Join(", ", bootstrapRouters)}");
-            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Pending nodes count: {nodes.Count()}");
-            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Current State: {State}");
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] StartAsync entered."); // Log entry point
             CheckDisposed ();
-
-            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Awaiting MainLoop...");
+ 
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Awaiting MainLoop..."); // Log before await
             await MainLoop;
             System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] MainLoop awaited.");
  
@@ -572,20 +547,18 @@ namespace MonoTorrent.Dht
             }
  
             MessageLoop.Start ();
-            bool needsBootstrapCheck = RoutingTable.NeedsBootstrap;
-            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] RoutingTable.NeedsBootstrap = {needsBootstrapCheck}, Node Count = {RoutingTable.CountNodes()}");
-
+            bool needsBootstrapCheck = RoutingTable.NeedsBootstrap; // Check before the if
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] StartAsync: RoutingTable.NeedsBootstrap = {needsBootstrapCheck}, Node Count = {RoutingTable.CountNodes()}"); // Log bootstrap status and node count before if
+            // Force initialization if the routing table is empty OR NeedsBootstrap is true
             if (needsBootstrapCheck || RoutingTable.CountNodes() == 0) {
-                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Starting InitializeAsync with bootstrap routers.");
                 RaiseStateChanged (DhtState.Initialising);
-                await InitializeAsync (nodes, bootstrapRouters);
-                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitializeAsync completed.");
-                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] State after InitializeAsync: {State}");
-            } else {
-                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Skipping InitializeAsync, already bootstrapped.");
+                await InitializeAsync (nodes, bootstrapRouters); // Await the task now
+            }
+            else {
+                 System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] StartAsync: Skipping InitializeAsync as NeedsBootstrap is false and Node Count > 0 ({RoutingTable.CountNodes()})."); // Log skip with node count
                 RaiseStateChanged (DhtState.Ready);
             }
-
+ 
             MainLoop.QueueTimeout (TimeSpan.FromSeconds (30), delegate {
                 if (!Disposed) {
                     _ = RefreshBuckets ();
@@ -731,3 +704,4 @@ namespace MonoTorrent.Dht
     // Reverting the move of SetListenerAsync. The syntax errors must be related to the StoredDhtItem placement only.
     // Let's ensure the closing brace for DhtEngine is before StoredDhtItem.
 
+} // End of namespace
