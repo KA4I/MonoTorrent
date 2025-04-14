@@ -59,22 +59,35 @@ namespace MonoTorrent.Client.Modes
         {
             pair = new ConnectionPair ().DisposeAfterTimeout ();
             rig = multiFile ? TestRig.CreateMultiFile (32768, metadataMode) : TestRig.CreateSingleFile (Constants.BlockSize * 27, Constants.BlockSize * 2, metadataMode);
-            rig.RecreateManager ().Wait ();
+            await rig.RecreateManager ();
 
             // Mark the torrent as hash check complete with no data downloaded
             if (rig.Manager.HasMetadata)
                 await rig.Manager.LoadFastResumeAsync (new FastResume (rig.Manager.InfoHashes, new BitField (rig.Manager.Torrent.PieceCount ()), new BitField (rig.Manager.Torrent.PieceCount ())));
 
-            var ready = rig.Manager.WaitForState (rig.Manager.HasMetadata ? TorrentState.Downloading : TorrentState.Metadata);
             await rig.Manager.StartAsync (metadataOnly);
-            await ready;
 
+            // If the manager started with metadata, it enters StartingMode briefly.
+            // Wait for it to transition to a state that accepts connections before adding the test connection.
+            if (!metadataMode && rig.Manager.HasMetadata) {
+                // Wait until the manager transitions out of StartingMode.
+                var cts = new CancellationTokenSource (TimeSpan.FromSeconds (5)); // 5 second timeout
+                while (rig.Manager.State == TorrentState.Starting && !cts.IsCancellationRequested) {
+                    await Task.Delay (50, cts.Token); // Poll every 50ms
+                }
+
+                if (rig.Manager.State == TorrentState.Starting)
+                    Assert.Fail ("Manager did not transition out of StartingMode within the timeout.");
+                if (rig.Manager.State == TorrentState.Error) // Check for error state after transition
+                    Assert.Fail ($"Manager entered Error state unexpectedly during setup: {rig.Manager.Error?.Exception?.Message}");
+                if (rig.Manager.State == TorrentState.Stopped) // Check for stopped state after transition
+                    Assert.Fail ($"Manager entered Stopped state unexpectedly during setup.");
+            }
+
+            // Establish connection
             rig.AddConnection (pair.Outgoing);
-
             var connection = pair.Incoming;
-
             var result = await EncryptorFactory.CheckIncomingConnectionAsync (connection, rig.Engine.Settings.AllowedEncryption, new[] { rig.Manager.InfoHashes.V1OrV2 }, Factories.Default, TaskExtensions.Timeout);
-
             PeerId id = new PeerId (new Peer (new PeerInfo (connection.Uri)), connection, new BitField (rig.Torrent.PieceCount), rig.Manager.InfoHashes.V1OrV2, encryptor: result.Encryptor, decryptor: result.Decryptor, Software.Synthetic);
             decryptor = id.Decryptor;
             encryptor = id.Encryptor;

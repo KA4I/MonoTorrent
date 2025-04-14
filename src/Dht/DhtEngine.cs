@@ -28,8 +28,10 @@
 
 
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Security.Cryptography; // Keep this
 using System.Threading.Tasks;
@@ -72,6 +74,10 @@ namespace MonoTorrent.Dht
         static readonly TimeSpan DefaultAnnounceInternal = TimeSpan.FromMinutes (10);
         static readonly TimeSpan DefaultMinimumAnnounceInterval = TimeSpan.FromMinutes (3);
 
+        // Static registry for active local engines
+        static readonly ConcurrentDictionary<NodeId, WeakReference<DhtEngine>> ActiveEngines = new ConcurrentDictionary<NodeId, WeakReference<DhtEngine>>();
+
+
         #region Events
 
         public event EventHandler<PeersFoundEventArgs>? PeersFound;
@@ -93,6 +99,12 @@ namespace MonoTorrent.Dht
         public TimeSpan MinimumAnnounceInterval => DefaultMinimumAnnounceInterval;
 
         public DhtState State { get; private set; }
+
+        /// <summary>
+        /// The external IPAddress/Port combination which the DHT is bound to. This is discovered
+        /// automatically using the NatsNatTraversalService, if provided.
+        /// </summary>
+        public System.Net.IPEndPoint? ExternalEndPoint { get; set; }
 
         internal TimeSpan BucketRefreshTimeout { get; set; }
         public NodeId LocalId => RoutingTable.LocalNodeId; // Made public to match IDhtEngine
@@ -146,9 +158,19 @@ namespace MonoTorrent.Dht
                 }
             }
         }
+internal async Task Add (Node node)
+    => await SendQueryAsync (new Ping (RoutingTable.LocalNodeId), node);
 
-        internal async Task Add (Node node)
-            => await SendQueryAsync (new Ping (RoutingTable.LocalNodeId), node);
+        /// <summary>
+        /// Directly adds a node to the routing table without sending a Ping.
+        /// Used for scenarios like hairpinning where reachability is assumed.
+        /// </summary>
+        internal void AddToRoutingTable(Node node)
+        {
+            DhtEngine.MainLoop.CheckThread(); // Ensure we're on the right thread
+            RoutingTable.Add(node);
+        }
+
 
         public async void Announce (InfoHash infoHash, int port)
         {
@@ -176,9 +198,14 @@ namespace MonoTorrent.Dht
             if (Disposed)
                 return;
 
+            // Unregister from static list first
+            ActiveEngines.TryRemove(this.LocalId, out _);
+
             // Ensure we don't break any threads actively running right now
             MainLoop.QueueWait (() => {
                 Disposed = true;
+                // Consider stopping the message loop *before* clearing queues in StopAsync?
+                // For now, disposal handles cleanup after StopAsync is called.
             });
         }
 
@@ -211,11 +238,13 @@ namespace MonoTorrent.Dht
                 throw new ArgumentNullException (nameof (target));
 
             // First, check local storage
+            System.Console.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] GetAsync: Checking local storage for Target {target.ToHex().Substring(0,6)} (Seq: {sequenceNumber?.ToString() ?? "N/A"})");
             if (LocalStorage.TryGetValue(target, out var stored))
             {
-                Console.WriteLine($"[DhtEngine] LocalStorage hit for {target}");
+                System.Console.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] GetAsync: LocalStorage HIT for Target {target.ToHex().Substring(0,6)}. Returning stored item (Seq: {stored.SequenceNumber?.ToString() ?? "N/A"}).");
                 return (stored.Value, stored.PublicKey, stored.Signature, stored.SequenceNumber);
             }
+            System.Console.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] GetAsync: LocalStorage MISS for Target {target.ToHex().Substring(0,6)}. Proceeding with network lookup.");
 
             await MainLoop;
             Console.WriteLine($"[DhtEngine {LocalId}] GetAsync started for Target: {target}, Seq: {sequenceNumber?.ToString() ?? "null"}"); // Log Entry
@@ -413,6 +442,18 @@ namespace MonoTorrent.Dht
             }
  
             bool needsBootstrap = RoutingTable.NeedsBootstrap; // Check after task execution
+
+            // --- Hairpin/Loopback Handling ---
+            // If we started with no nodes/routers AND we are listening on loopback,
+            // try adding self. This might help local instances find each other via refresh.
+            if (!nodes.Any() && bootstrapRouters.Length == 0 && MessageLoop.Listener?.LocalEndPoint?.Address?.Equals(IPAddress.Loopback) == true)
+            {
+                var selfNode = new Node(RoutingTable.LocalNodeId, MessageLoop.Listener.LocalEndPoint);
+                RoutingTable.Add(selfNode); // Add self to potentially kickstart discovery
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Added self to routing table for loopback scenario.");
+            }
+            // --- End Hairpin/Loopback Handling ---
+
  
             if (needsBootstrap) {
                 RaiseStateChanged (DhtState.NotReady);
@@ -506,7 +547,7 @@ namespace MonoTorrent.Dht
  
         // Matches IDhtEngine
         public Task StartAsync (ReadOnlyMemory<byte> initialNodes, NatsNatTraversalService? natsService = null, IPortForwarder? portForwarder = null)
-            => StartAsync (Node.FromCompactNode (BEncodedString.FromMemory (initialNodes)).Concat (PendingNodes), DefaultBootstrapRouters.ToArray (), natsService, portForwarder); // Already correct
+            => StartAsync (Node.FromCompactNode (BEncodedString.FromMemory (initialNodes)).Concat (PendingNodes), Array.Empty<string> (), natsService, portForwarder); // Use empty array to disable default bootstrap
  
         // This overload is not in IDhtEngine, but is used publicly. Keep it, but ensure it delegates correctly.
         public Task StartAsync (string[] bootstrapRouters, NatsNatTraversalService? natsService = null, IPortForwarder? portForwarder = null)
@@ -520,45 +561,85 @@ namespace MonoTorrent.Dht
         // This internal StartAsync now needs the PortForwarder if NATS is used
         async Task StartAsync (IEnumerable<Node> nodes, string[] bootstrapRouters, NatsNatTraversalService? natsService = null, IPortForwarder? portForwarder = null)
         {
-            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] StartAsync entered."); // Log entry point
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] StartAsync entered.");
             CheckDisposed ();
- 
-            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Awaiting MainLoop..."); // Log before await
+
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Awaiting MainLoop...");
             await MainLoop;
-            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] MainLoop awaited.");
- 
-            // Initialize NATS NAT Traversal if provided
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] MainLoop awaited.");
+
+            // Initialize NATS NAT Traversal if provided (BEFORE starting message loop?)
+            // It might need the listener endpoint, so maybe start loop first? Let's keep it here for now.
             if (natsService != null)
             {
                 try
                 {
-                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Initializing NATS NAT Traversal Service...");
-                    // Pass listener and portForwarder to NatsNatTraversalService
+                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Initializing NATS NAT Traversal Service...");
                     await natsService.InitializeAsync(MessageLoop.Listener!, portForwarder);
                     this.ExternalEndPoint = natsService.MyExternalEndPoint;
-                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] NATS NAT Traversal Initialized. External EndPoint: {this.ExternalEndPoint}");
+                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] NATS NAT Traversal Initialized. External EndPoint: {this.ExternalEndPoint}");
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Failed to initialize NATS NAT Traversal Service: {ex.Message}");
-                    // Decide how to handle failure - maybe proceed without NAT traversal?
-                    // For now, we'll just log and continue. DHT might fail if behind NAT.
+                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Failed to initialize NATS NAT Traversal Service: {ex.Message}");
                 }
             }
- 
-            MessageLoop.Start ();
-            bool needsBootstrapCheck = RoutingTable.NeedsBootstrap; // Check before the if
-            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] StartAsync: RoutingTable.NeedsBootstrap = {needsBootstrapCheck}, Node Count = {RoutingTable.CountNodes()}"); // Log bootstrap status and node count before if
-            // Force initialization if the routing table is empty OR NeedsBootstrap is true
-            if (needsBootstrapCheck || RoutingTable.CountNodes() == 0) {
+
+            MessageLoop.Start (); // Start listening for messages
+
+            // Determine if this engine is suitable for hairpinning
+            bool isLoopback = MessageLoop.Listener?.LocalEndPoint?.Address?.Equals(IPAddress.Loopback) == true;
+            bool isBootstrapping = bootstrapRouters.Length > 0 || nodes.Any();
+            bool canHairpin = isLoopback && !isBootstrapping;
+
+            // Register self *before* initializing/bootstrapping
+            if (canHairpin)
+            {
+                ActiveEngines[this.LocalId] = new WeakReference<DhtEngine>(this);
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Registered self in ActiveEngines.");
+            }
+
+            // Initialize/Bootstrap DHT
+            bool needsBootstrapCheck = RoutingTable.NeedsBootstrap;
+            int nodeCount = RoutingTable.CountNodes();
+            if (isBootstrapping || needsBootstrapCheck || nodeCount == 0) {
                 RaiseStateChanged (DhtState.Initialising);
-                await InitializeAsync (nodes, bootstrapRouters); // Await the task now
+                await InitializeAsync (nodes, bootstrapRouters);
             }
-            else {
-                 System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] StartAsync: Skipping InitializeAsync as NeedsBootstrap is false and Node Count > 0 ({RoutingTable.CountNodes()})."); // Log skip with node count
-                RaiseStateChanged (DhtState.Ready);
+
+            // Perform hairpin discovery *after* initialization attempt
+            if (canHairpin)
+            {
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Performing hairpin discovery...");
+                var selfNode = new Node(this.LocalId, this.MessageLoop.Listener!.LocalEndPoint!); // Listener should be non-null here
+
+                foreach (var kvp in ActiveEngines)
+                {
+                    if (kvp.Key == this.LocalId || !kvp.Value.TryGetTarget(out var otherEngine) || otherEngine.Disposed)
+                        continue;
+
+                    // Check if the other engine is also suitable for hairpinning
+                    bool otherIsLoopback = otherEngine.MessageLoop.Listener?.LocalEndPoint?.Address?.Equals(IPAddress.Loopback) == true;
+                    if (otherIsLoopback && otherEngine.MessageLoop.Listener!.LocalEndPoint != null) // Ensure other listener is valid
+                    {
+                        System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Found other local engine: {otherEngine.LocalId.ToHex().Substring(0,6)}");
+                        var otherNode = new Node(otherEngine.LocalId, otherEngine.MessageLoop.Listener.LocalEndPoint);
+
+                        // Add directly to routing tables (no Ping needed)
+                        this.AddToRoutingTable(otherNode);
+                        otherEngine.AddToRoutingTable(selfNode);
+                        // Mark nodes as seen immediately after adding via hairpin
+                        // This ensures they are not immediately considered stale/unknown.
+                        otherNode.Seen();
+                        selfNode.Seen();
+                        System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Added {otherNode.Id.ToHex().Substring(0,6)} to self. Added self to {otherEngine.LocalId.ToHex().Substring(0,6)}.");
+                    }
+                }
             }
- 
+
+            // Set state to Ready regardless of bootstrap success, allowing manual adds/hairpinning
+            RaiseStateChanged (DhtState.Ready);
+
             MainLoop.QueueTimeout (TimeSpan.FromSeconds (30), delegate {
                 if (!Disposed) {
                     _ = RefreshBuckets ();
@@ -664,7 +745,6 @@ namespace MonoTorrent.Dht
             // For now, just log and continue. DHT might fail if behind NAT.
         }
     }
-} // End of DhtEngine class
 } // End of DhtEngine class
 
     // Class to hold stored DHT items (Moved outside DhtEngine class)

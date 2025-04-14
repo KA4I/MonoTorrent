@@ -17,6 +17,7 @@ using MonoTorrent.Connections.Dht;
 using MonoTorrent.PieceWriter;
 using Org.BouncyCastle.Crypto.Parameters; // Added for Ed25519 keys
 using Org.BouncyCastle.Crypto.Signers;   // Added for Ed25519 signing
+using System.Security.Cryptography; // Added for SHA1
 using Org.BouncyCastle.Security;         // Added for SecureRandom, GeneratorUtilities
 
 namespace MonoTorrent.Dht
@@ -33,10 +34,12 @@ namespace MonoTorrent.Dht
         private IDhtListener? listenerB;
         private NatsNatTraversalService? natsServiceA;
         private NatsNatTraversalService? natsServiceB;
-
+ private BEncodedString peerIdA; // Use BEncodedString for PeerId representation
+ private BEncodedString peerIdB;
+      
         // Removed placeholder discovery service fields
-
-
+      
+      
         [SetUp]
         public void Setup ()
         {
@@ -50,8 +53,17 @@ namespace MonoTorrent.Dht
 
             dhtEngineA = new DhtEngine ();
             dhtEngineB = new DhtEngine ();
+   // Generate random 20-byte PeerIDs and store as BEncodedString
+   var idBytesA = new byte[20];
+   var idBytesB = new byte[20];
+			using (var rng = RandomNumberGenerator.Create()) {
+				rng.GetBytes (idBytesA);
+				rng.GetBytes (idBytesB);
+			}
+   peerIdA = new BEncodedString (idBytesA);
+   peerIdB = new BEncodedString (idBytesB);
             // Removed placeholder discovery list initialization
-
+         
             listenerA = new DhtListener (new IPEndPoint (IPAddress.Loopback, 0));
             listenerB = new DhtListener (new IPEndPoint (IPAddress.Loopback, 0));
             dhtEngineA.SetListenerAsync (listenerA).GetAwaiter ().GetResult ();
@@ -96,10 +108,10 @@ namespace MonoTorrent.Dht
             Assert.IsNotNull (listenerB?.LocalEndPoint, "Listener B should have a local endpoint");
             // Removed assertion for _localEndpointsForDiscovery
 
-            // Instantiate NATS services normally
-            natsServiceA = new NatsNatTraversalService (NatsOptions, dhtEngineA!.LocalId);
-            natsServiceB = new NatsNatTraversalService (NatsOptions, dhtEngineB!.LocalId);
-            // Initialize NATS services, passing the listener and null for portForwarder
+        			// Instantiate NATS services, passing the correct PeerId
+   natsServiceA = new NatsNatTraversalService (NatsOptions, dhtEngineA!.LocalId, peerIdA); // Pass BEncodedString directly
+   natsServiceB = new NatsNatTraversalService (NatsOptions, dhtEngineB!.LocalId, peerIdB); // Pass BEncodedString directly
+        			// Initialize NATS services
             var initTaskA_pg = natsServiceA.InitializeAsync (listenerA!, portForwarder: null);
             var initTaskB_pg = natsServiceB.InitializeAsync (listenerB!, portForwarder: null);
             try {
@@ -117,48 +129,66 @@ namespace MonoTorrent.Dht
             var discoverySw_pg = System.Diagnostics.Stopwatch.StartNew ();
             bool discoveredA_pg_status = false;
             bool discoveredB_pg_status = false;
-            IDictionary<NodeId, IPEndPoint> discoveredByA_pg = null!;
-            IDictionary<NodeId, IPEndPoint> discoveredByB_pg = null!;
-
-            while (discoverySw_pg.Elapsed < discoveryTimeout_pg && (!discoveredA_pg_status || !discoveredB_pg_status)) {
-                discoveredByA_pg = natsServiceA.GetDiscoveredPeers ();
-                discoveredByB_pg = natsServiceB.GetDiscoveredPeers ();
-                discoveredA_pg_status = discoveredByA_pg.ContainsKey (dhtEngineB!.LocalId);
-                discoveredB_pg_status = discoveredByB_pg.ContainsKey (dhtEngineA!.LocalId);
-                if (!discoveredA_pg_status || !discoveredB_pg_status)
-                    await Task.Delay (250); // Poll every 250ms
-            }
+        			IDictionary<NodeId, IPEndPoint>? discoveredByA_pg = null;
+        			IDictionary<NodeId, IPEndPoint>? discoveredByB_pg = null;
+        
+   // We need to check if the dictionary contains the *actual* NodeId of the other peer,
+   // as this is the key used by NatsNatTraversalService based on the received NATS message.
+   // The hashing logic was based on TorrentServiceTests where NodeId is derived from PeerId,
+   // which is not the case in this specific test setup.
+   var expectedNodeIdA = dhtEngineA!.LocalId;
+   var expectedNodeIdB = dhtEngineB!.LocalId;
+        
+        			while (discoverySw_pg.Elapsed < discoveryTimeout_pg && (!discoveredA_pg_status || !discoveredB_pg_status)) {
+        				discoveredByA_pg = natsServiceA.GetDiscoveredPeers ();
+        				discoveredByB_pg = natsServiceB.GetDiscoveredPeers ();
+    discoveredA_pg_status = discoveredByA_pg?.ContainsKey (expectedNodeIdB) ?? false; // Check for Peer B's actual NodeId
+    discoveredB_pg_status = discoveredByB_pg?.ContainsKey (expectedNodeIdA) ?? false; // Check for Peer A's actual NodeId
+        				if (!discoveredA_pg_status || !discoveredB_pg_status)
+        					await Task.Delay (250); // Poll every 250ms
+        			}
             discoverySw_pg.Stop ();
             Console.WriteLine ($"[Test PutGet] Peer discovery loop finished after {discoverySw_pg.ElapsedMilliseconds}ms. DiscoveredA: {discoveredA_pg_status}, DiscoveredB: {discoveredB_pg_status}");
 
             // Discovered peers retrieved within the loop above
 
-            Console.WriteLine ($"[Test PutGet] Peers discovered by A: {discoveredByA_pg.Count}");
-            Console.WriteLine ($"[Test PutGet] Peers discovered by B: {discoveredByB_pg.Count}");
-
-            // Assert discovery after the wait loop
-            Assert.IsTrue (discoveredA_pg_status, "NATS Service A did not discover Peer B for PutGet within timeout.");
-            Assert.IsTrue (discoveredB_pg_status, "NATS Service B did not discover Peer A for PutGet within timeout.");
-
-            var endpointB_discoveredByA_pg = discoveredByA_pg[dhtEngineB!.LocalId];
-            var endpointA_discoveredByB_pg = discoveredByB_pg[dhtEngineA!.LocalId];
-
-            dhtEngineA.ExternalEndPoint = natsServiceA.MyExternalEndPoint; // Set for consistency if needed elsewhere
-            dhtEngineB.ExternalEndPoint = natsServiceB.MyExternalEndPoint;
+        			Console.WriteLine ($"[Test PutGet] Peers discovered by A: {discoveredByA_pg?.Count ?? 0}");
+        			Console.WriteLine ($"[Test PutGet] Peers discovered by B: {discoveredByB_pg?.Count ?? 0}");
+        
+        			// Assert discovery after the wait loop
+        			Assert.IsTrue (discoveredA_pg_status, "NATS Service A did not discover Peer B for PutGet within timeout.");
+        			Assert.IsTrue (discoveredB_pg_status, "NATS Service B did not discover Peer A for PutGet within timeout.");
+        
+   var endpointB_discoveredByA_pg = discoveredByA_pg![expectedNodeIdB]; // Use actual NodeId B
+   var endpointA_discoveredByB_pg = discoveredByB_pg![expectedNodeIdA]; // Use actual NodeId A
+        
+        			dhtEngineA.ExternalEndPoint = natsServiceA.MyExternalEndPoint; // Set for consistency if needed elsewhere
+        			dhtEngineB.ExternalEndPoint = natsServiceB.MyExternalEndPoint;
 
             // Create nodes using the discovered endpoints
             var nodeA_forB_pg = new Node (dhtEngineA.LocalId, endpointA_discoveredByB_pg);
             var nodeB_forA_pg = new Node (dhtEngineB.LocalId, endpointB_discoveredByA_pg);
 
-            var initialNodesA = Node.CompactNode (new[] { nodeB_forA_pg }).AsMemory ();
-            var initialNodesB = Node.CompactNode (new[] { nodeA_forB_pg }).AsMemory ();
+            // var initialNodesA = Node.CompactNode (new[] { nodeB_forA_pg }).AsMemory (); // Removed initial nodes
+            // var initialNodesB = Node.CompactNode (new[] { nodeA_forB_pg }).AsMemory (); // Removed initial nodes
 
-            Console.WriteLine ($"[Test PutGet] Starting DHT Engine A with initial peer B: {nodeB_forA_pg.EndPoint}");
-            Console.WriteLine ($"[Test PutGet] Starting DHT Engine B with initial peer A: {nodeA_forB_pg.EndPoint}");
-            var startTaskA = dhtEngineA.StartAsync (initialNodesA, Array.Empty<string> ()); // No NATS service needed here
-            var startTaskB = dhtEngineB.StartAsync (initialNodesB, Array.Empty<string> ()); // No NATS service needed here
+            Console.WriteLine ($"[Test PutGet] Starting DHT Engine A");
+            Console.WriteLine ($"[Test PutGet] Starting DHT Engine B");
+            // Start engines without initial nodes; they should discover each other on loopback.
+            var startTaskA = dhtEngineA.StartAsync (Array.Empty<byte> (), Array.Empty<string> ());
+            var startTaskB = dhtEngineB.StartAsync (Array.Empty<byte> (), Array.Empty<string> ());
             await Task.WhenAll (startTaskA, startTaskB);
             Console.WriteLine ("[Test PutGet] DHT engines started.");
+
+            // Allow time for routing tables to populate via pings/responses
+            Console.WriteLine ("[Test PutGet] Waiting 10 seconds for routing tables to populate...");
+            await Task.Delay (TimeSpan.FromSeconds (10));
+
+            // Verify routing tables contain each other
+            Assert.IsNotNull (dhtEngineA.RoutingTable.FindNode (expectedNodeIdB), "Engine A routing table should contain Engine B.");
+            Assert.IsNotNull (dhtEngineB.RoutingTable.FindNode (expectedNodeIdA), "Engine B routing table should contain Engine A.");
+            Console.WriteLine ("[Test PutGet] Routing tables populated.");
+
 
             Console.WriteLine ("[Test PutGet] Waiting for DHT engines to reach Ready state...");
             var timeout = TimeSpan.FromSeconds (15);

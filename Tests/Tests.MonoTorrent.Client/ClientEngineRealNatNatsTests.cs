@@ -53,8 +53,8 @@ namespace MonoTorrent.Client
             engineB = new ClientEngine(settingsB); // Uses default factories
 
             // Nats services need the NodeId from the DhtEngine
-            natsServiceA = new NatsNatTraversalService(NatsOptions, engineA.DhtEngine.LocalId); // Accessing LocalId via IDhtEngine
-            natsServiceB = new NatsNatTraversalService(NatsOptions, engineB.DhtEngine.LocalId); // Accessing LocalId via IDhtEngine
+            natsServiceA = new NatsNatTraversalService(NatsOptions, engineA.DhtEngine.LocalId, engineA.PeerId); // Pass PeerId
+            natsServiceB = new NatsNatTraversalService(NatsOptions, engineB.DhtEngine.LocalId, engineB.PeerId); // Pass PeerId
         }
 
         [TearDown]

@@ -119,7 +119,6 @@ namespace MonoTorrent.Client
         // Matches IDhtEngine
         public Task StartAsync (NatsNatTraversalService? natsService = null, MonoTorrent.PortForwarding.IPortForwarder? portForwarder = null)
         {
-            // Null engine does nothing on start
             return Task.CompletedTask;
         }
 

@@ -60,6 +60,7 @@ namespace MonoTorrent.Client
         int webSeedSpeedTrigger;
         TimeSpan mutableTorrentUpdateInterval;
         List<string> bootstrapNodes;
+        NATS.Client.Core.NatsOpts? natsOptions;
 
 
 
@@ -100,6 +101,12 @@ namespace MonoTorrent.Client
         /// Defaults to <see langword="true"/>.
         /// </summary>
         public bool AutoSaveLoadDhtCache { get; set; }
+
+        /// <summary>
+        /// True if the engine should use NATS for peer discovery and NAT traversal.
+        /// Requires NatsOptions to be set. Defaults to false.
+        /// </summary>
+        public bool AllowNatsDiscovery { get; set; }
 
         /// <summary>
         /// If set to true FastResume data will be implicitly saved after <see cref="TorrentManager.StopAsync()"/> is invoked,
@@ -386,6 +393,14 @@ namespace MonoTorrent.Client
             set => bootstrapNodes = value ?? throw new ArgumentNullException (nameof (value));
         }
 
+        /// <summary>
+        /// NATS connection options. Required if AllowNatsDiscovery is true.
+        /// </summary>
+        public NATS.Client.Core.NatsOpts? NatsOptions {
+            get => natsOptions;
+            set => natsOptions = value;
+        }
+
 
         public EngineSettingsBuilder ()
             : this (new EngineSettings ())
@@ -433,6 +448,8 @@ namespace MonoTorrent.Client
             WebSeedConnectionTimeout = settings.WebSeedConnectionTimeout;
             WebSeedDelay = settings.WebSeedDelay;
             MutableTorrentUpdateInterval = settings.MutableTorrentUpdateInterval;
+            AllowNatsDiscovery = settings.AllowNatsDiscovery; // Add this
+            NatsOptions = settings.NatsOptions; // Add this
             WebSeedSpeedTrigger = settings.WebSeedSpeedTrigger;
         }
 
@@ -487,7 +504,9 @@ return new EngineSettings (
     webSeedConnectionTimeout: WebSeedConnectionTimeout,
     webSeedDelay: WebSeedDelay,
     webSeedSpeedTrigger: webSeedSpeedTrigger,
-    mutableTorrentUpdateInterval: MutableTorrentUpdateInterval
+    mutableTorrentUpdateInterval: MutableTorrentUpdateInterval,
+    allowNatsDiscovery: AllowNatsDiscovery, // Add this
+    natsOptions: NatsOptions // Add this
 
             );
         }

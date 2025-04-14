@@ -1094,44 +1094,61 @@ namespace MonoTorrent.Client
 
         bool AddPeer (PeerInfo peerInfo, bool prioritise)
         {
-            if (peerInfo is null)
+            Console.WriteLine($"[Console] TorrentManager.AddPeer called for {peerInfo?.ConnectionUri} PeerId: {peerInfo?.PeerId?.ToHex() ?? "null"}");
+            Console.WriteLine($"[Console] TorrentManager.AddPeer called for {peerInfo?.ConnectionUri} PeerId: {peerInfo?.PeerId?.ToHex() ?? "null"}");
+            if (peerInfo is null) {
+                logger.Debug ($"{this} - AddPeer called with null PeerInfo.");
                 throw new ArgumentNullException (nameof (peerInfo));
+            }
+            logger.Debug ($"{this} - AddPeer called for {peerInfo.ConnectionUri} (PeerId: {peerInfo.PeerId?.ToHex() ?? "null"})");
 
             var peer = new Peer (peerInfo) {
                 IsSeeder = peerInfo.MaybeSeeder,
             };
+            peer.WaitUntilNextConnectionAttempt.Restart(); // Explicitly reset timer for newly added peers
 
-            if (Peers.Contains (peer))
-                return false;
-
-            // Ignore peers in the inactive list
-            if (InactivePeerManager.InactivePeerList.Contains (peer.Info.ConnectionUri)) {
-                logger.Debug ($"{this} - ignoring {peer.Info.ConnectionUri} as it is inactive");
+            if (Peers.Contains (peer)) {
+                logger.Debug ($"{this} - Peer {peer.Info.ConnectionUri} already known.");
                 return false;
             }
 
-            if (Engine!.PeerId.Equals (peer.Info.PeerId))
+            // Ignore peers in the inactive list
+            if (InactivePeerManager.InactivePeerList.Contains (peer.Info.ConnectionUri)) {
+                logger.Debug ($"{this} - Peer {peer.Info.ConnectionUri} is inactive.");
                 return false;
+            }
+
+            if (Engine!.PeerId.Equals (peer.Info.PeerId)) {
+                Console.WriteLine($"[Console] TorrentManager.AddPeer rejected {peer.Info.ConnectionUri} as self (PeerId matches)");
+                logger.Debug ($"{this} - Peer {peer.Info.ConnectionUri} is self.");
+                return false;
+            }
 
             if (Peers.TotalPeers < Settings.MaximumPeerDetails) {
                 if (prioritise)
                     Peers.AvailablePeers.Insert (0, peer);
                 else
                     Peers.AvailablePeers.Add (peer);
+                    logger.Debug ($"{this} - Peer {peer.Info.ConnectionUri} added to AvailablePeers.");
             } else {
                 bool successful = false;
                 for (int i = 0; i < Peers.AvailablePeers.Count; i++) {
                     if (Peers.AvailablePeers[i].MaybeStale) {
                         Peers.AvailablePeers[i] = peer;
+                        logger.Debug ($"{this} - Peer {peer.Info.ConnectionUri} added to AvailablePeers (replaced stale).");
                         successful = true;
                         break;
                     }
                 }
-                if (!successful)
+                if (!successful) {
+                    logger.Debug ($"{this} - AvailablePeers list full, could not add {peer.Info.ConnectionUri}.");
                     return false;
+                }
             }
             OnPeerFound?.Invoke (this, new PeerAddedEventArgs (this, peerInfo));
             // When we successfully add a peer we try to connect to the next available peer
+            Console.WriteLine($"[Console] TorrentManager.AddPeer successfully added {peerInfo.ConnectionUri}");
+            Console.WriteLine($"[Console] TorrentManager.AddPeer successfully added {peerInfo.ConnectionUri}");
             return true;
         }
 

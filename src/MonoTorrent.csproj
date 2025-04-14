@@ -49,6 +49,7 @@
     <InternalsVisibleTo Include="Tests.MonoTorrent.PiecePicking" />
     <InternalsVisibleTo Include="Tests.MonoTorrent.PieceWriter" />
     <InternalsVisibleTo Include="Tests.MonoTorrent.Trackers" />
+    <InternalsVisibleTo Include="TorrentWrapper.Tests" />
   </ItemGroup>
 
   <PropertyGroup>

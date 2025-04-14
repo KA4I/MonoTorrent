@@ -160,10 +160,10 @@ namespace MonoTorrent.Dht
             // FIXME: This should throw an exception if the message doesn't exist, we need to handle this
             // and return an error message (if that's what the spec allows)
             try {
-                Console.WriteLine($"[MessageLoop] Received {buffer.Length} bytes from {endpoint}"); // Log received data
+                // Console.WriteLine($"[MessageLoop] Received {buffer.Length} bytes from {endpoint}"); // Log received data
                 BEncodedValue decodedValue = BEncodedValue.Decode(buffer.Span, false);
                 if (DhtMessageFactory.TryDecodeMessage ((BEncodedDictionary) decodedValue, out DhtMessage? message)) {
-                    Console.WriteLine($"[MessageLoop] Successfully decoded message from {endpoint}: {message.GetType().Name}"); // Log successful decode
+                    // Console.WriteLine($"[MessageLoop] Successfully decoded message from {endpoint}: {message.GetType().Name}"); // Log successful decode (Commented out)
                     Monitor.ReceiveMonitor.AddDelta (buffer.Length);
                     ReceiveQueue.Enqueue (new KeyValuePair<IPEndPoint, DhtMessage> (endpoint, message!));
                 } else {
@@ -307,8 +307,9 @@ namespace MonoTorrent.Dht
                     }
 
                     responseMessage.Handle (Engine, node); // Use renamed variable
-                    query.CompletionSource?.TrySetResult (new SendQueryEventArgs (node, node.EndPoint, queryMessage, responseMessage)); // Use renamed variable
-                    RaiseMessageSent (node, node.EndPoint, queryMessage, responseMessage); // Use renamed variable
+                    // Use the original node from the query details, not the node derived from the response sender's ID/endpoint
+                    query.CompletionSource?.TrySetResult (new SendQueryEventArgs (query.Node!, query.Destination, queryMessage, responseMessage));
+                    RaiseMessageSent (query.Node!, query.Destination, queryMessage, responseMessage);
                 } else if (rawResponse is ErrorMessage error) {
                     QueryMessage? queryMessage = query.Message as QueryMessage;
                     if (queryMessage is null) {
@@ -316,8 +317,9 @@ namespace MonoTorrent.Dht
                         return;
                     }
 
-                    query.CompletionSource?.TrySetResult (new SendQueryEventArgs (node, node.EndPoint, queryMessage, error));
-                    RaiseMessageSent (node, node.EndPoint, queryMessage, error);
+                    // Use the original node from the query details for error reporting too
+                    query.CompletionSource?.TrySetResult (new SendQueryEventArgs (query.Node!, query.Destination, queryMessage, error));
+                    RaiseMessageSent (query.Node!, query.Destination, queryMessage, error);
                 } else if (rawResponse is QueryMessage queryMessage) {
                     // Handle incoming queries
                     Console.WriteLine($"[MessageLoop] Received Query: {queryMessage.GetType().Name} from {source}"); // Log incoming query

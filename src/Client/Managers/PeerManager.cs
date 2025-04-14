@@ -38,7 +38,7 @@ namespace MonoTorrent.Client
         internal List<Peer> ConnectingToPeers;
 
         internal List<Peer> ActivePeers;
-        internal List<Peer> AvailablePeers;
+        internal List<Peer> AvailablePeers; // Reverted to internal
 
         /// <summary>
         /// The number of peers which are available to be connected to.

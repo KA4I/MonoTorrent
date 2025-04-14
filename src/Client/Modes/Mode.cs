@@ -217,10 +217,37 @@ namespace MonoTorrent.Client.Modes
 
         public virtual DisconnectReason ShouldConnect (Peer peer)
         {
-            if (peer.WaitUntilNextConnectionAttempt.Elapsed < Settings.GetConnectionRetryDelay (peer.FailedConnectionAttempts))
-                return DisconnectReason.TooManyFailedConnectionAttempts;
-            if (peer.WaitUntilNextConnectionAttempt.Elapsed < Settings.GetConnectionRetryDelay (peer.CleanedUpCount))
-                return DisconnectReason.DisconnectedTooManyTimes;
+            // Log entry and peer details
+            logger.Debug ($"ShouldConnect called for Peer: {peer.Info.ConnectionUri}, FailedAttempts: {peer.FailedConnectionAttempts}, CleanedUpCount: {peer.CleanedUpCount}, Elapsed: {peer.WaitUntilNextConnectionAttempt.Elapsed.TotalMilliseconds}ms");
+
+            var failureDelay = Settings.GetConnectionRetryDelay(peer.FailedConnectionAttempts);
+            var cleanupDelay = Settings.GetConnectionRetryDelay(peer.CleanedUpCount);
+
+            // If the failure delay is zero (meaning 0 failed attempts), allow connection unless blocked by cleanup delay.
+            if (failureDelay == TimeSpan.Zero) {
+                if (cleanupDelay == TimeSpan.Zero || (cleanupDelay.HasValue && peer.WaitUntilNextConnectionAttempt.Elapsed >= cleanupDelay.Value)) {
+                    logger.Debug ($"ShouldConnect Result: None (Failure delay is Zero, cleanup check passed)");
+                    return DisconnectReason.None;
+                } else {
+                     logger.Debug ($"ShouldConnect Result: DisconnectedTooManyTimes (Failure delay is Zero, but cleanup delay not met. Delay: {cleanupDelay?.TotalMilliseconds}ms)");
+                     return DisconnectReason.DisconnectedTooManyTimes;
+                }
+            }
+
+            // Check if failure delay is met
+            if (!failureDelay.HasValue || peer.WaitUntilNextConnectionAttempt.Elapsed < failureDelay.Value) {
+                 logger.Debug ($"ShouldConnect Result: TooManyFailedConnectionAttempts (Failure delay not met or no more retries. Delay: {failureDelay?.TotalMilliseconds}ms)");
+                 return DisconnectReason.TooManyFailedConnectionAttempts;
+            }
+
+            // Check if cleanup delay is met
+             if (cleanupDelay.HasValue && peer.WaitUntilNextConnectionAttempt.Elapsed < cleanupDelay.Value) {
+                 logger.Debug ($"ShouldConnect Result: DisconnectedTooManyTimes (Cleanup delay not met. Delay: {cleanupDelay.Value.TotalMilliseconds}ms)");
+                 return DisconnectReason.DisconnectedTooManyTimes;
+             }
+
+            // If all checks pass, allow connection.
+            logger.Debug ($"ShouldConnect Result: None (All checks passed)");
             return DisconnectReason.None;
         }
 
