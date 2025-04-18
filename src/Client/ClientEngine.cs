@@ -675,13 +675,124 @@ namespace MonoTorrent.Client
             PeerInfo peerToAdd = e.Peer; // Default to the discovered peer info
             IPAddress? myPublicIP = natsService?.MyExternalEndPoint?.Address; // Get our own discovered public IP
 
+            // Declare concreteDhtEngine ONCE at the top of the method, and use it everywhere
+            MonoTorrent.Dht.DhtEngine? concreteDhtEngine = DhtEngine as MonoTorrent.Dht.DhtEngine;
+
             if (myPublicIP != null && myPublicIP.Equals(e.EndPoint.Address))
             {
-                // IPs match, likely a local peer. Create PeerInfo for loopback.
-                var loopbackUri = new Uri($"ipv4://127.0.0.1:{e.EndPoint.Port}");
-                peerToAdd = new PeerInfo(loopbackUri, e.Peer.PeerId); // Use original PeerId
-                Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] HandleNatsPeerDiscovered: Peer IP matches own public IP. Using loopback address: {loopbackUri}");
+                // Inject all discovered IPs: internal, loopback, and external
+                // 1. Internal IP (if available)
+                if (!string.IsNullOrEmpty(e.InternalIp))
+                {
+                    var internalUri = new Uri($"ipv4://{e.InternalIp}:{e.InternalPort}");
+                    peerToAdd = new PeerInfo(internalUri, e.Peer.PeerId);
+                    Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] HandleNatsPeerDiscovered: Peer IP matches own public IP. Using internal LAN address: {internalUri}");
+
+                    if (concreteDhtEngine != null && concreteDhtEngine.State == DhtState.Ready)
+                    {
+                        // Internal IP(s)
+                        if (!string.IsNullOrEmpty(e.InternalIp))
+                        {
+                            var ips = e.InternalIp.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                            foreach (var ip in ips)
+                            {
+                                if (IPAddress.TryParse(ip, out var addr))
+                                {
+                                    byte[] compactNode = new byte[26];
+                                    var nodeIdBytes = e.NodeId.Span;
+                                    nodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
+                                    var ipBytes = addr.GetAddressBytes();
+                                    ipBytes.CopyTo(compactNode, 20);
+                                    ushort port = e.InternalPort;
+                                    compactNode[24] = (byte)(port >> 8);
+                                    compactNode[25] = (byte)(port & 0xFF);
+                                    concreteDhtEngine.Add(new[] { new ReadOnlyMemory<byte>(compactNode) });
+                                    Debug.WriteLine($"[DHT] Injected LAN node {ip}:{e.InternalPort} into routing table (multi-LAN-IP).");
+                                }
+                            }
+                        }
+                        // Loopback
+                        {
+                            byte[] compactNode = new byte[26];
+                            var nodeIdBytes = e.NodeId.Span;
+                            nodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
+                            byte[] ipBytes = { 127, 0, 0, 1 };
+                            ipBytes.CopyTo(compactNode, 20);
+                            ushort port = (ushort)e.EndPoint.Port;
+                            compactNode[24] = (byte)(port >> 8);
+                            compactNode[25] = (byte)(port & 0xFF);
+                            concreteDhtEngine.Add(new[] { new ReadOnlyMemory<byte>(compactNode) });
+                            Debug.WriteLine($"[DHT] Injected loopback node 127.0.0.1:{e.EndPoint.Port} into routing table (local multi-instance).");
+                        }
+                        // External IP
+                        {
+                            byte[] compactNode = new byte[26];
+                            var nodeIdBytes = e.NodeId.Span;
+                            nodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
+                            var ipBytes = e.EndPoint.Address.GetAddressBytes();
+                            ipBytes.CopyTo(compactNode, 20);
+                            ushort port = (ushort)e.EndPoint.Port;
+                            compactNode[24] = (byte)(port >> 8);
+                            compactNode[25] = (byte)(port & 0xFF);
+                            concreteDhtEngine.Add(new[] { new ReadOnlyMemory<byte>(compactNode) });
+                            Debug.WriteLine($"[DHT] Injected external node {e.EndPoint.Address}:{e.EndPoint.Port} into routing table (for completeness).");
+                        }
+                    }
+                }
+                else
+                {
+                    // Fallback: Use loopback for same-machine multi-instance
+                    var loopbackUri = new Uri($"ipv4://127.0.0.1:{e.EndPoint.Port}");
+                    peerToAdd = new PeerInfo(loopbackUri, e.Peer.PeerId); // Use original PeerId
+                    Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] HandleNatsPeerDiscovered: Peer IP matches own public IP. Using loopback address: {loopbackUri}");
+
+                    if (concreteDhtEngine != null && concreteDhtEngine.State == DhtState.Ready)
+                    {
+                        // Loopback
+                        {
+                            byte[] compactNode = new byte[26];
+                            var nodeIdBytes = e.NodeId.Span;
+                            nodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
+                            byte[] ipBytes = { 127, 0, 0, 1 };
+                            ipBytes.CopyTo(compactNode, 20);
+                            ushort port = (ushort)e.EndPoint.Port;
+                            compactNode[24] = (byte)(port >> 8);
+                            compactNode[25] = (byte)(port & 0xFF);
+                            concreteDhtEngine.Add(new[] { new ReadOnlyMemory<byte>(compactNode) });
+                            Debug.WriteLine($"[DHT] Injected loopback node 127.0.0.1:{e.EndPoint.Port} into routing table (local multi-instance).");
+                        }
+                        // External IP
+                        {
+                            byte[] compactNode = new byte[26];
+                            var nodeIdBytes = e.NodeId.Span;
+                            nodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
+                            var ipBytes = e.EndPoint.Address.GetAddressBytes();
+                            ipBytes.CopyTo(compactNode, 20);
+                            ushort port = (ushort)e.EndPoint.Port;
+                            compactNode[24] = (byte)(port >> 8);
+                            compactNode[25] = (byte)(port & 0xFF);
+                            concreteDhtEngine.Add(new[] { new ReadOnlyMemory<byte>(compactNode) });
+                            Debug.WriteLine($"[DHT] Injected external node {e.EndPoint.Address}:{e.EndPoint.Port} into routing table (for completeness).");
+                        }
+                    }
+                }
             }
+
+            // Also inject the loopback node into the DHT routing table (like the manual code)
+            if (concreteDhtEngine != null && concreteDhtEngine.State == DhtState.Ready)
+            {
+                byte[] compactNode = new byte[26];
+                var nodeIdBytes = e.NodeId.Span;
+                nodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
+                byte[] ipBytes = { 127, 0, 0, 1 };
+                ipBytes.CopyTo(compactNode, 20);
+                ushort port = (ushort)e.EndPoint.Port;
+                compactNode[24] = (byte)(port >> 8);
+                compactNode[25] = (byte)(port & 0xFF);
+                concreteDhtEngine.Add(new[] { new ReadOnlyMemory<byte>(compactNode) });
+                Debug.WriteLine($"[DHT] Injected loopback node 127.0.0.1:{e.EndPoint.Port} into routing table (local multi-instance).");
+            }
+            
 
             // Add the discovered peer (original or loopback) to *all* relevant torrent managers.
             int totalAdded = 0;
@@ -717,22 +828,30 @@ namespace MonoTorrent.Client
             try {
                 await MainLoop;
 
+                Log.Info ($"HandleLocalPeerFound: Received LPD discovery for {args.InfoHash} from {args.Uri}"); // Added Log
+
                 TorrentManager? manager = allTorrents.FirstOrDefault (t => t.InfoHashes.Contains (args.InfoHash));
                 // There's no TorrentManager in the engine
                 if (manager == null)
+                {
+                    Log.Info ($"HandleLocalPeerFound: No manager found for {args.InfoHash}."); // Added Log
                     return;
+                }
+
 
                 // The torrent is marked as private, so we can't add random people
                 if (manager.HasMetadata && manager.Torrent!.IsPrivate) {
                     manager.RaisePeersFound (new LocalPeersAdded (manager, 0, 0));
+                    Log.Info ($"HandleLocalPeerFound: Torrent {args.InfoHash} is private. Ignoring peer {args.Uri}."); // Added Log
                 } else {
                     // Add new peer to matched Torrent
                     var peer = new PeerInfo (args.Uri);
                     int peersAdded = manager.AddPeers (new[] { peer }, prioritise: false, fromTracker: false);
                     manager.RaisePeersFound (new LocalPeersAdded (manager, peersAdded, 1));
+                    Log.Info ($"HandleLocalPeerFound: Added peer {args.Uri} to manager for {args.InfoHash}. Result: {peersAdded}"); // Added Log
                 }
-            } catch {
-                // We don't care if the peer couldn't be added (for whatever reason)
+            } catch (Exception ex) { // Catch specific exception and log it
+                Log.Error ($"HandleLocalPeerFound: Error processing LPD peer {args.Uri} for {args.InfoHash}: {ex}");
             }
         }
 

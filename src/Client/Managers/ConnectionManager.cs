@@ -729,7 +729,7 @@ async ReusableTask<ConnectionFailureReason?> DoConnectToPeer (TorrentManager man
 
         internal void TryConnect ()
         {
-            Debug.WriteLine("TryConnect called.");
+            // Debug.WriteLine("TryConnect called.");
             if (!Settings.AllowOutgoingConnections)
                 return;
 

@@ -48,7 +48,8 @@ namespace MonoTorrent.Dht.Tasks
         readonly DhtEngine engine;
         readonly TaskCompletionSource<object?> initializationComplete;
 
-        static Node[]? BootstrapNodes { get; set; }
+        // Remove static property causing issues between instances
+        // static Node[]? BootstrapNodes { get; set; }
         string[] BootstrapRouters { get; set; }
 
         public InitialiseTask (DhtEngine engine)
@@ -61,32 +62,36 @@ namespace MonoTorrent.Dht.Tasks
         {
             this.engine = engine;
             initialNodes = nodes.ToList ();
-            BootstrapRouters = bootstrapRouters;
+            // Ensure BootstrapRouters is never null internally, default to empty if needed.
+            BootstrapRouters = bootstrapRouters ?? Array.Empty<string>();
             initializationComplete = new TaskCompletionSource<object?> ();
         }
 
-        public Task ExecuteAsync ()
+        public async Task ExecuteAsync () // Add async modifier
         {
             DhtEngine.MainLoop.CheckThread ();
-            BeginAsyncInit ();
-            return initializationComplete.Task;
+            // Make sure we await the task now that it returns Task instead of void
+            await BeginAsyncInit ();
+            await initializationComplete.Task; // Await the task instead of returning it
         }
 
-        async void BeginAsyncInit ()
+        async Task BeginAsyncInit ()
         {
             System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] BeginAsyncInit started.");
             // If we were given a list of nodes to load at the start, use them
             try {
                 if (initialNodes.Count > 0) {
                     System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] Using {initialNodes.Count} provided initial nodes.");
-                    await SendFindNode (initialNodes);
+                    // Update call to renamed method
+                    await SendFindNodeAsync (initialNodes);
                 } else {
                     System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] No initial nodes provided. Attempting DNS resolution for bootstrap routers.");
                     try {
-                        if (BootstrapNodes is null)
-                            BootstrapNodes = await GenerateBootstrapNodes ();
-                        System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] DNS resolution complete. Found {BootstrapNodes?.Length ?? 0} bootstrap nodes. Sending FindNode requests.");
-                        await SendFindNode (BootstrapNodes);
+                        // Always generate nodes if initialNodes is empty, don't rely on static cache
+                        var generatedNodes = await GenerateBootstrapNodesAsync ();
+                        System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] DNS resolution complete. Found {generatedNodes.Length} bootstrap nodes. Sending FindNode requests.");
+                        // Use the locally generated nodes
+                        await SendFindNodeAsync (generatedNodes);
                     } catch {
                         initializationComplete.TrySetResult (null);
                         return;
@@ -97,9 +102,20 @@ namespace MonoTorrent.Dht.Tasks
             }
         }
 
-        async Task<Node[]> GenerateBootstrapNodes ()
+        async Task<Node[]> GenerateBootstrapNodesAsync ()
         {
-            System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] GenerateBootstrapNodes started for {BootstrapRouters.Length} routers.");
+            // Add extra logging to diagnose the null issue
+            System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] Checking BootstrapRouters before null check. Is null? {BootstrapRouters == null}. Length: {(BootstrapRouters == null ? "N/A" : BootstrapRouters.Length.ToString())}");
+
+            // Add null check for BootstrapRouters
+            if (BootstrapRouters == null)
+            {
+                System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] GenerateBootstrapNodes called with null BootstrapRouters. Returning empty array.");
+                return Array.Empty<Node>();
+            }
+
+            // REVERTED BODY: Go back to original DNS-only logic to fix compile errors
+            System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] GenerateBootstrapNodesAsync started for {BootstrapRouters.Length} routers.");
             // Handle when one, or more, of the bootstrap nodes are offline
             var results = new List<Node> ();
 
@@ -121,7 +137,7 @@ namespace MonoTorrent.Dht.Tasks
             return results.ToArray ();
         }
 
-        async Task SendFindNode (IEnumerable<Node> newNodes)
+        async Task SendFindNodeAsync (IEnumerable<Node> newNodes)
         {
             System.Diagnostics.Debug.WriteLine($"[DHT InitialiseTask {engine.LocalId}] SendFindNode started with {newNodes.Count()} initial nodes.");
             var activeRequests = new List<Task<SendQueryEventArgs>> ();
@@ -174,7 +190,8 @@ namespace MonoTorrent.Dht.Tasks
             if (initialNodes.Count > 0 && engine.RoutingTable.NeedsBootstrap && this.BootstrapRouters.Length > 0) {
                 System.Diagnostics.Debug.WriteLine ($"[DHT InitialiseTask {engine.LocalId}] Initial nodes processed, but table still needs bootstrap. Recursively calling InitialiseTask with configured routers ({this.BootstrapRouters.Length} routers).");
                 // Pass the *same* bootstrap routers, not the defaults.
-                await new InitialiseTask (engine, Array.Empty<Node>(), this.BootstrapRouters).ExecuteAsync ();
+                // Rename called method
+                await new InitialiseTask (engine, Array.Empty<Node>(), this.BootstrapRouters).ExecuteAsync (); // ExecuteAsync calls BeginAsyncInit which calls SendFindNodeAsync
             } else if (initialNodes.Count > 0 && engine.RoutingTable.NeedsBootstrap) {
                  System.Diagnostics.Debug.WriteLine ($"[DHT InitialiseTask {engine.LocalId}] Initial nodes processed, but table still needs bootstrap. *Not* falling back to routers as none were provided initially.");
             }

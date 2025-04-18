@@ -23,6 +23,9 @@ namespace MonoTorrent.Dht
     public class NatsNatTraversalService : IDisposable
     {
         private readonly NatsConnection _natsConnection;
+
+        // Optional DHT engine for direct node injection
+        public IDhtEngine? DhtEngine { get; set; }
         private readonly string _peerInfoSubject = "p2p.peers"; // Generic subject name
         private readonly string _discoveryRequestSubject = "p2p.discovery.request";
         private readonly UdpClient _udpClient; // For hole punching
@@ -60,6 +63,10 @@ namespace MonoTorrent.Dht
             public BEncodedString PeerId { get; } // Added PeerId
             public IPEndPoint EndPoint { get; }
             public PeerInfo Peer { get; } // Add PeerInfo for convenience
+
+            // New: Internal IP and port for LAN-aware logic
+            public string? InternalIp { get; set; }
+            public ushort InternalPort { get; set; }
 
             public NatsPeerDiscoveredEventArgs(NodeId nodeId, BEncodedString peerId, IPEndPoint endPoint) // Added peerId parameter
             {
@@ -241,9 +248,51 @@ namespace MonoTorrent.Dht
                  return;
             }
 
-            // Format: PeerIdHex|IPAddress|Port
-            var peerInfo = $"{_localPeerId.ToHex()}|{_localPeerBencodedId}|{_myExternalEndPoint.Address}|{_myExternalEndPoint.Port}";
+            // Format: NodeId|PeerId|ExternalIP|ExternalPort|InternalIPs(comma-separated)|InternalPort
+            string internalIps = GetLocalInternalIpsCsv();
+            int internalPort = (MessageLoopLocalPort() ?? _myExternalEndPoint.Port);
+            var peerInfo = $"{_localPeerId.ToHex()}|{_localPeerBencodedId}|{_myExternalEndPoint.Address}|{_myExternalEndPoint.Port}|{internalIps}|{internalPort}";
             var data = Encoding.UTF8.GetBytes(peerInfo);
+
+            // Helper: Get all local IPv4 addresses as CSV (best effort, cross-platform)
+            string GetLocalInternalIpsCsv()
+            {
+                try
+                {
+                    var ips = new List<string>();
+                    foreach (var ni in System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces())
+                    {
+                        if (ni.OperationalStatus != System.Net.NetworkInformation.OperationalStatus.Up)
+                            continue;
+                        foreach (var ua in ni.GetIPProperties().UnicastAddresses)
+                        {
+                            if (ua.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork &&
+                                !IPAddress.IsLoopback(ua.Address) &&
+                                !ua.Address.ToString().StartsWith("169.254.")) // Exclude link-local
+                            {
+                                ips.Add(ua.Address.ToString());
+                            }
+                        }
+                    }
+                    return string.Join(",", ips);
+                }
+                catch
+                {
+                    return "";
+                }
+            }
+            // Helper: Try to get the local port from the UDP client (if available)
+            int? MessageLoopLocalPort()
+            {
+                try
+                {
+                    return (_udpClient?.Client?.LocalEndPoint as IPEndPoint)?.Port;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
 
             try
             {
@@ -261,6 +310,31 @@ namespace MonoTorrent.Dht
         {
             Console.WriteLine($"[Console] NatsNatTraversalService.OnPeerDiscovered fired for peer {e.Peer.ConnectionUri} NodeId {e.NodeId}");
             PeerDiscovered?.Invoke(this, e);
+
+            // Inject discovered peer into DHT engine if available
+            if (DhtEngine != null && DhtEngine.State == DhtState.Ready)
+            {
+                try
+                {
+                    byte[] compactNode = new byte[26];
+                    var nodeIdBytes = e.NodeId.Span;
+                    nodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
+                    var ipBytes = e.EndPoint.Address.GetAddressBytes();
+                    if (ipBytes.Length == 4)
+                    {
+                        ipBytes.CopyTo(compactNode, 20);
+                        ushort port = (ushort)e.EndPoint.Port;
+                        compactNode[24] = (byte)(port >> 8);
+                        compactNode[25] = (byte)(port & 0xFF);
+                        DhtEngine.Add(new[] { new ReadOnlyMemory<byte>(compactNode) });
+                        Debug.WriteLine($"[NATS NAT] Injected discovered peer {e.EndPoint} into DHT engine.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"[NATS NAT] Failed to inject peer into DHT: {ex.Message}");
+                }
+            }
         }
 
         /// <summary>
@@ -277,12 +351,15 @@ namespace MonoTorrent.Dht
                     {
                         var peerInfoString = Encoding.UTF8.GetString(msg.Data);
                         var parts = peerInfoString.Split('|');
-                        if (parts.Length == 4)
+                        // Format: NodeId|PeerId|ExternalIP|ExternalPort|InternalIPs|InternalPort
+                        if (parts.Length >= 6)
                         {
                             var nodeIdHex = parts[0];
                             var peerIdHex = parts[1];
                             var ipString = parts[2];
                             var portString = parts[3];
+                            var internalIpsCsv = parts[4];
+                            var internalPortString = parts[5];
                             Console.WriteLine($"[Console] NATS received NodeId: {nodeIdHex}");
                             Console.WriteLine($"[Console] NATS received PeerId: {peerIdHex}");
 
@@ -314,6 +391,15 @@ namespace MonoTorrent.Dht
                             {
                                 var discoveredEndPoint = new IPEndPoint(ipAddress, port);
 
+                                // Parse internal IPs and port
+                                string[] internalIps = internalIpsCsv.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                                ushort internalPort = 0;
+                                ushort.TryParse(internalPortString, out internalPort);
+
+                                // Store internal IPs for use in event args (extend event args if needed)
+                                // For now, pick the first internal IP as "primary"
+                                string? primaryInternalIp = internalIps.FirstOrDefault();
+
                                 // Use AddOrUpdate to handle potential updates to an existing peer's endpoint
                                 bool added = false;
                                 Console.WriteLine($"[Console] Adding discovered peer NodeId: {peerNodeId.ToHex()} PeerId: {peerId.ToHex()} at {discoveredEndPoint}");
@@ -325,7 +411,13 @@ namespace MonoTorrent.Dht
                                 if (added)
                                 {
                                     Debug.WriteLine($"[NATS NAT] Discovered new peer: {peerNodeId} (PeerId: {peerId.ToHex()}) at {discoveredEndPoint}");
-                                    OnPeerDiscovered(new NatsPeerDiscoveredEventArgs(peerNodeId, peerId, discoveredEndPoint)); // Raise event with PeerId
+                                    // Extend event args to include internal IP/port for LAN logic
+                                    var eventArgs = new NatsPeerDiscoveredEventArgs(peerNodeId, peerId, discoveredEndPoint)
+                                    {
+                                        InternalIp = primaryInternalIp,
+                                        InternalPort = internalPort
+                                    };
+                                    OnPeerDiscovered(eventArgs); // Raise event with PeerId and internal info
                                     // Initiate hole punching attempt immediately upon discovery
                                     _ = InitiateHolePunchingAsync(discoveredEndPoint, token);
                                 }

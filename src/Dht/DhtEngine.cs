@@ -446,7 +446,8 @@ internal async Task Add (Node node)
             // --- Hairpin/Loopback Handling ---
             // If we started with no nodes/routers AND we are listening on loopback,
             // try adding self. This might help local instances find each other via refresh.
-            if (!nodes.Any() && bootstrapRouters.Length == 0 && MessageLoop.Listener?.LocalEndPoint?.Address?.Equals(IPAddress.Loopback) == true)
+            // Add null check for bootstrapRouters
+            if (!nodes.Any() && (bootstrapRouters == null || bootstrapRouters.Length == 0) && MessageLoop.Listener?.LocalEndPoint?.Address?.Equals(IPAddress.Loopback) == true)
             {
                 var selfNode = new Node(RoutingTable.LocalNodeId, MessageLoop.Listener.LocalEndPoint);
                 RoutingTable.Add(selfNode); // Add self to potentially kickstart discovery
@@ -589,7 +590,8 @@ internal async Task Add (Node node)
 
             // Determine if this engine is suitable for hairpinning
             bool isLoopback = MessageLoop.Listener?.LocalEndPoint?.Address?.Equals(IPAddress.Loopback) == true;
-            bool isBootstrapping = bootstrapRouters.Length > 0 || nodes.Any();
+            // Add null check for bootstrapRouters before accessing Length
+            bool isBootstrapping = (bootstrapRouters != null && bootstrapRouters.Length > 0) || nodes.Any();
             bool canHairpin = isLoopback && !isBootstrapping;
 
             // Register self *before* initializing/bootstrapping
@@ -613,26 +615,35 @@ internal async Task Add (Node node)
                 System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Performing hairpin discovery...");
                 var selfNode = new Node(this.LocalId, this.MessageLoop.Listener!.LocalEndPoint!); // Listener should be non-null here
 
-                foreach (var kvp in ActiveEngines)
+                foreach (var kvp in ActiveEngines) // Iterate static dictionary
                 {
+                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Hairpin loop: Checking entry {kvp.Key.ToHex().Substring(0,6)}");
+                    // Skip self or disposed engines
                     if (kvp.Key == this.LocalId || !kvp.Value.TryGetTarget(out var otherEngine) || otherEngine.Disposed)
+                    {
+                        if(kvp.Key == this.LocalId) System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Hairpin loop: Skipping self.");
+                        else if (!kvp.Value.TryGetTarget(out _)) System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Hairpin loop: Skipping entry {kvp.Key.ToHex().Substring(0,6)} - WeakReference target lost.");
+                        else System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Hairpin loop: Skipping entry {kvp.Key.ToHex().Substring(0,6)} - Other engine disposed.");
                         continue;
+                    }
 
                     // Check if the other engine is also suitable for hairpinning
                     bool otherIsLoopback = otherEngine.MessageLoop.Listener?.LocalEndPoint?.Address?.Equals(IPAddress.Loopback) == true;
-                    if (otherIsLoopback && otherEngine.MessageLoop.Listener!.LocalEndPoint != null) // Ensure other listener is valid
-                    {
-                        System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Found other local engine: {otherEngine.LocalId.ToHex().Substring(0,6)}");
-                        var otherNode = new Node(otherEngine.LocalId, otherEngine.MessageLoop.Listener.LocalEndPoint);
+                    bool otherListenerValid = otherEngine.MessageLoop.Listener?.LocalEndPoint != null;
+                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Hairpin loop: Other engine {otherEngine.LocalId.ToHex().Substring(0,6)} - IsLoopback={otherIsLoopback}, ListenerValid={otherListenerValid}");
 
-                        // Add directly to routing tables (no Ping needed)
-                        this.AddToRoutingTable(otherNode);
-                        otherEngine.AddToRoutingTable(selfNode);
+                    if (otherIsLoopback && otherListenerValid) // Ensure other listener is valid before accessing LocalEndPoint
+                    {
+                        System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Found other local engine: {otherEngine.LocalId.ToHex().Substring(0,6)} at {otherEngine.MessageLoop.Listener!.LocalEndPoint}");
+                        var otherNode = new Node(otherEngine.LocalId, otherEngine.MessageLoop.Listener.LocalEndPoint!);
+
+                        this.AddToRoutingTable(otherNode); // Add other engine to self's routing table
+                        otherEngine.AddToRoutingTable(selfNode); // Add self to other engine's routing table
                         // Mark nodes as seen immediately after adding via hairpin
                         // This ensures they are not immediately considered stale/unknown.
                         otherNode.Seen();
                         selfNode.Seen();
-                        System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Added {otherNode.Id.ToHex().Substring(0,6)} to self. Added self to {otherEngine.LocalId.ToHex().Substring(0,6)}.");
+                        System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Added {otherNode.Id.ToHex().Substring(0,6)} to self's routing table. Added self ({selfNode.Id.ToHex().Substring(0,6)}) to {otherEngine.LocalId.ToHex().Substring(0,6)}'s routing table.");
                     }
                 }
             }
