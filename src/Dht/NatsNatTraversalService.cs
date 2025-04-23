@@ -297,7 +297,7 @@ namespace MonoTorrent.Dht
             try
             {
                 await _natsConnection.PublishAsync(_peerInfoSubject, data, cancellationToken: token);
-                Debug.WriteLine($"[NATS NAT] Published self info: {peerInfo}");
+                // Debug.WriteLine($"[NATS NAT] Published self info: {peerInfo}");
             }
              catch (OperationCanceledException) { /* Ignore */ }
             catch (Exception ex)
