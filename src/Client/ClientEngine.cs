@@ -792,31 +792,42 @@ namespace MonoTorrent.Client
 
         #region Private/Internal methods
 
-        void LogicTick () { 
+        void LogicTick () {
             tickCount++;
-
+    
             if (tickCount % 2 == 0) {
                 downloadLimiter.UpdateChunks (Settings.MaximumDownloadRate);
                 uploadLimiter.UpdateChunks (Settings.MaximumUploadRate);
             }
-
+    
             ConnectionManager.CancelPendingConnects ();
             ConnectionManager.TryConnect ();
             DiskManager.Tick ();
-
+    
             for (int i = 0; i < allTorrents.Count; i++)
                 allTorrents[i].Mode.Tick (tickCount);
-
-            // BEP46: Check for mutable torrent updates
+    
+            // BEP46: Check for mutable torrent updates and announce presence
             foreach (var manager in allTorrents)
             {
-                if (manager.MutablePublicKey != null && manager.LastMutableUpdateCheckTimer.Elapsed > Settings.MutableTorrentUpdateInterval)
+                if (manager.MutablePublicKey != null)
                 {
-                    _ = manager.PerformMutableUpdateCheckAsync(); // Don't block the main loop
+                    // Periodic mutable update check
+                    if (manager.LastMutableUpdateCheckTimer.Elapsed > Settings.MutableTorrentUpdateInterval)
+                    {
+                        _ = manager.PerformMutableUpdateCheckAsync(); // Don't block the main loop
+                    }
+
+                    // Periodic DHT announce for mutable torrents
+                    if (manager.CanUseDht && (!manager.LastDhtAnnounceTimer.IsRunning || manager.LastDhtAnnounceTimer.Elapsed > manager.Engine.DhtEngine.MinimumAnnounceInterval))
+                    {
+                        manager.LastDhtAnnounceTimer.Restart();
+                        _ = manager.DhtAnnounceAsync(); // Fire and forget
+                    }
                 }
             }
-
-
+    
+    
             RaiseStatsUpdate (new StatsUpdateEventArgs ());
         }
 

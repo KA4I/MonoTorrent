@@ -28,15 +28,22 @@
 
 
 using MonoTorrent.BEncoding;
-
+using System.Net; // Added for IPEndPoint
+ 
 namespace MonoTorrent.Dht.Messages
 {
     sealed class AnnouncePeerResponse : ResponseMessage
     {
-        public AnnouncePeerResponse (NodeId id, BEncodedValue transactionId)
+        /// <summary>
+        /// The external endpoint of the sender, if known via NAT traversal.
+        /// This isn't directly encoded but might be used by the handler creating this response.
+        /// </summary>
+        public IPEndPoint? ExternalEndPoint { get; }
+ 
+        public AnnouncePeerResponse (NodeId id, BEncodedValue transactionId, IPEndPoint? externalEndPoint = null)
             : base (id, transactionId)
         {
-
+            ExternalEndPoint = externalEndPoint; // Store it
         }
 
         public AnnouncePeerResponse (BEncodedDictionary d)

@@ -31,9 +31,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
-using System.Security.Cryptography;
+using System.Security.Cryptography; // Keep this
 using System.Threading.Tasks;
-
 using MonoTorrent.BEncoding;
 using MonoTorrent.Client;
 using MonoTorrent.Connections.Dht;
@@ -89,9 +88,15 @@ namespace MonoTorrent.Dht
         public bool Disposed { get; private set; }
 
         public ITransferMonitor Monitor { get; }
-
+ 
         public TimeSpan MinimumAnnounceInterval => DefaultMinimumAnnounceInterval;
-
+ 
+        /// <summary>
+        /// The external IP address and port which should be advertised to other peers.
+        /// This is discovered via the NatsNatTraversalService.
+        /// </summary>
+        public System.Net.IPEndPoint? ExternalEndPoint { get; set; }
+ 
         public DhtState State { get; private set; }
 
         internal TimeSpan BucketRefreshTimeout { get; set; }
@@ -104,6 +109,7 @@ namespace MonoTorrent.Dht
         internal Dictionary<NodeId, List<Node>> Torrents { get; }
         // Proper storage for Get/Put requests (BEP44)
         internal Dictionary<NodeId, StoredDhtItem> LocalStorage { get; }
+        public Dictionary<NodeId, StoredDhtItem> LocalStorageProperty => LocalStorage;
 
 
         public DhtEngine ()
@@ -209,6 +215,13 @@ namespace MonoTorrent.Dht
             if (target is null)
                 throw new ArgumentNullException (nameof (target));
 
+            // First, check local storage
+            if (LocalStorage.TryGetValue(target, out var stored))
+            {
+                Console.WriteLine($"[DhtEngine] LocalStorage hit for {target}");
+                return (stored.Value, stored.PublicKey, stored.Signature, stored.SequenceNumber);
+            }
+
             await MainLoop;
             Console.WriteLine($"[DhtEngine {LocalId}] GetAsync started for Target: {target}, Seq: {sequenceNumber?.ToString() ?? "null"}"); // Log Entry
             // First, find the closest nodes using GetPeersTask logic (or similar)
@@ -301,6 +314,9 @@ namespace MonoTorrent.Dht
 
             NodeId target = CalculateMutableTargetId(publicKey, salt);
 
+            // Store locally immediately
+            StoreItem(target, new StoredDhtItem(value, publicKey, salt, sequenceNumber, signature));
+
             // 1. Find closest nodes using GetPeers logic
             var getPeersTask = new GetPeersTask(this, target);
             var nodes = await getPeersTask.ExecuteAsync(); // Capture the returned nodes
@@ -337,29 +353,101 @@ namespace MonoTorrent.Dht
              // Else: Log failure to get any tokens?
         }
 
-        internal static NodeId CalculateMutableTargetId(BEncodedString publicKey, BEncodedString? salt)
+        /// <summary>
+        /// Explicitly store a mutable item in local DHT storage (for tests or manual replication).
+        /// </summary>
+        public void StoreMutableLocally(BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature)
+        {
+            var target = CalculateMutableTargetId(publicKey, salt);
+            StoreItem(target, new StoredDhtItem(value, publicKey, salt, sequenceNumber, signature));
+        }
+
+        public static NodeId CalculateMutableTargetId(BEncodedString publicKey, BEncodedString? salt)
         {
             using (var sha1 = SHA1.Create())
             {
-                sha1.TransformBlock(publicKey.Span.ToArray(), 0, publicKey.Span.Length, null, 0);
-                if (salt != null && salt.Span.Length > 0)
-                    sha1.TransformFinalBlock(salt.Span.ToArray(), 0, salt.Span.Length);
+                if (salt == null || salt.Span.Length == 0)
+                {
+                    // Target = SHA1(PublicKey)
+                    // Need ToArray for ComputeHash on older frameworks
+                    #if NETSTANDARD2_0 || NET472
+                    return new NodeId(sha1.ComputeHash(publicKey.Span.ToArray()));
+                    #else
+                    byte[] hashResult = new byte[20];
+                    if (sha1.TryComputeHash(publicKey.Span, hashResult, out int bytesWritten) && bytesWritten == 20)
+                        return new NodeId(hashResult);
+                    else
+                        throw new CryptographicException("Failed to compute SHA1 hash."); // Or handle error appropriately
+                    #endif
+                }
                 else
-                    sha1.TransformFinalBlock(Array.Empty<byte>(), 0, 0); // Finalize without salt
-                return new NodeId(sha1.Hash!);
+                {
+                    // Target = SHA1(PublicKey + Salt)
+                    byte[] combined = new byte[publicKey.Span.Length + salt.Span.Length];
+                    publicKey.Span.CopyTo(combined);
+                    salt.Span.CopyTo(combined.AsSpan(publicKey.Span.Length));
+                    #if NETSTANDARD2_0 || NET472
+                    return new NodeId(sha1.ComputeHash(combined));
+                    #else
+                    byte[] hashResult = new byte[20];
+                    if (sha1.TryComputeHash(combined, hashResult, out int bytesWritten) && bytesWritten == 20)
+                        return new NodeId(hashResult);
+                    else
+                        throw new CryptographicException("Failed to compute SHA1 hash."); // Or handle error appropriately
+                    #endif
+                }
             }
         }
 
-        async void InitializeAsync (IEnumerable<Node> nodes, string[] bootstrapRouters)
+        async Task InitializeAsync (IEnumerable<Node> nodes, string[] bootstrapRouters)
         {
             await MainLoop;
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitializeAsync started.");
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Bootstrap routers: {string.Join(", ", bootstrapRouters)}");
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Initial pending nodes count: {nodes.Count()}");
 
             var initTask = new InitialiseTask (this, nodes, bootstrapRouters);
-            await initTask.ExecuteAsync ();
-            if (RoutingTable.NeedsBootstrap)
-                RaiseStateChanged (DhtState.NotReady);
+            try
+            {
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Starting InitialiseTask.ExecuteAsync()");
+                await initTask.ExecuteAsync ();
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitialiseTask completed successfully.");
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] RoutingTable after InitialiseTask: NodeCount={RoutingTable.CountNodes()}");
+                foreach (var bucket in RoutingTable.Buckets)
+                {
+                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Bucket: {bucket}");
+                    foreach (var node in bucket.Nodes)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Node: {node.EndPoint} ID: {node.Id}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitialiseTask FAILED: {ex.Message}\nStackTrace: {ex.StackTrace}");
+            }
+
+            int nodeCount = RoutingTable.CountNodes();
+            bool needsBootstrap = RoutingTable.NeedsBootstrap;
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] After InitialiseTask: RoutingTable NodeCount={nodeCount}, NeedsBootstrap={needsBootstrap}");
+
+            if (needsBootstrap)
+            {
+                // If bootstrap is incomplete, check if NAT traversal succeeded.
+                // If NAT worked, we might still be able to function via NATS peers.
+                if (this.ExternalEndPoint != null) {
+                     System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Bootstrap incomplete but NAT succeeded. Setting state to Ready.");
+                     RaiseStateChanged(DhtState.Ready); // Force Ready state if NAT worked
+                } else {
+                     System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Bootstrap incomplete and no NAT/failed NAT. Setting state to NotReady");
+                     RaiseStateChanged(DhtState.NotReady);
+                }
+            }
             else
-                RaiseStateChanged (DhtState.Ready);
+            {
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Bootstrap complete. Setting state to Ready");
+                RaiseStateChanged(DhtState.Ready);
+            }
         }
 
         internal void RaisePeersFound (NodeId infoHash, IList<PeerInfo> peers)
@@ -433,28 +521,61 @@ namespace MonoTorrent.Dht
             return e;
         }
 
-        public Task StartAsync ()
-            => StartAsync (ReadOnlyMemory<byte>.Empty);
+        public Task StartAsync (NatsNatTraversalService? natsService = null)
+            => StartAsync (ReadOnlyMemory<byte>.Empty, natsService);
+ 
+        public Task StartAsync (ReadOnlyMemory<byte> initialNodes, NatsNatTraversalService? natsService = null)
+            => StartAsync (Node.FromCompactNode (BEncodedString.FromMemory (initialNodes)).Concat (PendingNodes), DefaultBootstrapRouters.ToArray (), natsService);
+ 
+        public Task StartAsync (string[] bootstrapRouters, NatsNatTraversalService? natsService = null)
+            => StartAsync (Array.Empty<Node> (), bootstrapRouters, natsService);
+ public Task StartAsync (ReadOnlyMemory<byte> initialNodes, string[] bootstrapRouters, NatsNatTraversalService? natsService = null)
+     => StartAsync (Node.FromCompactNode (BEncodedString.FromMemory (initialNodes)).Concat (PendingNodes), bootstrapRouters, natsService);
 
-        public Task StartAsync (ReadOnlyMemory<byte> initialNodes)
-            => StartAsync (Node.FromCompactNode (BEncodedString.FromMemory (initialNodes)).Concat (PendingNodes), DefaultBootstrapRouters.ToArray ());
-
-        public Task StartAsync (params string[] bootstrapRouters)
-            => StartAsync (Array.Empty<Node> (), bootstrapRouters);
-
-        public Task StartAsync (ReadOnlyMemory<byte> initialNodes, params string[] bootstrapRouters)
-            => StartAsync (Node.FromCompactNode (BEncodedString.FromMemory (initialNodes)).Concat (PendingNodes), bootstrapRouters);
-
-        async Task StartAsync (IEnumerable<Node> nodes, string[] bootstrapRouters)
+ // Keep the existing internal StartAsync, the public ones delegate to it
+ 
+        async Task StartAsync (IEnumerable<Node> nodes, string[] bootstrapRouters, NatsNatTraversalService? natsService = null)
         {
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] StartAsync entered.");
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Bootstrap routers: {string.Join(", ", bootstrapRouters)}");
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Pending nodes count: {nodes.Count()}");
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Current State: {State}");
             CheckDisposed ();
 
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Awaiting MainLoop...");
             await MainLoop;
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] MainLoop awaited.");
+ 
+            // Initialize NATS NAT Traversal if provided
+            if (natsService != null)
+            {
+                try
+                {
+                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Initializing NATS NAT Traversal Service...");
+                    await natsService.InitializeAsync(); // Assuming InitializeAsync exists and is awaitable
+                    this.ExternalEndPoint = natsService.MyExternalEndPoint;
+                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] NATS NAT Traversal Initialized. External EndPoint: {this.ExternalEndPoint}");
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Failed to initialize NATS NAT Traversal Service: {ex.Message}");
+                    // Decide how to handle failure - maybe proceed without NAT traversal?
+                    // For now, we'll just log and continue. DHT might fail if behind NAT.
+                }
+            }
+ 
             MessageLoop.Start ();
-            if (RoutingTable.NeedsBootstrap) {
+            bool needsBootstrapCheck = RoutingTable.NeedsBootstrap;
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] RoutingTable.NeedsBootstrap = {needsBootstrapCheck}, Node Count = {RoutingTable.CountNodes()}");
+
+            if (needsBootstrapCheck || RoutingTable.CountNodes() == 0) {
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Starting InitializeAsync with bootstrap routers.");
                 RaiseStateChanged (DhtState.Initialising);
-                InitializeAsync (nodes, bootstrapRouters);
+                await InitializeAsync (nodes, bootstrapRouters);
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitializeAsync completed.");
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] State after InitializeAsync: {State}");
             } else {
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Skipping InitializeAsync, already bootstrapped.");
                 RaiseStateChanged (DhtState.Ready);
             }
 
@@ -539,11 +660,32 @@ namespace MonoTorrent.Dht
             await MainLoop;
             await MessageLoop.SetListener (listener);
         }
+    public async Task InitializeNatAsync (NatsNatTraversalService natsService)
+    {
+        await MainLoop;
+        CheckDisposed ();
+        if (natsService == null)
+            throw new ArgumentNullException(nameof(natsService));
 
-    } // End of DhtEngine class
+        try
+        {
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitializeNatAsync called. Initializing NATS NAT Traversal Service...");
+            await natsService.InitializeAsync();
+            this.ExternalEndPoint = natsService.MyExternalEndPoint;
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] NATS NAT Traversal Initialized via InitializeNatAsync. External EndPoint: {this.ExternalEndPoint}");
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Failed to initialize NATS NAT Traversal Service via InitializeNatAsync: {ex.Message}");
+            // Decide how to handle failure - maybe proceed without NAT traversal?
+            // For now, just log and continue. DHT might fail if behind NAT.
+        }
+    }
+} // End of DhtEngine class
+} // End of DhtEngine class
 
     // Class to hold stored DHT items (Moved outside DhtEngine class)
-    internal class StoredDhtItem
+    public class StoredDhtItem
     {
         public BEncodedValue Value { get; }
         public BEncodedString? PublicKey { get; } // Null for immutable
@@ -579,4 +721,3 @@ namespace MonoTorrent.Dht
     // Reverting the move of SetListenerAsync. The syntax errors must be related to the StoredDhtItem placement only.
     // Let's ensure the closing brace for DhtEngine is before StoredDhtItem.
 
-} // End of namespace

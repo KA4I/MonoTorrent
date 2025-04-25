@@ -55,8 +55,9 @@ namespace MonoTorrent.Dht.Messages
         public override void Handle (DhtEngine engine, Node node)
         {
             base.Handle (engine, node);
-
-            var m = new PingResponse (engine.RoutingTable.LocalNodeId, TransactionId!);
+ 
+            // Pass the engine's ExternalEndPoint (if available) to the response constructor
+            var m = new PingResponse (engine.RoutingTable.LocalNodeId, TransactionId!, engine.ExternalEndPoint);
             engine.MessageLoop.EnqueueSend (m, node, node.EndPoint);
         }
     }

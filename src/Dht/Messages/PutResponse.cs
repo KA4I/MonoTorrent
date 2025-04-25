@@ -30,7 +30,8 @@
 
 
 using MonoTorrent.BEncoding;
-
+using System.Net; // Added for IPEndPoint
+ 
 namespace MonoTorrent.Dht.Messages
 {
     /// <summary>
@@ -39,9 +40,16 @@ namespace MonoTorrent.Dht.Messages
     /// </summary>
     internal class PutResponse : ResponseMessage
     {
-        public PutResponse (NodeId id, BEncodedValue transactionId)
+        /// <summary>
+        /// The external endpoint of the sender, if known via NAT traversal.
+        /// This isn't directly encoded but might be used by the handler creating this response.
+        /// </summary>
+        public IPEndPoint? ExternalEndPoint { get; }
+ 
+        public PutResponse (NodeId id, BEncodedValue transactionId, IPEndPoint? externalEndPoint = null)
             : base (id, transactionId)
         {
+            ExternalEndPoint = externalEndPoint; // Store it
             // According to BEP44, the response only needs the standard 'r' dictionary with the sender's 'id'.
             // The base class constructor handles this.
         }

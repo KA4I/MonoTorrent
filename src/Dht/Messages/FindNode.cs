@@ -28,7 +28,9 @@
 
 
 using MonoTorrent.BEncoding;
-
+using System.Collections.Generic; // Added for List<Node>
+using System.Linq; // Added for Linq
+ 
 namespace MonoTorrent.Dht.Messages
 {
     sealed class FindNode : QueryMessage
@@ -58,13 +60,41 @@ namespace MonoTorrent.Dht.Messages
         {
             base.Handle (engine, node);
 
-            var response = new FindNodeResponse (engine.RoutingTable.LocalNodeId, TransactionId!);
-
+            // Pass the engine's ExternalEndPoint (if available) to the response constructor
+            var response = new FindNodeResponse (engine.RoutingTable.LocalNodeId, TransactionId!, engine.ExternalEndPoint);
+ 
+            // Get the closest nodes from the routing table
+            var closestNodes = engine.RoutingTable.GetClosest (Target);
+ 
+            // If the target node itself was found, just return it (using ExternalEndPoint if it's the local node)
             Node? targetNode = engine.RoutingTable.FindNode (Target);
-            response.Nodes = !(targetNode is null)
-                ? targetNode.CompactNode ()
-                : Node.CompactNode (engine.RoutingTable.GetClosest (Target));
-
+            if (targetNode != null) {
+                if (targetNode.Id == engine.LocalId && engine.ExternalEndPoint != null) {
+                    // Create a temporary node with the external endpoint for the response
+                    var localNodeWithExternalEP = new Node(engine.LocalId, engine.ExternalEndPoint);
+                    response.Nodes = localNodeWithExternalEP.CompactNode();
+                } else {
+                    response.Nodes = targetNode.CompactNode();
+                }
+            } else {
+                // Prepare the list of nodes for the response, substituting the local node if necessary
+                var responseNodes = new List<Node>(closestNodes.Count);
+                foreach (var n in closestNodes)
+                {
+                    if (n.Id == engine.LocalId && engine.ExternalEndPoint != null)
+                    {
+                        // Substitute local node with one using the external endpoint
+                        responseNodes.Add(new Node(engine.LocalId, engine.ExternalEndPoint));
+                    }
+                    else
+                    {
+                        responseNodes.Add(n);
+                    }
+                }
+                // Compact the potentially modified list of nodes
+                response.Nodes = Node.CompactNode (responseNodes);
+            }
+ 
             engine.MessageLoop.EnqueueSend (response, node, node.EndPoint);
         }
     }

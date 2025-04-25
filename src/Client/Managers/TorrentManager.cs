@@ -561,7 +561,20 @@ namespace MonoTorrent.Client
                  // InfoHashes property getter handles null Torrent. No assignment needed here.
             }
 
-            MagnetLink = magnetLink ?? new MagnetLink (torrent!.InfoHashes, torrent.Name, torrent.AnnounceUrls.SelectMany (t => t).ToArray (), null, torrent.Size);
+            // Ensure MagnetLink always has InfoHashes if Torrent is null, especially for mutable torrents
+            if (torrent is null && magnetLink?.PublicKeyHex != null) {
+                 // Calculate the initial identifier (SHA1 of public key) for mutable torrents
+                 byte[] publicKeyBytes = HexDecode(magnetLink.PublicKeyHex);
+                 InfoHash initialIdentifier;
+                 using (var sha1 = SHA1.Create()) {
+                     initialIdentifier = new InfoHash(sha1.ComputeHash(publicKeyBytes));
+                 }
+                 // Create a MagnetLink with the calculated InfoHash (as V1 for compatibility/placeholder)
+                 MagnetLink = new MagnetLink(InfoHashes.FromV1(initialIdentifier), magnetLink.Name, magnetLink.AnnounceUrls, magnetLink.Webseeds, magnetLink.Size);
+            } else {
+                 // Original logic for standard torrents or magnet links with existing infohashes
+                 MagnetLink = magnetLink ?? new MagnetLink (torrent!.InfoHashes, torrent.Name, torrent.AnnounceUrls.SelectMany (t => t).ToArray (), null, torrent.Size);
+            }
             PieceHashes = new PieceHashes (null, null);
             Settings = settings;
             Torrent = torrent;
@@ -1411,12 +1424,15 @@ namespace MonoTorrent.Client
         internal async ReusableTask PerformMutableUpdateCheckAsync ()
         {
             Console.WriteLine($"[TorrentManager {LogName}] Starting PerformMutableUpdateCheckAsync. LastKnownSeq: {LastKnownSequenceNumber?.ToString() ?? "null"}");
-            Console.WriteLine($"[TorrentManager {LogName}] Starting PerformMutableUpdateCheckAsync. LastKnownSeq: {LastKnownSequenceNumber?.ToString() ?? "null"}");
-            if (Engine == null || MutablePublicKey == null || State == TorrentState.Stopped || State == TorrentState.Stopping || State == TorrentState.Error)
+            
+            // Modified condition to allow mutable torrent updates even when Stopped
+            // This is needed for cases when an external system wants to check for updates without starting the torrent
+            if (Engine == null || MutablePublicKey == null || 
+                (State == TorrentState.Error) || 
+                (State == TorrentState.Stopping))  // Removed the TorrentState.Stopped check
             {
                  Console.WriteLine($"[TorrentManager {LogName}] Skipping update check. EngineNull: {Engine == null}, MutablePKNull: {MutablePublicKey == null}, State: {State}");
-                 Console.WriteLine($"[TorrentManager {LogName}] Skipping update check. EngineNull: {Engine == null}, MutablePKNull: {MutablePublicKey == null}, State: {State}");
-                return; // Only check if running and it's a mutable torrent
+                return; // Only check if it's a mutable torrent and not in error/stopping state
             }
 
             try {

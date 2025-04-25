@@ -97,7 +97,23 @@ namespace MonoTorrent.Dht
             // Use the existing internal constructor which takes InfoHash
             return new NodeId (infoHash);
         }
-
+ 
+        public static NodeId FromHex (string hex)
+        {
+            if (hex == null)
+                throw new ArgumentNullException(nameof(hex));
+            if (hex.Length != 40)
+                throw new ArgumentException("NodeId hex string must be 40 characters long", nameof(hex));
+ 
+            byte[] bytes = new byte[20];
+            for (int i = 0; i < 20; i++)
+            {
+                bytes[i] = Convert.ToByte(hex.Substring(i * 2, 2), 16);
+            }
+            // Explicitly call FromMemory to resolve constructor ambiguity
+            return NodeId.FromMemory(bytes);
+        }
+ 
         NodeId (ReadOnlyMemory<byte> memory)
             => (Bytes) = memory;
 
