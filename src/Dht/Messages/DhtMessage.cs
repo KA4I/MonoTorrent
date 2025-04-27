@@ -92,8 +92,10 @@ namespace MonoTorrent.Dht.Messages
             return length - buffer.Length;
         }
 
-        public virtual void Handle (DhtEngine engine, Node node)
+        // Add 'bool receivedViaRelay' parameter
+        public virtual void Handle (DhtEngine engine, Node node, bool receivedViaRelay)
         {
+            // Base implementation doesn't need the relay flag, just marks the node as seen.
             node.Seen ();
         }
     }

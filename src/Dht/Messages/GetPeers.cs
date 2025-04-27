@@ -60,10 +60,13 @@ namespace MonoTorrent.Dht.Messages
             return new GetPeersResponse (parameters);
         }
 
-        public override void Handle (DhtEngine engine, Node node)
+        // Add 'bool receivedViaRelay' parameter
+        public override void Handle (DhtEngine engine, Node node, bool receivedViaRelay)
         {
-            base.Handle (engine, node);
+            // Base handle doesn't use the flag, but call it correctly
+            base.Handle (engine, node, receivedViaRelay);
 
+            // GetPeers response always goes back directly via UDP.
             if (TransactionId is null) {
                 Logger.Error ("Transaction id was unexpectedly missing");
                 return;

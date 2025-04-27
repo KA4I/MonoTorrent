@@ -104,7 +104,7 @@ namespace MonoTorrent.Client
 
                     foreach (BEncodedDictionary file in (BEncodedList) torrent[nameof (manager.Files)]) {
                         TorrentFileInfo torrentFile;
-                        var path = new TorrentPath (((BEncodedList) file[nameof(torrentFile.Path)]));
+                        var path = new TorrentPath (((BEncodedList) file[nameof (torrentFile.Path)]));
                         torrentFile = (TorrentFileInfo) manager.Files.Single (t => t.Path == path);
                         torrentFile.Priority = (Priority) Enum.Parse (typeof (Priority), file[nameof (torrentFile.Priority)].ToString ()!);
                         torrentFile.UpdatePaths ((
@@ -219,6 +219,9 @@ namespace MonoTorrent.Client
         readonly RateLimiterGroup downloadLimiters;
         readonly NatsNatTraversalService? natsService; // Added NATS service instance
 
+        // Track which peer endpoints have been injected to avoid duplicate logs
+        private readonly HashSet<string> _injectedPeerEndpoints = new HashSet<string> ();
+
         #endregion
 
 
@@ -239,8 +242,7 @@ namespace MonoTorrent.Client
         public IDhtListener? ActualDhtListener {
             get {
                 // Requires casting to the concrete DhtEngine type to access MessageLoop
-                if (this.DhtEngine is DhtEngine concreteDhtEngine)
-                {
+                if (this.DhtEngine is DhtEngine concreteDhtEngine) {
                     return concreteDhtEngine.MessageLoop?.Listener;
                 }
                 return null;
@@ -280,9 +282,9 @@ namespace MonoTorrent.Client
 
         public NatsNatTraversalService? PublicNatsService => natsService;
 
-        public void PublicHandleNatsPeerDiscovered(object? sender, MonoTorrent.Dht.NatsNatTraversalService.NatsPeerDiscoveredEventArgs e)
+        public void PublicHandleNatsPeerDiscovered (object? sender, MonoTorrent.Dht.NatsNatTraversalService.NatsPeerDiscoveredEventArgs e)
         {
-            HandleNatsPeerDiscovered(sender, e);
+            HandleNatsPeerDiscovered (sender, e);
         }
 
         public EngineSettings Settings { get; private set; }
@@ -346,7 +348,7 @@ namespace MonoTorrent.Client
             BlockReader = Factories.CreatePieceReader (DiskManager);
 
             ConnectionManager = new ConnectionManager (PeerId, Settings, Factories, BlockReader);
-            listenManager = new ListenManager (this, Factories.CreatePeerConnectionGate());
+            listenManager = new ListenManager (this, Factories.CreatePeerConnectionGate ());
             PortForwarder = Factories.CreatePortForwarder ();
 
             MainLoop.QueueTimeout (TimeSpan.FromMilliseconds (TickLength), delegate {
@@ -381,22 +383,21 @@ namespace MonoTorrent.Client
             RegisterLocalPeerDiscovery (settings.AllowLocalPeerDiscovery ? Factories.CreateLocalPeerDiscovery () : null);
 
             // Create NATS service if enabled in settings
-            if (settings.AllowNatsDiscovery && settings.NatsOptions != null)
-            {
+            if (settings.AllowNatsDiscovery && settings.NatsOptions != null) {
                 // Calculate NodeId from PeerId (SHA1 hash) - needed by NATS service
-                using var sha1 = System.Security.Cryptography.SHA1.Create();
-                var nodeIdBytes = sha1.ComputeHash(this.PeerId.AsMemory().Span.ToArray()); // Correct property name is PeerId
-                var tempInfoHash = InfoHash.FromMemory(nodeIdBytes);
-                var nodeId = NodeId.FromInfoHash(tempInfoHash);
+                using var sha1 = System.Security.Cryptography.SHA1.Create ();
+                var nodeIdBytes = sha1.ComputeHash (this.PeerId.AsMemory ().Span.ToArray ()); // Correct property name is PeerId
+                var tempInfoHash = InfoHash.FromMemory (nodeIdBytes);
+                var nodeId = NodeId.FromInfoHash (tempInfoHash);
 
-                Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Creating NatsNatTraversalService for NodeId {nodeId}");
-                natsService = new NatsNatTraversalService(settings.NatsOptions, nodeId, PeerId);
-                Console.WriteLine($"[Console] Subscribing to NatsNatTraversalService.PeerDiscovered event...");
+                Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Creating NatsNatTraversalService for NodeId {nodeId}");
+                natsService = new NatsNatTraversalService (settings.NatsOptions, nodeId, PeerId);
+                Console.WriteLine ($"[Console] Subscribing to NatsNatTraversalService.PeerDiscovered event...");
                 natsService.PeerDiscovered += HandleNatsPeerDiscovered; // Subscribe to the event
-                Console.WriteLine($"[Console] ClientEngine subscribed to NatsNatTraversalService.PeerDiscovered event");
-                Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] NatsNatTraversalService created and PeerDiscovered handler attached.");
+                Console.WriteLine ($"[Console] ClientEngine subscribed to NatsNatTraversalService.PeerDiscovered event");
+                Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] NatsNatTraversalService created and PeerDiscovered handler attached.");
             } else {
-                 Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] NATS Discovery is disabled.");
+                Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] NATS Discovery is disabled.");
             }
         }
 
@@ -665,11 +666,11 @@ namespace MonoTorrent.Client
 
         async void HandleNatsPeerDiscovered (object? sender, MonoTorrent.Dht.NatsNatTraversalService.NatsPeerDiscoveredEventArgs e) // Use fully qualified name for EventArgs
         {
-            Console.WriteLine($"[Console] HandleNatsPeerDiscovered called for peer {e.Peer.ConnectionUri} NodeId {e.NodeId}");
+            Console.WriteLine ($"[Console] HandleNatsPeerDiscovered called for peer {e.Peer.ConnectionUri} NodeId {e.NodeId}");
             // Executed when NatsNatTraversalService raises the PeerDiscovered event.
             await MainLoop; // Switch to the main loop thread
 
-            Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] HandleNatsPeerDiscovered: Processing NATS peer {e.Peer.ConnectionUri} (NodeId: {e.NodeId}, PeerId: {e.Peer.PeerId?.ToHex() ?? "null"})...");
+            Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] HandleNatsPeerDiscovered: Processing NATS peer {e.Peer.ConnectionUri} (NodeId: {e.NodeId}, PeerId: {e.Peer.PeerId?.ToHex () ?? "null"})...");
 
             // Determine the peer info to use (original or loopback)
             PeerInfo peerToAdd = e.Peer; // Default to the discovered peer info
@@ -678,36 +679,31 @@ namespace MonoTorrent.Client
             // Declare concreteDhtEngine ONCE at the top of the method, and use it everywhere
             MonoTorrent.Dht.DhtEngine? concreteDhtEngine = DhtEngine as MonoTorrent.Dht.DhtEngine;
 
-            if (myPublicIP != null && myPublicIP.Equals(e.EndPoint.Address))
-            {
+            if (myPublicIP != null && myPublicIP.Equals (e.EndPoint.Address)) {
                 // Inject all discovered IPs: internal, loopback, and external
                 // 1. Internal IP (if available)
-                if (!string.IsNullOrEmpty(e.InternalIp))
-                {
-                    var internalUri = new Uri($"ipv4://{e.InternalIp}:{e.InternalPort}");
-                    peerToAdd = new PeerInfo(internalUri, e.Peer.PeerId);
-                    Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] HandleNatsPeerDiscovered: Peer IP matches own public IP. Using internal LAN address: {internalUri}");
+                if (!string.IsNullOrEmpty (e.InternalIp)) {
+                    var internalUri = new Uri ($"ipv4://{e.InternalIp}:{e.InternalPort}");
+                    peerToAdd = new PeerInfo (internalUri, e.Peer.PeerId);
+                    Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] HandleNatsPeerDiscovered: Peer IP matches own public IP. Using internal LAN address: {internalUri}");
 
-                    if (concreteDhtEngine != null && concreteDhtEngine.State == DhtState.Ready)
-                    {
+                    if (concreteDhtEngine != null && concreteDhtEngine.State == DhtState.Ready) {
                         // Internal IP(s)
-                        if (!string.IsNullOrEmpty(e.InternalIp))
-                        {
-                            var ips = e.InternalIp.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                            foreach (var ip in ips)
-                            {
-                                if (IPAddress.TryParse(ip, out var addr))
-                                {
-                                    byte[] compactNode = new byte[26];
-                                    var nodeIdBytes = e.NodeId.Span;
-                                    nodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
-                                    var ipBytes = addr.GetAddressBytes();
-                                    ipBytes.CopyTo(compactNode, 20);
-                                    ushort port = e.InternalPort;
-                                    compactNode[24] = (byte)(port >> 8);
-                                    compactNode[25] = (byte)(port & 0xFF);
-                                    concreteDhtEngine.Add(new[] { new ReadOnlyMemory<byte>(compactNode) });
-                                    Debug.WriteLine($"[DHT] Injected LAN node {ip}:{e.InternalPort} into routing table (multi-LAN-IP).");
+                        var ips = e.InternalIp.Split (new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                        foreach (var ip in ips) {
+                            if (IPAddress.TryParse (ip, out var addr)) {
+                                byte[] compactNode = new byte[26];
+                                var nodeIdBytes = e.NodeId.Span;
+                                nodeIdBytes.CopyTo (compactNode.AsSpan (0, 20));
+                                var ipBytes = addr.GetAddressBytes ();
+                                ipBytes.CopyTo (compactNode, 20);
+                                ushort port = e.InternalPort;
+                                compactNode[24] = (byte) (port >> 8);
+                                compactNode[25] = (byte) (port & 0xFF);
+                                var lanKey = $"{ip}:{e.InternalPort}";
+                                if (_injectedPeerEndpoints.Add (lanKey)) {
+                                    concreteDhtEngine.Add (new[] { new ReadOnlyMemory<byte> (compactNode) });
+                                    Debug.WriteLine ($"[DHT] Injected LAN node {ip}:{e.InternalPort} into routing table (multi-LAN-IP).");
                                 }
                             }
                         }
@@ -715,111 +711,120 @@ namespace MonoTorrent.Client
                         {
                             byte[] compactNode = new byte[26];
                             var nodeIdBytes = e.NodeId.Span;
-                            nodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
+                            nodeIdBytes.CopyTo (compactNode.AsSpan (0, 20));
                             byte[] ipBytes = { 127, 0, 0, 1 };
-                            ipBytes.CopyTo(compactNode, 20);
-                            ushort port = (ushort)e.EndPoint.Port;
-                            compactNode[24] = (byte)(port >> 8);
-                            compactNode[25] = (byte)(port & 0xFF);
-                            concreteDhtEngine.Add(new[] { new ReadOnlyMemory<byte>(compactNode) });
-                            Debug.WriteLine($"[DHT] Injected loopback node 127.0.0.1:{e.EndPoint.Port} into routing table (local multi-instance).");
+                            ipBytes.CopyTo (compactNode, 20);
+                            ushort port = (ushort) e.EndPoint.Port;
+                            compactNode[24] = (byte) (port >> 8);
+                            compactNode[25] = (byte) (port & 0xFF);
+                            var loopKey = $"127.0.0.1:{e.EndPoint.Port}";
+                            if (_injectedPeerEndpoints.Add (loopKey)) {
+                                concreteDhtEngine.Add (new[] { new ReadOnlyMemory<byte> (compactNode) });
+                                Debug.WriteLine ($"[DHT] Injected loopback node 127.0.0.1:{e.EndPoint.Port} into routing table (local multi-instance).");
+                            }
                         }
                         // External IP
                         {
                             byte[] compactNode = new byte[26];
                             var nodeIdBytes = e.NodeId.Span;
-                            nodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
-                            var ipBytes = e.EndPoint.Address.GetAddressBytes();
-                            ipBytes.CopyTo(compactNode, 20);
-                            ushort port = (ushort)e.EndPoint.Port;
-                            compactNode[24] = (byte)(port >> 8);
-                            compactNode[25] = (byte)(port & 0xFF);
-                            concreteDhtEngine.Add(new[] { new ReadOnlyMemory<byte>(compactNode) });
-                            Debug.WriteLine($"[DHT] Injected external node {e.EndPoint.Address}:{e.EndPoint.Port} into routing table (for completeness).");
+                            nodeIdBytes.CopyTo (compactNode.AsSpan (0, 20));
+                            var ipBytes = e.EndPoint.Address.GetAddressBytes ();
+                            ipBytes.CopyTo (compactNode, 20);
+                            ushort port = (ushort) e.EndPoint.Port;
+                            compactNode[24] = (byte) (port >> 8);
+                            compactNode[25] = (byte) (port & 0xFF);
+                            var extKey = $"{e.EndPoint.Address}:{e.EndPoint.Port}";
+                            if (_injectedPeerEndpoints.Add (extKey)) {
+                                concreteDhtEngine.Add (new[] { new ReadOnlyMemory<byte> (compactNode) });
+                                Debug.WriteLine ($"[DHT] Injected external node {e.EndPoint.Address}:{e.EndPoint.Port} into routing table (for completeness).");
+                            }
                         }
                     }
-                }
-                else
-                {
+                } else {
                     // Fallback: Use loopback for same-machine multi-instance
-                    var loopbackUri = new Uri($"ipv4://127.0.0.1:{e.EndPoint.Port}");
-                    peerToAdd = new PeerInfo(loopbackUri, e.Peer.PeerId); // Use original PeerId
-                    Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] HandleNatsPeerDiscovered: Peer IP matches own public IP. Using loopback address: {loopbackUri}");
+                    var loopbackUri = new Uri ($"ipv4://127.0.0.1:{e.EndPoint.Port}");
+                    peerToAdd = new PeerInfo (loopbackUri, e.Peer.PeerId); // Use original PeerId
+                    Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] HandleNatsPeerDiscovered: Peer IP matches own public IP. Using loopback address: {loopbackUri}");
 
-                    if (concreteDhtEngine != null && concreteDhtEngine.State == DhtState.Ready)
-                    {
+                    if (concreteDhtEngine != null && concreteDhtEngine.State == DhtState.Ready) {
                         // Loopback
                         {
                             byte[] compactNode = new byte[26];
                             var nodeIdBytes = e.NodeId.Span;
-                            nodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
+                            nodeIdBytes.CopyTo (compactNode.AsSpan (0, 20));
                             byte[] ipBytes = { 127, 0, 0, 1 };
-                            ipBytes.CopyTo(compactNode, 20);
-                            ushort port = (ushort)e.EndPoint.Port;
-                            compactNode[24] = (byte)(port >> 8);
-                            compactNode[25] = (byte)(port & 0xFF);
-                            concreteDhtEngine.Add(new[] { new ReadOnlyMemory<byte>(compactNode) });
-                            Debug.WriteLine($"[DHT] Injected loopback node 127.0.0.1:{e.EndPoint.Port} into routing table (local multi-instance).");
+                            ipBytes.CopyTo (compactNode, 20);
+                            ushort port = (ushort) e.EndPoint.Port;
+                            compactNode[24] = (byte) (port >> 8);
+                            compactNode[25] = (byte) (port & 0xFF);
+                            var loopKey2 = $"127.0.0.1:{e.EndPoint.Port}";
+                            if (_injectedPeerEndpoints.Add (loopKey2)) {
+                                concreteDhtEngine.Add (new[] { new ReadOnlyMemory<byte> (compactNode) });
+                                Debug.WriteLine ($"[DHT] Injected loopback node 127.0.0.1:{e.EndPoint.Port} into routing table (local multi-instance).");
+                            }
                         }
                         // External IP
                         {
                             byte[] compactNode = new byte[26];
                             var nodeIdBytes = e.NodeId.Span;
-                            nodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
-                            var ipBytes = e.EndPoint.Address.GetAddressBytes();
-                            ipBytes.CopyTo(compactNode, 20);
-                            ushort port = (ushort)e.EndPoint.Port;
-                            compactNode[24] = (byte)(port >> 8);
-                            compactNode[25] = (byte)(port & 0xFF);
-                            concreteDhtEngine.Add(new[] { new ReadOnlyMemory<byte>(compactNode) });
-                            Debug.WriteLine($"[DHT] Injected external node {e.EndPoint.Address}:{e.EndPoint.Port} into routing table (for completeness).");
+                            nodeIdBytes.CopyTo (compactNode.AsSpan (0, 20));
+                            var ipBytes = e.EndPoint.Address.GetAddressBytes ();
+                            ipBytes.CopyTo (compactNode, 20);
+                            ushort port = (ushort) e.EndPoint.Port;
+                            compactNode[24] = (byte) (port >> 8);
+                            compactNode[25] = (byte) (port & 0xFF);
+                            var extKey2 = $"{e.EndPoint.Address}:{e.EndPoint.Port}";
+                            if (_injectedPeerEndpoints.Add (extKey2)) {
+                                concreteDhtEngine.Add (new[] { new ReadOnlyMemory<byte> (compactNode) });
+                                Debug.WriteLine ($"[DHT] Injected external node {e.EndPoint.Address}:{e.EndPoint.Port} into routing table (for completeness).");
+                            }
                         }
                     }
                 }
             }
 
             // Also inject the loopback node into the DHT routing table (like the manual code)
-            if (concreteDhtEngine != null && concreteDhtEngine.State == DhtState.Ready)
-            {
+            if (concreteDhtEngine != null && concreteDhtEngine.State == DhtState.Ready) {
                 byte[] compactNode = new byte[26];
                 var nodeIdBytes = e.NodeId.Span;
-                nodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
+                nodeIdBytes.CopyTo (compactNode.AsSpan (0, 20));
                 byte[] ipBytes = { 127, 0, 0, 1 };
-                ipBytes.CopyTo(compactNode, 20);
-                ushort port = (ushort)e.EndPoint.Port;
-                compactNode[24] = (byte)(port >> 8);
-                compactNode[25] = (byte)(port & 0xFF);
-                concreteDhtEngine.Add(new[] { new ReadOnlyMemory<byte>(compactNode) });
-                Debug.WriteLine($"[DHT] Injected loopback node 127.0.0.1:{e.EndPoint.Port} into routing table (local multi-instance).");
-            }
-            
-
-            // Add the discovered peer (original or loopback) to *all* relevant torrent managers.
-            int totalAdded = 0;
-            foreach (var manager in allTorrents)
-            {
-                // Check if the manager allows connections from sources like DHT/NATS (CanUseDht is a proxy for this)
-                // and if the peer isn't already connected/connecting.
-                bool alreadyKnown = manager.Peers.ActivePeers.Any(p => p.Info.ConnectionUri.Equals(peerToAdd.ConnectionUri))
-                                 || manager.Peers.ConnectedPeers.Any(p => p.Uri.Equals(peerToAdd.ConnectionUri));
-                if (alreadyKnown) Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] HandleNatsPeerDiscovered: Peer {peerToAdd.ConnectionUri} already known by manager {BitConverter.ToString(manager.InfoHashes.V1OrV2.AsMemory().ToArray(), 0, 3).Replace("-", "")}.");
-
-                if (manager.CanUseDht && !alreadyKnown)
-                {
-                    Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] HandleNatsPeerDiscovered: Attempting to add NATS peer {peerToAdd.ConnectionUri} to manager {manager.LogName}...");
-                    int addedCount = await manager.AddPeersAsync(new[] { peerToAdd });
-                    totalAdded += addedCount;
-                    Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] HandleNatsPeerDiscovered: Result of adding NATS peer {peerToAdd.ConnectionUri} to manager {manager.LogName}: {addedCount > 0}");
-                    Console.WriteLine($"[Console] HandleNatsPeerDiscovered finished processing peer {peerToAdd.ConnectionUri}");
+                ipBytes.CopyTo (compactNode, 20);
+                ushort port = (ushort) e.EndPoint.Port;
+                compactNode[24] = (byte) (port >> 8);
+                compactNode[25] = (byte) (port & 0xFF);
+                var finalLoopKey = $"127.0.0.1:{e.EndPoint.Port}";
+                if (_injectedPeerEndpoints.Add (finalLoopKey)) {
+                    concreteDhtEngine.Add (new[] { new ReadOnlyMemory<byte> (compactNode) });
+                    Debug.WriteLine ($"[DHT] Injected loopback node 127.0.0.1:{e.EndPoint.Port} into routing table (local multi-instance).");
                 }
             }
 
-            if (totalAdded > 0)
-            {
-                Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] HandleNatsPeerDiscovered: Finished processing peer {peerToAdd.ConnectionUri}. Total added across managers: {totalAdded}.");
+
+            // Add the discovered peer (original or loopback) to *all* relevant torrent managers.
+            int totalAdded = 0;
+            foreach (var manager in allTorrents) {
+                // Check if the manager allows connections from sources like DHT/NATS (CanUseDht is a proxy for this)
+                // and if the peer isn't already connected/connecting.
+                bool alreadyKnown = manager.Peers.ActivePeers.Any (p => p.Info.ConnectionUri.Equals (peerToAdd.ConnectionUri))
+                                 || manager.Peers.ConnectedPeers.Any (p => p.Uri.Equals (peerToAdd.ConnectionUri));
+                if (alreadyKnown)
+                    Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] HandleNatsPeerDiscovered: Peer {peerToAdd.ConnectionUri} already known by manager {BitConverter.ToString (manager.InfoHashes.V1OrV2.AsMemory ().ToArray (), 0, 3).Replace ("-", "")}.");
+
+                if (manager.CanUseDht && !alreadyKnown) {
+                    Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] HandleNatsPeerDiscovered: Attempting to add NATS peer {peerToAdd.ConnectionUri} to manager {manager.LogName}...");
+                    int addedCount = await manager.AddPeersAsync (new[] { peerToAdd });
+                    totalAdded += addedCount;
+                    Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] HandleNatsPeerDiscovered: Result of adding NATS peer {peerToAdd.ConnectionUri} to manager {manager.LogName}: {addedCount > 0}");
+                    Console.WriteLine ($"[Console] HandleNatsPeerDiscovered finished processing peer {peerToAdd.ConnectionUri}");
+                }
+            }
+
+            if (totalAdded > 0) {
+                Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] HandleNatsPeerDiscovered: Finished processing peer {peerToAdd.ConnectionUri}. Total added across managers: {totalAdded}.");
                 // Optionally trigger TryConnect immediately, though the regular tick should pick it up.
                 // ConnectionManager.TryConnect();
-                Console.WriteLine($"[Console] HandleNatsPeerDiscovered finished processing peer {peerToAdd.ConnectionUri}");
+                Console.WriteLine ($"[Console] HandleNatsPeerDiscovered finished processing peer {peerToAdd.ConnectionUri}");
             }
         }
 
@@ -832,8 +837,7 @@ namespace MonoTorrent.Client
 
                 TorrentManager? manager = allTorrents.FirstOrDefault (t => t.InfoHashes.Contains (args.InfoHash));
                 // There's no TorrentManager in the engine
-                if (manager == null)
-                {
+                if (manager == null) {
                     Log.Info ($"HandleLocalPeerFound: No manager found for {args.InfoHash}."); // Added Log
                     return;
                 }
@@ -907,7 +911,7 @@ namespace MonoTorrent.Client
             DhtEngine.StateChanged += DhtEngineStateChanged;
             DhtEngine.PeersFound += DhtEnginePeersFound;
             if (IsRunning)
-                await DhtEngine.StartAsync (await MaybeLoadDhtNodes ());
+                await DhtEngine.StartAsync (await MaybeLoadDhtNodes (), natsService: natsService, portForwarder: PortForwarder);
         }
 
         void RegisterLocalPeerDiscovery (ILocalPeerDiscovery? localPeerDiscovery)
@@ -1012,42 +1016,39 @@ namespace MonoTorrent.Client
 
         #region Private/Internal methods
 
-        void LogicTick () {
+        void LogicTick ()
+        {
             tickCount++;
-    
+
             if (tickCount % 2 == 0) {
                 downloadLimiter.UpdateChunks (Settings.MaximumDownloadRate);
                 uploadLimiter.UpdateChunks (Settings.MaximumUploadRate);
             }
-    
+
             ConnectionManager.CancelPendingConnects ();
             ConnectionManager.TryConnect ();
             DiskManager.Tick ();
-    
+
             for (int i = 0; i < allTorrents.Count; i++)
                 allTorrents[i].Mode.Tick (tickCount);
-    
+
             // BEP46: Check for mutable torrent updates and announce presence
-            foreach (var manager in allTorrents)
-            {
-                if (manager.MutablePublicKey != null)
-                {
+            foreach (var manager in allTorrents) {
+                if (manager.MutablePublicKey != null) {
                     // Periodic mutable update check
-                    if (manager.LastMutableUpdateCheckTimer.Elapsed > Settings.MutableTorrentUpdateInterval)
-                    {
-                        _ = manager.PerformMutableUpdateCheckAsync(); // Don't block the main loop
+                    if (manager.LastMutableUpdateCheckTimer.Elapsed > Settings.MutableTorrentUpdateInterval) {
+                        _ = manager.PerformMutableUpdateCheckAsync (); // Don't block the main loop
                     }
 
                     // Periodic DHT announce for mutable torrents
-                    if (manager.CanUseDht && (!manager.LastDhtAnnounceTimer.IsRunning || manager.LastDhtAnnounceTimer.Elapsed > manager.Engine.DhtEngine.MinimumAnnounceInterval))
-                    {
-                        manager.LastDhtAnnounceTimer.Restart();
-                        _ = manager.DhtAnnounceAsync(); // Fire and forget
+                    if (manager.CanUseDht && (!manager.LastDhtAnnounceTimer.IsRunning || manager.LastDhtAnnounceTimer.Elapsed > manager.Engine.DhtEngine.MinimumAnnounceInterval)) {
+                        manager.LastDhtAnnounceTimer.Restart ();
+                        _ = manager.DhtAnnounceAsync (); // Fire and forget
                     }
                 }
             }
-    
-    
+
+
             RaiseStatsUpdate (new StatsUpdateEventArgs ());
         }
 
@@ -1075,7 +1076,7 @@ namespace MonoTorrent.Client
                 if (Settings.AllowPortForwarding)
                     await PortForwarder.StartAsync (CancellationToken.None);
 
-                // Start DHT Engine first, passing the custom bootstrap routers
+                // Start DHT Engine first, passing the custom bootstrap routers and NATS service for DHT relay injection.
                 await DhtEngine.StartAsync (await MaybeLoadDhtNodes (), bootstrapRouters, natsService: natsService, portForwarder: PortForwarder);
 
                 // Start peer listeners and attempt port mapping for them.
@@ -1085,20 +1086,19 @@ namespace MonoTorrent.Client
                 LocalPeerDiscovery.Start ();
 
                 // NATS Initialization (if enabled)
-                if (natsService != null)
-                {
-                    Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Checking ActualDhtListener status before NATS init...");
+                if (natsService != null) {
+                    Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Checking ActualDhtListener status before NATS init...");
                     if (ActualDhtListener?.Status != MonoTorrent.Connections.ListenerStatus.Listening)
-                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Warning: Actual DHT listener status is {ActualDhtListener?.Status} before NATS InitializeAsync. Expected 'Listening'.");
+                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Warning: Actual DHT listener status is {ActualDhtListener?.Status} before NATS InitializeAsync. Expected 'Listening'.");
                     else
-                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Actual DHT listener is listening on {ActualDhtListener.LocalEndPoint}.");
+                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Actual DHT listener is listening on {ActualDhtListener.LocalEndPoint}.");
 
                     try {
-                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Initializing NATS service...");
-                        await natsService.InitializeAsync(ActualDhtListener, PortForwarder);
-                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] NATS service initialized.");
+                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Initializing NATS service...");
+                        await natsService.InitializeAsync (ActualDhtListener, PortForwarder);
+                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] NATS service initialized.");
                     } catch (Exception ex) {
-                        Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Failed to initialize NATS service: {ex}");
+                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Failed to initialize NATS service: {ex}");
                     }
                 }
             }
@@ -1107,24 +1107,22 @@ namespace MonoTorrent.Client
         public async Task StartAsync () // Made public for TorrentService access
         {
             CheckDisposed ();
-            Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Entering StartAsync. IsRunning: {IsRunning}");
+            Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Entering StartAsync. IsRunning: {IsRunning}");
             if (!IsRunning) {
                 IsRunning = true;
 
                 if (Settings.AllowPortForwarding)
                     await PortForwarder.StartAsync (CancellationToken.None);
 
-                // Start DHT Engine first, as NATS needs the listener.
-                // Pass null for NATS service here, it will be initialized later.
-                // Pass the port forwarder so DHT can potentially use it.
-                await DhtEngine.StartAsync (await MaybeLoadDhtNodes (), natsService: null, portForwarder: PortForwarder);
+                // Start DHT Engine first, including NATS service for NAT traversal and DHT relay injection.
+                await DhtEngine.StartAsync (await MaybeLoadDhtNodes (), natsService: natsService, portForwarder: PortForwarder);
 
                 // Start peer listeners and attempt port mapping for them.
                 await StartAndPortMapPeerListeners ();
 
                 // Start Local Peer Discovery *after* listeners are active.
                 LocalPeerDiscovery.Start ();
- 
+
                 // Removed flawed hairpin/loopback discovery logic.
                 // This should be handled explicitly in tests or by higher-level coordination if needed.
 
@@ -1132,27 +1130,26 @@ namespace MonoTorrent.Client
                 // --- NATS Initialization (Moved to the end) ---
                 // Add a delay here to give the PortForwarder and Listener time to complete/bind
                 // before initializing NATS, mimicking the explicit wait in the reference test.
-                Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Starting 5s delay for PortForwarder/Listener binding before NATS init...");
+                Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Starting 5s delay for PortForwarder/Listener binding before NATS init...");
                 // await Task.Delay(TimeSpan.FromSeconds(5));
-                Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Finished 5s delay. Proceeding with NATS init.");
+                Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Finished 5s delay. Proceeding with NATS init.");
 
                 // Initialize NATS service if it exists, *after* other components are started and delay has passed.
-                if (natsService != null)
-                {
-                    Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Checking ActualDhtListener status before NATS init...");
+                if (natsService != null) {
+                    Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Checking ActualDhtListener status before NATS init...");
                     // Use the ActualDhtListener property which accesses the listener within the DhtEngine's MessageLoop.
                     // No need for an extra wait loop here, the main 5s delay should suffice.
                     if (ActualDhtListener?.Status != MonoTorrent.Connections.ListenerStatus.Listening)
-                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Warning: Actual DHT listener status is {ActualDhtListener?.Status} before NATS InitializeAsync. Expected 'Listening'.");
+                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Warning: Actual DHT listener status is {ActualDhtListener?.Status} before NATS InitializeAsync. Expected 'Listening'.");
                     else
-                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Actual DHT listener is listening on {ActualDhtListener.LocalEndPoint}.");
+                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Actual DHT listener is listening on {ActualDhtListener.LocalEndPoint}.");
 
                     try {
-                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Initializing NATS service...");
-                        await natsService.InitializeAsync(ActualDhtListener, PortForwarder);
-                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] NATS service initialized.");
+                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Initializing NATS service...");
+                        await natsService.InitializeAsync (ActualDhtListener, PortForwarder);
+                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] NATS service initialized.");
                     } catch (Exception ex) {
-                        Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Failed to initialize NATS service: {ex}"); // Log full exception
+                        Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Failed to initialize NATS service: {ex}"); // Log full exception
                         // Consider if this should be fatal or disable NATS discovery.
                     }
                 }
@@ -1177,7 +1174,7 @@ namespace MonoTorrent.Client
 
                 await MaybeSaveDhtNodes ();
                 await DhtEngine.StopAsync ();
-                Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] Stopping Engine. Disposing NATS service.");
+                Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] Stopping Engine. Disposing NATS service.");
                 natsService?.Dispose (); // Dispose NATS service on stop
             }
         }
@@ -1196,7 +1193,7 @@ namespace MonoTorrent.Client
             await Task.WhenAll (maps);
         }
 
-        async ReusableTask UnmapAndStopPeerListeners()
+        async ReusableTask UnmapAndStopPeerListeners ()
         {
             var unmaps = PeerListeners
                     .Select (t => t.LocalEndPoint!)
@@ -1383,12 +1380,12 @@ namespace MonoTorrent.Client
         /// Gets the dictionary of peers discovered via the NATS service, if NATS discovery is enabled.
         /// </summary>
         /// <returns>A dictionary mapping NodeId to IPEndPoint, or null if NATS discovery is disabled or the service is not available.</returns>
-        public IDictionary<NodeId, IPEndPoint>? GetNatsDiscoveredPeers()
+        public IDictionary<NodeId, IPEndPoint>? GetNatsDiscoveredPeers ()
         {
-            Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] GetNatsDiscoveredPeers called.");
+            Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] GetNatsDiscoveredPeers called.");
             // Return peers from the internal NATS service instance, if it exists.
-            var peers = natsService?.GetDiscoveredPeers();
-            Debug.WriteLine($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString(PeerId.AsMemory().Span.ToArray(), 0, 3).Replace("-", "")}] GetNatsDiscoveredPeers returning {(peers == null ? "null" : $"{peers.Count} peers")}.");
+            var peers = natsService?.GetDiscoveredPeers ();
+            Debug.WriteLine ($"[{DateTime.UtcNow:O}] [ClientEngine {BitConverter.ToString (PeerId.AsMemory ().Span.ToArray (), 0, 3).Replace ("-", "")}] GetNatsDiscoveredPeers returning {(peers == null ? "null" : $"{peers.Count} peers")}.");
             return peers;
         }
 
@@ -1406,14 +1403,18 @@ namespace MonoTorrent.Client
         public async Task PutMutableAsync (byte[] publicKey, byte[] privateKey, long sequenceNumber, BEncodedValue value, byte[]? salt = null, CancellationToken token = default, long? cas = null)
         {
             // Input validation (could reuse DhtEngine's validation or add basic checks here)
-            if (publicKey == null || publicKey.Length != 32) throw new ArgumentException("Public key must be 32 bytes.", nameof(publicKey));
-            if (privateKey == null || privateKey.Length != 64) throw new ArgumentException("Private key must be 64 bytes.", nameof(privateKey)); // Needed for signing
-            if (value == null) throw new ArgumentNullException(nameof(value));
-            if (salt != null && salt.Length > 64) throw new ArgumentException("Salt cannot be longer than 64 bytes", nameof(salt));
+            if (publicKey == null || publicKey.Length != 32)
+                throw new ArgumentException ("Public key must be 32 bytes.", nameof (publicKey));
+            if (privateKey == null || privateKey.Length != 64)
+                throw new ArgumentException ("Private key must be 64 bytes.", nameof (privateKey)); // Needed for signing
+            if (value == null)
+                throw new ArgumentNullException (nameof (value));
+            if (salt != null && salt.Length > 64)
+                throw new ArgumentException ("Salt cannot be longer than 64 bytes", nameof (salt));
 
             // Ensure DHT is running
             if (DhtEngine == null || DhtEngine.State != DhtState.Ready)
-                throw new InvalidOperationException("DHT Engine is not running or available.");
+                throw new InvalidOperationException ("DHT Engine is not running or available.");
 
             // BEP44 requires the value, sequence number, and optional salt to be signed.
             // The internal DhtEngine.PutMutableAsync expects the *already signed* data.
@@ -1425,9 +1426,9 @@ namespace MonoTorrent.Client
                 { "v", value }
             };
             if (salt != null) {
-                dataToSign.Add("salt", new BEncodedString(salt));
+                dataToSign.Add ("salt", new BEncodedString (salt));
             }
-            byte[] encodedData = dataToSign.Encode();
+            byte[] encodedData = dataToSign.Encode ();
 
             // 2. Sign the data using Ed25519 (Requires a crypto library like Chaos.NaCl or similar)
             // Placeholder: Assume a Sign method exists or is available via a helper/dependency.
@@ -1465,10 +1466,10 @@ namespace MonoTorrent.Client
         {
             // Ensure DHT is running
             if (DhtEngine == null || DhtEngine.State != DhtState.Ready)
-                throw new InvalidOperationException("DHT Engine is not running or available.");
+                throw new InvalidOperationException ("DHT Engine is not running or available.");
 
             // Delegate directly to the internal DhtEngine's method
-            await DhtEngine.PutMutableAsync(publicKey, salt, value, sequenceNumber, signature, cas);
+            await DhtEngine.PutMutableAsync (publicKey, salt, value, sequenceNumber, signature, cas);
         }
 
         /// <summary>
@@ -1482,10 +1483,10 @@ namespace MonoTorrent.Client
         {
             // Ensure DHT is running
             if (DhtEngine == null || DhtEngine.State != DhtState.Ready)
-                throw new InvalidOperationException("DHT Engine is not running or available.");
+                throw new InvalidOperationException ("DHT Engine is not running or available.");
 
             // Delegate directly to the internal DhtEngine's method
-            return await DhtEngine.GetAsync(target, sequenceNumber);
+            return await DhtEngine.GetAsync (target, sequenceNumber);
         }
 
         /// <summary>
@@ -1498,20 +1499,19 @@ namespace MonoTorrent.Client
         /// Note: This exposes internal state primarily for testing purposes.
         /// </summary>
         public IDictionary<NodeId, StoredDhtItem> DhtLocalStorage =>
-            (DhtEngine is DhtEngine concreteEngine) ? concreteEngine.LocalStorageProperty : new Dictionary<NodeId, StoredDhtItem>();
+            (DhtEngine is DhtEngine concreteEngine) ? concreteEngine.LocalStorageProperty : new Dictionary<NodeId, StoredDhtItem> ();
 
         /// <summary>
         /// Adds a DHT node to the engine's routing table.
         /// </summary>
         /// <param name="node">The node to add.</param>
-        public async Task AddDhtNodeAsync(Node node)
+        public async Task AddDhtNodeAsync (Node node)
         {
-            if (DhtEngine is DhtEngine concreteEngine)
-            {
-                await concreteEngine.Add(node);
+            if (DhtEngine is DhtEngine concreteEngine) {
+                await concreteEngine.Add (node);
             } else {
                 // Log or throw? DHT is likely NullDhtEngine.
-                Log.Info("Cannot add DHT node as the engine is not a standard DhtEngine.");
+                Log.Info ("Cannot add DHT node as the engine is not a standard DhtEngine.");
             }
         }
 
@@ -1521,24 +1521,23 @@ namespace MonoTorrent.Client
         /// </summary>
         /// <param name="node">The node to ping.</param>
         /// <returns>True if a response was received, false otherwise (e.g., timeout).</returns>
-        public async Task<bool> PingAsync(Node node)
+        public async Task<bool> PingAsync (Node node)
         {
             // Ensure DHT is running
             if (DhtEngine == null || DhtEngine.State != DhtState.Ready)
-                throw new InvalidOperationException("DHT Engine is not running or available.");
+                throw new InvalidOperationException ("DHT Engine is not running or available.");
 
             // Delegate directly to the internal DhtEngine's method
             // Need to check the actual method signature on DhtEngine. Assuming it takes Node and returns Task<bool> or similar.
             // Re-checking DhtEngine... it doesn't have a direct PingAsync. It uses SendQueryAsync with a Ping message.
             // We need to replicate that logic here.
 
-            if (DhtEngine is DhtEngine concreteEngine)
-            {
-                var pingMessage = new Ping(concreteEngine.LocalId);
-                var args = await concreteEngine.SendQueryAsync(pingMessage, node);
+            if (DhtEngine is DhtEngine concreteEngine) {
+                var pingMessage = new Ping (concreteEngine.LocalId);
+                var args = await concreteEngine.SendQueryAsync (pingMessage, node);
                 return !args.TimedOut;
             } else {
-                Log.Info("Cannot send Ping as the engine is not a standard DhtEngine.");
+                Log.Info ("Cannot send Ping as the engine is not a standard DhtEngine.");
                 return false;
             }
         }

@@ -56,10 +56,13 @@ namespace MonoTorrent.Dht.Messages
             return new FindNodeResponse (parameters);
         }
 
-        public override void Handle (DhtEngine engine, Node node)
+        // Add 'bool receivedViaRelay' parameter
+        public override void Handle (DhtEngine engine, Node node, bool receivedViaRelay)
         {
-            base.Handle (engine, node);
+            // Base handle doesn't use the flag, but call it correctly
+            base.Handle (engine, node, receivedViaRelay);
 
+            // FindNode response always goes back directly via UDP.
             // Pass the engine's ExternalEndPoint (if available) to the response constructor
             var response = new FindNodeResponse (engine.RoutingTable.LocalNodeId, TransactionId!, engine.ExternalEndPoint);
  

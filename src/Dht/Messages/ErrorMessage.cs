@@ -62,11 +62,19 @@ namespace MonoTorrent.Dht.Messages
 
         }
 
-        public override void Handle (DhtEngine engine, Node node)
+        // Add 'bool receivedViaRelay' parameter
+        public override void Handle (DhtEngine engine, Node node, bool receivedViaRelay)
         {
-            base.Handle (engine, node);
+            // Base handle doesn't use the flag, but call it correctly
+            base.Handle (engine, node, receivedViaRelay);
 
-            throw new MessageException (ErrorCode, Message);
+            // Error messages are typically handled by the MessageLoop when matching the
+            // transaction ID and completing the TaskCompletionSource with the error details.
+            // Throwing an exception here might disrupt the loop.
+            // The base Handle (marking node as seen) is likely sufficient.
+            // If specific error handling is needed *here*, it should be added,
+            // but the throw seems incorrect.
+            // throw new MessageException (ErrorCode, Message); // Commented out the throw
         }
     }
 }

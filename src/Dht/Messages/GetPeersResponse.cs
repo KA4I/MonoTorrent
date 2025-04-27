@@ -116,9 +116,12 @@ namespace MonoTorrent.Dht.Messages
 
         }
 
-        public override void Handle (DhtEngine engine, Node node)
+        // Add 'bool receivedViaRelay' parameter
+        public override void Handle (DhtEngine engine, Node node, bool receivedViaRelay)
         {
-            base.Handle (engine, node);
+            // Base handle doesn't use the flag, but call it correctly
+            base.Handle (engine, node, receivedViaRelay);
+            // Update the node's token when we receive a GetPeersResponse
             node.Token = Token;
         }
     }
