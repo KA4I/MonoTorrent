@@ -81,16 +81,11 @@ namespace MonoTorrent.Dht.Messages
             return new GetResponse (parameters);
         }
 
-        // Add 'bool receivedViaRelay' parameter
-        public override void Handle(DhtEngine engine, Node node, bool receivedViaRelay)
+        public override void Handle(DhtEngine engine, Node node)
         {
-            // Log entry into the Handle method, including relay status
-            System.Console.WriteLine($"[GetRequest.Handle {engine.LocalId.ToHex().Substring(0,6)}] Received GetRequest for Target {Target.ToHex().Substring(0,6)} from Node {node.Id.ToHex().Substring(0,6)} (EP: {node.EndPoint}, ViaRelay: {receivedViaRelay}). Requested Seq: {SequenceNumber?.ToString() ?? "N/A"}");
-            // Base handle doesn't use the flag, but call it correctly
-            base.Handle(engine, node, receivedViaRelay);
-
-            // Decide how to respond (Direct UDP for now)
-            bool respondViaRelay = false; // Placeholder: Could depend on receivedViaRelay and policy
+            // Log entry into the Handle method
+            System.Console.WriteLine($"[GetRequest.Handle {engine.LocalId.ToHex().Substring(0,6)}] Received GetRequest for Target {Target.ToHex().Substring(0,6)} from Node {node.Id.ToHex().Substring(0,6)} (EP: {node.EndPoint}). Requested Seq: {SequenceNumber?.ToString() ?? "N/A"}");
+            base.Handle(engine, node);
 
             var response = new GetResponse(engine.RoutingTable.LocalNodeId, TransactionId!);
             response.Token = engine.TokenManager.GenerateToken(node);

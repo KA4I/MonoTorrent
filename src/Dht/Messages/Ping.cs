@@ -52,13 +52,10 @@ namespace MonoTorrent.Dht.Messages
             return new PingResponse (parameters);
         }
 
-        // Add 'bool receivedViaRelay' parameter
-        public override void Handle (DhtEngine engine, Node node, bool receivedViaRelay)
+        public override void Handle (DhtEngine engine, Node node)
         {
-            // Pass the flag to the base call
-            base.Handle (engine, node, receivedViaRelay);
-
-            // Ping response always goes back directly via UDP, regardless of relay status.
+            base.Handle (engine, node);
+ 
             // Pass the engine's ExternalEndPoint (if available) to the response constructor
             var m = new PingResponse (engine.RoutingTable.LocalNodeId, TransactionId!, engine.ExternalEndPoint);
             engine.MessageLoop.EnqueueSend (m, node, node.EndPoint);

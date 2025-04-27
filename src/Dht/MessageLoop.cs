@@ -45,49 +45,6 @@ namespace MonoTorrent.Dht
 {
     class MessageLoop
     {
-        // --- DHT RELAY SUPPORT ---
-        // Allow relay-injected messages to be processed as if received from a node
-        public void ProcessRelayMessage(byte[] payload, NodeId fromNodeId)
-        {
-            // Simulate receiving a UDP message from the given NodeId
-            var node = Engine.RoutingTable.FindNode(fromNodeId);
-            if (node != null && node.EndPoint != null)
-            {
-                ProcessRelayMessageRaw(payload, node.EndPoint);
-            }
-            else
-            {
-                // Try to resolve the real endpoint using NatsNatTraversalService if available
-                System.Net.IPEndPoint endpoint = new System.Net.IPEndPoint(System.Net.IPAddress.None, 0);
-                var natsServiceProp = Engine.GetType().GetProperty("NatsService");
-                object? natsService = natsServiceProp?.GetValue(Engine);
-                if (natsService != null)
-                {
-                    var getPeersMethod = natsService.GetType().GetMethod("GetDiscoveredPeers");
-                    if (getPeersMethod != null)
-                    {
-                        var peers = getPeersMethod.Invoke(natsService, null) as System.Collections.IDictionary;
-                        if (peers != null && peers.Contains(fromNodeId))
-                        {
-                            endpoint = (System.Net.IPEndPoint)peers[fromNodeId];
-                        }
-                    }
-                }
-                node = new Node(fromNodeId, endpoint);
-                Engine.RoutingTable.Add(node);
-                System.Diagnostics.Debug.WriteLine($"[MessageLoop] Relay message: NodeId {fromNodeId.ToHex()} not found, adding with endpoint {endpoint}.");
-                ProcessRelayMessageRaw(payload, node.EndPoint);
-            }
-        }
-
-        // Internal helper to process a raw UDP message as if received from a given endpoint
-        internal void ProcessRelayMessageRaw(byte[] payload, IPEndPoint endpoint)
-        {
-           // Call the private MessageReceived method
-           // Simulate receiving via relay by calling MessageReceived with IsRelay = true
-           MessageReceived(payload, endpoint, isRelay: true);
-       }
-        // --- END DHT RELAY SUPPORT ---
         static readonly ILogger Logger = LoggerFactory.Create (nameof (MessageLoop));
 
         struct SendDetails
@@ -132,7 +89,7 @@ namespace MonoTorrent.Dht
         /// The list of messages which have been received from the attached IDhtListener which
         /// are waiting to be processed by the engine.
         /// </summary>
-        Queue<ReceivedMessageDetails> ReceiveQueue { get; } // Use the new struct
+        Queue<KeyValuePair<IPEndPoint, DhtMessage>> ReceiveQueue { get; }
 
         /// <summary>
         /// The list of messages which have been queued to send.
@@ -153,22 +110,7 @@ namespace MonoTorrent.Dht
         /// <summary>
         /// Temporary (re-usable) storage when cancelling timed out messages.
         /// </summary>
-     List<SendDetails> WaitingResponseTimedOut { get; }
-
-     // Struct to hold received message details including relay status
-     private struct ReceivedMessageDetails
-        {
-            public IPEndPoint Source;
-            public DhtMessage Message;
-            public bool IsRelay; // True if received via NATS relay
-
-            public ReceivedMessageDetails(IPEndPoint source, DhtMessage message, bool isRelay)
-            {
-                Source = source;
-                Message = message;
-                IsRelay = isRelay;
-            }
-        }
+        List<SendDetails> WaitingResponseTimedOut { get; }
 
         public MessageLoop (DhtEngine engine, TransferMonitor monitor)
         {
@@ -176,7 +118,7 @@ namespace MonoTorrent.Dht
             Monitor = monitor;
             DhtMessageFactory = new DhtMessageFactory ();
             Listener = new NullDhtListener ();
-            ReceiveQueue = new Queue<ReceivedMessageDetails> (); // Use the new struct
+            ReceiveQueue = new Queue<KeyValuePair<IPEndPoint, DhtMessage>> ();
             SendQueue = new Queue<SendDetails> ();
             Timeout = TimeSpan.FromSeconds (15);
             WaitingResponse = new Dictionary<BEncodedValue, SendDetails> ();
@@ -206,9 +148,9 @@ namespace MonoTorrent.Dht
             });
         }
 
-     async void MessageReceived (ReadOnlyMemory<byte> buffer, IPEndPoint endpoint, bool isRelay = false)
-     {
-         await DhtEngine.MainLoop;
+        async void MessageReceived (ReadOnlyMemory<byte> buffer, IPEndPoint endpoint)
+        {
+            await DhtEngine.MainLoop;
 
             // Don't handle new messages if we have already stopped the dht engine.
             if (Listener.Status == ListenerStatus.NotListening)
@@ -221,11 +163,11 @@ namespace MonoTorrent.Dht
                 // Console.WriteLine($"[MessageLoop] Received {buffer.Length} bytes from {endpoint}"); // Log received data
                 BEncodedValue decodedValue = BEncodedValue.Decode(buffer.Span, false);
                 if (DhtMessageFactory.TryDecodeMessage ((BEncodedDictionary) decodedValue, out DhtMessage? message)) {
-                  // Console.WriteLine($"[MessageLoop] Successfully decoded message from {endpoint}: {message.GetType().Name}"); // Log successful decode (Commented out)
-                 Monitor.ReceiveMonitor.AddDelta (buffer.Length);
-                 ReceiveQueue.Enqueue (new ReceivedMessageDetails (endpoint, message!, isRelay)); // Enqueue with relay status
-             } else {
-                  Console.WriteLine($"[MessageLoop] Failed to decode message from {endpoint}. Decoded value: {decodedValue}"); // Log decode failure
+                    // Console.WriteLine($"[MessageLoop] Successfully decoded message from {endpoint}: {message.GetType().Name}"); // Log successful decode (Commented out)
+                    Monitor.ReceiveMonitor.AddDelta (buffer.Length);
+                    ReceiveQueue.Enqueue (new KeyValuePair<IPEndPoint, DhtMessage> (endpoint, message!));
+                } else {
+                     Console.WriteLine($"[MessageLoop] Failed to decode message from {endpoint}. Decoded value: {decodedValue}"); // Log decode failure
                 }
             } catch (MessageException ex) {
                  Console.WriteLine($"[MessageLoop] MessageException decoding message from {endpoint}: {ex.Message}"); // Log MessageException
@@ -327,12 +269,11 @@ namespace MonoTorrent.Dht
         void ReceiveMessage ()
         {
             DhtEngine.MainLoop.CheckThread ();
- 
-            ReceivedMessageDetails receivedDetails = ReceiveQueue.Dequeue (); // Dequeue the struct
-            DhtMessage rawResponse = receivedDetails.Message;
-            IPEndPoint source = receivedDetails.Source;
+
+            KeyValuePair<IPEndPoint, DhtMessage> receive = ReceiveQueue.Dequeue ();
+            DhtMessage rawResponse = receive.Value;
+            IPEndPoint source = receive.Key;
             SendDetails query = default;
-            bool receivedViaRelay = receivedDetails.IsRelay; // Get the relay status
 
             // What to do if the transaction id is empty?
             BEncodedValue? responseTransactionId = rawResponse.TransactionId;
@@ -343,20 +284,9 @@ namespace MonoTorrent.Dht
 
             try {
                 Node? node = Engine.RoutingTable.FindNode (rawResponse.Id);
-                bool nodeJustAdded = false;
                 if (node == null) {
-                    var newNode = new Node (rawResponse.Id, source);
-                    // Add the node first
-                    Engine.RoutingTable.Add (newNode);
-                    // Then try to find it again immediately to ensure it was added and we use the table's instance
-                    node = Engine.RoutingTable.FindNode (rawResponse.Id);
-                    if (node == null) {
-                         // Log an error if the node wasn't found immediately after adding.
-                         // This indicates a potential issue in RoutingTable.Add or FindNode.
-                         Logger.Error ($"Node {rawResponse.Id.ToHex ()} from {source} was not found immediately after adding to routing table. Message handling aborted.");
-                         return; // Cannot proceed if node wasn't added/found
-                    }
-                    // Note: 'node' now refers to the instance retrieved from the table (or the originally found one).
+                    node = new Node (rawResponse.Id, source);
+                    Engine.RoutingTable.Add (node);
                 }
 
                 // If we have received a ResponseMessage corresponding to a query we sent, we should
@@ -376,8 +306,7 @@ namespace MonoTorrent.Dht
                         return;
                     }
 
-                    // Pass the relay status to the response handler as well
-                    responseMessage.Handle (Engine, node, receivedViaRelay);
+                    responseMessage.Handle (Engine, node); // Use renamed variable
                     // Use the original node from the query details, not the node derived from the response sender's ID/endpoint
                     query.CompletionSource?.TrySetResult (new SendQueryEventArgs (query.Node!, query.Destination, queryMessage, responseMessage));
                     RaiseMessageSent (query.Node!, query.Destination, queryMessage, responseMessage);
@@ -395,10 +324,10 @@ namespace MonoTorrent.Dht
                     // Handle incoming queries
                     Console.WriteLine($"[MessageLoop] Received Query: {queryMessage.GetType().Name} from {source}"); // Log incoming query
                     // Call Handle, assuming it sends the response internally.
-                // Pass relay context to Handle method (needs modification in DhtMessage subclasses)
-                queryMessage.Handle(Engine, node, receivedViaRelay); // Pass the relay status
-            } else {
-                // Log unexpected message types
+                    queryMessage.Handle(Engine, node);
+                    // Removed the check for a returned response and the EnqueueSend call.
+                } else {
+                     // Log unexpected message types
                      Console.WriteLine ($"[MessageLoop] Error: Unknown message type received: {rawResponse.GetType().Name}");
                 }
             } catch (MessageException ex) {
@@ -421,22 +350,15 @@ namespace MonoTorrent.Dht
                  }
             }
         }
-// Wrapper method to match the expected event signature
-private void Listener_MessageReceived (ReadOnlyMemory<byte> buffer, IPEndPoint endpoint)
-{
-    // Call the internal method, assuming direct UDP receive (not via relay)
-    MessageReceived (buffer, endpoint, isRelay: false);
-}
 
-internal ReusableTask SetListener (IDhtListener listener)
-{
-    DhtEngine.MainLoop.CheckThread ();
+        internal ReusableTask SetListener (IDhtListener listener)
+        {
+            DhtEngine.MainLoop.CheckThread ();
 
-    // Use the wrapper method for subscribing/unsubscribing
-    Listener.MessageReceived -= Listener_MessageReceived;
-    Listener = listener ?? new NullDhtListener ();
-    Listener.MessageReceived += Listener_MessageReceived;
-    return ReusableTask.CompletedTask;
+            Listener.MessageReceived -= MessageReceived;
+            Listener = listener ?? new NullDhtListener ();
+            Listener.MessageReceived += MessageReceived;
+            return ReusableTask.CompletedTask;
         }
 
         internal void EnqueueSend (DhtMessage message, Node? node, IPEndPoint endpoint, TaskCompletionSource<SendQueryEventArgs>? tcs = null)

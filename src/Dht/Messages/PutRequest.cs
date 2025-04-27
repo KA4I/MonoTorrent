@@ -138,14 +138,9 @@ namespace MonoTorrent.Dht.Messages
             return new PutResponse (parameters);
         }
 
-        // Add 'bool receivedViaRelay' parameter
-        public override void Handle(DhtEngine engine, Node node, bool receivedViaRelay)
+        public override void Handle(DhtEngine engine, Node node)
         {
-            // Base handle doesn't use the flag, but call it correctly
-            base.Handle(engine, node, receivedViaRelay);
-
-            // Decide how to respond (Direct UDP for now, for both success and error)
-            bool respondViaRelay = false; // Placeholder: Could depend on receivedViaRelay and policy
+            base.Handle(engine, node);
 
             // Verify the token
             if (!engine.TokenManager.VerifyToken(node, Token))

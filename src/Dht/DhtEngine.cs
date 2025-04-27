@@ -35,7 +35,6 @@ using System.Net;
 using System.Net.Sockets;
 using System.Security.Cryptography; // Keep this
 using System.Threading.Tasks;
-
 using MonoTorrent.BEncoding;
 using MonoTorrent.Client;
 using MonoTorrent.Connections.Dht;
@@ -45,17 +44,6 @@ using MonoTorrent.PortForwarding; // Added for IPortForwarder
 
 namespace MonoTorrent.Dht
 {
-    // Helper class for DHT relay injection
-    public class DhtRelayMessage
-    {
-        public NodeId FromNodeId { get; }
-        public byte[] Payload { get; }
-        public DhtRelayMessage (NodeId fromNodeId, byte[] payload)
-        {
-            FromNodeId = fromNodeId;
-            Payload = payload;
-        }
-    }
     enum ErrorCode
     {
         GenericError = 201,
@@ -77,20 +65,6 @@ namespace MonoTorrent.Dht
 
     public class DhtEngine : IDisposable, IDhtEngine
     {
-        // Logging infrastructure
-        private enum DhtLogLevel { Error = 0, Warning = 1, Info = 2, Debug = 3 }
-        private static readonly DhtLogLevel CurrentLogLevel = DhtLogLevel.Info;
-        private void Log (DhtLogLevel level, string message)
-        {
-            if (level <= CurrentLogLevel)
-                System.Diagnostics.Debug.WriteLine ($"[DhtEngine {LocalId.ToHex ().Substring (0, 6)}] [{level}] {message}");
-        }
-        // --- DHT RELAY INJECTION SUPPORT ---
-        // Queue for relay-injected messages
-        private readonly ConcurrentQueue<DhtRelayMessage> _relayMessageQueue = new ConcurrentQueue<DhtRelayMessage> ();
-        // Timer for processing relay-injected messages
-        private System.Threading.Timer? _relayMessageTimer;
-        // --- END DHT RELAY INJECTION SUPPORT ---
         internal static readonly IList<string> DefaultBootstrapRouters = Array.AsReadOnly (new[] {
             "router.bittorrent.com",
             "router.utorrent.com",
@@ -101,7 +75,7 @@ namespace MonoTorrent.Dht
         static readonly TimeSpan DefaultMinimumAnnounceInterval = TimeSpan.FromMinutes (3);
 
         // Static registry for active local engines
-        static readonly ConcurrentDictionary<NodeId, WeakReference<DhtEngine>> ActiveEngines = new ConcurrentDictionary<NodeId, WeakReference<DhtEngine>> ();
+        static readonly ConcurrentDictionary<NodeId, WeakReference<DhtEngine>> ActiveEngines = new ConcurrentDictionary<NodeId, WeakReference<DhtEngine>>();
 
 
         #region Events
@@ -144,11 +118,6 @@ namespace MonoTorrent.Dht
         internal Dictionary<NodeId, StoredDhtItem> LocalStorage { get; }
         public Dictionary<NodeId, StoredDhtItem> LocalStorageProperty => LocalStorage;
 
-        /// <summary>
-        /// The NATS service instance used for NAT traversal and relaying.
-        /// </summary>
-        public NatsNatTraversalService? NatsService { get; set; }
-
 
         public DhtEngine ()
         {
@@ -162,15 +131,13 @@ namespace MonoTorrent.Dht
             TokenManager = new TokenManager ();
             Torrents = new Dictionary<NodeId, List<Node>> ();
 
-            LocalStorage = new Dictionary<NodeId, StoredDhtItem> ();
+            LocalStorage = new Dictionary<NodeId, StoredDhtItem>();
 
             MainLoop.QueueTimeout (TimeSpan.FromMinutes (5), () => {
                 if (!Disposed)
                     TokenManager.RefreshTokens ();
                 return !Disposed;
             });
-            // Start relay message processing timer (every 100ms) for multi-hop relay support
-            _relayMessageTimer = new System.Threading.Timer (_ => ProcessRelayMessages (), null, 100, 100);
         }
 
         public async void Add (IEnumerable<ReadOnlyMemory<byte>> nodes)
@@ -191,17 +158,17 @@ namespace MonoTorrent.Dht
                 }
             }
         }
-        internal async Task Add (Node node)
-            => await SendQueryAsync (new Ping (RoutingTable.LocalNodeId), node);
+internal async Task Add (Node node)
+    => await SendQueryAsync (new Ping (RoutingTable.LocalNodeId), node);
 
         /// <summary>
         /// Directly adds a node to the routing table without sending a Ping.
         /// Used for scenarios like hairpinning where reachability is assumed.
         /// </summary>
-        internal void AddToRoutingTable (Node node)
+        internal void AddToRoutingTable(Node node)
         {
-            DhtEngine.MainLoop.CheckThread (); // Ensure we're on the right thread
-            RoutingTable.Add (node);
+            DhtEngine.MainLoop.CheckThread(); // Ensure we're on the right thread
+            RoutingTable.Add(node);
         }
 
 
@@ -232,7 +199,7 @@ namespace MonoTorrent.Dht
                 return;
 
             // Unregister from static list first
-            ActiveEngines.TryRemove (this.LocalId, out _);
+            ActiveEngines.TryRemove(this.LocalId, out _);
 
             // Ensure we don't break any threads actively running right now
             MainLoop.QueueWait (() => {
@@ -271,26 +238,27 @@ namespace MonoTorrent.Dht
                 throw new ArgumentNullException (nameof (target));
 
             // First, check local storage
-            Log (DhtLogLevel.Info, $"GetAsync: Checking local storage for Target {target.ToHex ().Substring (0, 6)} (Seq: {sequenceNumber?.ToString () ?? "N/A"})");
-            if (LocalStorage.TryGetValue (target, out var stored)) {
-                Log (DhtLogLevel.Info, $"GetAsync: LocalStorage HIT for Target {target.ToHex ().Substring (0, 6)}. Returning stored item (Seq: {stored.SequenceNumber?.ToString () ?? "N/A"}).");
+            System.Console.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] GetAsync: Checking local storage for Target {target.ToHex().Substring(0,6)} (Seq: {sequenceNumber?.ToString() ?? "N/A"})");
+            if (LocalStorage.TryGetValue(target, out var stored))
+            {
+                System.Console.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] GetAsync: LocalStorage HIT for Target {target.ToHex().Substring(0,6)}. Returning stored item (Seq: {stored.SequenceNumber?.ToString() ?? "N/A"}).");
                 return (stored.Value, stored.PublicKey, stored.Signature, stored.SequenceNumber);
             }
-            Log (DhtLogLevel.Info, $"GetAsync: LocalStorage MISS for Target {target.ToHex ().Substring (0, 6)}. Proceeding with network lookup.");
+            System.Console.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] GetAsync: LocalStorage MISS for Target {target.ToHex().Substring(0,6)}. Proceeding with network lookup.");
 
             await MainLoop;
-            Log (DhtLogLevel.Info, $"GetAsync started for Target: {target}, Seq: {sequenceNumber?.ToString () ?? "null"}"); // Log Entry
+            Console.WriteLine($"[DhtEngine {LocalId}] GetAsync started for Target: {target}, Seq: {sequenceNumber?.ToString() ?? "null"}"); // Log Entry
             // First, find the closest nodes using GetPeersTask logic (or similar)
-            var getPeersTask = new GetPeersTask (this, target); // Create the task
+            var getPeersTask = new GetPeersTask(this, target); // Create the task
             // Execute the task ONCE and get the nodes.
-            var nodesToQuery = await getPeersTask.ExecuteAsync ();
-            Log (DhtLogLevel.Info, $"GetPeersTask completed for {target}. Found {nodesToQuery.Count ()} nodes to query."); // Log nodes found
+            var nodesToQuery = await getPeersTask.ExecuteAsync();
+            Console.WriteLine($"[DhtEngine {LocalId}] GetPeersTask completed for {target}. Found {nodesToQuery.Count()} nodes to query."); // Log nodes found
 
             // 2. Execute the GetTask using the found nodes
             var getTask = new GetTask (this, target, nodesToQuery, sequenceNumber);
-            Log (DhtLogLevel.Info, $"Executing GetTask for {target} with {nodesToQuery.Count ()} nodes."); // Log before calling GetTask
+            Console.WriteLine($"[DhtEngine {LocalId}] Executing GetTask for {target} with {nodesToQuery.Count()} nodes."); // Log before calling GetTask
             var result = await getTask.ExecuteAsync ();
-            Log (DhtLogLevel.Info, $"GetTask completed for {target}. Result: ValuePresent={result.value != null}, PKPresent={result.publicKey != null}, SigPresent={result.signature != null}, Seq={result.sequenceNumber?.ToString () ?? "null"}"); // Log final result
+            Console.WriteLine($"[DhtEngine {LocalId}] GetTask completed for {target}. Result: ValuePresent={result.value!=null}, PKPresent={result.publicKey!=null}, SigPresent={result.signature!=null}, Seq={result.sequenceNumber?.ToString() ?? "null"}"); // Log final result
             return result;
         }
 
@@ -307,34 +275,38 @@ namespace MonoTorrent.Dht
             await MainLoop;
 
             NodeId target;
-            using (var sha1 = SHA1.Create ())
-                target = new NodeId (sha1.ComputeHash (value.Encode ()));
+            using (var sha1 = SHA1.Create())
+                target = new NodeId(sha1.ComputeHash(value.Encode()));
 
             // 1. Find closest nodes using GetPeers logic
-            var getPeersTask = new GetPeersTask (this, target);
-            var nodes = await getPeersTask.ExecuteAsync (); // Capture the returned nodes
+            var getPeersTask = new GetPeersTask(this, target);
+            var nodes = await getPeersTask.ExecuteAsync(); // Capture the returned nodes
 
             // 2. Get write tokens from these nodes (using get_peers)
             var nodesWithTokens = new Dictionary<Node, BEncodedString> ();
             var getTokenTasks = new List<Task<SendQueryEventArgs>> ();
-            foreach (var node in nodes) {
+            foreach (var node in nodes)
+            {
                 var getPeers = new GetPeers (LocalId, target);
                 getTokenTasks.Add (SendQueryAsync (getPeers, node));
             }
             await Task.WhenAll (getTokenTasks);
 
-            foreach (var task in getTokenTasks) {
+            foreach (var task in getTokenTasks)
+            {
                 var args = task.Result;
-                if (!args.TimedOut && args.Response is GetPeersResponse response && response.Token != null) {
+                if (!args.TimedOut && args.Response is GetPeersResponse response && response.Token != null)
+                {
                     // Find the node this response came from (should match the query target node)
-                    var respondingNode = nodes.FirstOrDefault (n => n.Id == response.Id);
+                    var respondingNode = nodes.FirstOrDefault(n => n.Id == response.Id);
                     if (respondingNode != null)
-                        nodesWithTokens[respondingNode] = (BEncodedString) response.Token;
+                        nodesWithTokens[respondingNode] = (BEncodedString)response.Token;
                 }
             }
 
             // 3. Send Put requests with tokens
-            if (nodesWithTokens.Count > 0) {
+            if (nodesWithTokens.Count > 0)
+            {
                 var putTask = new PutTask (this, value, nodesWithTokens);
                 await putTask.ExecuteAsync ();
             }
@@ -354,124 +326,136 @@ namespace MonoTorrent.Dht
         {
             CheckDisposed ();
             if (publicKey is null || publicKey.Span.Length != 32)
-                throw new ArgumentException ("Public key must be 32 bytes", nameof (publicKey));
+                throw new ArgumentException("Public key must be 32 bytes", nameof(publicKey));
             if (salt != null && salt.Span.Length > 64)
-                throw new ArgumentException ("Salt cannot be longer than 64 bytes", nameof (salt));
+                 throw new ArgumentException("Salt cannot be longer than 64 bytes", nameof(salt));
             if (value is null)
                 throw new ArgumentNullException (nameof (value));
             if (signature is null || signature.Span.Length != 64)
-                throw new ArgumentException ("Signature must be 64 bytes", nameof (signature));
+                throw new ArgumentException("Signature must be 64 bytes", nameof(signature));
 
             await MainLoop;
 
-            NodeId target = CalculateMutableTargetId (publicKey, salt);
+            NodeId target = CalculateMutableTargetId(publicKey, salt);
 
             // Store locally immediately
-            StoreItem (target, new StoredDhtItem (value, publicKey, salt, sequenceNumber, signature));
+            StoreItem(target, new StoredDhtItem(value, publicKey, salt, sequenceNumber, signature));
 
             // 1. Find closest nodes using GetPeers logic
-            var getPeersTask = new GetPeersTask (this, target);
-            var nodes = await getPeersTask.ExecuteAsync (); // Capture the returned nodes
+            var getPeersTask = new GetPeersTask(this, target);
+            var nodes = await getPeersTask.ExecuteAsync(); // Capture the returned nodes
 
             // 2. Get write tokens from these nodes (using get_peers or get)
             // Using get_peers is simpler as it's already implemented for Announce
             var nodesWithTokens = new Dictionary<Node, BEncodedString> ();
             var getTokenTasks = new List<Task<SendQueryEventArgs>> ();
-            foreach (var node in nodes) {
+            foreach (var node in nodes)
+            {
                 var getPeers = new GetPeers (LocalId, target); // Could use 'get' as well
                 getTokenTasks.Add (SendQueryAsync (getPeers, node));
             }
             await Task.WhenAll (getTokenTasks);
 
-            foreach (var task in getTokenTasks) {
+            foreach (var task in getTokenTasks)
+            {
                 var args = task.Result;
-                if (!args.TimedOut && args.Response is GetPeersResponse response && response.Token != null) {
-                    var respondingNode = nodes.FirstOrDefault (n => n.Id == response.Id);
+                if (!args.TimedOut && args.Response is GetPeersResponse response && response.Token != null)
+                {
+                    var respondingNode = nodes.FirstOrDefault(n => n.Id == response.Id);
                     if (respondingNode != null)
-                        nodesWithTokens[respondingNode] = (BEncodedString) response.Token;
+                        nodesWithTokens[respondingNode] = (BEncodedString)response.Token;
                 }
-                // If we used 'get' we'd check for GetResponse
+                 // If we used 'get' we'd check for GetResponse
             }
 
             // 3. Send Put requests with tokens
-            if (nodesWithTokens.Count > 0) {
+            if (nodesWithTokens.Count > 0)
+            {
                 var putTask = new PutTask (this, value, publicKey, salt, sequenceNumber, signature, cas, nodesWithTokens);
                 await putTask.ExecuteAsync ();
             }
-            // Else: Log failure to get any tokens?
+             // Else: Log failure to get any tokens?
         }
 
         /// <summary>
         /// Explicitly store a mutable item in local DHT storage (for tests or manual replication).
         /// </summary>
-        public void StoreMutableLocally (BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature)
+        public void StoreMutableLocally(BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature)
         {
-            var target = CalculateMutableTargetId (publicKey, salt);
-            StoreItem (target, new StoredDhtItem (value, publicKey, salt, sequenceNumber, signature));
-            // Start relay message processing timer (every 100ms)
-            _relayMessageTimer = new System.Threading.Timer (_ => ProcessRelayMessages (), null, 100, 100);
+            var target = CalculateMutableTargetId(publicKey, salt);
+            StoreItem(target, new StoredDhtItem(value, publicKey, salt, sequenceNumber, signature));
         }
 
-        public static NodeId CalculateMutableTargetId (BEncodedString publicKey, BEncodedString? salt)
+        public static NodeId CalculateMutableTargetId(BEncodedString publicKey, BEncodedString? salt)
         {
-            using (var sha1 = SHA1.Create ()) {
-                if (salt == null || salt.Span.Length == 0) {
+            using (var sha1 = SHA1.Create())
+            {
+                if (salt == null || salt.Span.Length == 0)
+                {
                     // Target = SHA1(PublicKey)
                     // Need ToArray for ComputeHash on older frameworks
-#if NETSTANDARD2_0 || NET472
-                    return new NodeId (sha1.ComputeHash (publicKey.Span.ToArray ()));
-#else
+                    #if NETSTANDARD2_0 || NET472
+                    return new NodeId(sha1.ComputeHash(publicKey.Span.ToArray()));
+                    #else
                     byte[] hashResult = new byte[20];
                     if (sha1.TryComputeHash(publicKey.Span, hashResult, out int bytesWritten) && bytesWritten == 20)
                         return new NodeId(hashResult);
                     else
                         throw new CryptographicException("Failed to compute SHA1 hash."); // Or handle error appropriately
-#endif
-                } else {
+                    #endif
+                }
+                else
+                {
                     // Target = SHA1(PublicKey + Salt)
                     byte[] combined = new byte[publicKey.Span.Length + salt.Span.Length];
-                    publicKey.Span.CopyTo (combined);
-                    salt.Span.CopyTo (combined.AsSpan (publicKey.Span.Length));
-#if NETSTANDARD2_0 || NET472
-                    return new NodeId (sha1.ComputeHash (combined));
-#else
+                    publicKey.Span.CopyTo(combined);
+                    salt.Span.CopyTo(combined.AsSpan(publicKey.Span.Length));
+                    #if NETSTANDARD2_0 || NET472
+                    return new NodeId(sha1.ComputeHash(combined));
+                    #else
                     byte[] hashResult = new byte[20];
                     if (sha1.TryComputeHash(combined, hashResult, out int bytesWritten) && bytesWritten == 20)
                         return new NodeId(hashResult);
                     else
                         throw new CryptographicException("Failed to compute SHA1 hash."); // Or handle error appropriately
-#endif
+                    #endif
                 }
             }
         }
 
-        async Task InitializeAsync (IEnumerable<Node> nodes, string[] bootstrapRouters)
+        async Task InitializeAsync (IEnumerable<Node> nodes, string[] bootstrapRouters) // Changed to async Task
         {
             await MainLoop;
-            Log (DhtLogLevel.Info, "InitializeAsync started.");
-
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitializeAsync started."); // Log start
+ 
             var initTask = new InitialiseTask (this, nodes, bootstrapRouters);
-            try {
+            try
+            {
                 await initTask.ExecuteAsync ();
-                Log (DhtLogLevel.Info, "InitialiseTask completed successfully.");
-            } catch (Exception ex) {
-                Log (DhtLogLevel.Error, $"InitialiseTask FAILED: {ex.Message}\nStackTrace: {ex.StackTrace}");
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitialiseTask completed successfully."); // Log success
             }
-
+            catch (Exception ex)
+            {
+                 System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitialiseTask FAILED: {ex.Message}\nStackTrace: {ex.StackTrace}"); // Log failure with stack trace
+                 // Rethrow or handle as appropriate? For now, just log and let state be set below.
+                 // Consider if we should force NotReady state here?
+            }
+ 
             bool needsBootstrap = RoutingTable.NeedsBootstrap; // Check after task execution
 
             // --- Hairpin/Loopback Handling ---
             // If we started with no nodes/routers AND we are listening on loopback,
             // try adding self. This might help local instances find each other via refresh.
             // Add null check for bootstrapRouters
-            if (!nodes.Any () && (bootstrapRouters == null || bootstrapRouters.Length == 0) && MessageLoop.Listener?.LocalEndPoint?.Address?.Equals (IPAddress.Loopback) == true) {
-                var selfNode = new Node (RoutingTable.LocalNodeId, MessageLoop.Listener.LocalEndPoint);
-                RoutingTable.Add (selfNode); // Add self to potentially kickstart discovery
-                Log (DhtLogLevel.Debug, "Added self to routing table for loopback scenario.");
+            if (!nodes.Any() && (bootstrapRouters == null || bootstrapRouters.Length == 0) && MessageLoop.Listener?.LocalEndPoint?.Address?.Equals(IPAddress.Loopback) == true)
+            {
+                var selfNode = new Node(RoutingTable.LocalNodeId, MessageLoop.Listener.LocalEndPoint);
+                RoutingTable.Add(selfNode); // Add self to potentially kickstart discovery
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Added self to routing table for loopback scenario.");
             }
             // --- End Hairpin/Loopback Handling ---
 
-
+ 
             if (needsBootstrap) {
                 RaiseStateChanged (DhtState.NotReady);
             } else {
@@ -531,26 +515,22 @@ namespace MonoTorrent.Dht
         internal async Task<SendQueryEventArgs> SendQueryAsync (QueryMessage query, Node node)
         {
             await MainLoop;
-            SendQueryEventArgs e = default;
-            for (int i = 1; i <= 4; i++) {
+
+            var e = default (SendQueryEventArgs);
+            for (int i = 0; i < 4; i++) {
                 e = await MessageLoop.SendAsync (query, node);
-                if (!e.TimedOut) {
-                    Log (DhtLogLevel.Debug, $"UDP to {node.Id.ToHex ().Substring (0, 6)} succeeded on attempt {i}.");
+
+                // If the message timed out and we we haven't already hit the maximum retries
+                // send again. Otherwise we propagate the eventargs through the Complete event.
+                if (e.TimedOut) {
+                    node.FailedCount++;
+                    continue;
+                } else {
+                    node.Seen ();
                     return e;
                 }
-                if (i == 4) {
-                    Log (DhtLogLevel.Warning, $"All UDP attempts to {node.Id.ToHex ().Substring (0, 6)} timed out; falling back to NATS relay.");
-                }
             }
-            if (e.TimedOut && NatsService != null) {
-                Log (DhtLogLevel.Info, $"All UDP attempts to {node.Id.ToHex ().Substring (0, 6)} timed out. Attempting NATS relay...");
-                try {
-                    await NatsService.SendDhtRelayAsync (node.Id, query.Encode ().ToArray ());
-                    Log (DhtLogLevel.Info, $"Successfully sent query to {node.Id.ToHex ().Substring (0, 6)} via NATS relay.");
-                } catch (Exception relayEx) {
-                    Log (DhtLogLevel.Warning, $"Failed to send query to {node.Id.ToHex ().Substring (0, 6)} via NATS relay: {relayEx.Message}");
-                }
-            }
+
             return e;
         }
 
@@ -564,108 +544,106 @@ namespace MonoTorrent.Dht
             => StartAsync (Array.Empty<Node> (), bootstrapRouters);
         // Matches IDhtEngine
         public Task StartAsync (NatsNatTraversalService? natsService = null, IPortForwarder? portForwarder = null)
-            => StartAsync (ReadOnlyMemory<byte>.Empty, Array.Empty<string> (), natsService, portForwarder); // Delegate to the most specific internal overload
-
+            => StartAsync (ReadOnlyMemory<byte>.Empty, Array.Empty<string>(), natsService, portForwarder); // Delegate to the most specific internal overload
+ 
         // Matches IDhtEngine
         public Task StartAsync (ReadOnlyMemory<byte> initialNodes, NatsNatTraversalService? natsService = null, IPortForwarder? portForwarder = null)
             => StartAsync (Node.FromCompactNode (BEncodedString.FromMemory (initialNodes)).Concat (PendingNodes), Array.Empty<string> (), natsService, portForwarder); // Use empty array to disable default bootstrap
-
+ 
         // This overload is not in IDhtEngine, but is used publicly. Keep it, but ensure it delegates correctly.
         public Task StartAsync (string[] bootstrapRouters, NatsNatTraversalService? natsService = null, IPortForwarder? portForwarder = null)
             => StartAsync (Array.Empty<Node> (), bootstrapRouters, natsService, portForwarder); // Already correct
-                                                                                                // Matches IDhtEngine
-        public Task StartAsync (ReadOnlyMemory<byte> initialNodes, string[] bootstrapRouters, NatsNatTraversalService? natsService = null, IPortForwarder? portForwarder = null)
-            => StartAsync (Node.FromCompactNode (BEncodedString.FromMemory (initialNodes)).Concat (PendingNodes), bootstrapRouters, natsService, portForwarder); // Already correct
+ // Matches IDhtEngine
+ public Task StartAsync (ReadOnlyMemory<byte> initialNodes, string[] bootstrapRouters, NatsNatTraversalService? natsService = null, IPortForwarder? portForwarder = null)
+     => StartAsync (Node.FromCompactNode (BEncodedString.FromMemory (initialNodes)).Concat (PendingNodes), bootstrapRouters, natsService, portForwarder); // Already correct
 
-        // Keep the existing internal StartAsync, the public ones delegate to it
-
+ // Keep the existing internal StartAsync, the public ones delegate to it
+ 
         // This internal StartAsync now needs the PortForwarder if NATS is used
         async Task StartAsync (IEnumerable<Node> nodes, string[] bootstrapRouters, NatsNatTraversalService? natsService = null, IPortForwarder? portForwarder = null)
         {
-            this.NatsService = natsService;
-            if (natsService != null) {
-                // Associate the DHT engine with the NATS service so relay/discovery injects into this engine
-                natsService.DhtEngine = this;
-            }
-
-            Log (DhtLogLevel.Debug, "StartAsync entered.");
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] StartAsync entered.");
             CheckDisposed ();
 
-            Log (DhtLogLevel.Debug, "Awaiting MainLoop...");
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Awaiting MainLoop...");
             await MainLoop;
-            Log (DhtLogLevel.Debug, "MainLoop awaited.");
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] MainLoop awaited.");
 
-            // --- Ensure Listener is started BEFORE initializing NATS ---
-            if (MessageLoop.Listener == null)
-                throw new InvalidOperationException ("DHT Listener must be set before starting DHT engine.");
-            if (MessageLoop.Listener.GetType ().GetProperty ("Status") != null &&
-                MessageLoop.Listener.GetType ().GetProperty ("Status").GetValue (MessageLoop.Listener).ToString () != "Listening") {
-                Log (DhtLogLevel.Info, "Listener not running. Starting listener now...");
-                MessageLoop.Listener.Start ();
-                Log (DhtLogLevel.Info, $"Listener started. LocalEndPoint: {MessageLoop.Listener.LocalEndPoint}");
-            } else {
-                Log (DhtLogLevel.Debug, $"Listener already running. LocalEndPoint: {MessageLoop.Listener.LocalEndPoint}");
-            }
-
-            // --- Now initialize NATS NAT Traversal if provided ---
-            if (natsService != null) {
-                try {
-                    Log (DhtLogLevel.Info, "Initializing NATS NAT Traversal Service...");
-                    await natsService.InitializeAsync (MessageLoop.Listener!, portForwarder);
+            // Initialize NATS NAT Traversal if provided (BEFORE starting message loop?)
+            // It might need the listener endpoint, so maybe start loop first? Let's keep it here for now.
+            if (natsService != null)
+            {
+                try
+                {
+                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Initializing NATS NAT Traversal Service...");
+                    await natsService.InitializeAsync(MessageLoop.Listener!, portForwarder);
                     this.ExternalEndPoint = natsService.MyExternalEndPoint;
-                    Log (DhtLogLevel.Info, $"NATS NAT Traversal Initialized. External EndPoint: {this.ExternalEndPoint}");
-                } catch (Exception ex) {
-                    Log (DhtLogLevel.Error, $"Failed to initialize NATS NAT Traversal Service: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] NATS NAT Traversal Initialized. External EndPoint: {this.ExternalEndPoint}");
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Failed to initialize NATS NAT Traversal Service: {ex.Message}");
                 }
             }
 
             MessageLoop.Start (); // Start listening for messages
 
             // Determine if this engine is suitable for hairpinning
-            bool isLoopback = MessageLoop.Listener?.LocalEndPoint?.Address?.Equals (IPAddress.Loopback) == true;
+            bool isLoopback = MessageLoop.Listener?.LocalEndPoint?.Address?.Equals(IPAddress.Loopback) == true;
             // Add null check for bootstrapRouters before accessing Length
-            bool isBootstrapping = (bootstrapRouters != null && bootstrapRouters.Length > 0) || nodes.Any ();
+            bool isBootstrapping = (bootstrapRouters != null && bootstrapRouters.Length > 0) || nodes.Any();
             bool canHairpin = isLoopback && !isBootstrapping;
 
             // Register self *before* initializing/bootstrapping
-            if (canHairpin) {
-                ActiveEngines[this.LocalId] = new WeakReference<DhtEngine> (this);
-                Log (DhtLogLevel.Debug, "Registered self in ActiveEngines.");
+            if (canHairpin)
+            {
+                ActiveEngines[this.LocalId] = new WeakReference<DhtEngine>(this);
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Registered self in ActiveEngines.");
             }
 
             // Initialize/Bootstrap DHT
             bool needsBootstrapCheck = RoutingTable.NeedsBootstrap;
-            int nodeCount = RoutingTable.CountNodes ();
+            int nodeCount = RoutingTable.CountNodes();
             if (isBootstrapping || needsBootstrapCheck || nodeCount == 0) {
                 RaiseStateChanged (DhtState.Initialising);
                 await InitializeAsync (nodes, bootstrapRouters);
             }
 
             // Perform hairpin discovery *after* initialization attempt
-            if (canHairpin) {
-                Log (DhtLogLevel.Debug, "Performing hairpin discovery...");
-                var selfNode = new Node (this.LocalId, this.MessageLoop.Listener!.LocalEndPoint!);
+            if (canHairpin)
+            {
+                System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Performing hairpin discovery...");
+                var selfNode = new Node(this.LocalId, this.MessageLoop.Listener!.LocalEndPoint!); // Listener should be non-null here
 
-                foreach (var kvp in ActiveEngines) {
-                    Log (DhtLogLevel.Debug, $"Hairpin loop: Checking entry {kvp.Key.ToHex ().Substring (0, 6)}");
-                    if (kvp.Key == this.LocalId || !kvp.Value.TryGetTarget (out var otherEngine) || otherEngine.Disposed) {
-                        Log (DhtLogLevel.Debug, "Hairpin loop: Skipping self.");
+                foreach (var kvp in ActiveEngines) // Iterate static dictionary
+                {
+                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Hairpin loop: Checking entry {kvp.Key.ToHex().Substring(0,6)}");
+                    // Skip self or disposed engines
+                    if (kvp.Key == this.LocalId || !kvp.Value.TryGetTarget(out var otherEngine) || otherEngine.Disposed)
+                    {
+                        if(kvp.Key == this.LocalId) System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Hairpin loop: Skipping self.");
+                        else if (!kvp.Value.TryGetTarget(out _)) System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Hairpin loop: Skipping entry {kvp.Key.ToHex().Substring(0,6)} - WeakReference target lost.");
+                        else System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Hairpin loop: Skipping entry {kvp.Key.ToHex().Substring(0,6)} - Other engine disposed.");
                         continue;
                     }
-                    bool otherIsLoopback = otherEngine.MessageLoop.Listener?.LocalEndPoint?.Address?.Equals (IPAddress.Loopback) == true;
-                    bool otherListenerValid = otherEngine.MessageLoop.Listener?.LocalEndPoint != null;
-                    Log (DhtLogLevel.Debug, $"Hairpin loop: Other engine {otherEngine.LocalId.ToHex ().Substring (0, 6)} - IsLoopback={otherIsLoopback}, ListenerValid={otherListenerValid}");
-                    if (otherIsLoopback && otherListenerValid) {
-                        Log (DhtLogLevel.Debug, $"Found other local engine: {otherEngine.LocalId.ToHex ().Substring (0, 6)} at {otherEngine.MessageLoop.Listener!.LocalEndPoint}");
-                        var otherNode = new Node (otherEngine.LocalId, otherEngine.MessageLoop.Listener.LocalEndPoint!);
 
-                        this.AddToRoutingTable (otherNode); // Add other engine to self's routing table
-                        otherEngine.AddToRoutingTable (selfNode); // Add self to other engine's routing table
+                    // Check if the other engine is also suitable for hairpinning
+                    bool otherIsLoopback = otherEngine.MessageLoop.Listener?.LocalEndPoint?.Address?.Equals(IPAddress.Loopback) == true;
+                    bool otherListenerValid = otherEngine.MessageLoop.Listener?.LocalEndPoint != null;
+                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Hairpin loop: Other engine {otherEngine.LocalId.ToHex().Substring(0,6)} - IsLoopback={otherIsLoopback}, ListenerValid={otherListenerValid}");
+
+                    if (otherIsLoopback && otherListenerValid) // Ensure other listener is valid before accessing LocalEndPoint
+                    {
+                        System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Found other local engine: {otherEngine.LocalId.ToHex().Substring(0,6)} at {otherEngine.MessageLoop.Listener!.LocalEndPoint}");
+                        var otherNode = new Node(otherEngine.LocalId, otherEngine.MessageLoop.Listener.LocalEndPoint!);
+
+                        this.AddToRoutingTable(otherNode); // Add other engine to self's routing table
+                        otherEngine.AddToRoutingTable(selfNode); // Add self to other engine's routing table
                         // Mark nodes as seen immediately after adding via hairpin
                         // This ensures they are not immediately considered stale/unknown.
-                        otherNode.Seen ();
-                        selfNode.Seen ();
-                        Log (DhtLogLevel.Info, $"Added {otherNode.Id.ToHex ().Substring (0, 6)} to self's routing table. Added self ({selfNode.Id.ToHex ().Substring (0, 6)}) to {otherEngine.LocalId.ToHex ().Substring (0, 6)}'s routing table.");
+                        otherNode.Seen();
+                        selfNode.Seen();
+                        System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Added {otherNode.Id.ToHex().Substring(0,6)} to self's routing table. Added self ({selfNode.Id.ToHex().Substring(0,6)}) to {otherEngine.LocalId.ToHex().Substring(0,6)}'s routing table.");
                     }
                 }
             }
@@ -725,20 +703,25 @@ namespace MonoTorrent.Dht
             // - Potentially limit storage size.
             // - Handle CAS (Compare-And-Swap) logic.
 
-            if (item.IsMutable) {
-                if (LocalStorage.TryGetValue (target, out var existing) && existing.IsMutable) {
+            if (item.IsMutable)
+            {
+                if (LocalStorage.TryGetValue(target, out var existing) && existing.IsMutable)
+                {
                     // Implement sequence number check (BEP44 section 3.2.1)
-                    if (item.SequenceNumber <= existing.SequenceNumber) {
-                        Log (DhtLogLevel.Info, $"Discarding store for {target}. Incoming Seq ({item.SequenceNumber}) <= Stored Seq ({existing.SequenceNumber}).");
+                    if (item.SequenceNumber <= existing.SequenceNumber)
+                    {
+                        Console.WriteLine($"[DhtEngine.StoreItem] Discarding store for {target}. Incoming Seq ({item.SequenceNumber}) <= Stored Seq ({existing.SequenceNumber}).");
                         // Optionally, send back an error message (e.g., sequence number too low)?
                         // For now, just silently discard.
                         return;
                     }
                     // TODO: Implement CAS check if item.Cas.HasValue
                 }
-                Log (DhtLogLevel.Info, $"Storing mutable item for {target}. Seq: {item.SequenceNumber}");
-            } else {
-                Log (DhtLogLevel.Info, $"Storing immutable item for {target}.");
+                Console.WriteLine($"[DhtEngine.StoreItem] Storing mutable item for {target}. Seq: {item.SequenceNumber}");
+            }
+            else
+            {
+                Console.WriteLine($"[DhtEngine.StoreItem] Storing immutable item for {target}.");
                 // Immutable items just overwrite if they exist
             }
             LocalStorage[target] = item;
@@ -749,54 +732,31 @@ namespace MonoTorrent.Dht
             await MainLoop;
             await MessageLoop.SetListener (listener);
         }
-        // This method likely needs the PortForwarder too, assuming it's called independently sometimes.
-        // If it's *only* ever called from ClientEngine, ClientEngine could handle setting ExternalEndPoint first.
-        // Let's assume it needs the PortForwarder for now for completeness.
-        public async Task InitializeNatAsync (NatsNatTraversalService natsService, IPortForwarder? portForwarder)
-        {
-            await MainLoop;
-            CheckDisposed ();
-            if (natsService == null)
-                throw new ArgumentNullException (nameof (natsService));
+    // This method likely needs the PortForwarder too, assuming it's called independently sometimes.
+    // If it's *only* ever called from ClientEngine, ClientEngine could handle setting ExternalEndPoint first.
+    // Let's assume it needs the PortForwarder for now for completeness.
+    public async Task InitializeNatAsync (NatsNatTraversalService natsService, IPortForwarder? portForwarder)
+    {
+        await MainLoop;
+        CheckDisposed ();
+        if (natsService == null)
+            throw new ArgumentNullException(nameof(natsService));
 
-            try {
-                Log (DhtLogLevel.Info, "InitializeNatAsync called. Initializing NATS NAT Traversal Service...");
-                await natsService.InitializeAsync (MessageLoop.Listener!, portForwarder); // Pass listener and portForwarder
-                this.ExternalEndPoint = natsService.MyExternalEndPoint;
-                Log (DhtLogLevel.Info, $"NATS NAT Traversal Initialized via InitializeNatAsync. External EndPoint: {this.ExternalEndPoint}");
-            } catch (Exception ex) {
-                Log (DhtLogLevel.Error, $"Failed to initialize NATS NAT Traversal Service via InitializeNatAsync: {ex.Message}");
-                // Decide how to handle failure - maybe proceed without NAT traversal?
-                // For now, just log and continue. DHT might fail if behind NAT.
-            }
-        }
-
-        // --- DHT RELAY INJECTION SUPPORT ---
-        /// <summary>
-        /// Inject a DHT message received via relay (NATS) as if it was received from the given NodeId.
-        /// </summary>
-        public void InjectMessageFromRelay (byte[] payload, NodeId fromNodeId)
+        try
         {
-            // Enqueue for processing on the DHT main loop
-            _relayMessageQueue.Enqueue (new DhtRelayMessage (fromNodeId, payload));
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] InitializeNatAsync called. Initializing NATS NAT Traversal Service...");
+            await natsService.InitializeAsync(MessageLoop.Listener!, portForwarder); // Pass listener and portForwarder
+            this.ExternalEndPoint = natsService.MyExternalEndPoint;
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] NATS NAT Traversal Initialized via InitializeNatAsync. External EndPoint: {this.ExternalEndPoint}");
         }
-
-        // Called periodically to process relay-injected messages
-        private void ProcessRelayMessages ()
+        catch (Exception ex)
         {
-            while (_relayMessageQueue.TryDequeue (out var relayMsg)) {
-                try {
-                    // Simulate receiving a UDP message from the relay sender
-                    // You may need to expose a method on MessageLoop to process raw UDP payloads
-                    // For now, call MessageLoop.ProcessRelayMessage (to be implemented)
-                    MessageLoop.ProcessRelayMessage (relayMsg.Payload, relayMsg.FromNodeId);
-                } catch (Exception ex) {
-                    Log (DhtLogLevel.Error, $"Error processing relay-injected message: {ex.Message}");
-                }
-            }
+            System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId}] Failed to initialize NATS NAT Traversal Service via InitializeNatAsync: {ex.Message}");
+            // Decide how to handle failure - maybe proceed without NAT traversal?
+            // For now, just log and continue. DHT might fail if behind NAT.
         }
-        // --- END DHT RELAY INJECTION SUPPORT ---
-    } // End of DhtEngine class
+    }
+} // End of DhtEngine class
 
     // Class to hold stored DHT items (Moved outside DhtEngine class)
     public class StoredDhtItem
@@ -812,23 +772,27 @@ namespace MonoTorrent.Dht
         public bool IsMutable => PublicKey != null;
 
         // Constructor for mutable
-        public StoredDhtItem (BEncodedValue value, BEncodedString pk, BEncodedString? salt, long seq, BEncodedString sig /*, long? cas = null*/)
+        public StoredDhtItem(BEncodedValue value, BEncodedString pk, BEncodedString? salt, long seq, BEncodedString sig /*, long? cas = null*/)
         {
-            Value = value ?? throw new ArgumentNullException (nameof (value));
-            PublicKey = pk ?? throw new ArgumentNullException (nameof (pk));
+            Value = value ?? throw new ArgumentNullException(nameof(value));
+            PublicKey = pk ?? throw new ArgumentNullException(nameof(pk));
             Salt = salt;
             SequenceNumber = seq;
-            Signature = sig ?? throw new ArgumentNullException (nameof (sig));
+            Signature = sig ?? throw new ArgumentNullException(nameof(sig));
             // Cas = cas;
             Timestamp = DateTime.UtcNow;
         }
 
         // Constructor for immutable
-        public StoredDhtItem (BEncodedValue value)
+        public StoredDhtItem(BEncodedValue value)
         {
-            Value = value ?? throw new ArgumentNullException (nameof (value));
+            Value = value ?? throw new ArgumentNullException(nameof(value));
             Timestamp = DateTime.UtcNow;
         }
     } // End of StoredDhtItem class
+
+    // Moved SetListenerAsync outside DhtEngine class - wait, this doesn't make sense. It needs to be part of DhtEngine.
+    // Reverting the move of SetListenerAsync. The syntax errors must be related to the StoredDhtItem placement only.
+    // Let's ensure the closing brace for DhtEngine is before StoredDhtItem.
 
 } // End of namespace
