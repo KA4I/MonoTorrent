@@ -509,11 +509,11 @@ namespace MonoTorrent.Dht
             foreach (var ep in endpoints)
             {
                 Debug.WriteLine($"[NATS NAT] Hole punch to {ep}");
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     if (token.IsCancellationRequested) break;
                     await _udpClient.SendAsync(punchPacket, punchPacket.Length, ep);
-                    await Task.Delay(100, token);
+                    await Task.Delay(50, token);
                 }
                 Debug.WriteLine($"[NATS NAT] Sent hole punch packets to {ep}");
             }
@@ -544,7 +544,7 @@ namespace MonoTorrent.Dht
         /// </summary>
         private async Task StartPeriodicPublishingAsync(CancellationToken token)
         {
-            var publishInterval = TimeSpan.FromSeconds(3); // Publish every 3 seconds
+            var publishInterval = TimeSpan.FromSeconds(1); // Publish every 1 second
             Debug.WriteLine($"[NATS NAT] Starting periodic publishing every {publishInterval.TotalSeconds} seconds.");
             try
             {
