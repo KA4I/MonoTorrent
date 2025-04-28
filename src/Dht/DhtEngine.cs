@@ -569,23 +569,6 @@ internal async Task Add (Node node)
             await MainLoop;
             System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] MainLoop awaited.");
 
-            // Initialize NATS NAT Traversal if provided (BEFORE starting message loop?)
-            // It might need the listener endpoint, so maybe start loop first? Let's keep it here for now.
-            if (natsService != null)
-            {
-                try
-                {
-                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Initializing NATS NAT Traversal Service...");
-                    await natsService.InitializeAsync(MessageLoop.Listener!, portForwarder);
-                    this.ExternalEndPoint = natsService.MyExternalEndPoint;
-                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] NATS NAT Traversal Initialized. External EndPoint: {this.ExternalEndPoint}");
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] Failed to initialize NATS NAT Traversal Service: {ex.Message}");
-                }
-            }
-
             MessageLoop.Start (); // Start listening for messages
 
             // Determine if this engine is suitable for hairpinning

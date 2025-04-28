@@ -113,11 +113,14 @@ namespace MonoTorrent.Dht
                         await portForwarder.RegisterMappingAsync(mapping);
                         // Check if the mapping was successful (external port might be different)
                         // We assume the Mapping object is updated with the actual external port.
-                        if (mapping.PublicPort > 0) {
+                        if (mapping.PublicPort > 0)
+                        {
                             mappedExternalPort = mapping.PublicPort;
                             Debug.WriteLine($"[NATS NAT INFO] Successfully mapped internal port {mapping.PrivatePort} to external port {mappedExternalPort} via UPnP/NAT-PMP.");
-                        } else {
-                             Debug.WriteLine($"[NATS NAT WARNING] Port mapping via UPnP/NAT-PMP succeeded but returned invalid external port ({mapping.PublicPort}).");
+                        }
+                        else
+                        {
+                            Debug.WriteLine($"[NATS NAT WARNING] Port mapping via UPnP/NAT-PMP succeeded but returned invalid external port ({mapping.PublicPort}).");
                         }
                     }
                     catch (Exception ex)
@@ -129,9 +132,12 @@ namespace MonoTorrent.Dht
                 // Try HTTP to get Public IP
                 Debug.WriteLine("[NATS NAT INFO] Attempting HTTP query for public IP...");
                 publicIP = await DiscoverPublicIPAsync(linkedToken);
-                if (publicIP != null) {
+                if (publicIP != null)
+                {
                     Debug.WriteLine($"[NATS NAT INFO] Discovered public IP via HTTP: {publicIP}");
-                } else {
+                }
+                else
+                {
                     Debug.WriteLine("[NATS NAT WARNING] Failed to discover public IP via HTTP.");
                 }
 
@@ -175,8 +181,8 @@ namespace MonoTorrent.Dht
             }
             catch (OperationCanceledException)
             {
-                 Debug.WriteLine("[NATS NAT] Initialization cancelled.");
-                 throw; // Re-throw cancellation
+                Debug.WriteLine("[NATS NAT] Initialization cancelled.");
+                throw; // Re-throw cancellation
             }
             catch (Exception ex)
             {
@@ -222,12 +228,12 @@ namespace MonoTorrent.Dht
                         }
                         else
                         {
-                             Debug.WriteLine($"[HTTP Discovery Error] Failed to parse IP address from JSON: {ipString}");
+                            Debug.WriteLine($"[HTTP Discovery Error] Failed to parse IP address from JSON: {ipString}");
                         }
                     }
                     else
                     {
-                         Debug.WriteLine("[HTTP Discovery Error] JSON response did not contain expected 'ip' string property.");
+                        Debug.WriteLine("[HTTP Discovery Error] JSON response did not contain expected 'ip' string property.");
                     }
                 }
                 return null;
@@ -244,8 +250,8 @@ namespace MonoTorrent.Dht
         {
             if (_myExternalEndPoint == null)
             {
-                 Debug.WriteLine("[NATS NAT] Cannot publish self info, external endpoint not discovered.");
-                 return;
+                Debug.WriteLine("[NATS NAT] Cannot publish self info, external endpoint not discovered.");
+                return;
             }
 
             // Format: NodeId|PeerId|ExternalIP|ExternalPort|InternalIPs(comma-separated)|InternalPort
@@ -299,7 +305,7 @@ namespace MonoTorrent.Dht
                 await _natsConnection.PublishAsync(_peerInfoSubject, data, cancellationToken: token);
                 // Debug.WriteLine($"[NATS NAT] Published self info: {peerInfo}");
             }
-             catch (OperationCanceledException) { /* Ignore */ }
+            catch (OperationCanceledException) { /* Ignore */ }
             catch (Exception ex)
             {
                 Debug.WriteLine($"[NATS NAT] Error publishing self info: {ex.Message}");
@@ -369,19 +375,25 @@ namespace MonoTorrent.Dht
 
                             // Parse the NodeId from the hex string
                             NodeId peerNodeId;
-                            try {
+                            try
+                            {
                                 peerNodeId = NodeId.FromHex(nodeIdHex);
-                            } catch (Exception ex) {
+                            }
+                            catch (Exception ex)
+                            {
                                 Debug.WriteLine($"[NATS NAT] Failed to parse NodeId from hex '{nodeIdHex}': {ex.Message}");
                                 continue; // Skip this peer if ID is invalid
                             }
 
                             // Parse the PeerId from the hex string
                             BEncodedString peerId;
-                            try {
+                            try
+                            {
                                 byte[] peerIdBytes = ConvertHexStringToByteArray(peerIdHex);
                                 peerId = new BEncodedString(peerIdBytes);
-                            } catch (Exception ex) {
+                            }
+                            catch (Exception ex)
+                            {
                                 Debug.WriteLine($"[NATS NAT] Failed to parse PeerId from hex '{peerIdHex}': {ex.Message}");
                                 continue; // Skip this peer if ID is invalid
                             }
@@ -418,17 +430,22 @@ namespace MonoTorrent.Dht
                                         InternalPort = internalPort
                                     };
                                     OnPeerDiscovered(eventArgs); // Raise event with PeerId and internal info
-                                    // Initiate hole punching attempt immediately upon discovery
-                                    _ = InitiateHolePunchingAsync(discoveredEndPoint, token);
+                                    // Initiate hole punching attempt immediately upon discovery (try external + internal)
+                                    IPEndPoint? internalEp = null;
+                                    if (!string.IsNullOrEmpty(primaryInternalIp) && internalPort > 0)
+                                        internalEp = new IPEndPoint(IPAddress.Parse(primaryInternalIp), internalPort);
+                                    _ = InitiateHolePunchingAsync(discoveredEndPoint, internalEp, token);
                                 }
                             }
-                            else {
+                            else
+                            {
                                 Debug.WriteLine($"[NATS NAT] Failed to parse peer info IP/Port: {peerInfoString}");
                             }
                         }
-                        else {
+                        else
+                        {
                             Debug.WriteLine($"[NATS NAT] Received malformed peer info (parts!=3): {peerInfoString}");
-                         }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -439,56 +456,67 @@ namespace MonoTorrent.Dht
             }
             catch (OperationCanceledException)
             {
-                 Debug.WriteLine("[NATS NAT] Subscription cancelled.");
+                Debug.WriteLine("[NATS NAT] Subscription cancelled.");
             }
             catch (Exception ex)
             {
                 // Log error that stops the subscription loop
                 Debug.WriteLine($"[NATS NAT] Subscription error: {ex.Message}");
             }
-             finally
+            finally
             {
-                 Debug.WriteLine($"[NATS NAT] Subscription to {_peerInfoSubject} ended.");
+                Debug.WriteLine($"[NATS NAT] Subscription to {_peerInfoSubject} ended.");
             }
         }
 
         /// <summary>
-        /// Sends UDP packets to the target endpoint to attempt NAT hole punching.
+        /// Sends UDP packets to the target (and optional internal) endpoints to attempt NAT hole punching.
         /// </summary>
-        private async Task InitiateHolePunchingAsync(IPEndPoint targetEndPoint, CancellationToken token)
+        private async Task InitiateHolePunchingAsync(IPEndPoint externalEndPoint, IPEndPoint? internalEndPoint, CancellationToken token)
         {
             if (_myExternalEndPoint == null || _udpClient?.Client?.LocalEndPoint == null)
             {
                 Debug.WriteLine("[NATS NAT] Cannot initiate hole punch: Missing own external or local UDP endpoint.");
                 return;
             }
-    // GetDiscoveredPeers method moved outside InitiateHolePunchingAsync
-    
-            Debug.WriteLine($"[NATS NAT] Attempting hole punch to {targetEndPoint} from {_udpClient.Client.LocalEndPoint}");
-            try
+
+            // Prepare punch payload once
+            byte[] punchPacket = Encoding.UTF8.GetBytes($"punch-{_localPeerId.ToHex()}");
+            // Try both external and internal endpoints
+            var endpoints = new List<IPEndPoint> { externalEndPoint };
+            if (internalEndPoint != null)
+                endpoints.Add(internalEndPoint);
+            foreach (var ep in endpoints)
             {
-                // Send a few dummy packets to the target's external endpoint
-                byte[] punchPacket = Encoding.UTF8.GetBytes($"punch-{_localPeerId.ToHex()}"); // Include sender ID?
-                for (int i = 0; i < 3; i++)
+                Debug.WriteLine($"[NATS NAT] Hole punch to {ep}");
+                for (int i = 0; i < 5; i++)
                 {
                     if (token.IsCancellationRequested) break;
-                    // Use SendAsync on the UdpClient directly
-                    await _udpClient.SendAsync(punchPacket, punchPacket.Length, targetEndPoint);
-                    await Task.Delay(50, token); // Small delay between punches
+                    await _udpClient.SendAsync(punchPacket, punchPacket.Length, ep);
+                    await Task.Delay(100, token);
                 }
-                 Debug.WriteLine($"[NATS NAT] Sent punch packets to {targetEndPoint}");
-
-                 // Optionally: Start listening for incoming UDP packets here if needed for confirmation
+                Debug.WriteLine($"[NATS NAT] Sent hole punch packets to {ep}");
             }
-            catch (OperationCanceledException) { /* Ignore */ }
-            catch (SocketException ex)
+            // Wait briefly for an incoming punch (peer's punch-back)
+            var sw = Stopwatch.StartNew();
+            while (sw.Elapsed < TimeSpan.FromMilliseconds(500) && !token.IsCancellationRequested)
             {
-                Debug.WriteLine($"[NATS NAT] SocketException during hole punch to {targetEndPoint}: {ex.SocketErrorCode} - {ex.Message}");
+                try
+                {
+                    var result = await _udpClient.ReceiveAsync();
+                    Debug.WriteLine($"[NATS NAT] Received hole punch response from {result.RemoteEndPoint}");
+                    break;
+                }
+                catch (SocketException)
+                {
+                    // ignore and retry
+                }
+                catch (OperationCanceledException)
+                {
+                    break;
+                }
             }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"[NATS NAT] Error during hole punch to {targetEndPoint}: {ex.Message}");
-            }
+            Debug.WriteLine($"[NATS NAT] Hole punching attempt complete for {externalEndPoint}");
         }
 
         /// <summary>
@@ -512,11 +540,11 @@ namespace MonoTorrent.Dht
             }
             catch (Exception ex)
             {
-                 Debug.WriteLine($"[NATS NAT] Error in periodic publishing loop: {ex.Message}");
+                Debug.WriteLine($"[NATS NAT] Error in periodic publishing loop: {ex.Message}");
             }
             finally
             {
-                 Debug.WriteLine("[NATS NAT] Periodic publishing stopped.");
+                Debug.WriteLine("[NATS NAT] Periodic publishing stopped.");
             }
         }
 
@@ -539,36 +567,37 @@ namespace MonoTorrent.Dht
             GC.SuppressFinalize(this);
         }
 
-        protected virtual void Dispose (bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
-            if (disposing) {
-                _cts?.Cancel ();
+            if (disposing)
+            {
+                _cts?.Cancel();
                 // Do not dispose _cts here if it was created from an external token source.
                 // The creator of the original token source is responsible for its disposal.
                 // If _cts was created *internally* without linking, then disposing here would be correct.
                 // For simplicity in this context, we assume the caller manages the original token's lifetime.
                 // _cts?.Dispose(); // Removed disposal
-                _udpClient?.Dispose ();
+                _udpClient?.Dispose();
                 // NatsConnection disposal is async
-                _natsConnection?.DisposeAsync ().AsTask ().Wait (); // Simple synchronous wait
-                Debug.WriteLine ("[NATS NAT] Disposed.");
+                _natsConnection?.DisposeAsync().AsTask().Wait(); // Simple synchronous wait
+                Debug.WriteLine("[NATS NAT] Disposed.");
             }
         }
-        
-            // Helper method to convert hex string to byte array
-            private static byte[] ConvertHexStringToByteArray(string hexString)
+
+        // Helper method to convert hex string to byte array
+        private static byte[] ConvertHexStringToByteArray(string hexString)
+        {
+            if (hexString.Length % 2 != 0)
+                throw new ArgumentException("Hex string must have an even number of characters.", nameof(hexString));
+
+            byte[] bytes = new byte[hexString.Length / 2];
+            for (int i = 0; i < bytes.Length; i++)
             {
-                if (hexString.Length % 2 != 0)
-                    throw new ArgumentException("Hex string must have an even number of characters.", nameof(hexString));
-        
-                byte[] bytes = new byte[hexString.Length / 2];
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    string hexPair = hexString.Substring(i * 2, 2);
-                    bytes[i] = Convert.ToByte(hexPair, 16);
-                }
-                return bytes;
+                string hexPair = hexString.Substring(i * 2, 2);
+                bytes[i] = Convert.ToByte(hexPair, 16);
             }
-        
+            return bytes;
+        }
+
     }
 }
