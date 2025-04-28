@@ -23,6 +23,7 @@ namespace MonoTorrent.Dht
     public class NatsNatTraversalService : IDisposable
     {
         private readonly NatsConnection _natsConnection;
+        private IDhtListener? _dhtListener; // Store DHT listener
 
         // Optional DHT engine for direct node injection
         public IDhtEngine? DhtEngine { get; set; }
@@ -83,6 +84,7 @@ namespace MonoTorrent.Dht
         /// <param name="token">Cancellation token.</param>
         public async Task InitializeAsync(IDhtListener? listener, IPortForwarder? portForwarder, CancellationToken token = default)
         {
+            _dhtListener = listener;
             _cts = CancellationTokenSource.CreateLinkedTokenSource(token);
             var linkedToken = _cts.Token;
             // NodeId is set in constructor (no check needed)
@@ -256,7 +258,7 @@ namespace MonoTorrent.Dht
 
             // Format: NodeId|PeerId|ExternalIP|ExternalPort|InternalIPs(comma-separated)|InternalPort
             string internalIps = GetLocalInternalIpsCsv();
-            int internalPort = (MessageLoopLocalPort() ?? _myExternalEndPoint.Port);
+            int internalPort = (_dhtListener?.LocalEndPoint?.Port ?? _myExternalEndPoint.Port);
             var peerInfo = $"{_localPeerId.ToHex()}|{_localPeerBencodedId}|{_myExternalEndPoint.Address}|{_myExternalEndPoint.Port}|{internalIps}|{internalPort}";
             var data = Encoding.UTF8.GetBytes(peerInfo);
 
@@ -323,8 +325,8 @@ namespace MonoTorrent.Dht
                 try
                 {
                     byte[] compactNode = new byte[26];
-                    var nodeIdBytes = e.NodeId.Span;
-                    nodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
+                    var compactNodeIdBytes = e.NodeId.Span;
+                    compactNodeIdBytes.CopyTo(compactNode.AsSpan(0, 20));
                     var ipBytes = e.EndPoint.Address.GetAddressBytes();
                     if (ipBytes.Length == 4)
                     {
@@ -334,6 +336,24 @@ namespace MonoTorrent.Dht
                         compactNode[25] = (byte)(port & 0xFF);
                         DhtEngine.Add(new[] { new ReadOnlyMemory<byte>(compactNode) });
                         Debug.WriteLine($"[NATS NAT] Injected discovered peer {e.EndPoint} into DHT engine.");
+                        // Also inject LAN internal endpoint if available
+                        if (!string.IsNullOrEmpty(e.InternalIp) && e.InternalPort > 0) {
+                            try {
+                                var internalAddr = IPAddress.Parse(e.InternalIp);
+                                var internalEp = new IPEndPoint(internalAddr, e.InternalPort);
+                                byte[] internalNode = new byte[26];
+                                var internalNodeIdBytes = e.NodeId.Span;
+                                internalNodeIdBytes.CopyTo(internalNode.AsSpan(0, 20));
+                                var internalIpBytes = internalAddr.GetAddressBytes();
+                                internalIpBytes.CopyTo(internalNode, 20);
+                                internalNode[24] = (byte)(e.InternalPort >> 8);
+                                internalNode[25] = (byte)(e.InternalPort & 0xFF);
+                                DhtEngine.Add(new[] { new ReadOnlyMemory<byte>(internalNode) });
+                                Debug.WriteLine($"[NATS NAT] Injected internal discovered peer {internalEp} into DHT engine.");
+                            } catch (Exception ex2) {
+                                Debug.WriteLine($"[NATS NAT] Failed to inject internal peer into DHT: {ex2.Message}");
+                            }
+                        }
                     }
                 }
                 catch (Exception ex)
