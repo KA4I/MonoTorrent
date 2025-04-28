@@ -233,6 +233,8 @@ internal async Task Add (Node node)
         /// <returns>A tuple containing the value, public key, signature, and sequence number (if available).</returns>
         public async Task<(BEncodedValue? value, BEncodedString? publicKey, BEncodedString? signature, long? sequenceNumber)> GetAsync (NodeId target, long? sequenceNumber = null)
         {
+            var getStart = DateTime.UtcNow;
+            System.Diagnostics.Debug.WriteLine($"[TIMING][DHT GET] Start: {getStart:O} Target={target.ToHex()} Seq={sequenceNumber?.ToString() ?? "null"}");
             CheckDisposed ();
             if (target is null)
                 throw new ArgumentNullException (nameof (target));
@@ -242,6 +244,7 @@ internal async Task Add (Node node)
             if (LocalStorage.TryGetValue(target, out var stored))
             {
                 System.Console.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] GetAsync: LocalStorage HIT for Target {target.ToHex().Substring(0,6)}. Returning stored item (Seq: {stored.SequenceNumber?.ToString() ?? "N/A"}).");
+                System.Diagnostics.Debug.WriteLine($"[TIMING][DHT GET] LocalStorage HIT (Elapsed: {(DateTime.UtcNow - getStart).TotalMilliseconds:F0} ms)");
                 return (stored.Value, stored.PublicKey, stored.Signature, stored.SequenceNumber);
             }
             System.Console.WriteLine($"[DhtEngine {LocalId.ToHex().Substring(0,6)}] GetAsync: LocalStorage MISS for Target {target.ToHex().Substring(0,6)}. Proceeding with network lookup.");
@@ -253,11 +256,14 @@ internal async Task Add (Node node)
             // Execute the task ONCE and get the nodes.
             var nodesToQuery = await getPeersTask.ExecuteAsync();
             Console.WriteLine($"[DhtEngine {LocalId}] GetPeersTask completed for {target}. Found {nodesToQuery.Count()} nodes to query."); // Log nodes found
+            System.Diagnostics.Debug.WriteLine($"[TIMING][DHT GET] GetPeersTask found {nodesToQuery.Count()} nodes (Elapsed: {(DateTime.UtcNow - getStart).TotalMilliseconds:F0} ms)");
 
             // 2. Execute the GetTask using the found nodes
             var getTask = new GetTask (this, target, nodesToQuery, sequenceNumber);
             Console.WriteLine($"[DhtEngine {LocalId}] Executing GetTask for {target} with {nodesToQuery.Count()} nodes."); // Log before calling GetTask
+            var getTaskStart = DateTime.UtcNow;
             var result = await getTask.ExecuteAsync ();
+            System.Diagnostics.Debug.WriteLine($"[TIMING][DHT GET] GetTask.ExecuteAsync completed (Elapsed: {(DateTime.UtcNow - getTaskStart).TotalMilliseconds:F0} ms, Total: {(DateTime.UtcNow - getStart).TotalMilliseconds:F0} ms)");
             Console.WriteLine($"[DhtEngine {LocalId}] GetTask completed for {target}. Result: ValuePresent={result.value!=null}, PKPresent={result.publicKey!=null}, SigPresent={result.signature!=null}, Seq={result.sequenceNumber?.ToString() ?? "null"}"); // Log final result
             return result;
         }
@@ -324,6 +330,8 @@ internal async Task Add (Node node)
         /// <param name="cas">Optional Compare-And-Swap sequence number.</param>
         public async Task PutMutableAsync (BEncodedString publicKey, BEncodedString? salt, BEncodedValue value, long sequenceNumber, BEncodedString signature, long? cas = null)
         {
+            var putStart = DateTime.UtcNow;
+            System.Diagnostics.Debug.WriteLine($"[TIMING][DHT PUT] Start: {putStart:O} PK={publicKey?.ToHex() ?? "null"} Seq={sequenceNumber} Salt={salt?.ToHex() ?? "null"}");
             CheckDisposed ();
             if (publicKey is null || publicKey.Span.Length != 32)
                 throw new ArgumentException("Public key must be 32 bytes", nameof(publicKey));
@@ -344,6 +352,7 @@ internal async Task Add (Node node)
             // 1. Find closest nodes using GetPeers logic
             var getPeersTask = new GetPeersTask(this, target);
             var nodes = await getPeersTask.ExecuteAsync(); // Capture the returned nodes
+            System.Diagnostics.Debug.WriteLine($"[TIMING][DHT PUT] GetPeersTask found {nodes.Count()} nodes for target {target.ToHex()} (Elapsed: {(DateTime.UtcNow - putStart).TotalMilliseconds:F0} ms)");
 
             // 2. Get write tokens from these nodes (using get_peers or get)
             // Using get_peers is simpler as it's already implemented for Announce
@@ -367,14 +376,20 @@ internal async Task Add (Node node)
                 }
                  // If we used 'get' we'd check for GetResponse
             }
+            System.Diagnostics.Debug.WriteLine($"[TIMING][DHT PUT] Acquired tokens from {nodesWithTokens.Count} nodes (Elapsed: {(DateTime.UtcNow - putStart).TotalMilliseconds:F0} ms)");
 
             // 3. Send Put requests with tokens
             if (nodesWithTokens.Count > 0)
             {
                 var putTask = new PutTask (this, value, publicKey, salt, sequenceNumber, signature, cas, nodesWithTokens);
+                var putTaskStart = DateTime.UtcNow;
                 await putTask.ExecuteAsync ();
+                System.Diagnostics.Debug.WriteLine($"[TIMING][DHT PUT] PutTask.ExecuteAsync completed (Elapsed: {(DateTime.UtcNow - putTaskStart).TotalMilliseconds:F0} ms, Total: {(DateTime.UtcNow - putStart).TotalMilliseconds:F0} ms)");
             }
-             // Else: Log failure to get any tokens?
+            else
+            {
+                System.Diagnostics.Debug.WriteLine($"[TIMING][DHT PUT] No tokens acquired, skipping PutTask (Total Elapsed: {(DateTime.UtcNow - putStart).TotalMilliseconds:F0} ms)");
+            }
         }
 
         /// <summary>
@@ -514,12 +529,35 @@ internal async Task Add (Node node)
 
         internal async Task<SendQueryEventArgs> SendQueryAsync (QueryMessage query, Node node)
         {
+            var sendStart = DateTime.UtcNow;
+            System.Diagnostics.Debug.WriteLine($"[DHT DEBUG] SendQueryAsync called. Query={query.GetType().Name}, Node={node.EndPoint}, NodeId={node.Id.ToHex()}");
+            // Prevent sending queries to self by checking NodeId first, then external endpoint as a fallback.
+            bool isSelfNodeId = node.Id.Equals(this.LocalId);
+            bool isSelfExternalEndpoint = ExternalEndPoint != null && node.EndPoint.Address.Equals(ExternalEndPoint.Address) && node.EndPoint.Port == ExternalEndPoint.Port;
+
+            if (isSelfNodeId || isSelfExternalEndpoint)
+            {
+                System.Diagnostics.Debug.WriteLine($"[DHT WARNING] Attempted to send DHT query to self (NodeIdMatch={isSelfNodeId}, EndpointMatch={isSelfExternalEndpoint}) at {node.EndPoint}. Skipping send.");
+                // Return default SendQueryEventArgs. The calling code will handle the lack of response.
+                // TimedOut will be false, Error will be null, Response will be null.
+                return new SendQueryEventArgs(node, node.EndPoint, null);
+            }
+            System.Diagnostics.Debug.WriteLine($"[TIMING][DHT SENDQUERY] Start: {sendStart:O} Query={query.GetType().Name} Node={node.EndPoint} NodeId={node.Id.ToHex().Substring(0,6)}");
             await MainLoop;
 
             var e = default (SendQueryEventArgs);
             for (int i = 0; i < 4; i++) {
+                var attemptStart = DateTime.UtcNow;
                 e = await MessageLoop.SendAsync (query, node);
-
+                System.Diagnostics.Debug.WriteLine($"[TIMING][DHT SENDQUERY] Attempt {i+1} to {node.EndPoint} (Elapsed: {(DateTime.UtcNow - attemptStart).TotalMilliseconds:F0} ms, TimedOut={e.TimedOut})");
+                // Extra debug for cross-NAT and token issues
+                if (e.Response == null && e.Error == null && e.TimedOut) {
+                    System.Diagnostics.Debug.WriteLine($"[DHT DEBUG] Query to {node.EndPoint} (NodeId={node.Id.ToHex().Substring(0,6)}) timed out. QueryType={query.GetType().Name} Attempt={i+1}");
+                } else if (e.Response != null) {
+                    System.Diagnostics.Debug.WriteLine($"[DHT DEBUG] Query to {node.EndPoint} (NodeId={node.Id.ToHex().Substring(0,6)}) got response: {e.Response.GetType().Name}");
+                } else if (e.Error != null) {
+                    System.Diagnostics.Debug.WriteLine($"[DHT DEBUG] Query to {node.EndPoint} (NodeId={node.Id.ToHex().Substring(0,6)}) got error: {e.Error}");
+                }
                 // If the message timed out and we we haven't already hit the maximum retries
                 // send again. Otherwise we propagate the eventargs through the Complete event.
                 if (e.TimedOut) {
@@ -527,10 +565,12 @@ internal async Task Add (Node node)
                     continue;
                 } else {
                     node.Seen ();
+                    System.Diagnostics.Debug.WriteLine($"[TIMING][DHT SENDQUERY] Success to {node.EndPoint} (Total Elapsed: {(DateTime.UtcNow - sendStart).TotalMilliseconds:F0} ms)");
                     return e;
                 }
             }
 
+            System.Diagnostics.Debug.WriteLine($"[TIMING][DHT SENDQUERY] All attempts timed out to {node.EndPoint} (Total Elapsed: {(DateTime.UtcNow - sendStart).TotalMilliseconds:F0} ms)");
             return e;
         }
 

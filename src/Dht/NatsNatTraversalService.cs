@@ -84,6 +84,8 @@ namespace MonoTorrent.Dht
         /// <param name="token">Cancellation token.</param>
         public async Task InitializeAsync(IDhtListener? listener, IPortForwarder? portForwarder, CancellationToken token = default)
         {
+            var startTime = DateTime.UtcNow;
+            Debug.WriteLine($"[TIMING][NATS INIT] Start: {startTime:O}");
             _dhtListener = listener;
             _cts = CancellationTokenSource.CreateLinkedTokenSource(token);
             var linkedToken = _cts.Token;
@@ -91,8 +93,10 @@ namespace MonoTorrent.Dht
 
             try
             {
+                var natsConnectStart = DateTime.UtcNow;
                 await _natsConnection.ConnectAsync();
-                Debug.WriteLine("[NATS NAT] Connected to NATS.");
+                var natsConnectEnd = DateTime.UtcNow;
+                Debug.WriteLine($"[NATS NAT] Connected to NATS. (Elapsed: {(natsConnectEnd - natsConnectStart).TotalMilliseconds:F0} ms)");
 
                 // 1. Determine external endpoint
                 IPEndPoint? localDhtEndpoint = listener?.LocalEndPoint; // Get endpoint from listener if available
@@ -108,11 +112,14 @@ namespace MonoTorrent.Dht
                 // Try UPnP/NAT-PMP for port mapping if available and we have a local DHT port
                 if (portForwarder != null && localDhtEndpoint != null)
                 {
+                    var upnpStart = DateTime.UtcNow;
                     Debug.WriteLine($"[NATS NAT INFO] Attempting port mapping via UPnP/NAT-PMP for port {localDhtEndpoint.Port}...");
                     var mapping = new Mapping(Protocol.Udp, localDhtEndpoint.Port); // Use the DHT listener port
                     try
                     {
                         await portForwarder.RegisterMappingAsync(mapping);
+                        var upnpEnd = DateTime.UtcNow;
+                        Debug.WriteLine($"[NATS NAT INFO] UPnP/NAT-PMP mapping elapsed: {(upnpEnd - upnpStart).TotalMilliseconds:F0} ms");
                         // Check if the mapping was successful (external port might be different)
                         // We assume the Mapping object is updated with the actual external port.
                         if (mapping.PublicPort > 0)
@@ -132,8 +139,11 @@ namespace MonoTorrent.Dht
                 }
 
                 // Try HTTP to get Public IP
+                var httpStart = DateTime.UtcNow;
                 Debug.WriteLine("[NATS NAT INFO] Attempting HTTP query for public IP...");
                 publicIP = await DiscoverPublicIPAsync(linkedToken);
+                var httpEnd = DateTime.UtcNow;
+                Debug.WriteLine($"[NATS NAT INFO] HTTP public IP discovery elapsed: {(httpEnd - httpStart).TotalMilliseconds:F0} ms");
                 if (publicIP != null)
                 {
                     Debug.WriteLine($"[NATS NAT INFO] Discovered public IP via HTTP: {publicIP}");
@@ -171,14 +181,17 @@ namespace MonoTorrent.Dht
                 // *** MODIFIED LOGIC END ***
 
                 // 2. Start subscribing to peer info subject BEFORE publishing self
+                var subStart = DateTime.UtcNow;
                 _subscriptionTask = Task.Run(() => SubscribeToPeerInfoAsync(linkedToken), linkedToken);
 
                 // 3. Start periodic publishing in the background
+                var pubStart = DateTime.UtcNow;
                 _publishingTask = Task.Run(() => StartPeriodicPublishingAsync(linkedToken), linkedToken);
 
                 // 4. Hole punching is initiated as peers are discovered in the subscription loop.
 
-                Debug.WriteLine("[NATS NAT] Initialization sequence complete. Listening for peers...");
+                var endTime = DateTime.UtcNow;
+                Debug.WriteLine($"[NATS NAT] Initialization sequence complete. Listening for peers... (Total Elapsed: {(endTime - startTime).TotalMilliseconds:F0} ms)");
 
             }
             catch (OperationCanceledException)
@@ -322,6 +335,12 @@ namespace MonoTorrent.Dht
             // Inject discovered peer into DHT engine if available
             if (DhtEngine != null && DhtEngine.State == DhtState.Ready)
             {
+                // Prevent injecting our own public IP as a DHT peer
+                if (_myExternalEndPoint != null && e.EndPoint.Address.Equals(_myExternalEndPoint.Address))
+                {
+                    Debug.WriteLine($"[NATS NAT] Skipping injection of self peer {e.EndPoint} (matches our own public IP).");
+                    return;
+                }
                 try
                 {
                     byte[] compactNode = new byte[26];
