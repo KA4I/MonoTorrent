@@ -70,7 +70,9 @@ namespace MonoTorrent.Dht.Tasks
             var tasks = new List<Task<SendQueryEventArgs>> ();
             int queryIndex = 0;
             foreach (Node node in NodesToQuery) {
-                Console.WriteLine($"[GetTask {Target}] Sending GetRequest to Node {queryIndex++}: {node.Id} ({node.EndPoint})"); // Log node being queried
+                // Removed extra debug log
+                // Log node being queried
+                System.Console.WriteLine($"[GetTask {Engine.LocalId.ToHex().Substring(0,6)}] Sending GetRequest for Target {Target.ToHex().Substring(0,6)} to Node {node.Id.ToHex().Substring(0,6)} (EP: {node.EndPoint}). QueryIndex: {queryIndex++}");
                 var request = new GetRequest (Engine.LocalId, Target, SequenceNumber);
                 tasks.Add (Engine.SendQueryAsync (request, node));
             }

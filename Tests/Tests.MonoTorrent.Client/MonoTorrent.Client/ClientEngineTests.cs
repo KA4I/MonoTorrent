@@ -395,7 +395,7 @@ namespace MonoTorrent.Client
         [Test]
         [TestCase (true)]
         [TestCase (false)]
-        public async Task SaveRestoreState_OneInMemoryTorrent (bool addStreaming)
+            public async Task SaveRestoreState_OneInMemoryTorrent (bool addStreaming)
         {
             var pieceLength = Constants.BlockSize * 4;
             using var tmpDir = TempDir.Create ();

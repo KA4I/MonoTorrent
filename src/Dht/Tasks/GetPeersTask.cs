@@ -67,6 +67,8 @@ namespace MonoTorrent.Dht.Tasks
             var closestActiveNodes = new ClosestNodesCollection (InfoHash);
 
             foreach (Node node in Engine.RoutingTable.GetClosest (InfoHash)) {
+                // *** DEBUG LOG: Inspect node retrieved from routing table ***
+                System.Console.WriteLine($"[GetPeersTask {Engine.LocalId.ToHex().Substring(0,6)}] DEBUG: Got node from RoutingTable: {node.Id.ToHex().Substring(0,6)} @ {node.EndPoint} (HashCode: {node.GetHashCode()})");
                 if (closestNodes.Add (node))
                     activeQueries.Add (Engine.SendQueryAsync (new GetPeers (Engine.LocalId, InfoHash), node));
             }
@@ -77,6 +79,8 @@ namespace MonoTorrent.Dht.Tasks
 
                 // If it timed out or failed just move to the next query.
                 SendQueryEventArgs query = await completed;
+                // *** DEBUG LOG: Inspect the Node object received in SendQueryEventArgs ***
+                // Removed extra debug logs
                 if (query.Response == null)
                     continue;
 
@@ -98,7 +102,10 @@ namespace MonoTorrent.Dht.Tasks
                             activeQueries.Add (Engine.SendQueryAsync (new GetPeers (Engine.LocalId, InfoHash), node));
                 }
 
-                closestActiveNodes.Add (query.Node);
+                // Create a new Node object from the response details to ensure the correct endpoint is used.
+                // The ID comes from the response, the endpoint comes from where the query was actually sent (query.EndPoint).
+                var respondingNode = new Node(query.Response.Id, query.EndPoint);
+                closestActiveNodes.Add(respondingNode);
             }
 
             // Finally, return the 8 closest nodes we discovered during this phase. These are the nodes we should

@@ -145,7 +145,6 @@ namespace MonoTorrent.Dht.Messages
             // Verify the token
             if (!engine.TokenManager.VerifyToken(node, Token))
             {
-                Console.WriteLine($"[PutRequest.Handle] Invalid token received from {node.EndPoint}. Discarding PutRequest.");
                 // Send ErrorMessage for bad token (ErrorCode 203)
                 var error = new ErrorMessage(TransactionId!, ErrorCode.ProtocolError, "Invalid token provided.");
                 engine.MessageLoop.EnqueueSend(error, node, node.EndPoint);
@@ -158,7 +157,6 @@ namespace MonoTorrent.Dht.Messages
             if (isMutable)
             {
                 targetId = DhtEngine.CalculateMutableTargetId(PublicKey!, Salt); // PublicKey is checked by isMutable
-                Console.WriteLine($"[PutRequest.Handle] Received mutable PutRequest for {targetId} from {node.EndPoint}. Seq: {SequenceNumber}");
 
                 // TODO: Verify signature (requires Ed25519 library) before storing.
                 //       If signature is invalid, send an ErrorMessage (e.g., ProtocolError 203).
@@ -171,7 +169,6 @@ namespace MonoTorrent.Dht.Messages
                     // Store the item using the engine's storage mechanism
                     engine.StoreItem(targetId, itemToStore);
                 } else {
-                     Console.WriteLine($"[PutRequest.Handle] Error: Missing SequenceNumber or Signature for mutable PutRequest for {targetId}.");
                      // Optionally send an error response back
                      var error = new ErrorMessage(TransactionId!, ErrorCode.ProtocolError, "Missing sequence number or signature for mutable put.");
                      engine.MessageLoop.EnqueueSend(error, node, node.EndPoint);
@@ -183,7 +180,6 @@ namespace MonoTorrent.Dht.Messages
                 // Immutable item - calculate target from value hash
                 using (var sha1 = System.Security.Cryptography.SHA1.Create())
                     targetId = new NodeId(sha1.ComputeHash(Value.Encode()));
-                Console.WriteLine($"[PutRequest.Handle] Received immutable PutRequest for {targetId} from {node.EndPoint}.");
                 // Create and store StoredDhtItem for immutable data
                 var itemToStore = new StoredDhtItem(Value);
                 engine.StoreItem(targetId, itemToStore);

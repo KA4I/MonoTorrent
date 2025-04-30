@@ -40,7 +40,7 @@ using MonoTorrent.Messages;
 
 namespace MonoTorrent.Dht
 {
-    class Node : IEquatable<Node>
+    public class Node : IEquatable<Node> // Made public
     {
         public static readonly int MaxFailures = 4;
 
@@ -138,7 +138,7 @@ namespace MonoTorrent.Dht
 
             byte[] id = new byte[20];
             buffer.Slice (0, 20).CopyTo (id);
-            var address = new IPAddress (BinaryPrimitives.ReadUInt32LittleEndian (buffer.Slice (20, 4)));
+            var address = new IPAddress (buffer.Slice (20, 4).ToArray ()); // Use byte[] constructor which expects network byte order
             int port = BinaryPrimitives.ReadUInt16BigEndian(buffer.Slice (24, 2));
             return new Node (NodeId.FromMemory (id), new IPEndPoint (address, port));
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,296 +8,233 @@ using System.Threading;
 using System.Threading.Tasks;
 using MonoTorrent.BEncoding;
 using MonoTorrent.Dht.Messages;
-using NATS.Client.Core; // Assuming NATS.Client.Core is used
-using NATS.Client.JetStream; // May not be needed for basic pub/sub/req/rep
+using NATS.Client.Core;
+using NATS.Client.JetStream;
 using NUnit.Framework;
-using MonoTorrent.Client; // Add missing using
+using MonoTorrent.Client;
+using MonoTorrent.Connections;
+using MonoTorrent.Connections.Dht;
+using MonoTorrent.PieceWriter;
+using Org.BouncyCastle.Crypto.Parameters; // Added for Ed25519 keys
+using Org.BouncyCastle.Crypto.Signers;   // Added for Ed25519 signing
+using System.Security.Cryptography; // Added for SHA1
+using Org.BouncyCastle.Security;         // Added for SecureRandom, GeneratorUtilities
 
 namespace MonoTorrent.Dht
 {
     [TestFixture]
     public class NatsDhtIntegrationTests
     {
-        // TODO: Configure NATS server URL (e.g., from environment variable or local default)
-        private static readonly string NatsServerUrl = "nats://demo.nats.io:4222"; // Use demo server
+        private static readonly string NatsServerUrl = "nats://demo.nats.io:4222";
         private static readonly NatsOpts NatsOptions = NatsOpts.Default with { Url = NatsServerUrl };
 
-        private ClientEngine? engineA;
-        private ClientEngine? engineB;
+        private DhtEngine? dhtEngineA;
+        private DhtEngine? dhtEngineB;
+        private IDhtListener? listenerA;
+        private IDhtListener? listenerB;
         private NatsNatTraversalService? natsServiceA;
         private NatsNatTraversalService? natsServiceB;
-
-        // Placeholder for a simple NATS echo service for discovery
-        private Task? _natsDiscoveryServiceTask;
-        private CancellationTokenSource? _natsDiscoveryCts;
-
+ private BEncodedString peerIdA; // Use BEncodedString for PeerId representation
+ private BEncodedString peerIdB;
+      
+        // Removed placeholder discovery service fields
+      
+      
         [SetUp]
-        public void Setup()
+        public void Setup ()
         {
-            // Reset engines and services before each test
-            // Dispose ClientEngines first, which should handle DHT engine disposal.
-            engineA?.Dispose();
-            engineB?.Dispose();
-            // Dispose NATS services separately.
-            natsServiceA?.Dispose();
-            natsServiceB?.Dispose();
-            _natsDiscoveryCts?.Cancel();
-            _natsDiscoveryCts?.Dispose();
+            dhtEngineA?.Dispose ();
+            dhtEngineB?.Dispose ();
+            listenerA?.Stop ();
+            listenerB?.Stop ();
+            natsServiceA?.Dispose ();
+            natsServiceB?.Dispose ();
+            // Removed placeholder discovery service cleanup
 
-            // Use default EngineSettings, which should enable DHT by default if an endpoint is provided.
-            // We'll provide the DHT endpoint later via the listener.
-            var settings = new EngineSettingsBuilder {
-                 // Provide a DHT endpoint to ensure a real DhtEngine is created.
-                 // Port 0 allows the OS to assign an available port.
-                 DhtEndPoint = new IPEndPoint(IPAddress.Any, 0),
-                 AutoSaveLoadDhtCache = true // Keep this setting
-            }.ToSettings();
+            dhtEngineA = new DhtEngine ();
+            dhtEngineB = new DhtEngine ();
+   // Generate random 20-byte PeerIDs and store as BEncodedString
+   var idBytesA = new byte[20];
+   var idBytesB = new byte[20];
+			using (var rng = RandomNumberGenerator.Create()) {
+				rng.GetBytes (idBytesA);
+				rng.GetBytes (idBytesB);
+			}
+   peerIdA = new BEncodedString (idBytesA);
+   peerIdB = new BEncodedString (idBytesB);
+            // Removed placeholder discovery list initialization
+         
+            listenerA = new DhtListener (new IPEndPoint (IPAddress.Loopback, 0));
+            listenerB = new DhtListener (new IPEndPoint (IPAddress.Loopback, 0));
+            dhtEngineA.SetListenerAsync (listenerA).GetAwaiter ().GetResult ();
+            dhtEngineB.SetListenerAsync (listenerB).GetAwaiter ().GetResult ();
 
-            engineA = new ClientEngine(settings);
-            engineB = new ClientEngine(settings);
+            listenerA.Start ();
+            listenerB.Start ();
 
-            // Start a placeholder discovery service for tests
-            _natsDiscoveryCts = new CancellationTokenSource();
-            _natsDiscoveryServiceTask = StartPlaceholderDiscoveryServiceAsync(NatsOptions, _natsDiscoveryCts.Token);
-            // Give the placeholder service a moment to start and subscribe
-            Thread.Sleep(200); // Use Thread.Sleep in Setup as it's synchronous
+            var sw = System.Diagnostics.Stopwatch.StartNew ();
+            while ((listenerA.Status != ListenerStatus.Listening || listenerB.Status != ListenerStatus.Listening) && sw.Elapsed < TimeSpan.FromSeconds (5)) {
+                Thread.Sleep (50);
+            }
+
+            Assert.AreEqual (ListenerStatus.Listening, listenerA.Status, "Listener A did not start listening.");
+            Assert.AreEqual (ListenerStatus.Listening, listenerB.Status, "Listener B did not start listening.");
+            Assert.IsNotNull (listenerA.LocalEndPoint, "Listener A failed to bind.");
+            Assert.IsNotNull (listenerB.LocalEndPoint, "Listener B failed to bind.");
+
+            // Removed placeholder discovery service startup
         }
 
         [TearDown]
-        public async Task Teardown()
+        public async Task Teardown ()
         {
-            _natsDiscoveryCts?.Cancel();
-            if (_natsDiscoveryServiceTask != null)
-            {
-                try { await _natsDiscoveryServiceTask; } catch { /* Ignore cancellation */ }
-            }
-            _natsDiscoveryCts?.Dispose();
-            engineA?.Dispose();
-            engineB?.Dispose();
-            natsServiceA?.Dispose();
-            natsServiceB?.Dispose();
-            // Give NATS connections time to close gracefully if needed
-            await Task.Delay(100);
-        }
-
-        // Placeholder NATS Discovery Service (Simulates responding to discovery requests)
-        private async Task StartPlaceholderDiscoveryServiceAsync(NatsOpts opts, CancellationToken token)
-        {
-            await Task.Yield(); // Ensure it runs async
-            try
-            {
-                var nats = new NatsConnection(opts);
-                await nats.ConnectAsync();
-                Console.WriteLine("[Discovery Service] Connected to NATS.");
-                await foreach (var msg in nats.SubscribeAsync<byte[]>("p2p.discovery.request", cancellationToken: token))
-                {
-                    try
-                    {
-                        // Simulate discovering the external IP/Port.
-                        string fakeExternalIp = "1.2.3.4"; // Example fake IP
-                        int fakeExternalPort = new Random().Next(10000, 60000); // Example fake port
-                        string replyData = $"{fakeExternalIp}|{fakeExternalPort}";
-                        Console.WriteLine($"[Discovery Service] Replying to {msg.ReplyTo} with {replyData}");
-                        await msg.ReplyAsync(Encoding.UTF8.GetBytes(replyData), cancellationToken: token); // Encode reply as bytes
-                    }
-                    catch (Exception ex) when (ex is not OperationCanceledException)
-                    {
-                         Console.WriteLine($"[Discovery Service Error] {ex.Message}");
-                    }
-                }
-            }
-            catch (OperationCanceledException) { Console.WriteLine("[Discovery Service] Stopped."); }
-            catch (Exception ex) { Console.WriteLine($"[Discovery Service Connection Error] {ex.Message}"); }
+            // Removed placeholder discovery service teardown
+            listenerA?.Stop ();
+            listenerB?.Stop ();
+            dhtEngineA?.Dispose ();
+            dhtEngineB?.Dispose ();
+            natsServiceA?.Dispose ();
+            natsServiceB?.Dispose ();
+            await Task.Delay (100);
         }
 
 
         [Test]
-        public async Task Test_NatsDiscovery_And_Bootstrap()
+        public async Task Test_NatsDiscovery_Then_DHT_PutGet ()
         {
-            Assert.IsNotNull(engineA!, "ClientEngine A should not be null"); // Add null-forgiving operator
-            Assert.IsNotNull(engineB!, "ClientEngine B should not be null"); // Add null-forgiving operator
+            Assert.IsNotNull (dhtEngineA, "DhtEngine A should not be null");
+            Assert.IsNotNull (dhtEngineB, "DhtEngine B should not be null");
+            Assert.IsNotNull (listenerA?.LocalEndPoint, "Listener A should have a local endpoint");
+            Assert.IsNotNull (listenerB?.LocalEndPoint, "Listener B should have a local endpoint");
+            // Removed assertion for _localEndpointsForDiscovery
 
-            // NATS services require the DhtEngine's LocalId, which is accessible via ClientEngine.DhtEngine
-            Assert.IsNotNull(engineA!.DhtEngine as DhtEngine, "EngineA's DhtEngine should be a DhtEngine instance"); // Cast and check
-            Assert.IsNotNull(engineB!.DhtEngine as DhtEngine, "EngineB's DhtEngine should be a DhtEngine instance"); // Cast and check
-
-            natsServiceA = new NatsNatTraversalService(NatsOptions, ((DhtEngine)engineA!.DhtEngine).LocalId); // Cast to access LocalId
-            natsServiceB = new NatsNatTraversalService(NatsOptions, ((DhtEngine)engineB!.DhtEngine).LocalId); // Cast to access LocalId
-
-            // Initialize NATS services explicitly before starting the engine/torrents
-            try
-            {
-                await engineA!.DhtEngine.InitializeNatAsync(natsServiceA!); // Add null-forgiving operators
-                await engineB!.DhtEngine.InitializeNatAsync(natsServiceB!); // Add null-forgiving operators
-            }
-            catch (Exception ex)
-            {
-                 Assert.Fail($"NATS Service InitializeNatAsync failed: {ex.Message}");
-                 return;
-            }
-
-            // Add dummy torrents to trigger DHT engine startup
-            var magnetLinkA = new MagnetLink(InfoHashes.FromV1(new InfoHash(new byte[20])), "TorrentA");
-            var magnetLinkB = new MagnetLink(InfoHashes.FromV1(new InfoHash(Enumerable.Repeat((byte)0xFF, 20).ToArray())), "TorrentB");
-
-            var managerA = await engineA!.AddAsync(magnetLinkA, "dummy_save_path_A"); // Add null-forgiving operator
-            var managerB = await engineB!.AddAsync(magnetLinkB, "dummy_save_path_B"); // Add null-forgiving operator
-
-            // Start the torrents (this implicitly starts the ClientEngine's DHT)
-            try
-            {
-                await managerA.StartAsync();
-                await managerB.StartAsync();
+        			// Instantiate NATS services, passing the correct PeerId
+   natsServiceA = new NatsNatTraversalService (NatsOptions, dhtEngineA!.LocalId, peerIdA); // Pass BEncodedString directly
+   natsServiceB = new NatsNatTraversalService (NatsOptions, dhtEngineB!.LocalId, peerIdB); // Pass BEncodedString directly
+        			// Initialize NATS services
+            var initTaskA_pg = natsServiceA.InitializeAsync (listenerA!, portForwarder: null);
+            var initTaskB_pg = natsServiceB.InitializeAsync (listenerB!, portForwarder: null);
+            try {
+                await Task.WhenAll (initTaskA_pg, initTaskB_pg);
+                Console.WriteLine ("[Test PutGet] NATS Services Initialized.");
             } catch (Exception ex) {
-                Assert.Fail ($"TorrentManager StartAsync failed: {ex.Message}");
-                return; // Prevent further execution if start fails
+                Assert.Fail ($"NATS Service InitializeAsync failed unexpectedly for PutGet: {ex.Message}");
+                return;
             }
 
-            // Assert that the DHT engines discovered their external endpoints after startup
-            Assert.IsNotNull(((DhtEngine)engineA!.DhtEngine).ExternalEndPoint, "EngineA ExternalEndPoint should be discovered after starting engine"); // Cast to access ExternalEndPoint
-            Assert.IsNotNull(((DhtEngine)engineB!.DhtEngine).ExternalEndPoint, "EngineB ExternalEndPoint should be discovered after starting engine"); // Cast to access ExternalEndPoint
+
+            // Wait for peers to discover each other via NATS, with a timeout
+            Console.WriteLine ("[Test PutGet] Waiting for NATS peer discovery...");
+            var discoveryTimeout_pg = TimeSpan.FromSeconds (20); // Increased timeout
+            var discoverySw_pg = System.Diagnostics.Stopwatch.StartNew ();
+            bool discoveredA_pg_status = false;
+            bool discoveredB_pg_status = false;
+        			IDictionary<NodeId, IPEndPoint>? discoveredByA_pg = null;
+        			IDictionary<NodeId, IPEndPoint>? discoveredByB_pg = null;
+        
+   // We need to check if the dictionary contains the *actual* NodeId of the other peer,
+   // as this is the key used by NatsNatTraversalService based on the received NATS message.
+   // The hashing logic was based on TorrentServiceTests where NodeId is derived from PeerId,
+   // which is not the case in this specific test setup.
+   var expectedNodeIdA = dhtEngineA!.LocalId;
+   var expectedNodeIdB = dhtEngineB!.LocalId;
+        
+        			while (discoverySw_pg.Elapsed < discoveryTimeout_pg && (!discoveredA_pg_status || !discoveredB_pg_status)) {
+        				discoveredByA_pg = natsServiceA.GetDiscoveredPeers ();
+        				discoveredByB_pg = natsServiceB.GetDiscoveredPeers ();
+    discoveredA_pg_status = discoveredByA_pg?.ContainsKey (expectedNodeIdB) ?? false; // Check for Peer B's actual NodeId
+    discoveredB_pg_status = discoveredByB_pg?.ContainsKey (expectedNodeIdA) ?? false; // Check for Peer A's actual NodeId
+        				if (!discoveredA_pg_status || !discoveredB_pg_status)
+        					await Task.Delay (250); // Poll every 250ms
+        			}
+            discoverySw_pg.Stop ();
+            Console.WriteLine ($"[Test PutGet] Peer discovery loop finished after {discoverySw_pg.ElapsedMilliseconds}ms. DiscoveredA: {discoveredA_pg_status}, DiscoveredB: {discoveredB_pg_status}");
+
+            // Discovered peers retrieved within the loop above
+
+        			Console.WriteLine ($"[Test PutGet] Peers discovered by A: {discoveredByA_pg?.Count ?? 0}");
+        			Console.WriteLine ($"[Test PutGet] Peers discovered by B: {discoveredByB_pg?.Count ?? 0}");
+        
+        			// Assert discovery after the wait loop
+        			Assert.IsTrue (discoveredA_pg_status, "NATS Service A did not discover Peer B for PutGet within timeout.");
+        			Assert.IsTrue (discoveredB_pg_status, "NATS Service B did not discover Peer A for PutGet within timeout.");
+        
+   var endpointB_discoveredByA_pg = discoveredByA_pg![expectedNodeIdB]; // Use actual NodeId B
+   var endpointA_discoveredByB_pg = discoveredByB_pg![expectedNodeIdA]; // Use actual NodeId A
+        
+        			dhtEngineA.ExternalEndPoint = natsServiceA.MyExternalEndPoint; // Set for consistency if needed elsewhere
+        			dhtEngineB.ExternalEndPoint = natsServiceB.MyExternalEndPoint;
+
+            // Create nodes using the discovered endpoints
+            var nodeA_forB_pg = new Node (dhtEngineA.LocalId, endpointA_discoveredByB_pg);
+            var nodeB_forA_pg = new Node (dhtEngineB.LocalId, endpointB_discoveredByA_pg);
+
+            // var initialNodesA = Node.CompactNode (new[] { nodeB_forA_pg }).AsMemory (); // Removed initial nodes
+            // var initialNodesB = Node.CompactNode (new[] { nodeA_forB_pg }).AsMemory (); // Removed initial nodes
+
+            Console.WriteLine ($"[Test PutGet] Starting DHT Engine A");
+            Console.WriteLine ($"[Test PutGet] Starting DHT Engine B");
+            // Start engines without initial nodes; they should discover each other on loopback.
+            var startTaskA = dhtEngineA.StartAsync (Array.Empty<byte> (), Array.Empty<string> ());
+            var startTaskB = dhtEngineB.StartAsync (Array.Empty<byte> (), Array.Empty<string> ());
+            await Task.WhenAll (startTaskA, startTaskB);
+            Console.WriteLine ("[Test PutGet] DHT engines started.");
+
+            // Allow time for routing tables to populate via pings/responses
+            Console.WriteLine ("[Test PutGet] Waiting 10 seconds for routing tables to populate...");
+            await Task.Delay (TimeSpan.FromSeconds (10));
+
+            // Verify routing tables contain each other
+            Assert.IsNotNull (dhtEngineA.RoutingTable.FindNode (expectedNodeIdB), "Engine A routing table should contain Engine B.");
+            Assert.IsNotNull (dhtEngineB.RoutingTable.FindNode (expectedNodeIdA), "Engine B routing table should contain Engine A.");
+            Console.WriteLine ("[Test PutGet] Routing tables populated.");
 
 
-            
+            Console.WriteLine ("[Test PutGet] Waiting for DHT engines to reach Ready state...");
+            var timeout = TimeSpan.FromSeconds (15);
+            var readyTaskA = WaitForReadyStateAsync (dhtEngineA, timeout);
+            var readyTaskB = WaitForReadyStateAsync (dhtEngineB, timeout);
+            await Task.WhenAll (readyTaskA, readyTaskB);
 
-            // Verify external endpoints were discovered (using placeholder values from echo service - assuming 1.2.3.4)
-            // Note: The actual IP/Port will depend on the NATS discovery service response.
-            Assert.AreEqual(IPAddress.Parse("1.2.3.4"), ((DhtEngine)engineA!.DhtEngine).ExternalEndPoint?.Address, "EngineA IP mismatch"); // Cast to access ExternalEndPoint
-            Assert.AreEqual(IPAddress.Parse("1.2.3.4"), ((DhtEngine)engineB!.DhtEngine).ExternalEndPoint?.Address, "EngineB IP mismatch"); // Cast to access ExternalEndPoint
-            Assert.IsTrue(((DhtEngine)engineA!.DhtEngine).ExternalEndPoint?.Port > 0, "EngineA Port invalid"); // Cast to access ExternalEndPoint
-            Assert.IsTrue(((DhtEngine)engineB!.DhtEngine).ExternalEndPoint?.Port > 0, "EngineB Port invalid"); // Cast to access ExternalEndPoint
-
-            // No need to manually add nodes now, they were provided during StartAsync
-
-            // Wait for engines to become ready
-            Console.WriteLine("[Test Bootstrap] Waiting for DHT engines to reach Ready state...");
-            var timeout = TimeSpan.FromSeconds(60); // Use the increased timeout
-            var readyTaskA = WaitForReadyStateAsync(engineA!, timeout); // Add null-forgiving operator
-            var readyTaskB = WaitForReadyStateAsync(engineB!, timeout); // Add null-forgiving operator
-            await Task.WhenAll(readyTaskA, readyTaskB);
-
-            // Verify both engines reach Ready state
-            Assert.AreEqual(DhtState.Ready, engineA!.Dht.State, $"EngineA DHT did not reach Ready state within {timeout.TotalSeconds}s"); // Add null-forgiving operator
-            Assert.AreEqual(DhtState.Ready, engineB!.Dht.State, $"EngineB DHT did not reach Ready state within {timeout.TotalSeconds}s"); // Add null-forgiving operator
-
-            // Test passed if endpoints are discovered and DHT reaches ready state.
-        }
-
-        [Test]
-        public async Task Test_NatsDiscovery_Then_DHT_PutGet()
-        {
-            Assert.IsNotNull(engineA!, "ClientEngine A should not be null"); // Add null-forgiving operator
-            Assert.IsNotNull(engineB!, "ClientEngine B should not be null"); // Add null-forgiving operator
-            // Placeholder discovery service task removed
-
-            // NATS services require the DhtEngine's LocalId
-            Assert.IsNotNull(engineA!.DhtEngine as DhtEngine, "EngineA's DhtEngine should be a DhtEngine instance"); // Cast and check
-            Assert.IsNotNull(engineB!.DhtEngine as DhtEngine, "EngineB's DhtEngine should be a DhtEngine instance"); // Cast and check
-
-            natsServiceA = new NatsNatTraversalService(NatsOptions, ((DhtEngine)engineA!.DhtEngine).LocalId); // Cast to access LocalId
-            natsServiceB = new NatsNatTraversalService(NatsOptions, ((DhtEngine)engineB!.DhtEngine).LocalId); // Cast to access LocalId
-
-            // Initialize NATS services explicitly before starting the engine/torrents
-            try
-            {
-                await engineA!.DhtEngine.InitializeNatAsync(natsServiceA!); // Add null-forgiving operators
-                await engineB!.DhtEngine.InitializeNatAsync(natsServiceB!); // Add null-forgiving operators
-            }
-            catch (Exception ex)
-            {
-                 Assert.Fail($"NATS Service InitializeNatAsync failed for PutGet test: {ex.Message}");
-                 return;
-            }
- 
-            // No initial nodes before NAT traversal completes
-            var emptyNodes = ReadOnlyMemory<byte>.Empty;
- 
-            // Add dummy torrents to trigger DHT engine startup
-            var magnetLinkA = new MagnetLink(InfoHashes.FromV1(new InfoHash(new byte[20])), "TorrentA");
-            var magnetLinkB = new MagnetLink(InfoHashes.FromV1(new InfoHash(Enumerable.Repeat((byte)0xFF, 20).ToArray())), "TorrentB");
-
-            var managerA = await engineA!.AddAsync(magnetLinkA, "dummy_save_path_A"); // Add null-forgiving operator
-            var managerB = await engineB!.AddAsync(magnetLinkB, "dummy_save_path_B"); // Add null-forgiving operator
-
-            // Start the torrents (this implicitly starts the ClientEngine's DHT)
-            try
-            {
-                await managerA.StartAsync();
-                await managerB.StartAsync();
-            } catch (Exception ex) {
-                Assert.Fail ($"TorrentManager StartAsync failed for PutGet test: {ex.Message}");
-                return; // Prevent further execution if start fails
-            }
-
-            // Assert that the DHT engines discovered their external endpoints after startup
-            Assert.IsNotNull(((DhtEngine)engineA!.DhtEngine).ExternalEndPoint, "EngineA ExternalEndPoint should be discovered after starting engine"); // Cast to access ExternalEndPoint
-            Assert.IsNotNull(((DhtEngine)engineB!.DhtEngine).ExternalEndPoint, "EngineB ExternalEndPoint should be discovered after starting engine"); // Cast to access ExternalEndPoint
- 
-            // No need to manually add nodes now
-            // if (engineA.ExternalEndPoint != null && engineB.ExternalEndPoint != null)
-            // {
-            //     var nodeBInfo = new Node(engineB.LocalId, engineB.ExternalEndPoint).CompactNode().AsMemory();
-            //     engineA.Add(new[] { nodeBInfo });
-            //     var nodeAInfo = new Node(engineA.LocalId, engineA.ExternalEndPoint).CompactNode().AsMemory();
-            //     engineB.Add(new[] { nodeAInfo });
-            // }
-            //  else
-            // {
-            //     Assert.Fail("External endpoints were not discovered for PutGet test.");
-            // }
- 
-            // Wait for engines to become ready
-            Console.WriteLine("[Test PutGet] Waiting for DHT engines to reach Ready state...");
-            var timeout = TimeSpan.FromSeconds(60); // Use increased timeout
-            var readyTaskA = WaitForReadyStateAsync(engineA!, timeout); // Add null-forgiving operator
-            var readyTaskB = WaitForReadyStateAsync(engineB!, timeout); // Add null-forgiving operator
-            await Task.WhenAll(readyTaskA, readyTaskB);
-
-            // Ensure engines are ready
-            Assert.AreEqual(DhtState.Ready, engineA!.Dht.State, $"EngineA DHT not Ready for PutGet within {timeout.TotalSeconds}s"); // Add null-forgiving operator
-            Assert.AreEqual(DhtState.Ready, engineB!.Dht.State, $"EngineB DHT not Ready for PutGet within {timeout.TotalSeconds}s"); // Add null-forgiving operator
+            Assert.AreEqual (DhtState.Ready, dhtEngineA.State, $"EngineA DHT not Ready for PutGet within {timeout.TotalSeconds}s");
+            Assert.AreEqual (DhtState.Ready, dhtEngineB.State, $"EngineB DHT not Ready for PutGet within {timeout.TotalSeconds}s");
+            Console.WriteLine ("[Test PutGet] DHT engines reached Ready state.");
 
             // --- BEP46 Mutable Put/Get ---
-            // Generate keypair for Peer A (using a library like NSec.Cryptography)
-            using var keyA = NSec.Cryptography.Key.Create(NSec.Cryptography.SignatureAlgorithm.Ed25519);
-            var publicKeyA = new BEncodedString(keyA.PublicKey.Export(NSec.Cryptography.KeyBlobFormat.RawPublicKey));
-            var salt = new BEncodedString("test-salt"); // Optional salt
-            var valueToPut = new BEncodedString("Hello from Peer A!");
+            // Generate Ed25519 keys using BouncyCastle
+            var random = new SecureRandom ();
+            var keyPairGenerator = new Org.BouncyCastle.Crypto.Generators.Ed25519KeyPairGenerator ();
+            keyPairGenerator.Init (new Org.BouncyCastle.Crypto.KeyGenerationParameters (random, 256));
+            var keyPair = keyPairGenerator.GenerateKeyPair ();
+            var privateKeyParams = (Ed25519PrivateKeyParameters) keyPair.Private;
+            var publicKeyParams = (Ed25519PublicKeyParameters) keyPair.Public;
+
+            var publicKeyA = new BEncodedString (publicKeyParams.GetEncoded ()); // Get raw public key bytes
+            var salt = new BEncodedString ("test-salt");
+            var valueToPut = new BEncodedString ("Hello from Peer A!");
             long sequenceNumber = 1;
 
-            // Sign the data: seq + salt (optional) + value
-            var dataToSign = new List<byte>();
-            dataToSign.AddRange(Encoding.UTF8.GetBytes($"seq{sequenceNumber}"));
-            // Use Encoding.UTF8.GetByteCount(Text) for the byte length of the string content
-            if (salt != null) dataToSign.AddRange(Encoding.UTF8.GetBytes($"4:salt{Encoding.UTF8.GetByteCount(salt.Text)}:{salt.Text}"));
-            // Use Encoding.UTF8.GetByteCount(Text) for the byte length of the string content
-            dataToSign.AddRange(Encoding.UTF8.GetBytes($"1:v{Encoding.UTF8.GetByteCount(valueToPut.Text)}:{valueToPut.Text}"));
+            // Sign the data using BouncyCastle and the format expected by VerifyMutableSignature
+            var signatureA = SignMutableDataHelper (privateKeyParams, salt, sequenceNumber, valueToPut);
+            Console.WriteLine ($"[Test PutGet] Peer A ({dhtEngineA.LocalId}) putting mutable item via DHT...");
+            await dhtEngineA.PutMutableAsync (publicKeyA, salt, valueToPut, sequenceNumber, signatureA);
+            Console.WriteLine ($"[Test PutGet] Peer A Put complete.");
 
-            var signatureA = new BEncodedString(NSec.Cryptography.SignatureAlgorithm.Ed25519.Sign(keyA, dataToSign.ToArray()));
+            await Task.Delay (3000);
 
-            Console.WriteLine($"[Test PutGet] Peer A ({engineA!.PeerId}) putting mutable item via DHT..."); // Add null-forgiving operator
-            await engineA!.Dht.PutMutableAsync(publicKeyA, salt, valueToPut, sequenceNumber, signatureA); // Add null-forgiving operator
-            Console.WriteLine($"[Test PutGet] Peer A Put complete.");
+            Console.WriteLine ($"[Test PutGet] Peer B ({dhtEngineB.LocalId}) getting mutable item via DHT...");
+            var targetId = DhtEngine.CalculateMutableTargetId (publicKeyA, salt);
+            (BEncodedValue? retrievedValue, BEncodedString? retrievedPk, BEncodedString? retrievedSig, long? retrievedSeq) = await dhtEngineB.GetAsync (targetId, sequenceNumber);
+            Console.WriteLine ($"[Test PutGet] Peer B Get complete.");
 
-            // Allow time for Put to propagate (DHT is eventually consistent)
-            await Task.Delay(3000); // Increase delay for Put propagation
-
-            Console.WriteLine($"[Test PutGet] Peer B ({engineB!.PeerId}) getting mutable item via DHT..."); // Add null-forgiving operator
-            var targetId = DhtEngine.CalculateMutableTargetId(publicKeyA, salt);
-            (BEncodedValue? retrievedValue, BEncodedString? retrievedPk, BEncodedString? retrievedSig, long? retrievedSeq) = await engineB!.Dht.GetAsync(targetId, sequenceNumber); // Add null-forgiving operator and explicit types
-            Console.WriteLine($"[Test PutGet] Peer B Get complete.");
-
-            Assert.IsNotNull(retrievedValue, "Retrieved value should not be null");
-            Assert.AreEqual(valueToPut, retrievedValue, "Retrieved value mismatch");
-            Assert.IsNotNull(retrievedPk, "Retrieved public key should not be null");
-            Assert.IsTrue(publicKeyA.Span.SequenceEqual(retrievedPk!.Span), "Retrieved public key mismatch");
-            Assert.IsNotNull(retrievedSig, "Retrieved signature should not be null");
-            Assert.IsTrue(signatureA.Span.SequenceEqual(retrievedSig!.Span), "Retrieved signature mismatch");
-            Assert.AreEqual(sequenceNumber, retrievedSeq, "Retrieved sequence number mismatch");
-            Console.WriteLine($"[Test PutGet] Peer B successfully retrieved mutable item from Peer A via DHT.");
-
-            // --- Optional: BEP44 Immutable Put/Get ---
-            // ... (Implementation would be similar: Peer B puts, Peer A gets using SHA1 hash of value) ...
+            Assert.IsNotNull (retrievedValue, "Retrieved value should not be null");
+            Assert.AreEqual (valueToPut, retrievedValue, "Retrieved value mismatch");
+            Assert.IsNotNull (retrievedPk, "Retrieved public key should not be null");
+            Assert.IsTrue (publicKeyA.Span.SequenceEqual (retrievedPk!.Span), "Retrieved public key mismatch");
+            Assert.IsNotNull (retrievedSig, "Retrieved signature should not be null");
+            Assert.IsTrue (signatureA.Span.SequenceEqual (retrievedSig!.Span), "Retrieved signature mismatch");
+            Assert.AreEqual (sequenceNumber, retrievedSeq, "Retrieved sequence number mismatch");
+            Console.WriteLine ($"[Test PutGet] Peer B successfully retrieved mutable item from Peer A via DHT.");
         }
 
         // TODO: Add Test_ExternalEndpoint_Advertisement
@@ -304,40 +242,71 @@ namespace MonoTorrent.Dht
         // TODO: Add Test_HolePunching_Attempt (might require mocking UdpClient)
 
         // Helper to wait for DHT Ready state
-        // Modified helper to wait for ClientEngine's DHT Ready state
-        private async Task WaitForReadyStateAsync(ClientEngine engine, TimeSpan timeout)
+        private async Task WaitForReadyStateAsync (DhtEngine engine, TimeSpan timeout)
         {
-            if (engine.Dht.State == DhtState.Ready)
+            if (engine.State == DhtState.Ready)
                 return;
 
-            var tcs = new TaskCompletionSource<bool>();
-            using var cts = new CancellationTokenSource(timeout);
-            using var registration = cts.Token.Register(() => tcs.TrySetCanceled());
+            var tcs = new TaskCompletionSource<bool> ();
+            using var cts = new CancellationTokenSource (timeout);
+            using var registration = cts.Token.Register (() => tcs.TrySetCanceled ());
 
             EventHandler? handler = null;
             handler = (o, e) => {
-                if (engine.Dht.State == DhtState.Ready)
-                {
-                    engine.DhtEngine.StateChanged -= handler;
-                    tcs.TrySetResult(true);
+                if (engine.State == DhtState.Ready) {
+                    engine.StateChanged -= handler;
+                    tcs.TrySetResult (true);
                 }
             };
 
-            engine.Dht.StateChanged += handler; // Subscribe to the wrapped DHT engine's event
+            engine.StateChanged += handler;
 
-            // Re-check state after attaching handler in case it changed right before
-            if (engine.Dht.State == DhtState.Ready)
-            {
-                engine.Dht.StateChanged -= handler;
-                tcs.TrySetResult(true);
+            if (engine.State == DhtState.Ready) {
+                engine.StateChanged -= handler;
+                tcs.TrySetResult (true);
             }
 
             try {
                 await tcs.Task;
             } finally {
-                // Ensure handler is removed even on timeout/cancellation
-                engine.Dht.StateChanged -= handler;
+                engine.StateChanged -= handler;
             }
         }
+
+
+        // Helper function to sign mutable data (adapted from TorrentManagerTests)
+        private static BEncodedString SignMutableDataHelper (Ed25519PrivateKeyParameters privateKey, BEncodedString? salt, long sequenceNumber, BEncodedValue value)
+        {
+            // Construct the data to sign: "salt" + salt + "seq" + seq + "v" + value
+            int saltKeyLength = new BEncodedString ("salt").LengthInBytes ();
+            int seqKeyLength = new BEncodedString ("seq").LengthInBytes ();
+            int vKeyLength = new BEncodedString ("v").LengthInBytes ();
+
+            int saltLength = (salt == null || salt.Span.Length == 0) ? 0 : (saltKeyLength + salt.LengthInBytes ());
+            int seqLength = seqKeyLength + new BEncodedNumber (sequenceNumber).LengthInBytes ();
+            int valueLength = vKeyLength + value.LengthInBytes ();
+            int totalLength = saltLength + seqLength + valueLength;
+
+            using var rented = System.Buffers.MemoryPool<byte>.Shared.Rent (totalLength);
+            Span<byte> dataToSign = rented.Memory.Span.Slice (0, totalLength);
+
+            int offset = 0;
+            if (saltLength > 0) {
+                offset += new BEncodedString ("salt").Encode (dataToSign.Slice (offset));
+                offset += salt!.Encode (dataToSign.Slice (offset));
+            }
+            offset += new BEncodedString ("seq").Encode (dataToSign.Slice (offset));
+            offset += new BEncodedNumber (sequenceNumber).Encode (dataToSign.Slice (offset));
+            offset += new BEncodedString ("v").Encode (dataToSign.Slice (offset));
+            offset += value.Encode (dataToSign.Slice (offset));
+
+            // Sign the data
+            var signer = new Ed25519Signer ();
+            signer.Init (true, privateKey); // true for signing
+            signer.BlockUpdate (dataToSign.ToArray (), 0, dataToSign.Length); // Use the byte array overload
+            byte[] signatureBytes = signer.GenerateSignature ();
+
+            return new BEncodedString (signatureBytes);
+        }
     }
-}
+}  

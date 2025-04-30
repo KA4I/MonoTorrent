@@ -141,6 +141,9 @@ namespace MonoTorrent.Dht
             // by adding the nodes of the matching bucket, the bucket above, and the
             // bucket below.
             int firstBucketIndex = Buckets.FindIndex (t => t.CanContain (target));
+            // *** DEBUG LOG: Log nodes in the found bucket ***
+            System.Console.WriteLine($"[RoutingTable.GetClosest] Target: {target.ToHex().Substring(0,6)}. Found bucket index {firstBucketIndex}. Nodes in bucket ({Buckets[firstBucketIndex].Nodes.Count}):");
+            foreach (var n in Buckets[firstBucketIndex].Nodes) System.Console.WriteLine($"[RoutingTable.GetClosest]   - Node: {n.Id.ToHex().Substring(0,6)} @ {n.EndPoint}");
             foreach (Node node in Buckets[firstBucketIndex].Nodes)
                 closestNodes.Add (node);
 

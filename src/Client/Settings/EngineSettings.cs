@@ -104,6 +104,12 @@ namespace MonoTorrent.Client
         /// </summary>
         public bool AutoSaveLoadMagnetLinkMetadata { get; } = true;
 
+        /// <summary>
+        /// True if the engine should use NATS for peer discovery and NAT traversal.
+        /// Requires NatsOptions to be set. Defaults to false.
+        /// </summary>
+        public bool AllowNatsDiscovery { get; } = false;
+
         public bool AllowOutgoingConnections { get; } = true;
 
         /// <summary>
@@ -322,6 +328,11 @@ namespace MonoTorrent.Client
         /// </summary>
         public IList<string> BootstrapNodes { get; } = Array.AsReadOnly (DhtEngine.DefaultBootstrapRouters.ToArray ());
 
+        /// <summary>
+        /// NATS connection options. Required if AllowNatsDiscovery is true.
+        /// </summary>
+        public NATS.Client.Core.NatsOpts? NatsOptions { get; }
+
         public EngineSettings ()
         {
 
@@ -339,7 +350,8 @@ namespace MonoTorrent.Client
             int maximumOpenFiles, int maximumUploadRate, IDictionary<string, IPEndPoint> reportedListenEndPoints, bool usePartialFiles,
             TimeSpan webSeedConnectionTimeout, TimeSpan webSeedDelay, int webSeedSpeedTrigger, TimeSpan staleRequestTimeout,
              TimeSpan mutableTorrentUpdateInterval,
-            string httpStreamingPrefix, IList<TimeSpan> connectionRetryDelays, IList<string> bootstrapNodes)
+            string httpStreamingPrefix, IList<TimeSpan> connectionRetryDelays, IList<string> bootstrapNodes,
+            bool allowNatsDiscovery, NATS.Client.Core.NatsOpts? natsOptions) // Add NATS params
         {
             // Make sure this is immutable now
             AllowedEncryption = EncryptionTypes.MakeReadOnly (allowedEncryption.ToArray ());
@@ -382,6 +394,8 @@ namespace MonoTorrent.Client
             WebSeedDelay = webSeedDelay;
             WebSeedSpeedTrigger = webSeedSpeedTrigger;
              MutableTorrentUpdateInterval = mutableTorrentUpdateInterval;
+            AllowNatsDiscovery = allowNatsDiscovery; // Add this
+            NatsOptions = natsOptions; // Add this
 
         }
 
@@ -471,6 +485,8 @@ namespace MonoTorrent.Client
                    && WebSeedSpeedTrigger == other.WebSeedSpeedTrigger
                    && MutableTorrentUpdateInterval == other.MutableTorrentUpdateInterval
                    && BootstrapNodes.SequenceEqual (other.BootstrapNodes)
+                   && AllowNatsDiscovery == other.AllowNatsDiscovery // Add this
+                   && Equals(NatsOptions, other.NatsOptions) // Add this
                    ;
         }
 

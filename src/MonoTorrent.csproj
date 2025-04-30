@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;netstandard2.0;net9.0</TargetFrameworks>
@@ -23,22 +23,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BouncyCastle.Cryptography" Version="2.5.1" />
     <PackageReference Include="C5" Version="3.0.0" />
-
+    
     <!-- The following is recommended for public projects -->
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
 
     <PackageReference Include="Mono.Nat" Version="3.0" />
 
     <PackageReference Include="NATS.Net" Version="2.5.12" />
-
-    <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
     <PackageReference Include="ReusableTasks" Version="4.0.0" />
     <PackageReference Include="StandardSocketsHttpHandler" Version="2.2.0.8" Condition="$(TargetFramework) == 'netstandard2.0'" />
     <PackageReference Include="System.Memory" Version="4.6.3" Condition="$(TargetFramework) == 'netstandard2.0'" />
     <PackageReference Include="System.Private.Uri" Version="4.3.2" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
-    <PackageReference Include="NSec.Cryptography" Version="20.2.0" />
 
   </ItemGroup>
 
@@ -51,6 +49,7 @@
     <InternalsVisibleTo Include="Tests.MonoTorrent.PiecePicking" />
     <InternalsVisibleTo Include="Tests.MonoTorrent.PieceWriter" />
     <InternalsVisibleTo Include="Tests.MonoTorrent.Trackers" />
+    <InternalsVisibleTo Include="TorrentWrapper.Tests" />
   </ItemGroup>
 
   <PropertyGroup>

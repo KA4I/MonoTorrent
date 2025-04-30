@@ -75,8 +75,9 @@ namespace MonoTorrent.Client.Modes
 
         public override DisconnectReason ShouldConnect (Peer peer)
         {
-            if (peer.IsSeeder && Manager.HasMetadata && Manager.Complete)
-                return DisconnectReason.SeederToSeeder;
+            // Allow downloaders to connect to seeders. The SeederToSeeder check
+            // should ideally be in SeedingMode if we want to prevent seeders
+            // connecting to other seeders.
             return base.ShouldConnect (peer);
         }
 

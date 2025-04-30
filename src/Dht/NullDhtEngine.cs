@@ -30,11 +30,13 @@
 using MonoTorrent.BEncoding;
 
 using System;
+using System.Net; // Added for IPEndPoint
 using System.Collections.Generic;
 using System.Threading.Tasks; // Ensure Task is available
 
 using MonoTorrent.Connections.Dht;
 using MonoTorrent.Dht;
+using MonoTorrent.PortForwarding; // Added for IPortForwarder
 
 namespace MonoTorrent.Client
 {
@@ -69,6 +71,7 @@ namespace MonoTorrent.Client
         public NodeId LocalId => default; // Null engine doesn't have a real ID
 
         public DhtState State => DhtState.NotReady;
+        public IPEndPoint? ExternalEndPoint { get; set; } // Added property
 
         public void Add (IEnumerable<ReadOnlyMemory<byte>> nodes)
         {
@@ -113,28 +116,28 @@ namespace MonoTorrent.Client
             return Task.CompletedTask;
         }
 
-        // Updated StartAsync to match IDhtEngine interface
-        public Task StartAsync (NatsNatTraversalService? natsService = null)
+        // Matches IDhtEngine
+        public Task StartAsync (NatsNatTraversalService? natsService = null, MonoTorrent.PortForwarding.IPortForwarder? portForwarder = null)
         {
-            // Null engine does nothing on start
             return Task.CompletedTask;
         }
 
-        public Task InitializeNatAsync (NatsNatTraversalService natsService)
+        // Updated InitializeNatAsync signature
+        public Task InitializeNatAsync (NatsNatTraversalService natsService, IPortForwarder? portForwarder)
         {
             // Null engine does nothing
             return Task.CompletedTask;
         }
  
-        // Updated StartAsync to match IDhtEngine interface
-        public Task StartAsync (ReadOnlyMemory<byte> initialNodes, NatsNatTraversalService? natsService = null)
+        // Matches IDhtEngine
+        public Task StartAsync (ReadOnlyMemory<byte> initialNodes, NatsNatTraversalService? natsService = null, MonoTorrent.PortForwarding.IPortForwarder? portForwarder = null)
         {
             // Null engine does nothing on start
             return Task.CompletedTask;
         }
  
-        // Added overload to match IDhtEngine interface
-        public Task StartAsync (ReadOnlyMemory<byte> initialNodes, string[] bootstrapRouters, NatsNatTraversalService? natsService = null)
+        // Matches IDhtEngine
+        public Task StartAsync (ReadOnlyMemory<byte> initialNodes, string[] bootstrapRouters, NatsNatTraversalService? natsService = null, MonoTorrent.PortForwarding.IPortForwarder? portForwarder = null)
         {
             // Null engine does nothing on start
             return Task.CompletedTask;

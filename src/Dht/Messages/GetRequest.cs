@@ -83,6 +83,8 @@ namespace MonoTorrent.Dht.Messages
 
         public override void Handle(DhtEngine engine, Node node)
         {
+            // Log entry into the Handle method
+            System.Console.WriteLine($"[GetRequest.Handle {engine.LocalId.ToHex().Substring(0,6)}] Received GetRequest for Target {Target.ToHex().Substring(0,6)} from Node {node.Id.ToHex().Substring(0,6)} (EP: {node.EndPoint}). Requested Seq: {SequenceNumber?.ToString() ?? "N/A"}");
             base.Handle(engine, node);
 
             var response = new GetResponse(engine.RoutingTable.LocalNodeId, TransactionId!);

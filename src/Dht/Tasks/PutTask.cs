@@ -28,6 +28,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -103,7 +104,23 @@ namespace MonoTorrent.Dht.Tasks
                 tasks.Add (Engine.SendQueryAsync (nodeSpecificRequest, node));
             }
 
-            await Task.WhenAll (tasks);
+            // Wait for all tasks to complete, but with an overall timeout
+            // to prevent one slow node from blocking the entire operation excessively.
+            var overallTimeout = System.Threading.Tasks.Task.Delay(TimeSpan.FromSeconds(5)); // 5 second timeout
+            var completedTask = await System.Threading.Tasks.Task.WhenAny(System.Threading.Tasks.Task.WhenAll(tasks), overallTimeout);
+
+            if (completedTask == overallTimeout)
+            {
+                System.Diagnostics.Debug.WriteLine($"[DHT PutTask WARNING] Overall timeout reached after 5 seconds. Put may not have completed on all nodes.");
+                // We don't know which specific tasks timed out here without more complex tracking,
+                // but we allow the flow to continue. The Task.WhenAll call continues in the background.
+            }
+            else
+            {
+                 // Task.WhenAll completed successfully within the timeout. Check for potential exceptions.
+                 try { await (System.Threading.Tasks.Task<System.Threading.Tasks.Task[]>)completedTask; } // Access result to propagate exceptions from Task.WhenAll
+                 catch (Exception ex) { System.Diagnostics.Debug.WriteLine($"[DHT PutTask ERROR] Exception during Task.WhenAll: {ex.Message}"); } // Log exceptions from individual SendQueryAsync calls
+            }
 
             // Process responses (mostly just checking for errors)
             foreach (var task in tasks) {

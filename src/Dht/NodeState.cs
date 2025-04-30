@@ -28,7 +28,7 @@
 
 namespace MonoTorrent.Dht
 {
-    enum NodeState
+    public enum NodeState // Made public
     {
         Unknown,
         Good,
