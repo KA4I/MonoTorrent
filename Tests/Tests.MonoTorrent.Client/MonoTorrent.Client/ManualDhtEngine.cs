@@ -1,4 +1,4 @@
-﻿//
+//
 // ManualDhtEngine.cs
 //
 // Authors:
