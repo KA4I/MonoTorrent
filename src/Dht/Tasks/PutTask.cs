@@ -106,10 +106,12 @@ namespace MonoTorrent.Dht.Tasks
 
             // Wait for all tasks to complete, but with an overall timeout
             // to prevent one slow node from blocking the entire operation excessively.
+            // Handle empty list case to avoid issues with Task.WhenAll
+            var whenAllTask = tasks.Count > 0 ? System.Threading.Tasks.Task.WhenAll(tasks) : System.Threading.Tasks.Task.CompletedTask;
             var overallTimeout = System.Threading.Tasks.Task.Delay(TimeSpan.FromSeconds(5)); // 5 second timeout
-            var completedTask = await System.Threading.Tasks.Task.WhenAny(System.Threading.Tasks.Task.WhenAll(tasks), overallTimeout);
+            var completedInnerTask = await System.Threading.Tasks.Task.WhenAny(whenAllTask, overallTimeout);
 
-            if (completedTask == overallTimeout)
+            if (completedInnerTask == overallTimeout)
             {
                 System.Diagnostics.Debug.WriteLine($"[DHT PutTask WARNING] Overall timeout reached after 5 seconds. Put may not have completed on all nodes.");
                 // We don't know which specific tasks timed out here without more complex tracking,
@@ -117,9 +119,19 @@ namespace MonoTorrent.Dht.Tasks
             }
             else
             {
-                 // Task.WhenAll completed successfully within the timeout. Check for potential exceptions.
-                 try { await (System.Threading.Tasks.Task<System.Threading.Tasks.Task[]>)completedTask; } // Access result to propagate exceptions from Task.WhenAll
-                 catch (Exception ex) { System.Diagnostics.Debug.WriteLine($"[DHT PutTask ERROR] Exception during Task.WhenAll: {ex.Message}"); } // Log exceptions from individual SendQueryAsync calls
+                // whenAllTask completed within the timeout.
+                // Await it directly to ensure completion and propagate any aggregate exceptions.
+                try
+                {
+                    await whenAllTask; // Await the original Task.WhenAll
+                    System.Diagnostics.Debug.WriteLine($"[DHT PutTask] Task.WhenAll completed successfully within timeout.");
+                }
+                catch (Exception ex)
+                {
+                    // This catches aggregate exceptions if any task within WhenAll failed.
+                    System.Diagnostics.Debug.WriteLine($"[DHT PutTask ERROR] Exception during Task.WhenAll: {ex.Message}");
+                    // You might want to log ex.InnerExceptions if it's an AggregateException
+                }
             }
 
             // Process responses (mostly just checking for errors)
